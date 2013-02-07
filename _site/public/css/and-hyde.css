@@ -262,14 +262,14 @@ a:hover {
     font-size: 16px;
   }
 
-  /* Center container on screen */
+  /* Center container in available real estate */
   .container {
     margin-left: 35%;
     margin-right: 10%;
     width: 55%;
   }
 
-  /* Scale up the header for impact */
+  /* Fix the masthead to the side for impact and awesomeness */
   .masthead {
     position: fixed;
     top: 0;
@@ -294,6 +294,7 @@ a:hover {
     margin-left: 0;
     margin-right: 0;
   }
+  /* Increase space between posts */
   .post {
     margin-top: 60px;
     margin-bottom: 60px;
@@ -301,7 +302,7 @@ a:hover {
 
   /* Make pagination stand alone */
   .pagination {
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     border: 1px solid #eee;
   }
 
@@ -313,7 +314,6 @@ a:hover {
   body {
     font-size: 18px;
   }
-
   .masthead h1 {
     font-size: 5rem;
   }
