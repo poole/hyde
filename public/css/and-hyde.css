@@ -1,0 +1,313 @@
+/*
+                   __      __                  __
+                  /\ \    /\ \                /\ \
+   __      ___    \_\ \   \ \ \___   __  __   \_\ \     __
+ /'__`\  /' _ `\  /'_` \   \ \  _ `\/\ \/\ \  /'_` \  /'__`\
+/\ \_\.\_/\ \/\ \/\ \_\ \   \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
+\ \__/.\_\ \_\ \_\ \___,_\   \ \_\ \_\/`____ \ \___,_\ \____\
+ \/__/\/_/\/_/\/_/\/__,_ /    \/_/\/_/`/___/> \/__,_ /\/____/
+                                         /\___/
+                                         \/__/
+
+*/
+
+
+
+/* Body resets
+-------------------------------------------------- */
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  color: #454441;
+  background-color: #fff;
+}
+
+p {
+  margin: 0 0 14px;
+}
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+  font-weight: 500;
+  line-height: 1.25;
+  text-rendering: optimizeLegibility;
+}
+h1 {
+  margin: 0 0 10px;
+  font-size: 40px;
+}
+h2 {
+  margin: 20px 0 10px;
+  font-size: 24px;
+}
+h3 {
+  margin: 24px 0 5px;
+  font-size: 16px;
+}
+h4 {
+  margin: 16px 0 5px;
+  font-size: 10px;
+}
+h1 small {
+  font-size: 20px;
+  color: #999;
+}
+ul, ol {
+  padding: 0;
+  margin: 0 0 14px;
+}
+
+hr {
+  position: relative;
+  margin: 39px 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
+}
+hr.break {
+  border-top-color: #fff;
+}
+hr.break:after {
+  position: absolute;
+  top: -14px;
+  left: 50%;
+  display: block;
+  width: 40px;
+  padding: 0 10px;
+  margin-left: -30px;
+  content: "# # #";
+  color: #ccc;
+  text-align: center;
+  background-color: #fff;
+}
+
+strong {
+  color: #222;
+}
+
+abbr {
+  background-color: #eee;
+  display: inline-block;
+  padding: 3px;
+  font-size: 13px;
+  font-weight: bold;
+  color: #555;
+  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
+  text-transform: uppercase;
+  border-radius: 3px;
+}
+
+code, pre {
+  padding: 0 3px 2px;
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  font-size: 15px;
+  border-radius: 3px;
+}
+code {
+  padding: 2px 4px;
+  color: #d14;
+  background-color: #f7f7f9;
+  border: 1px solid #e1e1e8;
+}
+
+pre {
+  display: block;
+  margin: 0 0 14px;
+  font-size: 14px;
+  line-height: 28px;
+  white-space: pre;
+  white-space: pre-wrap;
+  word-break: break-all;
+  word-wrap: break-word;
+}
+pre code {
+  padding: 0;
+  color: inherit;
+  background-color: transparent;
+  border: 0;
+}
+.highlight {
+  margin-bottom: 14px;
+  padding: 14px;
+  border-radius: 5px;
+}
+.highlight pre {
+  margin-bottom: 0;
+}
+
+blockquote {
+  padding: 0 0 0 19px;
+  margin: 0 30px 14px 0;
+  border-left: 1px solid #e5e5e5;
+}
+blockquote p {
+  margin-bottom: 0;
+  color: #999;
+  text-indent: -0.4em;
+}
+blockquote p:before {
+  content: '\201C';
+}
+blockquote p:after {
+  content: '\201D';
+}
+
+img {
+  display: block;
+  margin: 0 0 20px;
+  border-radius: 5px;
+}
+
+
+/* Links
+-------------------------------------------------- */
+
+a {
+  font-weight: 600;
+  color: #222;
+  text-decoration: none;
+}
+a:hover {
+  text-decoration: underline;
+}
+
+
+/* Scaffolding
+-------------------------------------------------- */
+
+/* Hold the site together */
+.container {
+  max-width: 600px;
+}
+
+/* Header */
+.masthead {
+  margin-bottom: 30px;
+  padding: 40px 20px;
+  color: #fff;
+  text-align: center;
+  background-color: #222;
+}
+.masthead h1 {
+  font-family: "Abril Fatface";
+}
+.masthead p {
+  font-weight: 300;
+  margin-bottom: 0;
+}
+.masthead p a {
+  color: #fff;
+}
+
+/* Footer */
+.colophon {
+  margin-top: 30px;
+  padding: 30px;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+.colophon-links {
+  margin: 0 0 10px;
+  color: #999;
+}
+.colophon-links li {
+  display: inline;
+  padding: 0 10px;
+}
+
+
+/* Posts
+-------------------------------------------------- */
+
+/* Wrapper for all posts on homepage */
+.posts {
+  margin-left:  20px;
+  margin-right: 20px;
+}
+
+/* Single post */
+.post {
+  margin-top: 60px;
+  margin-bottom: 60px;
+}
+.post-date {
+  display: block;
+  margin: -10px 0 10px;
+  color: #ccc;
+}
+
+
+/* Pagination
+-------------------------------------------------- */
+
+.pagination {
+  overflow: hidden; /* clearfix */
+  margin-top: 30px;
+  margin-bottom: -30px;
+  color: #ccc;
+  text-align: center;
+  border-top: 1px solid #eee;
+}
+.pagination a,
+.pagination span {
+  float: left;
+  width: 50%;
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+  padding: 30px;
+}
+.pagination a:first-child,
+.pagination span:first-child {
+  border-right: 1px solid #eee;
+}
+.pagination a:hover {
+  text-decoration: none;
+  background-color: #f5f5f5;
+}
+
+
+/* Responsive
+-------------------------------------------------- */
+
+@media (min-width: 768px) {
+
+  /* Increase text sizes */
+  body {
+    font-size: 18px;
+  }
+
+  /* Center container on screen */
+  .container {
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  /* Scale up the header for impact */
+  .masthead {
+    padding-top: 100px;
+    padding-bottom: 100px;
+  }
+  .masthead h1 {
+    font-size: 100px;
+  }
+
+  .colophon {
+    padding-top: 60px;
+    padding-bottom: 60px;
+  }
+
+  /* Remove mobile device padding from list of posts */
+  .posts {
+    margin-left: 0;
+    margin-right: 0;
+  }
+
+}
