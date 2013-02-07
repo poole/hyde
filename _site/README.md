@@ -1,7 +1,7 @@
-# Hyde
+# [Hyde](http://andhyde.com)
 
-Jekyll is a powerful static site generator--**and Hyde** is a simple little theme for it.
+An elegant open source, mobile-first theme for [Jekyll](https://github.com/mojombo/jekyll). It includes lightweight styles and placeholder content to get you up and running with a simple blog in no time.
 
-Made by [@mdo](http://twitter.com/mdo).
+Open sourced under the [MIT license](LICENSE.md).
 
 <3
