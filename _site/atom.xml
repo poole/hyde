@@ -4,7 +4,7 @@
  <title>Mark Otto</title>
  <link href="http://www.markdotto.com/atom.xml" rel="self"/>
  <link href="http://www.markdotto.com/"/>
- <updated>2013-02-07T01:52:29-08:00</updated>
+ <updated>2013-02-07T02:02:38-08:00</updated>
  <id>http://www.markdotto.com/</id>
  <author>
    <name>Mark Otto</name>
@@ -32,7 +32,11 @@
    <link href="http://www.markdotto.com/2012/02/06/hello-world/"/>
    <updated>2012-02-06T00:00:00-08:00</updated>
    <id>http://www.markdotto.com/2012/02/06/hello-world</id>
-   <content type="html">&lt;p&gt;Welcome to Hyde, the perfect companion to Jekyll, the popular static site generator. Learn more about Jekyll and Hyde by visiting the GitHub project.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Welcome to &lt;a href=&quot;&quot;&gt;Hyde&lt;/a&gt;, the perfect companion to &lt;a href=&quot;&quot;&gt;Jekyll&lt;/a&gt;, the popular static site generator. Hyde is an elegant open-source, mobile-first theme for Jekyll. It includes lightweight styles and placeholder content to get you up and running with a simple blog in no time.&lt;/p&gt;
+
+&lt;p&gt;Hyde is also rather forward-thinking in that—in addition to Chrome, Safari, and Firefox—it is only compatible with Internet Explorer 9 and above.&lt;/p&gt;
+
+&lt;p&gt;Find out more and download a copy today&lt;/p&gt;
 
 &lt;p&gt;Thanks!&lt;/p&gt;
 </content>

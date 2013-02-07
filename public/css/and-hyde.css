@@ -132,7 +132,7 @@ blockquote {
 }
 blockquote p {
   margin-bottom: 0;
-  color: #999;
+  color: #7a7a7a;
   text-indent: -0.4em;
 }
 blockquote p:before {
@@ -213,7 +213,7 @@ a:hover {
 /* Single post */
 .post {
   margin-top: 40px;
-  margin-bottom: 80px;
+  margin-bottom: 40px;
 }
 .post-date {
   display: block;
@@ -294,6 +294,10 @@ a:hover {
     margin-left: 0;
     margin-right: 0;
   }
+  .post {
+    margin-top: 60px;
+    margin-bottom: 60px;
+  }
 
   /* Make pagination stand alone */
   .pagination {
@@ -313,6 +317,5 @@ a:hover {
   .masthead h1 {
     font-size: 5rem;
   }
-
 
 }
