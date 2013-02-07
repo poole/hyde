@@ -1,4 +1,4 @@
-# and Hyde
+# Hyde
 
 Jekyll is a powerful static site generator--**and Hyde** is a simple little theme for it.
 

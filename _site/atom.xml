@@ -4,7 +4,7 @@
  <title>Mark Otto</title>
  <link href="http://www.markdotto.com/atom.xml" rel="self"/>
  <link href="http://www.markdotto.com/"/>
- <updated>2013-02-07T00:09:23-08:00</updated>
+ <updated>2013-02-07T01:52:29-08:00</updated>
  <id>http://www.markdotto.com/</id>
  <author>
    <name>Mark Otto</name>
@@ -13,11 +13,26 @@
 
  
  <entry>
+   <title>What's Jekyll?</title>
+   <link href="http://www.markdotto.com/2012/02/06/whats-jekyll/"/>
+   <updated>2012-02-06T00:00:00-08:00</updated>
+   <id>http://www.markdotto.com/2012/02/06/whats-jekyll</id>
+   <content type="html">&lt;p&gt;&lt;a href=&quot;&quot;&gt;Jekyll&lt;/a&gt; is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From &lt;a href=&quot;&quot;&gt;the project's readme&lt;/a&gt;:&lt;/p&gt;
+
+&lt;blockquote&gt;&lt;p&gt;Jekyll is a simple, blog aware, static site generator. It takes a template directory [...] and spits out a complete, static website suitable for serving with Apache or your favorite web server. This is also the engine behind GitHub Pages, which you can use to host your project’s page or blog right here from GitHub.&lt;/p&gt;&lt;/blockquote&gt;
+
+&lt;p&gt;It's an immensely useful tool and one we encourage you to use here with Hyde.&lt;/p&gt;
+
+&lt;p&gt;Find out more by &lt;a href=&quot;&quot;&gt;visiting the project on GitHub&lt;/a&gt;.&lt;/p&gt;
+</content>
+ </entry>
+ 
+ <entry>
    <title>Hello, world!</title>
    <link href="http://www.markdotto.com/2012/02/06/hello-world/"/>
    <updated>2012-02-06T00:00:00-08:00</updated>
    <id>http://www.markdotto.com/2012/02/06/hello-world</id>
-   <content type="html">&lt;p&gt;Welcome to And Hyde, the perfect companion to Jekyll, the popular static site generator. Learn more about Jekyll and Hyde by visiting the GitHub project.&lt;/p&gt;
+   <content type="html">&lt;p&gt;Welcome to Hyde, the perfect companion to Jekyll, the popular static site generator. Learn more about Jekyll and Hyde by visiting the GitHub project.&lt;/p&gt;
 
 &lt;p&gt;Thanks!&lt;/p&gt;
 </content>

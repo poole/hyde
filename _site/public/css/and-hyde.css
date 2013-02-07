@@ -30,35 +30,33 @@ body {
   background-color: #fff;
 }
 
-p {
-  margin: 0 0 14px;
-}
 h1, h2, h3, h4, h5, h6 {
-  margin: 0;
+  margin: 0 0 .5rem;
   font-weight: 500;
   line-height: 1.25;
   text-rendering: optimizeLegibility;
 }
 h1 {
-  margin: 0 0 10px;
-  font-size: 40px;
+  font-size: 2.5rem;
 }
 h2 {
-  margin: 20px 0 10px;
-  font-size: 24px;
+  margin: 20px 0 .5rem;
+  font-size: 2rem;
 }
 h3 {
   margin: 24px 0 5px;
-  font-size: 16px;
+  font-size: 1.5rem;
 }
 h4 {
   margin: 16px 0 5px;
-  font-size: 10px;
+  font-size: 1rem;
 }
-h1 small {
-  font-size: 20px;
-  color: #999;
+
+p {
+  margin: 0 0 14px;
 }
+
+
 ul, ol {
   padding: 0;
   margin: 0 0 14px;
@@ -70,22 +68,6 @@ hr {
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff;
-}
-hr.break {
-  border-top-color: #fff;
-}
-hr.break:after {
-  position: absolute;
-  top: -14px;
-  left: 50%;
-  display: block;
-  width: 40px;
-  padding: 0 10px;
-  margin-left: -30px;
-  content: "# # #";
-  color: #ccc;
-  text-align: center;
-  background-color: #fff;
 }
 
 strong {
@@ -142,10 +124,11 @@ pre code {
   margin-bottom: 0;
 }
 
+/* Quotes */
 blockquote {
-  padding: 0 0 0 19px;
-  margin: 0 30px 14px 0;
-  border-left: 1px solid #e5e5e5;
+  padding: 0 0 0 20px;
+  margin: 1rem 30px 1rem 0;
+  border-left: 5px solid #eee;
 }
 blockquote p {
   margin-bottom: 0;
@@ -161,7 +144,7 @@ blockquote p:after {
 
 img {
   display: block;
-  margin: 0 0 20px;
+  margin: 0 0 1rem;
   border-radius: 5px;
 }
 
@@ -184,42 +167,37 @@ a:hover {
 
 /* Hold the site together */
 .container {
-  max-width: 600px;
 }
 
 /* Header */
 .masthead {
-  margin-bottom: 30px;
-  padding: 40px 20px;
   color: #fff;
-  text-align: center;
-  background-color: #222;
+  background-color: #2a2a2a;
+}
+.masthead-inner {
+  padding: 20px;
 }
 .masthead h1 {
+  margin-top: 0;
   font-family: "Abril Fatface";
 }
 .masthead p {
   font-weight: 300;
   margin-bottom: 0;
 }
-.masthead p a {
+.masthead a {
   color: #fff;
 }
 
-/* Footer */
+/* Footer area of masthead */
 .colophon {
-  margin-top: 30px;
-  padding: 30px;
-  text-align: center;
-  border-top: 1px solid #eee;
+  margin-top: 20px;
+  font-size: 12px;
+  color: #7a7a7a;
 }
 .colophon-links {
-  margin: 0 0 10px;
-  color: #999;
-}
-.colophon-links li {
-  display: inline;
-  padding: 0 10px;
+  margin: 0 0 15px;
+  list-style: none;
 }
 
 
@@ -234,13 +212,13 @@ a:hover {
 
 /* Single post */
 .post {
-  margin-top: 60px;
-  margin-bottom: 60px;
+  margin-top: 40px;
+  margin-bottom: 80px;
 }
 .post-date {
   display: block;
   margin: -10px 0 10px;
-  color: #ccc;
+  color: #9a9a9a;
 }
 
 
@@ -249,8 +227,8 @@ a:hover {
 
 .pagination {
   overflow: hidden; /* clearfix */
-  margin-top: 30px;
-  margin-bottom: -30px;
+  margin-top: 40px;
+  font-weight: bold;
   color: #ccc;
   text-align: center;
   border-top: 1px solid #eee;
@@ -262,7 +240,7 @@ a:hover {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
           box-sizing: border-box;
-  padding: 30px;
+  padding: 20px;
 }
 .pagination a:first-child,
 .pagination span:first-child {
@@ -277,31 +255,38 @@ a:hover {
 /* Responsive
 -------------------------------------------------- */
 
-@media (min-width: 768px) {
+@media (min-width: 769px) {
 
   /* Increase text sizes */
   body {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   /* Center container on screen */
   .container {
-    margin-left: auto;
-    margin-right: auto;
+    margin-left: 35%;
+    margin-right: 10%;
+    width: 55%;
   }
 
   /* Scale up the header for impact */
   .masthead {
-    padding-top: 100px;
-    padding-bottom: 100px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 25%;
+    margin-bottom: 0;
   }
-  .masthead h1 {
-    font-size: 100px;
+  .masthead-inner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    padding: 40px;
   }
-
-  .colophon {
-    padding-top: 60px;
-    padding-bottom: 60px;
+  .colophone {
+    margin-top: 40px;
   }
 
   /* Remove mobile device padding from list of posts */
@@ -309,5 +294,25 @@ a:hover {
     margin-left: 0;
     margin-right: 0;
   }
+
+  /* Make pagination stand alone */
+  .pagination {
+    margin-bottom: 40px;
+    border: 1px solid #eee;
+  }
+
+}
+
+@media (min-width: 990px) {
+
+  /* Increase text sizes */
+  body {
+    font-size: 18px;
+  }
+
+  .masthead h1 {
+    font-size: 5rem;
+  }
+
 
 }
