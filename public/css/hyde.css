@@ -234,6 +234,11 @@ a:hover {
   color: #9a9a9a;
 }
 
+/* Remove bullets on related posts */
+.related .posts {
+  list-style: none;
+}
+
 
 /* Pagination
 -------------------------------------------------- */
