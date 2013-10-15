@@ -9,12 +9,26 @@
                /\___/
                \/__/
 
+Hyde is an elegant, open source, mobile first theme for Jekyll.  It includes
+lightweight styles and placeholder content to get you up and running with a
+simple blog in no time.
+
+Learn more at http://mdo.github.io
+
+Created by @mdo.
+
 */
 
 
 
 /* Body resets
 -------------------------------------------------- */
+
+* {
+  -webkit-box-sizing: border-box;
+     -moz-box-sizing: border-box;
+          box-sizing: border-box;
+}
 
 html,
 body {
@@ -24,47 +38,49 @@ body {
 
 body {
   font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 1.5;
   color: #454441;
   background-color: #fff;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 .5rem;
+  margin: 0 0 10px;
   font-weight: 500;
   line-height: 1.25;
   text-rendering: optimizeLegibility;
 }
 h1 {
-  font-size: 2.5rem;
+  font-size: 40px;
 }
 h2 {
-  margin: 20px 0 .5rem;
-  font-size: 2rem;
+  margin-top: 20px;
+  font-size: 32px;
 }
 h3 {
-  margin: 24px 0 5px;
-  font-size: 1.5rem;
+  margin-top: 24px;
+  font-size: 24px;
 }
-h4 {
-  margin: 16px 0 5px;
-  font-size: 1rem;
+h4, h5, h6 {
+  margin-top: 16px;
+  font-size: 16px;
 }
 
 p {
-  margin: 0 0 14px;
+  margin: 0 0 15px;
 }
-
 
 ul, ol {
   padding: 0;
-  margin: 0 0 14px;
+  margin: 0 0 15px;
+}
+li {
+  color: #888580;
 }
 
 hr {
   position: relative;
-  margin: 39px 0;
+  margin: 40px 0;
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff;
@@ -89,7 +105,7 @@ abbr {
 code, pre {
   padding: 0 3px 2px;
   font-family: Menlo, Monaco, "Courier New", monospace;
-  font-size: 15px;
+  font-size: 14px;
   border-radius: 3px;
 }
 code {
@@ -102,12 +118,13 @@ code {
 pre {
   display: block;
   margin: 0 0 14px;
-  font-size: 14px;
+  padding: 15px 20px;
   line-height: 28px;
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
+  background-color: #eee;
 }
 pre code {
   padding: 0;
@@ -116,8 +133,8 @@ pre code {
   border: 0;
 }
 .highlight {
-  margin-bottom: 14px;
-  padding: 14px;
+  margin-bottom: 15px;
+  padding: 15px;
   border-radius: 5px;
 }
 .highlight pre {
@@ -127,7 +144,7 @@ pre code {
 /* Quotes */
 blockquote {
   padding: 0 0 0 20px;
-  margin: 1rem 30px 1rem 0;
+  margin: 15px 30px 15px 0;
   border-left: 5px solid #eee;
 }
 blockquote p {
@@ -144,7 +161,7 @@ blockquote p:after {
 
 img {
   display: block;
-  margin: 0 0 1rem;
+  margin: 0 0 15px;
   border-radius: 5px;
 }
 
@@ -165,10 +182,6 @@ a:hover {
 /* Scaffolding
 -------------------------------------------------- */
 
-/* Hold the site together */
-.container {
-}
-
 /* Header */
 .masthead {
   color: #fff;
@@ -181,7 +194,8 @@ a:hover {
   margin-top: 0;
   font-family: "Abril Fatface";
 }
-.masthead p {
+.masthead .lead {
+  font-size: 20px;
   font-weight: 300;
   margin-bottom: 0;
 }
@@ -192,7 +206,6 @@ a:hover {
 /* Footer area of masthead */
 .colophon {
   margin-top: 20px;
-  font-size: 12px;
   color: #7a7a7a;
 }
 .colophon-links {
@@ -255,11 +268,23 @@ a:hover {
 /* Responsive
 -------------------------------------------------- */
 
-@media (min-width: 769px) {
+@media (min-width: 768px) {
+  .masthead-inner {
+    padding: 40px;
+  }
+  .posts {
+    margin-left: 40px;
+    margin-right: 40px;
+  }
+}
 
-  /* Increase text sizes */
+@media (min-width: 990px) {
+
   body {
-    font-size: 16px;
+    font-size: 18px;
+  }
+  .masthead h1 {
+    font-size: 64px;
   }
 
   /* Center container in available real estate */
@@ -283,9 +308,11 @@ a:hover {
     bottom: 0;
     right: 0;
     left: 0;
-    padding: 40px;
   }
-  .colophone {
+  .masthead .lead {
+    font-size: 24px;
+  }
+  .colophon {
     margin-top: 40px;
   }
 
@@ -304,18 +331,6 @@ a:hover {
   .pagination {
     margin-bottom: 60px;
     border: 1px solid #eee;
-  }
-
-}
-
-@media (min-width: 990px) {
-
-  /* Increase text sizes */
-  body {
-    font-size: 18px;
-  }
-  .masthead h1 {
-    font-size: 5rem;
   }
 
 }
