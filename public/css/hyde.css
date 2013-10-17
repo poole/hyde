@@ -69,6 +69,10 @@ h4, h5, h6 {
 p {
   margin: 0 0 15px;
 }
+.lead {
+  font-size: 20px;
+  font-weight: 300;
+}
 
 ul, ol {
   padding: 0;
@@ -195,8 +199,6 @@ a:hover {
   font-family: "Abril Fatface";
 }
 .masthead .lead {
-  font-size: 20px;
-  font-weight: 300;
   margin-bottom: 0;
 }
 .masthead a {
@@ -255,6 +257,15 @@ a:hover {
 }
 
 
+/* Error pages (404)
+-------------------------------------------------- */
+
+.fourohfour {
+  margin-top: 40px;
+  margin-bottom: 40px;
+}
+
+
 /* Pagination
 -------------------------------------------------- */
 
@@ -303,8 +314,8 @@ a:hover {
   body {
     font-size: 18px;
   }
-  .masthead h1 {
-    font-size: 64px;
+  .lead {
+    font-size: 24px;
   }
 
   /* Center container in available real estate */
@@ -329,8 +340,8 @@ a:hover {
     right: 0;
     left: 0;
   }
-  .masthead .lead {
-    font-size: 24px;
+  .masthead h1 {
+    font-size: 64px;
   }
   .colophon {
     margin-top: 40px;
