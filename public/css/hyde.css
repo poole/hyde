@@ -210,7 +210,7 @@ a:hover {
   color: #7a7a7a;
 }
 .colophon-links {
-  margin: 0 0 15px;
+  padding-left: 0;
   list-style: none;
 }
 
