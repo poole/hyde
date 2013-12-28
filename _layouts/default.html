@@ -1,48 +1,11 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en-us">
-  <head>
-    <meta http-equiv="content-type" content="text/html; charset=utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <link href="http://gmpg.org/xfn/11" rel="profile">
 
-    <title>
-      {% if page.title %}{{ page.title }} &middot; {% endif %}
-      {{ site.tagline }}
-    </title>
+  {% include head.html %}
 
-    <!-- CSS -->
-    <link rel="stylesheet" href="/public/css/hyde.css">
-    <link rel="stylesheet" href="/public/css/syntax.css">
-    <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Open+Sans:300,400italic,400,600,700|Abril+Fatface">
-
-    <!-- Icons -->
-    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/public/touch-icon-144-precomposed.png">
-    <link rel="shortcut icon" href="/public/favicon.png">
-
-    <!-- RSS -->
-    <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-  </head>
   <body>
 
-    <header class="masthead">
-      <div class="masthead-inner">
-        <h1>{{ site.title }}</h1>
-        <p class="lead">{{ site.description }}</p>
-
-        <div class="colophon">
-          <ul class="colophon-links">
-            <li>
-              <a href="https://github.com/mdo/hyde/archive/v{{ site.version }}.zip">Download</a>
-            </li>
-            <li>
-              <a href="https://github.com/mdo/hyde">GitHub project</a>
-            </li>
-            <li>Currently v{{ site.version }}</li>
-          </ul>
-          <p>&copy; 2013. {{ site.author.name }} All rights reserved.</p>
-        </div>
-      </div>
-    </header>
+    {% include masthead.html %}
 
     <div class="content container">
       {{ content }}
