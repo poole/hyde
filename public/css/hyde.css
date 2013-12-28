@@ -336,10 +336,15 @@ a:focus {
 /* Related posts */
 .related {
   padding-top: 40px;
+  padding-bottom: 40px;
   border-top: 1px solid #eee;
 }
 .related-posts {
+  padding-left: 0;
   list-style: none;
+}
+.related-posts h3 {
+  margin-top: 0;
 }
 .related-posts li small {
   font-size: 75%;
@@ -350,7 +355,7 @@ a:focus {
   text-decoration: none;
 }
 .related-posts li a:hover small {
-  color: #000;
+  color: inherit;
 }
 
 
@@ -433,33 +438,73 @@ a:focus {
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
 /* Red */
-.theme-base-08 .masthead { background-color: #ac4142; }
-.theme-base-08 .container a         { color: #ac4142; }
+.theme-base-08 .masthead {
+  background-color: #ac4142;
+}
+.theme-base-08 .container a,
+.theme-base-08 .related-posts li a:hover {
+  color: #ac4142;
+}
 
 /* Orange */
-.theme-base-09 .masthead { background-color: #d28445; }
-.theme-base-09 .container a         { color: #d28445; }
+.theme-base-09 .masthead {
+  background-color: #d28445;
+}
+.theme-base-09 .container a,
+.theme-base-09 .related-posts li a:hover {
+  color: #d28445;
+}
 
 /* Yellow */
-.theme-base-0a .masthead { background-color: #f4bf75; }
-.theme-base-0a .container a         { color: #f4bf75; }
+.theme-base-0a .masthead {
+  background-color: #f4bf75;
+}
+.theme-base-0a .container a,
+.theme-base-0a .related-posts li a:hover {
+  color: #f4bf75;
+}
 
 /* Green */
-.theme-base-0b .masthead { background-color: #90a959; }
-.theme-base-0b .container a         { color: #90a959; }
+.theme-base-0b .masthead {
+  background-color: #90a959;
+}
+.theme-base-0b .container a,
+.theme-base-0b .related-posts li a:hover {
+  color: #90a959;
+}
 
 /* Cyan */
-.theme-base-0c .masthead { background-color: #75b5aa; }
-.theme-base-0c .container a         { color: #75b5aa; }
+.theme-base-0c .masthead {
+  background-color: #75b5aa;
+}
+.theme-base-0c .container a,
+.theme-base-0c .related-posts li a:hover {
+  color: #75b5aa;
+}
 
 /* Blue */
-.theme-base-0d .masthead { background-color: #6a9fb5; }
-.theme-base-0d .container a         { color: #6a9fb5; }
+.theme-base-0d .masthead {
+  background-color: #6a9fb5;
+}
+.theme-base-0d .container a,
+.theme-base-0d .related-posts li a:hover {
+  color: #6a9fb5;
+}
 
 /* Magenta */
-.theme-base-0e .masthead { background-color: #aa759f; }
-.theme-base-0e .container a         { color: #aa759f; }
+.theme-base-0e .masthead {
+  background-color: #aa759f;
+}
+.theme-base-0e .container a,
+.theme-base-0e .related-posts li a:hover {
+  color: #aa759f;
+}
 
 /* Brown */
-.theme-base-0f .masthead { background-color: #8f5536; }
-.theme-base-0f .container a         { color: #8f5536; }
+.theme-base-0f .masthead {
+  background-color: #8f5536;
+}
+.theme-base-0f .container a,
+.theme-base-0f .related-posts li a:hover {
+  color: #8f5536;
+}
