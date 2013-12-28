@@ -299,12 +299,19 @@ a:focus {
  * with a 25%-wide `.masthead`.
  */
 
+.content {
+  padding: 40px 20px;
+}
+
 /* Center container in available real estate */
 @media (min-width: 990px) {
+  .content {
+    padding: 60px 0;
+  }
   .container {
+    width: 55%;
     margin-left: 35%;
     margin-right: 10%;
-    width: 55%;
   }
 }
 
@@ -317,12 +324,11 @@ a:focus {
 
 /* Single post */
 .post {
-  margin: 40px 20px;
+  margin-bottom: 40px;
 }
 @media (min-width: 990px) {
-  /* Increase space between posts */
   .post {
-    margin: 60px 0; /* Increase top/bottom, remove from sides */
+    margin-bottom: 60px;
   }
 }
 
@@ -335,7 +341,7 @@ a:focus {
 
 /* Related posts */
 .related {
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 40px;
   border-top: 1px solid #eee;
 }
@@ -356,18 +362,6 @@ a:focus {
 }
 .related-posts li a:hover small {
   color: inherit;
-}
-
-
-/*
- * Error page
- *
- * For now, just the 404 (supported by Jekyll with the custom 404.html view).
- */
-
-.fourohfour {
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 
