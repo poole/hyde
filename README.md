@@ -38,7 +38,11 @@ $ jekyll serve
 Open <http://localhost:4000> in your browser, and voilà. You're done.
 
 
-## Optional themes
+## Options
+
+Hyde includes a few options, typically applied via classes on the `<body>` element.
+
+### Themes
 
 As of v1.1, Hyde ships with optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). In Hyde, a theme simply changes the sidebar's background color and the color of links within blog posts. Here's the red theme in action:
 
@@ -58,6 +62,16 @@ To use a theme, add anyone of the available theme classes to the `<body>` elemen
 
 To create your own theme, look to the [Themes section](/mdo/hyde/blob/master/public/css/hyde.css#L387) of Hyde's CSS. Copy any existing theme (they're only two lines of CSS), rename it, and change the provided colors.
 
+
+### Reverse layout
+
+Hyde's page orientation can be reversed with a single class.
+
+```html
+<body class="layout-reverse">
+  ...
+</body>
+```
 
 ### Author
 

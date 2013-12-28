@@ -21,6 +21,21 @@ Learn more at http://andhyde.com or https://github.com/mdo/hyde.
 
 
 /*
+ * Contents
+ *
+ * Body resets
+ * Custom type
+ * Links
+ * Masthead
+ * Container
+ * Posts
+ * Error page
+ * Pagination
+ * Themes
+ */
+
+
+/*
  * Body resets
  *
  * Update the foundational and global aspects of the page.
@@ -277,6 +292,13 @@ a:focus {
   }
 }
 
+
+/* Container
+ *
+ * Align the contents of the site above the proper threshold with some margin-fu
+ * with a 25%-wide `.masthead`.
+ */
+
 /* Center container in available real estate */
 @media (min-width: 990px) {
   .container {
@@ -382,6 +404,23 @@ a:focus {
   background-color: #f5f5f5;
 }
 
+
+/*
+ * Reverse layout
+ *
+ * Flip the orientation of the page by placing the `.masthead` on the right.
+ */
+
+@media (min-width: 990px) {
+  .layout-reverse .masthead {
+    left: auto;
+    right: 0;
+  }
+  .layout-reverse .container {
+    margin-left: 10%;
+    margin-right: 35%;
+  }
+}
 
 
 /*
