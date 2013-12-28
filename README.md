@@ -74,14 +74,14 @@ Hyde's page orientation can be reversed with a single class.
 ```
 
 
-### Author
+## Author
 
 **Mark Otto**
 <https://github.com/mdo>
 <https://twitter.com/mdo>
 
 
-### License
+## License
 
 Open sourced under the [MIT license](LICENSE.md).
 
