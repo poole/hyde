@@ -236,11 +236,15 @@ a:focus {
 /* Footer area of masthead */
 .colophon {
   margin-top: 20px;
-  color: #7a7a7a;
+  color: #fff;
+  color: rgba(255,255,255,.5);
 }
 .colophon-links {
   padding-left: 0;
   list-style: none;
+}
+.colophon-links li {
+  color: inherit;
 }
 
 /* Responsive masthead */
@@ -387,3 +391,36 @@ a:focus {
  * within blog posts. To use, add the class of your choosing to the `body`.
  */
 
+/* Base16 (http://chriskempson.github.io/base16/#default) */
+
+/* Red */
+.theme-base-08 .masthead { background-color: #ac4142; }
+.theme-base-08 .container a         { color: #ac4142; }
+
+/* Orange */
+.theme-base-09 .masthead { background-color: #d28445; }
+.theme-base-09 .container a         { color: #d28445; }
+
+/* Yellow */
+.theme-base-0a .masthead { background-color: #f4bf75; }
+.theme-base-0a .container a         { color: #f4bf75; }
+
+/* Green */
+.theme-base-0b .masthead { background-color: #90a959; }
+.theme-base-0b .container a         { color: #90a959; }
+
+/* Cyan */
+.theme-base-0c .masthead { background-color: #75b5aa; }
+.theme-base-0c .container a         { color: #75b5aa; }
+
+/* Blue */
+.theme-base-0d .masthead { background-color: #6a9fb5; }
+.theme-base-0d .container a         { color: #6a9fb5; }
+
+/* Magenta */
+.theme-base-0e .masthead { background-color: #aa759f; }
+.theme-base-0e .container a         { color: #aa759f; }
+
+/* Brown */
+.theme-base-0f .masthead { background-color: #8f5536; }
+.theme-base-0f .container a         { color: #8f5536; }
