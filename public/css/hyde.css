@@ -20,9 +20,11 @@ Learn more at http://andhyde.com or https://github.com/mdo/hyde.
 */
 
 
-
-/* Body resets
--------------------------------------------------- */
+/*
+ * Body resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
 
 * {
   -webkit-box-sizing: border-box;
@@ -42,6 +44,11 @@ body {
   line-height: 1.5;
   color: #454441;
   background-color: #fff;
+}
+@media (min-width: 990px) {
+  body {
+    font-size: 18px;
+  }
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -68,10 +75,6 @@ h4, h5, h6 {
 
 p {
   margin: 0 0 15px;
-}
-.lead {
-  font-size: 20px;
-  font-weight: 300;
 }
 
 ul, ol {
@@ -168,23 +171,48 @@ img {
 }
 
 
-/* Links
--------------------------------------------------- */
+/*
+ * Custom type
+ *
+ * Extend paragraphs with `.lead` for larger introductory text.
+ */
+
+.lead {
+  font-size: 20px;
+  font-weight: 300;
+}
+@media (min-width: 990px) {
+  .lead {
+    font-size: 24px;
+  }
+}
+
+
+/*
+ * Links
+ *
+ * No `:visited` state is required by default (browsers will use `a`). `:focus`
+ * is linked to `:hover` for basic accessibility.
+ */
 
 a {
   font-weight: 600;
   color: #222;
   text-decoration: none;
 }
-a:hover {
+a:hover,
+a:focus {
   text-decoration: underline;
 }
 
 
-/* Scaffolding
--------------------------------------------------- */
+/*
+ * Masthead
+ *
+ * Sidebar banner for housing site name, intro, and colophon (footer).
+ */
 
-/* Header */
+/* Sidebar masthead */
 .masthead {
   color: #fff;
   background-color: #2a2a2a;
@@ -192,6 +220,8 @@ a:hover {
 .masthead-inner {
   padding: 20px;
 }
+
+/* Masthead content */
 .masthead h1 {
   margin-top: 0;
   font-family: "Abril Fatface";
@@ -213,13 +243,64 @@ a:hover {
   list-style: none;
 }
 
+/* Responsive masthead */
+@media (min-width: 768px) {
+  .masthead-inner {
+    padding: 40px;
+  }
+}
+@media (min-width: 990px) {
+  /* Fix the masthead to the side for impact and awesomeness */
+  .masthead {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 25%;
+    margin-bottom: 0;
+  }
+  .masthead-inner {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    left: 0;
+  }
+  .masthead h1 {
+    font-size: 64px;
+  }
+  .colophon {
+    margin-top: 40px;
+  }
+}
 
-/* Posts
--------------------------------------------------- */
+/* Center container in available real estate */
+@media (min-width: 990px) {
+  .container {
+    margin-left: 35%;
+    margin-right: 10%;
+    width: 55%;
+  }
+}
 
+
+/*
+ * Posts
+ *
+ * Each post is wrapped in `.post`. Used on default and post layouts.
+ */
+
+/* Single post */
 .post {
   margin: 40px 20px;
 }
+@media (min-width: 990px) {
+  /* Increase space between posts */
+  .post {
+    margin: 60px 0; /* Increase top/bottom, remove from sides */
+  }
+}
+
+/* Meta data line below post title */
 .post-date {
   display: block;
   margin: -10px 0 10px;
@@ -247,8 +328,11 @@ a:hover {
 }
 
 
-/* Error pages (404)
--------------------------------------------------- */
+/*
+ * Error page
+ *
+ * For now, just the 404 (supported by Jekyll with the custom 404.html view).
+ */
 
 .fourohfour {
   margin-top: 40px;
@@ -256,8 +340,12 @@ a:hover {
 }
 
 
-/* Pagination
--------------------------------------------------- */
+/*
+ * Pagination
+ *
+ * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
+ * there are no more previous or next posts to show.
+ */
 
 .pagination {
   overflow: hidden; /* clearfix */
@@ -267,6 +355,14 @@ a:hover {
   text-align: center;
   border-top: 1px solid #eee;
 }
+/* Pagination should float when space is plentiful */
+@media (min-width: 990px) {
+  .pagination {
+    margin-bottom: 60px;
+    border: 1px solid #eee;
+  }
+}
+
 .pagination a,
 .pagination span {
   float: left;
@@ -283,62 +379,11 @@ a:hover {
 }
 
 
-/* Responsive
--------------------------------------------------- */
 
-@media (min-width: 768px) {
-  .masthead-inner {
-    padding: 40px;
-  }
-}
+/*
+ * Themes
+ *
+ * As of v1.1, Hyde includes optional themes to color the sidebar and links
+ * within blog posts. To use, add the class of your choosing to the `body`.
+ */
 
-@media (min-width: 990px) {
-
-  body {
-    font-size: 18px;
-  }
-  .lead {
-    font-size: 24px;
-  }
-
-  /* Center container in available real estate */
-  .container {
-    margin-left: 35%;
-    margin-right: 10%;
-    width: 55%;
-  }
-
-  /* Fix the masthead to the side for impact and awesomeness */
-  .masthead {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 25%;
-    margin-bottom: 0;
-  }
-  .masthead-inner {
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-  .masthead h1 {
-    font-size: 64px;
-  }
-  .colophon {
-    margin-top: 40px;
-  }
-
-  /* Increase space between posts */
-  .post {
-    margin: 60px 0; /* Increase top/bottom, remove from sides */
-  }
-
-  /* Make pagination stand alone */
-  .pagination {
-    margin-bottom: 60px;
-    border: 1px solid #eee;
-  }
-
-}
