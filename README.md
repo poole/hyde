@@ -2,7 +2,7 @@
 
 An elegant open source, mobile first theme for [Jekyll](https://github.com/mojombo/jekyll). It includes lightweight styles and placeholder content to get you up and running with a simple blog in no time.
 
-![Hyde screenshot](https://f.cloud.github.com/assets/98681/1330948/de10196c-353f-11e3-86d0-8e967dd95722.png)
+![Hyde screenshot](https://f.cloud.github.com/assets/98681/1818325/da6489d8-6ff5-11e3-9b4f-c56b92013e9a.png)
 
 
 ## Usage
@@ -46,7 +46,7 @@ Hyde includes a few options, typically applied via classes on the `<body>` eleme
 
 As of v1.1, Hyde ships with optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). In Hyde, a theme simply changes the sidebar's background color and the color of links within blog posts. Here's the red theme in action:
 
-![Hyde in red](https://f.cloud.github.com/assets/98681/1817043/e59dc31a-6f68-11e3-9d90-2508314934df.png)
+![Hyde in red](https://f.cloud.github.com/assets/98681/1818326/da64f56c-6ff5-11e3-9643-7d0c18157dec.png)
 
 There are eight themes available at this time.
 
@@ -60,9 +60,11 @@ To use a theme, add anyone of the available theme classes to the `<body>` elemen
 </body>
 ```
 
-To create your own theme, look to the Themes section of [Hyde's CSS](/mdo/hyde/blob/master/public/css/hyde.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
+To create your own theme, look to the Themes section of [Hyde's CSS](https://github.com/mdo/hyde/blob/master/public/css/hyde.css). Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
 
 ### Reverse layout
+
+![Hyde with reverse layout](https://f.cloud.github.com/assets/98681/1818324/da6473f8-6ff5-11e3-9315-692e639fb5c7.png)
 
 Hyde's page orientation can be reversed with a single class.
 

@@ -95,9 +95,6 @@ p {
 ul, ol {
   margin-bottom: 15px;
 }
-li {
-  color: #888580;
-}
 
 hr {
   position: relative;
@@ -123,24 +120,23 @@ abbr {
   border-radius: 3px;
 }
 
-code, pre {
-  padding: 0 3px 2px;
+code,
+pre {
   font-family: Menlo, Monaco, "Courier New", monospace;
-  font-size: 14px;
-  border-radius: 3px;
 }
 code {
-  padding: 2px 4px;
-  color: #d14;
-  background-color: #f7f7f9;
-  border: 1px solid #e1e1e8;
+  padding: .25em .5em;
+  font-size: 85%;
+  color: #bf616a;
+  background-color: #f9f9f9;
+  border-radius: 3px;
 }
-
 pre {
   display: block;
   margin: 0 0 14px;
   padding: 15px 20px;
-  line-height: 28px;
+  font-size: 16px;
+  line-height: 1.4;
   white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
@@ -149,9 +145,9 @@ pre {
 }
 pre code {
   padding: 0;
+  font-size: 100%;
   color: inherit;
   background-color: transparent;
-  border: 0;
 }
 .highlight {
   margin-bottom: 15px;
@@ -251,7 +247,6 @@ a:focus {
 /* Footer area of masthead */
 .colophon {
   margin-top: 20px;
-  color: #fff;
   color: rgba(255,255,255,.5);
 }
 .colophon-links {
@@ -299,12 +294,19 @@ a:focus {
  * with a 25%-wide `.masthead`.
  */
 
+.content {
+  padding: 40px 20px;
+}
+
 /* Center container in available real estate */
 @media (min-width: 990px) {
+  .content {
+    padding: 60px 0;
+  }
   .container {
+    width: 55%;
     margin-left: 35%;
     margin-right: 10%;
-    width: 55%;
   }
 }
 
@@ -317,12 +319,11 @@ a:focus {
 
 /* Single post */
 .post {
-  margin: 40px 20px;
+  margin-bottom: 40px;
 }
 @media (min-width: 990px) {
-  /* Increase space between posts */
   .post {
-    margin: 60px 0; /* Increase top/bottom, remove from sides */
+    margin-bottom: 60px;
   }
 }
 
@@ -335,7 +336,7 @@ a:focus {
 
 /* Related posts */
 .related {
-  padding-top: 40px;
+  padding-top: 20px;
   padding-bottom: 40px;
   border-top: 1px solid #eee;
 }
@@ -356,18 +357,6 @@ a:focus {
 }
 .related-posts li a:hover small {
   color: inherit;
-}
-
-
-/*
- * Error page
- *
- * For now, just the 404 (supported by Jekyll with the custom 404.html view).
- */
-
-.fourohfour {
-  margin-top: 40px;
-  margin-bottom: 40px;
 }
 
 
