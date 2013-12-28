@@ -60,7 +60,7 @@ To use a theme, add anyone of the available theme classes to the `<body>` elemen
 </body>
 ```
 
-To create your own theme, look to the [Themes section](/mdo/hyde/blob/master/public/css/hyde.css#L387) of Hyde's CSS. Copy any existing theme (they're only two lines of CSS), rename it, and change the provided colors.
+To create your own theme, look to the [Themes section](/mdo/hyde/blob/master/public/css/hyde.css#L387) of Hyde's CSS. Copy any existing theme (they're only a few lines of CSS), rename it, and change the provided colors.
 
 
 ### Reverse layout
