@@ -214,15 +214,15 @@ a:hover {
   list-style: none;
 }
 
+/* Wrapper for all contents */
+.content {
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
 
 /* Posts
 -------------------------------------------------- */
-
-/* Wrapper for all posts on homepage */
-.posts {
-  margin-left:  20px;
-  margin-right: 20px;
-}
 
 /* Single post */
 .post {
@@ -302,9 +302,9 @@ a:hover {
   .masthead-inner {
     padding: 40px;
   }
-  .posts {
-    margin-left: 40px;
-    margin-right: 40px;
+  .content {
+    padding-left: 40px;
+    padding-right: 40px;
   }
 }
 
@@ -346,11 +346,12 @@ a:hover {
     margin-top: 40px;
   }
 
-  /* Remove mobile device padding from list of posts */
-  .posts {
-    margin-left: 0;
-    margin-right: 0;
+  /* Remove mobile device padding from the content area */
+  .content {
+    padding-left: 0;
+    padding-right: 0;
   }
+
   /* Increase space between posts */
   .post {
     margin-top: 60px;
