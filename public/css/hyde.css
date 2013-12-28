@@ -217,16 +217,8 @@ a:hover {
 /* Posts
 -------------------------------------------------- */
 
-/* Wrapper for all posts on homepage */
-.posts {
-  margin-left:  20px;
-  margin-right: 20px;
-}
-
-/* Single post */
 .post {
-  margin-top: 40px;
-  margin-bottom: 40px;
+  margin: 40px 20px;
 }
 .post-date {
   display: block;
@@ -301,10 +293,6 @@ a:hover {
   .masthead-inner {
     padding: 40px;
   }
-  .posts {
-    margin-left: 40px;
-    margin-right: 40px;
-  }
 }
 
 @media (min-width: 990px) {
@@ -345,15 +333,9 @@ a:hover {
     margin-top: 40px;
   }
 
-  /* Remove mobile device padding from list of posts */
-  .posts {
-    margin-left: 0;
-    margin-right: 0;
-  }
   /* Increase space between posts */
   .post {
-    margin-top: 60px;
-    margin-bottom: 60px;
+    margin: 60px 0; /* Increase top/bottom, remove from sides */
   }
 
   /* Make pagination stand alone */
