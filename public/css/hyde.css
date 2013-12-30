@@ -9,7 +9,7 @@
                /\___/
                \/__/
 
-Hyde is an elegant, open source, mobile first theme for Jekyll.  It includes
+Hyde is an elegant, open source, mobile first theme for Jekyll. It includes
 lightweight styles and placeholder content to get you up and running with a
 simple blog in no time.
 
@@ -18,203 +18,6 @@ Designed, built, and released under MIT license by @mdo.
 Learn more at http://andhyde.com or https://github.com/mdo/hyde.
 
 */
-
-
-/*
- * Contents
- *
- * Body resets
- * Custom type
- * Links
- * Masthead
- * Container
- * Posts
- * Error page
- * Pagination
- * Themes
- */
-
-
-/*
- * Body resets
- *
- * Update the foundational and global aspects of the page.
- */
-
-* {
-  -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
-}
-
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-body {
-  font-family: "Open Sans", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.5;
-  color: #454441;
-  background-color: #fff;
-}
-@media (min-width: 990px) {
-  body {
-    font-size: 18px;
-  }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  margin: 0 0 10px;
-  font-weight: 600;
-  line-height: 1.25;
-  text-rendering: optimizeLegibility;
-}
-h1 {
-  font-size: 40px;
-}
-h2 {
-  margin-top: 20px;
-  font-size: 32px;
-}
-h3 {
-  margin-top: 24px;
-  font-size: 24px;
-}
-h4, h5, h6 {
-  margin-top: 16px;
-  font-size: 16px;
-}
-
-p {
-  margin: 0 0 15px;
-}
-
-ul, ol {
-  margin-bottom: 15px;
-}
-
-hr {
-  position: relative;
-  margin: 40px 0;
-  border: 0;
-  border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff;
-}
-
-strong {
-  color: #222;
-}
-
-abbr {
-  background-color: #eee;
-  display: inline-block;
-  padding: 3px;
-  font-size: 13px;
-  font-weight: bold;
-  color: #555;
-  text-shadow: 0 1px 1px rgba(255, 255, 255, 0.5);
-  text-transform: uppercase;
-  border-radius: 3px;
-}
-
-code,
-pre {
-  font-family: Menlo, Monaco, "Courier New", monospace;
-}
-code {
-  padding: .25em .5em;
-  font-size: 85%;
-  color: #bf616a;
-  background-color: #f9f9f9;
-  border-radius: 3px;
-}
-pre {
-  display: block;
-  margin: 0 0 14px;
-  padding: 15px 20px;
-  font-size: 16px;
-  line-height: 1.4;
-  white-space: pre;
-  white-space: pre-wrap;
-  word-break: break-all;
-  word-wrap: break-word;
-  background-color: #f9f9f9;
-}
-pre code {
-  padding: 0;
-  font-size: 100%;
-  color: inherit;
-  background-color: transparent;
-}
-.highlight {
-  margin-bottom: 15px;
-  border-radius: 4px;
-}
-.highlight pre {
-  margin-bottom: 0;
-}
-
-/* Quotes */
-blockquote {
-  padding: 5px 30px 5px 25px;
-  margin: 15px 0;
-  border-left: 5px solid #eee;
-}
-blockquote p {
-  margin-bottom: 0;
-  color: #7a7a7a;
-  text-indent: -0.4em;
-}
-blockquote p:before {
-  content: '\201C';
-}
-blockquote p:after {
-  content: '\201D';
-}
-
-img {
-  display: block;
-  margin: 0 0 15px;
-  border-radius: 5px;
-}
-
-
-/*
- * Custom type
- *
- * Extend paragraphs with `.lead` for larger introductory text.
- */
-
-.lead {
-  font-size: 20px;
-  font-weight: 300;
-}
-@media (min-width: 990px) {
-  .lead {
-    font-size: 24px;
-  }
-}
-
-
-/*
- * Links
- *
- * No `:visited` state is required by default (browsers will use `a`). `:focus`
- * is linked to `:hover` for basic accessibility.
- */
-
-a {
-  font-weight: 600;
-  color: #222;
-  text-decoration: none;
-}
-a:hover,
-a:focus {
-  text-decoration: underline;
-}
 
 
 /*
@@ -229,11 +32,12 @@ a:focus {
   background-color: #2a2a2a;
 }
 .masthead-inner {
-  padding: 20px;
+  padding: 1rem;
 }
 
 /* Masthead content */
 .masthead h1 {
+  color: #fff;
   margin-top: 0;
   font-family: "Abril Fatface";
 }
@@ -246,7 +50,7 @@ a:focus {
 
 /* Footer area of masthead */
 .colophon {
-  margin-top: 20px;
+  margin-top: 1rem;
   color: rgba(255,255,255,.5);
 }
 .colophon-links {
@@ -260,7 +64,7 @@ a:focus {
 /* Responsive masthead */
 @media (min-width: 768px) {
   .masthead-inner {
-    padding: 40px;
+    padding: 2rem;
   }
 }
 @media (min-width: 990px) {
@@ -283,7 +87,7 @@ a:focus {
     font-size: 64px;
   }
   .colophon {
-    margin-top: 40px;
+    margin-top: 2rem;
   }
 }
 
@@ -304,98 +108,10 @@ a:focus {
     padding: 60px 0;
   }
   .container {
-    width: 55%;
+    width: 50%;
     margin-left: 35%;
-    margin-right: 10%;
+    margin-right: 15%;
   }
-}
-
-
-/*
- * Posts
- *
- * Each post is wrapped in `.post`. Used on default and post layouts.
- */
-
-/* Single post */
-.post {
-  margin-bottom: 40px;
-}
-@media (min-width: 990px) {
-  .post {
-    margin-bottom: 60px;
-  }
-}
-
-/* Meta data line below post title */
-.post-date {
-  display: block;
-  margin: -10px 0 10px;
-  color: #9a9a9a;
-}
-
-/* Related posts */
-.related {
-  padding-top: 20px;
-  padding-bottom: 40px;
-  border-top: 1px solid #eee;
-}
-.related-posts {
-  padding-left: 0;
-  list-style: none;
-}
-.related-posts h3 {
-  margin-top: 0;
-}
-.related-posts li small {
-  font-size: 75%;
-  color: #999;
-}
-.related-posts li a:hover {
-  color: #000;
-  text-decoration: none;
-}
-.related-posts li a:hover small {
-  color: inherit;
-}
-
-
-/*
- * Pagination
- *
- * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
- * there are no more previous or next posts to show.
- */
-
-.pagination {
-  overflow: hidden; /* clearfix */
-  margin-top: 40px;
-  font-weight: bold;
-  color: #ccc;
-  text-align: center;
-  border-top: 1px solid #eee;
-}
-/* Pagination should float when space is plentiful */
-@media (min-width: 990px) {
-  .pagination {
-    margin-bottom: 60px;
-    border: 1px solid #eee;
-  }
-}
-
-.pagination a,
-.pagination span {
-  float: left;
-  width: 50%;
-  padding: 20px;
-}
-.pagination a:first-child,
-.pagination span:first-child {
-  border-right: 1px solid #eee;
-}
-.pagination a:hover {
-  text-decoration: none;
-  background-color: #f5f5f5;
 }
 
 
