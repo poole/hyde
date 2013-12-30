@@ -17,7 +17,7 @@ $ gem install jekyll
 
 **Windows users:** Windows users have a bit more work to do, but luckily [@juthilo](https://github.com/juthilo) has your back with his [Run Jekyll on Windows](https://github.com/juthilo/run-jekyll-on-windows) guide.
 
-You may also need to install Pygments, the Python syntax highlighter for code snippets that places nicely with Jekyll. Read more about this [in the Jekyll docs](http://jekyllrb.com/docs/templates/#code_snippet_highlighting).
+You may also need to install Pygments, the Python syntax highlighter for code snippets that plays nicely with Jekyll. Read more about this [in the Jekyll docs](http://jekyllrb.com/docs/templates/#code_snippet_highlighting).
 
 ### 2a. Quick start
 
@@ -52,7 +52,7 @@ There are eight themes available at this time.
 
 ![Hyde theme classes](https://f.cloud.github.com/assets/98681/1817044/e5b0ec06-6f68-11e3-83d7-acd1942797a1.png)
 
-To use a theme, add anyone of the available theme classes to the `<body>` element like so:
+To use a theme, add any one of the available theme classes to the `<body>` element like so:
 
 ```html
 <body class="theme-base-08">
