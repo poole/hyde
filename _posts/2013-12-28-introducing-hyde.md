@@ -3,7 +3,7 @@ layout: post
 title: Introducing Hyde
 ---
 
-Hyde is a [Jekyll](http://jekyllrb.com) theme with a fluid landscape layout. It's based on [Poole](https://github.com/poole/poole), the Jekyll butler, and is designed to showcase your content first and foremost with extraneous information hidden offscreen until the reader requests it.
+Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
 ### Built on Poole
 

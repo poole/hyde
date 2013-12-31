@@ -1,6 +1,6 @@
 # Hyde
 
-Hyde is a [Jekyll](https://github.com/mojombo/jekyll) theme with a fluid landscape layout. It's based on [Poole](https://github.com/poole/poole), the Jekyll butler.
+Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
 ![Hyde screenshot](https://f.cloud.github.com/assets/98681/1818325/da6489d8-6ff5-11e3-9b4f-c56b92013e9a.png)
 
@@ -25,6 +25,28 @@ Then, start up your Jekyll server and go!
 ## Options
 
 Hyde includes some customizable options, typically applied via classes on the `<body>` element.
+
+
+### Sticky sidebar content
+
+By default Hyde ships with a sidebar that affixes it's content to the bottom of the sidebar. You can optionally disabled this by removing the `.sidebar-sticky` class from the sidebar's `.container`. Sidebar content will then normally flow from top to bottom.
+
+```html
+<!-- Default sidebar -->
+<div class="sidebar">
+  <div class="container sidebar-sticky">
+    ...
+  </div>
+</div>
+
+<!-- Modified sidebar -->
+<div class="sidebar">
+  <div class="container">
+    ...
+  </div>
+</div>
+```
+
 
 ### Themes
 

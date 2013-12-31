@@ -1,93 +1,116 @@
 /*
- __                  __
-/\ \                /\ \
-\ \ \___   __  __   \_\ \     __
- \ \  _ `\/\ \/\ \  /'_` \  /'__`\
-  \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
-   \ \_\ \_\/`____ \ \___,_\ \____\
-    \/_/\/_/`/___/> \/__,_ /\/____/
-               /\___/
-               \/__/
-
-Hyde is an elegant, open source, mobile first theme for Jekyll. It includes
-lightweight styles and placeholder content to get you up and running with a
-simple blog in no time.
-
-Designed, built, and released under MIT license by @mdo.
-
-Learn more at http://andhyde.com or https://github.com/mdo/hyde.
-
-*/
+ *  __                  __
+ * /\ \                /\ \
+ * \ \ \___   __  __   \_\ \     __
+ *  \ \  _ `\/\ \/\ \  /'_` \  /'__`\
+ *   \ \ \ \ \ \ \_\ \/\ \_\ \/\  __/
+ *    \ \_\ \_\/`____ \ \___,_\ \____\
+ *     \/_/\/_/`/___/> \/__,_ /\/____/
+ *                /\___/
+ *                \/__/
+ *
+ * Designed, built, and released under MIT license by @mdo. Learn more at
+ * https://github.com/poole/hyde.
+ */
 
 
 /*
- * Masthead
+ * Contents
  *
- * Sidebar banner for housing site name, intro, and colophon (footer).
+ * Global resets
+ * Sidebar
+ * Container
+ * Reverse layout
+ * Themes
  */
 
-/* Sidebar masthead */
-.masthead {
-  color: #fff;
-  background-color: #2a2a2a;
-}
-.masthead-inner {
-  padding: 1rem;
-}
 
-/* Masthead content */
-.masthead h1 {
-  color: #fff;
-  margin-top: 0;
-  font-family: "Abril Fatface";
-}
-.masthead .lead {
-  margin-bottom: 0;
-}
-.masthead a {
-  color: #fff;
-}
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
 
-/* Footer area of masthead */
-.colophon {
-  margin-top: 1rem;
-  color: rgba(255,255,255,.5);
+html {
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
-.colophon-links {
-  padding-left: 0;
-  list-style: none;
-}
-.colophon-links li {
-  color: inherit;
-}
-
-/* Responsive masthead */
-@media (min-width: 768px) {
-  .masthead-inner {
-    padding: 2rem;
+@media (min-width: 48rem) {
+  html {
+    font-size: 16px;
   }
 }
-@media (min-width: 990px) {
-  /* Fix the masthead to the side for impact and awesomeness */
-  .masthead {
+@media (min-width: 58rem) {
+  html {
+    font-size: 20px;
+  }
+}
+
+
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+ */
+
+.sidebar {
+  text-align: center;
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,.5);
+  background-color: #202020;
+}
+@media (min-width: 48rem) {
+  .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 25%;
-    margin-bottom: 0;
+    width: 18rem;
+    text-align: left;
   }
-  .masthead-inner {
+}
+
+/* Sidebar links */
+.sidebar a {
+  color: #fff;
+}
+
+/* About section */
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
+  font-family: "Abril Fatface", serif;
+  font-size: 3.25rem;
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+  padding-left: 0;
+  list-style: none;
+}
+.sidebar-nav-item {
+  display: block;
+}
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+  text-decoration: underline;
+}
+.sidebar-nav-item.active {
+  font-weight: bold;
+}
+
+/* Sticky sidebar
+ *
+ * Add the `sidebar-sticky` class to the sidebar's container to affix it the
+ * contents to the bottom of the sidebar in tablets and up.
+ */
+
+@media (min-width: 48rem) {
+  .sidebar-sticky {
     position: absolute;
-    bottom: 0;
-    right: 0;
-    left: 0;
-  }
-  .masthead h1 {
-    font-size: 64px;
-  }
-  .colophon {
-    margin-top: 2rem;
+    right:  1rem;
+    bottom: 1rem;
+    left:   1rem;
   }
 }
 
@@ -99,18 +122,22 @@ Learn more at http://andhyde.com or https://github.com/mdo/hyde.
  */
 
 .content {
-  padding: 40px 20px;
+  padding-top:    4rem;
+  padding-bottom: 4rem;
 }
 
-/* Center container in available real estate */
-@media (min-width: 990px) {
+@media (min-width: 48rem) {
   .content {
-    padding: 60px 0;
+    max-width: 38rem;
+    margin-left: 20rem;
+    margin-right: 2rem;
   }
-  .container {
-    width: 50%;
-    margin-left: 35%;
-    margin-right: 15%;
+}
+
+@media (min-width: 64rem) {
+  .content {
+    margin-left: 22rem;
+    margin-right: 4rem;
   }
 }
 
