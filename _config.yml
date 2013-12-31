@@ -6,7 +6,7 @@ version:      1.1.1
 author:
   name:       ''
   email:      ''
-markdown:     rdiscount
+markdown:     redcarpet
 permalink:    pretty
 pygments:     true
 paginate:     5
