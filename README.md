@@ -5,26 +5,41 @@ Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a pro
 ![Hyde screenshot](https://f.cloud.github.com/assets/98681/1818325/da6489d8-6ff5-11e3-9b4f-c56b92013e9a.png)
 
 
-## Installation
+## Contents
 
-### Requires Poole
+- [Usage](#usage)
+- [Options](#options)
+  - [Sidebar menu](#sidebar-menu)
+  - [Sticky sidebar content](#sticky-sidebar-content)
+  - [Themes](#themes)
+  - [Reverse layout](#reverse-layout)
+- [Development](#development)
+- [Author](#author)
+- [License](#license)
 
-To get started, download [Poole](https://github.com/poole/poole). See [the usage guidelines](https://github.com/poole/poole#usage) for how to install and get up and running with Jekyll and Poole.
 
-### Enabling Hyde
+## Usage
 
-Copy over the included files to turn any vanilla Poole site into a Hyde site.
-
-- Replace `_includes/` with the included folder of the same name (will replace `_includes/head.html` and add `_includes/sidebar.html`)
-- Replace `_layouts/default.html` with the included file of the same name
-- Move `public/css/hyde.css` to `public/css/`
-
-Then, start up your Jekyll server and go!
+Hyde is a theme built on top of [Poole](https://github.com/poole/poole), which provides a fully furnished Jekyll setup—just download and start the Jekyll server. See [the Poole usage guidelines](https://github.com/poole/poole#usage) for how to install and use Jekyll.
 
 
 ## Options
 
 Hyde includes some customizable options, typically applied via classes on the `<body>` element.
+
+
+### Sidebar menu
+
+Create a list of nav links in the sidebar by assigning each Jekyll page the correct layout in the page's [front-matter](http://jekyllrb.com/docs/frontmatter/).
+
+```
+---
+layout: page
+title: About
+---
+```
+
+**Why require a specific layout?** Jekyll will return *all* pages, including the `atom.xml`, and with an alphabetical sort order. To ensure the first link is *Home*, we exclude the `index.html` page from this list by specifying the `page` layout.
 
 
 ### Sticky sidebar content
@@ -81,11 +96,19 @@ Hyde's page orientation can be reversed with a single class.
 ```
 
 
+## Development
+
+Hyde has two branches, but only one is used for active development.
+
+- `master` for development.  **All pull requests should be to submitted against `master`.**
+- `gh-pages` for our hosted site, which includes our analytics tracking code. **Please avoid using this branch.**
+
+
 ## Author
 
 **Mark Otto**
-<https://github.com/mdo>
-<https://twitter.com/mdo>
+- <https://github.com/mdo>
+- <https://twitter.com/mdo>
 
 
 ## License
