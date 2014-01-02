@@ -2,7 +2,7 @@
 
 Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
-![Hyde screenshot](https://f.cloud.github.com/assets/98681/1818325/da6489d8-6ff5-11e3-9b4f-c56b92013e9a.png)
+![Hyde screenshot](https://f.cloud.github.com/assets/98681/1831228/42af6c6a-7384-11e3-98fb-e0b923ee0468.png)
 
 
 ## Contents
@@ -67,7 +67,7 @@ By default Hyde ships with a sidebar that affixes it's content to the bottom of 
 
 Hyde ships with eight optional themes based on the [base16 color scheme](https://github.com/chriskempson/base16). Apply a theme to change the color scheme (mostly applies to sidebar and links).
 
-![Hyde in red](https://f.cloud.github.com/assets/98681/1818326/da64f56c-6ff5-11e3-9643-7d0c18157dec.png)
+![Hyde in red](https://f.cloud.github.com/assets/98681/1831229/42b0b354-7384-11e3-8462-31b8df193fe5.png)
 
 There are eight themes available at this time.
 
@@ -85,7 +85,7 @@ To create your own theme, look to the Themes section of [included CSS file](http
 
 ### Reverse layout
 
-![Hyde with reverse layout](https://f.cloud.github.com/assets/98681/1818324/da6473f8-6ff5-11e3-9315-692e639fb5c7.png)
+![Hyde with reverse layout](https://f.cloud.github.com/assets/98681/1831230/42b0d3ac-7384-11e3-8d54-2065afd03f9e.png)
 
 Hyde's page orientation can be reversed with a single class.
 
