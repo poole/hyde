@@ -118,7 +118,7 @@ a.sidebar-nav-item:focus {
 /* Container
  *
  * Align the contents of the site above the proper threshold with some margin-fu
- * with a 25%-wide `.masthead`.
+ * with a 25%-wide `.sidebar`.
  */
 
 .content {
@@ -145,19 +145,27 @@ a.sidebar-nav-item:focus {
 /*
  * Reverse layout
  *
- * Flip the orientation of the page by placing the `.masthead` on the right.
+ * Flip the orientation of the page by placing the `.sidebar` on the right.
  */
 
-@media (min-width: 990px) {
-  .layout-reverse .masthead {
+@media (min-width: 48rem) {
+  .layout-reverse .sidebar {
     left: auto;
     right: 0;
   }
-  .layout-reverse .container {
-    margin-left: 10%;
-    margin-right: 35%;
+  .layout-reverse .content {
+    margin-left: 2rem;
+    margin-right: 20rem;
   }
 }
+
+@media (min-width: 64rem) {
+  .layout-reverse .content {
+    margin-left: 4rem;
+    margin-right: 22rem;
+  }
+}
+
 
 
 /*
@@ -170,73 +178,73 @@ a.sidebar-nav-item:focus {
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
 /* Red */
-.theme-base-08 .masthead {
+.theme-base-08 .sidebar {
   background-color: #ac4142;
 }
-.theme-base-08 .container a,
+.theme-base-08 .content a,
 .theme-base-08 .related-posts li a:hover {
   color: #ac4142;
 }
 
 /* Orange */
-.theme-base-09 .masthead {
+.theme-base-09 .sidebar {
   background-color: #d28445;
 }
-.theme-base-09 .container a,
+.theme-base-09 .content a,
 .theme-base-09 .related-posts li a:hover {
   color: #d28445;
 }
 
 /* Yellow */
-.theme-base-0a .masthead {
+.theme-base-0a .sidebar {
   background-color: #f4bf75;
 }
-.theme-base-0a .container a,
+.theme-base-0a .content a,
 .theme-base-0a .related-posts li a:hover {
   color: #f4bf75;
 }
 
 /* Green */
-.theme-base-0b .masthead {
+.theme-base-0b .sidebar {
   background-color: #90a959;
 }
-.theme-base-0b .container a,
+.theme-base-0b .content a,
 .theme-base-0b .related-posts li a:hover {
   color: #90a959;
 }
 
 /* Cyan */
-.theme-base-0c .masthead {
+.theme-base-0c .sidebar {
   background-color: #75b5aa;
 }
-.theme-base-0c .container a,
+.theme-base-0c .content a,
 .theme-base-0c .related-posts li a:hover {
   color: #75b5aa;
 }
 
 /* Blue */
-.theme-base-0d .masthead {
+.theme-base-0d .sidebar {
   background-color: #6a9fb5;
 }
-.theme-base-0d .container a,
+.theme-base-0d .content a,
 .theme-base-0d .related-posts li a:hover {
   color: #6a9fb5;
 }
 
 /* Magenta */
-.theme-base-0e .masthead {
+.theme-base-0e .sidebar {
   background-color: #aa759f;
 }
-.theme-base-0e .container a,
+.theme-base-0e .content a,
 .theme-base-0e .related-posts li a:hover {
   color: #aa759f;
 }
 
 /* Brown */
-.theme-base-0f .masthead {
+.theme-base-0f .sidebar {
   background-color: #8f5536;
 }
-.theme-base-0f .container a,
+.theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
