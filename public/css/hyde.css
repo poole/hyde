@@ -91,8 +91,8 @@ html {
 .sidebar-nav-item {
   display: block;
 }
-a.sidebar-nav-item:hover,
-a.sidebar-nav-item:focus {
+.sidebar-nav-item a:hover,
+.sidebar-nav-item a:focus {
   text-decoration: underline;
 }
 .sidebar-nav-item.active {
