@@ -7,8 +7,8 @@ permalink:        pretty
 
 # Setup
 title:            fhcrc.io
-tagline:          'Supporting the computational community at the <a href="http://fhcrc.org" target="_blank">FHCRC</a>'
-description:      'An organizing center for computational education and development at the FHCRC.'
+tagline:          'Computational community at the <a href="http://fhcrc.org" target="_blank">FHCRC</a>'
+description:      'Computational community at the <a href="http://fhcrc.org" target="_blank">FHCRC</a>'
 url:              http://fhcrc.io
 
 paginate:         5
