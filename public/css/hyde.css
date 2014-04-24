@@ -248,3 +248,13 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+
+/* FHCRC Blue */
+.theme-fhcrc .sidebar {
+  background-color: #6ac2ee;
+}
+.theme-base-0f .content a,
+.theme-base-0f .related-posts li a:hover {
+  color: #6ac2ee;
+}
+
