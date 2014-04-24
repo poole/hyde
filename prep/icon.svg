@@ -14,7 +14,10 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="New document 1">
+   sodipodi:docname="icon.svg"
+   inkscape:export-filename="/home/matsen/re/fhcrc.io/prep/icon.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs4" />
   <sodipodi:namedview
@@ -24,15 +27,15 @@
      borderopacity="1.0"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="3.5208025"
-     inkscape:cx="53.400083"
-     inkscape:cy="72.025728"
+     inkscape:zoom="1.2447917"
+     inkscape:cx="192.37071"
+     inkscape:cy="88.189692"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="899"
-     inkscape:window-x="0"
+     inkscape:window-width="1920"
+     inkscape:window-height="1199"
+     inkscape:window-x="1600"
      inkscape:window-y="0"
      inkscape:window-maximized="1" />
   <metadata
@@ -53,23 +56,25 @@
      id="layer1"
      transform="translate(0,-908.36218)">
     <rect
-       style="opacity:0.79591836;fill:#0000ff;fill-opacity:1;stroke:none"
+       style="opacity:0.79591836000000005;fill:#6ac2ee;fill-opacity:1;stroke:none"
        id="rect2989"
        width="144"
        height="144"
        x="0"
        y="908.36218" />
-    <text
-       xml:space="preserve"
-       style="font-size:124.55116272px;font-style:normal;font-weight:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;font-family:Sans"
-       x="-5.6333237"
-       y="1021.215"
-       id="text2985"
-       sodipodi:linespacing="125%"><tspan
-         sodipodi:role="line"
-         id="tspan2987"
-         x="-5.6333237"
-         y="1021.215"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:Source Code Pro;-inkscape-font-specification:Source Code Pro">IO</tspan></text>
+    <g
+       id="g5261"
+       transform="matrix(1.0307935,0,0,0.99209203,-1.186335,7.7526846)">
+      <path
+         inkscape:connector-curvature="0"
+         d="m 23.169615,986.10557 c 0,9.45866 -0.170585,15.96383 -0.675939,23.39633 1.857231,-0.1674 4.138791,-0.4224 6.925705,-0.4224 2.786915,0 5.066342,0.255 6.925706,0.4224 -0.507487,-7.4325 -0.675939,-13.93767 -0.675939,-23.39633 l 0,-11.4886 c 0,-9.45953 0.168452,-15.96304 0.675939,-23.39452 -1.859364,0.16734 -4.138792,0.42156 -6.925706,0.42156 -2.786914,0 -5.068474,-0.25417 -6.925705,-0.42156 0.505355,7.43148 0.675939,13.93499 0.675939,23.39452 l 0,11.4886"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:nonzero;stroke:none"
+         id="path5089" />
+      <path
+         inkscape:connector-curvature="0"
+         d="m 105.65278,978.50351 c 0,18.41261 -8.8661,26.86019 -19.005175,26.86019 -9.458871,0 -17.736453,-6.25108 -17.736453,-24.24236 0,-14.52715 6.759387,-26.18485 18.329234,-26.18485 10.896044,0 18.412394,8.95566 18.412394,23.56702 l 0,0 z m -50.590908,1.85894 c 0,21.11485 14.356766,30.23885 32.178513,30.23885 18.836725,0 32.265935,-13.60098 32.265935,-30.32542 0,-20.35599 -14.10728,-30.15284 -32.010055,-30.15284 -19.600088,0 -32.434393,13.59917 -32.434393,30.23941 l 0,0"
+         style="fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         id="path5095" />
+    </g>
   </g>
 </svg>
