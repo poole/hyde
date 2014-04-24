@@ -6,19 +6,14 @@ pygments:         true
 permalink:        pretty
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
-
-author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+title:            fhcrc.io
+tagline:          'Supporting the computational community at the <a href="http://fhcrc.org" target="_blank">FHCRC</a>'
+description:      'An organizing center for computational education and development at the FHCRC.'
+url:              http://fhcrc.io
 
 paginate:         5
 
 # Custom vars
-version:          2.0.0
 
 github:
   repo:           https://github.com/poole/hyde
