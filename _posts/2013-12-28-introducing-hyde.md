@@ -18,7 +18,7 @@ Poole is the Jekyll Butler, serving as an upstanding and effective foundation fo
 
 ### Hyde features
 
-In addition to the features of Poole, Lanyon adds the following:
+In addition to the features of Poole, Hyde adds the following:
 
 * Sidebar includes support for textual modules and a dynamically generated navigation with active link support
 * Two orientations for content and sidebar, default (left sidebar) and [reverse](https://github.com/poole/lanyon#reverse-layout) (right sidebar), available via `<body>` classes
