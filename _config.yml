@@ -7,8 +7,8 @@ permalink:        pretty
 
 # Setup
 title:            fhcrc.io
-tagline:          'Computational community at the <a href="http://fhcrc.org" target="_blank">FHCRC</a>'
-description:      'Computational community at the <a href="http://fhcrc.org" target="_blank">FHCRC</a>'
+tagline:          'Computational community at the <a href="http://fhcrc.org" target="_blank">FHCRC</a>.'
+description:      'Computational community at the <a href="http://fhcrc.org" target="_blank">FHCRC</a>.'
 url:              http://fhcrc.io
 
 paginate:         5
@@ -16,4 +16,4 @@ paginate:         5
 # Custom vars
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/fhcrcio/fhcrc.io
