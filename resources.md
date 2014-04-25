@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Resources
+published: true
 ---
 
 ### General
@@ -9,7 +10,7 @@ title: Resources
 * [Biostars](https://www.biostars.org/) for general bioinformatics-related questions
 
 
-### Shell
+### Terminal/Shell
 * [POSIX Shell reference](http://shellhaters.heroku.com/posix) and accompanying [talk](http://shellhaters.heroku.com/)
 * [Advanced Bash scripting Guide](http://tldp.org/LDP/abs/html/index.html)
 
