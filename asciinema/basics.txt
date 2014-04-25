@@ -1,0 +1,113 @@
+rm -rf mary poppins
+
+asciinema -c "zsh -o interactivecomments" -t "Introduction to the command line"
+
+# Welcome to the command line.
+
+# Isn't it lovely?
+
+# This is how you do anything on powerful computers, and powerful things on your computer.
+
+# In the command line you type commands.
+
+# When you hit Enter, the command gets executed (unless the line starts with a #, in which case it's ignored.)
+
+# Sometimes they are simple.
+
+# For example, try typing `pwd` like so:
+
+pwd
+
+# That prints where you are in the file system.
+
+# Sometimes commands take arguments, like the `man` command, which is the command line manual.
+
+# It works by writing what you want to learn about after saying `man`.
+
+# For example, say we would like to know about the `pwd` command.
+
+man pwd
+
+# You can type `q` to exit.
+
+# You can learn about many commands this way. If the manual is long, you can step through it by pressing your space bar.
+
+man man
+
+# Again quitting with `q`.
+
+# Let's start by making some directories. These are the equivalent of "folders" on your graphical desktop.
+
+# We make them using `mkdir`:
+
+mkdir mary
+mkdir poppins
+
+# We enter directories using the `cd` command, which is short for "change directory".
+
+cd poppins
+
+pwd
+
+# As you can see, we are now in the `poppins` directory.
+
+# Now we are going to make our first file using `cat >`. This is will involve "redirection," which is a little tricky, but we'll cover that in a later screencast.
+
+# Just imagine that `cat >` is one command and we can pull it apart later.
+
+cat > super.txt
+Now I can type whatever I like.
+
+When trying to express oneself, it's frankly quite absurd,
+To leaf through lengthy lexicons to find the perfect word.
+A little spontaniaty keeps conversation keen,
+You need to find a way to say, precisely what you mean...
+
+Supercalifragilisticexpialidocious!
+Even though the sound of it is something quite atrosicous!
+If you say it loud enough, you'll always sound precocious,
+
+Supercalifragilisticexpialidocious!
+Um-diddle-diddle-um-diddleye
+Um-diddle-diddle-um-diddleye
+
+When it's time to exit this text entry, just hit control-d
+
+# OK, now we should have a file called `super.txt`.
+
+# We can see if it worked by typing `ls`.
+
+# It did!
+
+# We can now view the file by using `cat` again, but without the `>`
+
+cat super.txt
+
+# When names of directories and files gets too long, it can be annoying to type the whole thing.
+
+# For this, type part of the name, and then press the Tab key.
+
+cat sup
+
+# Cool!
+
+# OK, remember now that we are in the `poppins` directory.
+
+pwd
+
+# We go "up" a directory, i.e. leaving the current directory for its enclosing directory, by typing `cd ..`.
+
+pwd
+
+ls
+ls poppins
+ls mary
+
+
+# That's all for now.
+
+# If you are interested in learning more, take a look at:
+# http://cli.learncodethehardway.org/book/
+
+cowsay "Now you are a 1337 haxx0r."
+
