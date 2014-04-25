@@ -10,7 +10,7 @@ On Windows you can follow [Michael G's instructions](https://teams.fhcrc.org/sit
 
 Here is a little introduction to the command line I just made:
 
-<script type="text/javascript" src="https://asciinema.org/a/9110.js" id="asciicast-9110" async></script>
+<script type="text/javascript" src="https://asciinema.org/a/9111.js" id="asciicast-9111" async></script>
 
 It's silent, so if you feel lonely you can listen to this, and feel hip at the same time:
 
