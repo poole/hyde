@@ -43,7 +43,7 @@ man man
 mkdir mary
 mkdir poppins
 
-# We enter directories using the `cd` command, which is short for "change directory".
+# We go into directories using the `cd` command, which is short for "change directory".
 
 cd poppins
 
@@ -51,7 +51,9 @@ pwd
 
 # As you can see, we are now in the `poppins` directory.
 
-# Now we are going to make our first file using `cat >`. This is will involve "redirection," which is a little tricky, but we'll cover that in a later screencast.
+# Now we are going to make our first file using `cat >`.
+
+# This is will involve "redirection," which is a little tricky, but we'll cover that in a later screencast.
 
 # Just imagine that `cat >` is one command and we can pull it apart later.
 
@@ -85,7 +87,7 @@ cat super.txt
 
 # When names of directories and files gets too long, it can be annoying to type the whole thing.
 
-# For this, type part of the name, and then press the Tab key.
+# To avoid this, type part of the name, and then press the Tab key.
 
 cat sup
 
