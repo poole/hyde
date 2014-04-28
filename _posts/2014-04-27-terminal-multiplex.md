@@ -16,11 +16,11 @@ This feature is very handy in that it allows you to "save your desktop" and retu
 
 This demo was made using my favorite multiplexer, called [tmux](http://tmux.sourceforge.net/).
 It has a number of nice features, including being able to split windows both horizontally and vertically.
-The most common multiplexer is GNU Screen.
+The most common multiplexer is [GNU Screen](http://www.gnu.org/software/screen/).
+.
 
 * [A very nice introduction to tmux](http://tmuxp.readthedocs.org/en/latest/about_tmux.html)
-* [Screen tutorial](https://www.linux.com/learn/tutorials/285795-taking-command-of-the-terminal-with-gnu-screen-)
-
 * [tmux homepage](http://tmux.sourceforge.net/)
+* [Screen tutorial](https://www.linux.com/learn/tutorials/285795-taking-command-of-the-terminal-with-gnu-screen-)
 * [GNU Screen manual](http://www.delorie.com/gnu/docs/screen/screen_toc.html)
 
