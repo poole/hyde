@@ -8,7 +8,7 @@ Powerful things happen with computers on the "command line".
 You can get on the command line on a mac via the `Terminal` application.
 On Windows you can follow [Michael G's instructions](https://teams.fhcrc.org/sites/citwiki/SciComp/Training%20Materials/Unix%20101/Slides.html#slide3).
 
-Here is a little introduction to the command line I just made:
+Here is a little demonstration of the command line I just made:
 
 <script type="text/javascript" src="https://asciinema.org/a/9111.js" id="asciicast-9111" async></script>
 
@@ -21,4 +21,4 @@ It's silent, so if you feel lonely you can listen to this, and feel hip at the s
 &nbsp;
 
 If you would like to learn more, we will be covering a lot more in the future.
-But if you are impatient, I would suggest the Learn Code The Hard Way [command line book](http://cli.learncodethehardway.org/book/).
+But if you are impatient, I would suggest the [LinuxCommand.org introduction](http://linuxcommand.org/lc3_learning_the_shell.php).

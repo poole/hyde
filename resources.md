@@ -12,7 +12,8 @@ published: true
 
 ### Terminal/Shell
 
-* [Command Line Crash Course](http://cli.learncodethehardway.org/book/)
+* [LinuxCommand.org introduction](http://linuxcommand.org/lc3_learning_the_shell.php).
+* [Command Line Crash Course](http://cli.learncodethehardway.org/book/)-- great if you don't mind the tone
 * [POSIX Shell reference](http://shellhaters.heroku.com/posix) and accompanying [talk](http://shellhaters.heroku.com/)
 * [Advanced Bash scripting Guide](http://tldp.org/LDP/abs/html/index.html)
 
@@ -40,4 +41,5 @@ published: true
 
 
 ### FHCRC-specific
+
 * [Training materials for SciComp courses](https://teams.fhcrc.org/sites/citwiki/SciComp/Training%20Materials/Forms/AllItems.aspx)
