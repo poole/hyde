@@ -9,8 +9,8 @@ published: true
 * Scientific computing currently runs an "introduction to Unix" and an "introduction to the cluster" courses quarterly.
 (These are not well advertised based on how many people don't know about them.)
 * R: [Seattle useR group](http://www.meetup.com/Seattle-useR/)
-* [R/Bioconductor events page](http://www.bioconductor.org/help/events/))
-* [CB Shared Resources web page](http://sharedresources.fhcrc.org/core-facilities/computational-biology).)
+* [R/Bioconductor events page](http://www.bioconductor.org/help/events/)
+* [CB Shared Resources web page](http://sharedresources.fhcrc.org/core-facilities/computational-biology).
 
 ### fhcrc.io calendar:
 
