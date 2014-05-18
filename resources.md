@@ -8,6 +8,7 @@ published: true
 
 * [Stack Overflow](http://stackoverflow.com), and more generally the [Stack Exchange](http://stackexchange.com/sites) family of sites
 * [Biostars](https://www.biostars.org/) for general bioinformatics-related questions
+* [ROSALIND interactive bioinformatics problem set](http://rosalind.info/) if you are serious about learning to code
 
 
 ### Terminal/Shell
@@ -32,7 +33,6 @@ published: true
 * [Codeacademy Python course](http://www.codecademy.com/tracks/python)
 * [Learn Python the Hard Way](http://learnpythonthehardway.org/book/)
 * [Biopython tutorial](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
-
 
 ### Phylogenetics
 
