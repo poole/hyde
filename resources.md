@@ -9,6 +9,7 @@ published: true
 * [Stack Overflow](http://stackoverflow.com), and more generally the [Stack Exchange](http://stackexchange.com/sites) family of sites
 * [Biostars](https://www.biostars.org/) for general bioinformatics-related questions
 * [ROSALIND interactive bioinformatics problem set](http://rosalind.info/) if you are serious about learning to code
+* [CB Shared Resources web page](http://sharedresources.fhcrc.org/core-facilities/computational-biology).
 
 
 ### Terminal/Shell
@@ -26,6 +27,8 @@ published: true
 * [RSeek](http://rseek.org)
 * [ggplot2](http://docs.ggplot2.org/current/)
 * [Advanced R](http://adv-r.had.co.nz/); [vocabulary](http://adv-r.had.co.nz/Vocabulary.html) is helpful for all levels
+* R: [Seattle useR group](http://www.meetup.com/Seattle-useR/)
+* [R/Bioconductor events page](http://www.bioconductor.org/help/events/)
 
 
 ### Python
