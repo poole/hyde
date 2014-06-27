@@ -30,11 +30,17 @@ layout: default
 var discourseUrl = "http://discourse.fhcrc.org/",
 discourseEmbedUrl = "http://fhcrc.io/{{page.url}}";
 
-(function() {
-var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
-d.src = discourseUrl 'javascripts/embed.js';
-(document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
-})();
+(
+    function()
+    {
+        var d = document.createElement('script');
+        d.type = 'text/javascript'; d.async = true;
+        d.src = discourseUrl + 'javascripts/embed.js';
+        (document.getElementsByTagName('head')[0] ||
+         document.getElementsByTagName('body')[0]).appendChild(d);
+    }
+)();
+
 </script>
 
 <a href="https://github.com/fhcrcio/fhcrc.io/edit/gh-pages/{{page.path}}">Edit this page on GitHub</a>
