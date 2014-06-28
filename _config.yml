@@ -7,8 +7,8 @@ permalink:        pretty
 
 # Setup
 title:            fhcrc.io
-tagline:          '<i>Education</i> and <i>access to</i> computational methods at the <a href="http://fhcrc.org" target="_blank">Fred Hutchinson Cancer Research Center</a>.'
-description:      '<i>Education</i> and <i>access to</i> computational methods at the <a href="http://fhcrc.org" target="_blank">Fred Hutchinson Cancer Research Center</a>.'
+tagline:          'Education and access to computational methods at the <a href="http://fhcrc.org" target="_blank">Fred Hutchinson Cancer Research Center</a>.'
+description:      'Education and access to computational methods at the <a href="http://fhcrc.org" target="_blank">Fred Hutchinson Cancer Research Center</a>.'
 url:              http://fhcrc.io
 
 paginate:         5
