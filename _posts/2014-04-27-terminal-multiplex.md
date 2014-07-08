@@ -1,6 +1,8 @@
 ---
 layout: post
 title: Terminal multiplexing
+category: articles
+tags: intermediate shell
 ---
 
 Terminal multiplexing means running lots of terminals within one, which is analogous to having lots of windows open on your desktop.
