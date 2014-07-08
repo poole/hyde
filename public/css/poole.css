@@ -318,11 +318,19 @@ tbody tr:nth-child(odd) th {
 }
 
 /* Meta data line below post title */
+.post-subtitle {
+    margin-top: -.4rem;
+    margin-bottom: 1rem;
+}
+
 .post-date {
-  display: block;
-  margin-top: -.5rem;
-  margin-bottom: 1rem;
   color: #9a9a9a;
+}
+
+.category {
+  background-color: #efefef;
+  border-radius: 7px;
+  padding: 1px 3px 1px 3px;
 }
 
 /* Related posts */

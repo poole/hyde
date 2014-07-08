@@ -4,8 +4,10 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_html_string }}</span>
-  <span class="categories">filed under {{ page.categories | category_links }}</span>
+  <div class="post-subtitle">
+    <span class="post-date">{{ page.date | date_to_html_string }}</span>
+    <span class="post-categories">{{ page.categories | category_links }}</span>
+  </div>
   {{ content }}
 </div>
 
