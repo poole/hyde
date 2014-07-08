@@ -368,6 +368,9 @@ tbody tr:nth-child(odd) th {
   color: inherit;
 }
 
+iframe.calendar {
+    margin-top: 1em;
+}
 
 /*
  * Pagination
