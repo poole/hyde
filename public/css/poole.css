@@ -327,10 +327,20 @@ tbody tr:nth-child(odd) th {
   color: #9a9a9a;
 }
 
-.category {
-  background-color: #efefef;
-  border-radius: 7px;
-  padding: 1px 3px 1px 3px;
+.post-tags {
+    display: inline;
+    list-style: none;
+    padding-left: 0;
+    font-size: 75%;
+    color: #9a9a9a;
+}
+
+.tag {
+    display: inline;
+    list-style-type: none;
+    background-color: #eeefef;
+    border-radius: 7px;
+    padding: 1px 3px 1px 3px;
 }
 
 /* Related posts */
