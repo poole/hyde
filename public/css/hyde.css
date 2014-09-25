@@ -34,12 +34,12 @@
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   html {
     font-size: 16px;
   }
 }
-@media (min-width: 58rem) {
+@media (min-width: 58em) {
   html {
     font-size: 20px;
   }
@@ -59,7 +59,7 @@ html {
   color: rgba(255,255,255,.5);
   background-color: #202020;
 }
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .sidebar {
     position: fixed;
     top: 0;
@@ -85,11 +85,11 @@ html {
 
 /* Sidebar nav */
 .sidebar-nav {
-  padding-left: 0;
-  list-style: none;
+  margin-bottom: 1rem;
 }
 .sidebar-nav-item {
   display: block;
+  line-height: 1.75;
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
@@ -105,7 +105,7 @@ a.sidebar-nav-item:focus {
  * contents to the bottom of the sidebar in tablets and up.
  */
 
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
@@ -126,7 +126,7 @@ a.sidebar-nav-item:focus {
   padding-bottom: 4rem;
 }
 
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .content {
     max-width: 38rem;
     margin-left: 20rem;
@@ -134,7 +134,7 @@ a.sidebar-nav-item:focus {
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 64em) {
   .content {
     margin-left: 22rem;
     margin-right: 4rem;
@@ -148,7 +148,7 @@ a.sidebar-nav-item:focus {
  * Flip the orientation of the page by placing the `.sidebar` on the right.
  */
 
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .layout-reverse .sidebar {
     left: auto;
     right: 0;
@@ -159,7 +159,7 @@ a.sidebar-nav-item:focus {
   }
 }
 
-@media (min-width: 64rem) {
+@media (min-width: 64em) {
   .layout-reverse .content {
     margin-left: 4rem;
     margin-right: 22rem;
