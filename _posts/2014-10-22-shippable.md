@@ -27,6 +27,4 @@ Prior to Shippable, Avi has worked in and managed large teams developing cutting
 
 <div style="text-align:center">
 Presented by <a href="http://fhcrc.io">fhcrc.io</a>
-
-<img src="http://fhcrc.io/public/logo-50px.png" style="margin-left: auto; margin-right: auto;"/>
 </div>
