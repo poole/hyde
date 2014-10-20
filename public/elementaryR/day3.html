@@ -1,0 +1,2308 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head> <title>Day 3: Introduction to R scripting</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- charset=utf-8,html,xhtml --> 
+<meta name="src" content="day3.tex" /> 
+<meta name="date" content="2014-10-20 15:25:00" /> 
+<link rel="stylesheet" type="text/css" href="day3.css" /> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+
+<h2 class="titleHead">Day 3: Introduction to R scripting</h2>
+<div class="author" ><span 
+class="aess-12">Jerry Davison and Martin Morgan</span></div><br />
+<div class="date" ></div>
+   </div>
+____________________________________________________________________________________________
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">What is a script?</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-30002" id="QQ2-1-3">Motivation: scripts are valuable because they&#x2019;re:</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-40003" id="QQ2-1-4">Writing your own functions</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-50004" id="QQ2-1-5">R programming functions</a></span>
+<br />    <span class="subsectionToc" >4.1 <a 
+href="#x1-60004.1" id="QQ2-1-6">apply</a></span>
+<br />    <span class="subsectionToc" >4.2 <a 
+href="#x1-70004.2" id="QQ2-1-7">lapply</a></span>
+<br />    <span class="subsectionToc" >4.3 <a 
+href="#x1-80004.3" id="QQ2-1-8">sapply</a></span>
+<br />    <span class="subsectionToc" >4.4 <a 
+href="#x1-90004.4" id="QQ2-1-9">if</a></span>
+<br />    <span class="subsectionToc" >4.5 <a 
+href="#x1-100004.5" id="QQ2-1-10">for</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-110005" id="QQ2-1-12">Good practices</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="#x1-120006" id="QQ2-1-13">An example script</a></span>
+<br />   <span class="sectionToc" >7 <a 
+href="#x1-130007" id="QQ2-1-14">Advanced</a></span>
+<br />   <span class="sectionToc" >8 <a 
+href="#x1-140008" id="QQ2-1-15">Bioconductor and CRAN packages</a></span>
+<br />   <span class="sectionToc" >9 <a 
+href="#x1-150009" id="QQ2-1-16">Resources</a></span>
+   </div>
+<!--l. 30--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>What is a script?</h3>
+<!--l. 32--><p class="noindent" >A <span 
+class="aessi-10">script </span>is a text ﬁle containing R commands on separate lines; commands will be sequentially executed from the top of the ﬁle
+downward, for example:
+</p><!--l. 36--><p class="indent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb1">
+<a 
+ id="x1-2002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> x</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> 2</span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> 2</span>
+<br class="fancyvrb" /><a 
+ id="x1-2004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> cat(x,</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">\n</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span>
+<br class="fancyvrb" /><a 
+ id="x1-2006r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> x</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> 7</span>
+   </div>
+<!--l. 43--><p class="indent" >   will print the number 4. To execute a script <span 
+class="aessi-10">myScript.R </span>that you&#x2019;ve written, in an R session enter the command
+<span class="obeylines-h"><span class="verb"><span 
+class="aett-10">source(</span><span 
+class="tctt-1000">'</span><span 
+class="aett-10">myScript.R</span><span 
+class="tctt-1000">'</span><span 
+class="aett-10">)</span></span></span>. Scripts&#x2019; greatest value may be that they assist you in generating <span class="underline">REPRODUCIBLE RESULTS</span>.
+<br 
+class="newline" />
+</p><!--l. 48--><p class="indent" >   When you execute a script it produces the same result each time it is run – <span 
+class="aessbx-10">when </span>its starting conditions such as input ﬁles
+remain the same. This characteristic can bring welcome relief if your project or complex analysis has to be recapitulated with a
+small change a year after its completion.
+</p><!--l. 54--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-30002"></a>Motivation: scripts are valuable because they&#x2019;re:</h3>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="aessi-10">reproducible </span>– share the script and its results with colleagues !
+     </li>
+     <li class="itemize"><span 
+class="aessi-10">re-usable </span>– analyze additional input ﬁles with one command !!
+     </li>
+     <li class="itemize"><span 
+class="aessi-10">extensible </span>– never again start related analyses from scratch !!!
+     </li>
+     <li class="itemize"><span 
+class="aessi-10">reliable </span>– no danger of typing x/y when you meant x*y !!!!</li></ul>
+<!--l. 63--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-40003"></a>Writing your own functions</h3>
+<!--l. 64--><p class="noindent" >So far we&#x2019;ve used mainly functions that are natively available in R, like mean() and plot(). A powerful capability R and other
+programming languages provide is creating – that is, writing – functions yourself. For example:
+                                                                                               
+                                                                                               
+</p>
+   <div class="verbatim" id="verbatim-1">
+matrixMaker &#x003C;- function(m, n) {
+ <br />  x = matrix(floor(runif(m*n, min=0, max=10)), nrow=m, ncol=n)
+ <br />  colnames(x) = LETTERS[1:n]
+ <br />  rownames(x) = 1:m
+ <br />  return(x)
+ <br />}
+</div>
+<!--l. 75--><p class="nopar" >
+</p><!--l. 79--><p class="indent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb2">
+<a 
+ id="x1-4002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> matrixMaker(4,3)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> 4</span><span 
+class="aesltt-10"> rows,</span><span 
+class="aesltt-10"> 3</span><span 
+class="aesltt-10"> columns</span>
+   </div>
+<!--l. 82--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb3">
+<a 
+ id="x1-4004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> A</span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> C</span>
+<br class="fancyvrb" /><a 
+ id="x1-4006r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 0</span>
+<br class="fancyvrb" /><a 
+ id="x1-4008r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 9</span>
+<br class="fancyvrb" /><a 
+ id="x1-4010r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 2</span>
+<br class="fancyvrb" /><a 
+ id="x1-4012r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 6</span>
+   </div>
+<!--l. 91--><p class="indent" >   This function does several things in succession: (1) it creates a <span 
+class="aessbx-10">mXn </span>matrix of integers uniformly distributed
+from 0 to 9, (2) assigns row and column names to the matrix, and (3) returns the matrix as the value of the
+function. Functions have a speciﬁc syntax, with zero to many arguments, a body, and a return value. In general,
+variables created inside a function body <span 
+class="aessbx-10">are not known </span>outside of the function. We recommend functions as
+they:
+</p>
+     <ul class="itemize1">
+     <li class="itemize">perform identical operations to diﬀerent data
+     </li>
+     <li class="itemize">guide you to thinking in structured modules
+     </li>
+     <li class="itemize">can help you simplify a complex algorithm</li></ul>
+<!--l. 105--><p class="indent" >   <span 
+class="aessbx-10">Exercise: </span>write a function that takes as its input arguments two numbers, multiplies them together, then
+ﬁnds the square root of their product, and returns a list with elements 1) the two numbers as a vector, 2) their
+product and 3) its square root. Name the elements of that list with the third, ﬁrst and 20th letters of the alphabet.
+Execute the function twice, the ﬁrst time with input values 3 and 18, the second time with values 42 and negative
+9.
+</p><!--l. 113--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-50004"></a>R programming functions</h3>
+                                                                                               
+                                                                                               
+<!--l. 114--><p class="noindent" >R provides additional resources for scripting. We&#x2019;ll cover a few in detail here – see Table 1 for others you may ﬁnd useful. Let&#x2019;s
+ﬁrst create a matrix we&#x2019;ll use as a test subject:
+</p><!--l. 119--><p class="indent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb4">
+<a 
+ id="x1-5002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> set.seed(11)</span>
+<br class="fancyvrb" /><a 
+ id="x1-5004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> mx</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> matrixMaker(10,5)</span>
+<br class="fancyvrb" /><a 
+ id="x1-5006r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> mx</span>
+   </div>
+<!--l. 124--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb5">
+<a 
+ id="x1-5008r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> A</span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> C</span><span 
+class="aett-10"> D</span><span 
+class="aett-10"> E</span>
+<br class="fancyvrb" /><a 
+ id="x1-5010r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> 2</span>
+<br class="fancyvrb" /><a 
+ id="x1-5012r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 2</span>
+<br class="fancyvrb" /><a 
+ id="x1-5014r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 4</span>
+<br class="fancyvrb" /><a 
+ id="x1-5016r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 6</span>
+<br class="fancyvrb" /><a 
+ id="x1-5018r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 3</span>
+<br class="fancyvrb" /><a 
+ id="x1-5020r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 8</span>
+<br class="fancyvrb" /><a 
+ id="x1-5022r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 6</span>
+<br class="fancyvrb" /><a 
+ id="x1-5024r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 0</span>
+<br class="fancyvrb" /><a 
+ id="x1-5026r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 5</span>
+<br class="fancyvrb" /><a 
+ id="x1-5028r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 10</span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 8</span>
+   </div>
+<!--l. 139--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x1-60004.1"></a>apply</h4>
+<!--l. 140--><p class="noindent" >Use &#x2019;apply&#x2019; to operate on rows or columns individually
+</p>
+   <div class="fancyvrb" id="fancyvrb6">
+<a 
+ id="x1-6002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> apply(mx,</span><span 
+class="aesltt-10"> 1,</span><span 
+class="aesltt-10"> sum)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> sum</span><span 
+class="aesltt-10"> values</span><span 
+class="aesltt-10"> for</span><span 
+class="aesltt-10"> each</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">sample</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10"> 1</span><span 
+class="aesltt-10"> through</span><span 
+class="aesltt-10"> 10</span>
+   </div>
+<!--l. 145--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb7">
+<a 
+ id="x1-6004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 10</span>
+<br class="fancyvrb" /><a 
+ id="x1-6006r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 12</span><span 
+class="aett-10"> 15</span><span 
+class="aett-10"> 25</span><span 
+class="aett-10"> 19</span><span 
+class="aett-10"> 18</span><span 
+class="aett-10"> 32</span><span 
+class="aett-10"> 15</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 17</span><span 
+class="aett-10"> 16</span>
+   </div>
+<!--l. 149--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb8">
+<a 
+ id="x1-6008r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> apply(mx,</span><span 
+class="aesltt-10"> 2,</span><span 
+class="aesltt-10"> sum)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> sum</span><span 
+class="aesltt-10"> values</span><span 
+class="aesltt-10"> for</span><span 
+class="aesltt-10"> each</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">experiment</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10"> A</span><span 
+class="aesltt-10"> through</span><span 
+class="aesltt-10"> E</span>
+   </div>
+<!--l. 152--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb9">
+<a 
+ id="x1-6010r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> A</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> C</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> D</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> E</span>
+<br class="fancyvrb" /><a 
+ id="x1-6012r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 27</span><span 
+class="aett-10"> 46</span><span 
+class="aett-10"> 25</span><span 
+class="aett-10"> 33</span><span 
+class="aett-10"> 44</span>
+   </div>
+<!--l. 156--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb10">
+<a 
+ id="x1-6014r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> ###</span><span 
+class="aesltt-10"> Create</span><span 
+class="aesltt-10"> an</span><span 
+class="aesltt-10"> on-the-fly</span><span 
+class="aesltt-10"> function</span><span 
+class="aesltt-10"> for</span><span 
+class="aesltt-10"> a</span><span 
+class="aesltt-10"> more</span><span 
+class="aesltt-10"> complex</span><span 
+class="aesltt-10"> evaluation</span>
+<br class="fancyvrb" /><a 
+ id="x1-6016r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> apply(mx,</span><span 
+class="aesltt-10"> 2,</span><span 
+class="aesltt-10"> function(x)</span><span 
+class="aesltt-10"> length(which(x!=0)))</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> count</span><span 
+class="aesltt-10"> column</span><span 
+class="aesltt-10"> non-zero</span><span 
+class="aesltt-10"> values</span>
+   </div>
+<!--l. 160--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb11">
+<a 
+ id="x1-6018r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> A</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> C</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> D</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> E</span>
+<br class="fancyvrb" /><a 
+ id="x1-6020r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 10</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span>
+   </div>
+<!--l. 166--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x1-70004.2"></a>lapply</h4>
+<!--l. 167--><p class="noindent" >Similar to &#x2019;apply&#x2019; but operates on lists: ﬁrst letś generate a list
+</p>
+   <div class="fancyvrb" id="fancyvrb12">
+<a 
+ id="x1-7002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> mxl</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> list(A=mx[,</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">A</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">],</span><span 
+class="aesltt-10"> B=mx[,</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">B</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">],</span><span 
+class="aesltt-10"> C=mx[,</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">C</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">],</span><span 
+class="aesltt-10"> D=mx[,</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">D</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">],</span><span 
+class="aesltt-10"> E=mx[,</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">E</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">])</span>
+<br class="fancyvrb" /><a 
+ id="x1-7004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> mxl</span>
+   </div>
+<!--l. 173--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb13">
+<a 
+ id="x1-7006r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $A</span>
+<br class="fancyvrb" /><a 
+ id="x1-7008r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 10</span>
+<br class="fancyvrb" /><a 
+ id="x1-7010r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span>
+<br class="fancyvrb" /><a 
+ id="x1-7012r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7014r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $B</span>
+<br class="fancyvrb" /><a 
+ id="x1-7016r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 10</span>
+<br class="fancyvrb" /><a 
+ id="x1-7018r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span>
+<br class="fancyvrb" /><a 
+ id="x1-7020r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7022r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $C</span>
+<br class="fancyvrb" /><a 
+ id="x1-7024r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 10</span>
+<br class="fancyvrb" /><a 
+ id="x1-7026r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span>
+<br class="fancyvrb" /><a 
+ id="x1-7028r12"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7030r13"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $D</span>
+<br class="fancyvrb" /><a 
+ id="x1-7032r14"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 10</span>
+<br class="fancyvrb" /><a 
+ id="x1-7034r15"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span>
+<br class="fancyvrb" /><a 
+ id="x1-7036r16"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7038r17"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $E</span>
+<br class="fancyvrb" /><a 
+ id="x1-7040r18"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 10</span>
+<br class="fancyvrb" /><a 
+ id="x1-7042r19"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 194--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb14">
+<a 
+ id="x1-7044r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> ###</span><span 
+class="aesltt-10"> use</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">lapply</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10"> on</span><span 
+class="aesltt-10"> a</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">L</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">-ist</span>
+<br class="fancyvrb" /><a 
+ id="x1-7046r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> lapply(mxl,</span><span 
+class="aesltt-10"> sum)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> total</span><span 
+class="aesltt-10"> score</span><span 
+class="aesltt-10"> for</span><span 
+class="aesltt-10"> each</span><span 
+class="aesltt-10"> exp</span><span 
+class="aesltt-10"> A</span><span 
+class="aesltt-10"> through</span><span 
+class="aesltt-10"> E</span>
+   </div>
+<!--l. 198--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb15">
+<a 
+ id="x1-7048r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $A</span>
+<br class="fancyvrb" /><a 
+ id="x1-7050r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 27</span>
+<br class="fancyvrb" /><a 
+ id="x1-7052r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7054r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $B</span>
+<br class="fancyvrb" /><a 
+ id="x1-7056r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 46</span>
+<br class="fancyvrb" /><a 
+ id="x1-7058r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7060r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $C</span>
+<br class="fancyvrb" /><a 
+ id="x1-7062r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 25</span>
+<br class="fancyvrb" /><a 
+ id="x1-7064r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7066r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $D</span>
+<br class="fancyvrb" /><a 
+ id="x1-7068r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 33</span>
+<br class="fancyvrb" /><a 
+ id="x1-7070r12"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7072r13"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $E</span>
+<br class="fancyvrb" /><a 
+ id="x1-7074r14"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 44</span>
+   </div>
+<!--l. 214--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb16">
+<a 
+ id="x1-7076r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> lapply(mxl,</span><span 
+class="aesltt-10"> function(x)</span><span 
+class="aesltt-10"> length(which(x!=0)))</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> num.</span><span 
+class="aesltt-10"> samples</span><span 
+class="aesltt-10"> with</span><span 
+class="aesltt-10"> value</span><span 
+class="aesltt-10"> !=</span><span 
+class="aesltt-10"> 0</span>
+   </div>
+<!--l. 217--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb17">
+<a 
+ id="x1-7078r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $A</span>
+<br class="fancyvrb" /><a 
+ id="x1-7080r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 6</span>
+<br class="fancyvrb" /><a 
+ id="x1-7082r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7084r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $B</span>
+<br class="fancyvrb" /><a 
+ id="x1-7086r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 10</span>
+<br class="fancyvrb" /><a 
+ id="x1-7088r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7090r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $C</span>
+<br class="fancyvrb" /><a 
+ id="x1-7092r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 8</span>
+<br class="fancyvrb" /><a 
+ id="x1-7094r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7096r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $D</span>
+<br class="fancyvrb" /><a 
+ id="x1-7098r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 9</span>
+<br class="fancyvrb" /><a 
+ id="x1-7100r12"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7102r13"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $E</span>
+<br class="fancyvrb" /><a 
+ id="x1-7104r14"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 9</span>
+   </div>
+<!--l. 233--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb18">
+<a 
+ id="x1-7106r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> lapply(seq(along=mxl),</span><span 
+class="aesltt-10"> function(k)</span><span 
+class="aesltt-10"> sum(mxl[[k]]))</span>
+   </div>
+<!--l. 236--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb19">
+<a 
+ id="x1-7108r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [[1]]</span>
+<br class="fancyvrb" /><a 
+ id="x1-7110r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 27</span>
+<br class="fancyvrb" /><a 
+ id="x1-7112r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7114r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [[2]]</span>
+<br class="fancyvrb" /><a 
+ id="x1-7116r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 46</span>
+<br class="fancyvrb" /><a 
+ id="x1-7118r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7120r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [[3]]</span>
+<br class="fancyvrb" /><a 
+ id="x1-7122r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 25</span>
+<br class="fancyvrb" /><a 
+ id="x1-7124r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7126r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [[4]]</span>
+<br class="fancyvrb" /><a 
+ id="x1-7128r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 33</span>
+<br class="fancyvrb" /><a 
+ id="x1-7130r12"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7132r13"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [[5]]</span>
+<br class="fancyvrb" /><a 
+ id="x1-7134r14"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 44</span>
+   </div>
+<!--l. 252--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb20">
+<a 
+ id="x1-7136r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> ###</span><span 
+class="aesltt-10"> Particular</span><span 
+class="aesltt-10"> utility</span><span 
+class="aesltt-10"> of</span><span 
+class="aesltt-10"> a</span><span 
+class="aesltt-10"> list</span><span 
+class="aesltt-10"> --</span><span 
+class="aesltt-10"> collect</span><span 
+class="aesltt-10"> objects</span><span 
+class="aesltt-10"> of</span><span 
+class="aesltt-10"> different</span><span 
+class="aesltt-10"> classes</span>
+<br class="fancyvrb" /><a 
+ id="x1-7138r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> mxl2</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> lapply(seq(ncol(mx)),</span><span 
+class="aesltt-10"> function(k)</span><span 
+class="aesltt-10"> list(mx[,k],</span><span 
+class="aesltt-10"> paste(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">Sample</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span><span 
+class="aesltt-10"> LETTERS[k])))</span>
+<br class="fancyvrb" /><a 
+ id="x1-7140r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> names(mxl2)</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> tolower(colnames(mx))</span>
+   </div>
+<!--l. 259--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x1-80004.3"></a>sapply</h4>
+<!--l. 260--><p class="noindent" >The class of result diﬀers between &#x2019;lapply&#x2019; and &#x2019;sapply&#x2019;
+</p>
+   <div class="fancyvrb" id="fancyvrb21">
+<a 
+ id="x1-8002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> lapply(mxl,</span><span 
+class="aesltt-10"> sum)</span>
+   </div>
+<!--l. 265--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb22">
+<a 
+ id="x1-8004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $A</span>
+<br class="fancyvrb" /><a 
+ id="x1-8006r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 27</span>
+<br class="fancyvrb" /><a 
+ id="x1-8008r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-8010r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $B</span>
+<br class="fancyvrb" /><a 
+ id="x1-8012r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 46</span>
+<br class="fancyvrb" /><a 
+ id="x1-8014r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-8016r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $C</span>
+                                                                                               
+                                                                                               
+<br class="fancyvrb" /><a 
+ id="x1-8018r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 25</span>
+<br class="fancyvrb" /><a 
+ id="x1-8020r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-8022r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $D</span>
+<br class="fancyvrb" /><a 
+ id="x1-8024r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 33</span>
+<br class="fancyvrb" /><a 
+ id="x1-8026r12"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-8028r13"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $E</span>
+<br class="fancyvrb" /><a 
+ id="x1-8030r14"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 44</span>
+   </div>
+<!--l. 281--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb23">
+<a 
+ id="x1-8032r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> sapply(mxl,</span><span 
+class="aesltt-10"> sum)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> Operate</span><span 
+class="aesltt-10"> on</span><span 
+class="aesltt-10"> list</span>
+   </div>
+<!--l. 284--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb24">
+<a 
+ id="x1-8034r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> A</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> C</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> D</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> E</span>
+<br class="fancyvrb" /><a 
+ id="x1-8036r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 27</span><span 
+class="aett-10"> 46</span><span 
+class="aett-10"> 25</span><span 
+class="aett-10"> 33</span><span 
+class="aett-10"> 44</span>
+   </div>
+<!--l. 288--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb25">
+<a 
+ id="x1-8038r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> sapply(mxl,</span><span 
+class="aesltt-10"> sum,</span><span 
+class="aesltt-10"> simplify=FALSE)</span>
+   </div>
+<!--l. 291--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb26">
+<a 
+ id="x1-8040r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $A</span>
+<br class="fancyvrb" /><a 
+ id="x1-8042r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 27</span>
+<br class="fancyvrb" /><a 
+ id="x1-8044r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-8046r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $B</span>
+<br class="fancyvrb" /><a 
+ id="x1-8048r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 46</span>
+<br class="fancyvrb" /><a 
+ id="x1-8050r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-8052r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $C</span>
+<br class="fancyvrb" /><a 
+ id="x1-8054r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 25</span>
+<br class="fancyvrb" /><a 
+ id="x1-8056r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-8058r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $D</span>
+<br class="fancyvrb" /><a 
+ id="x1-8060r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 33</span>
+<br class="fancyvrb" /><a 
+ id="x1-8062r12"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-8064r13"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $E</span>
+<br class="fancyvrb" /><a 
+ id="x1-8066r14"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 44</span>
+   </div>
+<!--l. 307--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb27">
+<a 
+ id="x1-8068r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> sqrt(sapply(mxl,</span><span 
+class="aesltt-10"> sum))</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> Continue</span><span 
+class="aesltt-10"> with</span><span 
+class="aesltt-10"> additional</span><span 
+class="aesltt-10"> operations</span>
+   </div>
+<!--l. 310--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb28">
+<a 
+ id="x1-8070r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> A</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> C</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> D</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> E</span>
+<br class="fancyvrb" /><a 
+ id="x1-8072r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5.196152</span><span 
+class="aett-10"> 6.782330</span><span 
+class="aett-10"> 5.000000</span><span 
+class="aett-10"> 5.744563</span><span 
+class="aett-10"> 6.633250</span>
+   </div>
+<!--l. 316--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.4   </span> <a 
+ id="x1-90004.4"></a>if</h4>
+<!--l. 317--><p class="noindent" >The &#x2019;if&#x2019; statement assesses whether a statement is true, and acts based on that:
+</p>
+   <div class="fancyvrb" id="fancyvrb29">
+<a 
+ id="x1-9002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> if(any(mx==0))</span><span 
+class="aesltt-10"> cat(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">Some</span><span 
+class="aesltt-10"> values</span><span 
+class="aesltt-10"> are</span><span 
+class="aesltt-10"> zero!\n</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span>
+   </div>
+<!--l. 322--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb30">
+<a 
+ id="x1-9004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Some</span><span 
+class="aett-10"> values</span><span 
+class="aett-10"> are</span><span 
+class="aett-10"> zero!</span>
+   </div>
+<!--l. 325--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb31">
+<a 
+ id="x1-9006r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> if(all(mx!=0))</span><span 
+class="aesltt-10"> cat(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">&#x003C;NO&#x003E;</span><span 
+class="aesltt-10"> values</span><span 
+class="aesltt-10"> are</span><span 
+class="aesltt-10"> zero!\n</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span>
+<br class="fancyvrb" /><a 
+ id="x1-9008r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> if</span><span 
+class="aesltt-10"> (any(mx==0))</span><span 
+class="aesltt-10"> cat(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">Some</span><span 
+class="aesltt-10"> values</span><span 
+class="aesltt-10"> are</span><span 
+class="aesltt-10"> zero!\n</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span><span 
+class="aesltt-10"> else</span><span 
+class="aesltt-10"> cat(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">&#x003C;NO&#x003E;</span><span 
+class="aesltt-10"> values</span><span 
+class="aesltt-10"> are</span><span 
+class="aesltt-10"> zero!\n</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span>
+   </div>
+<!--l. 329--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb32">
+<a 
+ id="x1-9010r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Some</span><span 
+class="aett-10"> values</span><span 
+class="aett-10"> are</span><span 
+class="aett-10"> zero!</span>
+   </div>
+<!--l. 332--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb33">
+<a 
+ id="x1-9012r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> if</span><span 
+class="aesltt-10"> (any(mx==0))</span><span 
+class="aesltt-10"> {</span>
+<br class="fancyvrb" /><a 
+ id="x1-9014r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> msg</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">Some</span><span 
+class="aesltt-10"> values</span><span 
+class="aesltt-10"> are</span><span 
+class="aesltt-10"> zero!</span><span 
+class="tcst-1000">'</span>
+<br class="fancyvrb" /><a 
+ id="x1-9016r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> cat(msg,</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">\n</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span>
+<br class="fancyvrb" /><a 
+ id="x1-9018r4"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> }</span><span 
+class="aesltt-10"> else</span><span 
+class="aesltt-10"> {</span>
+<br class="fancyvrb" /><a 
+ id="x1-9020r5"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> msg</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">&#x003C;NO&#x003E;</span><span 
+class="aesltt-10"> values</span><span 
+class="aesltt-10"> are</span><span 
+class="aesltt-10"> zero!</span><span 
+class="tcst-1000">'</span>
+<br class="fancyvrb" /><a 
+ id="x1-9022r6"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> cat(msg,</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">\n</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span>
+<br class="fancyvrb" /><a 
+ id="x1-9024r7"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> }</span>
+   </div>
+<!--l. 341--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb34">
+<a 
+ id="x1-9026r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Some</span><span 
+class="aett-10"> values</span><span 
+class="aett-10"> are</span><span 
+class="aett-10"> zero!</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 344--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb35">
+<a 
+ id="x1-9028r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> ###</span><span 
+class="aesltt-10"> Scope</span><span 
+class="aesltt-10"> of</span><span 
+class="aesltt-10"> variables</span><span 
+class="aesltt-10"> assigned</span><span 
+class="aesltt-10"> within</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">if</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10"> includes</span><span 
+class="aesltt-10"> the</span><span 
+class="aesltt-10"> parent</span><span 
+class="aesltt-10"> environment:</span>
+<br class="fancyvrb" /><a 
+ id="x1-9030r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> msg</span>
+   </div>
+<!--l. 348--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb36">
+<a 
+ id="x1-9032r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;Some</span><span 
+class="aett-10"> values</span><span 
+class="aett-10"> are</span><span 
+class="aett-10"> zero!&#x0022;</span>
+   </div>
+<!--l. 353--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.5   </span> <a 
+ id="x1-100004.5"></a>for</h4>
+<!--l. 354--><p class="noindent" >The scope of variables assigned within &#x2019;for&#x2019; also includes the parent environment:
+</p>
+   <div class="fancyvrb" id="fancyvrb37">
+<a 
+ id="x1-10002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> for</span><span 
+class="aesltt-10"> (k</span><span 
+class="aesltt-10"> in</span><span 
+class="aesltt-10"> seq(ncol(mx)))</span><span 
+class="aesltt-10"> {</span>
+<br class="fancyvrb" /><a 
+ id="x1-10004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> u</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> unique(mx[,k])</span>
+<br class="fancyvrb" /><a 
+ id="x1-10006r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> len</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> length(u)</span>
+<br class="fancyvrb" /><a 
+ id="x1-10008r4"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> }</span>
+<br class="fancyvrb" /><a 
+ id="x1-10010r5"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> ###</span><span 
+class="aesltt-10"> But!</span>
+<br class="fancyvrb" /><a 
+ id="x1-10012r6"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> u</span>
+   </div>
+<!--l. 364--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb38">
+<a 
+ id="x1-10014r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 5</span>
+   </div>
+<!--l. 367--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb39">
+<a 
+ id="x1-10016r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> len</span>
+   </div>
+<!--l. 370--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb40">
+<a 
+ id="x1-10018r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 7</span>
+   </div>
+<!--l. 373--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb41">
+                                                                                               
+                                                                                               
+<a 
+ id="x1-10020r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> ###</span><span 
+class="aesltt-10"> Be</span><span 
+class="aesltt-10"> careful</span><span 
+class="aesltt-10"> :)</span>
+<br class="fancyvrb" /><a 
+ id="x1-10022r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> u</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> vector(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">list</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span><span 
+class="aesltt-10"> ncol(mx))</span>
+<br class="fancyvrb" /><a 
+ id="x1-10024r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> len</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> vector(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">integer</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span><span 
+class="aesltt-10"> ncol(mx))</span>
+<br class="fancyvrb" /><a 
+ id="x1-10026r4"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> #</span>
+<br class="fancyvrb" /><a 
+ id="x1-10028r5"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> for</span><span 
+class="aesltt-10"> (k</span><span 
+class="aesltt-10"> in</span><span 
+class="aesltt-10"> seq(ncol(mx)))</span><span 
+class="aesltt-10"> {</span>
+<br class="fancyvrb" /><a 
+ id="x1-10030r6"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> u[[k]]</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> unique(mx[,k])</span>
+<br class="fancyvrb" /><a 
+ id="x1-10032r7"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> len[k]</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> length(u[[k]])</span>
+<br class="fancyvrb" /><a 
+ id="x1-10034r8"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> }</span>
+<br class="fancyvrb" /><a 
+ id="x1-10036r9"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> names(u)</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> names(len)</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> colnames(mx)</span>
+<br class="fancyvrb" /><a 
+ id="x1-10038r10"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> u</span>
+   </div>
+<!--l. 385--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb42">
+<a 
+ id="x1-10040r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $A</span>
+<br class="fancyvrb" /><a 
+ id="x1-10042r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 1</span>
+<br class="fancyvrb" /><a 
+ id="x1-10044r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-10046r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $B</span>
+<br class="fancyvrb" /><a 
+ id="x1-10048r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> 3</span>
+<br class="fancyvrb" /><a 
+ id="x1-10050r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-10052r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $C</span>
+<br class="fancyvrb" /><a 
+ id="x1-10054r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 1</span>
+<br class="fancyvrb" /><a 
+ id="x1-10056r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-10058r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $D</span>
+<br class="fancyvrb" /><a 
+ id="x1-10060r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 0</span>
+<br class="fancyvrb" /><a 
+ id="x1-10062r12"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-10064r13"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> $E</span>
+<br class="fancyvrb" /><a 
+ id="x1-10066r14"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 0</span><span 
+class="aett-10"> 5</span>
+   </div>
+<!--l. 401--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb43">
+<a 
+ id="x1-10068r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> len</span>
+   </div>
+<!--l. 404--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb44">
+<a 
+ id="x1-10070r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> A</span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> C</span><span 
+class="aett-10"> D</span><span 
+class="aett-10"> E</span>
+<br class="fancyvrb" /><a 
+ id="x1-10072r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> 7</span>
+   </div>
+   <div class="table">
+                                                                                               
+                                                                                               
+<!--l. 410--><p class="indent" >   <a 
+ id="x1-10073r1"></a></p><hr class="float" /><div class="float" 
+>
+                                                                                               
+                                                                                               
+ <div class="caption" 
+><span class="id">Table 1: </span><span  
+class="content">A selection of <span 
+class="aessi-10">R </span>functions</span></div><!--tex4ht:label?: x1-10073r1 -->
+<div class="minipage">____________________________________________________________________________ <dl class="description"><dt class="description">
+<span 
+class="aett-10">dir</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">read.table </span><span 
+class="aessbx-10">(and friends), </span><span 
+class="aett-10">scan</span> </dt><dd 
+class="description">List ﬁles in a directory, read spreadsheet-like data into
+        <span 
+class="aessi-10">R</span>, eﬃciently read homogeneous data (e.g., a ﬁle of numeric values) to be represented as a
+        matrix.
+        </dd><dt class="description">
+<span 
+class="aett-10">c</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">factor</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">data.frame</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">matrix</span> </dt><dd 
+class="description">Create a vector, factor, data frame or matrix.
+        </dd><dt class="description">
+<span 
+class="aett-10">summary</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">table</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">xtabs</span> </dt><dd 
+class="description">Summarize, create a table of the number of times elements occur in a
+        vector, cross-tabulate two or more variables.
+        </dd><dt class="description">
+<span 
+class="aett-10">t.test</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">aov</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">lm</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">anova</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">chisq.test</span> </dt><dd 
+class="description">Basic comparison of two (<span 
+class="aett-10">t.test</span>) groups, or several
+        groups via analysis of variance / linear models (<span 
+class="aett-10">aov </span>output is probably more familiar to
+        biologists), or compare simpler with more complicated models (<span 
+class="aett-10">anova</span>); <span 
+class="cmmi-10">χ</span><sup><span 
+class="cmr-7">2</span></sup> tests.
+        </dd><dt class="description">
+<span 
+class="aett-10">dist</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">hclust</span> </dt><dd 
+class="description">Cluster data.
+        </dd><dt class="description">
+<span 
+class="aett-10">plot</span> </dt><dd 
+class="description">Plot data.
+        </dd><dt class="description">
+<span 
+class="aett-10">ls</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">str</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">library</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">search</span> </dt><dd 
+class="description">List objects in the current (or speciﬁed) workspace, or peak at the
+        structure of an object; add a library to or describe the search path of attached packages.
+        </dd><dt class="description">
+<span 
+class="aett-10">lapply</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">sapply</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">mapply</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">aggregate</span> </dt><dd 
+class="description">Apply  a  function  to  each  element  of  a  list  (<span 
+class="aett-10">lapply</span>,
+        <span 
+class="aett-10">sapply</span>), to elements of several lists (<span 
+class="aett-10">mapply</span>), or to elements of a list partitioned by one
+        or more factors (<span 
+class="aett-10">aggregate</span>).
+        </dd><dt class="description">
+<span 
+class="aett-10">with</span> </dt><dd 
+class="description">Conveniently access columns of a data frame or other element without having to repeat
+        the name of the data frame.
+        </dd><dt class="description">
+<span 
+class="aett-10">match</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">%in%</span> </dt><dd 
+class="description">Report the index or existence of elements from one vector that match another.
+        </dd><dt class="description">
+<span 
+class="aett-10">split</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">cut</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">unlist</span> </dt><dd 
+class="description">Split one vector by an equal length factor, cut a single vector into intervals
+        encoded as levels of a factor, unlist (concatenate) list elements.
+        </dd><dt class="description">
+<span 
+class="aett-10">strsplit</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">grep</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">sub</span> </dt><dd 
+class="description">Operate on character vectors, splitting it into distinct ﬁelds, searching for
+        the occurrence of a patterns using regular expressions (see <span 
+class="aett-10">?regex</span>, or substituting a string
+        for a regular expression).
+        </dd><dt class="description">
+<span 
+class="aett-10">install.packages</span> </dt><dd 
+class="description">Install a package from an on-line repository into your <span 
+class="aessi-10">R</span>.
+        </dd><dt class="description">
+<span 
+class="aett-10">traceback</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">debug</span><span 
+class="aessbx-10">, </span><span 
+class="aett-10">browser</span> </dt><dd 
+class="description">Report the sequence of functions under evaluation at the time of
+        the error; enter a debugger when a particular function or statement is invoked.</dd></dl></div>
+                                                                                               
+                                                                                               
+   </div><hr class="endfloat" />
+   </div>
+____________________________________________________________________________________________
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-110005"></a>Good practices</h3>
+<!--l. 467--><p class="noindent" >To increase their value to you, work towards building scripts that are
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="aessi-10">readable </span>– organize related commands into blocks separated by vertical space. Use comments freely – text on any
+     line after a &#x2019;#&#x2019; is ignored by R. Indent commands in entering nested levels of control and reverse the indentation
+     after exiting them.
+     </li>
+     <li class="itemize"><span 
+class="aessi-10">modular </span>– put functions you write in separate ﬁles and <span class="obeylines-h"><span class="verb"><span 
+class="aett-10">source()</span></span></span> them in scripts that use the functions.
+     </li>
+     <li class="itemize"><span 
+class="aessi-10">maintainable </span>– variable and ﬁle names are meaningful, projects are in separate directories: create a set of directories
+     in a <span 
+class="aessbx-10">project </span>directory.</li></ul>
+<!--l. 483--><p class="indent" >   For example you may create a folder or directory <span 
+class="aessbx-10">RNAseq </span>and under that the following folders or directories:<br 
+class="newline" />
+</p>
+   <div class="tabular"> <table id="TBL-2" class="tabular" 
+cellspacing="0" cellpadding="0" rules="groups" 
+><colgroup id="TBL-2-1g"><col 
+id="TBL-2-1" /></colgroup><colgroup id="TBL-2-2g"><col 
+id="TBL-2-2" /></colgroup><tr  
+ style="vertical-align:baseline;" id="TBL-2-1-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-1"  
+class="td11">Subdirectory/Folder</td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-1-2"  
+class="td11">Can contain                                                                       </td>
+</tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-2-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-1"  
+class="td11">data                    </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-2-2"  
+class="td11">Data ﬁles created during the analysis (.rda for example)                </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-3-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-3-1"  
+class="td11">extdata                 </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-3-2"  
+class="td11">Data ﬁles available at the start of the analysis (.txt for example)     </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-4-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-1"  
+class="td11">R                        </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-4-2"  
+class="td11">R script ﬁles that only contain R functions you or others wrote       </td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-5-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-1"  
+class="td11">script                   </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-5-2"  
+class="td11">R script ﬁles with analyses that may call functions in the R directory</td>
+</tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-6-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-1"  
+class="td11">doc                      </td><td  style="white-space:nowrap; text-align:left;" id="TBL-2-6-2"  
+class="td11">Documents and similar ﬁles                                                   </td></tr><tr 
+class="hline"><td><hr /></td><td><hr /></td></tr><tr  
+ style="vertical-align:baseline;" id="TBL-2-7-"><td  style="white-space:nowrap; text-align:left;" id="TBL-2-7-1"  
+class="td11"> </td> </tr></table>
+</div>
+<!--l. 499--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-120006"></a>An example script</h3>
+                                                                                               
+                                                                                               
+   <div class="verbatim" id="verbatim-2">
+# filename: little_script.R
+ <br />#
+ <br /># Example script illustrating good practices
+ <br />#
+ <br /># jdavison &#x0026; mtmorgan
+ <br />#
+ <br /># -&#x003E; source('little_script.R', echo=TRUE, max=Inf)
+ <br />#
+ <br />
+ <br />### Scatter plot with title, &#x0022;toFile&#x0022; and ... passed as arguments
+ <br />plotIt &#x003C;- function(x, y, main='', toFile=FALSE, ...) {
+ <br />  if(toFile) pdf(file='myPlot.pdf')
+ <br />  plot(x,y, type='o', main=main, ...)
+ <br />  abline(h=0, lty=3,col='blue')
+ <br />  abline(v=0, lty=2, col='red')
+ <br />  if(toFile) invisible(dev.off())
+ <br />}
+ <br />
+ <br />### Use defaults
+ <br />x = 0:20/pi
+ <br />y = sin(x)
+ <br />plotIt(x,y)
+ <br />
+ <br />### Specify title
+ <br />x = seq(0,10,0.1)
+ <br />y = x^2*exp(-x)
+ <br />plotIt(x,y, main='Exponential function')
+ <br />
+ <br />### Write to file, specify additional plot options
+ <br />zed = seq(0,20,0.1)/pi
+ <br />plotIt(sin(2*zed), cos(3*zed), main='Lissajous figure a:b = 2:3',
+ <br />       toFile=TRUE, pch=22, lwd=3, col='orange')
+</div>
+<!--l. 534--><p class="nopar" >
+</p><!--l. 536--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x1-130007"></a>Advanced</h3>
+<!--l. 537--><p class="noindent" >If a function you write or use produces an error message when you run it, or not what you expect, use the debugger to help you
+understand what is happening inside the function:
+</p><!--l. 542--><p class="indent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb45">
+<a 
+ id="x1-13002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> debug(plotIt)</span>
+<br class="fancyvrb" /><a 
+ id="x1-13004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> x</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> -5:5</span>
+<br class="fancyvrb" /><a 
+ id="x1-13006r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> y</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> log(abs(x))</span>
+<br class="fancyvrb" /><a 
+ id="x1-13008r4"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> plotIt(x,</span><span 
+class="aesltt-10"> y)</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 550--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">8   </span> <a 
+ id="x1-140008"></a>Bioconductor and CRAN packages</h3>
+<!--l. 551--><p class="noindent" >There are many packages available to address both general needs, like the <a 
+href="http://bioconductor.org/packages/2.10/bioc/html/limma.html" >limma</a> package, and more speciﬁc ones like
+<a 
+href="http://bioconductor.org/packages/2.10/bioc/html/edgeR.html" >edgeR</a>. <a 
+href="http://bioconductor.org/" >Bioconductor</a> and <a 
+href="http://cran.r-project.org/" >CRAN</a> packages can be downloaded and added to your R environment with the following
+commands:
+</p><!--l. 559--><p class="indent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb46">
+<a 
+ id="x1-14002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> source(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">http://bioconductor.org/biocLite.R</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span>
+<br class="fancyvrb" /><a 
+ id="x1-14004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> biocLite(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">edgeR</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> For</span><span 
+class="aesltt-10"> example</span>
+<br class="fancyvrb" /><a 
+ id="x1-14006r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> library(edgeR)</span>
+   </div>
+<!--l. 566--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">9   </span> <a 
+ id="x1-150009"></a>Resources</h3>
+     <ul class="itemize1">
+     <li class="itemize"><a 
+href="http://www.amazon.com/The-Art-Programming-Statistical-Software/dp/1593273843" >The Art of R Programming, Matloﬀ</a>
+     </li>
+     <li class="itemize"><a 
+href="http://en.wikipedia.org/wiki/R_(programming_language)" >The Wikipedia R entry</a>
+     </li>
+     <li class="itemize"><a 
+href="http://stackoverflow.com/questions/1429907/workflow-for-statistical-analysis-and-report-writing" >workﬂow ideas</a>
+     </li>
+     <li class="itemize">Much more documentation is available at <a 
+href="http://cran.r-project.org/" >CRAN</a> – be sure to see the <span 
+class="aessi-10">Manuals</span>, <span 
+class="aessi-10">FAQS </span>and <span 
+class="aessi-10">Contributed </span>links.</li></ul>
+<!--l. 579--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb47">
+<a 
+ id="x1-15002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> options(prompt=</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">&#x003E;</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span><span 
+class="aesltt-10"> continue=</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">+</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">)</span>
+   </div>
+    
+</body></html> 
+
+                                                                                               
+
+

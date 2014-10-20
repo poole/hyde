@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head> <title>Scientiﬁc computing resources at FHCRC</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- charset=utf-8,html,xhtml --> 
+<meta name="src" content="scientificComputingResources.tex" /> 
+<meta name="date" content="2014-10-20 16:30:00" /> 
+<link rel="stylesheet" type="text/css" href="scientificComputingResources.css" /> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+
+<h2 class="titleHead">Scientiﬁc computing resources at FHCRC</h2>
+<div class="author" ><span 
+class="aess-12">Jerry Davison and Martin Morgan</span></div><br />
+<div class="date" ><span 
+class="aess-12">06 March 2014</span></div>
+   </div>
+____________________________________________________________________________________________
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">Scientiﬁc Computing&#x2019;s resources run the Linux operating system</a></span>
+<br />    <span class="subsectionToc" >1.1 <a 
+href="#x1-30001.1" id="QQ2-1-3">Access</a></span>
+<br />    <span class="subsectionToc" >1.2 <a 
+href="#x1-40001.2" id="QQ2-1-4">Logging in to a rhino</a></span>
+<br />    <span class="subsectionToc" >1.3 <a 
+href="#x1-50001.3" id="QQ2-1-5">Starting and using R from the shell</a></span>
+   </div>
+<!--l. 24--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>Scientiﬁc Computing&#x2019;s resources run the Linux operating system</h3>
+<!--l. 25--><p class="noindent" >Many high-performance computers here and elsewhere run the <span id="textcolor1"><a 
+href="http://en.wikipedia.org/wiki/Linux" >Linux</a></span> operating system. Interaction with it to access
+and manipulate ﬁles is through text <span 
+class="aessi-10">commands</span>. There are plenty of web sites oﬀering help, here are two, and a
+publisher:
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span id="textcolor2"><a 
+href="http://www.computerhope.com/unix.htm" >Linux ABC&#x2019;s</a></span>
+     </li>
+     <li class="itemize"><span id="textcolor3"><a 
+href="http://www.Linuxhelp.net/newbies/" >Linux for newbies</a></span>
+     </li>
+     <li class="itemize"><span id="textcolor4"><a 
+href="http://search.oreilly.com/?q=linux+in+a+nutshell" >O&#x2019;Reilly <span 
+class="aessi-10">Linux in a Nutshell</span></a></span> - get the 1st or 2nd edition, later ones are badly bloated.</li></ul>
+                                                                                               
+                                                                                               
+<!--l. 44--><p class="indent" >   The Scientiﬁc Computing group (<span id="textcolor5"><a 
+href="http://centernet.fhcrc.org/CN/depts/it/scientific_computing/" class="url" ><span 
+class="aett-10">http://centernet.fhcrc.org/CN/depts/it/scientific_computing/</span></a></span>) at the Hutch
+provides high-performance computing access to FHCRC researchers, without charge. These computers enable analyses diﬃcult or
+impossible to perform on a typical laptop; all run the same version of the Ubuntu Linux operating system. There are four <span 
+class="aessbx-10">rhino</span>
+machines, with these capabilities:
+</p>
+     <ul class="itemize1">
+     <li class="itemize"><span 
+class="aessi-10">multicore </span>– 16 cores (cpu&#x2019;s)
+     </li>
+     <li class="itemize"><span 
+class="aessi-10">large memory </span>– 378 GB main memory
+     </li>
+     <li class="itemize"><span 
+class="aessi-10">large secondary storage </span>– 4 TB <span 
+class="aett-10">/home </span>hard drive shared among users, plus additional large <span 
+class="aett-10">/shared </span>volumes for
+     data storage</li></ul>
+<!--l. 59--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x1-30001.1"></a>Access</h4>
+<!--l. 61--><p class="noindent" >There are several ways to access a <span 
+class="aessbx-10">rhino</span>: <br 
+class="newline" />
+</p><!--l. 63--><p class="noindent" ><span 
+class="aessbx-10">MAC OS X and Linux: </span>open a terminal and log in with the <span 
+class="aessi-10">secure shell </span>command <br 
+class="newline" />
+</p><!--l. 67--><p class="indent" >   <span class="obeylines-h"><span class="verb"><span 
+class="aett-10">ssh</span><span 
+class="aett-10"> -X</span><span 
+class="aett-10"> myHutchID@rhino</span></span></span> <br 
+class="newline" />
+</p><!--l. 69--><p class="noindent" >and then enter your password. You&#x2019;ll be connected to one of the rhino&#x2019;s. The -X option enable <span 
+class="aessi-10">X11 forwarding </span>– so that plots can
+be presented on your laptop . <br 
+class="newline" />
+</p><!--l. 74--><p class="noindent" ><span 
+class="aessbx-10">MS Windows users: </span>use <span 
+class="aessbx-10">PuTTY </span>– get putty.exe from <span id="textcolor6"><a 
+href="http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html" class="url" ><span 
+class="aett-10">http://www.chiark.greenend.org.uk/~sgtatham/putty/download.html</span></a></span>
+to open a <span 
+class="aessbx-10">rhino </span>terminal, and install <span 
+class="aessbx-10">Xming </span>(<span id="textcolor7"><a 
+href="http://sourceforge.net/projects/xming/" class="url" ><span 
+class="aett-10">http://sourceforge.net/projects/xming/</span></a></span>) to process R plot commands – so
+plots can be presented on your laptop.<br 
+class="newline" />
+</p><!--l. 82--><p class="indent" >   The ﬁrst time you run <span 
+class="aessbx-10">PuTTY </span>you&#x2019;ll need to navigate through the Category menu on the left to Connection, SSH, and X11;
+click on the <span 
+class="aessi-10">Enable X11 forwarding </span>box. Return to Session and <span 
+class="aessi-10">Save </span>the Default Settings. In the <span 
+class="aessi-10">Host Name </span>box
+enter <span class="obeylines-h"><span class="verb"><span 
+class="aett-10">rhino04</span></span></span> and click on <span 
+class="aessi-10">Open</span>. Log in with your Hutch ID and password. To enable plotting you need to start
+<span 
+class="aessbx-10">Xming</span>.
+</p><!--l. 89--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a 
+ id="x1-40001.2"></a>Logging in to a rhino</h4>
+<!--l. 90--><p class="noindent" >When logging in to one of the rhino&#x2019;s you can specify a particular rhino (rhino01, rhino02, rhino03, or rhino04). This text is
+printed to your screen when you log in:
+                                                                                               
+                                                                                               
+</p>
+   <div class="verbatim" id="verbatim-1">
+Welcome to Ubuntu 12.04.3 LTS (GNU/Linux 3.5.0-43-generic x86_64)
+ <br />############################################################
+ <br />                    IMPORTANT NOTES:
+ <br />         (************ UPDATED ************)
+ <br />* This computer is intended for interactive scientific computing,
+ <br />  development and for compute jobs that require &#x003E; 20GB memory.
+ <br />
+ <br />* If you are running a long &#x0026; CPU intensive job (&#x003E; 1h) and your
+ <br />  job requires less than 20GB of memory you can start an inter-
+ <br />  active session to Gizmo by using the 'grab*' commands to get
+ <br />  immediate access to a compute server with 1-12 cores.
+ <br />
+ <br />  However in most cases it will be more effective if you use the
+ <br />  sbatch commmand.
+ <br />
+ <br />  * Shared folders can be found in:
+ <br />        /shared/silo_researcher
+ <br />        /shared/labs
+ <br />
+ <br />* To use this system most effectively, please read this summary:
+ <br />    http://scicomp.fhcrc.org/Gizmo%20Cluster%20Quickstart.aspx
+ <br />
+ <br />############################################################
+</div>
+<!--l. 118--><p class="nopar" >
+</p><!--l. 120--><p class="indent" >   Do have a look at the documentation at <span id="textcolor8"><a 
+href="http://scicomp.fhcrc.org/Gizmo\%20Cluster\%20Quickstart.aspx" class="url" ><span 
+class="aett-10">http://scicomp.fhcrc.org/Gizmo\%20Cluster\%20Quickstart.aspx</span></a></span> and login
+for an introduction to using the scientiﬁc computing resources, especially if you plan to run long analyses. If you have questions
+about using them, send email to <span class="obeylines-h"><span class="verb"><span 
+class="aett-10">scicomp@fhcrc.org</span></span></span>.
+</p><!--l. 127--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.3   </span> <a 
+ id="x1-50001.3"></a>Starting and using R from the shell</h4>
+<!--l. 128--><p class="noindent" >To start an R session, at the shell prompt enter “<span class="obeylines-h"><span class="verb"><span 
+class="aett-10">R</span></span></span>”: <br 
+class="newline" />
+</p><!--l. 130--><p class="noindent" >myShellPrompt$ <span class="obeylines-h"><span class="verb"><span 
+class="aett-10">R</span></span></span> <br 
+class="newline" />
+</p><!--l. 133--><p class="noindent" >&#x003E; plot(1:10, type=&#x2019;h&#x2019;) <br 
+class="newline" />&#x003E; q() <br 
+class="newline" />
+</p><!--l. 137--><p class="noindent" >To use R studio instead, enter: <br 
+class="newline" />
+</p><!--l. 140--><p class="noindent" >myShellPrompt$ <span class="obeylines-h"><span class="verb"><span 
+class="aett-10">rstudio</span></span></span> <br 
+class="newline" />
+</p>
+    
+</body></html> 
+
+                                                                                               
+
+

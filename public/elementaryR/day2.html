@@ -1,0 +1,1874 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head> <title>Day 2: Basic statistics</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- charset=utf-8,html,xhtml --> 
+<meta name="src" content="day2.tex" /> 
+<meta name="date" content="2014-10-20 15:25:00" /> 
+<link rel="stylesheet" type="text/css" href="day2.css" /> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+
+<h2 class="titleHead">Day 2: Basic statistics</h2>
+<div class="author" ><span 
+class="aess-12">Jerry Davison and Martin Morgan</span></div><br />
+<div class="date" ></div>
+   </div>
+____________________________________________________________________________________________
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">Data</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-30002" id="QQ2-1-3">Descriptive statistics</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-40003" id="QQ2-1-4">t-tests, linear models, and chi-square tests</a></span>
+<br />    <span class="subsectionToc" >3.1 <a 
+href="#x1-50003.1" id="QQ2-1-5">t-tests</a></span>
+<br />    <span class="subsectionToc" >3.2 <a 
+href="#x1-60003.2" id="QQ2-1-6">Linear models</a></span>
+<br />    <span class="subsectionToc" >3.3 <a 
+href="#x1-70003.3" id="QQ2-1-7">Chi-squared tests</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-80004" id="QQ2-1-8">Higher dimensional data</a></span>
+<br />    <span class="subsectionToc" >4.1 <a 
+href="#x1-90004.1" id="QQ2-1-9">Principle components</a></span>
+<br />    <span class="subsectionToc" >4.2 <a 
+href="#x1-100004.2" id="QQ2-1-10">Clustering: <span 
+class="aett-10">hclust</span></a></span>
+<br />    <span class="subsectionToc" >4.3 <a 
+href="#x1-110004.3" id="QQ2-1-11">Classiﬁcation: <span 
+class="aett-10">kmeans</span></a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-120005" id="QQ2-1-12">Lessons learned</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="#x1-130006" id="QQ2-1-13">Homework</a></span>
+<br />   <span class="sectionToc" >7 <a 
+href="#x1-140007" id="QQ2-1-14">Resources</a></span>
+   </div>
+<!--l. 23--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>Data</h3>
+<!--l. 24--><p class="noindent" >Today we&#x2019;ll cover statistical concepts and tests commonly used in cancer research. The dataset we&#x2019;ll access is a subset of the ALL
+expression data whose patient information we worked with in the ﬁrst day&#x2019;s material. In addition to that information we&#x2019;ll access
+1000 associated expression microarray features that present the highest variance across the patient samples. The data have been
+saved in a <span 
+class="aett-10">binary </span>format to reduce ﬁle sizes.
+</p><!--l. 32--><p class="indent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb1">
+<a 
+ id="x1-2002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ###</span><span 
+class="aesltt-10"> Go</span><span 
+class="aesltt-10"> to</span><span 
+class="aesltt-10"> your</span><span 
+class="aesltt-10"> data</span><span 
+class="aesltt-10"> directory</span><span 
+class="aesltt-10"> to</span><span 
+class="aesltt-10"> get</span><span 
+class="aesltt-10"> these</span><span 
+class="aesltt-10"> files:</span>
+<br class="fancyvrb" /><a 
+ id="x1-2004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> dataFile</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> file.choose()</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> ALL1k.rda</span>
+<br class="fancyvrb" /><a 
+ id="x1-2006r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> dataName</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> load(file=dataFile)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> &#x0022;ALL1k&#x0022;</span><span 
+class="aesltt-10"> is</span><span 
+class="aesltt-10"> the</span><span 
+class="aesltt-10"> data</span><span 
+class="aesltt-10"> frame</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">s</span><span 
+class="aesltt-10"> name</span>
+<br class="fancyvrb" /><a 
+ id="x1-2008r4"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> infoFile</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> file.choose()</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> ALL1k_pData.rda</span>
+<br class="fancyvrb" /><a 
+ id="x1-2010r5"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> infoName</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> load(file=infoFile)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> &#x0022;info&#x0022;</span><span 
+class="aesltt-10"> is</span><span 
+class="aesltt-10"> the</span><span 
+class="aesltt-10"> data</span><span 
+class="aesltt-10"> frame</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">s</span><span 
+class="aesltt-10"> name</span>
+   </div>
+<!--l. 42--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-30002"></a>Descriptive statistics</h3>
+<!--l. 43--><p class="noindent" >Let&#x2019;s look a little more closely at patient information in the <span 
+class="aett-10">info </span>ﬁle:
+</p>
+   <div class="fancyvrb" id="fancyvrb2">
+<a 
+ id="x1-3002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> median(info$age)</span>
+   </div>
+<!--l. 48--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb3">
+<a 
+ id="x1-3004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> NA</span>
+   </div>
+<!--l. 53--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb4">
+<a 
+ id="x1-3006r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ?median</span>
+   </div>
+<!--l. 58--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb5">
+<a 
+ id="x1-3008r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> median(info$age,</span><span 
+class="aesltt-10"> na.rm=TRUE)</span>
+   </div>
+<!--l. 61--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb6">
+<a 
+ id="x1-3010r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 29</span>
+   </div>
+<!--l. 64--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb7">
+<a 
+ id="x1-3012r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> range(info$age,</span><span 
+class="aesltt-10"> na.rm=TRUE)</span>
+   </div>
+<!--l. 67--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb8">
+<a 
+ id="x1-3014r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> 58</span>
+   </div>
+<!--l. 70--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb9">
+<a 
+ id="x1-3016r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> quantile(info$age,</span><span 
+class="aesltt-10"> na.rm=TRUE)</span>
+   </div>
+<!--l. 73--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb10">
+<a 
+ id="x1-3018r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0%</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 25%</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 50%</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 75%</span><span 
+class="aett-10"> 100%</span>
+<br class="fancyvrb" /><a 
+ id="x1-3020r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5.0</span><span 
+class="aett-10"> 19.0</span><span 
+class="aett-10"> 29.0</span><span 
+class="aett-10"> 45.5</span><span 
+class="aett-10"> 58.0</span>
+   </div>
+<!--l. 79--><p class="noindent" ><span 
+class="cmsy-10x-x-120">∙ </span>Some simple plots of patient ages – note the nested functions!
+</p>
+   <div class="fancyvrb" id="fancyvrb11">
+<a 
+ id="x1-3022r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> plot(info$age)</span>
+<br class="fancyvrb" /><a 
+ id="x1-3024r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> plot(sort(info$age))</span>
+<br class="fancyvrb" /><a 
+ id="x1-3026r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> sortedAge</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> sort(info$age)</span>
+<br class="fancyvrb" /><a 
+ id="x1-3028r4"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ?plot</span>
+   </div>
+<!--l. 89--><p class="noindent" ><span 
+class="cmsy-10x-x-120">∙</span><span id="textcolor1"><span 
+class="aessbx-10">Exercise: </span>Plot the <span 
+class="aett-10">sortedAge </span>with markers at each data point and connect the points with red lines.</span><br 
+class="newline" />
+</p><!--l. 93--><p class="noindent" ><span 
+class="cmsy-10x-x-120">∙</span><span id="textcolor2"><span 
+class="aessbx-10">Exercise: </span>Plot one variable (e.g., <span 
+class="aett-10">age</span>) as a function of another (e.g., <span 
+class="aett-10">sex</span>). Since <span 
+class="aett-10">sex </span>is a factor, <span 
+class="aessi-10">R </span>chooses to create a box
+plot; does this make sense?</span>
+</p>
+   <div class="fancyvrb" id="fancyvrb12">
+<a 
+ id="x1-3030r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> plot(age</span><span 
+class="aesltt-10"> ~</span><span 
+class="aesltt-10"> sex,</span><span 
+class="aesltt-10"> info)</span>
+   </div>
+<!--l. 103--><p class="noindent" ><span 
+class="cmsy-10x-x-120">∙ </span>Histograms, and their display options:
+</p>
+   <div class="fancyvrb" id="fancyvrb13">
+<a 
+ id="x1-3032r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> hist(info$age)</span>
+<br class="fancyvrb" /><a 
+ id="x1-3034r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ?hist</span>
+<br class="fancyvrb" /><a 
+ id="x1-3036r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> hist(info$age,</span><span 
+class="aesltt-10"> br=25)</span>
+   </div>
+<!--l. 111--><p class="noindent" ><span 
+class="cmsy-10x-x-120">∙ </span>Cross tables use <span 
+class="aett-10">formulas </span>to describe the relationship between the data they present:
+</p>
+   <div class="fancyvrb" id="fancyvrb14">
+<a 
+ id="x1-3038r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> xtabs(~sex,</span><span 
+class="aesltt-10"> data=info,</span><span 
+class="aesltt-10"> exclude=NA)</span>
+   </div>
+<!--l. 117--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb15">
+<a 
+ id="x1-3040r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> sex</span>
+<br class="fancyvrb" /><a 
+ id="x1-3042r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-3044r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 42</span><span 
+class="aett-10"> 83</span>
+   </div>
+<!--l. 122--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb16">
+<a 
+ id="x1-3046r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> xtabs(~sex</span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> remission,</span><span 
+class="aesltt-10"> data=info,</span><span 
+class="aesltt-10"> exclude=NA)</span>
+   </div>
+<!--l. 125--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb17">
+<a 
+ id="x1-3048r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> remission</span>
+<br class="fancyvrb" /><a 
+ id="x1-3050r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> sex</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> REF</span>
+<br class="fancyvrb" /><a 
+ id="x1-3052r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> 27</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span>
+<br class="fancyvrb" /><a 
+ id="x1-3054r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> 71</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span>
+   </div>
+<!--l. 133--><p class="noindent" ><span 
+class="cmsy-10x-x-120">∙</span><span id="textcolor3"><span 
+class="aessbx-10">Exercise: </span>How many hyperdiploid males are refractory? Hint: review the &#x2019;doc&#x2019; data frame from last week&#x2019;s lesson for column
+descriptions.</span>
+</p><!--l. 135--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-40003"></a>t-tests, linear models, and chi-square tests</h3>
+<!--l. 137--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.1   </span> <a 
+ id="x1-50003.1"></a>t-tests</h4>
+<!--l. 139--><p class="noindent" >Use <span 
+class="aett-10">plot </span>to visualize the distribution of female and male ages in the <span 
+class="aett-10">info </span>data set.
+</p>
+   <div class="fancyvrb" id="fancyvrb18">
+<a 
+ id="x1-5002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> plot(age</span><span 
+class="aesltt-10"> ~</span><span 
+class="aesltt-10"> sex,</span><span 
+class="aesltt-10"> info)</span>
+   </div>
+<!--l. 146--><p class="noindent" >It looks like females are on average older than males. Use <span 
+class="aett-10">t.test </span>to ﬁnd out.
+</p>
+   <div class="fancyvrb" id="fancyvrb19">
+<a 
+ id="x1-5004r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> t.test(age</span><span 
+class="aesltt-10"> ~</span><span 
+class="aesltt-10"> sex,</span><span 
+class="aesltt-10"> info)</span>
+   </div>
+<!--l. 152--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb20">
+                                                                                               
+                                                                                               
+<a 
+ id="x1-5006r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10">         Welch</span><span 
+class="aett-10"> Two</span><span 
+class="aett-10"> Sample</span><span 
+class="aett-10"> t-test</span>
+<br class="fancyvrb" /><a 
+ id="x1-5008r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-5010r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> data:</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> age</span><span 
+class="aett-10"> by</span><span 
+class="aett-10"> sex</span>
+<br class="fancyvrb" /><a 
+ id="x1-5012r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> t</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 1.6034,</span><span 
+class="aett-10"> df</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 79.88,</span><span 
+class="aett-10"> p-value</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 0.1128</span>
+<br class="fancyvrb" /><a 
+ id="x1-5014r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> alternative</span><span 
+class="aett-10"> hypothesis:</span><span 
+class="aett-10"> true</span><span 
+class="aett-10"> difference</span><span 
+class="aett-10"> in</span><span 
+class="aett-10"> means</span><span 
+class="aett-10"> is</span><span 
+class="aett-10"> not</span><span 
+class="aett-10"> equal</span><span 
+class="aett-10"> to</span><span 
+class="aett-10"> 0</span>
+<br class="fancyvrb" /><a 
+ id="x1-5016r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 95</span><span 
+class="aett-10"> percent</span><span 
+class="aett-10"> confidence</span><span 
+class="aett-10"> interval:</span>
+<br class="fancyvrb" /><a 
+ id="x1-5018r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> -1.022660</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9.504142</span>
+<br class="fancyvrb" /><a 
+ id="x1-5020r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> sample</span><span 
+class="aett-10"> estimates:</span>
+<br class="fancyvrb" /><a 
+ id="x1-5022r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> mean</span><span 
+class="aett-10"> in</span><span 
+class="aett-10"> group</span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> mean</span><span 
+class="aett-10"> in</span><span 
+class="aett-10"> group</span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-5024r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 35.16667</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 30.92593</span>
+   </div>
+<!--l. 165--><p class="noindent" >Check out the help page for <span 
+class="aett-10">t.test</span>
+</p>
+   <div class="fancyvrb" id="fancyvrb21">
+<a 
+ id="x1-5026r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ?t.test</span>
+   </div>
+<!--l. 171--><p class="noindent" >What are all those additional arguments to <span 
+class="aett-10">t.test</span>? For example, what is the meaning of the <span 
+class="aett-10">var.equal </span>argument?Why are there
+79.88 degrees of freedom?
+</p>
+   <div class="fancyvrb" id="fancyvrb22">
+<a 
+ id="x1-5028r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> t.test(age</span><span 
+class="aesltt-10"> ~</span><span 
+class="aesltt-10"> sex,</span><span 
+class="aesltt-10"> info,</span><span 
+class="aesltt-10"> var.equal=TRUE)</span>
+   </div>
+<!--l. 181--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb23">
+<a 
+ id="x1-5030r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10">         Two</span><span 
+class="aett-10"> Sample</span><span 
+class="aett-10"> t-test</span>
+<br class="fancyvrb" /><a 
+ id="x1-5032r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-5034r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> data:</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> age</span><span 
+class="aett-10"> by</span><span 
+class="aett-10"> sex</span>
+<br class="fancyvrb" /><a 
+ id="x1-5036r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> t</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 1.6266,</span><span 
+class="aett-10"> df</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 121,</span><span 
+class="aett-10"> p-value</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 0.1064</span>
+<br class="fancyvrb" /><a 
+ id="x1-5038r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> alternative</span><span 
+class="aett-10"> hypothesis:</span><span 
+class="aett-10"> true</span><span 
+class="aett-10"> difference</span><span 
+class="aett-10"> in</span><span 
+class="aett-10"> means</span><span 
+class="aett-10"> is</span><span 
+class="aett-10"> not</span><span 
+class="aett-10"> equal</span><span 
+class="aett-10"> to</span><span 
+class="aett-10"> 0</span>
+<br class="fancyvrb" /><a 
+ id="x1-5040r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 95</span><span 
+class="aett-10"> percent</span><span 
+class="aett-10"> confidence</span><span 
+class="aett-10"> interval:</span>
+<br class="fancyvrb" /><a 
+ id="x1-5042r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> -0.9207109</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9.4021924</span>
+<br class="fancyvrb" /><a 
+ id="x1-5044r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> sample</span><span 
+class="aett-10"> estimates:</span>
+<br class="fancyvrb" /><a 
+ id="x1-5046r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> mean</span><span 
+class="aett-10"> in</span><span 
+class="aett-10"> group</span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> mean</span><span 
+class="aett-10"> in</span><span 
+class="aett-10"> group</span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-5048r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 35.16667</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 30.92593</span>
+   </div>
+<!--l. 195--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.2   </span> <a 
+ id="x1-60003.2"></a>Linear models</h4>
+<!--l. 197--><p class="noindent" >A t-test can also be viewed as an analysis of variance (ANOVA); analysis of variance is a form of linear model. Use <span 
+class="aett-10">lm </span>to ﬁt a
+linear model that describes how age changes with sex; the <span 
+class="aett-10">anova </span>function summarizes the linear model in a perhaps more familiar
+ANOVA table.
+</p>
+   <div class="fancyvrb" id="fancyvrb24">
+<a 
+ id="x1-6002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> (fit</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> lm(age</span><span 
+class="aesltt-10"> ~</span><span 
+class="aesltt-10"> sex,</span><span 
+class="aesltt-10"> info))</span>
+   </div>
+<!--l. 206--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb25">
+<a 
+ id="x1-6004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Call:</span>
+<br class="fancyvrb" /><a 
+ id="x1-6006r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> lm(formula</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> age</span><span 
+class="aett-10"> ~</span><span 
+class="aett-10"> sex,</span><span 
+class="aett-10"> data</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> info)</span>
+<br class="fancyvrb" /><a 
+ id="x1-6008r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-6010r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Coefficients:</span>
+<br class="fancyvrb" /><a 
+ id="x1-6012r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> (Intercept)</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> sexM</span>
+<br class="fancyvrb" /><a 
+ id="x1-6014r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 35.167</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> -4.241</span>
+   </div>
+<!--l. 214--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb26">
+<a 
+ id="x1-6016r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> anova(fit)</span>
+   </div>
+<!--l. 217--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb27">
+<a 
+ id="x1-6018r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Analysis</span><span 
+class="aett-10"> of</span><span 
+class="aett-10"> Variance</span><span 
+class="aett-10"> Table</span>
+<br class="fancyvrb" /><a 
+ id="x1-6020r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-6022r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Response:</span><span 
+class="aett-10"> age</span>
+<br class="fancyvrb" /><a 
+ id="x1-6024r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> Df</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> Sum</span><span 
+class="aett-10"> Sq</span><span 
+class="aett-10"> Mean</span><span 
+class="aett-10"> Sq</span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> value</span><span 
+class="aett-10"> Pr(&#x003E;F)</span>
+<br class="fancyvrb" /><a 
+ id="x1-6026r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> sex</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 497.4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 497.41</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2.6459</span><span 
+class="aett-10"> 0.1064</span>
+<br class="fancyvrb" /><a 
+ id="x1-6028r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Residuals</span><span 
+class="aett-10"> 121</span><span 
+class="aett-10"> 22747.4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 187.99</span>
+   </div>
+<!--l. 226--><p class="noindent" >What kinds of assumptions are being made in the linear model, e.g., about equality of variances? Try plotting <span 
+class="aett-10">fit</span>; what are the
+ﬁgures trying to tell you?
+</p>
+   <div class="fancyvrb" id="fancyvrb28">
+<a 
+ id="x1-6030r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> plot(fit)</span>
+   </div>
+<!--l. 235--><p class="indent" >   <span 
+class="aett-10">fit </span>is an example of an <span 
+class="aessi-10">R object</span>. Find out it&#x2019;s class
+</p>
+   <div class="fancyvrb" id="fancyvrb29">
+<a 
+ id="x1-6032r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> class(fit)</span>
+   </div>
+<!--l. 240--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb30">
+<a 
+ id="x1-6034r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;lm&#x0022;</span>
+   </div>
+<!--l. 244--><p class="noindent" ><span 
+class="aett-10">plot </span>is an example of an <span 
+class="aessi-10">R generic</span>; it has diﬀerent <span 
+class="aessi-10">methods </span>implemented for diﬀerent classes of objects. Use <span 
+class="aett-10">methods </span>to see
+available methods
+</p>
+   <div class="fancyvrb" id="fancyvrb31">
+<a 
+ id="x1-6036r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> methods(plot)</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 251--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb32">
+<a 
+ id="x1-6038r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> plot.acf*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.data.frame*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.decomposed.ts*</span><span 
+class="aett-10"> plot.default</span>
+<br class="fancyvrb" /><a 
+ id="x1-6040r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> [5]</span><span 
+class="aett-10"> plot.dendrogram*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.density*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.ecdf</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.factor*</span>
+<br class="fancyvrb" /><a 
+ id="x1-6042r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> [9]</span><span 
+class="aett-10"> plot.formula*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.function</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.hclust*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.histogram*</span>
+<br class="fancyvrb" /><a 
+ id="x1-6044r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [13]</span><span 
+class="aett-10"> plot.HoltWinters*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.isoreg*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.lm*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.medpolish*</span>
+<br class="fancyvrb" /><a 
+ id="x1-6046r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [17]</span><span 
+class="aett-10"> plot.mlm*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.ppr*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.prcomp*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.princomp*</span>
+<br class="fancyvrb" /><a 
+ id="x1-6048r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [21]</span><span 
+class="aett-10"> plot.profile.nls*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.spec*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.stepfun</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.stl*</span>
+<br class="fancyvrb" /><a 
+ id="x1-6050r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [25]</span><span 
+class="aett-10"> plot.table*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.ts</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.tskernel*</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> plot.TukeyHSD*</span>
+<br class="fancyvrb" /><a 
+ id="x1-6052r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-6054r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> Non-visible</span><span 
+class="aett-10"> functions</span><span 
+class="aett-10"> are</span><span 
+class="aett-10"> asterisked</span>
+   </div>
+<!--l. 263--><p class="noindent" >Look up the help page for the <span 
+class="aett-10">plot </span>generic, <span 
+class="aett-10">lm </span>method with
+</p>
+   <div class="fancyvrb" id="fancyvrb33">
+<a 
+ id="x1-6056r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ?plot.lm</span>
+   </div>
+<!--l. 271--><p class="indent" >   Fitted models can be used in other functions, for instance to predict values for new data. Construct a <span 
+class="aett-10">data.frame </span>with a
+single column <span 
+class="aett-10">sex </span>with values <span 
+class="aett-10">&#x0022;M&#x0022; </span>and <span 
+class="aett-10">&#x0022;F&#x0022;</span>. Consult the help page for the <span 
+class="aett-10">predict.lm </span>method, and calculate the expected value
+of the ﬁtted model for males and for females.
+</p>
+   <div class="fancyvrb" id="fancyvrb34">
+<a 
+ id="x1-6058r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> df</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> data.frame(sex=c(&#x0022;F&#x0022;,</span><span 
+class="aesltt-10"> &#x0022;M&#x0022;))</span>
+<br class="fancyvrb" /><a 
+ id="x1-6060r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> predict(fit,</span><span 
+class="aesltt-10"> df)</span>
+   </div>
+<!--l. 281--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb35">
+<a 
+ id="x1-6062r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span>
+<br class="fancyvrb" /><a 
+ id="x1-6064r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 35.16667</span><span 
+class="aett-10"> 30.92593</span>
+   </div>
+<!--l. 286--><p class="noindent" >What do the predicted values correspond to in the <span 
+class="aett-10">t.test</span>? Use <span 
+class="aett-10">coefficients </span>to extract the coeﬃcients of the ﬁtted
+model.
+</p>
+   <div class="fancyvrb" id="fancyvrb36">
+<a 
+ id="x1-6066r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> coefficients(fit)</span>
+   </div>
+<!--l. 293--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb37">
+<a 
+ id="x1-6068r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> (Intercept)</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> sexM</span>
+<br class="fancyvrb" /><a 
+ id="x1-6070r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 35.166667</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> -4.240741</span>
+   </div>
+<!--l. 298--><p class="noindent" >Interpret the <span 
+class="aett-10">(Intercept) </span>and <span 
+class="aett-10">sexM </span>coeﬃcients in terms of female and male ages.
+                                                                                               
+                                                                                               
+</p><!--l. 301--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">3.3   </span> <a 
+ id="x1-70003.3"></a>Chi-squared tests</h4>
+<!--l. 303--><p class="noindent" >The article from which the <span 
+class="aett-10">info </span>object is derived states that “Although chromosome translocations and molecular rearrangements
+are relatively infrequent in T-lineage ALL, these events occur commonly in B-lineage ALL and reﬂect distinct mechanisms of
+transformation”. Let&#x2019;s investigate this statement.
+</p><!--l. 309--><p class="indent" >   The relevant columns of data are summarized as
+</p>
+   <div class="fancyvrb" id="fancyvrb38">
+<a 
+ id="x1-7002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> summary(info[,c(&#x0022;BT&#x0022;,</span><span 
+class="aesltt-10"> &#x0022;cyto.normal&#x0022;)])</span>
+   </div>
+<!--l. 314--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb39">
+<a 
+ id="x1-7004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> BT</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> cyto.normal</span>
+<br class="fancyvrb" /><a 
+ id="x1-7006r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> :36</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> Mode</span><span 
+class="aett-10"> :logical</span>
+<br class="fancyvrb" /><a 
+ id="x1-7008r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> :23</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE:69</span>
+<br class="fancyvrb" /><a 
+ id="x1-7010r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> :19</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> :24</span>
+<br class="fancyvrb" /><a 
+ id="x1-7012r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> :15</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> NA</span><span 
+class="tctt-1000">'</span><span 
+class="aett-10">s</span><span 
+class="aett-10"> :35</span>
+<br class="fancyvrb" /><a 
+ id="x1-7014r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> :12</span>
+<br class="fancyvrb" /><a 
+ id="x1-7016r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> :10</span>
+<br class="fancyvrb" /><a 
+ id="x1-7018r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> (Other):13</span>
+   </div>
+<!--l. 325--><p class="noindent" >Simplify the number of <span 
+class="aett-10">BT </span>levels by creating a map between subtypes and types
+</p>
+   <div class="fancyvrb" id="fancyvrb40">
+<a 
+ id="x1-7020r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> old</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> levels(info$BT)</span>
+<br class="fancyvrb" /><a 
+ id="x1-7022r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> new</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> substr(old,</span><span 
+class="aesltt-10"> 1,</span><span 
+class="aesltt-10"> 1)</span>
+<br class="fancyvrb" /><a 
+ id="x1-7024r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> (map</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> setNames(new,</span><span 
+class="aesltt-10"> old))</span>
+   </div>
+<!--l. 333--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb41">
+<a 
+ id="x1-7026r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T4</span>
+<br class="fancyvrb" /><a 
+ id="x1-7028r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;B&#x0022;</span><span 
+class="aett-10"> &#x0022;B&#x0022;</span><span 
+class="aett-10"> &#x0022;B&#x0022;</span><span 
+class="aett-10"> &#x0022;B&#x0022;</span><span 
+class="aett-10"> &#x0022;B&#x0022;</span><span 
+class="aett-10"> &#x0022;T&#x0022;</span><span 
+class="aett-10"> &#x0022;T&#x0022;</span><span 
+class="aett-10"> &#x0022;T&#x0022;</span><span 
+class="aett-10"> &#x0022;T&#x0022;</span><span 
+class="aett-10"> &#x0022;T&#x0022;</span>
+   </div>
+<!--l. 338--><p class="noindent" >The names of the map are the subtypes, the elements are the types. Map the levels of the <span 
+class="aett-10">BT </span>variable from sub-type to type with the
+following command, and cross-tabulate the data
+</p>
+   <div class="fancyvrb" id="fancyvrb42">
+<a 
+ id="x1-7030r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> levels(info$BT)</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> map</span>
+<br class="fancyvrb" /><a 
+ id="x1-7032r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> xtabs(~</span><span 
+class="aesltt-10"> BT</span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> cyto.normal,</span><span 
+class="aesltt-10"> info)</span>
+   </div>
+<!--l. 346--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb43">
+                                                                                               
+                                                                                               
+<a 
+ id="x1-7034r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> cyto.normal</span>
+<br class="fancyvrb" /><a 
+ id="x1-7036r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> BT</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> TRUE</span>
+<br class="fancyvrb" /><a 
+ id="x1-7038r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 56</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 17</span>
+<br class="fancyvrb" /><a 
+ id="x1-7040r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 13</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span>
+   </div>
+<!--l. 353--><p class="noindent" >The data are qualitatively consistent with the statement that molecular rearrangements are more common in B-lineage ALL. Let&#x2019;s
+test this with a chi-squared test
+</p>
+   <div class="fancyvrb" id="fancyvrb44">
+<a 
+ id="x1-7042r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> chisq.test(info$BT,</span><span 
+class="aesltt-10"> info$cyto.normal)</span>
+   </div>
+<!--l. 360--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb45">
+<a 
+ id="x1-7044r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10">         Pearson</span><span 
+class="tctt-1000">'</span><span 
+class="aett-10">s</span><span 
+class="aett-10"> Chi-squared</span><span 
+class="aett-10"> test</span><span 
+class="aett-10"> with</span><span 
+class="aett-10"> Yates</span><span 
+class="tctt-1000">'</span><span 
+class="aett-10"> continuity</span><span 
+class="aett-10"> correction</span>
+<br class="fancyvrb" /><a 
+ id="x1-7046r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span>
+<br class="fancyvrb" /><a 
+ id="x1-7048r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> data:</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> info$BT</span><span 
+class="aett-10"> and</span><span 
+class="aett-10"> info$cyto.normal</span>
+<br class="fancyvrb" /><a 
+ id="x1-7050r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> X-squared</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 0.5962,</span><span 
+class="aett-10"> df</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 1,</span><span 
+class="aett-10"> p-value</span><span 
+class="aett-10"> =</span><span 
+class="aett-10"> 0.44</span>
+   </div>
+<!--l. 367--><p class="noindent" >Interpret the results. What about additional parameters documented on <span 
+class="aett-10">?chisq.test</span>?
+</p><!--l. 370--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-80004"></a>Higher dimensional data</h3>
+<!--l. 372--><p class="noindent" >Earlier we read in the <span 
+class="aett-10">ALL1k </span>object. This is a data frame. The rows represent 1000 microarray probe sets. The ﬁrst two columns
+contain information about the probe sets. The remaining 128 columns are (normalized) expression values of 128 samples. The 128
+samples correspond to the phenotypic data in the <span 
+class="aett-10">info </span>object we&#x2019;ve been working with. The following lines take the expression
+values and transform them from a <span 
+class="aessi-10">data.frame </span>to a <span 
+class="aessi-10">matrix</span>, adjusting the row and column names to reﬂect the probe and sample
+ids.
+</p>
+   <div class="fancyvrb" id="fancyvrb46">
+<a 
+ id="x1-8002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> m</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> as.matrix(ALL1k[,</span><span 
+class="aesltt-10"> -c(1,</span><span 
+class="aesltt-10"> 2)])</span>
+   </div>
+<!--l. 387--><p class="indent" >   Some of the results below involve plots, and it&#x2019;s convenient to choose pretty and functional colors. We use the <span 
+class="aessi-10">RColorBrewer</span>
+package; see <a 
+href="http://colorbrewer.com" >colorbrewer.com</a>.
+</p>
+   <div class="fancyvrb" id="fancyvrb47">
+<a 
+ id="x1-8004r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> library(RColorBrewer)</span>
+<br class="fancyvrb" /><a 
+ id="x1-8006r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> divergent</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> brewer.pal(11,</span><span 
+class="aesltt-10"> &#x0022;RdBu&#x0022;)</span>
+<br class="fancyvrb" /><a 
+ id="x1-8008r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> highlight</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> brewer.pal(3,</span><span 
+class="aesltt-10"> &#x0022;Set2&#x0022;)[1:2]</span>
+   </div>
+<!--l. 397--><p class="noindent" >‘divergent&#x2019; is a vector of colors that go from red (negative) to blue (positive). ‘higlight&#x2019; is a vector of length 2, light and dark
+green.
+                                                                                               
+                                                                                               
+</p><!--l. 400--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.1   </span> <a 
+ id="x1-90004.1"></a>Principle components</h4>
+<!--l. 402--><p class="noindent" >It is hard to visualize data from 1000 probesets and 128 samples. In addition, the data suﬀers from the problem that there are
+many more measurements per sample (1000) than there are samples (128). For these reasons, we might wish to reduce the
+number of dimensions in which the data is represented. One way of reducing the dimensionality is by calculating <span 
+class="aessi-10">principle</span>
+<span 
+class="aessi-10">components</span>. Here we calculate principle components:
+</p>
+   <div class="fancyvrb" id="fancyvrb48">
+<a 
+ id="x1-9002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> tm</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> t(m)</span>
+<br class="fancyvrb" /><a 
+ id="x1-9004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> pc</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> prcomp(tm)</span>
+   </div>
+<!--l. 415--><p class="noindent" >The principle components are, roughly, vectors that pass through the data in such a way as to explain as much variability as possible.
+We can visualize the data in two-dimensional space by plotting the ‘rotation&#x2019;, coloring points by whether they belong to the B or
+T ALL lineage (we will discuss other arguments to <span 
+class="aett-10">plot </span>in a subsequent class).
+</p>
+   <div class="fancyvrb" id="fancyvrb49">
+<a 
+ id="x1-9006r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> color</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> highlight[info$BT]</span>
+<br class="fancyvrb" /><a 
+ id="x1-9008r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> plot(pc$x,</span><span 
+class="aesltt-10"> col=color,</span><span 
+class="aesltt-10"> pch=20,</span><span 
+class="aesltt-10"> cex=2)</span>
+   </div>
+<!--l. 427--><p class="noindent" >Notice that the B and T lineages separate quite well.
+</p><!--l. 429--><p class="indent" >   There are a number of variants to principle components, and some tricky statistical issues involved even in the simple example
+above, so proceed with caution!
+</p><!--l. 433--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.2   </span> <a 
+ id="x1-100004.2"></a>Clustering: <span 
+class="aett-10">hclust</span></h4>
+<!--l. 435--><p class="noindent" >Clustering, or ‘unsupervised machine learning&#x2019;, tries to group samples based on similarity. We start by calculating the correlation
+between each of our samples.
+</p>
+   <div class="fancyvrb" id="fancyvrb50">
+<a 
+ id="x1-10002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> cm</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> cor(m)</span>
+   </div>
+<!--l. 444--><p class="indent" >   <span 
+class="aett-10">cm </span>is a 128 x 128 matrix, and it measures the correlation between each pair of samples – samples with similar patterns of gene
+expression will be correlated.
+</p><!--l. 448--><p class="indent" >   We can use the strength of correlation as a basis for describing the distance between samples. Two samples will be ‘near&#x2019; each
+other if they have similar patterns of correlation with other samples.
+</p>
+   <div class="fancyvrb" id="fancyvrb51">
+<a 
+ id="x1-10004r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> d</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> dist(cm)</span>
+   </div>
+<!--l. 456--><p class="noindent" >There are several ways of measuring distance; the default is a euclidean measure.
+</p><!--l. 459--><p class="indent" >   The next step is to group (cluster) samples that are similar to one another into a dendrogram summarizing
+similarity.
+</p>
+   <div class="fancyvrb" id="fancyvrb52">
+<a 
+ id="x1-10006r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> cl</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> hclust(d)</span>
+<br class="fancyvrb" /><a 
+ id="x1-10008r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> plot(cl)</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 467--><p class="noindent" >Somewhat more revealing of structure is a <span 
+class="aessi-10">heatmap</span>, with rows and columns clustered as we&#x2019;ve just described, and with a column
+color bar to indicate whether the sample came from a B or T lineage sample.
+</p>
+   <div class="fancyvrb" id="fancyvrb53">
+<a 
+ id="x1-10010r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> color</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> highlight[info$BT]</span>
+<br class="fancyvrb" /><a 
+ id="x1-10012r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> heatmap(cm,</span><span 
+class="aesltt-10"> ColSideColor=color,</span><span 
+class="aesltt-10"> col=divergent)</span>
+   </div>
+<!--l. 476--><p class="noindent" >The plot shows that, mostly, the B lineage samples cluster together, and the T lineages cluster together. If this were an exploratory
+analysis, one would look carefully to ensure that the mis-clustered samples were not mis-labeled.
+</p><!--l. 481--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">4.3   </span> <a 
+ id="x1-110004.3"></a>Classiﬁcation: <span 
+class="aett-10">kmeans</span></h4>
+<!--l. 483--><p class="noindent" >Classiﬁcation (‘supervised machine learning&#x2019;) groups samples into a pre-speciﬁed number of groups. There are many varieties of
+classiﬁcation. <span 
+class="aessi-10">k-means </span>classiﬁcation aims to place <span 
+class="cmmi-10">k </span>‘centroids&#x2019; in such a way that the sum of squares of each point to the nearest
+centroid is minimized. Here we perform k-means classiﬁcation with 2 groups, anticipating that we will recover the B
+and T ALL lineages; we use <span 
+class="aett-10">set.seed </span>to set the random number seed to a particular (arbitrary) value to ensure
+reproducibility.
+</p>
+   <div class="fancyvrb" id="fancyvrb54">
+<a 
+ id="x1-11002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> set.seed(123)</span>
+<br class="fancyvrb" /><a 
+ id="x1-11004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> cl</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> kmeans(t(m),</span><span 
+class="aesltt-10"> 2)</span>
+   </div>
+<!--l. 497--><p class="noindent" >The ‘confusion&#x2019; matrix is one measure of how eﬀective the classiﬁcation is; here we see that all but one of the samples were assigned
+to the correct group.
+</p>
+   <div class="fancyvrb" id="fancyvrb55">
+<a 
+ id="x1-11006r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> xtabs(~</span><span 
+class="aesltt-10"> cl$cluster</span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> info$BT)</span>
+   </div>
+<!--l. 504--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb56">
+<a 
+ id="x1-11008r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> info$BT</span>
+<br class="fancyvrb" /><a 
+ id="x1-11010r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> cl$cluster</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> B</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> T</span>
+<br class="fancyvrb" /><a 
+ id="x1-11012r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 94</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 0</span>
+<br class="fancyvrb" /><a 
+ id="x1-11014r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 33</span>
+   </div>
+<!--l. 511--><p class="noindent" >There are objective criteria for parameter choice and validation of supervised machine learning algorithms.
+</p><!--l. 514--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-120005"></a>Lessons learned</h3>
+<!--l. 516--><p class="noindent" >There are several important lessons from this brief tour of statistical functions in <span 
+class="aessi-10">R</span>:
+     </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  1. </dt><dd 
+class="enumerate-enumitem">The ‘formula&#x2019; notation is very powerful, and worth learning.
+                                                                                               
+                                                                                               
+     </dd><dt class="enumerate-enumitem">
+  2. </dt><dd 
+class="enumerate-enumitem"><span 
+class="aessi-10">R </span>can perform diverse statistical analyses.
+     </dd><dt class="enumerate-enumitem">
+  3. </dt><dd 
+class="enumerate-enumitem">Help pages are your friends, even if they initially seem challenging.
+     </dd><dt class="enumerate-enumitem">
+  4. </dt><dd 
+class="enumerate-enumitem">Many analyses, even straight-forward t-tests or ANOVA, require a level of statistical sophistication.</dd></dl>
+<!--l. 526--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-130006"></a>Homework</h3>
+<!--l. 528--><p class="noindent" >In the next class we&#x2019;ll use data from the Center for Disease Control&#x2019;s Behavioral Risk Factor Surveillance System
+(<a 
+href="http://www.cdc.gov/brfss/" >BRFSS</a>) annual survey. Check out the web page for a little more information. We are using a small subset of
+this data, including a random sample of 10000 observations from each of 1990 and 2010. As preparation for the
+class:
+</p><!--l. 536--><p class="indent" >
+     </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  1. </dt><dd 
+class="enumerate-enumitem">Input the data using <span 
+class="aett-10">read.csv</span>, creating a variable <span 
+class="aett-10">brfss </span>to hold it. The data ﬁle is <span class="obeylines-h"><span class="verb"><span 
+class="aett-10">BRFSS-subset.csv</span></span></span> in your
+     home directory.
+     </dd><dt class="enumerate-enumitem">
+  2. </dt><dd 
+class="enumerate-enumitem">Explore the data using <span 
+class="aett-10">class</span>, <span 
+class="aett-10">dim</span>, <span 
+class="aett-10">head</span>, <span 
+class="aett-10">summary</span>, etc. Use <span 
+class="aett-10">xtabs </span>to summarize the number of males and females
+     in the study, in each of the two years.
+     </dd><dt class="enumerate-enumitem">
+  3. </dt><dd 
+class="enumerate-enumitem">An expression like <span 
+class="aett-10">xtabs(Weight ˜ Sex, brfss) </span>calculates the sum of the <span 
+class="aett-10">Weight </span>column, separately for each
+     <span 
+class="aett-10">Sex</span>. Can you divide this sort of cross tabulation by the result of another <span 
+class="aett-10">xtabs </span>function to calculate average weight
+     per sex in each year of the study?</dd></dl>
+<!--l. 552--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x1-140007"></a>Resources</h3>
+     <ul class="itemize1">
+     <li class="itemize">Dalgaard, P. 2002. <span 
+class="aessi-10">Introductory Statistics with R</span>. Springer.</li></ul>
+    
+</body></html> 
+
+                                                                                               
+
+

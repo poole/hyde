@@ -1,0 +1,480 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head> <title>Day 4: Visualization</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- charset=utf-8,html,xhtml --> 
+<meta name="src" content="day4.tex" /> 
+<meta name="date" content="2014-10-20 15:28:00" /> 
+<link rel="stylesheet" type="text/css" href="day4.css" /> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+
+<h2 class="titleHead">Day 4: Visualization</h2>
+<div class="author" ><span 
+class="aess-12">Jerry Davison and Martin Morgan</span></div><br />
+<div class="date" ></div>
+   </div>
+____________________________________________________________________________________________
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">Data Input and Manipulation (recap)</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-30002" id="QQ2-1-3">Graphics in <span 
+class="aessi-10">R</span></a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-40003" id="QQ2-1-6">Trellis graphics: <span 
+class="aessi-10">lattice</span></a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-50004" id="QQ2-1-10">Other fun graphics</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-80005" id="QQ2-1-14">Homework!</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="#x1-90006" id="QQ2-1-15">Resources</a></span>
+   </div>
+<!--l. 22--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>Data Input and Manipulation (recap)</h3>
+<!--l. 23--><p class="noindent" >A brief review of day 1 material.
+</p><!--l. 25--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-30002"></a>Graphics in <span 
+class="aessi-10">R</span></h3>
+<!--l. 27--><p class="noindent" ><span 
+class="aessi-10">R </span>provides a number of ways to visualize data. Data visualization can be an important part of any analysis. It also provides an
+opportunity to use our data manipulation skills.
+</p><!--l. 31--><p class="indent" >   The data is from the Center for Disease Control&#x2019;s Behavioral Risk Factor Surveillance System (<a 
+href="http://www.cdc.gov/brfss/" >BRFSS</a>) annual survey. Check
+out the web page for a little more information. We are using a small subset of this data, including a random sample of 10000
+observations from each of 1990 and 2010.
+</p><!--l. 38--><p class="indent" >
+                                                                                               
+                                                                                               
+     </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  1. </dt><dd 
+class="enumerate-enumitem">Input  the  data  using  <span 
+class="aett-10">read.csv</span>,  creating  a  variable  <span 
+class="aett-10">brfss </span>to  hold  it.  Use  <span class="obeylines-h"><span class="verb"><span 
+class="aett-10">file.choose()</span></span></span>,  the  data  ﬁle  is
+     <span class="obeylines-h"><span class="verb"><span 
+class="tctt-1000">'</span><span 
+class="aett-10">BRFSS-subset.csv</span><span 
+class="tctt-1000">'</span></span></span>.
+     </dd><dt class="enumerate-enumitem">
+  2. </dt><dd 
+class="enumerate-enumitem">Explore the data using <span 
+class="aett-10">class</span>, <span 
+class="aett-10">dim</span>, <span 
+class="aett-10">head</span>, <span 
+class="aett-10">summary</span>, etc. Use <span 
+class="aett-10">xtabs </span>to summarize the number of males and females
+     in the study, in each of the two years.
+     </dd><dt class="enumerate-enumitem">
+  3. </dt><dd 
+class="enumerate-enumitem">An expression like <span 
+class="aett-10">xtabs(Weight ˜ Sex, brfss) </span>calculates the sum of the <span 
+class="aett-10">Weight </span>column, separately for each
+     <span 
+class="aett-10">Sex</span>. Can you divide this sort of cross tabulation by the result of another <span 
+class="aett-10">xtabs </span>function to calculate average weight
+     per sex in each year of the study?
+     </dd><dt class="enumerate-enumitem">
+  4. </dt><dd 
+class="enumerate-enumitem">Create Figure <a 
+href="#x1-30051">1<!--tex4ht:ref: fig:simple-plot --></a> using the <span 
+class="aett-10">plot </span>function and the <span 
+class="aett-10">main </span>argument. Note the transformed Y-axis. Experiment with
+     diﬀerent plotting symbols (try the command <span 
+class="aett-10">example(points)</span>. <hr class="figure" /><div class="figure" 
+><a 
+ id="x1-30051"></a><img 
+src="day4-simple-plot.png" alt="pict"  
+ />
+<br /> <div class="caption" 
+><span class="id">Figure 1: </span><span  
+class="content">Square root of Weight vs. Height, all data</span></div><!--tex4ht:label?: x1-30051 -->
+     </div><hr class="endfigure" />
+     </dd><dt class="enumerate-enumitem">
+  5. </dt><dd 
+class="enumerate-enumitem">In the previous plot, color the female and male points diﬀerently. To do this, use the <span 
+class="aett-10">col </span>argument to <span 
+class="aett-10">plot</span>. Provide as a
+     value to that argument a vector of colors, subset by <span 
+class="aett-10">brfss$Sex</span>.
+     </dd><dt class="enumerate-enumitem">
+  6. </dt><dd 
+class="enumerate-enumitem">Create a subset of the data containing only observations from 2010.
+     <div class="fancyvrb" id="fancyvrb1">
+<a 
+ id="x1-3009r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> brfss2010</span><span 
+class="aesltt-10"> &#x003C;-</span><span 
+class="aesltt-10"> brfss[brfss$Year</span><span 
+class="aesltt-10"> ==</span><span 
+class="aesltt-10"> &#x0022;2010&#x0022;,</span><span 
+class="aesltt-10"> ]</span>
+</div>
+     </dd><dt class="enumerate-enumitem">
+  7. </dt><dd 
+class="enumerate-enumitem">Create Figure <a 
+href="#x1-30112">2<!--tex4ht:ref: fig:paired-plot --></a> (two panels in a single ﬁgure). Do this by using the <span 
+class="aett-10">par </span>function with the <span 
+class="aett-10">mfcol </span>argument
+     before calling <span 
+class="aett-10">plot</span>. You&#x2019;ll need to create two more subsets of data, perhaps when you are providing the data to
+     the function <span 
+class="aett-10">plot</span>. <hr class="figure" /><div class="figure" 
+><a 
+ id="x1-30112"></a><img 
+src="day4-paired-plot.png" alt="pict"  
+ />
+<br /> <div class="caption" 
+><span class="id">Figure 2: </span><span  
+class="content">Square root of Weight vs. Height, 2010 Female (left) and Male (right).</span></div><!--tex4ht:label?: x1-30112 -->
+     </div><hr class="endfigure" />
+     </dd><dt class="enumerate-enumitem">
+  8. </dt><dd 
+class="enumerate-enumitem">Plotting large numbers of points means that they are often over-plotted, potentially obscuring important patterns.
+     Experiment with arguments to <span 
+class="aett-10">plot </span>to address over-plotting, e.g., <span 
+class="aett-10">pch=&#x2019;.&#x2019; </span>or <span 
+class="aett-10">alpha=.4</span>. Try using the <span 
+class="aett-10">smoothScatter</span>
+     function (the data have to be presented as <span 
+class="aett-10">x </span>and <span 
+class="aett-10">y</span>, rather than as a formula). Try adding the <span 
+class="aessi-10">hexbin </span>library to your <span 
+class="aessi-10">R</span>
+     session (using <span 
+class="aett-10">library</span>) and creating a <span 
+class="aett-10">hexbinplot</span>.</dd></dl>
+<!--l. 101--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-40003"></a>Trellis graphics: <span 
+class="aessi-10">lattice</span></h3>
+<!--l. 103--><p class="noindent" ><span 
+class="aessi-10">R </span>has a number of additional plotting facilities, both as part of the ‘base&#x2019; distribution and user-contributed packages. The
+<span 
+class="aessi-10">lattice </span>package adopts a particular philosophy to the presentation of data, and can be a very eﬀective visualization
+tool.
+</p><!--l. 109--><p class="indent" >
+     </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  1. </dt><dd 
+class="enumerate-enumitem">Use <span 
+class="aett-10">library </span>to load the <span 
+class="aessi-10">lattice </span>package.
+     <div class="fancyvrb" id="fancyvrb2">
+<a 
+ id="x1-4003r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> library(lattice)</span>
+</div>
+     </dd><dt class="enumerate-enumitem">
+  2. </dt><dd 
+class="enumerate-enumitem">Create Figure <a 
+href="#x1-40053">3<!--tex4ht:ref: fig:lattice-pair --></a> using the <span 
+class="aett-10">xyplot </span>function with a formula and the <span 
+class="aett-10">brfss2010 </span>data. The formula is
+     <span 
+class="aett-10">sqrt(Weight) ˜ Height | Sex</span>, which can be read as ‘square root of Weight as a function of Height,
+                                                                                               
+                                                                                               
+     conditioned on Sex&#x2019;. <hr class="figure" /><div class="figure" 
+><a 
+ id="x1-40053"></a><img 
+src="day4-lattice-pair.png" alt="pict"  
+ />
+<br /> <div class="caption" 
+><span class="id">Figure 3: </span><span  
+class="content">Square root of Weight vs. Height, 2010 Female (left) and Male (right).</span></div><!--tex4ht:label?: x1-40053 -->
+     </div><hr class="endfigure" />
+     </dd><dt class="enumerate-enumitem">
+  3. </dt><dd 
+class="enumerate-enumitem">Add a background grid and a regression line to each panel using the argument <span 
+class="aett-10">type=c(&#x2019;p&#x2019;, &#x2019;g&#x2019;, &#x2019;r&#x2019;)</span>; change the width
+     (<span 
+class="aett-10">lwd</span>) and color (<span 
+class="aett-10">col.line</span>) of the regression line.
+     </dd><dt class="enumerate-enumitem">
+  4. </dt><dd 
+class="enumerate-enumitem">Create Figure <a 
+href="#x1-40084">4<!--tex4ht:ref: fig:lattice-density --></a>. Use the <span 
+class="aett-10">densityplot </span>function with the formula <span 
+class="aett-10">˜ sqrt(Weight)</span>. The <span 
+class="aett-10">group=Sex </span>function
+     argument creates separate lines for each sex. Be sure to use <span 
+class="aett-10">plot.points=FALSE </span>to avoid a ‘rug&#x2019; of points at the
+     base of the ﬁgure. Can you add a key (legend)? <hr class="figure" /><div class="figure" 
+><a 
+ id="x1-40084"></a><img 
+src="day4-lattice-density.png" alt="pict"  
+ />
+<br /> <div class="caption" 
+><span class="id">Figure 4: </span><span  
+class="content">Density of square roots of 2010 Weights, by Sex.</span></div><!--tex4ht:label?: x1-40084 -->
+     </div><hr class="endfigure" />
+     </dd><dt class="enumerate-enumitem">
+  5. </dt><dd 
+class="enumerate-enumitem">Create the left panel of Figure <a 
+href="#x1-40115">5<!--tex4ht:ref: fig:lattice-bwplot --></a> using the <span 
+class="aett-10">bwplot</span>. The formula requires that <span 
+class="aett-10">Year </span>be coerced to a <span 
+class="aessi-10">factor </span>class object,
+     <span 
+class="aett-10">factor(Year)</span>.
+     </dd><dt class="enumerate-enumitem">
+  6. </dt><dd 
+class="enumerate-enumitem">Create the right panel of Figure <a 
+href="#x1-40115">5<!--tex4ht:ref: fig:lattice-bwplot --></a>, a <span 
+class="aessi-10">violin </span>plot, using <span 
+class="aett-10">bwplot </span>and the <span 
+class="aett-10">panel </span>argument set to <span 
+class="aett-10">panel.violin</span>.
+     <span 
+class="aett-10">panel </span>is a <span 
+class="aessi-10">function </span>that determines how each panel is drawn. <hr class="figure" /><div class="figure" 
+><a 
+ id="x1-40115"></a><img 
+src="day4-lattice-bwplot.png" alt="pict"  
+ />  <img 
+src="day4-lattice-violin.png" alt="pict"  
+ />
+<br /> <div class="caption" 
+><span class="id">Figure 5: </span><span  
+class="content">Box-and-whiskers (left) and violin (right) plots of Weight as a function of Sex.</span></div><!--tex4ht:label?: x1-40115 -->
+     </div><hr class="endfigure" />
+     </dd><dt class="enumerate-enumitem">
+  7. </dt><dd 
+class="enumerate-enumitem">(Advanced) We can write our own <span 
+class="aett-10">panel </span>argument to <span 
+class="aessi-10">lattice </span>functions to inﬂuence how each panel is displayed. Here we
+     add a point at the median age and weight.
+     <div class="fancyvrb" id="fancyvrb3">
+<a 
+ id="x1-4014r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> xyplot(sqrt(Weight)</span><span 
+class="aesltt-10"> ~</span><span 
+class="aesltt-10"> Height|Sex,</span><span 
+class="aesltt-10"> brfss2010,</span>
+<br class="fancyvrb" /><a 
+ id="x1-4016r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> panel</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> function(x,</span><span 
+class="aesltt-10"> y,</span><span 
+class="aesltt-10"> ...)</span><span 
+class="aesltt-10"> {</span>
+<br class="fancyvrb" /><a 
+ id="x1-4018r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> panel.xyplot(x,</span><span 
+class="aesltt-10"> y,</span><span 
+class="aesltt-10"> ...)</span>
+<br class="fancyvrb" /><a 
+ id="x1-4020r4"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> panel.points(median(x,</span><span 
+class="aesltt-10"> na.rm=TRUE),</span><span 
+class="aesltt-10"> median(y,</span><span 
+class="aesltt-10"> na.rm=TRUE),</span>
+<br class="fancyvrb" /><a 
+ id="x1-4022r5"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> cex=2,</span><span 
+class="aesltt-10"> pch=20,</span><span 
+class="aesltt-10"> col=&#x0022;red&#x0022;)</span>
+<br class="fancyvrb" /><a 
+ id="x1-4024r6"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> },</span>
+<br class="fancyvrb" /><a 
+ id="x1-4026r7"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> type=c(&#x0022;p&#x0022;,</span><span 
+class="aesltt-10"> &#x0022;g&#x0022;,</span><span 
+class="aesltt-10"> &#x0022;r&#x0022;),</span><span 
+class="aesltt-10"> lwd=2,</span><span 
+class="aesltt-10"> col.line=&#x0022;red&#x0022;,</span><span 
+class="aesltt-10"> xlim=c(120,</span><span 
+class="aesltt-10"> 210))</span>
+</div>
+     </dd></dl>
+<!--l. 182--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-50004"></a>Other fun graphics</h3>
+<!--l. 184--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x1-60004"></a><span 
+class="aessbx-10">The grammar of graphics: ggplot2</span></span>
+   The <span 
+class="aessi-10">ggplot2 </span>user-contributed package produces very pretty looking graphics.
+</p>
+   <div class="fancyvrb" id="fancyvrb4">
+<a 
+ id="x1-6002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> library(ggplot2)</span>
+   </div>
+<!--l. 192--><p class="noindent" ><span 
+class="aessi-10">ggplot2 </span>takes a diﬀerent approach to constructing ﬁgures. The idea is that one starts with a plot (created by <span 
+class="aett-10">ggplot</span>, specifying the
+data source). The plot is an object. One then adds layers (e.g., <span 
+class="aett-10">geom_density()</span>, to create a density plot) and aesthetics (e.g.,
+<span 
+class="aett-10">aes()</span>, specifying which data to plot. A basic command might look like
+</p>
+                                                                                               
+                                                                                               
+   <div class="fancyvrb" id="fancyvrb5">
+<a 
+ id="x1-6004r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ggplot(brfss2010)</span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> geom_density()</span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> aes(sqrt(Weight),</span><span 
+class="aesltt-10"> fill=Sex)</span>
+   </div>
+<!--l. 205--><p class="indent" >
+     </p><dl class="enumerate-enumitem"><dt class="enumerate-enumitem">
+  1. </dt><dd 
+class="enumerate-enumitem">Create Figure <a 
+href="#x1-60066">6<!--tex4ht:ref: fig:ggplot-density --></a>. You&#x2019;ll want to add the <span 
+class="aett-10">alpha </span>argument to <span 
+class="aett-10">geom_density</span>, use the <span 
+class="aett-10">scale_x_continuous </span>and
+     <span 
+class="aett-10">scale_y_continuous </span>functions, and the <span 
+class="aett-10">theme </span>function with argument <span 
+class="aett-10">legend.position=&#x2019;top&#x2019;</span>. <hr class="figure" /><div class="figure" 
+><a 
+ id="x1-60066"></a><img 
+src="day4-ggplot-density.png" alt="pict"  
+ />
+<br /> <div class="caption" 
+><span class="id">Figure 6: </span><span  
+class="content">Weight in Female and Male samples from 2010.</span></div><!--tex4ht:label?: x1-60066 -->
+     </div><hr class="endfigure" />
+     </dd></dl>
+<!--l. 220--><p class="noindent" ><span class="paragraphHead"><a 
+ id="x1-70004"></a><span 
+class="aessbx-10">Web-based graphics</span></span>
+   Explore the <span 
+class="aessi-10">googleVis </span>package, e.g., <span 
+class="aett-10">example(gvisMotion); example(gvisGeoMap)</span>; these are used to excellent eﬀect in
+<a 
+href="http://www.ted.com/talks/hans_rosling_reveals_new_insights_on_poverty.html" >Hans Rosling</a>&#x2019;s TED presentation on poverty.
+</p><!--l. 228--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-80005"></a>Homework!</h3>
+<!--l. 229--><p class="noindent" >The datasets you&#x2019;ll access in this exercise are available in R for just this type of practice.
+</p>
+     <ul class="itemize1">
+     <li class="itemize">Explore the <span 
+class="aessbx-10">quakes </span>data frame. What is the range of the values in each of the columns?
+     </li>
+     <li class="itemize">Have a look at the <span 
+class="aessbx-10">iris </span>data. How many measurements are there of petal length for each species? Assume the sepals
+     are rectangles – what is the median sepal area of each species? Its distribution for each species?
+     </li>
+     <li class="itemize">What&#x2019;s the source of the <span 
+class="aessbx-10">mtcars </span>data? The weight in nanograms of the Datsun 710? Present a table for every
+     letter in the alphabet, of the average mpg of the car models with that letter as the second letter in their name.
+     Is the mpg of models with &#x2019;o&#x2019; as the second letter signiﬁcantly diﬀerent from those with &#x2019;e&#x2019; as the second letter?
+     Interpret the result.</li></ul>
+<!--l. 248--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-90006"></a>Resources</h3>
+     <ul class="itemize1">
+     <li class="itemize">Wickham, H. ggplot2: Elegant Graphics for Data Analysis. Springer New York, 2009. <a 
+href="http://had.co.nz/ggplot2" >Web site</a>.
+     </li>
+     <li class="itemize">Sarkar, Deepayan. Lattice: Multivariate Data Visualization with R. Springer, New York, 2008. <a 
+href="http://lmdvr.r-forge.r-project.org/figures/figures.html" >Web site</a>.
+     </li>
+     <li class="itemize">Murrell, P. R Graphics Second Edition. Chapman &#x0026; Hall / CRC, Boca Raton, FL, 2011. <a 
+href="http://www.stat.auckland.ac.nz/~paul/RG2e/" >Web site</a>.</li></ul>
+    
+</body></html> 
+
+                                                                                               
+
+

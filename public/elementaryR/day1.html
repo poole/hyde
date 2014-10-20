@@ -1,0 +1,2771 @@
+<?xml version="1.0" encoding="utf-8" ?> 
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+  "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">  
+<!--http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd-->  
+<html xmlns="http://www.w3.org/1999/xhtml"  
+> 
+<head> <title>Day 1: data input, manipulation and output</title> 
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" /> 
+<meta name="generator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<meta name="originator" content="TeX4ht (http://www.cse.ohio-state.edu/~gurari/TeX4ht/)" /> 
+<!-- charset=utf-8,html,xhtml --> 
+<meta name="src" content="day1.tex" /> 
+<meta name="date" content="2014-10-20 15:24:00" /> 
+<link rel="stylesheet" type="text/css" href="day1.css" /> 
+</head><body 
+>
+   <div class="maketitle">
+                                                                                               
+                                                                                               
+                                                                                               
+                                                                                               
+
+<h2 class="titleHead">Day 1: data input, manipulation and output</h2>
+<div class="author" ><span 
+class="aess-12">Jerry Davison and Martin Morgan</span></div><br />
+<div class="date" ></div>
+   </div>
+____________________________________________________________________________________________
+   <h3 class="likesectionHead"><a 
+ id="x1-1000"></a>Contents</h3>
+   <div class="tableofcontents">
+   <span class="sectionToc" >1 <a 
+href="#x1-20001" id="QQ2-1-2">Introduction to R</a></span>
+<br />    <span class="subsectionToc" >1.1 <a 
+href="#x1-30001.1" id="QQ2-1-3"><span 
+class="aessi-10">R</span>&#x2019;s capabilities</a></span>
+<br />    <span class="subsectionToc" >1.2 <a 
+href="#x1-40001.2" id="QQ2-1-4">Resources for beginners</a></span>
+<br />   <span class="sectionToc" >2 <a 
+href="#x1-50002" id="QQ2-1-5">Using RStudio</a></span>
+<br />    <span class="subsectionToc" >2.1 <a 
+href="#x1-60002.1" id="QQ2-1-7">Help</a></span>
+<br />   <span class="sectionToc" >3 <a 
+href="#x1-70003" id="QQ2-1-8">Simple expressions</a></span>
+<br />   <span class="sectionToc" >4 <a 
+href="#x1-80004" id="QQ2-1-9">Input</a></span>
+<br />   <span class="sectionToc" >5 <a 
+href="#x1-90005" id="QQ2-1-10">Manipulation</a></span>
+<br />   <span class="sectionToc" >6 <a 
+href="#x1-100006" id="QQ2-1-11">Data types</a></span>
+<br />   <span class="sectionToc" >7 <a 
+href="#x1-110007" id="QQ2-1-12">Output</a></span>
+   </div>
+<!--l. 23--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">1   </span> <a 
+ id="x1-20001"></a>Introduction to R</h3>
+<!--l. 26--><p class="noindent" ><span 
+class="aessi-10">R </span>is an open-source statistical programming language. It is used to manipulate data, to perform statistical analyses, and to
+present graphical and other results. <span 
+class="aessi-10">R </span>consists of a core language, additional ‘packages&#x2019; distributed with the <span 
+class="aessi-10">R </span>language, and a
+very large number of packages contributed by the broader community. Packages add speciﬁc functionality to an <span 
+class="aessi-10">R </span>installation. <span 
+class="aessi-10">R</span>
+has become the primary language of academic statistical analyses, and is widely used in diverse areas of research, government, and
+industry.
+</p><!--l. 36--><p class="indent" >   <span 
+class="aessi-10">R </span>has several unique features. It has a surprisingly ‘old school&#x2019; interface: users type commands into a console; scripts in plain
+text represent work ﬂows; tools other than <span 
+class="aessi-10">R </span>are used for editing and other tasks. <span 
+class="aessi-10">R </span>is a ﬂexible programming language, so while
+one person might use functions provided by <span 
+class="aessi-10">R </span>to accomplish advanced analytic tasks, another might implement their own
+functions for novel data types.
+                                                                                               
+                                                                                               
+</p><!--l. 44--><p class="indent" >   As a programming language, <span 
+class="aessi-10">R </span>adopts syntax and grammar that diﬀer from many other languages: objects in <span 
+class="aessi-10">R</span>
+are ‘vectors&#x2019;, and functions are ‘vectorized&#x2019; to operate on all elements of the object; <span 
+class="aessi-10">R </span>objects have ‘copy on
+change&#x2019; and ‘pass by value&#x2019; semantics, reducing unexpected consequences for users at the expense of less eﬃcient
+memory use; common paradigms in other languages, such as the ‘for&#x2019; loop, are encountered much less commonly in
+<span 
+class="aessi-10">R</span>.
+</p><!--l. 52--><p class="indent" >   Many authors contribute to <span 
+class="aessi-10">R</span>, so there can be a frustrating inconsistency of documentation and interface. <span 
+class="aessi-10">R </span>grew up in the
+academic community, so authors have not shied away from trying new approaches. Common statistical analyses are very
+well-developed.
+</p><!--l. 57--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.1   </span> <a 
+ id="x1-30001.1"></a><span 
+class="aessi-10">R</span>&#x2019;s capabilities</h4>
+<!--l. 59--><p class="noindent" >‘Base&#x2019; <span 
+class="aessi-10">R </span>provides: </p>
+     <ul class="itemize1">
+     <li class="itemize">Data manipulation, including input, subsetting, transformation, …, output.
+     </li>
+     <li class="itemize">Descriptive, predictive (<span 
+class="cmmi-10">t</span>-test, <span 
+class="cmmi-10">χ</span><sup><span 
+class="cmr-7">2</span></sup> test, regression, linear models, …), clustering and classiﬁcation, and other statistical
+     methods.
+     </li>
+     <li class="itemize">Plotting and visualization.
+     </li>
+     <li class="itemize">Reproducible research, which is especially important in long-term or collaborative projects.</li></ul>
+<!--l. 70--><p class="noindent" >Additional packages provide: </p>
+     <ul class="itemize1">
+     <li class="itemize">Advanced statistical analysis.
+     </li>
+     <li class="itemize">‘Domain-speciﬁc&#x2019; analysis, e.g., <a 
+href="http://cran.fhcrc.org/web/views/" >Task Views</a> linked from the <span 
+class="aessi-10">R </span>home page, the <a 
+href="http://bioconductor.org" ><span 
+class="aessi-10">Bioconductor</span></a> project for microarray
+     and sequence analysis.</li></ul>
+<!--l. 79--><p class="noindent" >
+</p>
+   <h4 class="subsectionHead"><span class="titlemark">1.2   </span> <a 
+ id="x1-40001.2"></a>Resources for beginners</h4>
+     <ul class="itemize1">
+     <li class="itemize">Zuur, Ieno, and Meesters, 2009. <span 
+class="aessi-10">A Beginner&#x2019;s Guide to R</span>. Springer.
+     </li>
+     <li class="itemize">Dalgaard, P. 2002. <span 
+class="aessi-10">Introductory Statistics with R</span>. Springer.
+     </li>
+     <li class="itemize">Wickham, H. 2009. <span 
+class="aessi-10">ggplot: Elegant Graphics for Data Analysis</span>. Springer.</li></ul>
+<!--l. 90--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">2   </span> <a 
+ id="x1-50002"></a>Using RStudio</h3>
+<!--l. 92--><p class="noindent" >The RStudio application provides a convenient and ﬂexible environment for your work with R. Figure <a 
+href="#x1-50011">1<!--tex4ht:ref: fig:RstudioImage --></a> presents a view of a typical
+RStudio session.
+                                                                                               
+                                                                                               
+</p><!--l. 97--><p class="indent" >   See <a 
+href="http://www.rstudio.com/ide" class="url" ><span 
+class="aett-10">http://www.rstudio.com/ide</span></a> for documentation and <span 
+class="aessi-10">downloads </span>for oﬄine work on Linux, Windows and MAC
+systems.
+</p>
+   <hr class="figure" /><div class="figure" 
+>
+                                                                                               
+                                                                                               
+<a 
+ id="x1-50011"></a>
+                                                                                               
+                                                                                               
+
+<!--l. 102--><p class="noindent" ><img 
+src="Rstudio.png" alt="PIC"  
+ />
+<br /> </p><div class="caption" 
+><span class="id">Figure 1: </span><span  
+class="content">Typical RStudio conﬁguration.</span></div><!--tex4ht:label?: x1-50011 -->
+                                                                                               
+                                                                                               
+   </div><hr class="endfigure" />
+   <h4 class="subsectionHead"><span class="titlemark">2.1   </span> <a 
+ id="x1-60002.1"></a>Help</h4>
+<!--l. 109--><p class="noindent" ><span 
+class="aessi-10">R </span>comes with extensive help. In RStudio, click the ‘help&#x2019; menu and choose ‘R help&#x2019;. Important sections include
+     </p><dl class="description"><dt class="description">
+<span 
+class="aessbx-10">Search Engine and Keywords</span> </dt><dd 
+class="description">is a convenient way to ﬁnd help on what particular functions do; also try <span 
+class="aett-10">? </span>followed by
+     a function name on the command line, e.g., <span 
+class="aett-10">?read.table</span>.
+     </dd><dt class="description">
+<span 
+class="aessbx-10">An Introduction to R</span> </dt><dd 
+class="description">provides a thorough introduction to the language and key functions in <span 
+class="aessi-10">R</span>; consult this after
+     becoming comfortable with the exercises we&#x2019;ve gone through today.
+     </dd><dt class="description">
+<span 
+class="aessbx-10">R Data Import / Export</span> </dt><dd 
+class="description">especially section 2 can be helpful when trying to get data in to <span 
+class="aessi-10">R</span>.</dd></dl>
+<!--l. 121--><p class="noindent" >When not using RStudio, start the help system by typing the command <span 
+class="aett-10">help.start()</span>. The <a 
+href="http://r-project.org" ><span 
+class="aessi-10">R</span></a> web site provides many useful links.
+Once you are comfortable with <span 
+class="aessi-10">R</span>, the R-help mailing list can be a very useful source of information, as can general-purpose
+forums like <a 
+href="http://stackoverflow.com/questions/tagged/r" >StackOverﬂow</a>.
+</p><!--l. 129--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">3   </span> <a 
+ id="x1-70003"></a>Simple expressions</h3>
+<!--l. 130--><p class="noindent" >R is a quite sophisticated system for data analysis, but that doesn&#x2019;t mean it&#x2019;s not comprehensible to beginners. Let&#x2019;s start using
+it:
+</p>
+   <div class="fancyvrb" id="fancyvrb1">
+<a 
+ id="x1-7002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> 2</span>
+   </div>
+<!--l. 136--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb2">
+<a 
+ id="x1-7004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 2</span>
+   </div>
+<!--l. 139--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb3">
+<a 
+ id="x1-7006r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> 2</span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> 2</span>
+   </div>
+<!--l. 142--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb4">
+<a 
+ id="x1-7008r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 4</span>
+   </div>
+<!--l. 145--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb5">
+<a 
+ id="x1-7010r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> 2^10</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 148--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb6">
+<a 
+ id="x1-7012r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 1024</span>
+   </div>
+<!--l. 152--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span>One supported data type is the <span 
+class="aessi-10">vector</span>, speciﬁed in this way:
+</p>
+   <div class="fancyvrb" id="fancyvrb7">
+<a 
+ id="x1-7014r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> c(2,</span><span 
+class="aesltt-10"> 4,</span><span 
+class="aesltt-10"> 3)</span>
+   </div>
+<!--l. 157--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb8">
+<a 
+ id="x1-7016r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 3</span>
+   </div>
+<!--l. 160--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb9">
+<a 
+ id="x1-7018r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> mean(c(2,</span><span 
+class="aesltt-10"> 4,</span><span 
+class="aesltt-10"> 3))</span>
+   </div>
+<!--l. 163--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb10">
+<a 
+ id="x1-7020r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 3</span>
+   </div>
+<!--l. 166--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb11">
+<a 
+ id="x1-7022r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> sd(c(2,</span><span 
+class="aesltt-10"> 4,</span><span 
+class="aesltt-10"> 3))</span>
+   </div>
+<!--l. 169--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb12">
+<a 
+ id="x1-7024r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 1</span>
+   </div>
+<!--l. 173--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span>Data objects can be given names in an <span 
+class="aessi-10">assignment statement</span>:
+</p>
+   <div class="fancyvrb" id="fancyvrb13">
+<a 
+ id="x1-7026r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> x</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> c(2,</span><span 
+class="aesltt-10"> 4,</span><span 
+class="aesltt-10"> 3)</span>
+<br class="fancyvrb" /><a 
+ id="x1-7028r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> y</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> 2</span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> 2</span>
+<br class="fancyvrb" /><a 
+ id="x1-7030r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> x/y</span>
+   </div>
+<!--l. 180--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb14">
+<a 
+ id="x1-7032r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 0.50</span><span 
+class="aett-10"> 1.00</span><span 
+class="aett-10"> 0.75</span>
+   </div>
+<!--l. 184--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span><span id="textcolor1"><span 
+class="aessbx-10">Exercise: </span>evaluate these expressions: <span 
+class="aett-10">y/x, x-2/10, (x-2)/10</span></span>
+</p><!--l. 186--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">4   </span> <a 
+ id="x1-80004"></a>Input</h3>
+<!--l. 187--><p class="noindent" >Spreadsheet applications and R complement each other in that the former can provide nicely formatted columns, colored headers
+and convenient scrolling while R provides functional ﬂexibility. You can access Excel worksheets and other table-like data ﬁles with
+R, and use R to write ﬁles readable by spreadsheets – R reads and writes tables written in comma- or tab-separated values
+formats.
+</p><!--l. 194--><p class="indent" >   We&#x2019;ll ﬁrst read the table <span 
+class="aett-10">ALLannotationFromExcel.txt </span>that contains ALL (acute lymphoblastic leukemia) patient
+information:
+</p><!--l. 198--><p class="indent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb15">
+<a 
+ id="x1-8002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> filename</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> file.choose()</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> Go</span><span 
+class="aesltt-10"> to</span><span 
+class="aesltt-10"> the</span><span 
+class="aesltt-10"> data</span><span 
+class="aesltt-10"> directory</span><span 
+class="aesltt-10"> to</span><span 
+class="aesltt-10"> get</span><span 
+class="aesltt-10"> the</span><span 
+class="aesltt-10"> file</span>
+<br class="fancyvrb" /><a 
+ id="x1-8004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> info</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> read.delim(filename)</span>
+<br class="fancyvrb" /><a 
+ id="x1-8006r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ?read.delim</span>
+   </div>
+<!--l. 206--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span>Then use R functions that tell us about the ﬁle:
+</p>
+   <div class="fancyvrb" id="fancyvrb16">
+<a 
+ id="x1-8008r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> class(info)</span>
+   </div>
+<!--l. 211--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb17">
+<a 
+ id="x1-8010r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;data.frame&#x0022;</span>
+   </div>
+<!--l. 214--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb18">
+<a 
+ id="x1-8012r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> colnames(info)</span>
+   </div>
+<!--l. 217--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb19">
+<a 
+ id="x1-8014r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;id&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;diagnosis&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;sex&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;age&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;BT&#x0022;</span>
+<br class="fancyvrb" /><a 
+ id="x1-8016r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> [6]</span><span 
+class="aett-10"> &#x0022;remission&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;CR&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;date.cr&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;t.4.11.&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;t.9.22.&#x0022;</span>
+<br class="fancyvrb" /><a 
+ id="x1-8018r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [11]</span><span 
+class="aett-10"> &#x0022;cyto.normal&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;citog&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;mol.biol&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;fusion.protein&#x0022;</span><span 
+class="aett-10"> &#x0022;mdr&#x0022;</span>
+<br class="fancyvrb" /><a 
+ id="x1-8020r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [16]</span><span 
+class="aett-10"> &#x0022;kinet&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;ccr&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;relapse&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;transplant&#x0022;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x0022;f.u&#x0022;</span>
+<br class="fancyvrb" /><a 
+ id="x1-8022r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [21]</span><span 
+class="aett-10"> &#x0022;date.last.seen&#x0022;</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 224--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb20">
+<a 
+ id="x1-8024r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> dim(info)</span>
+   </div>
+<!--l. 227--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb21">
+<a 
+ id="x1-8026r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 127</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 21</span>
+   </div>
+<!--l. 230--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb22">
+<a 
+ id="x1-8028r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> head(info)</span>
+   </div>
+<!--l. 233--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb23">
+<a 
+ id="x1-8030r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> id</span><span 
+class="aett-10"> diagnosis</span><span 
+class="aett-10"> sex</span><span 
+class="aett-10"> age</span><span 
+class="aett-10"> BT</span><span 
+class="aett-10"> remission</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> date.cr</span><span 
+class="aett-10"> t.4.11.</span><span 
+class="aett-10"> t.9.22.</span><span 
+class="aett-10"> cyto.normal</span>
+<br class="fancyvrb" /><a 
+ id="x1-8032r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> 1005</span><span 
+class="aett-10"> 5/21/1997</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 53</span><span 
+class="aett-10"> B2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8/6/1997</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8034r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> 1010</span><span 
+class="aett-10"> 3/29/2000</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 19</span><span 
+class="aett-10"> B2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> 6/27/2000</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8036r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> 3002</span><span 
+class="aett-10"> 6/24/1998</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 52</span><span 
+class="aett-10"> B4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> 8/17/1998</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> NA</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> NA</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> NA</span>
+<br class="fancyvrb" /><a 
+ id="x1-8038r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> 4006</span><span 
+class="aett-10"> 7/17/1997</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 38</span><span 
+class="aett-10"> B1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9/8/1997</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8040r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> 4007</span><span 
+class="aett-10"> 7/22/1997</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 57</span><span 
+class="aett-10"> B2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> 9/17/1997</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8042r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> 4008</span><span 
+class="aett-10"> 7/30/1997</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 17</span><span 
+class="aett-10"> B1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> 9/27/1997</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8044r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> citog</span><span 
+class="aett-10"> mol.biol</span><span 
+class="aett-10"> fusion.protein</span><span 
+class="aett-10"> mdr</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> kinet</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> ccr</span><span 
+class="aett-10"> relapse</span><span 
+class="aett-10"> transplant</span>
+<br class="fancyvrb" /><a 
+ id="x1-8046r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> t(9;22)</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> BCR/ABL</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> p210</span><span 
+class="aett-10"> NEG</span><span 
+class="aett-10"> dyploid</span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8048r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> simple</span><span 
+class="aett-10"> alt.</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> NEG</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x003C;NA&#x003E;</span><span 
+class="aett-10"> POS</span><span 
+class="aett-10"> dyploid</span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8050r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x003C;NA&#x003E;</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> BCR/ABL</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> p190</span><span 
+class="aett-10"> NEG</span><span 
+class="aett-10"> dyploid</span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8052r12"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> t(4;11)</span><span 
+class="aett-10"> ALL1/AF4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x003C;NA&#x003E;</span><span 
+class="aett-10"> NEG</span><span 
+class="aett-10"> dyploid</span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8054r13"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> del(6q)</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> NEG</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x003C;NA&#x003E;</span><span 
+class="aett-10"> NEG</span><span 
+class="aett-10"> dyploid</span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8056r14"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> complex</span><span 
+class="aett-10"> alt.</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> NEG</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x003C;NA&#x003E;</span><span 
+class="aett-10"> NEG</span><span 
+class="aett-10"> hyperd.</span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span>
+<br class="fancyvrb" /><a 
+ id="x1-8058r15"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> f.u</span><span 
+class="aett-10"> date.last.seen</span>
+<br class="fancyvrb" /><a 
+ id="x1-8060r16"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> BMT</span><span 
+class="aett-10"> /</span><span 
+class="aett-10"> DEATH</span><span 
+class="aett-10"> IN</span><span 
+class="aett-10"> CR</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x003C;NA&#x003E;</span>
+<br class="fancyvrb" /><a 
+ id="x1-8062r17"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> REL</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8/28/2000</span>
+<br class="fancyvrb" /><a 
+ id="x1-8064r18"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> REL</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 10/15/1999</span>
+<br class="fancyvrb" /><a 
+ id="x1-8066r19"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> REL</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1/23/1998</span>
+<br class="fancyvrb" /><a 
+ id="x1-8068r20"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> REL</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 11/4/1997</span>
+<br class="fancyvrb" /><a 
+ id="x1-8070r21"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> REL</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 12/15/1997</span>
+   </div>
+<!--l. 256--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb24">
+<a 
+ id="x1-8072r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> summary(info$sex)</span>
+   </div>
+<!--l. 259--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb25">
+<a 
+ id="x1-8074r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> NA</span><span 
+class="tctt-1000">'</span><span 
+class="aett-10">s</span>
+<br class="fancyvrb" /><a 
+ id="x1-8076r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 42</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 83</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span>
+   </div>
+<!--l. 263--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb26">
+<a 
+ id="x1-8078r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> summary(info$cyto.normal)</span>
+   </div>
+<!--l. 266--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb27">
+<a 
+ id="x1-8080r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> Mode</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> FALSE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> TRUE</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> NA</span><span 
+class="tctt-1000">'</span><span 
+class="aett-10">s</span>
+<br class="fancyvrb" /><a 
+ id="x1-8082r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> logical</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 69</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 24</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 34</span>
+   </div>
+<!--l. 271--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span><span id="textcolor2"><span 
+class="aessbx-10">Exercise: </span>Read ﬁle <span 
+class="aett-10">ALLmetadata.txt </span>from the same directory as before, assigning the name &#x2019;doc&#x2019; to the data frame created.
+How does &#x2019;doc&#x2019; relate to &#x2019;info&#x2019;?</span>
+</p><!--l. 275--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">5   </span> <a 
+ id="x1-90005"></a>Manipulation</h3>
+<!--l. 276--><p class="noindent" >R doesn&#x2019;t provide scrollbars like spreadsheet applications do, but you can examine subsets of large objects like the 127x21 <span 
+class="aett-10">info</span>
+data frame – for example by explicitly giving the rows and columns you want to see:
+</p>
+   <div class="fancyvrb" id="fancyvrb28">
+<a 
+ id="x1-9002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> info[1:10,</span><span 
+class="aesltt-10"> 3:4]</span>
+   </div>
+<!--l. 283--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb29">
+<a 
+ id="x1-9004r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> sex</span><span 
+class="aett-10"> age</span>
+<br class="fancyvrb" /><a 
+ id="x1-9006r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 53</span>
+<br class="fancyvrb" /><a 
+ id="x1-9008r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 19</span>
+<br class="fancyvrb" /><a 
+ id="x1-9010r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 52</span>
+<br class="fancyvrb" /><a 
+ id="x1-9012r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 38</span>
+<br class="fancyvrb" /><a 
+ id="x1-9014r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 57</span>
+<br class="fancyvrb" /><a 
+ id="x1-9016r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 17</span>
+<br class="fancyvrb" /><a 
+ id="x1-9018r8"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 7</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 18</span>
+<br class="fancyvrb" /><a 
+ id="x1-9020r9"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 8</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 16</span>
+<br class="fancyvrb" /><a 
+ id="x1-9022r10"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 9</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 15</span>
+<br class="fancyvrb" /><a 
+ id="x1-9024r11"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 10</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 40</span>
+   </div>
+<!--l. 298--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb30">
+<a 
+ id="x1-9026r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> info[1:10,</span><span 
+class="aesltt-10"> ]</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> What</span><span 
+class="aesltt-10"> do</span><span 
+class="aesltt-10"> these</span><span 
+class="aesltt-10"> do?</span>
+<br class="fancyvrb" /><a 
+ id="x1-9028r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> info[,</span><span 
+class="aesltt-10"> 3:4]</span>
+   </div>
+<!--l. 303--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span>First and last rows of data frames:
+</p>
+   <div class="fancyvrb" id="fancyvrb31">
+<a 
+ id="x1-9030r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> head(info[,</span><span 
+class="aesltt-10"> 3:5])</span>
+   </div>
+<!--l. 308--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb32">
+<a 
+ id="x1-9032r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> sex</span><span 
+class="aett-10"> age</span><span 
+class="aett-10"> BT</span>
+<br class="fancyvrb" /><a 
+ id="x1-9034r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 1</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 53</span><span 
+class="aett-10"> B2</span>
+<br class="fancyvrb" /><a 
+ id="x1-9036r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 2</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 19</span><span 
+class="aett-10"> B2</span>
+<br class="fancyvrb" /><a 
+ id="x1-9038r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 3</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 52</span><span 
+class="aett-10"> B4</span>
+<br class="fancyvrb" /><a 
+ id="x1-9040r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 4</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 38</span><span 
+class="aett-10"> B1</span>
+<br class="fancyvrb" /><a 
+ id="x1-9042r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 5</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 57</span><span 
+class="aett-10"> B2</span>
+<br class="fancyvrb" /><a 
+ id="x1-9044r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 6</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 17</span><span 
+class="aett-10"> B1</span>
+   </div>
+<!--l. 317--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb33">
+<a 
+ id="x1-9046r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> tail(info[,</span><span 
+class="aesltt-10"> 3:5])</span>
+   </div>
+<!--l. 320--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb34">
+<a 
+ id="x1-9048r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> sex</span><span 
+class="aett-10"> age</span><span 
+class="aett-10"> BT</span>
+<br class="fancyvrb" /><a 
+ id="x1-9050r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 122</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 32</span><span 
+class="aett-10"> T3</span>
+<br class="fancyvrb" /><a 
+ id="x1-9052r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 123</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 24</span><span 
+class="aett-10"> T3</span>
+<br class="fancyvrb" /><a 
+ id="x1-9054r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 124</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 37</span><span 
+class="aett-10"> T3</span>
+<br class="fancyvrb" /><a 
+ id="x1-9056r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 125</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 19</span><span 
+class="aett-10"> T2</span>
+<br class="fancyvrb" /><a 
+ id="x1-9058r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 126</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 30</span><span 
+class="aett-10"> T3</span>
+<br class="fancyvrb" /><a 
+ id="x1-9060r7"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> 127</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> 29</span><span 
+class="aett-10"> T2</span>
+   </div>
+<!--l. 330--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span>R <span 
+class="aett-10">help </span>is handy. For example – does &#x0022;head&#x0022; always presents 6 rows?
+</p>
+   <div class="fancyvrb" id="fancyvrb35">
+<a 
+ id="x1-9062r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ?head</span>
+   </div>
+<!--l. 337--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙</span><span id="textcolor3"><span 
+class="aessbx-10">Exercise: </span>List the ﬁrst 10 rows of columns &#x2019;sex&#x2019;, &#x2019;remission&#x2019; and &#x2019;date.last.seen&#x2019; in data frame <span 
+class="aett-10">info</span>.</span> <br 
+class="newline" />
+</p><!--l. 339--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span>Data frame column names can be used to access their values:
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb36">
+<a 
+ id="x1-9064r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> head(info$age)</span>
+   </div>
+<!--l. 344--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb37">
+<a 
+ id="x1-9066r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 53</span><span 
+class="aett-10"> 19</span><span 
+class="aett-10"> 52</span><span 
+class="aett-10"> 38</span><span 
+class="aett-10"> 57</span><span 
+class="aett-10"> 17</span>
+   </div>
+<!--l. 347--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb38">
+<a 
+ id="x1-9068r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> head(info$sex)</span>
+   </div>
+<!--l. 350--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb39">
+<a 
+ id="x1-9070r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-9072r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Levels:</span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> M</span>
+   </div>
+<!--l. 355--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙ </span>You can subset using logical expressions – watch out for NA&#x2019;s!
+</p>
+   <div class="fancyvrb" id="fancyvrb40">
+<a 
+ id="x1-9074r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> info$age[info$age</span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> 21]</span>
+   </div>
+<!--l. 360--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb41">
+<a 
+ id="x1-9076r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 53</span><span 
+class="aett-10"> 52</span><span 
+class="aett-10"> 38</span><span 
+class="aett-10"> 57</span><span 
+class="aett-10"> 40</span><span 
+class="aett-10"> 33</span><span 
+class="aett-10"> 55</span><span 
+class="aett-10"> 41</span><span 
+class="aett-10"> 27</span><span 
+class="aett-10"> 27</span><span 
+class="aett-10"> 46</span><span 
+class="aett-10"> 37</span><span 
+class="aett-10"> 36</span><span 
+class="aett-10"> 53</span><span 
+class="aett-10"> 39</span><span 
+class="aett-10"> 53</span><span 
+class="aett-10"> 44</span><span 
+class="aett-10"> 28</span><span 
+class="aett-10"> 58</span><span 
+class="aett-10"> 43</span><span 
+class="aett-10"> 48</span><span 
+class="aett-10"> 58</span><span 
+class="aett-10"> 26</span><span 
+class="aett-10"> 32</span><span 
+class="aett-10"> 45</span><span 
+class="aett-10"> 51</span><span 
+class="aett-10"> 57</span><span 
+class="aett-10"> 29</span>
+<br class="fancyvrb" /><a 
+ id="x1-9078r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [29]</span><span 
+class="aett-10"> 32</span><span 
+class="aett-10"> NA</span><span 
+class="aett-10"> 49</span><span 
+class="aett-10"> 38</span><span 
+class="aett-10"> 26</span><span 
+class="aett-10"> 48</span><span 
+class="aett-10"> 22</span><span 
+class="aett-10"> 47</span><span 
+class="aett-10"> 54</span><span 
+class="aett-10"> 26</span><span 
+class="aett-10"> 47</span><span 
+class="aett-10"> 52</span><span 
+class="aett-10"> 27</span><span 
+class="aett-10"> 52</span><span 
+class="aett-10"> 23</span><span 
+class="aett-10"> NA</span><span 
+class="aett-10"> 54</span><span 
+class="aett-10"> 25</span><span 
+class="aett-10"> 31</span><span 
+class="aett-10"> 24</span><span 
+class="aett-10"> 23</span><span 
+class="aett-10"> NA</span><span 
+class="aett-10"> 41</span><span 
+class="aett-10"> 37</span><span 
+class="aett-10"> 54</span><span 
+class="aett-10"> 43</span><span 
+class="aett-10"> 53</span><span 
+class="aett-10"> 50</span>
+<br class="fancyvrb" /><a 
+ id="x1-9080r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [57]</span><span 
+class="aett-10"> 54</span><span 
+class="aett-10"> 53</span><span 
+class="aett-10"> 49</span><span 
+class="aett-10"> 26</span><span 
+class="aett-10"> 22</span><span 
+class="aett-10"> 36</span><span 
+class="aett-10"> 27</span><span 
+class="aett-10"> 50</span><span 
+class="aett-10"> NA</span><span 
+class="aett-10"> 31</span><span 
+class="aett-10"> 48</span><span 
+class="aett-10"> 40</span><span 
+class="aett-10"> 22</span><span 
+class="aett-10"> 30</span><span 
+class="aett-10"> 22</span><span 
+class="aett-10"> 50</span><span 
+class="aett-10"> 41</span><span 
+class="aett-10"> 40</span><span 
+class="aett-10"> 28</span><span 
+class="aett-10"> 25</span><span 
+class="aett-10"> 31</span><span 
+class="aett-10"> 24</span><span 
+class="aett-10"> 37</span><span 
+class="aett-10"> 23</span><span 
+class="aett-10"> 30</span><span 
+class="aett-10"> 48</span><span 
+class="aett-10"> 22</span><span 
+class="aett-10"> 41</span>
+<br class="fancyvrb" /><a 
+ id="x1-9082r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [85]</span><span 
+class="aett-10"> 52</span><span 
+class="aett-10"> 32</span><span 
+class="aett-10"> 24</span><span 
+class="aett-10"> 37</span><span 
+class="aett-10"> 30</span><span 
+class="aett-10"> 29</span>
+   </div>
+<!--l. 366--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb42">
+<a 
+ id="x1-9084r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> info$sex[info$sex</span><span 
+class="aesltt-10"> ==</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">M</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">]</span>
+   </div>
+<!--l. 369--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb43">
+<a 
+ id="x1-9086r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-9088r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [18]</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x003C;NA&#x003E;</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-9090r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [35]</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-9092r4"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [52]</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> &#x003C;NA&#x003E;</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-9094r5"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [69]</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-9096r6"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Levels:</span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> M</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 377--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb44">
+<a 
+ id="x1-9098r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> info$sex[info$sex</span><span 
+class="aesltt-10"> ==</span><span 
+class="aesltt-10"> </span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">M</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10"> &#x0026;</span><span 
+class="aesltt-10"> !is.na(info$sex)]</span>
+   </div>
+<!--l. 380--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb45">
+<a 
+ id="x1-9100r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-9102r2"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [44]</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span><span 
+class="aett-10"> M</span>
+<br class="fancyvrb" /><a 
+ id="x1-9104r3"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> Levels:</span><span 
+class="aett-10"> F</span><span 
+class="aett-10"> M</span>
+   </div>
+<!--l. 387--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">6   </span> <a 
+ id="x1-100006"></a>Data types</h3>
+<!--l. 388--><p class="noindent" >R provides several <span 
+class="aett-10">data types </span>that follow rules you might expect: the <span 
+class="aett-10">numeric </span>can be used in arithmetic operations, the
+<span 
+class="aett-10">logical </span>results from TRUE or FALSE questions, <span 
+class="aett-10">character </span>data are used to handle text, and <span 
+class="aett-10">factors </span>are used in statistical
+analyses, ANOVA for example.
+</p>
+   <div class="fancyvrb" id="fancyvrb46">
+<a 
+ id="x1-10002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> x</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> 28.1/7</span>
+<br class="fancyvrb" /><a 
+ id="x1-10004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> x</span>
+   </div>
+<!--l. 398--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb47">
+<a 
+ id="x1-10006r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 4.014286</span>
+   </div>
+<!--l. 401--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb48">
+<a 
+ id="x1-10008r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> class(x)</span>
+   </div>
+<!--l. 404--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb49">
+<a 
+ id="x1-10010r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;numeric&#x0022;</span>
+   </div>
+<!--l. 407--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb50">
+<a 
+ id="x1-10012r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> log2(x)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> A</span><span 
+class="aesltt-10"> commonly</span><span 
+class="aesltt-10"> used</span><span 
+class="aesltt-10"> transformation:</span><span 
+class="aesltt-10"> log</span><span 
+class="aesltt-10"> base</span><span 
+class="aesltt-10"> 2</span>
+   </div>
+                                                                                               
+                                                                                               
+<!--l. 410--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb51">
+<a 
+ id="x1-10014r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 2.005143</span>
+   </div>
+<!--l. 413--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb52">
+<a 
+ id="x1-10016r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> log(x)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> What</span><span 
+class="aesltt-10"> is</span><span 
+class="aesltt-10"> the</span><span 
+class="aesltt-10"> base</span><span 
+class="aesltt-10"> of</span><span 
+class="aesltt-10"> this</span><span 
+class="aesltt-10"> logarithm?</span>
+   </div>
+<!--l. 416--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb53">
+<a 
+ id="x1-10018r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 1.389859</span>
+   </div>
+<!--l. 419--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb54">
+<a 
+ id="x1-10020r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> sqrt(x)</span><span 
+class="aesltt-10"> #</span><span 
+class="aesltt-10"> What</span><span 
+class="aesltt-10"> is</span><span 
+class="aesltt-10"> this</span><span 
+class="aesltt-10"> transform?</span>
+   </div>
+<!--l. 422--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb55">
+<a 
+ id="x1-10022r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> 2.003568</span>
+   </div>
+<!--l. 425--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb56">
+<a 
+ id="x1-10024r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> y</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> 10</span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> 3</span>
+<br class="fancyvrb" /><a 
+ id="x1-10026r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> y</span>
+   </div>
+<!--l. 429--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb57">
+<a 
+ id="x1-10028r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> TRUE</span>
+   </div>
+<!--l. 432--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb58">
+<a 
+ id="x1-10030r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> class(y)</span>
+   </div>
+<!--l. 435--><p class="noindent" >
+                                                                                               
+                                                                                               
+</p>
+   <div class="fancyvrb" id="fancyvrb59">
+<a 
+ id="x1-10032r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;logical&#x0022;</span>
+   </div>
+<!--l. 438--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb60">
+<a 
+ id="x1-10034r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> z</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> substr(</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">Hi</span><span 
+class="aesltt-10"> there!</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span><span 
+class="aesltt-10"> 1,</span><span 
+class="aesltt-10"> 5)</span>
+<br class="fancyvrb" /><a 
+ id="x1-10036r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> z</span>
+   </div>
+<!--l. 442--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb61">
+<a 
+ id="x1-10038r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;Hi</span><span 
+class="aett-10"> th&#x0022;</span>
+   </div>
+<!--l. 445--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb62">
+<a 
+ id="x1-10040r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> class(z)</span>
+   </div>
+<!--l. 448--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb63">
+<a 
+ id="x1-10042r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;character&#x0022;</span>
+   </div>
+<!--l. 451--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb64">
+<a 
+ id="x1-10044r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> class(info$sex)</span>
+   </div>
+<!--l. 454--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb65">
+<a 
+ id="x1-10046r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;factor&#x0022;</span>
+   </div>
+<!--l. 457--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb66">
+<a 
+ id="x1-10048r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> levels(info$sex)</span>
+   </div>
+<!--l. 460--><p class="noindent" >
+</p>
+   <div class="fancyvrb" id="fancyvrb67">
+<a 
+ id="x1-10050r1"></a><span 
+class="aett-10"> </span><span 
+class="aett-10"> [1]</span><span 
+class="aett-10"> &#x0022;F&#x0022;</span><span 
+class="aett-10"> &#x0022;M&#x0022;</span>
+   </div>
+<!--l. 465--><p class="noindent" ><span 
+class="cmsy-10x-x-144">∙</span><span id="textcolor4"><span 
+class="aessbx-10">Exercise: </span>Use the <span 
+class="aett-10">table </span>function to count the number of &#x2019;M&#x2019; and &#x2019;F&#x2019; patients identiﬁed in the <span 
+class="aett-10">info </span>data frame. Does that
+account for all patients?</span>
+                                                                                               
+                                                                                               
+</p><!--l. 470--><p class="noindent" >
+_______________________________________________________________________________________________
+</p>
+   <h3 class="sectionHead"><span class="titlemark">7   </span> <a 
+ id="x1-110007"></a>Output</h3>
+<!--l. 471--><p class="noindent" >Select a subset of patients with normal cytogenetics and no translocations to write to a separate ﬁle and then read with a
+spreadsheet application:
+</p>
+   <div class="fancyvrb" id="fancyvrb68">
+<a 
+ id="x1-11002r1"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> ?write.table</span>
+<br class="fancyvrb" /><a 
+ id="x1-11004r2"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> idx</span><span 
+class="aesltt-10"> =</span><span 
+class="aesltt-10"> with(info,</span><span 
+class="aesltt-10"> cyto.normal==TRUE</span><span 
+class="aesltt-10"> &#x0026;</span><span 
+class="aesltt-10"> !is.na(cyto.normal))</span>
+<br class="fancyvrb" /><a 
+ id="x1-11006r3"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> write.table(info[idx,],</span><span 
+class="aesltt-10"> file=</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">cytoNormal.txt</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span><span 
+class="aesltt-10"> sep=</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">\t</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span>
+<br class="fancyvrb" /><a 
+ id="x1-11008r4"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> row.names=FALSE,</span><span 
+class="aesltt-10"> quote=FALSE)</span>
+<br class="fancyvrb" /><a 
+ id="x1-11010r5"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> &#x003E;</span><span 
+class="aesltt-10"> write.table(info[idx,],</span><span 
+class="aesltt-10"> file=</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">cytoNormal.csv</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span><span 
+class="aesltt-10"> sep=</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span><span 
+class="tcst-1000">'</span><span 
+class="aesltt-10">,</span>
+<br class="fancyvrb" /><a 
+ id="x1-11012r6"></a><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> +</span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> </span><span 
+class="aesltt-10"> row.names=FALSE,</span><span 
+class="aesltt-10"> quote=FALSE)</span>
+   </div>
+    
+</body></html> 
+
+                                                                                               
+
+
