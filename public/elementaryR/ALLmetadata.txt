@@ -1,0 +1,22 @@
+labelDescription
+id	 Patient ID
+diagnosis	 Date of diagnosis
+sex	 Gender of the patient
+age	 Age of the patient at entry
+BT	 does the patient have B-cell or T-cell ALL
+remission	 Complete remission(CR), refractory(REF) or NA. Derived from CR
+CR	 Original remisson data
+date.cr	 Date complete remission if achieved
+t(4;11)	 did the patient have t(4;11) translocation. Derived from citog
+t(9;22)	 did the patient have t(9;22) translocation. Derived from citog
+cyto.normal	 Was cytogenetic test normal? Derived from citog
+citog	 original citogenetics data, deletions or t(4;11), t(9;22) status
+mol.biol	 molecular biology
+fusion protein	 which of p190, p210 or p190/210 for bcr/able
+mdr	 multi-drug resistant
+kinet	 ploidy: either diploid or hyperd.
+ccr	 Continuous complete remission? Derived from f.u
+relapse	 Relapse? Derived from f.u
+transplant	 did the patient receive a bone marrow transplant? Derived from f.u
+f.u	 follow up data available
+date last seen	 date patient was last seen
