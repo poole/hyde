@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introduction to the command line
+title: "Command line: introduction"
 category: articles
 tags: beginner shell
 ---

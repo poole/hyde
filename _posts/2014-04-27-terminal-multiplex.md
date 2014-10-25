@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Terminal multiplexing
+title: "Command line: terminal multiplexing"
 category: articles
 tags: intermediate shell
 ---

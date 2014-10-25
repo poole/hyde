@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Fall 2014 introductory R course material"
+title: "R: introductory course material"
 category: articles
 tags: education R external
 ---
@@ -21,4 +21,4 @@ Lesson data files:
 - [`ALLmetadata.txt`](/public/elementaryR/ALLmetadata.txt)
 - [`BRFSS-subset.csv`](/public/elementaryR/BRFSS-subset.csv)
 
-Source: [elementaryR_0.0.2.tar.gz](/public/elementaryR/elementaryR_0.0.2.tar.gz) 
+Source: [elementaryR_0.0.2.tar.gz](/public/elementaryR/elementaryR_0.0.2.tar.gz)
