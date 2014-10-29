@@ -2,7 +2,7 @@
 layout: post
 title: "Command line: introduction"
 category: articles
-tags: beginner shell
+tags: shell beginner
 ---
 
 Powerful things happen with computers on the "command line".

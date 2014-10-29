@@ -2,7 +2,7 @@
 layout: post
 title: "R: introductory course material"
 category: articles
-tags: education R external
+tags: R education external
 ---
 
 Here's the course material from this fall's [introductory short course]({% post_url 2014-09-19-R-course %}) on R for scientists, courtesy of Jerry Davison, one of the course instructors. Thanks, Jerry!
