@@ -5,7 +5,7 @@ published: true
 ---
 
 
-In addition to the following resources, there is an open forum for discussion of scientific computing at Fred Hutch available at <http://discourse.fredhutch.org> (on-campus access only).
+In addition to the following resources, there is an open forum for discussion of scientific computing at Fred Hutch available at <http://discourse.fhcrc.org> (on-campus access only).
 
 ### General
 
