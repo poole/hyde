@@ -1,4 +1,4 @@
-# fhcrc.io
+# fredhutch.io
 
-Computational community at the FHCRC.
+Computational community at the Fred Hutchinson Cancer Research Center.
 
