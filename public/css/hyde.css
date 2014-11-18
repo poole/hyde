@@ -270,6 +270,8 @@ a.sidebar-nav-item:focus {
   font-family: "Geogrotesque-UltraLight";
   font-weight: normal;
   font-style: normal;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }
 .theme-fredhutch .sidebar {
   background-color: #123054;
