@@ -278,12 +278,13 @@ a.sidebar-nav-item:focus {
 /* Font color for links in sidebar (dark background). Obtained by scaling the saturation of 123054.*/
   /* color: #90b8e8; */
   color: #9acece;
-  font-family: "Geogrotesque-Regular";
+  font-family: "Geogrotesque-UltraLight";
   font-weight: normal;
   font-style: normal;
 }
 .theme-fredhutch .sidebar a {
   color: #9acece;
+  font-family: "Geogrotesque-Regular";
 }
 .theme-fredhutch {
   background-color: #f8f8f8;
