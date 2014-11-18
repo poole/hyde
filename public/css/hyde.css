@@ -249,23 +249,33 @@ a.sidebar-nav-item:focus {
   color: #8f5536;
 }
 
+
+/* *** Fred Hutch Specific *** */
 /* Fred Hutch Dark Blue */
-.theme-fredhutch .sidebar {
-  background-color: #123054;
-}
-.theme-base-0f .content a,
-.theme-base-0f .related-posts li a:hover {
-  color: #123054;
+.theme-fredhutch html {
+  font-family: "Geogrotesque-Regular", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
 /* Font color for links in body. Obtained by scaling the saturation of 123054.*/
 .theme-fredhutch a {
   color: #536782;
-}
-/* Font color for links in sidebar (dark background). Obtained by scaling the saturation of 123054.*/
-.sidebar a {
-  color: #788da9;
+  font-family: "Geogrotesque-SemiBold";
+  font-weight: normal;
+  font-style: normal;
 }
 /* A reasonable gray for a white background. */
 .theme-fredhutch h1, h2, h3, h4, h5, h6 {
   color: #3d3d3d;
+  font-family: "Geogrotesque-UltraLight";
+  font-weight: normal;
+  font-style: normal;
+}
+.theme-fredhutch .sidebar {
+  background-color: #123054;
+/* Font color for links in sidebar (dark background). Obtained by scaling the saturation of 123054.*/
+  color: #788da9;
+  font-family: "Geogrotesque-Regular";
+  font-weight: normal;
+  font-style: normal;
 }
