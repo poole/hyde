@@ -15,7 +15,7 @@
    version="1.1"
    inkscape:version="0.48.4 r9939"
    sodipodi:docname="io-icon.svg"
-   inkscape:export-filename="/home/matsen/re/fhcrc.io/prep/icon.png"
+   inkscape:export-filename="/home/matsen/re/fhcrc.io/prep/io-icon.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -28,16 +28,16 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.88020065"
-     inkscape:cx="-231.16328"
-     inkscape:cy="161.89468"
+     inkscape:cx="-158.56984"
+     inkscape:cy="108.82699"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
      showgrid="false"
-     inkscape:window-width="1600"
-     inkscape:window-height="899"
+     inkscape:window-width="798"
+     inkscape:window-height="898"
      inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1" />
+     inkscape:window-maximized="0" />
   <metadata
      id="metadata7">
     <rdf:RDF>
@@ -46,7 +46,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title />
+        <dc:title></dc:title>
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -63,14 +63,14 @@
        x="0"
        y="908.36218" />
     <path
-       style="fill:#39b6b9;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       style="fill:#89c5c6;fill-opacity:1;fill-rule:nonzero;stroke:none"
        d="m 27.477417,947.08381 c -1.093481,0 -1.993317,0.90326 -1.993317,1.99332 0,21.11938 0,38.19581 0,59.51487 0,1.09 0.899836,1.9932 1.993317,1.9932 l 10.251355,0 c 1.087786,0 1.993317,-0.9032 1.993317,-1.9932 0,-19.78185 0,-41.75419 0,-59.51487 0,-1.09006 -0.905531,-1.99332 -1.993317,-1.99332 z"
        id="path3160"
        inkscape:connector-curvature="0"
        sodipodi:nodetypes="sccssccss" />
     <path
        sodipodi:type="arc"
-       style="fill:#39b6b9;fill-opacity:1;stroke:none"
+       style="fill:#89c5c6;fill-opacity:1;stroke:none"
        id="path3165"
        sodipodi:cx="223.05554"
        sodipodi:cy="165.70003"
