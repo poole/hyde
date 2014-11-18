@@ -251,7 +251,9 @@ a.sidebar-nav-item:focus {
 
 
 /* *** Fred Hutch Specific *** */
-/* Fred Hutch Dark Blue */
+.theme-fredhutch {
+  background-color: #f8f8f8;
+}
 .theme-fredhutch html {
   font-family: "Geogrotesque-Regular", Helvetica, Arial, sans-serif;
   font-weight: normal;
@@ -286,6 +288,8 @@ a.sidebar-nav-item:focus {
   color: #9acece;
   font-family: "Geogrotesque-Regular";
 }
-.theme-fredhutch {
-  background-color: #f8f8f8;
+.theme-fredhutch .content {
+  font-family: "Geogrotesque-Regular", Helvetica, Arial, sans-serif;
+  font-weight: normal;
+  font-style: normal;
 }
