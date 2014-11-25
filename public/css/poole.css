@@ -251,6 +251,64 @@ tbody tr:nth-child(odd) th {
   background-color: #f9f9f9;
 }
 
+/*
+ * Progress Bars
+ *
+ */
+progress,          /* All HTML5 progress enabled browsers */
+progress[role]     /* polyfill */
+{
+	/* Turns off styling - not usually needed, but good to know. */
+	appearance: none;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+
+	/* gets rid of default border in Firefox and Opera. */
+	border: none;
+
+	/* Needs to be in here for Safari polyfill so background images work as expected. */
+	background-size: auto;
+
+	/* Dimensions */
+	width: 10rem;
+	height: 1rem;
+    margin-left: .5rem;
+}
+
+/* Polyfill */
+progress[role]:after {
+	background-image: none; /* removes default background from polyfill */
+}
+
+/* Ensure fallback text doesn't appear in polyfill */
+progress[role] strong {
+	display: none;
+}
+
+progress,                          /* Firefox  */
+progress[role][aria-valuenow] {    /* Polyfill */
+   background: #eeeeee !important; /* !important is needed by the polyfill */
+}
+
+/* Chrome */
+progress::-webkit-progress-bar {
+    background: #eeeeee;
+}
+
+/* IE10 */
+progress {
+    color: #202020;
+}
+
+/* Firefox */
+progress::-moz-progress-bar {
+    background: #202020;
+}
+
+/* Chrome */
+progress::-webkit-progress-value {
+    background: #202020;
+}
 
 /*
  * Custom type
