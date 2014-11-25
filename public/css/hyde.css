@@ -196,74 +196,74 @@ a.sidebar-nav-item:focus {
 }
 
 /* Black 2 */
-.theme-base-00 .sidebar {
+.theme-base-01 .sidebar {
   background-color: #202020;
 }
-.theme-base-00 .content a,
-.theme-base-00 .related-posts li a:hover {
+.theme-base-01 .content a,
+.theme-base-01 .related-posts li a:hover {
   color: #202020;
 }
-.theme-base-00 progress {
+.theme-base-01 progress {
   color: #202020;
 }
-.theme-base-00 progress::-moz-progress-bar {
+.theme-base-01 progress::-moz-progress-bar {
   background: #202020;
 }
-.theme-base-00 progress::-webkit-progress-value {
+.theme-base-01 progress::-webkit-progress-value {
   background: #202020;
 }
 
 /* Black 3 */
-.theme-base-00 .sidebar {
+.theme-base-02 .sidebar {
   background-color: #303030;
 }
-.theme-base-00 .content a,
-.theme-base-00 .related-posts li a:hover {
+.theme-base-02 .content a,
+.theme-base-02 .related-posts li a:hover {
   color: #303030;
 }
-.theme-base-00 progress {
+.theme-base-02 progress {
   color: #303030;
 }
-.theme-base-00 progress::-moz-progress-bar {
+.theme-base-02 progress::-moz-progress-bar {
   background: #303030;
 }
-.theme-base-00 progress::-webkit-progress-value {
+.theme-base-02 progress::-webkit-progress-value {
   background: #303030;
 }
 
 /* Dark Gray */
-.theme-base-00 .sidebar {
+.theme-base-03 .sidebar {
   background-color: #505050;
 }
-.theme-base-00 .content a,
-.theme-base-00 .related-posts li a:hover {
+.theme-base-03 .content a,
+.theme-base-03 .related-posts li a:hover {
   color: #505050;
 }
-.theme-base-00 progress {
+.theme-base-03 progress {
   color: #505050;
 }
-.theme-base-00 progress::-moz-progress-bar {
+.theme-base-03 progress::-moz-progress-bar {
   background: #505050;
 }
-.theme-base-00 progress::-webkit-progress-value {
+.theme-base-03 progress::-webkit-progress-value {
   background: #505050;
 }
 
 /* Light Gray */
-.theme-base-00 .sidebar {
+.theme-base-04 .sidebar {
   background-color: #b0b0b0;
 }
-.theme-base-00 .content a,
-.theme-base-00 .related-posts li a:hover {
+.theme-base-04 .content a,
+.theme-base-04 .related-posts li a:hover {
   color: #b0b0b0;
 }
-.theme-base-00 progress {
+.theme-base-04 progress {
   color: #b0b0b0;
 }
-.theme-base-00 progress::-moz-progress-bar {
+.theme-base-04 progress::-moz-progress-bar {
   background: #b0b0b0;
 }
-.theme-base-00 progress::-webkit-progress-value {
+.theme-base-04 progress::-webkit-progress-value {
   background: #b0b0b0;
 }
 
