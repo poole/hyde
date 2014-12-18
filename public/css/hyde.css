@@ -76,12 +76,15 @@ html {
 }
 
 /* About section */
+/* pww 2014-12-17 - removing for now, use global defaults
+   or theme-specific choices
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
   font-family: "Abril Fatface", serif;
   font-size: 3.25rem;
 }
+*/
 
 /* Sidebar nav */
 .sidebar-nav {
@@ -177,11 +180,21 @@ a.sidebar-nav-item:focus {
 
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
+
+.post-title a {
+  color: #303030;
+}
+
+
 /* Red */
 .theme-base-08 .sidebar {
   background-color: #ac4142;
 }
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-08 .page-title, .post-title,
+.theme-base-08 h1, h2, h3, h4, h5, h6,
 .theme-base-08 .content a,
+.theme-base-08 .related h2, h3,
 .theme-base-08 .related-posts li a:hover {
   color: #ac4142;
 }
@@ -190,7 +203,11 @@ a.sidebar-nav-item:focus {
 .theme-base-09 .sidebar {
   background-color: #d28445;
 }
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-09 .page-title, .post-title,
+.theme-base-09 h1, h2, h3, h4, h5, h6,
 .theme-base-09 .content a,
+.theme-base-09 .related h2, h3,
 .theme-base-09 .related-posts li a:hover {
   color: #d28445;
 }
@@ -199,7 +216,11 @@ a.sidebar-nav-item:focus {
 .theme-base-0a .sidebar {
   background-color: #f4bf75;
 }
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-0a .page-title, .post-title,
+.theme-base-0a h1, h2, h3, h4, h5, h6,
 .theme-base-0a .content a,
+.theme-base-0a .related h2, h3,
 .theme-base-0a .related-posts li a:hover {
   color: #f4bf75;
 }
@@ -208,7 +229,11 @@ a.sidebar-nav-item:focus {
 .theme-base-0b .sidebar {
   background-color: #90a959;
 }
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-0b .page-title, .post-title,
+.theme-base-0b h1, h2, h3, h4, h5, h6,
 .theme-base-0b .content a,
+.theme-base-0b .related h2, h3,
 .theme-base-0b .related-posts li a:hover {
   color: #90a959;
 }
@@ -217,7 +242,11 @@ a.sidebar-nav-item:focus {
 .theme-base-0c .sidebar {
   background-color: #75b5aa;
 }
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-0c .page-title, .post-title,
+.theme-base-0c h1, h2, h3, h4, h5, h6,
 .theme-base-0c .content a,
+.theme-base-0c .related h2, h3,
 .theme-base-0c .related-posts li a:hover {
   color: #75b5aa;
 }
@@ -226,16 +255,39 @@ a.sidebar-nav-item:focus {
 .theme-base-0d .sidebar {
   background-color: #6a9fb5;
 }
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-0d .page-title, .post-title,
+.theme-base-0d h1, h2, h3, h4, h5, h6,
 .theme-base-0d .content a,
+.theme-base-0d .related h2, h3,
 .theme-base-0d .related-posts li a:hover {
   color: #6a9fb5;
+}
+
+/* Bluer blue - Peter Whittaker */
+.theme-base-1d .sidebar {
+/* lesser blue in sidebar */
+  background-color: #6699dd;
+}
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-1d .page-title, .post-title,
+.theme-base-1d h1, h2, h3, h4, h5, h6,
+.theme-base-1d .content a,
+.theme-base-1d .related h2, h3,
+.theme-base-1d .related-posts li a:hover {
+/* stronger blue in headings */
+  color: #6699ff;
 }
 
 /* Magenta */
 .theme-base-0e .sidebar {
   background-color: #aa759f;
 }
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-0e .page-title, .post-title,
+.theme-base-0e h1, h2, h3, h4, h5, h6,
 .theme-base-0e .content a,
+.theme-base-0e .related h2, h3,
 .theme-base-0e .related-posts li a:hover {
   color: #aa759f;
 }
@@ -244,7 +296,11 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .sidebar {
   background-color: #8f5536;
 }
+/* pww 2014-12-17 - moved from poole.css to each theme */
+.theme-base-0f .page-title, .post-title,
+.theme-base-0f h1, h2, h3, h4, h5, h6,
 .theme-base-0f .content a,
+.theme-base-0f .related h2, h3,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
