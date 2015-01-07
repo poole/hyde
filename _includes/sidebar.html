@@ -11,6 +11,10 @@
 
     <nav class="sidebar-nav">
       <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+      {% for collection in site.collections %}
+        <a class="sidebar-nav-item active" href="{{ collection[0] }}">{{ collection[0] | capitalize }}</a>
+      {% endfor %}
+
       <a class="sidebar-nav-item{% if page.url == site.characters %} active{% endif %}" href="{{ site.characters }}">Characters</a>
 
       {% comment %}
