@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Characters
+title: Índice
 ---
 
 <div class="posts">
@@ -10,18 +10,10 @@ title: Characters
 
     {% for doc in site.collections.[label].docs %}
       <li>
-        <span>{{ doc.date | date_to_string }}</span>
-        <a href="{{ site.url }}{{ doc.url }}">{{ doc.title }}</a>
+        <span>{{ doc.date }}</span>
+        <a href="{{ site.url }}{{ doc.url }}.html">{{ doc.title }}</a>
       </li>
     {% endfor %}
-  {% endfor %}
-
-  {% for characters in site.characters %}
-    <a href="{{ characters.link }}">
-      <h1>{{ characters.title }}</h1>
-      <img class="pop-img" src="{{ characters.image_url }}">
-    </a>
-    <span id="pop-order"><span class="pop-current-characters-number">{{ characters.number }}</span>/5</span>
   {% endfor %}
 </div>
 
