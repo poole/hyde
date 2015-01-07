@@ -1,0 +1,31 @@
+---
+layout: default
+title: Characters
+---
+
+<div class="posts">
+  {% for characters in site.characters %}
+    <a href="{{ characters.link }}">
+      <h1>{{ characters.title }}</h1>
+      <img class="pop-img" src="{{ characters.image_url }}">
+    </a>
+    <span id="pop-order"><span class="pop-current-characters-number">{{ characters.number }}</span>/5</span>
+  {% endfor %}
+</div>
+
+<div class="pagination">
+  {% if paginator.next_page %}
+    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+  {% else %}
+    <span class="pagination-item older">Older</span>
+  {% endif %}
+  {% if paginator.previous_page %}
+    {% if paginator.page == 2 %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
+    {% else %}
+      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
+    {% endif %}
+  {% else %}
+    <span class="pagination-item newer">Newer</span>
+  {% endif %}
+</div>
