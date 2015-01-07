@@ -26,5 +26,5 @@ github:
   repo:           https://github.com/poole/hyde
 
 collections:
-  my_collection:
+  characters:
          output: true
