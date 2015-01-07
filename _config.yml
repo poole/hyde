@@ -27,4 +27,5 @@ github:
 
 collections:
   characters:
-         output: true
+    output:       true
+    permalink:    /characters/:title
