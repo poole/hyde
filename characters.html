@@ -4,6 +4,18 @@ title: Characters
 ---
 
 <div class="posts">
+  {% for collection in site.collections %}
+    {% capture label %}{{ collection | first }}{% endcapture %}
+    <h3>All documents listed in collection '{{ label}}'</h3>
+
+    {% for doc in site.collections.[label].docs %}
+      <li>
+        <span>{{ doc.date | date_to_string }}</span>
+        <a href="{{ site.url }}{{ doc.url }}">{{ doc.title }}</a>
+      </li>
+    {% endfor %}
+  {% endfor %}
+
   {% for characters in site.characters %}
     <a href="{{ characters.link }}">
       <h1>{{ characters.title }}</h1>
