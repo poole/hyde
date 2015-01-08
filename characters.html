@@ -6,7 +6,7 @@ title: Characters
 <div class="posts">
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
-    <h3>'{{ label }}'</h3>
+    <h3>{{ label | capitalize }}</h3>
     {% for doc in site.collections.[label].docs | markdownify %}
       <li>
         <a href="{{ doc.url }}">{{ doc.title }}</a>
