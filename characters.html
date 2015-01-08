@@ -8,7 +8,7 @@ title: Characters
     {% capture label %}{{ collection | first }}{% endcapture %}
     {% for doc in site.collections.[label].docs | markdownify %}
       <li>
-        <h2></h2><a href="{{ doc.url }}">{{ doc.title }}</a></h2>
+        <h2><a href="{{ doc.url }}">{{ doc.title }}</a></h2>
       </li>
     {% endfor %}
   {% endfor %}
