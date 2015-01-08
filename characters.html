@@ -1,13 +1,11 @@
 ---
 layout: page
-title: Índice
+title: Characters
 ---
 
 <div class="posts">
   {% for project in site.characters %}
-    <h1>{{ project.name }} ({{ project.release }})</h1>
     <p>{{ project.output }}</p>
-    <img src="images/{{ project.image }}">
   {% endfor %}
   -
   {% for collection in site.collections %}
