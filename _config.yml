@@ -28,4 +28,3 @@ github:
 collections:
   characters:
     output:       true
-    permalink:    /characters/:title
