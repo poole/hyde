@@ -4,16 +4,11 @@ title: Characters
 ---
 
 <div class="posts">
-  {% for project in site.characters %}
-    <p>{{ project.output }}</p>
-  {% endfor %}
-  -
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
-    <h3>All documents listed in collection '{{ label }}'</h3>
+    <h3>'{{ label }}'</h3>
     {% for doc in site.collections.[label].docs | markdownify %}
       <li>
-        <span>{{ doc.date }}</span>
         <a href="{{ doc.url }}">{{ doc.title }}</a>
       </li>
     {% endfor %}
