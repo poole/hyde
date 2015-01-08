@@ -26,8 +26,10 @@
         {% endif %}
       {% endfor %}
 
+      {% comment %}
       <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
       <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+      {% endcomment %}
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
