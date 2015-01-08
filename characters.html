@@ -4,10 +4,15 @@ title: Índice
 ---
 
 <div class="posts">
+  {% for project in site.software_archives %}
+    <h1>{{ project.name }} ({{ project.release }})</h1>
+    <p>{{ project.output }}</p>
+    <img src="images/{{ project.image }}">
+  {% endfor %}
+  -
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
     <h3>All documents listed in collection '{{ label }}'</h3>
-
     {% for doc in site.collections.[label].docs | markdownify %}
       <li>
         <span>{{ doc.date }}</span>
