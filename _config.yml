@@ -26,5 +26,7 @@ github:
   repo:           https://github.com/poole/hyde
 
 collections:
-  characters:
+  personatges:
+    output:       true
+  religions:
     output:       true
