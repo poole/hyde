@@ -6,7 +6,7 @@ title: Col·leccions
 <div class="posts">
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
-    <h2>{{ collection.label | capitalize }}</h2>
+    <h2>{{ collection.label }} - {{ collection.title }} - {{ collection.title }}</h2>
     {% for doc in site.collections.[label].docs | markdownify %}
       <li>
         <a href="{{ doc.url }}">{{ doc.title }}</a>
