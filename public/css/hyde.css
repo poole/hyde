@@ -81,6 +81,7 @@ html {
   margin-top: 0;
   font-family: "Abril Fatface", serif;
   font-size: 3.25rem;
+  line-height: 60px;
 }
 
 /* Sidebar nav */
