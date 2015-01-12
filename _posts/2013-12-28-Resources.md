@@ -1,26 +1,36 @@
 ---
 layout: post
-title: Resources
+title: UX, Design & FE Development Resources
 ---
 
-## UX, Design & FE Development
+#Design - Blog, List, Resources
+iOS Design [DesignCode](https://designcode.io/learn?ref=hackingui)
+[Sidebar.io](http://sidebar.io/)
+[Designer News](https://news.layervault.com)
 
-#Design Resources
-[iOS Design](https://designcode.io/learn?ref=hackingui)
-[Sidebar.io Blog](http://sidebar.io/)
+Browser Plugin [Muzli](http://muz.li/)
 
 #Design Inspiration
 
-#UX Tools - Wireframe, Prototype
-[Flinto](https://www.flinto.com/)
-[Proto.io](https://proto.io/)
+#Design Tools
+Version Control for Designers [Layer Vault](https://layervault.com/learn/version-control)
+
+
 
 #UX Resources
+[UserOnboard](http://www.useronboard.com)
 
 #UX Reading
+UXPin
+UX Matters
+Smashing UX
+
+#UX Tools
+Prototyping 
+[Flinto](https://www.flinto.com/)
+[Proto](https://proto.io)
 
 #Dev Tools
 
 #Tech
-
 
