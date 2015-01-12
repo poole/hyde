@@ -11,7 +11,7 @@ title: Arxiu
     <h2>{{ label | capitalize }}</h2>
     {% for doc in site.collections.[label].docs %}
       <li>
-        <a href="{{ site.url }}{{ doc.url }}">{{ doc.title }}</a>
+        <a href="{{ doc.url }}">{{ doc.title }}</a>
       </li>
     {% endfor %}
   {% endfor %}
