@@ -1,9 +1,8 @@
 ---
 layout: post
-title: Resources
+title: UX, Design & FE Development Resources
 ---
 
-## UX, Design & FE Development
 
 #Design - Blog, List, Resources
 iOS Design [DesignCode](https://designcode.io/learn?ref=hackingui)
@@ -35,9 +34,3 @@ Prototyping
 #Dev Tools
 
 #Tech
-
-
-
-designcode.io - ios
-dribbble
-
