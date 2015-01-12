@@ -18,6 +18,8 @@ title: Colecciones
     </li>
   {% endfor %}
 
+  * * *
+
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
     <h2>{{ collection.label }} - {{ collection.title }} - {{ collection.title }}</h2>
@@ -28,7 +30,7 @@ title: Colecciones
     {% endfor %}
   {% endfor %}
   
-  —
+  * * *
   
   {% for collection in site.collections %}
     <section>
