@@ -47,7 +47,6 @@ title: Colecciones
   
     {% for doc in site.collections.[label].docs %}
       <li>
-        <span>{{ doc.date | date_to_string }}</span>
         <a href="{{ site.url }}{{ doc.url }}">{{ doc.title }}</a>
       </li>
     {% endfor %}
