@@ -43,7 +43,7 @@ title: Colecciones
   
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
-    <h3>All documents listed in collection '{{ label}}'</h3>
+    <h3>All documents listed in collection '{{ label | capitalize }}'</h3>
   
     {% for doc in site.collections.[label].docs %}
       <li>
