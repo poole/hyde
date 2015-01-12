@@ -4,47 +4,9 @@ title: Colecciones
 ---
 
 <div class="posts">
-  <h2>Personatges</h2>
-  {% for doc in site.collections.personatges.docs | markdownify %}
-    <li>
-      <a href="{{ doc.url }}">{{ doc.title }}</a>
-    </li>
-  {% endfor %}
-
-  <h2>Religions</h2>
-  {% for doc in site.collections.religions.docs | markdownify %}
-    <li>
-      <a href="{{ doc.url }}">{{ doc.title }}</a>
-    </li>
-  {% endfor %}
-
-  * * *
-
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
-    <h2>{{ collection.label }} - {{ collection.title }} - {{ collection.title }}</h2>
-    {% for doc in site.collections.[label].docs | markdownify %}
-      <li>
-        <a href="{{ doc.url }}">{{ doc.title }}</a>
-      </li>
-    {% endfor %}
-  {% endfor %}
-  
-  * * *
-  
-  {% for collection in site.collections %}
-    <section>
-        <h1><a href="{{ collection.directory }}">{{ collection.title }}</a></h1>
-        Label: {{ collection.label }}
-    </section>
-  {% endfor %}
-  
-  * * *
-  
-  {% for collection in site.collections %}
-    {% capture label %}{{ collection | first }}{% endcapture %}
-    <h3>All documents listed in collection '{{ label | capitalize }}'</h3>
-  
+    <h2>{{ label | capitalize }}</h2>
     {% for doc in site.collections.[label].docs %}
       <li>
         <a href="{{ site.url }}{{ doc.url }}">{{ doc.title }}</a>
