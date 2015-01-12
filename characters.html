@@ -4,6 +4,20 @@ title: Colecciones
 ---
 
 <div class="posts">
+  <h2>Personatges</h2>
+  {% for doc in site.collections.personatges.docs | markdownify %}
+    <li>
+      <a href="{{ doc.url }}">{{ doc.title }}</a>
+    </li>
+  {% endfor %}
+
+  <h2>Religions</h2>
+  {% for doc in site.collections.religions.docs | markdownify %}
+    <li>
+      <a href="{{ doc.url }}">{{ doc.title }}</a>
+    </li>
+  {% endfor %}
+
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
     <h2>{{ collection.label }} - {{ collection.title }} - {{ collection.title }}</h2>
