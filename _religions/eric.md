@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Eric
+title: Islam
 ---
 
 
