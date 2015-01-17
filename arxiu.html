@@ -1,13 +1,12 @@
 ---
 layout: page
-title: Arxiu
+title: Archivo
 ---
 
 <div class="posts">
   <p>Aquesta pàgina llista cada una de les col·leccions existents de la pàgina i enllaça a cada un dels seus elements.</p>
   
-  {% assign sorted_collections = site.collections | sort_by: "title" %}
-  {% for collection in sorted_collections %}
+  {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
     <h2>{{ label | capitalize }}</h2>
     {% for doc in site.collections.[label].docs %}
