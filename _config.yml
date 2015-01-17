@@ -26,7 +26,15 @@ github:
   repo:           https://github.com/poole/hyde
 
 collections:
-  personatges:
+  personajes:
     output:       true
-  religions:
+  religiones:
+    output:       true
+  microrrelatos:
+    output:       true
+  fauna y flora:
+    output:       true
+  tecnologia:
+    output:       true
+  drogas:
     output:       true
