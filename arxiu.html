@@ -9,7 +9,8 @@ title: Arxiu
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
     <h2>{{ label | capitalize }}</h2>
-    {% for doc in site.collections.[label].docs | sort: 'title' %}
+    {{ site.collections.[label].docs | sort: 'title' }}
+    {% for doc in site.collections.[label].docs %}
       <li>
         <a href="{{ doc.url }}">{{ doc.title }}</a>
       </li>
