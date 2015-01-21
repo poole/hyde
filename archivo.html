@@ -1,6 +1,6 @@
 ---
 layout: page
-title: Arxiu
+title: Archivo
 ---
 
 <div class="posts">
@@ -9,7 +9,8 @@ title: Arxiu
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
     <h2>{{ label | capitalize }}</h2>
-    {% for doc in site.collections.[label].docs %}
+    {% assign ordenados = site.collections.[label].docs | sort: 'title' %}
+    {% for doc in ordenados %}
       <li>
         <a href="{{ doc.url }}">{{ doc.title }}</a>
       </li>
