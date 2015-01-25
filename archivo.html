@@ -8,6 +8,23 @@ title: Archivo
   
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
+    {% assign words = label | split: '-' %}
+    {% for word in words %}{{ word | capitalize }} {% endfor %}
+    <h2>{{ label | capitalize }}</h2>
+    {% assign ordenados = site.collections.[label].docs | sort: 'title' %}
+    {% for doc in ordenados %}
+      <li>
+        <a href="{{ doc.url }}">{{ doc.title }}</a>
+      </li>
+    {% endfor %}
+  {% endfor %}
+</div>
+
+<div class="posts">
+  <p>Aquesta pàgina llista cada una de les col·leccions existents de la pàgina i enllaça a cada un dels seus elements.</p>
+  
+  {% for collection in site.collections %}
+    {% capture label %}{{ collection | first }}{% endcapture %}
     <h2>{{ label | capitalize }}</h2>
     {% assign ordenados = site.collections.[label].docs | sort: 'title' %}
     {% for doc in ordenados %}
