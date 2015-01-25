@@ -9,8 +9,7 @@ title: Archivo
   {% for collection in site.collections %}
     {% capture label %}{{ collection | first }}{% endcapture %}
     {% assign words = label | split: '-' %}
-    {% for word in words %}{{ word | capitalize }} {% endfor %}
-    <h2>{{ label | capitalize }}</h2>
+    <h2>{% for word in words %}{{ word | capitalize }} {% endfor %}</h2>
     {% assign ordenados = site.collections.[label].docs | sort: 'title' %}
     {% for doc in ordenados %}
       <li>
