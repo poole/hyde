@@ -8,6 +8,29 @@ layout: default
   {{ content }}
 </div>
 
+{% assign tagStr = '' %}
+  {% capture url %}{{ site.url }}{{ page.url }}{% endcapture %}
+  {% if page.shortUrl != null %}
+    {% assign url = page.shortUrl %}
+    {% for tag in page.tags %}
+      {% capture len %}{{ tagStr | append: tag | append: page.title | append: page.subtitle }}{% endcapture %}
+      {% if len.size < 100 %}
+      {% capture tagStr %}{{ tagStr }},{{ tag }}{% endcapture %}
+      {% endif %}
+    {% endfor %}
+{% endif %}
+
+<div align="center">
+  <a href="https://twitter.com/intent/tweet?text={% if page.subtitle != null %}{{ page.subtitle }} {% endif %}{{ page.title }}&url={{ url }}&hashtags={{ tagStr }}" target="_blank" title="Share this post on Twitter" style="display:inline-block;width:32px;height:32px;background-image:url(/images/twitter.svg);margin-right:12px;margin-left:12px;">
+  </a>
+
+  <a href="https://www.facebook.com/sharer/sharer.php?t={% if page.subtitle != null %}{{ page.subtitle }} {% endif %}{{ page.title }}&u={{ url }}" target="_blank" title="Share this post on Facebook" style="display:inline-block;width:32px;height:32px;background-image:url(/images/facebook.svg);margin-right:12px;margin-left:12px;">
+  </a>
+  
+  <a href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" target="_blank" title="Share this post on Google Plus" style="display:inline-block;width:32px;height:32px;background-image:url(/images/google.svg);margin-right:12px;margin-left:12px;">
+  </a>
+</div>
+
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
