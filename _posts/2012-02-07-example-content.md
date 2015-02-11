@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Example content
+shortUrl: http://goo.gl/gIcPSX
 ---
 
 
