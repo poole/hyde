@@ -16,6 +16,6 @@ paginate:         5
 # Custom vars
 
 github:
-  repo:           https://github.com/fhcrcio/fhcrc.io
+  repo:           https://github.com/fredhutchio/fredhutch.io
 
 trello:           https://trello.com/b/IwMlMEWl/fhcrc-io
