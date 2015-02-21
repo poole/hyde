@@ -7,7 +7,7 @@ tags: education galaxy beginner
 
 ### *Thursday, March 12, 2015 in D1-084, 2:00 - 3:00 pm*
 
-*[Registration](https://www.surveymonkey.com/s/L3V6NZY)*
+*[Registration](https://www.surveymonkey.com/s/L3V6NZY) is required*
 
 [Galaxy](https://wiki.galaxyproject.org/) is an increasingly popular web-based platform for performing complex and reproducible computational biology analyses with no computer programming.
 Though the original public Galaxy server, [Galaxy Main](http://usegalaxy.org), is free and open to the public, it cannot scale to meet everyone's needs.
