@@ -8,14 +8,14 @@ relative_permalinks: true
 
 # Setup
 title:            'Smartling'
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+tagline:          'Developer Documentation'
+description:      'Here you'll find everything you need to integrate Smartling into your development process, whether you're using files or Smartling's GDN. For help with the Smartling Dashboard, see our <a href="http://support.smartling.com" target="_blank">Help Center</a>.'
 url:              http://hyde.getpoole.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Smartling'
+  url:            http://www.smartling.com
 
 paginate:         5
 
