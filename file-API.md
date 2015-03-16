@@ -3,7 +3,7 @@ layout: page
 title: File API
 ---
 
-The Files API allows you to upload and retrieve files, display a list of recently uploaded files, and check the status of a translation’s progress. All URLs have the following base: https://api.smartling.com/v1
+Smartling's File API allows you to upload and retrieve files, display a list of recently uploaded files, and check the status of a translation’s progress. All URLs have the following base: https://api.smartling.com/v1
 
 All the following calls require both the apiKey and projectID parameter, which you can find on at [**Project Settings>API**](https://dashboard.smartling.com/settings/api) in the Smartling Dashboard.
 
