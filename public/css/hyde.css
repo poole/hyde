@@ -250,11 +250,11 @@ a.sidebar-nav-item:focus {
 }
 
 /* Smartling */
-.theme-base-0f .sidebar {
+.theme-base-smartling .sidebar {
   background-color: #2e70cd;
 }
-.theme-base-0f .content a,
-.theme-base-0f .related-posts li a:hover {
+.theme-base-smartling .content a,
+.theme-base-smartling .related-posts li a:hover {
   color: #2e70cd;
 }
 
