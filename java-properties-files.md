@@ -7,7 +7,9 @@ title: Java Properties Files
 
 **Extension:** .properties
 
-**Smartling Identifier** javaProperties
+**Smartling Identifier:** javaProperties
+
+**Downloadable Example:** [java.properties](https://docs.smartling.com/download/attachments/327693/java.properties?version=1&modificationDate=1330473126000)
 
 **Placeholder Format**: JAVA uses c-style placeholder syntax: %d, %s, %4.2f, etc. and because the % character is an escape character so displaying a single percent character literal requires that it be escaped as %% . When JAVA parsing is on (default) in your source file single percent characters must be escaped as two single percent characters: %% otherwise the % may trigger placeholder treatment and create an invalid placeholder in your string that causes incorrect capture and prevents proper translation.  When JAVA parsing is on Smartling will escape the % character in a translated string if the string has a JAVA formatted placeholder. Otherwise the % character in the translation are delivered unescaped.
 
