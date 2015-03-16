@@ -7,10 +7,10 @@ title: Java Properties Files
 Currently we have long blocks of text preceding our directives tables describing usage and conditions for each file format. Much of this information can be standardised. Jekyll gives us the ability to specify different layouts for different types of posts. Let's create a 'SupportedFile' layout type that lets us display some standard information for each file in a way that's pleasing and easy to read. For example, with Java Properties files:
 </div>
 
-**Platforms:** Java
-**Extension:** .properties
-**Smartling Identifier:** javaProperties
-**Supports includeOriginalStrings:** Yes. (link to this download parameter)
+**Platforms:** Java  
+**Extension:** .properties  
+**Smartling Identifier:** javaProperties  
+**Supports includeOriginalStrings:** Yes. (link to this download parameter)  
 **Downloadable Example:** [java.properties](https://docs.smartling.com/download/attachments/327693/java.properties?version=1&modificationDate=1330473126000)
 
 ###Usage
