@@ -1,37 +1,15 @@
 ---
 layout: post
-title: Introducing Hyde
+title: Smartling Developer Documentation
 ---
 
-Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+Welcome to Smartling's Developer Documentation. Here you'll find everything you need to help you integrate Smartling's Translation Management functionality into your development process. For information on the Smartling Dashboard, see our [Help Center](http://support.smartling.com).
 
-### Built on Poole
+### Integrating with Smartling
 
-Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by [@mdo](https://twitter.com/mdo). Poole, and every theme built on it (like Hyde here) includes the following:
+You can integrate with Smartling using our Translation API. A REST-like API that gives you access to the Smartling Translation Management Platform using defined HTTPS requests and structured JSON responses. Smartling gives you four options for working with our API depending on your needs:
 
-* Complete Jekyll setup included (layouts, config, [404](/404), [RSS feed](/atom.xml), posts, and [example page](/about))
-* Mobile friendly design and development
-* Easily scalable text and component sizing with `rem` units in the CSS
-* Support for a wide gamut of HTML elements
-* Related posts (time-based, because Jekyll) below each post
-* Syntax highlighting, courtesy Pygments (the Python-based code snippet highlighter)
-
-### Hyde features
-
-In addition to the features of Poole, Hyde adds the following:
-
-* Sidebar includes support for textual modules and a dynamically generated navigation with active link support
-* Two orientations for content and sidebar, default (left sidebar) and [reverse](https://github.com/poole/lanyon#reverse-layout) (right sidebar), available via `<body>` classes
-* [Eight optional color schemes](https://github.com/poole/hyde#themes), available via `<body>` classes
-
-[Head to the readme](https://github.com/poole/hyde#readme) to learn more.
-
-### Browser support
-
-Hyde is by preference a forward-thinking project. In addition to the latest versions of Chrome, Safari (mobile and desktop), and Firefox, it is only compatible with Internet Explorer 9 and above.
-
-### Download
-
-Hyde is developed on and hosted with GitHub. Head to the <a href="https://github.com/poole/hyde">GitHub repository</a> for downloads, bug reports, and features requests.
-
-Thanks!
+* Use our Software Development Kits to integrate Smartling's API into your build process without worrying about low-level details.
+* Access the API from the command line with our Shell scripts.
+* Set up the Repository Connector to automatically sync Smartling with your Github or Beanstalk repository any time you make a commit.
+* Write your own custom API calls to do just about anything you want.
