@@ -9,7 +9,7 @@ relative_permalinks: true
 # Setup
 title:            'Smartling'
 tagline:          'Developer Documentation'
-description:      'Here you''ll find everything you need to integrate Smartling into your development process, whether using files or Smartling''s GDN. For help with the Smartling Dashboard, see our <a href="http://support.smartling.com" target="_blank">Help Center</a>.'
+description:      'Developer documentation for the Smartling platform.'
 url:              http://hyde.getpoole.com
 baseurl:          /
 
