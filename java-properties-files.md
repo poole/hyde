@@ -29,5 +29,7 @@ You can also specify your own custom placeholder syntax that is in addition to t
 
 ###Directives
 
-
+Directives in java properties files are specified using comments following the format **smartling**.[command name] = [command value]. For example:
+```.properties
+# smartling.placeholder_format_custom = \[.?\]
 
