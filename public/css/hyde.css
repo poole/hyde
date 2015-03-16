@@ -248,3 +248,13 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
+
+/* Smartling */
+.theme-base-0f .sidebar {
+  background-color: #2e70cd;
+}
+.theme-base-0f .content a,
+.theme-base-0f .related-posts li a:hover {
+  color: #2e70cd;
+}
+
