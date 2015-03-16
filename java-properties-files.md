@@ -7,17 +7,17 @@ title: Java Properties Files
 Currently we have long blocks of text preceding our directives tables describing usage and conditions for each file format. Much of this information can be standardised. Jekyll gives us the ability to specify different layouts for different types of posts. Let's create a 'SupportedFile' layout type that lets us display some standard information for each file in a way that's pleasing and easy to read. For example, with Java Properties files:
 </div>
 
-**Platforms:** Javascript-based sites and web apps
-
+**Platforms:** Java
 **Extension:** .properties
-
 **Smartling Identifier:** javaProperties
-
 **Supports includeOriginalStrings:** Yes. (link to this download parameter)
-
 **Downloadable Example:** [java.properties](https://docs.smartling.com/download/attachments/327693/java.properties?version=1&modificationDate=1330473126000)
 
 ###Usage
+
+####String Format and Escaping
+
+string_format=MESSAGE_FORMAT uses placeholders in the syntax: {*} and the single quote (apostrophe) is an escape character, so to use the single quote character, it must be escaped as ''.  When MessageFormat parsing is on (default) in your source file single quotes must be escaped as two single quotes: '' otherwise it will not be captured.  If a translation has a single quote character, it will be escaped in the downloaded file as ''. Translators may use a single quote even though one wasn't in the original content. If MessageFormat is turned off then strings will not need single quotes escaped to capture them, and single quotes in translations will not be escaped.  You can turn MessageFormat off and on in a single file with inline integration. 
 
 ####Placeholder Format
 
@@ -27,4 +27,7 @@ If this default behavior is not desirable for your content you can optionally tu
 
 You can also specify your own custom placeholder syntax that is in addition to the standard behavior from the above two directives.
 
-####Escaping 
+###Directives
+
+
+
