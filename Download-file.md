@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 7. Download
+title: 4. Download
 ---
 
 **Method:** Download  
