@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 6. Java Properties Files
+title: Java Properties Files
 ---
 
 <div class="message">
