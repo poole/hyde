@@ -5,19 +5,19 @@
         <img src="http://p5.zdassets.com/hc/settings_assets/29261/200013378/WimoRNis0T3oC8dQMdmMGg-helpcenter-header.png">
       </h1>
       <p class="lead">{{ site.description }}</p>
-      <script>
-  (function() {
-    var cx = '012211279874307209870:kdacdcohrou';
-    var gcse = document.createElement('script');
-    gcse.type = 'text/javascript';
-    gcse.async = true;
-    gcse.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') +
-        '//www.google.com/cse/cse.js?cx=' + cx;
-    var s = document.getElementsByTagName('script')[0];
-    s.parentNode.insertBefore(gcse, s);
-  })();
-</script>
-<gcse:searchbox-only></gcse:searchbox-only>
+   <form method="get" action="http://www.google.com/search">
+<div style="padding:4px;width:15em;">
+<table border="0" align="center" cellpadding="0">
+<tr><td>
+<input type="text"   name="q" size="25" style="color:#808080;"
+maxlength="255" value="Google site search"
+onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black';" onblur="if(this.value=='')this.value=this.defaultValue; "/>
+<input type="submit" value="Go!" />
+<input type="hidden" name="sitesearch" value="yoursite.com" /></td></tr>
+</table>
+</div>
+
+</form>
     </div>
 
     <nav class="sidebar-nav">
