@@ -7,74 +7,41 @@ title: 4. Download
 Currently we have long blocks of text preceding our directives tables describing usage and conditions for each file format. Much of this information can be standardised. Jekyll gives us the ability to specify different layouts for different types of posts. Let's create a 'SupportedFile' layout type that lets us display some standard information for each file in a way that's pleasing and easy to read. For example, with Java Properties files:
 </div>
 
-**Platforms:** Java  
-**Extension:** .properties  
-**Smartling Identifier:** javaProperties  
-**Supports includeOriginalStrings:** Yes. (link to this download parameter)  
-**Downloadable Example:** [java.properties](https://docs.smartling.com/download/attachments/327693/java.properties?version=1&modificationDate=1330473126000)
+**Method:** Download  
+**Type:** GET 
 
-##Usage
+Downloads the requested file from Smartling.
 
-###String Format and Escaping
+It is important to check the HTTP response status code. If Smartling finds and returns the file normally, you will receive a 200 SUCCESS response. If you receive any other response status code than 200, the requested file will not be part of the response.
 
-string_format=MESSAGE_FORMAT uses placeholders in the syntax: {*} and the single quote (apostrophe) is an escape character, so to use the single quote character, it must be escaped as ''.  When MessageFormat parsing is on (default) in your source file single quotes must be escaped as two single quotes: '' otherwise it will not be captured.  If a translation has a single quote character, it will be escaped in the downloaded file as ''. Translators may use a single quote even though one wasn't in the original content. If MessageFormat is turned off then strings will not need single quotes escaped to capture them, and single quotes in translations will not be escaped.  You can turn MessageFormat off and on in a single file with inline integration. 
+When you upload a UTF-16 character encoded file, then /file/get requests for that file will have a character encoding of UTF-16. All other uploaded files will return with a character encoding of UTF-8. You can always use the content-type header in the response of a file/get request can always to determine the character encoding.
 
-###Placeholder Format
+##Parameters
 
-JAVA uses c-style placeholder syntax: %d, %s, %4.2f, etc. and because the % character is an escape character so displaying a single percent character literal requires that it be escaped as %% . When JAVA parsing is on (default) in your source file single percent characters must be escaped as two single percent characters: %% otherwise the % may trigger placeholder treatment and create an invalid placeholder in your string that causes incorrect capture and prevents proper translation.  When JAVA parsing is on Smartling will escape the % character in a translated string if the string has a JAVA formatted placeholder. Otherwise the % character in the translation are delivered unescaped.
+### fileURI (required)
+Value that uniquely identifies the downloaded file
 
-If this default behavior is not desirable for your content you can optionally turn off either of the formatting treatments for the entire file or just for the strings where you don't want the behavior.  You can turn the behavior off and on throughout the file as needed.  
-
-You can also specify your own custom placeholder syntax that is in addition to the standard behavior from the above two directives.
-
-##Directives
-
-Directives in java properties files are specified using comments following the format **smartling**.[command name] = [command value]. For example:
-{% highlight jproperties%}
-# smartling.placeholder_format_custom = \[.?\]
-{% endhighlight %}
-
-### placeholder_format_custom
-Used to define custom placeholders  
-**Values:**  
-1.  [Perl-compatible custom regular expression](http://www.pcre.org/)  
-2.  NONE - disable the current PCRE for all content below the directive.
-
-**Example**  
-{% highlight jproperties%}
-# smartling.placeholder_format_custom = \[.+?\]
-{% endhighlight %}
-
-
-### placeholder_format
-Overrides the native parser's placeholder format.  
-**Values**  
-1.  NONE  
-2.  C  
-3.  IOS  
-4.  PYTHON  
-5.  JAVA (default)  
-6.  YAML  
-
-**Examples**
-{% highlight jproperties%}
-# smartling.placeholder_format = NONE
-{% endhighlight %}
-Turns off smartling placeholder detection temporarily
-
-{% highlight jproperties%}
-# smartling.placeholder_format = PYTHON
-{% endhighlight %}
-Turns on Python-style placeholder detection.
-
-###string_format
-Parser directive for specialized file processing that enables string escaping and pre-processing rules as defined by various third party resource handlers. The default is MessageFormat , a standard Java resource handler.
+### locale (optional)
+A locale identifier as specified in project setup. If no locale is specified, original content is returned. You can find the list of locales for your project [in the Smartling dashboard](https://dashboard.smartling.com/settings/api). For CSV files only: use the locale code 'all' to download all available locales in a single file.
+  
+### retrievalType (optional
+Determines the desired format for the download
 
 **Values**  
-1. NONE  
-2. MESSAGE_FORMAT
+* **pending** - Smartling returns any translations (including non-published translations).  
+* **published (default)** - Smartling returns only published/pre-published translations.  
+* **pseudo** - Smartling returns a modified version of the original text with certain characters transformed and the text expanded. For example, the uploaded string "This is a sample string", will return as "T~hís ~ís á s~ámpl~é str~íñg". Pseudo translations enable you to test how a longer string integrates into your application.  
+* **contextMatchingInstrumented** - Smartling returns a modified version of the original file with strings wrapped in a specific set of Unicode symbols that can later be recognized and matched by the Chrome Context Capture Extension.  
 
-**Examples**  
-{% highlight jproperties%}
-# smartling.placeholder_format = NONE
+### includeOriginalStrings (optional)
+Specifies whether Smartling will return the original string or an empty string where no translation is availabe. This parameter is supported for gettext, java properties, custom XML, and JSON files only. 
+
+**Values**  
+* **true (default)** - If there is no translation, Smartling returns the original string. 
+* **false** - If there is no translation, Smartling returns an empty string. 
+
+###Example
+
+{% highlight%}
+curl -d "apiKey={your-api-key}&fileUri=file.properties&projectId={your-project-uid}&locale=ru-RU" "https://api.smartling.com/v1/file/get"
 {% endhighlight %}
