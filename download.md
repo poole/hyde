@@ -37,6 +37,6 @@ Specifies whether Smartling will return the original string or an empty string w
 * **false** - If there is no translation, Smartling returns an empty string. 
 
 ###Example
-
+```
 curl -d "apiKey={your-api-key}&fileUri=file.properties&projectId={your-project-uid}&locale=ru-RU" "https://api.smartling.com/v1/file/get"
-
+```
