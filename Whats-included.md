@@ -1,6 +1,6 @@
 ---
 layout: page
-title: 2. What's included
+title: What's included
 ---
 
 Originally, docs.smartling.com was our API documentation, but there's more stuff now! I'd like to call this Smartling Developer Documentation. So any function that we would imagine a translator or project manager doing, should be remain in the [Help Center](http://support.smartling.com), while anything that goes under the hood should live here.
