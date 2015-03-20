@@ -24,7 +24,7 @@ Originally, docs.smartling.com was our API documentation, but there's more stuff
   *C#  
   *Ruby  
   *Python  
-  *PHP  
+  *PHP 
 *API Shell Scripts - global settings  
   *File Management  
     *Upload  
