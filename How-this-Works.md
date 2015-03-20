@@ -9,7 +9,7 @@ Let's take a look at a few things we can do.
 
 ### Better ways to display code
 
-Using the Pygments highlighter, we can display highlighted code snippets. Here's an example of our JSON directives.
+Using the Pygments highlighter, we can display highlighted code snippets with optional line numbers. Here's an example with some of our JSON directives.
 
 {% highlight json %}
 {
@@ -17,16 +17,6 @@ Using the Pygments highlighter, we can display highlighted code snippets. Here's
         "translate_mode" : "custom",
         "translate_paths": ["*/translation"],
         "placeholder_format_custom": ["\\{([^\\}]*)\\}"]
-     },
-        
-     "translationKey1": {
-        "attribute": "attribute will not be translated",
-        "translation": "Hello,  {USER_NAME}."
-     },
-   
-     "translationKey2": {
-        "attribute": "attribute will not be translated",
-        "translation": "press Refresh button"
      }
 }
 {% endhighlight %}
