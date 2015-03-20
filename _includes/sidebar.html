@@ -37,8 +37,9 @@ onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black
         {% endif %}
       {% endfor %}
 
-
-      
+      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
+      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
+      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
