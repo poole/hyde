@@ -41,7 +41,9 @@ Used to define custom placeholders
 2.  NONE - disable the current PCRE for all content below the directive.
 
 **Example**  
-    smartling.placeholder_format_custom = \[.+?\]
+{% highlight jproperties%}
+smartling.placeholder_format_custom = \[.+?\]
+{% endhighlight %}
 
 #### placeholder_format
 
