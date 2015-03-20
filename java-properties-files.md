@@ -34,4 +34,17 @@ Directives in java properties files are specified using comments following the f
 # smartling.placeholder_format_custom = \[.?\]
 ```
 
+#### placeholder_format_custom
+Used to define custom placeholders
+**Values:**
+1.  [Perl-compatible custom regular expression](http://www.pcre.org/)
+2.  NONE - disable the current PCRE for all content below the directive.
+
+**Example**
+    smartling.placeholder_format_custom = \[.+?\]
+
+#### placeholder_format
+
+
+
 
