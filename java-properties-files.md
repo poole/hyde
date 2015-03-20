@@ -35,7 +35,7 @@ Directives in java properties files are specified using comments following the f
 {% endhighlight %}
 
 ### placeholder_format_custom
-Used to define custom placeholders
+Used to define custom placeholders  
 **Values:**  
 1.  [Perl-compatible custom regular expression](http://www.pcre.org/)  
 2.  NONE - disable the current PCRE for all content below the directive.
@@ -47,7 +47,7 @@ Used to define custom placeholders
 
 
 ### placeholder_format
-Overrides the native parser's placeholder format.
+Overrides the native parser's placeholder format.  
 **Values**  
 1.  NONE  
 2.  C  
