@@ -38,6 +38,5 @@ Specifies whether Smartling will return the original string or an empty string w
 
 ###Example
 
-{% highlight%}
 curl -d "apiKey={your-api-key}&fileUri=file.properties&projectId={your-project-uid}&locale=ru-RU" "https://api.smartling.com/v1/file/get"
-{% endhighlight %}
+
