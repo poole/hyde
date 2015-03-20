@@ -9,7 +9,7 @@ Let's take a look at a few things we can do.
 
 ### Better ways to display code
 
-Using the Pygments highlighter, we can display highlighted code snippets with optional line numbers. Here's an example with some of our JSON directives.
+Using the Pygments highlighter, we can display highlighted code snippets with optional line numbers. Here's an example with some of our JSON directives. Full list of available pygments parsers is [here](http://pygments.org/docs/lexers/)
 
 {% highlight json %}
 {
