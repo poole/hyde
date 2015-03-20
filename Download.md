@@ -3,10 +3,6 @@ layout: page
 title: 4. Download
 ---
 
-<div class="message">
-Currently we have long blocks of text preceding our directives tables describing usage and conditions for each file format. Much of this information can be standardised. Jekyll gives us the ability to specify different layouts for different types of posts. Let's create a 'SupportedFile' layout type that lets us display some standard information for each file in a way that's pleasing and easy to read. For example, with Java Properties files:
-</div>
-
 **Method:** Download  
 **Type:** GET 
 
