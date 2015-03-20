@@ -5,6 +5,7 @@ title: 2. What's included
 
 Originally, docs.smartling.com was our API documentation, but there's more stuff now! I'd like to call this Smartling Developer Documentation. So any function that we would imagine a translator or project manager doing, should be remain in the [Help Center](http://support.smartling.com), while anything that goes under the hood should live here.
 
+###Table of Contents
 
 * Supported File Types - Basic info, upload limits, etc  
   * Individual page for each file type  
@@ -36,6 +37,3 @@ Originally, docs.smartling.com was our API documentation, but there's more stuff
 * GDN Integration  
   * Everything that's currently [here](http://support.smartling.com/hc/en-us/sections/200175148-Integration-Guide)  
 
-### Better ways to display code
-
-Using the Pygments highlighter, we can display highlighted code snippets with optional line numbers. Here's an example with some of our JSON directives.
