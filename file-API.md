@@ -11,7 +11,7 @@ Multiple READ operations can run simultaneously on a single file, but only one W
 
 Concurrent API requests are limited to 20 per file and 50 per project. Exceeding this limit will result in a MAX_OPERATIONS_LIMIT_EXCEEDED error.
 
-####API Requests
+####Methods
 
 * upload (POST)
 * download (GET)
