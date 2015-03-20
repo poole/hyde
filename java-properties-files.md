@@ -40,7 +40,7 @@ Used to define custom placeholders
 1.  [Perl-compatible custom regular expression](http://www.pcre.org/)
 2.  NONE - disable the current PCRE for all content below the directive.
 
-**Example**
+**Example**  
     smartling.placeholder_format_custom = \[.+?\]
 
 #### placeholder_format
