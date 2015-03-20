@@ -30,9 +30,9 @@ You can also specify your own custom placeholder syntax that is in addition to t
 ###Directives
 
 Directives in java properties files are specified using comments following the format **smartling**.[command name] = [command value]. For example:
-```
+{% highlight jproperties%}
 # smartling.placeholder_format_custom = \[.?\]
-```
+{% endhighlight %}
 
 #### placeholder_format_custom
 Used to define custom placeholders
@@ -42,7 +42,7 @@ Used to define custom placeholders
 
 **Example**  
 {% highlight jproperties%}
-smartling.placeholder_format_custom = \[.+?\]
+# smartling.placeholder_format_custom = \[.+?\]
 {% endhighlight %}
 
 #### placeholder_format
