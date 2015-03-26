@@ -274,8 +274,8 @@ tbody tr:nth-child(odd) th {
 .message {
   margin-bottom: 1rem;
   padding: 1rem;
-  color: #717171;
-  background-color: #f9f9f9;
+  color: #03406c;
+  background-color: #rgba(15,151,249,.2);
   border-color: #0f97f9;
   border-style: solid;
   border-width: 1px;
