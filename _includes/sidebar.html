@@ -1,34 +1,29 @@
 <div class="sidebar">
-  <div class="container sidebar-sticky">
+  <div>
     <div class="sidebar-about">
       <h1>
-        <a href="{{ site.baseurl }}">
-          {{ site.title }}
-        </a>
+        <img src="https://raw.githubusercontent.com/smartlingtestdocs/smartlingtestdocs.github.io/master/Images/SmartlingLogo-HC.png">
       </h1>
-      <p class="lead">{{ site.description }}</p>
     </div>
 
+
+    <form method="get" action="http://www.google.com/search">
+
+      <input type="text" class="search-field"  name="q"
+             maxlength="255" placeholder="Search Docs..." />
+      <!--<input type="submit" value="Go" />-->
+      <input type="hidden" name="sitesearch" value="smartlingtestdocs.github.io" /></td></tr>
+
+    </form>
+
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
-
-      {% comment %}
-        The code below dynamically generates a sidebar nav of pages with
-        `layout: page` in the front-matter. See readme for usage.
-      {% endcomment %}
-
-      {% assign pages_list = site.pages %}
-      {% for node in pages_list %}
-        {% if node.title != null %}
-          {% if node.layout == "page" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}"><i class="fa fa-home"></i> Home</a>
+      <a class="sidebar-nav-item" href="/How-this-Works/"><i class="fa fa-cogs"></i> How This Works</a>
+      <a class="sidebar-nav-item" href="/Whats-included/"><i class="fa fa-check-square-o"></i> What's Included</a>
+      <a class="sidebar-nav-item" href="/file-API/"><i class="fa fa-file-o"></i> File API</a>
+      <a class="sidebar-nav-item" href="/Download-file/"><i class="fa fa-cloud-download"></i> Download File</a>
+      <a class="sidebar-nav-item" href="/Supported-file-types/"><i class="fa fa-thumbs-up"></i> Supported File Types</a>
+      <a class="sidebar-nav-item" href="/java-properties-files/"><i class="fa fa-coffee"></i> Java Properties</a>
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>

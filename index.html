@@ -1,37 +1,32 @@
 ---
-layout: default
+layout: home
 title: Home
 ---
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+<div class="banner">&lt;smartling:docs&gt;</div>
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+<div class="container content" style="text-align:center; padding:0px;">
 
-    {{ post.content }}
-  </div>
-  {% endfor %}
-</div>
+  <form method="get" action="http://www.google.com/search">
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
+    <input type="text" class="search-field home-search-field"  name="q"
+           maxlength="255" placeholder="Search Docs..." />
+    <!--<input type="submit" value="Go" />-->
+    <input type="hidden" name="sitesearch" value="smartlingtestdocs.github.io" /></td></tr>
+
+  </form>
+
+  <ul class="buckets">
+
+      <li><i class="fa fa-cogs fa-3x"></i> How This Works</li>
+      <li><i class="fa fa-check-square-o fa-3x"></i> What's Included</li>
+      <li><i class="fa fa-file-o fa-3x"></i> File API</li>
+      <li><i class="fa fa-cloud-download fa-3x"></i> Download File</li>
+      <li><i class="fa fa-thumbs-up fa-3x"></i> Supported File Types</li>
+      <li><i class="fa fa-coffee fa-3x"></i> Java Properties</li>
+  </ul>
+
+
+
+
 </div>

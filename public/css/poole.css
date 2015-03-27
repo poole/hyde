@@ -48,7 +48,7 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: "Open Sans Condensed", Helvetica, Arial, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -238,17 +238,15 @@ img {
 table {
   margin-bottom: 1rem;
   width: 100%;
-  border: 1px solid #e5e5e5;
   border-collapse: collapse;
 }
 td,
 th {
-  padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
+
 }
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+
 }
 
 
@@ -274,8 +272,12 @@ tbody tr:nth-child(odd) th {
 .message {
   margin-bottom: 1rem;
   padding: 1rem;
-  color: #717171;
-  background-color: #f9f9f9;
+  color: #03406c;
+  background-color: #64baf9;
+  border-color: #0f97f9;
+  border-style: solid;
+  border-width: 1px;
+  border-radius: 3px;
 }
 
 
@@ -286,11 +288,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
-  padding-left:  1rem;
-  padding-right: 1rem;
-  margin-left:  auto;
-  margin-right: auto;
+
 }
 
 
