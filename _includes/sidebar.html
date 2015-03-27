@@ -4,30 +4,26 @@
       <h1>
         <img src="https://raw.githubusercontent.com/smartlingtestdocs/smartlingtestdocs.github.io/master/Images/SmartlingLogo-HC.png">
       </h1>
-      <p class="lead">{{ site.description }}</p>
-   <form method="get" action="http://www.google.com/search">
-<div style="padding:4px;width:15em;color:#2e70cd;">
-<table border="0" align="center" cellpadding="0" bgcolor="#808080">
-<tr bgcolor="#2e70cd"><td bgcolor="#2e70cd">
-<input type="text"   name="q" size="25" style="color:#2e70cd;"
-maxlength="255" value="Search"
-onfocus="if(this.value==this.defaultValue)this.value=''; this.style.color='black';" onblur="if(this.value=='')this.value=this.defaultValue; "/>
-<input type="submit" value="Go" />
-<input type="hidden" name="sitesearch" value="smartlingtestdocs.github.io" /></td></tr>
-</table>
-</div>
-
-</form>
     </div>
 
+
+    <form method="get" action="http://www.google.com/search">
+
+      <input type="text" class="search-field"  name="q"
+             maxlength="255" placeholder="Search Docs..." />
+      <!--<input type="submit" value="Go" />-->
+      <input type="hidden" name="sitesearch" value="smartlingtestdocs.github.io" /></td></tr>
+
+    </form>
+
     <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
-      <a class="sidebar-nav-item" href="http://smartlingtestdocs.github.io/How-this-Works/">How This Works</a>
-      <a class="sidebar-nav-item" href="http://smartlingtestdocs.github.io/Whats-included/">What's Included</a>
-      <a class="sidebar-nav-item" href="http://smartlingtestdocs.github.io/file-API/">File API</a>
-      <a class="sidebar-nav-item" href="http://smartlingtestdocs.github.io/Download-file/">Download File</a>
-      <a class="sidebar-nav-item" href="http://smartlingtestdocs.github.io/Supported-file-types/">Supported File Types</a>
-      <a class="sidebar-nav-item" href="http://smartlingtestdocs.github.io/java-properties-files/">Java Properties</a>
+      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}"><i class="fa fa-home"></i> Home</a>
+      <a class="sidebar-nav-item" href="/How-this-Works/"><i class="fa fa-cogs"></i> How This Works</a>
+      <a class="sidebar-nav-item" href="/Whats-included/"><i class="fa fa-check-square-o"></i> What's Included</a>
+      <a class="sidebar-nav-item" href="/file-API/"><i class="fa fa-file-o"></i> File API</a>
+      <a class="sidebar-nav-item" href="/Download-file/"><i class="fa fa-cloud-download"></i> Download File</a>
+      <a class="sidebar-nav-item" href="/Supported-file-types/"><i class="fa fa-thumbs-up"></i> Supported File Types</a>
+      <a class="sidebar-nav-item" href="/java-properties-files/"><i class="fa fa-coffee"></i> Java Properties</a>
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
