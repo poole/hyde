@@ -12,7 +12,7 @@
             });
             
             $('.pink').hoverZoom({
-                overlayColor: '#bd2e75',
+                overlayColor: '#ffffff',
                 zoom: 0
             });
             
