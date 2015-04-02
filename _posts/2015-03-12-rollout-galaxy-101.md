@@ -3,11 +3,10 @@ layout: post
 title: "galaxy.fredhutch.org: Rollout and Galaxy 101"
 category: events
 tags: education galaxy beginner
+hide_in_feed: true
 ---
 
 ### *Thursday, March 12, 2015 in D1-084, 2:00 - 3:00 pm*
-
-*[Registration](https://www.surveymonkey.com/s/L3V6NZY) is required*
 
 *UPDATE: Registration for this course is full!
 Due to high interest we will be scheduling another course, with details to be announced.
@@ -28,7 +27,7 @@ By working through the [Galaxy 101 tutorial](https://usegalaxy.org/u/aun1/p/gala
 - Creating, editing, and running workflows
 
 Attendees must bring a laptop to the course, but we'll provide the pizza.
-To register, fill out the registration form [here](https://www.surveymonkey.com/s/L3V6NZY).
+<strike>To register, fill out the registration form [here](https://www.surveymonkey.com/s/L3V6NZY).</strike>
 Registration is limited to 20 participants.
 
 Want to try working through the tutorial on your own?
