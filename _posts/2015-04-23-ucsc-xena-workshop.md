@@ -23,7 +23,7 @@ During this hands on workshop we will:
 We will show participants how to view their own private data by downloading our click-and-run application, loading data into it, and then viewing the data on our website.
 We have also integrated our tool with Galaxy to assist those users who may not have a strong computer background or those who wish to ensure data provenance.
 
-*Attendees must bring a laptop to the course.*
+*Attendees must bring a laptop to the course*, but we'll provide the pizza.
 
 Registration is limited to 40 participants; please register via Eventbrite [here](https://www.eventbrite.com/e/ucsc-cancer-genomics-browser-workshop-registration-16388650896). 
 
