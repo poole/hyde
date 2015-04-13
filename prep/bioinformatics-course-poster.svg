@@ -14,7 +14,7 @@
    id="svg2"
    version="1.1"
    inkscape:version="0.48.4 r9939"
-   sodipodi:docname="course-poster.svg"
+   sodipodi:docname="bioinformatics-course-poster.svg"
    inkscape:export-filename="/home/matsen/course.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
@@ -78,7 +78,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.72424242"
-     inkscape:cx="212.43127"
+     inkscape:cx="215.19278"
      inkscape:cy="495"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -106,7 +106,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -164,107 +164,107 @@
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
        x="57.638012"
-       y="-308.6355"
+       y="-316.6355"
        id="text3006"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          x="57.638012"
-         y="-308.6355"
+         y="-316.6355"
          id="tspan3010">by which the Scientist may make use of</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
-       x="8.2068691"
-       y="-193.52249"
+       x="34.206871"
+       y="-233.52249"
        id="text3021"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
-         x="8.2068691"
-         y="-193.52249"
-         id="tspan3025">for the advancement of her knowledge of science</tspan></text>
+         x="34.206871"
+         y="-233.52249"
+         id="tspan3027">for the Advancement of her Knowledge of</tspan></text>
     <path
        style="fill:none;stroke:#000000;stroke-width:5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none"
-       d="m 226.03114,-127.62989 c 0,204.46586 0,204.46586 0,204.46586"
+       d="m 226.03114,-103.62989 c 0,204.46586 0,204.46586 0,204.46586"
        id="path3029"
        inkscape:connector-curvature="0" />
     <path
        inkscape:connector-curvature="0"
        id="path3799"
-       d="m 236.03114,-127.62989 c 0,204.46586 0,204.46586 0,204.46586"
+       d="m 236.03114,-103.62989 c 0,204.46586 0,204.46586 0,204.46586"
        style="fill:none;stroke:#000000;stroke-width:2.5;stroke-linecap:butt;stroke-linejoin:miter;stroke-miterlimit:4;stroke-opacity:1;stroke-dasharray:none" />
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
        x="-27.450031"
-       y="-109.62292"
+       y="-75.622917"
        id="text3801"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3803"
          x="-27.450031"
-         y="-109.62292">Command-lyne.</tspan></text>
+         y="-75.622917">Command-lyne.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
        x="-27.450031"
-       y="-46.535004"
+       y="-10.535004"
        id="text3805"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3807"
          x="-27.450031"
-         y="-46.535004">Python.</tspan></text>
+         y="-10.535004">Python.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
        x="330.32999"
-       y="-18.493164"
+       y="5.5068359"
        id="text3809"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3811"
          x="330.32999"
-         y="-18.493164">Shell -scrypting.</tspan></text>
+         y="5.5068359">Shell -scrypting.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
        x="331.54581"
-       y="-109.62292"
+       y="-85.622917"
        id="text3813"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3815"
          x="331.54581"
-         y="-109.62292">Remote access to</tspan><tspan
+         y="-85.622917">Remote access to</tspan><tspan
          sodipodi:role="line"
          x="331.54581"
-         y="-72.122917"
-         id="tspan3817">powerful Servers.</tspan></text>
+         y="-48.122917"
+         id="tspan3817">powerfull Servers.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
        x="331.54581"
-       y="40.879189"
+       y="64.879189"
        id="text3819"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          x="331.54581"
-         y="40.879189"
+         y="64.879189"
          id="tspan3827">Project organization.</tspan></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
        x="-27.391438"
-       y="28.452423"
+       y="52.452423"
        id="text3829"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3831"
          x="-27.391438"
-         y="28.452423">Version controll</tspan><tspan
+         y="52.452423">Version controll</tspan><tspan
          sodipodi:role="line"
          x="-27.391438"
-         y="65.952423"
+         y="89.952423"
          id="tspan3833">and GIT.</tspan></text>
     <text
        xml:space="preserve"
@@ -283,30 +283,46 @@
     <text
        sodipodi:linespacing="125%"
        id="text3839"
-       y="-254.01993"
+       y="-272.01993"
        x="-102.74936"
        style="font-size:47.66444016px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
        xml:space="preserve"><tspan
          style="font-size:30px;font-style:normal;letter-spacing:7.98999977px;-inkscape-font-specification:JSL Ancient"
-         y="-254.01993"
+         y="-272.01993"
          x="-102.74936"
          id="tspan3841"
          sodipodi:role="line">ELECTRONIC COMPUTING MACHINES</tspan><tspan
          id="tspan3843"
-         y="-216.51993"
+         y="-234.51993"
          x="-102.74936"
          sodipodi:role="line"
          style="font-size:34px;font-style:normal;letter-spacing:7.14000463px;-inkscape-font-specification:JSL Ancient" /></text>
     <text
        xml:space="preserve"
        style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
-       x="-68.353798"
-       y="160.25159"
+       x="-92.353798"
+       y="198.25159"
        id="text3845"
        sodipodi:linespacing="125%"><tspan
          sodipodi:role="line"
          id="tspan3847"
-         x="-68.353798"
-         y="160.25159">A series of XXX courses for NOVICE to SEASONED NERD  </tspan></text>
+         x="-92.353798"
+         y="198.25159">XXX courses for all from <tspan
+   style="letter-spacing:4.79000044px"
+   id="tspan3041">NOVICE</tspan> to <tspan
+   style="letter-spacing:1.98000002px"
+   id="tspan3205">SEASONED NERD  </tspan></tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
+       x="67.579269"
+       y="-179.36346"
+       id="text3031"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3033"
+         x="67.579269"
+         y="-179.36346"
+         style="font-size:36px;letter-spacing:38.16003799px">SCIENCE</tspan></text>
   </g>
 </svg>
