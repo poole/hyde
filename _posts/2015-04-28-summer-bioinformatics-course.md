@@ -1,14 +1,7 @@
+This summer we will be offering a series of free introductory classes on bioinformatics.
+The goal of this series is to convey the big picture of how to use computational tools to address biological problems, while beginning to familiarize attendees with the specific skills associated with the subject.
 
-There is an art to Bioinformatics.
-Making meaning out of raw data requires knowledge not only of individual tools and techniques, but also how they weave together.
-While educational resources on specific tools and techniques are plentiful, obtaining this big picture overview can be challenging.
-
-To help you make your way through this landscape, we will be offering a series of introductory classes on Bioinformatics.
-The goal of this series is to convey the big picture of how to approach Bioinformatics, while beginning to familiarize attendees with the specific skills associated with the subject.
-No course this short could possibly hope to make an expert of someone.
-But with motivation, this class will provide the building blocks needed to begin learning the subject independently as you apply these techniques towards your problem domain.
-
-The course will consist of seven one-hour classes:
+The course will consist of seven one-hour classes on campus, which will be weekly on Wednesdays from 3pm to 4pm, starting June 3rd:
 
 1. Overview & remote server access
 2. Unix Shell I - overview
@@ -18,13 +11,11 @@ The course will consist of seven one-hour classes:
 6. Python II - building data structures
 7. Python III - writing a program
 
-The curriculum will be drawn from an early release of [Bioinformatics Data Skills](http://shop.oreilly.com/product/0636920030157.do), which will be available throughout the class free of cost.
-Students will be encouraged to do a couple hours of reading and/or homework between sessions, but this will not be required.
-Additionally, depending on interest, at the end of course students may pick a project to work on, and consult with the instructor for advice.
+Much of the curriculum will be drawn from an early release of [Bioinformatics Data Skills](http://shop.oreilly.com/product/0636920030157.do), which will be available throughout the class free of cost.
+Students will be encouraged to do a couple hours of reading and/or exercises between sessions, but this will not be required.
+Additionally, depending on interest, there may be an opportunity for students to work with the instructor to apply the lessons learned in the class to their own research.
 
-You can sign up here: [intro-to-bioinformatics.eventbrite.com](http://intro-to-bioinformatics.eventbrite.com).
+Sign up here: [intro-to-bioinformatics.eventbrite.com](http://intro-to-bioinformatics.eventbrite.com).
 
 All you need to bring is a laptop.
 We'll bring the pizza.
-
-
