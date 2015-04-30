@@ -1,3 +1,11 @@
+---
+layout: post
+title: Summer 2015 bioinformatics course series
+category: events
+tags: education shell python git
+hide_in_feed: false
+---
+
 This summer we will be offering a series of free introductory classes on bioinformatics.
 The goal of this series is to convey the big picture of how to use computational tools to address biological problems, while beginning to familiarize attendees with the specific skills associated with the subject.
 
