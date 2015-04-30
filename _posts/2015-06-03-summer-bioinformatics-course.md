@@ -27,14 +27,3 @@ Sign up here: [intro-to-bioinformatics.eventbrite.com](http://intro-to-bioinform
 
 All you need to bring is a laptop.
 We'll bring the pizza.
-
-
-
-
-
-
-
-
-
-
-
