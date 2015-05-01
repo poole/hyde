@@ -6,7 +6,9 @@ tags: education shell python git
 hide_in_feed: false
 ---
 
-This summer we will be offering a series of free introductory classes on bioinformatics.
+**This class is now full. We will be offering repeat courses until demand is satisfied, so please sign up for the waiting list using the registration link below if you are interested.**
+
+This summer we will be offering a series of free introductory classes on bioinformatics for Fred Hutch students, faculty, and staff.
 The goal of this series is to convey the big picture of how to use computational tools to address biological problems, while beginning to familiarize attendees with the specific skills associated with the subject.
 
 The course will consist of seven one-hour classes on campus, which will be weekly on Wednesdays from 3pm to 4pm, starting June 3rd:
