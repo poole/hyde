@@ -16,7 +16,7 @@ layout: nil
  </author>
 
  {% for post in site.posts %}
- {% unless post.hide_in_feed %}
+ {% unless post.hide_in_feed or (post.category == 'events' and post.date < site.time) %}
  <entry>
    <title>{{ post.title }}</title>
    <link href="{{ site.url }}{{ post.url }}"/>
