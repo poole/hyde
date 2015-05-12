@@ -39,7 +39,7 @@ html {
     font-size: 16px;
   }
 }
-@media (min-width: 58em) {
+@media (min-height: 48em) and (min-width: 58em) {
   html {
     font-size: 20px;
   }
