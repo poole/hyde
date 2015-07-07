@@ -3,28 +3,14 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
-
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
-
-There are currently two themes built on Poole:
-
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
-
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+Hello, there - it’s nice to meet you. My name is Jess and I’m a designer/illustrator and writer from Bristol. I can usually be found either doodling or scribbling down a story or two, sipping coffee in a local coffee house when I’m not working at the day job.
+ 
+In the past, my writing skills have been put to use as a Staff Writer for Lost in the Multiplex (sadly, no longer on the web), writing film reviews, articles and interviewing some cool people from the film industry.
+ 
+I’m a bit of a self-confessed ‘Japanophile’ and am regularly influenced by things such as Japanese cinema and anime, the culture, and heritage in my work - hopefully, one day I might even get to travel there!
+ 
+I like to keep my skills sharp and am constantly looking for new things to learn - at the moment, I’m currently improving my skills in HTML and CSS, building my first website from scratch, and embarking on learning Ruby on Rails. 
+ 
+Having once been likened to the guys on the Big Bang Theory, my interests are quite geeky and include things such as sci-fi movies/TV, gaming, comic books, collecting vinyl toys and much more.
+ 
+Not one to sit on my laurels, when I’m not being distracted by pretty shiny things, I can be found ‘jumping about’ doing parkour around Bristol, spending time with friends, taking photos or getting busy in the kitchen.

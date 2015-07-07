@@ -24,3 +24,16 @@ version:          2.1.0
 
 github:
   repo:           https://github.com/JessGurr/jessgurr.github.io
+
+# Posts
+excerpt_separator: <!--more-->
+
+# Sidebar links
+links:
+  Twitter: "http://twitter.com/JessicaGurr"
+  GitHub: "http://github.com/JessGurr"
+  Behance: "http://behance.net/wildfire198"
+
+# Gems
+gems:
+  - jemoji

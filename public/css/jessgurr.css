@@ -1,0 +1,38 @@
+/* Body copy */
+html {
+	font-family: 'Lato', sans-serif;
+}
+
+/* All headings */
+h1, h2, h3, h4, h5, h6 {
+	font-family: 'Montserrat', sans-serif;
+}
+
+/* Heading resize */
+.sidebar-about h1 {
+	font-size: 3rem;
+	font-family: 'Montserrat', serif;
+}
+
+/* Description */
+.lead {
+	font-size: 1rem;
+}
+
+/* Nav icons */
+.sidebar-nav-item:before {
+	content: "\2666";
+	margin-right: .2rem;
+	font-size: .5rem;
+	vertical-align: middle;
+	color: rgba(255,255,255,0.5);
+}
+
+.sidebar-nav-item:hover:before {
+	text-decoration: none;
+}
+
+.emoji {
+	margin: -4px 0 0;
+	display: inline;
+}
