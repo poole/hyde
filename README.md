@@ -1,4 +1,14 @@
-# Hyde
+# [JessGurr.com](http://jessgurr.com)
+
+This is the repo for my personal websites, running on Jekyll & GitHub Pages. The design is based [Hyde](https://github.com/poole/hyde) by [@mdo](https://github.com/mdo) but with the following changes:
+
+- Switched to the [red colour scheme](#themes)
+- Changed the fonts to Lato and Montserrat
+- Added an external links list below the main nav
+
+Plus a few minor design tweaks.
+
+## Hyde
 
 Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 
