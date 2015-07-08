@@ -15,6 +15,9 @@ title: Home
     <span class="post-date">{{ post.date | date_to_string }}</span>
 
     {{ post.excerpt }}
+    <a href="{{ post.url }}">
+      Read more...
+    </a>
   </div>
   {% endfor %}
 </div>
