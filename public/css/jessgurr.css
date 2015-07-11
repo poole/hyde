@@ -37,3 +37,18 @@ h1, h2, h3, h4, h5, h6 {
 	margin: -4px 0 0;
 	display: inline;
 }
+
+/* Purple */
+.theme-base-07 .sidebar {
+  background-color: #662486;
+}
+.theme-base-07 .content a,
+.theme-base-07 .related-posts li a:hover {
+  color: #662486;
+}
+
+/* Gray text */
+body {
+	color: #404040;
+}
+
