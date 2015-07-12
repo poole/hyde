@@ -1,3 +1,13 @@
+	{% if page.url == '/' %}
+		{% assign description = site.description %}
+	{% else %}
+		{% if page.excerpt %}
+			{% assign description = page.excerpt %}
+		{% else %}
+			{% assign description = page.content | strip_html | replace:'\n',' ' | replace:'# ','' | truncatewords: 30 %}
+		{% endif %}
+	{% endif %}
+
 	<!-- General meta -->
 	<meta charset="utf-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
@@ -9,9 +19,9 @@
 
 	{% if page.excerpt %}
 		<!-- Description meta -->
-		<meta name="description" content="{{ page.excerpt }}">
-		<meta property="og:description" content="{{ page.excerpt }}">
-		<meta name="twitter:description" content="{{ page.excerpt }}">
+		<meta name="description" content="{{ description }}">
+		<meta property="og:description" content="{{ description }}">
+		<meta name="twitter:description" content="{{ description }}">
 	{% endif %}
 
 	<!-- Author meta -->
