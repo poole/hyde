@@ -3,7 +3,7 @@ markdown:         redcarpet
 highlighter:      pygments
 
 # Permalinks
-permalink:        pretty
+permalink:        /blog/:title/
 relative_permalinks: true
 
 # Setup
