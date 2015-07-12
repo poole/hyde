@@ -10,7 +10,7 @@ relative_permalinks: true
 title:            Jess Gurr
 tagline:          'Copywriter, Illustrator & Designer'
 description:      'This is the website of Jess Gurr - Copywriter, Illustrator and Designer based in Bristol, UK'
-url:              http://jessgurr.github.io
+url:              http://jessgurr.com
 baseurl:          /
 
 author:
@@ -37,3 +37,7 @@ links:
 # Gems
 gems:
   - jemoji
+
+# Meta
+meta:
+  twitter: JessicaGurr
