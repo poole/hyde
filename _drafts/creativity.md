@@ -17,4 +17,4 @@ These are obviously very random and extreme examples, but it's no different to b
 
 XX
 
-I want to be creative in every aspect of my life: be it my work; doing [https://youtu.be/2Iapa03dfLU](Parkour) - my favourite form of exercise and physical creative expression; or even something as simple as writing a list (more on this in another post). If it's not colourful or thoughtfully considered as to how it can inspire and look good, then why bother? 
+I want to be creative in every aspect of my life: be it my work; doing [Parkour](https://youtu.be/2Iapa03dfLU) - my favourite form of exercise and physical creative expression; or even something as simple as writing a list (more on this in another post). If it's not colourful or thoughtfully considered as to how it can inspire and look good, then why bother? 
