@@ -3,13 +3,20 @@ layout: post
 title: "Hello World!"
 ---
 
-I'm trying my hand at blogging with Jekyll. I'm hoping to learn a few things
+Hello, world! It's nice to meet you. 
+
+I'm trying my hand at blogging with Jekyll - this is my shiny new website that @daviddarnes very kindly sorted for me with his amazing Spidey - read: web - skills. Get it? 
+
+It's using a very nice Jekyll template called [http://hyde.getpoole.com/](Hyde) by @mdo
+
+Here are some of the things I'm looking at getting stuck into in the near future:
 
 <!--more-->
 
-- How to blog on a regular basis
+- Blogging on a regular basis
 - How to use markdown (I hear it's all the rage on GitHub :wink:)
 - A little bit more about using GitHub
-- A little bit more about how Jekyll works
+- Finding out how Jekyll works
+- Putting up some examples of my Copywriting work for you to have a look at
 
-Wish me luck!
+Wish me luck and come back soon! There'll be more where this came from...
