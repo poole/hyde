@@ -37,6 +37,10 @@ links:
 # Gems
 gems:
   - jemoji
+  - jekyll-sitemap
+  - jekyll-mentions
+
+jekyll-mentions: https://twitter.com
 
 # Meta
 meta:
