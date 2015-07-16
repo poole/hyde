@@ -7,7 +7,7 @@ Hello, world! It's nice to meet you.
 
 I'm trying my hand at blogging with Jekyll - this is my shiny new website that @daviddarnes very kindly sorted for me with his amazing Spidey - read: web - skills. Get it? 
 
-It's using a very nice Jekyll template called [http://hyde.getpoole.com/](Hyde) by @mdo
+It's using a very nice Jekyll template called [http://hyde.getpoole.com/(Hyde)] by @mdo
 
 Here are some of the things I'm looking at getting stuck into in the near future:
 
