@@ -5,7 +5,7 @@ title: "Hello World!"
 
 Hello, world! It's nice to meet you. 
 
-I'm trying my hand at blogging with Jekyll - this is my shiny new website that @daviddarnes very kindly sorted for me with his amazing Spidey - read: web - skills. Get it? 
+I'm trying my hand at blogging with Jekyll - this is my shiny new website that @daviddarnes very kindly sorted for me with his amazing Spidey (read: web) skills. Get it? 
 
 It's using a very nice Jekyll template called [Hyde](http://hyde.getpoole.com/) by @mdo
 
