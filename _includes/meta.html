@@ -2,7 +2,7 @@
 		{% assign description = site.description %}
 	{% else %}
 		{% if page.excerpt %}
-			{% assign description = page.excerpt %}
+			{% assign description = page.excerpt | strip_html | replace:'\n',' ' | replace:'# ','' %}
 		{% else %}
 			{% assign description = page.content | strip_html | replace:'\n',' ' | replace:'# ','' | truncatewords: 30 %}
 		{% endif %}
