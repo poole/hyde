@@ -5,9 +5,12 @@ published: false
 
 
 
+
 ## Creativity
 
-Creativity is a difficult thing to describe. There are no pre-requisites to having it. It's not limited to a certain group of people or particular career type. It IS a form of expression. However, in the creative industries, it has become somewhat of a commodity. 
+Creativity is a difficult thing to describe. There are no pre-requisites to having it. It's not limited to a certain group of people or particular career type. It **is** a form of expression. However, in the 'creative' industries, it has become somewhat of a commodity. 
+
+XX
 
 Sometimes it can feel like if you don't fit into a certain mould/box with a particular skill set, and if you've not had your full focus on one area (e.g. graphic design or web development), you're not worth considering. There is no room for multi-tasking at certain creative tables. However, everyone must have more than one thing in their life that they're good at. If that bleeds into their career, then what's the harm in that? Surely if you can provide a company with a wide variety of skills, then you're more valuable than not?  
 
