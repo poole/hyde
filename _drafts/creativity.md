@@ -2,11 +2,7 @@
 published: false
 ---
 
-
-
-
-
-## Creativity
+# Creativity
 
 Creativity is a difficult thing to describe. There are no pre-requisites to having it. It's not limited to a certain group of people or particular career type. It **is** a form of expression. However, in the 'creative' industries, it has become somewhat of a commodity. 
 
