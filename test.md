@@ -1,6 +1,6 @@
 ---
 layout: page
-title: test
+title: testt
 ---
 
 This is a testtttt
