@@ -1,6 +1,5 @@
 ---
 layout: page
-title: testtjghjgjghj
+title: Resume
 ---
-
-This is a testtttt
+You can donoad my cv from the link below
