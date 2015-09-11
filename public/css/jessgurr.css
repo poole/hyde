@@ -52,3 +52,17 @@ body {
 	color: #404040;
 }
 
+/* Image alignment options */
+.image--right {
+	float: right;
+	text-align: right;
+	width: 45%;
+	padding: 10px 0 5% 5%;
+}
+
+.image--left {
+	float: left;
+	text-align: right;
+	width: 45%;
+	padding: 10px 5% 5% 0;
+}
