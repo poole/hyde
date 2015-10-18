@@ -1,0 +1,64 @@
+@font-face {
+ font-family: "avenir-next-regular";
+ src: url('fonts/AvenirNext-Regular.eot?#iefix') format('embedded-opentype'),
+   url('fonts/AvenirNext-Regular.woff') format('woff'),
+    url('fonts/AvenirNext-Regular.ttf')  format('truetype'),
+    url('fonts/AvenirNext-Regular.svg#AvenirNext-Regular') format('svg');
+ font-weight: normal;
+ font-style: normal;
+}
+
+
+@font-face {
+  font-family: 'avenir-next-regular';
+  src: url('fonts/AvenirNext-DemiBold.eot?#iefix') format('embedded-opentype'),
+    url('fonts/AvenirNext-DemiBold.woff') format('woff'),
+    url('fonts/AvenirNext-DemiBold.ttf')  format('truetype'),
+    url('fonts/AvenirNext-DemiBold.svg#AvenirNext-DemiBold') format('svg');
+  font-weight: 700;
+  font-style: normal;
+}
+
+body {
+  font-family: 'avenir-next-regular' !important;
+}
+
+strong {
+  font-weight: 700;
+}
+
+i {
+  font-style: normal;
+}
+
+.container {
+  position: relative;
+  height: 100vh;
+}
+
+.intro {
+margin-bottom: 60px;
+}
+
+.hero {
+  margin-top: 60px;
+}
+
+.hero h3 {
+  margin-bottom: 5px;
+}
+
+.links {
+  position: absolute;
+  bottom: 20px;
+}
+
+.links img {
+  max-width: 16px;
+  margin-right: 3px;
+}
+
+img.rounded {
+  border-radius: 50%;
+  max-width: 60px;
+}
