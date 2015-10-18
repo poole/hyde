@@ -31,6 +31,10 @@ i {
   font-style: normal;
 }
 
+section {
+  margin-bottom: 30px;
+}
+
 .container {
   position: relative;
   height: 100vh;
@@ -54,11 +58,22 @@ margin-bottom: 60px;
 }
 
 .links img {
-  max-width: 16px;
+  width: 16px;
   margin-right: 3px;
 }
+
+@media only screen and (max-width : 480px) {
+
+  .links img {
+    width: 20px;
+    margin-right: 7px;
+  }
+  
+}
+
 
 img.rounded {
   border-radius: 50%;
   max-width: 60px;
 }
+
