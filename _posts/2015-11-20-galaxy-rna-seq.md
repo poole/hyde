@@ -8,11 +8,7 @@ hide_in_feed: false
 
 ### *Friday, November 20, 2015 in M1-A307, 1:00 - 3:00 pm*
 
-[Galaxy](https://wiki.galaxyproject.org/) is an increasingly popular web-based platform for performing complex and reproducible computational biology analyses with no computer programming.
-Though the original public Galaxy server, [Galaxy Main](http://usegalaxy.org), is free and open to the public, it cannot scale to meet everyone's needs.
-Contention for computational resources among its thousands of users can lead to long wait times, and its data storage quotas can prohibit some types of analyses.
-Consequently, many institutions around the world have made Galaxy available to their researchers locally, using their own computational resources and storage.
-We're happy to be able to provide [galaxy.fredhutch.org](http://galaxy.fredhutch.org) on the Hutch internal network for use by Fred Hutch researchers and affiliates.
+[Galaxy](https://wiki.galaxyproject.org/) is a popular web-based platform for performing complex and reproducible computational biology analyses with no computer programming, and we're happy to be able to provide [galaxy.fredhutch.org](http://galaxy.fredhutch.org) on the Hutch internal network for use by Fred Hutch researchers and affiliates.
 
 RNA-seq has become a standard assay in molecular biology, and Galaxy has a comprehensive set of tools to help you learn from the results.
 This hands-on workshop for Fred Hutch employees and affiliates is an introduction to RNA-seq differential expression analysis using Galaxy, including:
