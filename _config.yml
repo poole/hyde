@@ -8,8 +8,8 @@ relative_permalinks: true
 
 # Setup
 title:            winfan
-tagline:          'A Jekyll theme'
-description:      'only for free in tel world'
+tagline:          'A blog 我只是很懒'
+description:      'only want free in computer world'
 url:              http://giftman.github.io
 baseurl:          /
 
