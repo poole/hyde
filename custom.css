@@ -20,6 +20,7 @@
 }
 
 body {
+  background-color: #fbfbfb;
   font-family: 'avenir-next-regular' !important;
 }
 
@@ -40,12 +41,12 @@ section {
   height: 100vh;
 }
 
-.intro {
+.profile {
 margin-bottom: 60px;
 }
 
-.hero {
-  margin-top: 60px;
+.sidebar-left {
+  padding: 30px 0 30px 30px;
 }
 
 .hero h3 {
@@ -62,6 +63,32 @@ margin-bottom: 60px;
   margin-right: 3px;
 }
 
+.portfolio {
+  margin-top: 60px;
+}
+
+ul.shots {
+  padding-left: 0 !important;
+}
+
+ul.shots li {
+  list-style: none;
+}
+
+
+.shots .col-sm-6 {
+  margin-bottom: 25px;
+}
+
+.shots img {
+  max-width: 100%;
+  box-shadow: 0 0 0 1px rgba(0,0,0,.01),0 1px 3px 0 rgba(0,0,0,.1);
+}
+
+.shots .col-md-6:nth-child(2) {
+  margin-right: 0;
+}
+
 @media only screen and (max-width : 480px) {
 
   .links img {
@@ -72,7 +99,9 @@ margin-bottom: 60px;
 }
 
 
-img.rounded {
+
+
+.rounded img {
   border-radius: 50%;
   max-width: 60px;
 }

@@ -15,6 +15,7 @@ ciaranhanrahan.com v2.0
     <meta name="author" content="Ciaran Hanrahan">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
     <link rel="stylesheet" href="custom.css"/>
+
     
     <script>
       (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
@@ -25,16 +26,15 @@ ciaranhanrahan.com v2.0
       ga('create', 'UA-54809709-1', 'auto');
       ga('send', 'pageview');
     </script>
+<script src="http://code.jquery.com/jquery-1.10.1.min.js"></script>
+ <script type="text/javascript" src="jribbble.js"></script>
   </head>
   <body>
-    <div class="container">
-    <div class="hero">
+    
+    
+    <div class="sidebar-left col-md-4">
       
-        <div class="intro">
-          <img class="rounded" src="http://avatars0.githubusercontent.com/u/4536123?v=3&s=460">
-          <h3><strong>Ciarán Hanrahan</strong></h3>
-          <p><i>UI designer &amp; developer</i></p>
-        </div>
+        <div class="profile"></div>
 
         <section>
         <p><strong>Current</strong></p>
@@ -56,43 +56,67 @@ ciaranhanrahan.com v2.0
          </section>
       
     </div>
-        
+    <div class="col-md-8">
+      <div class="portfolio">
+        <div class="shots"></div>
+      </div>
+    </div>
+
+    <!--
     <div class="links">
       <a href="http://twitter.com/ciaranhan" target="_blank"><img src="img/twitter.png"></a>
-      
-      <!--
       <a href="https://flipboard.com/@ciaranhan" target="_blank">
         <img src="img/flipboard.png">
       </a>
       <a href="http://ciaranhan.tumblr.com/" target="_blank">
         <img src="img/tumblr.png">
       </a>
-    
-    
       <a href="http://linkedin.com/in/ciaranhanrahan" target="_blank">
         <img src="img/linkedin.png">
       </a>
        <a href="https://medium.com/@Ciaran" target="_blank">
         <img src="img/medium.png"></a>
-
       <a href="http://twitter.com/ciaranhan" target="_blank">
         <img src="img/soundcloud.png"></a>
-      -->
-     
       <a href="http://dribbble.com/ciaranhanrahan" target="_blank"><img src="img/dribbble.png"></a>
+    </div>
+    -->
+        
+        
+    
+      
+
+
+    <script type="text/javascript">
     
 
+    $.jribbble.setToken('afb7d4d1b7a3f059b15557e85b7e984443b616b85cc4cbaa9f32436b6cd1ec64');
+    
+    $.jribbble.users('CiaranHanrahan').then(function(user) {
+  var html = [];
+  
+  html.push('<a class="user-link rounded" href="' + user.html_url + '" target="_blank">');
+  html.push('<img class="avatar avatar--large" src="' + user.avatar_url + '"></a>');
+  html.push('<h3><strong>' + user.name + '</strong></h3>');
+  html.push('<p>' + user.bio + '<p/>');
+  //html.push('<p>' + user.bio + ' from ' + user.location + '<p/>');
 
+  $('.profile').html(html.join(''));
+});
 
-    </div>
-        
-        </div>
-
-
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins)
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
-    Include all compiled plugins (below), or include individual files as needed 
-    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>-->
+    $.jribbble.users('CiaranHanrahan').shots({per_page: 36}).then(function(shots) {
+  var html = [];
+  
+  shots.forEach(function(shot) {
+    html.push('<div class="col-sm-6">');
+    html.push('<a href="' + shot.html_url + '" target="_blank">');
+    html.push('<img src="' + shot.images.normal + '">');
+    html.push('</a></div>');
+  });
+  
+  $('.shots').html(html.join(''));
+});
+    </script>
   </body>
 </html>
 
