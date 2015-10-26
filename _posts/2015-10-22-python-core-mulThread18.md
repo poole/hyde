@@ -1,5 +1,13 @@
 ##《Python核心编程2》
 
+###第15章 正则表达式
+- compile 多则预编译
+- group 匹配到的  groups 子组 group(1)也是子组
+- match,search,findall 
+
+
+
+
 ###第18章 多线程编程
 
 - 进程和线程：一个进程可以有多个线程
