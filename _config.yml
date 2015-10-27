@@ -7,15 +7,14 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            living lightly
+title:            light life
 tagline:          'Conscious, balanced, and light living'
-description:      'Writings on light, truth, and the present experience of being'
-url:              http://hyde.getpoole.com
-baseurl:          /
+description:      'Guides on a present, light, and balanced life'
+url:              http://livinglightly.tk
+baseurl:          /livinglightly.tk
 
 author:
   name:           'A. Being'
-  url:            
+  url:            livinglightly.tk
 
 paginate:         5
-
