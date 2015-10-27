@@ -7,9 +7,9 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            LIVING LIGHTLY
+title:            living lightly
 tagline:          'Conscious, balanced, and light living'
-description:      'A blog dedicated to a light and present experience of being'
+description:      'Writings on light, truth, and the present experience of being'
 url:              http://hyde.getpoole.com
 baseurl:          /
 
