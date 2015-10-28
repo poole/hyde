@@ -6,7 +6,7 @@ tags: education galaxy beginner
 hide_in_feed: false
 ---
 
-### *Friday, November 20, 2015 in M1-A307, 1:00 - 3:00 pm*
+### *Wednesday, December 2, 2015 in B1-076, 3:00 - 5:00 pm*
 
 [Galaxy](https://wiki.galaxyproject.org/) is a popular web-based platform for performing complex and reproducible computational biology analyses with no computer programming, and we're happy to be able to provide [galaxy.fredhutch.org](http://galaxy.fredhutch.org) on the Hutch internal network for use by Fred Hutch researchers and affiliates.
 
@@ -21,7 +21,7 @@ This hands-on workshop for Fred Hutch employees and affiliates is an introductio
 Attendees must bring a laptop to the course, but we'll provide the pizza.
 Please use your fredhutch.org or affiliate email address when registering!
 
-Register via Eventbrite [here](https://www.eventbrite.com/e/rna-seq-differential-expression-analysis-using-galaxy-registration-19179369009).
+Register via Eventbrite [here](https://www.eventbrite.com/e/rna-seq-differential-expression-analysis-using-galaxy-registration-19306332761).
 Registration is limited to 15 participants.
 If the class is full, there will be an option to add yourself to the waiting list &mdash; please do so if you're still interested!
 We'll use the waiting list in case of cancellations and to plan future workshop sessions.
