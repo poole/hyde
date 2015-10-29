@@ -8,7 +8,7 @@ relative_permalinks: true
 
 # Setup
 title:            'musings of a starseed'
-tagline:          'eye've always been naked'
+tagline:          'eye have always been naked'
 description:      'What would be commonly referred to as a journal.'
 url:              http://musingsofastarseed.tk
 baseurl:          /
