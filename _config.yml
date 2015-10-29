@@ -7,7 +7,7 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            light life
+title:            {{ site.url }}/assets/starseed-white.png
 tagline:          'AN EXPOSE'
 description:      'asdoifjaoijfoiadf'
 url:              http://hyde.getpoole.com
