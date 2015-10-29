@@ -7,15 +7,15 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            {{ site.url }}/assets/starseed-white.png
-tagline:          'AN EXPOSE'
-description:      'asdoifjaoijfoiadf'
-url:              http://hyde.getpoole.com
+title:            'musings of a starseed'
+tagline:          'eye've always been naked'
+description:      'What would be commonly referred to as a journal.'
+url:              http://musingsofastarseed.tk
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'STARSEED'
+  url:            
 
 paginate:         5
 
