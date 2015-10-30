@@ -9,7 +9,7 @@ relative_permalinks: false
 # Setup
 title:            Journeyman Hacker
 tagline:          'Enjoy the ride'
-description:      'For now a test of what is possible. Made by [Robert Bowie](mailto:robertb1903@gmail.com)'
+description:      'For now a test of what is possible. Made by link(mailto:robertb1903@gmail.com, Robert Bowie)'
 url:              http://RobertBowie.github.io
 baseurl:          /
 
