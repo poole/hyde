@@ -1,37 +1,139 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
+  <!-- Basic Page Needs
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta charset="utf-8">
+  <title>Home — Ellesa Sabasaje</title>
+  <meta name="description" content="">
+  <meta name="author" content="">
 
-    <span class="post-date">{{ post.date | date_to_string }}</span>
+  <!-- Mobile Specific Metas
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    {{ post.content }}
+  <!-- FONT
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link href='https://fonts.googleapis.com/css?family=Cinzel:400,700,900' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Radley:400,400italic' rel='stylesheet' type='text/css'>
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,900,700' rel='stylesheet' type='text/css'>
+
+  <!-- CSS
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/scaffold.css">
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- Favicon
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <link rel="icon" type="image/png" href="images/favicon.png">
+
+</head>
+<body>
+
+  <!-- Primary Page Layout
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+  <div class="container">
+    <div class="row">
+        <!--- side bar & navigation -->
+        <div id="site-header" class="three columns">
+          <header class="header">
+            <a href="" class="header__info">
+              <h1 class="header__info__title">Ellesa Sabasaje</h1>
+              <p class="header__info__tagline">Front-End Engineer </br> at Kite Systems</p>
+            </a>
+            <a href="" class="header-photo"></a> <!-- !DevTODO: Using double __ breaks layout -->
+          
+            <div class="header__social">
+              <nav class="header__social__icons">
+                <a href="" class="header__social__icons--linkedin"></a>
+                <a href="" class="header__social__icons--fb"></a>
+                <a href="" class="header__social__icons--codepen"></a>
+                <a href="" class="header__social__icons--rss"></a>
+              </nav>
+            </div>
+
+            <div class="header__nav">
+              <nav class="header__nav__links">
+                <a class="header__nav__links--about" href="/about">About</a>
+                <a class="header__nav__links--articles" href="/articles">Articles</a>
+                <a class="header__nav__links--contact" href="/contact" class="">Contact</a>
+              </nav>
+            </div>
+          </header>
+          <footer class="footer__site-attribution">
+            <span>Thanks to the <a href="">good people</a> who have helped me along the way.</span>
+          </footer>
+                 
+      </div>
+
+        <!-- main content -->
+        <div id="main-content" class="nine offset-by-three columns">
+
+            <article class="blog-post">
+              <header class="blog-post__details">
+                <div class="blog-post__details__authoring">Written by <span>Ellesa Sabasaje</span> on <span>Date and time</span></div>
+                <div class="blog-post__details__category">Filed under <span>Category Name</span></div>
+                <h1 class="blog-post__details__title">Aliter homines, aliter philosophos loqui putas oportere?</h1>
+              </header>
+              
+              
+              <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Rhetorice igitur, inquam, nos mavis quam dialectice disputare? <code>Estne, quaeso, inquam, sitienti in bibendo voluptas?</code> An haec ab eo non dicuntur? <a href='http://loripsum.net/' target='_blank'>Illa tamen simplicia, vestra versuta.</a> Putabam equidem satis, inquit, me dixisse. Ergo instituto veterum, quo etiam Stoici utuntur, hinc capiamus exordium. Duo Reges: constructio interrete. Nummus in Croesi divitiis obscuratur, pars est tamen divitiarum. Ergo adhuc, quantum equidem intellego, causa non videtur fuisse mutandi nominis. Qualem igitur hominem natura inchoavit? </p>
+              
+              <ol>
+                <li>Sin tantum modo ad indicia veteris memoriae cognoscenda, curiosorum.</li>
+                <li>Quasi vero, inquit, perpetua oratio rhetorum solum, non etiam philosophorum sit.</li>
+              </ol>
+              
+              
+              <ul>
+                <li>Homines optimi non intellegunt totam rationem everti, si ita res se habeat.</li>
+                <li>Partim cursu et peragratione laetantur, congregatione aliae coetum quodam modo civitatis imitantur;</li>
+                <li>Hoc est dicere: Non reprehenderem asotos, si non essent asoti.</li>
+              </ul>
+              
+              
+              <blockquote cite='http://loripsum.net'>
+                Si enim idem dicit, quod Hieronymus, qui censet summum bonum esse sine ulla molestia vivere, cur mavult dicere voluptatem quam vacuitatem doloris, ut ille facit, qui quid dicat intellegit?
+              </blockquote>
+              
+              
+              <pre>
+              Cum autem paulum firmitatis accessit, et animo utuntur et
+              sensibus conitunturque, ut sese erigant, et manibus utuntur
+              et eos agnoscunt, a quibus educantur.
+              
+              Venit enim mihi Platonis in mentem, quem accepimus primum
+              hic disputare solitum;
+              </pre>
+              
+              
+              <h3 class="blog-post__subtitle">Non enim iam stirpis bonum quaeret, sed animalis.</h3>
+              
+              <p>Venit enim mihi Platonis in mentem, quem accepimus primum hic disputare solitum; Egone non intellego, quid sit don Graece, Latine voluptas? Quam ob rem tandem, inquit, non satisfacit? Hoc non est positum in nostra actione. Non autem hoc: igitur ne illud quidem. <code>Sedulo, inquam, faciam.</code> Nondum autem explanatum satis, erat, quid maxime natura vellet. Conclusum est enim contra Cyrenaicos satis acute, nihil ad Epicurum. </p>
+              
+              <h4>Ut id aliis narrare gestiant?</h4>
+              
+              <p>Quia nec honesto quic quam honestius nec turpi turpius. Nemo igitur esse beatus potest. Quid, quod res alia tota est? Servari enim iustitia nisi a forti viro, nisi a sapiente non potest. Qui ita affectus, beatum esse numquam probabis; Quonam modo? Tu vero, inquam, ducas licet, si sequetur; </p>
+              
+              <p><code>Quis istum dolorem timet?</code> In qua quid est boni praeter summam voluptatem, et eam sempiternam? Pauca mutat vel plura sane; Quamquam haec quidem praeposita recte et reiecta dicere licebit. Immo vero, inquit, ad beatissime vivendum parum est, ad beate vero satis. <code>Quibus ego vehementer assentior.</code> </p>
+              
+              <h3>Verba tu fingas et ea dicas, quae non sentias?</h3>
+              
+              <p>Mihi enim satis est, ipsis non satis. <a href='http://loripsum.net/' target='_blank'>Aliter enim explicari, quod quaeritur, non potest.</a> Hoc loco tenere se Triarius non potuit. Si quicquam extra virtutem habeatur in bonis. <a href='http://loripsum.net/' target='_blank'>Praeteritis, inquit, gaudeo.</a> Fortasse id optimum, sed ubi illud: Plus semper voluptatis? Erat enim res aperta. Sint modo partes vitae beatae. Quid enim est a Chrysippo praetermissum in Stoicis? </p>
+              
+              <p>An eiusdem modi? Heri, inquam, ludis commissis ex urbe profectus veni ad vesperum. Quod cum accidisset ut alter alterum necopinato videremus, surrexit statim. Uterque enim summo bono fruitur, id est voluptate. Sequitur disserendi ratio cognitioque naturae; <a href='http://loripsum.net/' target='_blank'>Frater et T.</a> Sit hoc ultimum bonorum, quod nunc a me defenditur; </p>
+              
+              <p>Isto modo ne improbos quidem, si essent boni viri. Tamen a proposito, inquam, aberramus. Memini vero, inquam; Quid autem habent admirationis, cum prope accesseris? In schola desinis. Quis est enim, in quo sit cupiditas, quin recte cupidus dici possit? </p>
+            </article>
+
+
+        </div>
+    </div>
   </div>
-  {% endfor %}
-</div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+<!-- End Document
+  –––––––––––––––––––––––––––––––––––––––––––––––––– -->
+</body>
+</html>
