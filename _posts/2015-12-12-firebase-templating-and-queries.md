@@ -4,7 +4,7 @@ title: Firebase Templating and Queries
 ---
 
 <div class="message">
-  Recently my team and I have been using <a href="https://www.firebase.com/">Firebase</a>as the data storage solution for a teaching platform we are developing.  This post will discuss the pitfalls found in the way we tried to structure our data and the eventual shallow approach that we landed on.
+  Recently my team and I have been using <a href="https://www.firebase.com/">Firebase</a> as the data storage solution for a teaching platform we are developing.  This post will discuss the pitfalls found in the way we tried to structure our data and the eventual shallow approach that we landed on.
 </div>
 
 
