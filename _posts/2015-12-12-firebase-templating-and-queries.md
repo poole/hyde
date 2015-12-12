@@ -24,4 +24,4 @@ ref.orderByChild("section").on("value", function(snapshot) {
   });
 });
 {% endhighlight %}
-if we construct our
+if we construct our template...
