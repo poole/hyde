@@ -5,15 +5,15 @@ published: true
 ---
 
 
-In addition to the following resources, there is an open forum for discussion of scientific computing at Fred Hutch available at <http://discourse.fhcrc.org> (on-campus access only).
-
 ### General
 
 * [Your toolbox: an overview of Galaxy, R, Python, and the command line]({% post_url 2014-07-13-toolbox %})
+* [Slides for our introduction to bioinformatics](http://fredhutchio.github.io/intro-bioinformatics/)
 * [ROSALIND interactive bioinformatics problem set](http://rosalind.info/) for a challenge
 
 
 ### Galaxy
+
 * [Galaxy: introduction]({% post_url 2014-05-09-galaxy %})
 
 
@@ -39,7 +39,8 @@ In addition to the following resources, there is an open forum for discussion of
 * [Biopython tutorial](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
 
-### FHCRC-specific
+### Fred Hutch specific
 
 * [Computational Biology Shared Resources](http://sharedresources.fhcrc.org/core-facilities/computational-biology)
 * [Training materials for SciComp courses](https://teams.fhcrc.org/sites/citwiki/SciComp/Training%20Materials/Forms/AllItems.aspx)
+* [Fred Hutch scientific computing discussion site](http://discourse.fhcrc.org)
