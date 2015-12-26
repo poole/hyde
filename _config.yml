@@ -1,11 +1,10 @@
 # Dependencies
 markdown:         redcarpet
 highlighter:      pygments
-gems: 			  [jekyll-paginate]
+gems:			  [jekyll-paginate, jekyll-gist]
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            Hyde
