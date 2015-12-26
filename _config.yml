@@ -7,15 +7,15 @@ gems:			  [jekyll-paginate, jekyll-gist]
 permalink:        pretty
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            Rohit Ravikoti
+tagline:          'Simplifying the complex'
+description:      ''
+url:              http://rohitravikoti.xyz
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Rohit Ravikoti'
+  url:            https://twitter.com/rohitravikoti
 
 paginate:         5
 

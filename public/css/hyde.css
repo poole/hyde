@@ -32,7 +32,7 @@
  */
 
 html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 48em) {
   html {
@@ -79,41 +79,49 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Abril Fatface", serif;
+  font-family: "Proxima Nova", serif;
   font-size: 3.25rem;
 }
-
 /* Sidebar nav */
 .sidebar-nav {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 .sidebar-nav-item {
   display: block;
   line-height: 1.75;
 }
+.sidebar-logo-container {
+    margin-top: 0;
+    margin-left: auto;
+    margin-right: auto;
+    width: 10em
+}
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: underline;
-}
-.sidebar-nav-item.active {
-  font-weight: bold;
 }
 
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
- * contents to the bottom of the sidebar in tablets and up.
+ * contents to the top of the sidebar in tablets and up.
  */
 
 @media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
-    bottom: 1rem;
+    top:    1rem;
     left:   1rem;
   }
+  .sidebar-legal {
+    position: absolute;
+    right:  1rem;
+    bottom: 1rem;
+    left:   1rem;
+    font-size: 0.5rem
+  }
 }
-
 
 /* Container
  *
