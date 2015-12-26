@@ -1,6 +1,7 @@
 # Dependencies
 markdown:         redcarpet
 highlighter:      pygments
+gems: 			  [jekyll-paginate]
 
 # Permalinks
 permalink:        pretty
@@ -23,4 +24,4 @@ paginate:         5
 version:          2.1.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/rravikot/rravikot.github.io/
