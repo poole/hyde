@@ -7,7 +7,7 @@ gems:			  [jekyll-paginate, jekyll-gist]
 permalink:        pretty
 
 # Setup
-title:            Rohit Ravikoti
+title:            'Rohit Ravikoti'
 tagline:          'Simplifying the complex'
 description:      ''
 url:              http://rohitravikoti.xyz
