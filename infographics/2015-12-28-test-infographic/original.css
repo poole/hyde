@@ -1,0 +1,267 @@
+body {
+	padding: 0;
+	margin: 0;
+}
+div.article {
+	padding: 0;
+	margin: 0;
+	border: 0 none;
+	float: left;
+}
+div#infographic a {
+	color: rgb(255, 255, 255);
+	text-decoration: none;
+}
+div#infographic {
+	border: 0 none;
+	margin: 0 auto;
+	padding: 0;
+	font-family: 'Rokkitt', serif;
+	font-size: 96%;
+	color: rgb(255, 255, 255);
+	background: url('media/ig-back.png') rgb(51, 51, 51);
+	background-position: 0.39em 1.24em;
+	background-size: 2.35em;
+	max-width: 42.3em;
+	width: 100%;
+}
+div#infographic div.header {
+	background: url('media/ig-darkback.png') rgb(26, 26, 26);
+	background-position: 0.39em 1.24em;
+	background-size: 2.35em;
+	color: rgb(255, 255, 255);
+	padding: 0;
+	padding-top: 1.8em;
+	border: 0;
+	margin: 0;
+}
+div#infographic div.footer {
+	background: url('media/ig-darkback.png') rgb(26, 26, 26);
+	background-position: 0.39em 1.24em;
+	background-size: 2.35em;
+	color: rgb(255, 255, 255);
+	padding: 5em;
+	padding-bottom: 10em;
+	border: 0;
+	margin: 0;
+}
+div#infographic div.footer div.part {
+	width: 50%;
+	margin: 0;
+	padding: 0;
+	float: left;
+}
+div#infographic div.footer h2{
+	display: none;
+}
+div#infographic div.footer div.part h3.title{
+	font-size: 110%;
+	font-weight: bold;
+}
+div#infographic div.footer div.part span.copyright{
+	font-weight: bold;
+	display: block;
+}
+div#infographic div.footer div.part a.source{
+	display: block;
+}
+div#infographic div.footer div#original {
+	text-align: left;
+}
+div#infographic div.footer div#newversion {
+	text-align: right;
+}
+div#infographic div.header h1 {
+	padding: 0;
+	margin: auto;
+	border-width: 0.075em 0;
+	border-style: solid;
+	border-color: rgb(255, 255, 255);
+	width: 7.1em;
+	text-align: center;
+	font-size: 300%;
+	font-weight: normal;
+	vertical-align: top;
+	line-height: 0;
+}
+div#infographic div.header h1 span#igT1 {
+	position: relative;
+	left: 0.1em;
+	line-height: 90%;
+}
+div#infographic div.header h1 span#igT2 {
+	position: relative;
+	left: -0.1em;
+	line-height: 90%;
+}
+div#infographic div.header h1 span#igT3 {
+	font-variant: small-caps;
+	color: rgb(153, 204, 0);
+	line-height: 72%;
+}
+div#infographic div.header h1 span#igT4 {
+	font-size: 125%;
+	display: block;
+	line-height: 0.66%;
+	margin: 0.25em 0.1em;
+	float: right;
+}
+div#infographic div.header p {
+	text-align: center;
+	font-weight: bold;
+	font-size: 135%;
+	padding: 0.8em;
+}
+span.cutout {
+	color: rgb(255, 255, 255);
+	background: rgb(26, 26, 26);
+}
+div#infographic div.content {
+	padding-top: 0.5em;
+}
+div#infographic div.section {
+	margin: 4.1em 0;
+}
+div#infographic div.section h2 {
+	display: none;
+}
+div#infographic div.section img {
+	display: none;
+}
+div#infographic div.subsection {
+	padding-left: 10em;
+	margin: 1.1em 0;
+	height: 3.5em;
+	position: relative;
+}
+div#infographic div.subsection h3 {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding-left: 7.4em;
+	height: 2.5926em
+}
+div#infographic div.subsection p {
+	position: relative;
+	top: 0;
+	left: 0;
+	z-index: 99;
+	padding-right: 3.75em;
+	padding-top: 1.4em;
+}
+div#infographic div#igSL p {
+	padding-right: 2.5em;
+}
+div#infographic div#igCH p {
+	padding-right: 4.5em;
+}
+div#infographic h3 {
+	font-weight: bold;
+	font-size: 135%;
+}
+div#infographic div#igStructure div.subsection {
+	background: url('media/right-structure.png') no-repeat right;
+	background-size: 2.23em;
+}
+div#infographic div#igText div.subsection {
+	background: url('media/right-text.png') no-repeat right;
+	background-size: 2.23em;
+}
+div#infographic div#igLinks div.subsection {
+	background: url('media/right-links.png') no-repeat right;
+	background-size: 2.23em;
+}
+div#infographic div#igColor div.subsection {
+	background: url('media/right-color.png') no-repeat right;
+	background-size: 2.23em;
+}
+div#infographic div#igStructure div.subsection h3 {
+	background: url('media/left-structure.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igText div.subsection h3 {
+	background: url('media/left-text.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igLinks div.subsection h3 {
+	background: url('media/left-links.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igColor div.subsection h3 {
+	background: url('media/left-color.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igStructure div#igHS h3 {
+	background: url('media/heading-structure.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igStructure div#igRO h3 {
+	background: url('media/reading-order.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igText div#igGC h3 {
+	background: url('media/contrast.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igText div#igTT h3 {
+	background: url('media/true-text.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igText div#igCP h3 {
+	background: url('media/caps.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igText div#igFS h3 {
+	background: url('media/font-size.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igText div#igLL h3 {
+	background: url('media/line-length.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igLinks div#igLR h3 {
+	background: url('media/links.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igLinks div#igLF h3 {
+	background: url('media/focus.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igLinks div#igSL h3 {
+	background: url('media/skip-link.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igLinks div#igCH h3 {
+	background: url('media/click-here.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igColor div#igAP h3 {
+	background: url('media/play.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igColor div#igRC h3 {
+	background: url('media/color.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igColor div#igAF h3 {
+	background: url('media/forms.png') no-repeat left;
+	background-size: 6.75em;
+}
+div#infographic div#igStructure h3 {
+	color: rgb(153, 204, 51);
+}
+div#infographic div#igText h3 {
+	color: rgb(153, 204, 255);
+}
+div#infographic div#igLinks h3 {
+	color: rgb(255, 204, 51);
+}
+div#infographic div#igColor h3 {
+	color: rgb(255, 153, 102);
+}
+span.caps {
+	text-transform: uppercase;
+}
+span.notinoriginal {
+	display: none;
+}
