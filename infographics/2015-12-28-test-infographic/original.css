@@ -22,7 +22,6 @@ div#infographic {
 	background: url('media/ig-back.png') rgb(51, 51, 51);
 	background-position: 0.39em 1.24em;
 	background-size: 2.35em;
-	max-width: 42.3em;
 	width: 100%;
 }
 div#infographic div.header {
