@@ -159,13 +159,14 @@ a.sidebar-nav-item:focus {
   position: relative;
   padding:    0;
   margin-left: $width-sidebar;
-  width: 100%;
+  width: 100% - $width-sidebar;
   margin-right: 0%;
 }
 
 @media (max-width: $width-max-mobile) {
   .content {
     float: left;
+    width: 100%;
     margin-left: 0;
     margin-right: 0;
   }
