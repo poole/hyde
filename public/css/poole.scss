@@ -68,14 +68,6 @@ body {
       -ms-text-size-adjust: 100%;
 }
 
-.clearfix::after {
-    content: "";
-    display: block;
-    height: 0;
-    clear: both;
-    visibility: hidden;
-}
-
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
   color: #268bd2;
@@ -298,6 +290,7 @@ tbody tr:nth-child(odd) th {
 
 .container {
   position: relative;
+  display: block;
   padding: 0;
 }
 
@@ -403,6 +396,7 @@ a.pagination-item:hover {
 iframe.infographic {
   border: none;
   width: 100%;
+  height: 100%;
   margin: 0;
   padding: 0;
   display: block;

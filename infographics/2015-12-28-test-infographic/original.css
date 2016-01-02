@@ -9,9 +9,8 @@ div.article {
 	margin: 0;
 	border: 0;
 	float: left;
-	display: absolute;
+	display: block;
 	width: 100%;
-	bottom: 0;
 }
 div#infographic a {
 	color: rgb(255, 255, 255);
