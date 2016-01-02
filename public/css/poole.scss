@@ -1,3 +1,5 @@
+---
+---
 /*
  *                        ___
  *                       /\_ \
@@ -28,13 +30,14 @@
  * Themes
  */
 
+@import 'layout/_colors';
+@import 'layout/_fonts';
 
 /*
  * Body resets
  *
  * Update the foundational and global aspects of the page.
  */
-
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -43,12 +46,12 @@
 
 html,
 body {
-  margin: 0;
-  padding: 0;
+   padding:0 !important; 
+    margin:0 !important;
 }
 
 html {
-  font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
+  font-family: $font-family;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -60,9 +63,17 @@ html {
 
 body {
   color: #515151;
-  background-color: #fff;
+  background-color: $color-content-background;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+}
+
+.clearfix::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
@@ -286,38 +297,8 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
-  padding-left:  1rem;
-  padding-right: 1rem;
-  margin-left:  auto;
-  margin-right: auto;
-}
-
-
-/*
- * Masthead
- *
- * Super small header above the content for site name and short description.
- */
-
-.masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
-}
-.masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #505050;
-}
-.masthead-title a {
-  color: #505050;
-}
-.masthead-title small {
-  font-size: 75%;
-  font-weight: 400;
-  color: #c0c0c0;
-  letter-spacing: 0;
+  position: relative;
+  padding: 0;
 }
 
 
@@ -330,36 +311,46 @@ tbody tr:nth-child(odd) th {
 
 .page,
 .post {
-  margin-bottom: 4em;
+  margin: 0;
+  padding: 0;
 }
 
 /* Blog post or page title */
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: $color-content-text;
 }
 .page-title,
-.post-title {
-  margin-top: 0;
+.post-title,
+.entry-title {
+  margin: 0;
+  padding: 0;
+  padding-left: 1rem;
+  background-color:$color-content-background;
+}
+
+.entry-content {
+  width: 100%;
 }
 
 /* Meta data line below post title */
 .post-date {
   display: block;
   margin-top: -.5rem;
-  margin-bottom: 1rem;
-  color: #9a9a9a;
+  padding-left: 1rem;
+  color: $color-accent-inactive;
+  background-color: $color-content-background;
 }
 
 /* Related posts */
 .related {
-  padding-top: 2rem;
-  padding-bottom: 2rem;
-  border-top: 1px solid #eee;
+  padding: 0 1rem;
+  margin: 0;
 }
 .related-posts {
-  padding-left: 0;
+  padding: 0 1rem;
+  margin: 0;
   list-style: none;
 }
 .related-posts h3 {
@@ -397,7 +388,7 @@ tbody tr:nth-child(odd) th {
 /* Pagination items can be `span`s or `a`s */
 .pagination-item {
   display: block;
-  padding: 1rem;
+  padding: 0rem;
   border: 1px solid #eee;
 }
 .pagination-item:first-child {
@@ -407,6 +398,14 @@ tbody tr:nth-child(odd) th {
 /* Only provide a hover state for linked pagination items */
 a.pagination-item:hover {
   background-color: #f5f5f5;
+}
+
+iframe.infographic {
+  border: none;
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  display: block;
 }
 
 @media (min-width: 30em) {

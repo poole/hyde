@@ -1,20 +1,29 @@
 body {
 	padding: 0;
 	margin: 0;
+	overflow:hidden;
+	display: block;
 }
 div.article {
 	padding: 0;
 	margin: 0;
-	border: 0 none;
+	border: 0;
 	float: left;
+	display: absolute;
+	width: 100%;
+	bottom: 0;
 }
 div#infographic a {
 	color: rgb(255, 255, 255);
 	text-decoration: none;
+	margin: 0;
+	padding: 0;
+	border: 0;
+	display: block
 }
 div#infographic {
-	border: 0 none;
-	margin: 0 auto;
+	border: 0;
+	margin: 0;
 	padding: 0;
 	font-family: 'Rokkitt', serif;
 	font-size: 96%;
