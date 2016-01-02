@@ -124,10 +124,13 @@ a.sidebar-nav-item:focus {
     margin: 0% 5%;
   }
   .sidebar-logo-container {
+    display: inline-block;
+    position: relative;
     float: left;
     width: 15%;
     top: 50%;
     transform: translateY(-20%);
+    z-index: 1;
   }
   .sidebar-legal {
     display: none;
