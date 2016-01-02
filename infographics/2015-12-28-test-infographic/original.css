@@ -1,8 +1,8 @@
 body {
 	padding: 0;
 	margin: 0;
-	overflow:hidden;
 	display: block;
+	background-color: url('media/ig-darkback.png') rgb(26, 26, 26);
 }
 div.article {
 	padding: 0;

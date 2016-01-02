@@ -27,11 +27,15 @@ time, mark, audio, video {
 article, aside, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section {
 	display: block;
+	margin: 0;
+	padding: 0;
+	border: 0;
 }
 body {
 	line-height: 1;
 	margin: 0;
 	padding: 0;
+	border: 0;
 }
 ol, ul {
 	list-style: none;
