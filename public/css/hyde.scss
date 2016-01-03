@@ -175,6 +175,15 @@ a.sidebar-nav-item:focus {
   }
 }
 
+.post-header {
+  padding:2em 4em;
+  height:calc(100vh);
+}
+
+.post-content {
+  box-shadow:0 0 5px 0px #333;
+}
+
 .infographic {
   border: none;
   width: 100%;

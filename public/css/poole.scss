@@ -39,9 +39,9 @@
  * Update the foundational and global aspects of the page.
  */
 * {
+  -moz-box-sizing: border-box;
   -webkit-box-sizing: border-box;
-     -moz-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
 }
 
 html,
@@ -305,7 +305,7 @@ tbody tr:nth-child(odd) th {
 .page,
 .post {
   margin: 0;
-  padding: 0;
+  padding: 0 0;
 }
 
 /* Blog post or page title */
@@ -331,6 +331,8 @@ tbody tr:nth-child(odd) th {
 .post-header {
   background-color: $color-accent-active;
   padding: 5rem 0;
+  float: left;
+  width: 100%;
 }
 
 /* Meta data line below post title */
@@ -339,6 +341,16 @@ tbody tr:nth-child(odd) th {
   margin-top: -.5rem;
   padding-left: 1rem;
   color: $color-accent-inactive;
+}
+
+.post-text {
+  margin: 0;
+  padding: 1rem 2rem;
+}
+
+.post-infographic {
+  margin: 0;
+  padding: 0;
 }
 
 /* Related posts */
@@ -365,7 +377,6 @@ tbody tr:nth-child(odd) th {
 .related-posts li a:hover small {
   color: inherit;
 }
-
 
 /*
  * Pagination
