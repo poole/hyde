@@ -1,5 +1,5 @@
 ---
-layout: post
+layout: post-infographic
 title: Test Infographic
 tags: 
  - infographic

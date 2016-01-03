@@ -305,7 +305,7 @@ tbody tr:nth-child(odd) th {
 .page,
 .post {
   margin: 0;
-  padding: 0;
+  padding: 0 0;
 }
 
 /* Blog post or page title */
@@ -341,6 +341,16 @@ tbody tr:nth-child(odd) th {
   color: $color-accent-inactive;
 }
 
+.post-text {
+  margin: 0;
+  padding: 1rem 2rem;
+}
+
+.post-infographic {
+  margin: 0;
+  padding: 0;
+}
+
 /* Related posts */
 .related {
   padding: 0 1rem;
@@ -365,7 +375,6 @@ tbody tr:nth-child(odd) th {
 .related-posts li a:hover small {
   color: inherit;
 }
-
 
 /*
  * Pagination
