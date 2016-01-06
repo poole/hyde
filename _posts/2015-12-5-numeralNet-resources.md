@@ -16,4 +16,4 @@ Here are some awesome resources that got me started:
 * In attempting to understand the big deal about machine learning and neural networks I came across an [awesome Ted Talk](https://www.youtube.com/watch?v=t4kyRyKyOpo) that details the importance of ML.
 * Soon a need for a more technical and deep understanding of neural networks evolved and I found [this introduction](http://www.webpages.ttu.edu/dleverin/neural_network/neural_networks.html) to be digestible and packed full of information.
 
-These are a few of the many places I found myself in pursuit of a deeper understanding of neural networks and the tools to implement on in JavaScript.
+These are a few of the many places I found myself in pursuit of a deeper understanding of neural networks and the tools to implement one in JavaScript.
