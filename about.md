@@ -16,7 +16,7 @@ Check me out on:
 * [Github](https://github.com/RobertBowie)
 
 
-## About
+## Other Interests
 
 Some fun facts about me:
 
