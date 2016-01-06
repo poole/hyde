@@ -20,7 +20,7 @@ Check me out on:
 
 Some fun facts about me:
 
-* I am a voracious consumer of sci-fi/fantasy.  One of my all time favorite authors is [Iain M. Banks](www.iain-banks.net)
+* I am a voracious consumer of sci-fi/fantasy.  One of my all time favorite authors is [Iain M. Banks](http://www.iain-banks.net)
 * The satisfaction of solving problems is absolute, until the next problem
 * Shade tree?  Back yard?  Call it what you will.  I love to get my hands dirty making things go fast!
 
