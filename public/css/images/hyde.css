@@ -32,7 +32,7 @@
  */
 
 html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "Proxima Nova", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 48em) {
   html {
@@ -54,20 +54,15 @@ html {
  */
 
 .sidebar {
-  text-align: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: 20%;
+  text-align: left;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.5);
   background-color: #202020;
-}
-@media (min-width: 48em) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 18rem;
-    text-align: left;
-  }
 }
 
 /* Sidebar links */
@@ -79,41 +74,84 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Abril Fatface", serif;
+  font-family: "Proxima Nova", serif;
   font-size: 3.25rem;
 }
-
 /* Sidebar nav */
 .sidebar-nav {
-  margin-bottom: 1rem;
+  margin-top: 1rem;
+  text-align: right;
 }
 .sidebar-nav-item {
   display: block;
-  line-height: 1.75;
+  margin-top: 1rem;
+  border-bottom:1px solid gray;
+  line-height: 2;
+}
+.sidebar-logo-container {
+    margin: 0% auto;
+    width: 90%
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: underline;
+  text-decoration: none;
+  border-bottom:1px solid white;
 }
 .sidebar-nav-item.active {
   font-weight: bold;
+  text-decoration: none;
+  border-bottom:1px solid #6a9fb5;
+}
+.sidebar-legal {
+  position: absolute;
+  right:  1rem;
+  bottom: 1rem;
+  left:   1rem;
+  font-size: 0.5rem;
+}
+
+@media (max-width: 48em) {
+  .sidebar {
+    position: relative;
+    text-align: center;
+    width: 100%;
+    height: 100%;
+    padding: 1rem 1rem;
+  }
+  .sidebar-nav {
+    position: relative;
+    width: 85%;
+    top: 50%;
+    transform: translateY(-35%);
+  }
+  .sidebar-nav-item {
+    display: inline-block;
+    margin: 0% 5%;
+  }
+  .sidebar-logo-container {
+    float: left;
+    width: 15%;
+    top: 50%;
+    transform: translateY(-35%);
+  }
+  .sidebar-legal {
+    display: none;
+  }
 }
 
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
- * contents to the bottom of the sidebar in tablets and up.
+ * contents to the top of the sidebar in tablets and up.
  */
-
 @media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
-    bottom: 1rem;
+    top:    1rem;
     left:   1rem;
   }
 }
-
 
 /* Container
  *
@@ -122,22 +160,17 @@ a.sidebar-nav-item:focus {
  */
 
 .content {
-  padding-top:    4rem;
-  padding-bottom: 4rem;
+  padding-top:    2%;
+  padding-bottom: 2%;
+  max-width: 100%;
+  margin-left: 20%;
+  margin-right: 0%;
 }
 
-@media (min-width: 48em) {
+@media (max-width: 48em) {
   .content {
-    max-width: 38rem;
-    margin-left: 20rem;
-    margin-right: 2rem;
-  }
-}
-
-@media (min-width: 64em) {
-  .content {
-    margin-left: 22rem;
-    margin-right: 4rem;
+    margin-left: 0%;
+    margin-right: 0%;
   }
 }
 

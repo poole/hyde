@@ -1,21 +1,21 @@
 # Dependencies
 markdown:         redcarpet
 highlighter:      pygments
+gems:			  [jekyll-paginate, jekyll-gist]
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
-baseurl:          /
+title:            Rohit Ravikoti
+tagline:          'Simplifying the complex'
+description:      ''
+url:              http://rohitravikoti.xyz
+baseurl:          ""
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Rohit Ravikoti'
+  url:            https://twitter.com/rohitravikoti
 
 paginate:         5
 
@@ -23,4 +23,7 @@ paginate:         5
 version:          2.1.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/rravikot/rravikot.github.io/
+
+sass:
+    sass_dir: 	  public/_scss
