@@ -1,8 +1,10 @@
 body {
 	padding: 0;
 	margin: 0;
-	display: block;
 	background-color: url('media/ig-darkback.png') rgb(26, 26, 26);
+	display: flex;
+	min-height: 100vh;
+	flex-direction: column;
 }
 div.article {
 	padding: 0;
@@ -11,6 +13,13 @@ div.article {
 	float: left;
 	display: block;
 	width: 100%;
+	flex: 1;
+}
+.article {
+	flex: 1;
+}
+#infographic {
+	flex: 1;
 }
 div#infographic a {
 	color: rgb(255, 255, 255);
@@ -18,7 +27,8 @@ div#infographic a {
 	margin: 0;
 	padding: 0;
 	border: 0;
-	display: block
+	display: block;
+	flex: 1;
 }
 div#infographic {
 	border: 0;
@@ -31,6 +41,7 @@ div#infographic {
 	background-position: 0.39em 1.24em;
 	background-size: 2.35em;
 	width: 100%;
+	flex: 1;
 }
 div#infographic div.header {
 	background: url('media/ig-darkback.png') rgb(26, 26, 26);

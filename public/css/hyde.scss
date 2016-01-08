@@ -35,6 +35,7 @@
 $width-max-mobile: 48em;
 html {
   font-family: $font-family;
+  height: 100%;
 }
 @media (min-width: $width-max-mobile) {
   html {
@@ -45,6 +46,12 @@ html {
   html {
     font-size: 20px;
   }
+}
+
+body {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
 }
 
 
@@ -100,9 +107,8 @@ a.sidebar-nav-item:focus {
   border-bottom:2px solid white;
 }
 .sidebar-nav-item.active {
-  font-weight: bold;
   text-decoration: none;
-  border-bottom:2px solid $color-accent-active;
+  border-bottom:1px solid $color-accent-active;
 }
 
 @media (max-width: $width-max-mobile) {
@@ -164,11 +170,15 @@ a.sidebar-nav-item:focus {
   margin-left: $width-sidebar;
   width: 100% - $width-sidebar;
   margin-right: 0%;
+  /*box-shadow:0px 0px 5px 0px #000;*/
+  z-index: 1;
+  flex: 1;
 }
 
 @media (max-width: $width-max-mobile) {
   .content {
     float: left;
+    bottom: 0;
     width: 100%;
     margin-left: 0;
     margin-right: 0;
@@ -176,12 +186,22 @@ a.sidebar-nav-item:focus {
 }
 
 .post-header {
-  padding:2em 4em;
-  height:calc(100vh);
+  padding:1em 0em;
+  height:100%;
+  background-repeat: no-repeat;
+  background-attachment: scroll;
+  background-position: center;
+  background-size: cover;
+
+}
+
+.post-header-text {
+  margin-right: 40%;
+  background-color: $color-accent-active;
+  opacity: 0.9;
 }
 
 .post-content {
-  box-shadow:0 0 5px 0px #333;
 }
 
 .infographic {
@@ -190,6 +210,15 @@ a.sidebar-nav-item:focus {
   margin: 0;
   padding: 0;
   display: block;
+}
+
+@media (max-width: $width-max-mobile) {
+  .post-header {
+    width: 100%;
+  }
+  .post-header-text {
+    margin-right: 25%;
+  }
 }
 
 /*
