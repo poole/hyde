@@ -6,6 +6,11 @@ highlighter:      pygments
 permalink:        pretty
 relative_permalinks: true
 
+# Gems
+gems:
+- jekyll-mentions
+- jekyll-sitemap
+
 # Setup
 title:            tinypalace
 tagline:          'games festival'
