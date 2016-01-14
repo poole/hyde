@@ -26,4 +26,13 @@
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  
+  <!-- DE/EN -->
+  {% assign posts=site.posts | where:"name", page.name %}
+  {% for post in posts %}
+    {% if post.lang != page.lang %}
+      <link rel="alternate" hreflang="{{post.lang}}" href="{{post.url}}" />
+    {% endif %}
+  {% endfor %}
+  
 </head>

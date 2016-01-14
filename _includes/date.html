@@ -1,0 +1,25 @@
+{% assign d = page.date | date: "%d" %}
+{% assign m = page.date | date: "%-m" %}
+
+{% if page.lang == 'en' %}
+{{ d }} {{ page.date | date: "%B %Y"}}
+{% endif %}
+
+{% if page.lang == 'de' %}
+{{ d }}.
+{% case m %}
+  {% when '1' %}Januar
+  {% when '2' %}Februar
+  {% when '3' %}März
+  {% when '4' %}April
+  {% when '5' %}Mai
+  {% when '6' %}Juni
+  {% when '7' %}Juli
+  {% when '8' %}August
+  {% when '9' %}September
+  {% when '10' %}Oktober
+  {% when '11' %}November
+  {% when '12' %}Dezember
+{% endcase %}
+{{ page.date | date: "%Y"}}
+{% endif %}

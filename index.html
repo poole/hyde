@@ -3,11 +3,13 @@ layout: default
 title: Home
 ---
 
+{% assign posts=paginator.posts | where:"lang", page.lang %}
+
 <div class="posts">
-  {% for post in paginator.posts %}
+  {% for post in posts %}
   <div class="post">
     <h1 class="post-title">
-      <a href="{{ post.url }}">
+      <a href="{{ post.url }}" class="{{ post.lang }}">
         {{ post.title }}
       </a>
     </h1>

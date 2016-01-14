@@ -28,3 +28,35 @@ version:          2.1.0
 
 github:
   repo:           https://github.com/tinypalace/tinypalace.github.io
+
+defaults:
+  -
+    scope:
+      path: _posts/en
+    values:
+      layout: default
+      lang: en
+  -
+    scope:
+      path: _posts/de
+    values:
+      layout: default
+      lang: de
+	  
+# Translations
+t:
+t:
+  en:
+    home:
+      name: "Home"
+      url: "/"
+    about:
+      name: "About"
+      url: "/about/"
+  de:
+    home:
+      name: "Zuhause :)"
+      url: "/de"
+    about:
+      name: "Über uns"
+      url: "/about-de/"
