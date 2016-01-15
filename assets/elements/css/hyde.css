@@ -99,6 +99,10 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
+.en:lang(de), .de:lang(en){
+    color: #555;
+}
+
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the

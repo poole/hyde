@@ -16,7 +16,7 @@ permalink: /sitemap.xml
         <loc>{{ site.url }}{{ post.url }}</loc>
         {% assign versions=site.posts | where:"name", post.name %}
         {% for version in versions %}
-          <xhtml:link rel="alternate" hreflang="{{ version.lang }}" href="{{ site.url }}/{{ version.url }}" />
+          <xhtml:link rel="alternate" hreflang="{{ version.lang }}" href="{{ site.url }}{{ version.url }}" />
           {% endfor %}
         <priority>{% if post.name == "index" %}1.0{% else %}{% if post.layout != "page" %}0.5{% else %}0.8{% endif %}{% endif %}</priority>
         {% if post.layout != "page" %}<lastmod>{{ post.date | date_to_xmlschema }}</lastmod>{% endif %}
