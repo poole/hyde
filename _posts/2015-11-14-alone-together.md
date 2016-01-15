@@ -1,0 +1,11 @@
+---
+layout: post
+title: Alone Together - The Hack Reactor Remote Story
+---
+<div class="message">
+  Written at the mid point through HRRB, this post is my attempt to come up for air and maintain perspective during the intense and consuming journey that is Hack Reactor.
+</div>
+
+<a href='http://www.hackreactor.com/'>Hack Reactor Remote Beta</a> has been a wild ride.  Sitting firmly at the halfway point through the course, and just having come out of 6 hours of grueling Hiring Assessment, I feel that I'm overdue to share my thoughts on this whole experience.  Let’s take a look at the vast landscape of the topics we’ve covered this far and focus on the tools, both internal and external, that have made it possible.  This is a look at the crazy world of 11 hour days over 3 months of insanity, a look at being alone together.
+<h3>The structure of the thing</h3>
+Hack Reactor Remote is unlike any other experience in my life.  Before starting, my assumption was that the experience would be an isolated one. The 60+ hour weeks that were constantly mentioned and the grueling pace of the journey were daunting and inspiring in turns.  No amount of reading actually prepared me for what I would encounter once we started.  The biggest surprise came in the form of the sense of community that pervades the entire HRRB experience.  This sense of camaraderie and empathy comes from the fact that you are never really out of touch with your peers or HR staff.  From the (what feel like) early morning video calls with 50+ sleepy, smiling faces to the more intimate pair programming and office hour sessions, the reality that we are all struggling towards the same goal together really becomes clear.  After starting out assuming I would be isolated and friendless, I find myself constantly humbled and amazed by my work with the people who have quickly become fixtures in my daily life.  Having this support has made a huge difference in my education.  Knowing that there are real people all over this world, taking part in this adventure and struggling mightily alongside me is a comfort that I didn’t know I needed.
