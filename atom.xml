@@ -1,8 +1,7 @@
 ---
 layout: null
+permalink: /atom.xml
 ---
-
-DO: atom for different languages
 
 <?xml version="1.0" encoding="utf-8"?>
 <feed xmlns="http://www.w3.org/2005/Atom">
@@ -17,7 +16,9 @@ DO: atom for different languages
    <email>{{ site.author.email }}</email>
  </author>
 
- {% for post in site.posts %}
+ {% assign posts=site.posts | where:"lang", "en" | where:"layout", "post" %}
+ {% for post in posts %}
+
  <entry>
    <title>{{ post.title }}</title>
    <link href="{{ site.url }}{{ post.url }}"/>

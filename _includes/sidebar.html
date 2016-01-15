@@ -29,25 +29,14 @@
       <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
       <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
       <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
-	  
-	  {% assign posts=site.posts | where:"name", page.name | sort: 'path' %}
-	  <ul>
-	  {% for post in posts %}
-		  <li class="lang">
-			  <a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a>
-		  </li>
-	  {% endfor %}
-	  </ul>
-	  
-	  <ul>
-		{% for menu in site.t[page.lang] %}
-			<li><a href="{{menu[1].url}}">{{menu[1].title}}</a></li>
-		{% endfor %}
-      </ul>
-	  
-	  
-	  
     </nav>
+
+  <ul>{% for menu in site.data.navigation[page.lang] %}
+      <li><a href="{{ menu[1].url }}">{{ menu[1].title }}</a></li>{% endfor %}
+      <li class="lang">{% assign posts=site.posts | where:"name", page.name | sort: 'path' %}{% for post in posts %}
+        <a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a>{% endfor %}
+    </li>
+  </ul>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>

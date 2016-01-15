@@ -15,24 +15,17 @@
   </title>
 
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/poole.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/syntax.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/hyde.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/poole.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/syntax.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/hyde.css">
   <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="{{ site.baseurl }}public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/elements/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="{{ site.baseurl }}/assets/elements/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
-  
-  <!-- DE/EN -->
-  {% assign posts=site.posts | where:"name", page.name %}
-  {% for post in posts %}
-    {% if post.lang != page.lang %}
-      <link rel="alternate" hreflang="{{post.lang}}" href="{{post.url}}" />
-    {% endif %}
-  {% endfor %}
-  
+
+  <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}" />
 </head>

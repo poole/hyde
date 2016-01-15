@@ -1,0 +1,14 @@
+en:
+  logo:
+    title: "tiny"
+    url:   "/"
+  about:
+    title: "about"
+    url:   "/about/"
+de:
+  logo:
+    title: "tiny"
+    url:   "/de/"
+  about:
+    title: "über uns"
+    url:   "/about-de/"

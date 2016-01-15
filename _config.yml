@@ -2,24 +2,28 @@
 markdown:         redcarpet
 highlighter:      pygments
 
+encoding:         UTF-8
+
 # Permalinks
 permalink:        pretty
 relative_permalinks: true
 
 # Gems
 gems:
-- jekyll-sitemap
+- jekyll-redirect-from
+- jekyll-paginate
 
 # Setup
 title:            tinypalace
 tagline:          'games festival'
 description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
 url:              http://tinypalace.de
-baseurl:          /
+baseurl:          
 
 author:
   name:           'tiny'
   url:            https://twitter.com/tinypalace_
+  email:          tinypalace@posteo.de
 
 paginate:         8
 
@@ -32,31 +36,12 @@ github:
 defaults:
   -
     scope:
-      path: _posts/en
+      path: ""
     values:
-      layout: default
       lang: en
+      layout: default
   -
     scope:
       path: _posts/de
     values:
-      layout: default
       lang: de
-	  
-# Translations
-t:
-t:
-  en:
-    home:
-      name: "Home"
-      url: "/"
-    about:
-      name: "About"
-      url: "/about/"
-  de:
-    home:
-      name: "Zuhause :)"
-      url: "/de"
-    about:
-      name: "Über uns"
-      url: "/about-de/"

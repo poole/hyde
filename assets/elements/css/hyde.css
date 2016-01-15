@@ -99,11 +99,6 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
-/*language*/
-.en:lang(en), .fr:lang(fr), .zh:lang(zh){
-    font-weight: bold;
-}
-
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
@@ -253,5 +248,3 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
 }
-
-
