@@ -4,14 +4,16 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{% include date.html date=post.date %}</span>
+  <span class="post-date">{% include date.html date=page.date %}</span>
   {{ content }}
 </div>
 
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
+    {% assign relate=site.related_posts limit:3 | where:"lang", page.lang %}
+    {% for post in relate %}
+      {% if post.layout != "page" %}
       <li>
         <h3>
           <a href="{{ post.url }}">
@@ -20,6 +22,7 @@ layout: default
           </a>
         </h3>
       </li>
+      {% endif %}
     {% endfor %}
   </ul>
 </div>

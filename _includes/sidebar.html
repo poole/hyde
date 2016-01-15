@@ -2,7 +2,7 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>
-        <a href="{{ site.baseurl }}/{{ if post.lang == "de" }}de{{ endif }}">
+        <a href="{{ site.baseurl }}/{% if page.lang == "de" %}de{% endif %}">
           {{ site.title }}
         </a>
       </h1>

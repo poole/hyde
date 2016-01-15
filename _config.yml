@@ -11,14 +11,13 @@ relative_permalinks: true
 # Gems
 gems:
 - jekyll-redirect-from
-- jekyll-paginate
 
 # Setup
 title:            tinypalace
 tagline:          'games festival'
 description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
 url:              http://tinypalace.de
-baseurl:          
+baseurl:
 
 author:
   name:           'tiny'
@@ -36,7 +35,7 @@ github:
 defaults:
   -
     scope:
-      path: ""
+      path: "_posts/en"
     values:
       lang: en
       layout: default
