@@ -7,7 +7,7 @@
         </a>
         </div>
       </h1>
-      <p class="lead">{{ site.description }}</p>
+
     </div>
 
     <ul class="sidebar-nav">
@@ -24,8 +24,8 @@
           {% for submenu in site.data.navigation[page.lang] %}
 
             {% if submenu[1].top == menu[1].title %}
-              <div class=rotate"><li><a href="{{ submenu[1].url }}" class="sidebar-nav-subitem{% if page.url == site.baseurl %} active{% endif %}">
-              {{ submenu[1].title }}</a></li></div>
+              <li><a href="{{ submenu[1].url }}" class="sidebar-nav-subitem{% if page.url == site.baseurl %} active{% endif %}">
+              {{ submenu[1].title }}</a></li>
             {% endif %}
 
           {% endfor %}
@@ -43,7 +43,7 @@
       <!--  naive trying to get images instead of texts -->
       <a class="sidebar-nav-item" href="{{ site.baseurl }}"><img href="assets/elements/caramel.png"></a>
       <a class="sidebar-nav-item" href="{{ site.baseurl }}"><img href="assets/elements/gummy.png"></a>
-      <span class="sidebar-nav-item">May 20th - 22nd, Kassel/Germany</span>
+
 
     </nav>
 
