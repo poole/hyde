@@ -48,26 +48,36 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
-@media (min-width: 38em) {
+@media (min-width: 48em) {
   html {
-    font-size: 20px;
+    font-size: 16px;
+  }
+}
+@media (min-width: 58em) {
+  html {
+    font-size: 18px;
   }
 }
 
+
 body {
-  color: #515151;
-  background-color: #fff;
+  color: #abb2bf;
+  background-color: #282c34;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 
+p {
+    padding-bottom: 0.5rem;
+}
+
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #268bd2;
+  color: #d46584;
   text-decoration: none;
 }
 a strong {
@@ -81,10 +91,11 @@ a:focus {
 
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
-  margin-bottom: .5rem;
-  font-weight: bold;
+  margin-bottom: 1rem;
+  padding-top: 2rem;
+  font-weight: 300;
   line-height: 1.25;
-  color: #313131;
+  color: #fff;
   text-rendering: optimizeLegibility;
 }
 h1 {
@@ -110,7 +121,7 @@ p {
 }
 
 strong {
-  color: #303030;
+  color: #fff;
 }
 
 
@@ -286,38 +297,34 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
+  max-width: 64rem;
   padding-left:  1rem;
   padding-right: 1rem;
   margin-left:  auto;
   margin-right: auto;
 }
 
-
-/*
- * Masthead
+/* Container
  *
- * Super small header above the content for site name and short description.
+ * Align the contents of the site above the proper threshold with some margin-fu
+ * with a 25%-wide `.sidebar`.
  */
 
-.masthead {
-  padding-top:    1rem;
-  padding-bottom: 1rem;
-  margin-bottom: 3rem;
+.content {
+  padding-top:    4rem;
+  padding-bottom: 4rem;
 }
-.masthead-title {
-  margin-top: 0;
-  margin-bottom: 0;
-  color: #505050;
+
+@media (min-width: 48em) {
+  .content {
+    width: 48rem;
+  }
 }
-.masthead-title a {
-  color: #505050;
-}
-.masthead-title small {
-  font-size: 75%;
-  font-weight: 400;
-  color: #c0c0c0;
-  letter-spacing: 0;
+
+@media (min-width: 76em) {
+  .content {
+    width: 64rem;
+  }
 }
 
 
@@ -337,7 +344,7 @@ tbody tr:nth-child(odd) th {
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: #fff;
 }
 .page-title,
 .post-title {
@@ -378,53 +385,152 @@ tbody tr:nth-child(odd) th {
 }
 
 
+
 /*
- * Pagination
+ * Maps
+ */
+#map { height: 180px; }
+
+#map h3 { color: #222; padding: 0; margin: 0; }
+
+
+/*
+ * Sidebar
  *
- * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
- * there are no more previous or next posts to show.
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
  */
 
-.pagination {
-  overflow: hidden; /* clearfix */
-  margin-left: -1rem;
-  margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  color: #ccc;
+.sidebar {
   text-align: center;
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,.5);
+  background-color: #202020;
 }
 
-/* Pagination items can be `span`s or `a`s */
-.pagination-item {
+@media (min-height: 48em) {
+  .sidebar {
+
+  }
+}
+
+#logo {
+  display: inline-block;
+}
+
+#logo a {
   display: block;
-  padding: 1rem;
-  border: 1px solid #eee;
-}
-.pagination-item:first-child {
-  margin-bottom: -1px;
+  position: relative;
+  width: 222px;
+  height: 51px;
+  background-image: url("/assets/elements/logo.png"), none;
+  background-position: left top;
+  background-repeat: no-repeat;
+  text-indent: -999em;
+  transition: all .1s ease-in-out;
+  image-rendering: optimizeSpeed;             /* Older versions of FF          */
+  image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
+  image-rendering: -webkit-optimize-contrast; /* Safari                        */
+  image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
+  image-rendering: pixelated;                 /* Awesome future-browsers       */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
 }
 
-/* Only provide a hover state for linked pagination items */
-a.pagination-item:hover {
-  background-color: #f5f5f5;
+#logo a:hover {
+  background-image: url("/assets/elements/logo.gif"), none;
+  transform: scale(1.1);
 }
 
-@media (min-width: 30em) {
-  .pagination {
-    margin: 3rem 0;
-  }
-  .pagination-item {
-    float: left;
-    width: 50%;
-  }
-  .pagination-item:first-child {
-    margin-bottom: 0;
-    border-top-left-radius:    4px;
-    border-bottom-left-radius: 4px;
-  }
-  .pagination-item:last-child {
-    margin-left: -1px;
-    border-top-right-radius:    4px;
-    border-bottom-right-radius: 4px;
+/*
+@media (min-width: 48em) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 20rem;
+    text-align: left;
   }
 }
+
+/* Sidebar links */
+.sidebar a {
+  color: #fff;
+}
+
+/* About section */
+.sidebar-about h1 {
+  color: #fff;
+  margin-top: 0;
+  font-size: 3.25rem;
+}
+
+/* Sidebar nav */
+ul.sidebar-nav {
+  margin-bottom: 1rem;
+  text-transform: uppercase;
+  padding: 0;
+  list-style: none;
+  display: inline-block;
+}
+ul.sidebar-nav li {
+  display: inline-block;
+  position: relative;
+  line-height: 21px;
+  text-align: left;
+}
+ul.sidebar-nav li a {
+  display: block;
+  padding: 8px 25px;
+}
+ul.sidebar-nav li a:hover,
+ul.sidebar-nav li a:focus {
+  text-decoration: underline;
+}
+ul.sidebar-nav li ul.sidebar-subnav {
+
+  display: none;
+  position: absolute;
+  padding: 0 0 0 0;
+  left: 50%;
+  top: 50%;
+
+  -webkit-transform-origin: -0% 0%;
+  -moz-transform-origin: -0% 0%;
+  -ms-transform-origin: -0% 0%;
+  -o-transform-origin: -0% 0%;
+  transform-origin: -0% 0%;
+
+  -webkit-transform: rotate(90deg) translate(0, 0%);
+  -moz-transform: rotate(90deg) translate(0, 50%);
+  -ms-transform: rotate(90deg) translate(0, 0%);
+  -o-transform: rotate(90deg) translate(0, 0%);
+  transform: rotate(90deg) translate(15px, -50%);
+
+  filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
+}
+ul.sidebar-nav li:hover ul.sidebar-subnav{
+  display: block; /* Display the dropdown */
+}
+ul.sidebar-nav li ul.sidebar-subnav li{
+  display: block; /* Display the dropdown */
+}
+
+.en:lang(de), .de:lang(en){
+    color: #555;
+}
+
+/* Sticky sidebar
+ *
+ * Add the `sidebar-sticky` class to the sidebar's container to affix it the
+ * contents to the bottom of the sidebar in tablets and up.
+ */
+/*
+@media (min-width: 48em) {
+  .sidebar-sticky {
+    position: absolute;
+    right:  1rem;
+    bottom: 1rem;
+    left:   1rem;
+  }
+}*/

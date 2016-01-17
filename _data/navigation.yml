@@ -1,14 +1,26 @@
 en:
-  logo:
-    title: "tiny"
-    url:   "/"
   about:
-    title: "about"
+    title: "About"
     url:   "/about/"
+
+  test:
+    top:   "About"
+    title: "test"
+    url:   "/ttt/"
+  imprint:
+    top:   "About"
+    title: "Imprint"
+    url:   "/imprint/"
+  manifest:
+    top:   "About"
+    title: "Manifest"
+    url:   "/manifest/"
+
+  where:
+   title: "Where?"
+   url:   "/where/"
+
 de:
-  logo:
-    title: "tiny"
-    url:   "/de/"
   about:
     title: "über uns"
-    url:   "/about-de/"
+    url:   "/de/about/"

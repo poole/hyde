@@ -2,42 +2,50 @@
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1>
-        <a href="{{ site.baseurl }}/{% if page.lang == "de" %}de{% endif %}">
+        <div id="logo"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de{% endif %}">
           {{ site.title }}
         </a>
+        </div>
       </h1>
       <p class="lead">{{ site.description }}</p>
     </div>
 
-    <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+    <ul class="sidebar-nav">
 
-      {% comment %}
-        The code below dynamically generates a sidebar nav of pages with
-        `layout: page` in the front-matter. See readme for usage.
-      {% endcomment %}
+      {% for menu in site.data.navigation[page.lang] %}
+        {% if menu[1].top == NONE %}
 
-      {% assign pages_list = site.pages %}
-      {% for node in pages_list %}
-        {% if node.title != null %}
-          {% if node.layout == "page" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
-          {% endif %}
+          <!-- add top menu -->
+          <li><a href="{{ menu[1].url }}" class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}">
+          {{ menu[1].title }}</a>
+
+          <!-- add sub menu -->
+          <ul class="sidebar-subnav">
+          {% for submenu in site.data.navigation[page.lang] %}
+
+            {% if submenu[1].top == menu[1].title %}
+              <div class=rotate"><li><a href="{{ submenu[1].url }}" class="sidebar-nav-subitem{% if page.url == site.baseurl %} active{% endif %}">
+              {{ submenu[1].title }}</a></li></div>
+            {% endif %}
+
+          {% endfor %}
+          </ul>
+
+          </li>
+
         {% endif %}
       {% endfor %}
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+      <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v{{ site.version }}</span> -->
     </nav>
 
-  <ul>{% for menu in site.data.navigation[page.lang] %}
-      <li><a href="{{ menu[1].url }}">{{ menu[1].title }}</a></li>{% endfor %}
-      <li class="lang">{% assign posts=site.posts | where:"name", page.name | sort: 'path' %}{% for post in posts %}
-        <a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a>{% endfor %}
-    </li>
-  </ul>
+    <ul class="sidebar-nav">
+      {% assign posts=site.posts | where:"name", page.name | sort: 'path' %}
+      {% for post in posts %}
+        <li><a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a></li>
+      {% endfor %}
+    </ul>
 
-    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>
