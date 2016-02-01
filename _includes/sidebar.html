@@ -1,46 +1,45 @@
 <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1>
-        <div id="logo"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de{% endif %}">
-          {{ site.title }}
-        </a>
-        </div>
-      </h1>
-    </div>
+<!-- SPOILER: It's not actually a sidebar <3 -->
 
-    <ul class="sidebar-nav">
-      {% for menu in site.data.navigation[page.lang] %}
-        {% if menu[1].top == NONE %}
+<div class="container">
 
-          <!-- add top menu -->
-          <li><a href="{{ menu[1].url }}" class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}">
-          {{ menu[1].title }}</a>
+  <div id="logo"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de{% endif %}">
+    {{ site.title }}
+  </a>
+</div>
 
-          <!-- add sub menu -->
-          <ul class="sidebar-subnav">
-          {% for submenu in site.data.navigation[page.lang] %}
 
-            {% if submenu[1].top == menu[1].title %}
-              <li><a href="{{ submenu[1].url }}" class="sidebar-nav-subitem{% if page.url == site.baseurl %} active{% endif %}">
-              {{ submenu[1].title }}</a></li>
-            {% endif %}
 
-          {% endfor %}
-          </ul>
+<ul class="sidebar-nav"><!--
+  -->{% for menu in site.data.navigation[page.lang] %}<!--
+  -->{% if menu[1].top == NONE %}<!--
 
-          </li>
+  --><!-- add top menu --><!--
+  --><li><a href="{{ menu[1].url }}" class="sidebar-nav-item{% if page.url == site.baseurl %}<!-- active{% endif %}"><!--
+    -->{{ menu[1].title }}</a><!--
 
-        {% endif %}
-      {% endfor %}
-    </ul>
+    --><!-- add sub menu --><!--
+    --><ul class="sidebar-subnav"><!--
+      -->{% for submenu in site.data.navigation[page.lang] %}<!--
 
-    <ul class="sidebar-nav">
-      {% assign posts=site.posts | where:"name", page.name | sort: 'path' %}
-      {% for post in posts %}
-        <li><a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a></li>
-      {% endfor %}
-    </ul>
+      -->{% if submenu[1].top == menu[1].title %}<!--
+      --><li><a href="{{ submenu[1].url }}" class="sidebar-nav-subitem{% if page.url == site.baseurl %} active{% endif %}"><!--
+        -->{{ submenu[1].title }}</a></li><!--
+        -->{% endif %}<!--
 
-  </div>
+        -->{% endfor %}<!--
+      --></ul><!--
+
+    --></li><!--
+
+    -->{% endif %}<!--
+    -->{% endfor %}<!--
+
+
+    -->{% assign posts=site.posts | where:"name", page.name | sort: 'path' %}<!--
+    -->{% for post in posts %}<!--
+    --><li><a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a></li><!--
+    -->{% endfor %}<!--
+  --></ul><!--
+--></div>
 </div>

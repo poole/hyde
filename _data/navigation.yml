@@ -1,26 +1,37 @@
 en:
   about:
     title: "About"
-    url:   "/about/"
-
-  test:
-    top:   "About"
-    title: "test"
-    url:   "/ttt/"
-  imprint:
-    top:   "About"
-    title: "Imprint"
-    url:   "/imprint/"
+    url:   "/about"
   manifest:
     top:   "About"
     title: "Manifest"
-    url:   "/manifest/"
+    url:   "/manifest"
 
-  where:
-   title: "Where?"
-   url:   "/where/"
+  program:
+    title: "Program"
+    url:   "/program"
+
+  exhibition:
+    title: "Exhibition"
+    url:   "/exhibition"
+
+  location:
+   title: "Location"
+   url:   "/location"
+
+  contact:
+    title: "Contact"
+    url:   "/contact"
+  imprint:
+    top:   "Contact"
+    title: "Imprint"
+    url:   "/imprint"
+  press:
+    top:   "Contact"
+    title: "Press"
+    url:   "/contact#press"
 
 de:
   about:
     title: "über uns"
-    url:   "/de/about/"
+    url:   "/de/about"

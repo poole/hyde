@@ -4,13 +4,20 @@
   {% include head.html %}
 
   <body>
+    <div class="wrapper">
 
     {% include sidebar.html %}
+
+    {% if page.title == "Home" %}
+      <div class="box"></div>
+    {% endif %}
 
     <div class="content container">
       {{ content }}
     </div>
+    </div>
+    {% include footer.html %}
 
   </body>
-  
+
 </html>

@@ -45,10 +45,11 @@ html,
 body {
   margin: 0;
   padding: 0;
+  height: 100%;
 }
 
 html {
-  font-family: '.SFNSText-Regular', 'SF UI Text', 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+  font-family: 'Roboto', Ubuntu, Cantarell, sans-serif;
   font-size: 16px;
   line-height: 1.5;
 }
@@ -66,7 +67,7 @@ html {
 
 body {
   color: #abb2bf;
-  background-color: #282c34;
+  background-color: #3a2d34;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -240,7 +241,7 @@ blockquote p:last-child {
 
 img {
   display: block;
-  max-width: 100%;
+  width: 100%;
   margin: 0 0 1rem;
   border-radius: 5px;
 }
@@ -304,6 +305,18 @@ tbody tr:nth-child(odd) th {
   margin-right: auto;
 }
 
+@media (min-width: 48em) {
+  .container {
+    width: 48rem;
+  }
+}
+
+@media (min-width: 76em) {
+  .container {
+    width: 64rem;
+  }
+}
+
 /* Container
  *
  * Align the contents of the site above the proper threshold with some margin-fu
@@ -311,20 +324,8 @@ tbody tr:nth-child(odd) th {
  */
 
 .content {
-  padding-top:    4rem;
+  padding-top:    160px;
   padding-bottom: 4rem;
-}
-
-@media (min-width: 48em) {
-  .content {
-    width: 48rem;
-  }
-}
-
-@media (min-width: 76em) {
-  .content {
-    width: 64rem;
-  }
 }
 
 
@@ -401,33 +402,51 @@ tbody tr:nth-child(odd) th {
  * out above content in mobile and later moves to the side with wider viewports.
  */
 
-.sidebar {
+.sidebar, .footer {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 0 0;
   color: rgba(255,255,255,.5);
-  background-color: #202020;
+  background-color: #15141b;
+  width: 100%;
 }
 
-@media (min-height: 48em) {
-  .sidebar {
+.footer {
+  position: relative;
+  min-height: 5.4rem;
+}
 
-  }
+.sidebar {
+  z-index: 10;
+  min-height: 80px;
+  position: fixed;
+}
+
+.wrapper {
+  width: 100%;
+  margin: 0px 0px -5.6rem;
+  min-height: 100%;
 }
 
 #logo {
-  display: inline-block;
+  padding-top: 5px;
+}
+
+@media (min-width: 48em) {
+  #logo {
+    float:left;
+  }
 }
 
 #logo a {
-  display: block;
+  display: inline-block;
   position: relative;
-  width: 222px;
-  height: 51px;
-  background-image: url("/assets/elements/logo.png"), none;
-  background-position: left top;
-  background-repeat: no-repeat;
+  width: 224px;
+  height: 53px;
+  background-image: url("/assets/elements/logo.png");
+  background-position: left center;
+  animation: play 1s steps(8) infinite;
   text-indent: -999em;
-  transition: all .1s ease-in-out;
+  transition: transform .1s ease;
   image-rendering: optimizeSpeed;             /* Older versions of FF          */
   image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
   image-rendering: -webkit-optimize-contrast; /* Safari                        */
@@ -437,8 +456,20 @@ tbody tr:nth-child(odd) th {
 }
 
 #logo a:hover {
-  background-image: url("/assets/elements/logo.gif"), none;
-  transform: scale(1.1);
+  background-image: url("/assets/elements/logo-frames.png");
+  animation: play 0.5s steps(8) infinite;
+  background-position: left center;
+  transform: scale(1.2) rotate(5deg);;
+}
+
+#logo:before
+ {content: url("/assets/elements/logo-frames.png");
+                 width:0;
+                 height:0;
+                 display:none;}
+
+@keyframes play {
+   100% { background-position: -1792px; }
 }
 
 /*
@@ -458,30 +489,32 @@ tbody tr:nth-child(odd) th {
   color: #fff;
 }
 
-/* About section */
-.sidebar-about h1 {
-  color: #fff;
-  margin-top: 0;
-  font-size: 3.25rem;
-}
-
 /* Sidebar nav */
 ul.sidebar-nav {
-  margin-bottom: 1rem;
   text-transform: uppercase;
-  padding: 0;
+  padding: 1rem 0px 0px;
   list-style: none;
   display: inline-block;
+}
+@media (min-width: 48em) {
+  ul.sidebar-nav {
+    float: right;
+  }
 }
 ul.sidebar-nav li {
   display: inline-block;
   position: relative;
-  line-height: 21px;
+  line-height: normal;
   text-align: left;
 }
 ul.sidebar-nav li a {
   display: block;
-  padding: 8px 25px;
+  padding: 9px 0.6rem;
+}
+@media (min-width: 76em) {
+  ul.sidebar-nav li a {
+    padding: 9px 1.2rem;
+  }
 }
 ul.sidebar-nav li a:hover,
 ul.sidebar-nav li a:focus {
@@ -501,10 +534,10 @@ ul.sidebar-nav li ul.sidebar-subnav {
   -o-transform-origin: -0% 0%;
   transform-origin: -0% 0%;
 
-  -webkit-transform: rotate(90deg) translate(0, 0%);
-  -moz-transform: rotate(90deg) translate(0, 50%);
-  -ms-transform: rotate(90deg) translate(0, 0%);
-  -o-transform: rotate(90deg) translate(0, 0%);
+  -webkit-transform: rotate(90deg) translate(15px, -50%);
+  -moz-transform: rotate(90deg) translate(15px, -50%);
+  -ms-transform: rotate(90deg) translate(15px, -50%);
+  -o-transform: rotate(90deg) translate(15px, -50%);
   transform: rotate(90deg) translate(15px, -50%);
 
   filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3);
@@ -516,21 +549,66 @@ ul.sidebar-nav li ul.sidebar-subnav li{
   display: block; /* Display the dropdown */
 }
 
+.en:lang(en), .de:lang(de){
+    display: none;
+}
 .en:lang(de), .de:lang(en){
-    color: #555;
+    color: #777;
+    padding-right: 0;
 }
 
-/* Sticky sidebar
+/* index box
  *
- * Add the `sidebar-sticky` class to the sidebar's container to affix it the
- * contents to the bottom of the sidebar in tablets and up.
  */
-/*
-@media (min-width: 48em) {
-  .sidebar-sticky {
-    position: absolute;
-    right:  1rem;
-    bottom: 1rem;
-    left:   1rem;
-  }
-}*/
+
+ .box {
+   width: 100%;
+   height: 50rem;
+   background-color: #16f;
+ }
+
+/* Footer stuff
+ *
+ */
+
+.footer-content {
+  line-height: 2.4;
+  padding: 1rem 1rem;
+  width: 100%;
+}
+
+.foo-text {
+  margin: 0.6rem;
+  display: inline-block;
+}
+
+#foo-facebook, #foo-twitter, #foo-startnext, #foo-mail {
+  display: inline-block;
+  margin: 0px 0.6rem;
+  vertical-align: sub;
+}
+
+#foo-facebook, #foo-twitter, #foo-startnext, #foo-mail {
+  width: 32px;
+  height: 32px;
+  background-image: url("/assets/elements/social-gedoens.png");
+  text-indent: -999em;
+  image-rendering: optimizeSpeed;             /* Older versions of FF          */
+  image-rendering: -moz-crisp-edges;          /* FF 6.0+                       */
+  image-rendering: -webkit-optimize-contrast; /* Safari                        */
+  image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
+  image-rendering: pixelated;                 /* Awesome future-browsers       */
+  -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
+}
+
+#foo-facebook { background-position: 96px 0px; transition: transform .1s ease; }
+#foo-facebook:hover { background-position: 96px 32px; transform: scale(1.2) rotate(60deg);  }
+
+#foo-twitter { background-position: 0px 0px; transition: transform .1s ease; }
+#foo-twitter:hover { background-position: 0px 32px; transform: scale(1.2) rotate(60deg);  }
+
+#foo-startnext { background-position: 64px 0px; transition: transform .1s ease; }
+#foo-startnext:hover { background-position: 64px 32px; transform: scale(1.2) rotate(60deg); }
+
+#foo-mail { background-position: 32px 0px; transition: transform .1s ease; }
+#foo-mail:hover { background-position: 32px 32px; transform: scale(1.2) rotate(60deg); }
