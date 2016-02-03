@@ -1,7 +1,3 @@
-# Dependencies
-markdown:         redcarpet
-highlighter:      pygments
-
 # Permalinks
 permalink:        pretty
 
@@ -11,7 +7,7 @@ tagline:          'Education and access to computational methods at the <a href=
 description:      'Education and access to computational methods at the <a href="http://fredhutch.org" target="_blank">Fred Hutchinson Cancer Research Center</a>.'
 url:              http://fredhutch.io
 timezone:         America/Los_Angeles
-paginate:         5
+future:           True
 
 # Custom vars
 
