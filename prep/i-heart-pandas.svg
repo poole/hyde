@@ -78,7 +78,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="0.60707071"
-     inkscape:cx="218.10885"
+     inkscape:cx="9.7311472"
      inkscape:cy="466.31647"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -90,7 +90,7 @@
      inkscape:snap-center="true"
      inkscape:object-paths="true"
      inkscape:window-width="1280"
-     inkscape:window-height="850"
+     inkscape:window-height="814"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
@@ -128,15 +128,17 @@
            y="401.18149"
            style="fill:#000000;fill-opacity:1" /></flowRegion><flowPara
          style="font-size:21px;fill:#000000;fill-opacity:1"
-         id="flowPara3394">Modern biology generates a lot of data, sometimes more than can be comfortably processed in a spreadsheet program. This workshop will get you started with the<flowSpan
+         id="flowPara3394">Modern biology generates a lot of data, sometimes more than can be comfortably processed with a spreadsheet program. This workshop will get you started with the<flowSpan
    style="font-style:italic"
-   id="flowSpan3388"> pandas </flowSpan>data analysis library for Python. We will be using the web-based Jupyter interactive computing environment, newly available on the Fred Hutch network. These classes assume proficiency with computer programming in some language.</flowPara><flowPara
+   id="flowSpan3388"> pandas </flowSpan>data analysis library for Python. We will be using the web-based Jupyter interactive computing environment, newly available on the Fred Hutch network. These classes will assume proficiency with computer programming in some language.</flowPara><flowPara
          style="font-size:21px;fill:#000000;fill-opacity:1"
          id="flowPara3488" /><flowPara
          style="font-size:21px;fill:#000000;fill-opacity:1"
          id="flowPara3839">1st class  9-10am Tues March 1st (Erick Matsen): Jupyter &amp; Python</flowPara><flowPara
          style="font-size:21px;fill:#000000;fill-opacity:1"
-         id="flowPara3396">2st class  9-10am Tues March 8th (Jake VanderPlas): pandas</flowPara><flowPara
+         id="flowPara3396">2st class  9-10am Tues March 8th (Jake VanderPlas): <flowSpan
+   style="font-style:italic"
+   id="flowSpan3381">pandas</flowSpan></flowPara><flowPara
          style="font-size:21px;fill:#000000;fill-opacity:1"
          id="flowPara3494">Registration required. Details at http://fredhutch.io/.</flowPara><flowPara
          style="font-size:21px;fill:#000000;fill-opacity:1"
@@ -240,12 +242,14 @@
          x="-96.910751"
          y="-205.83626"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.81473923px;line-height:100%;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';text-align:start;writing-mode:lr-tb;text-anchor:start"
-         id="tspan4264">Manipulating tabular data with</tspan><tspan
+         id="tspan4264">Making your data dance with</tspan><tspan
          sodipodi:role="line"
          x="-96.910751"
          y="-158.02153"
          style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:47.81473923px;line-height:100%;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';text-align:start;writing-mode:lr-tb;text-anchor:start"
-         id="tspan3386">Python, Jupyter and pandas.</tspan></text>
+         id="tspan3386">Python, Jupyter and <tspan
+   style="font-style:italic"
+   id="tspan3383">pandas</tspan>.</tspan></text>
     <text
        xml:space="preserve"
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:50px;line-height:125%;font-family:Lato, Arial, Helvetica, sans-serif;-inkscape-font-specification:'Lato, Arial, Helvetica, sans-serif, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
