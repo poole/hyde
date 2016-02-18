@@ -5,7 +5,7 @@ category: events
 tags: education
 ---
 
-### **1st class:** *9-10am Tues March 1st (Erick Matsen): Jupyter & Python*
+### **1st class:** *9-10am Tues March 1st (Erick Matsen): Jupyter & Python (optional)*
 
 ### **2nd class:** *9-10am Tues March 8th (Jake VanderPlas): pandas*
 
