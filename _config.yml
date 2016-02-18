@@ -1,7 +1,3 @@
-# Dependencies
-markdown:         kramdown
-highlighter:      pygments
-
 encoding:         UTF-8
 
 # Permalinks
@@ -10,6 +6,7 @@ permalink:        pretty
 # Gems
 gems:
 - jekyll-redirect-from
+- jemoji
 
 # Setup
 title:            tinypalace
@@ -24,7 +21,6 @@ author:
   email:          tinypalace@posteo.de
 
 # Custom vars
-version:          2.1.0
 
 github:
   repo:           https://github.com/tinypalace/tinypalace.github.io
@@ -32,12 +28,82 @@ github:
 defaults:
   -
     scope:
-      path: "_posts/en"
+      path: "/_posts/en"
     values:
       lang: en
       layout: default
   -
     scope:
-      path: _posts/de
+      path: "/_posts/de"
     values:
       lang: de
+
+prose:
+  rooturl: '_posts'
+  siteurl: 'http://tinypalace.de'
+  media: 'assets/img'
+  ignore:
+    - 0000-01-01-index.md
+    - _config.yml
+    - /_layouts
+    - /_includes
+  metadata:
+    _posts/de/pages:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "page"
+      - name: "permalink"
+        field:
+          element: "text"
+          label: "Permalink"
+          placeholder: "/permalink"
+    _posts/de/posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+    _posts/en/pages:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "page"
+      - name: "permalink"
+        field:
+          element: "text"
+          label: "Permalink"
+          value: "/permalink"
+    _posts/en/posts:
+      - name: "layout"
+        field:
+          element: "hidden"
+          value: "post"
+
+    _posts/de:
+      - name: "lang"
+        field:
+          element: "hidden"
+          value: "de"
+      - name: "title"
+        field:
+          element: "text"
+          label: "title"
+      - name: "name"
+        field:
+          element: "text"
+          label: "Name"
+          placeholder: "name me so I know the DE/EN counterpart"
+    _posts/en:
+      - name: "lang"
+        field:
+          element: "hidden"
+          value: "en"
+      - name: "title"
+        field:
+          element: "text"
+          label: "title"
+      - name: "name"
+        field:
+          element: "text"
+          label: "Name"
+          placeholder: "name me so I know the DE/EN counterpart"

@@ -1,10 +1,11 @@
 ---
 layout: page
-title: Exhibition
+title: About
 permalink: /exhibition
-name: exhibition
+name: about
+lang: en
 ---
 
-![](/assets/img/pages/twid3.png)
+![](/assets/img/twid3.png)
 
 More infos coming soon!

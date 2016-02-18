@@ -5,6 +5,7 @@
     <p id="tinytext1"><h3>20. - 22. MAY</h3></p>
     <p id="tinytext1"><h3>KASSEL, GERMANY</h3></p>
   </div>
+  </div>
 </div>
 <div class="box2">
   <div class="container">
@@ -15,5 +16,42 @@
   Support us with our crowdfunding over at <a href="http://startnext.com/tinypalace" target="_blank">startnext.com</a>
   </p>
   </div>
+</div>
+<div class="box">
+  <div class="container">
+    <ul class="blog-list">
+    {% assign posts=site.posts | where:"lang", page.lang %}
+    {% for post in posts limit:3 %}
+    {% if post.layout != "page" %}
+    {% assign detail="detailnoimg" %}
+      <li>
+        <a href="{{ post.url }}">
+        {% assign images = post.content | markdownify | split:"<img " %}
+        {% for image in images %}
+          {% if image contains 'src=' %}
+          {% if image contains 'class="emoji"' %}
+          {% else %}
+            {% assign imageMarkup = image | split:">" | first %}
+            <img {{ imageMarkup }}>
+            {% assign detail="detail" %}
+            {% break %}
+          {% endif %}
+          {% endif %}
+        {% endfor %}
+        <div class="blog-list-{{ detail }}">
+          {{ post.title }}
+        </div>
+        </a>
+      </li>
+    {% endif %}
+    {% endfor %}
+    <li>
+      <a href="{{ post.url }}">
+        <div class="blog-list-detailnoimg">
+          More posts!
+        </div>
+      </a>
+    </li>
+    </ul>
   </div>
 </div>

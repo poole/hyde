@@ -8,6 +8,36 @@ layout: default
   {{ content }}
 </div>
 
+    {% assign posts=site.posts | where:"lang", page.lang %}
+    {% for post in posts | where:"type", posts %}
+    {% if post.layout != "page" %}
+    {{ post.title }}
+    {% if post.lang == en %}{{ post.title }}{% endif %}
+        {% if post.url == page.url %}
+            {% assign post_index0 = forloop.index0 %}
+            {% assign post_index1 = forloop.index %}
+        {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% for post in posts | where:"type", posts %}
+    {% if post.layout != "page" %}
+        {% if post_index0 == forloop.index %}
+            {% assign next_post = post %}
+        {% endif %}
+        {% if post_index1 == forloop.index0 %}
+            {% assign prev_post = post %}
+        {% endif %}
+    {% endif %}
+    {% endfor %}
+    {% if next_post %}
+        <a href="{{ next_post.url }}">Next Post is {{ next_post.title }}</a> <br>
+    {% endif %}
+    {% if prev_post %}
+        <a href="{{ prev_post.url }}">Previous Post is {{ prev_post.title }}</a> <br>
+    {% endif %}
+
+
+
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">

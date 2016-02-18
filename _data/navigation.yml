@@ -1,4 +1,9 @@
 en:
+
+  blog:
+    title: "Blog"
+    url:   "/blog"
+
   about:
     title: "About"
     url:   "/about"
@@ -6,6 +11,10 @@ en:
     top:   "About"
     title: "Manifest"
     url:   "/manifest"
+
+  submit:
+    title: "Submit"
+    url:   "/submit"
 
   program:
     title: "Program"
