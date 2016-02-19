@@ -2,24 +2,24 @@
 layout: default
 ---
 
-<div class="post">
+<article class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
+  <time datetime="{{ page.date | date_to_xmlschema }}" class="post-date">{{ page.date | date_to_string }}</time>
   {{ content }}
-</div>
+</article>
 
-<div class="related">
-  <h2>Related Posts</h2>
+{% if site.related_posts != empty %}
+<aside class="related">
+  <h3>Related posts</h3>
   <ul class="related-posts">
     {% for post in site.related_posts limit:3 %}
       <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
+        <a href="{{ site.baseurl }}{{ post.url }}">
+          {{ post.title }}
+          <small><time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date_to_string }}</time></small>
+        </a>
       </li>
     {% endfor %}
   </ul>
-</div>
+</aside>
+{% endif %}
