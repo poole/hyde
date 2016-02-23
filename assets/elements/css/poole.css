@@ -77,6 +77,8 @@ body {
 
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+
+  overflow-x: hidden;
 }
 
 p {
@@ -113,6 +115,7 @@ h1, h2, h3, h4, h5, h6 {
   color: #fff;
   text-rendering: optimizeLegibility;
   text-transform: uppercase;
+  padding-bottom: 2rem;
 }
 h1 {
   font-size: 2rem;
@@ -158,9 +161,8 @@ dd {
 hr {
   position: relative;
   margin: 1.5rem 0;
-  border: 0;
-  border-top: none;
-  border-bottom: 2px solid #fff;
+  border: none;
+  border-bottom: 4px dotted #fff;
 }
 
 abbr {
@@ -433,20 +435,23 @@ img.emoji {
   text-align: center;
   padding: 0 0;
   color: #fff;
-  width: 100%;
+  width: 120%;
+  transform: rotate(1.5deg);
+  margin-left: -10%;
+  margin-top: -10rem;
 }
 
 .footer {
   position: relative;
   padding: 2rem 0 2rem 0;
   color: #9495a2;
-  background-color: #1D293A;
+  background: none;
 }
 
 .sidebar {
   z-index: 1010;
   position: fixed;
-  padding: 2rem 0 2rem 0;
+  padding: 12rem 10% 2rem 10%;
   background-color: #1D293A;
 
   -webkit-transition: all 0.3s;
@@ -463,7 +468,7 @@ img.emoji {
 }
 
 .sidebar.topp {
-  padding: 0 0 0 0;
+  padding: 11rem 10% 0 10%;
   background-color: #1D293A;
 }
 
@@ -475,11 +480,13 @@ img.emoji {
 
 #logo {
   margin: 1rem 0 1rem 0;
+  display: none;
 }
 
 @media (min-width: 48em) {
   #logo {
     float:left;
+    display: inline-block;
   }
 }
 
@@ -656,14 +663,31 @@ ul.sidebar-nav li ul.sidebar-subnav li{
    width: 100%;
    height: 50rem;
    text-align: center;
-   //background-color: #f26f6c;
+   padding-top: 6rem;
  }
 
  .box2 {
    width: 100%;
-   height: 50rem;
-   background-color: #ebe7ee;
    color: #1d293a;
+ }
+
+ .box-bar {
+  margin: 8rem 0 2rem -2%;
+  width: 104%;
+  border: none;
+  border-bottom: 4px dotted #fff;
+  text-align: center;
+ }
+
+ .box-bar img {
+  display: block;
+  margin-bottom: -55px;
+  margin-left: auto;
+  margin-right: auto;
+ }
+
+ .box2 h1 {
+  text-align: center;
  }
 
  .biglogo {
@@ -760,7 +784,15 @@ a:hover .blog-list-detailmore {
   line-height: 2.4;
   padding: 1rem 1rem;
   width: 100%;
+  color: #fff;
 }
+
+.foo-table {
+  margin-top: 4rem;
+  margin-bottom: 1rem;
+  text-align: center;
+}
+
 
 .foo-text {
   margin: 0.6rem;

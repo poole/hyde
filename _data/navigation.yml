@@ -1,8 +1,4 @@
 en:
-  opencall:
-    title: "Open Call"
-    url:   "/submit"
-
   program:
     title: "Program"
     url:   "/program"
