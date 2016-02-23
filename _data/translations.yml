@@ -2,6 +2,9 @@ en:
   created: "Published on the"
   author: "by"
   description: "Personal website, made with real pieces of code: articles about Jekyll, Raspberry Pi, R..."
+  press: "Press Stuff"
+  readsaferspace: "Read our Safer Space Policy"
+  imprint: "Imprint"
 de:
   created: "Publié le"
   author: "par"

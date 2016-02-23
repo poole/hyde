@@ -252,7 +252,7 @@ i[class*=" icon-"]:before {
   margin: 0;
   padding: 0.3em 1.5em;
   vertical-align: middle;
-  background: #0074d9;
+  background: #53adf9;
   color: #fff;
   border: 0;
   width: auto;
@@ -339,14 +339,14 @@ textarea,
   margin: 0;
   height: 2.1em;
   padding: 0.3em 0.6em;
-  border: 1px solid #ccc;
+  border: 1px solid #e1ceec;
   border-radius: 0.2em;
   transition: all 0.3s;
   width: 100%; }
   input:focus,
   textarea:focus,
   .select select:focus {
-    border: 1px solid #0074d9;
+    border: 1px solid #53adf9;
     outline: 0; }
 
 textarea {
@@ -360,10 +360,19 @@ textarea {
 [type=file] {
   height: auto; }
 
+
+
+::-webkit-input-placeholder { color:#725e84; }
+::-moz-placeholder { color:#725e84; } /* firefox 19+ */
+:-ms-input-placeholder { color:#725e84; } /* ie */
+input:-moz-placeholder { color:#725e84; }
+
+
+
 select {
   background: #fff url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSIyIiBoZWlnaHQ9IjMiPjxwYXRoIGQ9Im0gMCwxIDEsMiAxLC0yIHoiLz48L3N2Zz4=) no-repeat scroll 95% center/10px 15px;
   background-position: calc(100% - 15px) center;
-  border: 1px solid #ccc;
+  border: 1px solid #e1ceec;
   border-radius: 0.2em;
   cursor: pointer;
   width: 100%;
@@ -377,7 +386,7 @@ select {
   select::-ms-expand {
     display: none; }
   select:focus, select:active {
-    border: 1px solid #0074d9;
+    border: 1px solid #53adf9;
     transition: outline 0s; }
   select:-moz-focusring {
     color: transparent;
@@ -392,7 +401,7 @@ select {
   position: absolute;
   display: inline-block; }
   [type=radio] + .checkable:hover:before, [type=checkbox] + .checkable:hover:before, [type=radio]:focus + .checkable:before, [type=checkbox]:focus + .checkable:before {
-    border: 1px solid #0074d9; }
+    border: 1px solid #53adf9; }
   [type=radio] + .checkable, [type=checkbox] + .checkable {
     position: relative;
     cursor: pointer;

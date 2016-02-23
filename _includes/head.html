@@ -28,6 +28,47 @@
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/elements/apple-touch-icon-144-precomposed.png">
                                  <link rel="shortcut icon" href="{{ site.baseurl }}/assets/elements/favicon.ico">
 
+  <!-- js -->
+  <script src="{{ site.baseurl }}/assets/elements/js/jquery-1.12.0.min.js"></script>
+  <script>
+  $(function() {
+   $(window).scroll(function() {
+       var scroll = $(window).scrollTop();
+       if (scroll >= 10) {
+           $(".sidebar").addClass('topp');
+       } else {
+           $(".sidebar").removeClass("topp");
+       }
+   });
+   $(window).load(function() {
+       var scroll = $(window).scrollTop();
+       if (scroll >= 10) {
+           $(".sidebar").addClass('topp');
+       } else {
+           $(".sidebar").removeClass("topp");
+       }
+   });
+  });
+  </script>
+  <script>
+   $(document).ready(function(){
+
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 100) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+
+        $('.scrollup').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+
+    });
+  </script>
+
   <!-- RSS -->
   <link rel="alternate" type="application/rss+xml" title="tinypalace RSS" href="/atom.xml">
   <link rel="alternate" type="application/atom+xml" title="tinypalace Atom" href="/atom.xml" />

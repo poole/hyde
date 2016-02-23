@@ -1,19 +1,6 @@
 en:
-
-  blog:
-    title: "Blog"
-    url:   "/blog"
-
-  about:
-    title: "About"
-    url:   "/about"
-  manifest:
-    top:   "About"
-    title: "Manifest"
-    url:   "/manifest"
-
-  submit:
-    title: "Submit"
+  opencall:
+    title: "Open Call"
     url:   "/submit"
 
   program:
@@ -28,17 +15,17 @@ en:
    title: "Location"
    url:   "/location"
 
+  about:
+    title: "About"
+    url:   "/about"
+
   contact:
     title: "Contact"
     url:   "/contact"
-  imprint:
-    top:   "Contact"
-    title: "Imprint"
-    url:   "/imprint"
-  press:
-    top:   "Contact"
-    title: "Press"
-    url:   "/contact#press"
+
+  blog:
+    title: "Blog"
+    url:   "/blog"
 
 de:
   about:

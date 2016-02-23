@@ -19,13 +19,14 @@
 </div>
 <div class="box">
   <div class="container">
-    <ul class="blog-list">
+    <div class="blog-list">
     {% assign posts=site.posts | where:"lang", page.lang %}
-    {% for post in posts limit:3 %}
+    {% for post in posts limit:2 %}
     {% if post.layout != "page" %}
     {% assign detail="detailnoimg" %}
-      <li>
-        <a href="{{ post.url }}">
+      <div class="row">
+        <div class="half">
+        <a class="image" href="{{ post.url }}">
         {% assign images = post.content | markdownify | split:"<img " %}
         {% for image in images %}
           {% if image contains 'src=' %}
@@ -38,20 +39,17 @@
           {% endif %}
           {% endif %}
         {% endfor %}
-        <div class="blog-list-{{ detail }}">
-          {{ post.title }}
-        </div>
         </a>
-      </li>
+        </div>
+        <div class="half">
+          <h3>{{ post.title }}</h3>
+          test test</br>
+          <a href="{{ post.url }}">Read more...</a>
+        </div>
+      </div>
     {% endif %}
     {% endfor %}
-    <li>
-      <a href="{{ post.url }}">
-        <div class="blog-list-detailnoimg">
-          More posts!
-        </div>
-      </a>
-    </li>
-    </ul>
+    </div>
+    <a href="/posts">More posts ></a>
   </div>
 </div>

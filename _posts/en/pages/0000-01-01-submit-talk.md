@@ -1,19 +1,19 @@
 ---
 layout: page
-title: Submit a Game
-permalink: /submit-talk
-name: submit-talk
+title: Submit a Talk, Workshop or other Panel
+permalink: /submit-program
+name: submit-program
 lang: en
 ---
 
-We are open for game submissions until at least the end of March!
-However we'd like to remark that tinypalace is a curated exhibition and we may not be able to include every submission because it may not fit the curation, festival theme or we may just not have enough space for it.
+We are open for submissions / suggestions until at least the end of March!  
+You can suggest anything, be it a talk, a workshop, a discussion panel, a performance or anything else.
 
-We'll try let you know as soon as possible if we would like to include your work or not. And if you don't get selected we hope you consider participating in the Open-Screen-Corner, where anyone can bring a laptop and a controller and display their game (We'll have more infos on that soon!).
+We are also looking for mini talks (5 to 10 minutes in length) for a lightning talk session, feel free to submit any ideas you have.
 
 -----
 
-Anyway, please tell us a bit about your game:
+Anyway, let's get started:
 
 <form action="//formspree.io/tinypalace@posteo.de" method="POST">
 <ul class="form">

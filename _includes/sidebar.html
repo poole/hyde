@@ -38,8 +38,9 @@
 
     -->{% assign posts=site.posts | where:"name", page.name | sort: 'path' %}<!--
     -->{% for post in posts %}<!--
-    --><li><a href="{{ post.url }}" class="{{ post.lang }}">{{ post.lang }}</a></li><!--
-    -->{% endfor %}<!--
+    -->{% if post.lang == page.lang %}{% else %}<!--
+    --><li><a href="{{ post.url }}" class="lang"><span class="over">{{ post.lang }}</span><span class="out">{{ page.lang }}</span></a></li><!--
+    -->{% endif %}{% endfor %}<!--
   --></ul><!--
 --></div>
 </div>
