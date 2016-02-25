@@ -11,6 +11,7 @@ From Michael Gutteridge, via the [scicomp-announce mailing list](https://lists.f
 Scientific Computing is offering two training courses in February:
 
 ## UNIX 101 (Course number UNIX02)
+
 ### *Wednesday Feb 11 9:00am - 12:00pm*
 
 A basic introduction to using Unix and Linux.
@@ -20,6 +21,7 @@ Materials are available [here](https://teams.fhcrc.org/sites/citwiki/SciComp/Tra
 
 
 ## Introduction to gizmo (Course number UNIX03)
+
 ### *Wednesday Feb 18 9:00am - 12:00pm*
 
 A primer on using the Hutch HPC environment colloquially known as "gizmo".

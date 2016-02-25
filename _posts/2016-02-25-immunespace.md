@@ -6,6 +6,7 @@ tags: education
 ---
 
 ### Raphael Gottardo, VIDD
+
 ### *Thursday, February 25 at 11am in the Sze conference rooms*
 
 

@@ -7,6 +7,7 @@ hide_in_feed: false
 ---
 
 ### Mary Goldman, UCSC Cancer Genomics Browser Team
+
 ### *Thursday, April 23, 2015 in D1-080/084, 12:00 - 3:00 pm*
 
 [UCSC Xena](http://xena.ucsc.edu/) is a tool that allows researchers to easily and securely view both their own cancer genomics data and data from large consortiums, such as TCGA.

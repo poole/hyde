@@ -11,6 +11,7 @@ From Michael Gutteridge, via the [scicomp-announce mailing list](https://lists.f
 Scientific Computing is hosting two courses related to use of the computing resources available at the Hutch:
 
 ## Unix 101 (Course number UNIX02)
+
 ### *Wednesday May 20 in J2-115, 9:00am - 12:00pm*
 
 "Unix 101" is an introduction to Unix basics such as navigating and managing the Unix file system, shell commands, shell scripts, and the shell environment.
@@ -23,6 +24,7 @@ Materials are available [here](https://teams.fhcrc.org/sites/citwiki/SciComp/Tra
 
 
 ## Intro to Gizmo (Course number UNIX03)
+
 ### *Wednesday May 27 in J2-115, 9:00am - 12:00pm*
 
 "Introduction to Gizmo" will teach you how the Gizmo cluster works and how to effectively use the resources in this environment.

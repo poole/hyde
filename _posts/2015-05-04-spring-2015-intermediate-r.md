@@ -7,7 +7,9 @@ tags: education R external
 ---
 
 ### Jerry Davison, FHCRC Genomics & Bioinformatics Shared Resource
+
 ### **Day 1 class date:** *Monday May 4 in M1-A303, 9:00am - 1:00pm*
+
 ### **Day 2 class date:** *Monday May 11 in M1-A303, 9:00am - 1:00pm*
 
 

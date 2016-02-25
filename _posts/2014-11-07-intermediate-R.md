@@ -7,7 +7,9 @@ tags: education R
 ---
 
 ### Jerry Davison, FHCRC Genomics & Bioinformatics Shared Resource
+
 ### **Day 1 class date:** *Friday Nov 7 in M1-A305/A307, 9:00am - 1:00pm*
+
 ### **Day 2 class date:** *Friday Nov 14 in M1-A305/A307, 9:00am - 1:00pm*
 
 
@@ -39,4 +41,3 @@ page below.  If you have questions about the course please contact
 <http://www.surveymonkey.com/s/XDMJ857>
 
 *We'll email registrants more information on 31 October.*
-
