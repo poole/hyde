@@ -1,8 +1,8 @@
 ---
 layout: page
 title: Programm
-permalink: /programm
-name: programm
+permalink: /de/program
+name: program
 lang: de
 ---
 
