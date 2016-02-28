@@ -28,6 +28,11 @@
  * Themes
  */
 
+@font-face {
+  font-family: custom;
+  src: url('/assets/elements/Polaris.ttf');
+}
+
 
 /*
  * Body resets
@@ -49,7 +54,7 @@ body {
 }
 
 html {
-  font-family: 'Roboto', Ubuntu, Cantarell, sans-serif;
+  font-family: custom, serif;
   font-size: 15px;
   line-height: 1.5;
 }
@@ -452,7 +457,7 @@ img.emoji {
   z-index: 1010;
   position: fixed;
   padding: 12rem 10% 2rem 10%;
-  background-color: #1D293A;
+  background-color: #2B2239;
 
   -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -469,7 +474,7 @@ img.emoji {
 
 .sidebar.topp {
   padding: 11rem 10% 0 10%;
-  background-color: #1D293A;
+  background-color: #2B2239;
 }
 
 .wrapper {
@@ -784,7 +789,7 @@ a:hover .blog-list-detailmore {
   line-height: 2.4;
   padding: 1rem 1rem;
   width: 100%;
-  color: #fff;
+  color: #371953;
 }
 
 .foo-table {
@@ -800,7 +805,7 @@ a:hover .blog-list-detailmore {
 }
 
 .foo-text a {
-  color: #fff;
+  color: #371953;
   text-decoration: none;
 }
 
