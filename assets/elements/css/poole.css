@@ -54,7 +54,7 @@ body {
 }
 
 html {
-  font-family: custom, serif;
+  font-family: Arial, sans-serif, custom, serif;
   font-size: 15px;
   line-height: 1.5;
 }
@@ -340,7 +340,6 @@ tbody tr:nth-child(odd) th {
 /* Container
  *
  * Align the contents of the site above the proper threshold with some margin-fu
- * with a 25%-wide `.sidebar`.
  */
 
 .content {
@@ -440,9 +439,7 @@ img.emoji {
   text-align: center;
   padding: 0 0;
   color: #fff;
-  width: 120%;
-  transform: rotate(1.5deg);
-  margin-left: -10%;
+  width: 100%;
   margin-top: -10rem;
 }
 
@@ -456,8 +453,8 @@ img.emoji {
 .sidebar {
   z-index: 1010;
   position: fixed;
-  padding: 12rem 10% 2rem 10%;
-  background-color: #2B2239;
+  padding: 12rem 0 2rem 0;
+  background-color: #252239;
 
   -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -473,8 +470,8 @@ img.emoji {
 }
 
 .sidebar.topp {
-  padding: 11rem 10% 0 10%;
-  background-color: #2B2239;
+  padding: 11rem 0 0 0;
+  background-color: #252239;
 }
 
 .wrapper {
@@ -484,7 +481,7 @@ img.emoji {
 }
 
 #logo {
-  margin: 1rem 0 1rem 0;
+  margin: 2rem 0 3rem 0;
   display: none;
 }
 
@@ -558,8 +555,9 @@ img.emoji {
 
 /* Sidebar nav */
 ul.sidebar-nav {
+  transform: rotate(1deg);
   text-transform: uppercase;
-  margin: 1rem 0 1rem 0;
+  margin: 2rem 0 3rem 0;
   padding: 0;
   list-style: none;
   display: inline-block;
@@ -788,14 +786,16 @@ a:hover .blog-list-detailmore {
 .footer-content {
   line-height: 2.4;
   padding: 1rem 1rem;
-  width: 100%;
+  width: 70%;
   color: #371953;
+  transform: rotate(1deg);
 }
 
 .foo-table {
   margin-top: 4rem;
   margin-bottom: 1rem;
   text-align: center;
+  color: #fff;
 }
 
 

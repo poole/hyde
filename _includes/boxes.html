@@ -1,9 +1,7 @@
 <div class="box">
   <div class="content">
   <div class="container">
-    <img class="biglogo" alt="TINYPALACE" src="/assets/elements/logo.png"></img>
-    <p id="tinytext1"><h3>20. - 22. MAY</h3></p>
-    <p id="tinytext1"><h3>KASSEL, GERMANY</h3></p>
+    <img class="biglogo" alt="TINYPALACE \ 20.-22. MAY \ INTERIM KASSEL" src="/assets/elements/logo-big.png"></img>
   </div>
   </div>
 </div>
@@ -12,8 +10,12 @@
   <div class="box-bar"><img src="/assets/elements/blob1.png"></img></div>
   <h1>Pay what-the-flub you want!</h1>
   <div class="video">
-    <iframe src="https://player.vimeo.com/video/76979871?title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
-  </div>
+    {% if page.lang == "de" %}
+    <iframe src="https://player.vimeo.com/video/156843242?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    {% else %}
+    <iframe src="https://player.vimeo.com/video/156839554?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    {% endif %}
+    </div>
   <p></br>
   Support us with our crowdfunding over at <a href="http://startnext.com/tinypalace" target="_blank">startnext.com</a>
   </p>
@@ -66,6 +68,6 @@
 <div class="box2">
   <div class="container">
   <div class="box-bar"><img src="/assets/elements/blob4.png"></img></div>
-  <h1>Pay what-the-flub you want!</h1>
+  <h1>How to find us</h1>
   </div>
 </div>
