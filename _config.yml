@@ -8,9 +8,9 @@ permalink:        pretty
 
 # Setup
 title:            Purview
-tagline:          'Some unscathing words'
+tagline:          'Some Unscathing Words'
 description:      'A brazen column'
-url:              http://hyde.getpoole.com
+url:              https://prateekbagri.github.io/
 baseurl:          /
 
 author:
@@ -19,8 +19,3 @@ author:
 
 paginate:         5
 
-# Custom vars
-version:          2.1.0
-
-github:
-  repo:           https://github.com/poole/hyde
