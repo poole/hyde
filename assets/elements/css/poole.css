@@ -112,6 +112,11 @@ a:focus {
   border-bottom: 2px solid;
 }
 
+span.help {
+    cursor: help;
+    border-bottom: 2px dotted;
+}
+
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: 1rem;
