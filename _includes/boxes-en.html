@@ -1,30 +1,41 @@
 <div class="box">
-  <div class="content">
   <div class="container">
-    <img class="biglogo" alt="TINYPALACE \ 20.-22. MAY \ INTERIM KASSEL" src="/assets/elements/logo-big.png"></img>
-  </div>
+    <img class="biglogo" alt="TINYPALACE / 20.-22. MAY / INTERIM KASSEL" src="/assets/elements/logo-big.png">
   </div>
 </div>
 <div class="box2">
   <div class="container">
-  <div class="box-bar"><img src="/assets/elements/blob1.png"></img></div>
-  <h1>Pay what-the-flub you want!</h1>
+  <div class="box-bar"><img src="/assets/elements/blob1.png"></div>
+  <h1>What is a tiny palace?</h1>
   <div class="video">
     {% if page.lang == "de" %}
     <iframe src="https://player.vimeo.com/video/156843242?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     {% else %}
     <iframe src="https://player.vimeo.com/video/156839554?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     {% endif %}
-    </div>
-  <p></br>
-  Support us with our crowdfunding over at <a href="http://startnext.com/tinypalace" target="_blank">startnext.com</a>
-  </p>
   </div>
+  </br>
+  <h3>Open 20th - 22nd May / Vernissage 19th May / Interim Kassel</h3>
+  <div class="row">
+    <div class="half">
+    <p>tinypalace is a place to hang out. A place to share ideas and hear what others have on their mind. A place for experimenting, talking, eating, dancing and playing.</p>
+    <p>tinypalace is an alternative games festival in Germany.</p>
+    </div>
+    <div class="half">
+    <p>Please consider supporting us on <a href="http://startnext.com/tinypalace" target="_blank">startnext.com</a>.</p> 
+    <p><span class="foo-text-top"><a href="face" target="_blank" id="foo-facebook">Facebook</a><!--
+--><a href="http://twitter.com/tinytinypalace" target="_blank" id="foo-twitter">Twitter</a><!--
+--><a href="http://startnext.com/tinypalace" target="_blank" id="foo-startnext">Startnext</a><!--
+--><a href="#newsletter" id="foo-mail">Newsletter</a>
+    </span></p>
+    </div>
+  </div>  
+  </div>  
 </div>
 <div class="box2">
   <div class="container">
-  <div class="box-bar"><img src="/assets/elements/blob2.png"></img></div>
-  <h1>Pay what-the-flub you want!</h1>
+  <div class="box-bar"><img src="/assets/elements/blob2.png"></div>
+  <h1>New posts</h1>
     <div class="blog-list">
     {% assign posts=site.posts | where:"lang", page.lang %}
     {% for post in posts limit:2 %}
@@ -39,7 +50,7 @@
           {% if image contains 'class="emoji"' %}
           {% else %}
             {% assign imageMarkup = image | split:">" | first %}
-            <img {{ imageMarkup }}>
+            
             {% assign detail="detail" %}
             {% break %}
           {% endif %}
@@ -61,13 +72,17 @@
 </div>
 <div class="box2">
   <div class="container">
-  <div class="box-bar"><img src="/assets/elements/blob3.png"></img></div>
-  <h1>Pay what-the-flub you want!</h1>
+  <div class="box-bar"><img src="/assets/elements/blob3.png"></div>
+  <h1>What is a tiny palace?</h1>
+  <h3>Open 20th - 22nd May / Vernissage 19th May / Interim Kassel</h3>
+  <p>tinypalace is a place to hang out. A place to share ideas and hear what others have on their mind. A place for experimenting, talking, eating, dancing and playing.</p>
+  <p>tinypalace is an alternative games festival in Germany.</p>
+  <p>To find out more click on the small link on the top that reads *About*.</p>
   </div>
 </div>
 <div class="box2">
   <div class="container">
-  <div class="box-bar"><img src="/assets/elements/blob4.png"></img></div>
+  <div class="box-bar"><img src="/assets/elements/blob4.png"></div>
   <h1>How to find us</h1>
   </div>
 </div>

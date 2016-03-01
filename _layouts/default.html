@@ -1,6 +1,71 @@
 <!DOCTYPE html>
 <html lang="{{ page.lang }}">
 
+  <!-- landing version, we're still working on this :3 -->
+
+  {% include head.html %}
+
+  <body>
+    <div class="wrapper">
+
+    {% if page.title == "Home" %}
+      <div class="box" style="margin-top: -7rem;">
+  <div class="container">
+    <img class="biglogo" alt="TINYPALACE / 20.-22. MAY / INTERIM KASSEL" src="/assets/elements/logo-big.png">
+  </div>
+</div>
+<div class="box2" style="padding-bottom: 7rem;">
+  <div class="container">
+  <div class="box-bar"><img src="/assets/elements/blob1.png"></div>
+  <h1>What is a tiny palace?</h1>
+  <div class="video">
+    {% if page.lang == "de" %}
+    <iframe src="https://player.vimeo.com/video/156843242?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    {% else %}
+    <iframe src="https://player.vimeo.com/video/156839554?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    {% endif %}
+  </div>
+  </br>
+  <h3>Open 20th - 22nd May / Vernissage 19th May / Interim Kassel</h3>
+  <div class="row">
+    <div class="half">
+    <p>tinypalace is a place to hang out. A place to share ideas and hear what others have on their mind. A place for experimenting, talking, eating, dancing and playing.</p>
+    <p>tinypalace is an alternative games festival in Germany.</p>
+    </div>
+    <div class="half" id="close-newsletter">
+    <p>Please consider supporting us on <a href="http://startnext.com/tinypalace" target="_blank">startnext.com</a>.</p> 
+    <p><span class="foo-text-top"><a href="face" target="_blank" id="foo-facebook">Facebook</a><!--
+--><a href="http://twitter.com/tinytinypalace" target="_blank" id="foo-twitter">Twitter</a><!--
+--><a href="http://startnext.com/tinypalace" target="_blank" id="foo-startnext">Startnext</a><!--
+--><a href="#newsletter" id="foo-mail">Newsletter</a>
+    </span></p>
+    </div>
+  </div>  
+  </div>  
+</div>
+    {% else %}
+    <div class="content container">
+      {{ content }}
+    </div>
+    {% endif %}
+    </div>
+
+    <div id="newsletter" class="overlay">
+  <div class="poop">
+    <h3>{{site.data.translations[page.lang].newsletter}}</h3>
+    <a class="close" href="#close-newsletter">&times;</a>
+    <div class="cont">
+      <form action="//formspree.io/tinypalace@posteo.de" method="POST"><ul class="form"><input type="text" name="mail" placeholder="{{site.data.translations[page.lang].newsletter-mail}}" /><input type="hidden" name="_next" value="/{% if page.lang == "de" %}de/{% endif %}thanks-newsletter" /><input type="hidden" name="_subject" value="tinypalace - Newsletter" /><input type="text" name="_gotcha" style="display:none" /><input type="submit" value="{{site.data.translations[page.lang].newsletter-submit}}" /></ul></form>
+    </div>
+  </div>
+</div> 
+
+  </body>
+
+
+
+{% comment %}
+
   {% include head.html %}
 
   <body>
@@ -9,7 +74,7 @@
     {% include sidebar.html %}
 
     {% if page.title == "Home" %}
-      {% include boxes.html %}
+      {% include boxes-en.html %}
     {% endif %}
 
     <div class="content container">
@@ -17,44 +82,10 @@
     </div>
     </div>
     {% include footer.html %}
-<script>
-var cbpAnimatedHeader = (function() {
 
-  var docElem = document.documentElement,
-    header = document.querySelector( '.sidebar' ),
-    didScroll = false,
-    changeHeaderOn = 300;
-
-  function init() {
-    window.addEventListener( 'scroll', function( event ) {
-      if( !didScroll ) {
-        didScroll = true;
-        setTimeout( scrollPage, 250 );
-      }
-    }, false );
-  }
-
-  function scrollPage() {
-    var sy = scrollY();
-    if ( sy >= changeHeaderOn ) {
-      classie.add( header, 'smaller' );
-    }
-    else {
-      classie.remove( header, 'smaller' );
-    }
-    didScroll = false;
-  }
-
-  function scrollY() {
-    return window.pageYOffset || docElem.scrollTop;
-  }
-
-  init();
-
-})();
-  </script>
   </body>
-
-
+{% endcomment %}
 
 </html>
+
+

@@ -1,13 +1,21 @@
 <div class="footer">
   <div class="container footer-content">
-   <div class="foo-table">ヽ(✿ ^ ω ^) ╯︵ ┻━┻<br></br></div>
    <span class="foo-text"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de/{% endif %}imprint">{{site.data.translations[page.lang].imprint}}</a></span><!--
 --><span class="foo-text"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de/{% endif %}press">{{site.data.translations[page.lang].press}}</a></span><!--
 --><span class="foo-text"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de/{% endif %}safer-space">{{site.data.translations[page.lang].readsaferspace}}</a></span><!--
 --><div class="foo-text"><a href="face" target="_blank" id="foo-facebook">Facebook</a><!--
---><a href="http://twitter.com/tinypalace_" target="_blank" id="foo-twitter">Twitter</a><!--
+--><a href="http://twitter.com/tinytinypalace" target="_blank" id="foo-twitter">Twitter</a><!--
 --><a href="http://startnext.com/tinypalace" target="_blank" id="foo-startnext">Startnext</a><!--
 --><a href="/atom.xml" target="_blank" id="foo-atom">Feed</a><!--
---><a href="mailto:tinypalace@posteo.de" target="_blank" id="foo-mail">Mail</a></div><!--
+--><a href="#newsletter" id="foo-mail">Newsletter</a></div><!--
 --></div>
 </div>
+<div id="newsletter" class="overlay">
+	<div class="poop">
+		<h3>{{site.data.translations[page.lang].newsletter}}</h3>
+		<a class="close" href="#close-newsletter">&times;</a>
+		<div class="cont">
+			<form action="//formspree.io/tinypalace@posteo.de" method="POST"><ul class="form"><input type="text" name="mail" placeholder="{{site.data.translations[page.lang].newsletter-mail}}" /><input type="hidden" name="_next" value="/{% if page.lang == "de" %}de/{% endif %}thanks-newsletter" /><input type="hidden" name="_subject" value="tinypalace - Newsletter" /><input type="text" name="_gotcha" style="display:none" /><input type="submit" value="{{site.data.translations[page.lang].newsletter-submit}}" /></ul></form>
+		</div>
+	</div>
+</div> 

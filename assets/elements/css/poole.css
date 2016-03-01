@@ -167,7 +167,7 @@ hr {
   position: relative;
   margin: 1.5rem 0;
   border: none;
-  border-bottom: 4px dotted #fff;
+  border-bottom: 4px dotted #faeae6;
 }
 
 abbr {
@@ -440,7 +440,7 @@ img.emoji {
   padding: 0 0;
   color: #fff;
   width: 100%;
-  margin-top: -10rem;
+  margin-top: 0rem;
 }
 
 .footer {
@@ -453,8 +453,12 @@ img.emoji {
 .sidebar {
   z-index: 1010;
   position: fixed;
-  padding: 12rem 0 2rem 0;
+  padding: 7rem 0 2rem 0;
   background-color: #252239;
+  transform: rotate(1deg);
+  width: 110%;
+  margin-left: -5%;
+  margin-top: -5rem;
 
   -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -470,7 +474,7 @@ img.emoji {
 }
 
 .sidebar.topp {
-  padding: 11rem 0 0 0;
+  padding: 6rem 0 1rem 0;
   background-color: #252239;
 }
 
@@ -481,7 +485,7 @@ img.emoji {
 }
 
 #logo {
-  margin: 2rem 0 3rem 0;
+  margin: 1rem 0 1rem 0;
   display: none;
 }
 
@@ -514,7 +518,7 @@ img.emoji {
   animation: play 0.5s steps(8) infinite;
   background-position: left center;
   transform: scale(1.2) rotate(5deg);
-  background-size: 1792px 53px;
+  background-size: 1344px 38px;
   border-bottom: none;
 }
 
@@ -525,7 +529,7 @@ img.emoji {
                  display:none;}
 
 @keyframes play {
-   100% { background-position: -1792px; }
+   100% { background-position: -1344px; }
 }
 
 /*
@@ -555,9 +559,8 @@ img.emoji {
 
 /* Sidebar nav */
 ul.sidebar-nav {
-  transform: rotate(1deg);
   text-transform: uppercase;
-  margin: 2rem 0 3rem 0;
+  margin: 1rem 0 1rem 0;
   padding: 0;
   list-style: none;
   display: inline-block;
@@ -664,7 +667,6 @@ ul.sidebar-nav li ul.sidebar-subnav li{
 
  .box {
    width: 100%;
-   height: 50rem;
    text-align: center;
    padding-top: 6rem;
  }
@@ -678,7 +680,7 @@ ul.sidebar-nav li ul.sidebar-subnav li{
   margin: 8rem 0 2rem -2%;
   width: 104%;
   border: none;
-  border-bottom: 4px dotted #fff;
+  border-bottom: 4px dotted #faeae6;
   text-align: center;
  }
 
@@ -689,16 +691,31 @@ ul.sidebar-nav li ul.sidebar-subnav li{
   margin-right: auto;
  }
 
- .box2 h1 {
+ .box2 h1, .box2 h2, .box2 h3, .box2 h4 {
   text-align: center;
  }
+
+ .foo-text-top {
+  margin: 0 0 0 0rem;
+  float:right;
+}
+
+.foo-text-top input[type="submit"] {
+  width: 4rem;
+}
+.foo-text-top input[type="text"] {
+  width: 8rem;
+}
+
+.foo-text-top form {
+  display: inline;
+}
 
  .biglogo {
    display: inline-block;
    position: relative;
-   max-width: 600px;
-   width:80%;
-   margin-top: 3rem;
+   max-width: 920px;
+   width:100%;
    height: auto;
    transition: transform .1s ease;
    transform-origin: 50% 50% 0px;
@@ -708,12 +725,16 @@ ul.sidebar-nav li ul.sidebar-subnav li{
    image-rendering: -o-crisp-edges;            /* OS X & Windows Opera (12.02+) */
    image-rendering: pixelated;                 /* Awesome future-browsers       */
    -ms-interpolation-mode: nearest-neighbor;   /* IE                            */
+   margin-top: 150px;
+   margin-top: 200px;
  }
 
- .biglogo:hover {
-   transform: scale(1.1);
-   border-bottom: none;
- }
+ @media (min-width: 48em) {
+  .biglogo {
+     width:80%;
+     margin-top: 150px;
+  }
+}
 
  .video {
  	position: relative;
@@ -847,3 +868,73 @@ a:hover .blog-list-detailmore {
 
 #foo-atom { background-position: 32px 0px; transition: transform .1s ease; }
 #foo-atom:hover, #foo-atom:focus { background-position: 32px 32px; transform: scale(1.2) rotate(60deg); border-bottom: none; }
+
+
+/* newsletter box */
+
+
+.overlay {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: rgba(0, 0, 0, 0.7);
+  transition: opacity 500ms;
+  visibility: hidden;
+  opacity: 0;
+  z-index: 1050;
+}
+.overlay:target {
+  visibility: visible;
+  opacity: 1;
+}
+
+.poop {
+  margin: 0 auto;
+  padding: 1.5rem;
+  background: #252239;
+  border-radius: 5px;
+  width: 50%;
+  position: relative;
+  color: #fff;
+  transform: rotate(1.5deg) translateY(-50%);
+  top: 50%;
+}
+
+.poop h3 {
+    margin: 0.2rem 0 0 0;
+    width: 88%;
+    padding: 0 0 0 0;
+}
+
+.poop .form {
+  margin-top: 2rem;
+  margin-bottom: 0;
+  color: #371953;
+}
+
+.poop .close {
+  position: absolute;
+  top: 20px;
+  right: 30px;
+  transition: all 200ms;
+  font-size: 30px;
+  font-weight: bold;
+  text-decoration: none;
+  color: #53adf9
+}
+.poop .close:hover {
+  color: #75bdfa;
+  border:none;
+}
+.poop .cont {
+  max-height: 30%;
+  overflow: auto;
+}
+
+@media screen and (max-width: 700px){
+  .poop{
+    width: 70%;
+  }
+}
