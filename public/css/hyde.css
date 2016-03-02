@@ -162,6 +162,14 @@ a:focus::before {
   pointer-events: none;
 }
 
+.drawer-open {
+  overflow: hidden;
+}
+
+.drawer-open > #backdrop {
+  pointer-events: all;
+}
+
 .drawer > #menu {
   display: block;
   position: absolute;

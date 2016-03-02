@@ -6,7 +6,7 @@
     {% if page.title == "Home" %}
       {{ site.title }} &middot; {{ site.tagline }}
     {% else %}
-      {% if page.tag %} #{{ page.tag }} {% else %} {{ page.title }} {% endif %} &middot; {{ site.title }}
+      {% if page.tag %} {{ site.data.tags[page.tag].name }} {% else %} {{ page.title }} {% endif %} &middot; {{ site.title }}
     {% endif %}
   </title>
 

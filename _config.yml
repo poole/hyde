@@ -8,7 +8,7 @@ description:      >
   A pretentious two-column <a href="http://jekyllrb.com/">Jekyll</a>
   theme, stolen by <a href="https://twitter.com/qwtel" target="_blank">@qwtel</a>
   from <a href="http://hyde.getpoole.com">Hyde</a>.
-  You could say it was... <a href="http://media3.giphy.com/media/makedRIckZBW8/giphy.gif">hydejacked</a>.
+  You could say it was.. <a href="http://media3.giphy.com/media/makedRIckZBW8/giphy.gif">hydejacked</a>.
 
 # The tags listed as entries in the sidebar
 sidebar_tags:     [jekyll, hyde]
@@ -23,5 +23,5 @@ author:
   github:         qwtel
 
 # Fallback image and color if not overwritten for tag or post
-image:            none
+# image:            none
 color:            '#268bd2'
