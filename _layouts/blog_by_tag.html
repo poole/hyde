@@ -1,0 +1,34 @@
+---
+layout: default
+---
+
+{% assign tag = site.data.tags[page.tag] %}
+
+<h1 class="page-title">{{ tag.name }}</h1>
+{% if tag.description %}
+  <p class="message">{{tag.description}}</p>
+{% endif %}
+<hr/>
+
+{% if site.tags[page.tag] %}
+  {% for post in site.tags[page.tag] %}
+    {% assign currentdate = post.date | date: "%Y" %}
+    {% if currentdate != date %}
+      {% unless forloop.first %}</ul><hr/>{% endunless %}
+      <h2 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
+      <ul class="related-posts">
+      {% assign date = currentdate %}
+    {% endif %}
+    <li>
+      <h4>
+        <a href="{{ post.url }}">
+          <span>{{ post.title }}</span>
+          <small>{{ post.date | date: "%m/%d" }}</small>
+        </a>
+      </h4>
+    </li>
+    {% if forloop.last %}</ul><hr/>{% endif %}
+  {% endfor %}
+{% else %}
+    <p>There are no posts for this tag.</p>
+{% endif %}

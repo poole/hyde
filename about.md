@@ -3,28 +3,33 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+![me][me]{:.me}
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+Hi, I'm Florian or `@qwtel`, which isn't an acronym, I just [wanted a short username][usr] and that one happened to be available.
 
-There are currently two themes built on Poole:
+I have thoughts on [#software](/tag/software) and [#cryptoeconomics](/tag/cryptoeconomics).
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+[write something about self]
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+<br/>
 
-## Setup
+## References
 
-Some fun facts about the setup of this project include:
+### Design
 
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
+* Based on [Hyde](http://hyde.getpoole.com/) by [`@mdo`](https://twitter.com/mdo).
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
+### Icons
 
-Thanks for reading!
+* [Wreath](https://thenounproject.com/term/laurel-wreath/203146/) by [Nick Abrams](https://thenounproject.com/nabrams/) from the [Noun Project](https://thenounproject.com/).
+
+### Images
+
+* \#cryptoeconomics: Morte di Giulio Cesare by [Vincenzo Camuccini](https://en.wikipedia.org/wiki/Vincenzo_Camuccini), 1798
+* \#software: [KesennumaBrokenHouse.jpg](https://commons.wikimedia.org/wiki/File:KesennumaBrokenHouse.jpg) by [Douglas P. Perkins](https://commons.wikimedia.org/wiki/User:Douglaspperkins).
+* About: [High Altitude](https://anti-utopias.com/art/michael-najjar-high-altitude/) by [Michael Najjar](http://www.michaelnajjar.com/).
+
+
+[me]: /public/img/flo.jpg
+[usr]: /how-to-find-a-short-username
+[tlb]: http://www.fooledbyrandomness.com/

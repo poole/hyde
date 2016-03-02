@@ -11,19 +11,22 @@
  *
  * Designed, built, and released under MIT license by @mdo. Learn more at
  * https://github.com/poole/hyde.
- */
-
-
-/*
- * Contents
  *
- * Global resets
- * Sidebar
- * Container
- * Reverse layout
- * Themes
+ * Hijacked and adoped by @qwtel. Learn more at
+ * http://hydejack.github.io
  */
 
+/* Icon font for github, twitter, etc */
+@font-face {
+    font-family: 'icomoon';
+    src:    url('../fonts/icomoon.eot?bytfto');
+    src:    url('../fonts/icomoon.eot?bytfto#iefix') format('embedded-opentype'),
+        url('../fonts/icomoon.ttf?bytfto') format('truetype'),
+        url('../fonts/icomoon.woff?bytfto') format('woff'),
+        url('../fonts/icomoon.svg?bytfto#icomoon') format('svg');
+    font-weight: normal;
+    font-style: normal;
+}
 
 /*
  * Global resets
@@ -32,7 +35,7 @@
  */
 
 html {
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "PT Serif", Georgia, serif;
 }
 @media (min-width: 48em) {
   html {
@@ -41,10 +44,56 @@ html {
 }
 @media (min-width: 58em) {
   html {
-    font-size: 20px;
+    font-size: 18px;
   }
 }
 
+h1, h2, h3, h4, h5, h6 {
+  font-family: "PT Serif", Georgia, serif;
+}
+
+a {
+  position: relative;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+}
+
+/* Styles for "Cesar" link hover effect. */
+a::after,
+a::before {
+  font-family: 'icomoon'!important;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 100ms;
+  text-shadow: 0 0 .125em #fff, 0 0 .25em #fff, 0 0 .5em #fff;
+}
+
+a:hover::after,
+a:hover::before,
+a:focus::after,
+a:focus::before {
+  opacity: 1;
+}
+
+ a::before {
+  content: "(";
+  -webkit-transform: translateX(-0.5em) translateY(0.075em);
+  -ms-transform: translateX(-0.5em) translateY(0.075em);
+  transform: translateX(-0.5em) translateY(0.075em);
+}
+
+ a::after {
+  content: ")";
+  -webkit-transform: translateX(0.05em) translateY(0.075em);
+  -ms-transform: translateX(0.05em) translateY(0.075em);
+  transform: translateX(0.05em) translateY(0.075em);
+}
 
 /*
  * Sidebar
@@ -54,11 +103,79 @@ html {
  */
 
 .sidebar {
+  position: relative;
+  z-index: 4;
   text-align: center;
   padding: 2rem 1rem;
-  color: rgba(255,255,255,.5);
-  background-color: #202020;
+  color: rgba(255,255,255,.75);
+  background-color: #202020!important;
+  text-align: left;
+
+  background-size: cover;
+  background-position: center center;
 }
+/* make sidebar slightly darker to increase text readability (when using a background image) */
+.sidebar::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(32, 32, 32, .33);
+}
+
+/* Use larg desktop styles for mobile as well when the JS "drawer" is active */
+.drawer > .sidebar {
+  position: fixed;
+  bottom: 0;
+  top: 0;
+  left: -17.5rem;
+  width: 18rem;
+  will-change: transform;
+  box-shadow: 0.25rem 0 0.5rem rgba(0, 0, 0, 0.15)
+}
+
+.drawer > .sidebar::before {
+  background: -moz-linear-gradient(bottom,  rgba(32,32,32,0) 0%, rgba(32,32,32,.5) 100%);
+  background: -webkit-linear-gradient(bottom,  rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
+  background: linear-gradient(to bottom,  rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
+}
+
+.drawer > .sidebar > .sidebar-sticky {
+  position: absolute;
+  right:  1rem;
+  bottom: 1rem;
+  left:   1rem;
+}
+
+.drawer > #backdrop {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #000;
+  opacity: 0;
+  z-index: 3;
+  will-change: opacity;
+  pointer-events: none;
+}
+
+.drawer > #menu {
+  display: block;
+  position: absolute;
+  top: 0rem;
+  left: 0.5rem;
+  padding: 1.25rem 1rem ;
+  color: #9a9a9a;
+}
+@media (min-width: 48em) {
+  .drawer > #menu {
+    display: none;
+  }
+}
+
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
@@ -66,7 +183,15 @@ html {
     left: 0;
     bottom: 0;
     width: 18rem;
-    text-align: left;
+    /* Disable drawer positiioning on larger screens (already done via JS, but just to be sure) */
+    -webkit-transform: translate3d(0,0,0)!important;
+    -ms-transform: translate3d(0,0,0)!important;
+    transform: translate3d(0,0,0)!important;
+  }
+  .sidebar::before {
+    background: -moz-linear-gradient(bottom,  rgba(32,32,32,0) 0%, rgba(32,32,32,.5) 100%);
+    background: -webkit-linear-gradient(bottom,  rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
+    background: linear-gradient(to bottom,  rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
   }
 }
 
@@ -75,28 +200,63 @@ html {
   color: #fff;
 }
 
+.sidebar a:hover, .sidebar a:focus {
+  text-decoration: none;
+}
+
 /* About section */
-.sidebar-about h1 {
+.sidebar-about > h1 {
+  font-family: "Roboto Slab", "PT Serif", Georgia, serif;
   color: #fff;
   margin-top: 0;
-  font-family: "Abril Fatface", serif;
-  font-size: 3.25rem;
+  font-size: 2rem;
 }
 
 /* Sidebar nav */
 .sidebar-nav {
-  margin-bottom: 1rem;
+  margin-bottom: 1.25rem;
 }
 .sidebar-nav-item {
+  font-family: "Roboto Slab", "PT Serif", Georgia, serif;
+  font-weight: bold;
   display: block;
   line-height: 1.75;
+  padding: .5rem .1rem;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.23);
 }
-a.sidebar-nav-item:hover,
-a.sidebar-nav-item:focus {
-  text-decoration: underline;
+.sidebar-nav-item:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.23);
 }
-.sidebar-nav-item.active {
-  font-weight: bold;
+
+.sidebar-nav-item {
+  padding: .25rem .1rem;
+  margin-left: 0;
+  margin-right: 0;
+}
+
+/* Disable the "white glow" that is used to make the laurel wreaths distinct form the background */
+.sidebar a::after,
+.sidebar a::before {
+  text-shadow: none;
+}
+
+.sidebar-social {
+  margin-bottom: 1.25rem;
+}
+.sidebar-social > a {
+  font-size: 1.4rem;
+  line-height: 1.4rem;
+  margin-right: 1rem;
+}
+.sidebar-social > a:last-child {
+  margin-right: 0;
+}
+
+/* Enable z-index (derived from DOM structure) for the sidbar content. */
+.container {
+  position: relative;
 }
 
 /* Sticky sidebar
@@ -104,7 +264,6 @@ a.sidebar-nav-item:focus {
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
  * contents to the bottom of the sidebar in tablets and up.
  */
-
 @media (min-width: 48em) {
   .sidebar-sticky {
     position: absolute;
@@ -113,7 +272,6 @@ a.sidebar-nav-item:focus {
     left:   1rem;
   }
 }
-
 
 /* Container
  *
@@ -124,6 +282,15 @@ a.sidebar-nav-item:focus {
 .content {
   padding-top:    4rem;
   padding-bottom: 4rem;
+
+  /*
+   * Ensure same content width when JS drawer is disabled.
+   * Failing to do this caused text reflowing, when the JS kicked in (adding the .drawer styles)
+   * and moved the drawer from the bottom to the side.
+   * Now the drawer is placed above the 0.5rem border on the side.
+   * It also looks kinda cool w/o the drawer.
+   */
+  border-left: 0.5rem solid #ddd;
 }
 
 @media (min-width: 48em) {
@@ -131,6 +298,7 @@ a.sidebar-nav-item:focus {
     max-width: 38rem;
     margin-left: 20rem;
     margin-right: 2rem;
+    border-left: none;
   }
 }
 
@@ -141,110 +309,62 @@ a.sidebar-nav-item:focus {
   }
 }
 
+/* Override pool styles that are specific to this theme */
+.post-date {
+  font-weight: bold;
+}
 
-/*
- * Reverse layout
- *
- * Flip the orientation of the page by placing the `.sidebar` on the right.
- */
+.related-posts li a {
+  font-weight: normal;
+}
 
-@media (min-width: 48em) {
-  .layout-reverse .sidebar {
-    left: auto;
-    right: 0;
+/* Icon font styles */
+[class^="icon-"], [class*=" icon-"] {
+  /* use !important to prevent issues with browser extensions that change fonts */
+  font-family: 'icomoon' !important;
+  speak: none;
+  font-style: normal;
+  font-weight: normal;
+  font-variant: normal;
+  text-transform: none;
+  line-height: 1;
+
+  /* "Better" Font Rendering =========== */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+.icon-icon-github:before {
+  content: "\e900";
+}
+.icon-icon-twitter:before {
+  content: "\e901";
+}
+
+.me {
+    width: 120px;
+    margin-top: -85px;
+    border-radius: 100%;
+    margin-left: 1rem;
+    position: relative;
+    z-index: 2;
+    float: right;
+}
+@media (min-width: 38rem) {
+  .me {
+    width: 140px;
+    margin-top: -105px;
   }
-  .layout-reverse .content {
-    margin-left: 2rem;
-    margin-right: 20rem;
+}
+@media (min-width: 48rem) {
+  .me {
+    width: 120px;
+    margin-top: -85px;
   }
 }
-
-@media (min-width: 64em) {
-  .layout-reverse .content {
-    margin-left: 4rem;
-    margin-right: 22rem;
+@media (min-width: 58rem) {
+  .me {
+    width: 140px;
+    margin-top: -105px;
   }
-}
-
-
-
-/*
- * Themes
- *
- * As of v1.1, Hyde includes optional themes to color the sidebar and links
- * within blog posts. To use, add the class of your choosing to the `body`.
- */
-
-/* Base16 (http://chriskempson.github.io/base16/#default) */
-
-/* Red */
-.theme-base-08 .sidebar {
-  background-color: #ac4142;
-}
-.theme-base-08 .content a,
-.theme-base-08 .related-posts li a:hover {
-  color: #ac4142;
-}
-
-/* Orange */
-.theme-base-09 .sidebar {
-  background-color: #d28445;
-}
-.theme-base-09 .content a,
-.theme-base-09 .related-posts li a:hover {
-  color: #d28445;
-}
-
-/* Yellow */
-.theme-base-0a .sidebar {
-  background-color: #f4bf75;
-}
-.theme-base-0a .content a,
-.theme-base-0a .related-posts li a:hover {
-  color: #f4bf75;
-}
-
-/* Green */
-.theme-base-0b .sidebar {
-  background-color: #90a959;
-}
-.theme-base-0b .content a,
-.theme-base-0b .related-posts li a:hover {
-  color: #90a959;
-}
-
-/* Cyan */
-.theme-base-0c .sidebar {
-  background-color: #75b5aa;
-}
-.theme-base-0c .content a,
-.theme-base-0c .related-posts li a:hover {
-  color: #75b5aa;
-}
-
-/* Blue */
-.theme-base-0d .sidebar {
-  background-color: #6a9fb5;
-}
-.theme-base-0d .content a,
-.theme-base-0d .related-posts li a:hover {
-  color: #6a9fb5;
-}
-
-/* Magenta */
-.theme-base-0e .sidebar {
-  background-color: #aa759f;
-}
-.theme-base-0e .content a,
-.theme-base-0e .related-posts li a:hover {
-  color: #aa759f;
-}
-
-/* Brown */
-.theme-base-0f .sidebar {
-  background-color: #8f5536;
-}
-.theme-base-0f .content a,
-.theme-base-0f .related-posts li a:hover {
-  color: #8f5536;
 }

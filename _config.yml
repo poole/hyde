@@ -1,26 +1,27 @@
-# Dependencies
-markdown:         redcarpet
-highlighter:      pygments
-
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            Hydejack
+tagline:          Better than lumber jack.
+description:      >
+  A pretentious two-column <a href="http://jekyllrb.com/">Jekyll</a>
+  theme, stolen by <a href="https://twitter.com/qwtel" target="_blank">@qwtel</a>
+  from <a href="http://hyde.getpoole.com">Hyde</a>.
+  You could say it was... <a href="http://media3.giphy.com/media/makedRIckZBW8/giphy.gif">hydejacked</a>.
+
+# The tags listed as entries in the sidebar
+sidebar_tags:     [jekyll, hyde]
+
+url:              https://qwtel.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Florian Klampfer'
+  url:            https://qwtel.com
+  twitter:        qwtel
+  github:         qwtel
 
-paginate:         5
-
-# Custom vars
-version:          2.1.0
-
-github:
-  repo:           https://github.com/poole/hyde
+# Fallback image and color if not overwritten for tag or post
+image:            none
+color:            '#268bd2'

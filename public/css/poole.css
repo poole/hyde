@@ -11,23 +11,10 @@
  *
  * Designed, built, and released under MIT license by @mdo. Learn more at
  * https://github.com/poole/poole.
- */
-
-
-/*
- * Contents
  *
- * Body resets
- * Custom type
- * Messages
- * Container
- * Masthead
- * Posts and pages
- * Pagination
- * Reverse layout
- * Themes
+ * Hijacked and adoped by @qwtel. Learn more at
+ * http://hydejack.github.io
  */
-
 
 /*
  * Body resets
@@ -63,6 +50,10 @@ body {
   background-color: #fff;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
+
+  /* Prevent side-scrolling on mobile */
+  overflow-x: hidden;
+  position: relative;
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
@@ -147,6 +138,10 @@ abbr[title] {
   border-bottom: 1px dotted #e5e5e5;
 }
 
+figure {
+  margin: 0;
+}
+
 /* Code */
 code,
 pre {
@@ -154,60 +149,49 @@ pre {
 }
 code {
   padding: .25em .5em;
-  font-size: 85%;
-  color: #bf616a;
+  font-size: .85rem;
+  /* Could be mistaken for a link if the user choses a similar link-color, so better no colored inline code. */
+  /*color: #bf616a;*/
   background-color: #f9f9f9;
   border-radius: 3px;
+  font-size: .85rem;
 }
 pre {
   display: block;
   margin-top: 0;
   margin-bottom: 1rem;
   padding: 1rem;
-  font-size: .8rem;
   line-height: 1.4;
-  white-space: pre;
+  /* Prevent code linebreaks and allow side-scrolling (much better readability on mobile) */
+  /*white-space: pre;
   white-space: pre-wrap;
   word-break: break-all;
-  word-wrap: break-word;
+  word-wrap: break-word;*/
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
   background-color: #f9f9f9;
+
+  /* Make code same width as regular text, and scroll the full page width on mobile */
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 pre code {
   padding: 0;
-  font-size: 100%;
   color: inherit;
   background-color: transparent;
+
+  /* Fit 80 chars in the block without side-scroll for large screens */
+  font-size: .74rem;
 }
 
-/* Pygments via Jekyll */
+/* <del>Pygments</del> Rouge via Jekyll */
 .highlight {
   margin-bottom: 1rem;
-  border-radius: 4px;
+  /* Disableling the border radius prevents repainting when scrolling on mobile */
+  /*border-radius: 4px;*/
 }
 .highlight pre {
   margin-bottom: 0;
-}
-
-/* Gist via GitHub Pages */
-.gist .gist-file {
-  font-family: Menlo, Monaco, "Courier New", monospace !important;
-}
-.gist .markdown-body {
-  padding: 15px;
-}
-.gist pre {
-  padding: 0;
-  background-color: transparent;
-}
-.gist .gist-file .gist-data {
-  font-size: .8rem !important;
-  line-height: 1.4;
-}
-.gist code {
-  padding: 0;
-  color: inherit;
-  background-color: transparent;
-  border-radius: 0;
 }
 
 /* Quotes */
@@ -276,6 +260,8 @@ tbody tr:nth-child(odd) th {
   padding: 1rem;
   color: #717171;
   background-color: #f9f9f9;
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 
@@ -368,6 +354,8 @@ tbody tr:nth-child(odd) th {
 .related-posts li small {
   font-size: 75%;
   color: #999;
+  /* Keep the date time together */
+  white-space: nowrap;
 }
 .related-posts li a:hover {
   color: #268bd2;
@@ -377,54 +365,18 @@ tbody tr:nth-child(odd) th {
   color: inherit;
 }
 
-
-/*
- * Pagination
- *
- * Super lightweight (HTML-wise) blog pagination. `span`s are provide for when
- * there are no more previous or next posts to show.
- */
-
-.pagination {
-  overflow: hidden; /* clearfix */
-  margin-left: -1rem;
-  margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  color: #ccc;
-  text-align: center;
+/* Footnotes */
+sup {
+  line-height: 0;
 }
-
-/* Pagination items can be `span`s or `a`s */
-.pagination-item {
+.footnotes > ol {
+  opacity: 0.67;
+}
+.footnotes::before {
+  content: "";
   display: block;
-  padding: 1rem;
-  border: 1px solid #eee;
-}
-.pagination-item:first-child {
-  margin-bottom: -1px;
-}
-
-/* Only provide a hover state for linked pagination items */
-a.pagination-item:hover {
-  background-color: #f5f5f5;
-}
-
-@media (min-width: 30em) {
-  .pagination {
-    margin: 3rem 0;
-  }
-  .pagination-item {
-    float: left;
-    width: 50%;
-  }
-  .pagination-item:first-child {
-    margin-bottom: 0;
-    border-top-left-radius:    4px;
-    border-bottom-left-radius: 4px;
-  }
-  .pagination-item:last-child {
-    margin-left: -1px;
-    border-top-right-radius:    4px;
-    border-bottom-right-radius: 4px;
-  }
+  margin: 1.5rem 0;
+  border: 0;
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #fff;
 }

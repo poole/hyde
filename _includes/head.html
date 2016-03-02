@@ -1,29 +1,59 @@
 <head>
-  <link href="http://gmpg.org/xfn/11" rel="profile">
-  <meta http-equiv="X-UA-Compatible" content="IE=edge">
-  <meta http-equiv="content-type" content="text/html; charset=utf-8">
-
-  <!-- Enable responsiveness on mobile devices-->
+  <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   <title>
     {% if page.title == "Home" %}
       {{ site.title }} &middot; {{ site.tagline }}
     {% else %}
-      {{ page.title }} &middot; {{ site.title }}
+      {% if page.tag %} #{{ page.tag }} {% else %} {{ page.title }} {% endif %} &middot; {{ site.title }}
     {% endif %}
   </title>
 
   <!-- CSS -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:700|PT+Serif:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
   <link rel="stylesheet" href="{{ site.baseurl }}public/css/poole.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/syntax.css">
   <link rel="stylesheet" href="{{ site.baseurl }}public/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="{{ site.baseurl }}public/css/jekyll-github.css">
+
+  {% assign color = page.color %}
+
+  {% unless color %}
+    {% if page.tag %}
+      {% assign tag = site.data.tags[page.tag] %}
+      {% assign color = tag.color %}
+    {% else %}
+      {% if page.tags.size > 0 %}
+        {% assign tag_name = page.tags[0] %}
+        {% assign tag = site.data.tags[tag_name] %}
+        {% assign color = tag.color %}
+      {% endif %}
+    {% endif %}
+  {% endunless %}
+
+  {% unless color %}
+    {% assign color = site.color %}
+  {% endunless %}
+
+  <style>
+    .content a,
+    .related-posts li a:hover {
+      color: {{ color }};
+    }
+    ::selection {
+      color: #fff;
+      background: {{ color }};
+    }
+    ::-moz-selection {
+      color: #fff;
+      background: {{ color }};
+    }
+  </style>
 
   <!-- Icons -->
   <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="{{ site.baseurl }}public/favicon.ico">
+  <link rel="shortcut icon" href="{{ site.baseurl }}public/favicon.ico">
 
   <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="/atom.xml">
 </head>

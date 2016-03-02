@@ -2,24 +2,50 @@
 layout: default
 ---
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  {{ content }}
-</div>
+{% assign post = page %}
+{% if post.tags.size > 0 %}
+    {% capture tags_content %}on {% endcapture %}
+    {% for post_tag in post.tags %}
+      {% assign tag = site.data.tags[post_tag] %}
+      {% if tag %}
+        {% capture tags_content_temp %}{{ tags_content }}<a href="/tag/{{ post_tag }}/">{{ tag.name }}</a>{% if forloop.last == false %}<span>, </span>{% endif %}{% endcapture %}
+        {% assign tags_content = tags_content_temp %}
+      {% endif %}
+    {% endfor %}
+{% else %}
+    {% assign tags_content = '' %}
+{% endif %}
 
-<div class="related">
+<article class="post">
+  <h1 class="post-title">{{ page.title }}</h1>
+  <div class="post-date">
+    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%m/%d/%y" }}</time>
+    <span>{{ tags_content }}</span>
+  </div>
+  <hr/>
+  {{ content }}
+</article>
+
+<aside class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
+    {% assign plusone = false %}
+    {% assign tag_name = page.tags[0] %}
+    {% for post in site.tags[tag_name] limit:4 %}
+      {% if post.url == page.url %}
+        {% assign plusone = true %}
+        {% continue %}
+      {% endif %}
+      {% if forloop.index < 4 or plusone == true %}
+        <li>
+          <h4>
+            <a href="{{ post.url }}">
+              <span>{{ post.title }}</span>
+              <small>{{ post.date | date: "%m/%d/%y" }}</small>
+            </a>
+          </h4>
+        </li>
+      {% endif %}
     {% endfor %}
   </ul>
-</div>
+</aside>
