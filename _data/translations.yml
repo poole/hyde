@@ -8,5 +8,11 @@ en:
   newsletter-mail: "your@mail.com"
   newsletter-submit: "Subscribe!"
 de:
-  created: "Publié le"
-  author: "par"
+  created: "Veröffentlicht am"
+  author: "von"
+  press: "Presse Zeug"
+  readsaferspace: "Lies unsere Safer Space Richtlinien"
+  imprint: "Impressum"
+  newsletter: "Meld dich beim Newsletter an"
+  newsletter-mail: "deine@mail.de"
+  newsletter-submit: "Anmelden!"
