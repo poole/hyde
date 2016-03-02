@@ -701,7 +701,7 @@ ul.sidebar-nav li ul.sidebar-subnav li{
  }
 
  .foo-text-top {
-  margin: 0 0 0 0rem;
+  margin: 1rem 0 0 0rem;
   float:right;
 }
 
