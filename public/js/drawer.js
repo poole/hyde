@@ -210,7 +210,9 @@
     var animationChangeInValue;
     var lastTime;
     var timeDiff;
+
     var sliderWidth;
+    var screenWidth;
 
     function requestAnimationLoop() {
       if (!animationFrameRequested) {
@@ -286,7 +288,7 @@
         startX = pageX = lastPageX = touch.pageX;
         startY = pageY = lastPageY = touch.pageY;
 
-        if (!menuOpen && pageX < HITBOX_WIDTH || menuOpen) {
+        if (menuOpen || !menuOpen && pageX < (window.innerWidth / 3 || HITBOX_WIDTH)) {
           document.addEventListener('touchmove', onTouchMove);
           document.addEventListener('touchend', onTouchEnd);
         }
