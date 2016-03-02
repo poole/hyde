@@ -382,6 +382,12 @@
             // end animation
             startTranslateX = animationEndX;
             animationFrameRequested = false;
+
+            if (menuOpen === 1) {
+              document.body.classList.add('drawer-open');
+            } else {
+              document.body.classList.remove('drawer-open');
+            }
           }
 
           updateDOM(startTranslateX, sliderWidth);
@@ -390,8 +396,6 @@
     };
 
     function updateDOM(translateX, sliderWidth) {
-      if (menuOpen === 1) document.body.classList.add('drawer-open');
-      else document.body.classList.remove('drawer-open');
       sidebar.style[transformProperty] = 'translate3d(' + translateX + 'px,0,0)';
       backdrop.style['opacity'] = MAX_OPACITY * (translateX / sliderWidth);
     }
