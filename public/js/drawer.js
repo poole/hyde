@@ -185,7 +185,7 @@
     var ANIMATING = 'ANIMATING';
 
     var DURATION = 200;
-    var HITBOX_WIDTH = 100;
+    var HITBOX_WIDTH = 75;
     var MAX_OPACITY = 0.67;
     var VELOCITY_THRESHOLD = 0.5;
 
@@ -270,11 +270,6 @@
             translateX >= sliderWidth / 2 ? 1 :
             0;
       }
-      else if (menuOpen && pageX > sliderWidth) {
-        menuOpen = 0;
-        requestAnimationLoop();
-        e.preventDefault();
-      }
 
       state = START_ANIMATING;
       startedMoving = false;
@@ -291,8 +286,10 @@
         startX = pageX = lastPageX = touch.pageX;
         startY = pageY = lastPageY = touch.pageY;
 
-        document.addEventListener('touchmove', onTouchMove);
-        document.addEventListener('touchend', onTouchEnd);
+        if (!menuOpen && pageX < HITBOX_WIDTH || menuOpen) {
+          document.addEventListener('touchmove', onTouchMove);
+          document.addEventListener('touchend', onTouchEnd);
+        }
       }
     }
 
@@ -447,11 +444,11 @@
 
     // Allow vertical scrolling on code snippets.
     // TODO: Find a generic solution
-    Array.prototype.forEach.call(document.querySelectorAll('pre'), function(pre) {
-      pre.addEventListener('touchstart', function(e) {
-        e.stopPropagation();
-      });
-    });
+    // Array.prototype.forEach.call(document.querySelectorAll('pre'), function(pre) {
+    //   pre.addEventListener('touchstart', function(e) {
+    //     e.stopPropagation();
+    //   });
+    // });
   }
 
   var sidebar = document.getElementById('sidebar');
