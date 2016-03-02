@@ -14,7 +14,7 @@ description:      >
 sidebar_tags:     [jekyll, hyde]
 
 url:              https://qwtel.com
-baseurl:          /
+baseurl:          /hydejack
 
 author:
   name:           'Florian Klampfer'
@@ -25,3 +25,7 @@ author:
 # Fallback image and color if not overwritten for tag or post
 # image:            none
 color:            '#268bd2'
+
+kramdown:
+  extensions:
+    - autolink
