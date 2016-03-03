@@ -31,4 +31,4 @@ Please tell us if you are feeling uncomfortable or unsafe for any reason. You ca
 
 NOTE REGARDING TOILETS: We can only provide a unisex toilet space. If you don't feel comfortable with that there are also seperated toilets at the train station Kassel Hauptbahnhof (right around the corner). Unfortunately some of them require a fee and they are not part of the festival area.
 
-NOTE REGARDING MINORS: There may be works or talks depicting violence, sexuality or other topics that some may not find appropriate for children. Therefore we can only grant admission to the festival to people under the age of 18 if they are accompanied by a person of full age (like a parental figure for example).
+NOTE REGARDING MINORS: There may be works or talks depicting violence, sexuality or other topics that some may not find appropriate for children. Specific guidance will be detailed at the festival.
