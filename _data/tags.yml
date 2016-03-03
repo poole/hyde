@@ -1,6 +1,6 @@
 hyde:
   name: Hyde
-  image: /public/img/hyde.jpg
+  image: /hydejack/public/img/hyde.jpg
   color: '#949667'
   description: >
     Hyde is a brazen two-column Jekyll theme that pairs a prominent sidebar with uncomplicated content.
@@ -8,7 +8,7 @@ hyde:
 
 jekyll:
   name: Jekyll
-  image: /public/img/jekyll.jpg
+  image: /hydejack/public/img/jekyll.jpg
   color: '#949667'
   description: >
     Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.

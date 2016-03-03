@@ -178,13 +178,12 @@ a:focus::before {
   padding: 1.25rem 1rem ;
   color: #9a9a9a;
 }
+
 @media (min-width: 48em) {
   .drawer > #menu {
     display: none;
   }
-}
 
-@media (min-width: 48em) {
   .sidebar {
     position: fixed;
     top: 0;
@@ -350,29 +349,29 @@ a:focus::before {
 }
 
 .me {
-    width: 120px;
-    margin-top: -85px;
-    border-radius: 100%;
+    width: 6.5rem;
+    margin-top: -4.8rem;
     margin-left: 1rem;
+    border-radius: 100%;
     position: relative;
     z-index: 2;
     float: right;
 }
 @media (min-width: 38rem) {
   .me {
-    width: 140px;
-    margin-top: -105px;
+    width: 7rem;
+    margin-top: -5.05rem;
   }
 }
 @media (min-width: 48rem) {
   .me {
-    width: 120px;
-    margin-top: -85px;
+    width: 6.5rem;
+    margin-top: -4.8rem;
   }
 }
 @media (min-width: 58rem) {
   .me {
-    width: 140px;
-    margin-top: -105px;
+    width: 7rem;
+    margin-top: -5.05rem;
   }
 }

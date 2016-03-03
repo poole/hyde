@@ -20,17 +20,17 @@
 <div id="backdrop"></div>
 <a id="menu" href="#sidebar">☰</a>
 
-<aside id="sidebar" class="sidebar" {% if image %}style="background-image:url('{{ image | prepend:site.baseurl }}')"{% endif %}>
+<aside id="sidebar" class="sidebar" {% if image %}style="background-image:url('{{ image }}')"{% endif %}>
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
       <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-      <p>{{ site.description }}</p>
+      {{ site.description | markdownify }}
     </div>
 
     <nav class="sidebar-nav">
       {% for tag_key in site.sidebar_tags %}
         {% assign tag = site.data.tags[tag_key] %}
-        <a class="sidebar-nav-item{% if page.tag == tag_key %} active{% endif %}" href="{{ site.baseurl }}/tag/{{tag_key}}/">{{tag.name}}</a>
+        <a class="sidebar-nav-item{% if page.tag == tag_key %} active{% endif %}" href="{{ site.baseurl }}/tag/{{ tag_key }}/">{{ tag.name }}</a>
       {% endfor %}
 
       {% comment %}
@@ -57,7 +57,5 @@
         {% include icon-twitter.html username=site.author.twitter %}
       {% endif %}
     </div>
-
-    <!-- <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p> -->
   </div>
 </div>

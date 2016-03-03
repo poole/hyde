@@ -3,15 +3,21 @@ layout: page
 title: About
 ---
 
-![me][me]{:.me}
+{% comment %}
+  This inserts the "about" photo and text from `_config.yml`.
+  You can edit it there (jekyll needs restart!) or remove it and provide your own photo/text.
+  Don't forget to add the `me` class to the photo, like this: `![alt](src){:.me}`.
+{% endcomment %}
 
-Hi, I'm Florian or `@qwtel`, which isn't an acronym, I just [wanted a short username][usr] and that one happened to be available.
+{% if site.author.photo %}
+  ![{{ site.author.name }}]({{ site.author.photo }}){:.me}
+{% endif %}
 
-I have thoughts on [#software](/tag/software) and [#cryptoeconomics](/tag/cryptoeconomics).
+{{ site.author.about }}
 
 [write something about self]
 
-<br/>
+***
 
 ## References
 
@@ -23,13 +29,4 @@ I have thoughts on [#software](/tag/software) and [#cryptoeconomics](/tag/crypto
 
 * [Wreath](https://thenounproject.com/term/laurel-wreath/203146/) by [Nick Abrams](https://thenounproject.com/nabrams/) from the [Noun Project](https://thenounproject.com/).
 
-### Images
-
-* \#cryptoeconomics: Morte di Giulio Cesare by [Vincenzo Camuccini](https://en.wikipedia.org/wiki/Vincenzo_Camuccini), 1798
-* \#software: [KesennumaBrokenHouse.jpg](https://commons.wikimedia.org/wiki/File:KesennumaBrokenHouse.jpg) by [Douglas P. Perkins](https://commons.wikimedia.org/wiki/User:Douglaspperkins).
-* About: [High Altitude](https://anti-utopias.com/art/michael-najjar-high-altitude/) by [Michael Najjar](http://www.michaelnajjar.com/).
-
-
-[me]: /public/img/flo.jpg
 [usr]: /how-to-find-a-short-username
-[tlb]: http://www.fooledbyrandomness.com/

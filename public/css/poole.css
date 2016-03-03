@@ -82,7 +82,7 @@ h1 {
   font-size: 2rem;
 }
 h2 {
-  margin-top: 1rem;
+  margin-top: 1.5rem;
   font-size: 1.5rem;
 }
 h3 {
@@ -342,7 +342,7 @@ tbody tr:nth-child(odd) th {
 .related {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  border-top: 1px solid #eee;
+  /*border-top: 1px solid #eee;*/
 }
 .related-posts {
   padding-left: 0;
@@ -365,14 +365,20 @@ tbody tr:nth-child(odd) th {
   color: inherit;
 }
 
+.aside-title {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid #eee;
+}
+
 /* Footnotes */
 sup {
   line-height: 0;
 }
 .footnotes > ol {
-  opacity: 0.67;
+  opacity: 0.75;
 }
-.footnotes::before {
+.footnotes::before, .footnotes::after {
   content: "";
   display: block;
   margin: 1.5rem 0;

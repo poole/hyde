@@ -3,15 +3,17 @@ permalink:        pretty
 
 # Setup
 title:            Hydejack
-tagline:          Better than lumber jack.
 description:      >
-  A pretentious two-column <a href="http://jekyllrb.com/">Jekyll</a>
-  theme, stolen by <a href="https://twitter.com/qwtel" target="_blank">@qwtel</a>
-  from <a href="http://hyde.getpoole.com">Hyde</a>.
-  You could say it was.. <a href="http://media3.giphy.com/media/makedRIckZBW8/giphy.gif">hydejacked</a>.
+  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [@qwtel](https://twitter.com/qwtel)
+  from [Hyde](http://hyde.getpoole.com).
+  You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
 # The tags listed as entries in the sidebar
 sidebar_tags:     [jekyll, hyde]
+
+# Fallback image and color if not overwritten for tag or post
+image:            /hydejack/public/img/nap.jpg
+color:            '#A85641'
 
 url:              https://qwtel.com
 baseurl:          /hydejack
@@ -21,11 +23,9 @@ author:
   url:            https://qwtel.github.io
   twitter:        qwtel
   github:         qwtel
+  photo:          http://qwtel.com/public/img/flo.jpg
+  about:          |
+    Hi, I'm Florian or [`@qwtel`](https://www.twitter.com/qwtel), which isn't an acronym,
+    I just [wanted a short username](http://qwtel.com/how-to-find-a-short-username) and that one happened to be available.
 
-# Fallback image and color if not overwritten for tag or post
-# image:            none
-color:            '#268bd2'
-
-kramdown:
-  extensions:
-    - autolink
+    Read my thoughts on [#software](http://qwtel.com/tag/software) and [#cryptoeconomics](http://qwtel.com/tag/cryptoeconomics).
