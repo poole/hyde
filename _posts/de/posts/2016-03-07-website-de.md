@@ -13,6 +13,6 @@ Um auf dem Neusten zu bleiben, meldet euch beim [Newsletter](#newsletter) an ode
 
 Aber das ist noch nicht alles: Neben der Seite haben wir auch unseren Open Call gestartet, eine Ausschreibung für Vorschläge und Submissions für unser Festival. Wenn du ein Game hast, welches du in der Ausstellen gern sehen würdest, oder falls du Interesse hast einen Vortrag oder eine Performance zu machen, meld dich bei uns!
 
-[Vortrag, Workshop oder Ähnliches einreichen!](/submit-program)
+[Vortrag, Workshop oder Ähnliches einreichen!](/de/submit-program)
 
-[Game für die Ausstellung einreichen!](/submit-game)
+[Game für die Ausstellung einreichen!](/de/submit-game)

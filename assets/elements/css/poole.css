@@ -1027,8 +1027,8 @@ h1, h2 {
   width: 50%;
   position: relative;
   color: #fff;
-  transform: rotate(1.5deg) translateY(-50%);
-  top: 50%;
+  transform: rotate(1.5deg);
+  top: 30%;
 }
 
 .poop h3 {
