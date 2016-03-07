@@ -31,4 +31,4 @@ Bitte sag uns Bescheid, falls du dich egal aus welchem Grund unwohl oder nicht s
 
 WICHTIGE INFO ZU TOILETTEN: Auf unserem Festival können wir nur Unisex Toilettenräume bereitstellen. Falls das für dich nicht okay ist, gibt es auch getrennte Toiletten in der Nähe am Kasseler Hauptbahnhof. Diese sind leider aber teilweise kostenpflichtig und gehören nicht mehr zu unserem Festivalbereich.
 
-WICHTIGE INFO FÜR MINDERJÄHRIGEN: Auf unserem Festival wird es eventuell Games oder Vorträge geben, die Gewalt, Sexualität oder andere Dinge thematisieren, die für Kinder unpassend sein könnten. Spezifische Infos werden auf dem Festival ausgewiesen.
+WICHTIGE INFO FÜR MINDERJÄHRIGE: Auf unserem Festival wird es eventuell Games oder Vorträge geben, die Gewalt, Sexualität oder andere Dinge thematisieren, die für Kinder unpassend sein könnten. Spezifische Infos werden auf dem Festival ausgewiesen.
