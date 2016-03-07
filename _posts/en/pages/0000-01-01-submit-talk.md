@@ -54,15 +54,11 @@ Anyway, let's get started:
 
     <hr></hr>
     <li>
-        <label>What amount of compensation would you have in mind?</label>
-        <input type="text" name="payment" placeholder="preferably in €"/>
-    </li>
-    <li>
         <label>If you already know how you would travel to our event, please tell us here and also add the estimated traveling expenses.</label>
         <input type="text" name="traveling costs" placeholder="preferably in €"/>
     </li>
     <li>
-        <label>Would you be staying more than one day? If so, would you be comfortable with being accomodated at one of our team staff or would you want different accomodation (in a hotel or hostel for example)?</label>
+        <label>Would you be staying more than one day? If so, would you be comfortable with being accomodated at one of our collective members or would you want different accomodation (in a hotel or hostel for example)?</label>
         <input type="text" name="accomodation" />
     </li>
 

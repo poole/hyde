@@ -1,88 +1,170 @@
 <div class="box">
   <div class="container">
-    <img class="biglogo" alt="TINYPALACE / 20.-22. MAY / INTERIM KASSEL" src="/assets/elements/logo-big.png">
+    <div class="biglogo">
+    <img alt="TINYPALACE / 20.-22. MAY / INTERIM KASSEL" src="/assets/elements/logo-big-back.png">
+    <img class="biglogo1" src="/assets/elements/logo-big-1.png">
+    <img class="biglogo2" src="/assets/elements/logo-big-2.png">
+    <img class="biglogo3" src="/assets/elements/logo-big-3.png">
+    <img class="biglogo4" src="/assets/elements/logo-big-4.png">
+    </div>
   </div>
 </div>
 <div class="box2">
   <div class="container">
   <div class="box-bar"><img src="/assets/elements/blob1.png"></div>
-  <h1>What is a tiny palace?</h1>
-  <div class="video">
+  <h1>{{site.data.translations[page.lang].box-title-1}}</h1>
+  <div class="video" style="margin-bottom: 3rem;">
     {% if page.lang == "de" %}
     <iframe src="https://player.vimeo.com/video/156843242?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     {% else %}
     <iframe src="https://player.vimeo.com/video/156839554?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
     {% endif %}
   </div>
-  </br>
-  <h3>Open 20th - 22nd May / Vernissage 19th May / Interim Kassel</h3>
+  {% if page.lang == "de" %}
+  <div class="row">
+    <div class="half">
+    <p>tinypalace ist ein Ort zum abhängen. Ein Ort um Ideen zu teilen und zu hören, was andere zu sagen haben. Ein Ort zum experimentieren, diskutieren, essen, tanzen und spielen.</p>
+    <p>tinypalace ist ein alternatives Games Festival in Kassel.</p>
+    </div>
+    <div class="half">
+    <p><span class="righty" style="float: right;">Bitte unterstützt uns auf <a href="http://startnext.com/tinypalace" target="_blank">startnext.com</a>.</p> 
+    <p><span class="foo-text-top"><a href="https://www.facebook.com/events/706128156190900/" title="Facebook" target="_blank" id="foo-facebook">Facebook</a><!--
+--><a href="http://twitter.com/tinytinypalace" title="Twitter" target="_blank" id="foo-twitter">Twitter</a><!--
+--><a href="http://startnext.com/tinypalace" title="Unterstütz uns auf Startnext" target="_blank" id="foo-startnext">Startnext</a><!--
+--><a href="#newsletter" title="Beim Newsletter anmelden" id="foo-mail">Newsletter</a>
+    </span></p>
+    </div>
+  </div>  
+  {% else %}
   <div class="row">
     <div class="half">
     <p>tinypalace is a place to hang out. A place to share ideas and hear what others have on their mind. A place for experimenting, talking, eating, dancing and playing.</p>
     <p>tinypalace is an alternative games festival in Germany.</p>
     </div>
     <div class="half">
-    <p>Please consider supporting us on <a href="http://startnext.com/tinypalace" target="_blank">startnext.com</a>.</p> 
-    <p><span class="foo-text-top"><a href="face" target="_blank" id="foo-facebook">Facebook</a><!--
---><a href="http://twitter.com/tinytinypalace" target="_blank" id="foo-twitter">Twitter</a><!--
---><a href="http://startnext.com/tinypalace" target="_blank" id="foo-startnext">Startnext</a><!--
---><a href="#newsletter" id="foo-mail">Newsletter</a>
+    <p><span class="righty" style="float: right;">Please consider supporting us on <a href="http://startnext.com/tinypalace" target="_blank">startnext.com</a>.</p> 
+    <p><span class="foo-text-top"><a href="https://www.facebook.com/events/706128156190900/" title="Facebook" target="_blank" id="foo-facebook">Facebook</a><!--
+--><a href="http://twitter.com/tinytinypalace" title="Twitter" target="_blank" id="foo-twitter">Twitter</a><!--
+--><a href="http://startnext.com/en/tinypalace" title="Support us on Startnext" target="_blank" id="foo-startnext">Startnext</a><!--
+--><a href="#newsletter" title="Subscribe to our newsletter" id="foo-mail">Newsletter</a>
     </span></p>
     </div>
   </div>  
+  {% endif %}
   </div>  
 </div>
 <div class="box2">
   <div class="container">
   <div class="box-bar"><img src="/assets/elements/blob2.png"></div>
-  <h1>New posts</h1>
-    <div class="blog-list">
+  <h1>{{site.data.translations[page.lang].box-title-2}}</h1>
+  {% if page.lang == "de" %}
+  <p>Wir sind immernoch auf der Suche nach spannenden Games und Talks. Neben dem, was wir bereits gefunden haben, und dem, was täglich neues reinkommt, sind wir uns aber sicher vieles jenseits unserer eigenen Quellen zu verpassen.</p>
+  <p>Deswegen wollen wir mit diesem Open Call die Möglichkeit zu schaffen, noch mehr Positionen und Gedanken reinzuholen.</p>
+  <p><b>Zurzeit suchen wir noch nach Submissions und / oder Vorschlägen für Talks, Mini-Talks, Workshops, Performances und Games.</b></p>
+  <p><b>Aber eigentlich sind wir für alles offen! :></b></p>
+  <p class="open-call-but"><a href="{{ site.baseurl }}/de/submit-program">Vortrag, Workshop oder Ähnliches einreichen!</a><a href="{{ site.baseurl }}/de/submit-game">Game für die Ausstellung einreichen!</a></p>
+  {% else %}
+  <p>While we are doing a lot of research for tinypalace, regarding the games we want to give a platform to and the topics we want to discuss, we're sure that there are a lot of people out there we just don't know (yet) but have something important to say and show.
+  Let's be honest, we're also pretty new to this.</p>
+  <p>Therefore we are putting out this open call in the hopes that we get a lot of diverse and cool people to give us their perspectives.</p>
+  <p><b>We are currently looking for submissions or suggestions for talks, mini-talks, workshops, performances and games.</b></p>
+  <p><b>But we're pretty much open for anything. So let's hear your ideas.</b></p>
+  <p class="open-call-but"><a href="{{ site.baseurl }}/submit-program">Submit a talk, workshop or other panel!</a><a href="{{ site.baseurl }}/submit-game">Submit a game for the exhibition!</a></p>
+  {% endif %}
+  </div>
+</div>
+<div class="box2">
+  <div class="container">
+  <div class="box-bar"><img src="/assets/elements/blob3.png"></div>
+  <h1>{{site.data.translations[page.lang].box-title-3}}</h1>
+  <img src="/assets/img/pep.jpg" style="width: 100%;margin-bottom: 3rem;">
+  <div class="row" style="text-align: center;">
+    {% if page.lang == "de" %}
+    <div class="fourth">
+    <p><b>Ort</b></p>
+    <p><b>Interim</b></br>
+    Franz-Ulrich-Straße 16</br>
+    Kassel</br>
+    <a href="/de/location">Karte anzeigen</a></p>
+    </div>
+    <div class="fourth">
+    <p><b>Offen</b></p>
+    <p>Vom <b>20. Mai</b></br>
+    Bis <b>22. Mai</b></br>
+    Vernissage 19. Mai</p>
+    </div>
+    <div class="fourth">
+    <p><b>Überblick</b></p>
+    <p><a href="/de/program">Unser Programm</a></br><a href="/de/exhibition">Ausgestellte Games</a></br><a href="/de/safer-space">Safer Space Richtlinien</a></p>
+    </div>
+    <div class="fourth">
+    <p><b>Kontakt</b></p>
+    <p><a href='mailt&#111;&#58;ti&#110;%7&#57;p&#97;lace&#64;p%&#54;F&#37;7&#51;&#37;7&#52;&#101;&#111;&#46;&#100;e'>tin<span style="display:none">REMOVETHIS</span>ypala&#99;e&#64;post&#101;o&#46;d&#101;</a></p>
+    </div>
+    {% else %}
+    <div class="fourth">
+    <p><b>Location</b></p>
+    <p><b>Interim</b></br>
+    Franz-Ulrich-Straße 16</br>
+    Kassel, Germany</br>
+    <a href="/location">See the map</a></p>
+    </div>
+    <div class="fourth">
+    <p><b>Open</b></p>
+    <p>From <b>20th May</b></br>
+    To <b>22nd May</b></br>
+    Vernissage 19th May</p>
+    </div>
+    <div class="fourth">
+    <p><b>Overview</b></p>
+    <p><a href="/program">Our program</a></br><a href="/exhibition">Exhibited games</a></br><a href="/safer-space">Safer Space Policy</a></p>
+    </div>
+    <div class="fourth">
+    <p><b>Contact</b></p>
+    <p><a href='mailt&#111;&#58;ti&#110;%7&#57;p&#97;lace&#64;p%&#54;F&#37;7&#51;&#37;7&#52;&#101;&#111;&#46;&#100;e'>tin<span style="display:none">REMOVETHIS</span>ypala&#99;e&#64;post&#101;o&#46;d&#101;</a></p>
+    </div>
+    {% endif %}
+  </div>  
+  </div>
+</div>
+<div class="box2" style="padding-bottom: 12rem;">
+  <div class="container">
+  <div class="box-bar"><img src="/assets/elements/blob4.png"></div>
+  <h1>{{site.data.translations[page.lang].box-title-4}}</h1>
     {% assign posts=site.posts | where:"lang", page.lang %}
     {% for post in posts limit:2 %}
     {% if post.layout != "page" %}
-    {% assign detail="detailnoimg" %}
-      <div class="row">
-        <div class="half">
-        <a class="image" href="{{ post.url }}">
+      <div class="row blog-list">
+        <div class="third">
+        {% if post.video-id %}
+        <div class="video-blog">
+          <iframe src="https://player.vimeo.com/video/{{ post.video-id }}?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+        </div>
+        {% else %}
+          <a class="image" href="{{ post.url }}">
         {% assign images = post.content | markdownify | split:"<img " %}
         {% for image in images %}
           {% if image contains 'src=' %}
           {% if image contains 'class="emoji"' %}
           {% else %}
             {% assign imageMarkup = image | split:">" | first %}
-            
-            {% assign detail="detail" %}
+            <img style="width: 100%; object-fit: cover; height: 12rem; margin:0;" {{ imageMarkup }}>
             {% break %}
           {% endif %}
           {% endif %}
         {% endfor %}
+        {% endif %}
         </a>
         </div>
-        <div class="half">
-          <h3>{{ post.title }}</h3>
-          test test</br>
-          <a href="{{ post.url }}">Read more...</a>
+        <div class="two-third">
+          <p><b><a href="{{ post.url }}">{{ post.title }}</a></b><span class="post-date">{% include date.html date=post.date %}</span></p>
+          <p>{% assign excerpt = post.content | markdownify | strip_html | truncatewords: 35 %}
+              {{ excerpt }}
+          <span style="display: inline-block;"><a href="{{ post.url }}">{{site.data.translations[page.lang].readmore}}</a></span></p>
         </div>
       </div>
     {% endif %}
     {% endfor %}
-    </div>
-    <a href="/posts">More posts ></a>
-  </div>
-</div>
-<div class="box2">
-  <div class="container">
-  <div class="box-bar"><img src="/assets/elements/blob3.png"></div>
-  <h1>What is a tiny palace?</h1>
-  <h3>Open 20th - 22nd May / Vernissage 19th May / Interim Kassel</h3>
-  <p>tinypalace is a place to hang out. A place to share ideas and hear what others have on their mind. A place for experimenting, talking, eating, dancing and playing.</p>
-  <p>tinypalace is an alternative games festival in Germany.</p>
-  <p>To find out more click on the small link on the top that reads *About*.</p>
-  </div>
-</div>
-<div class="box2">
-  <div class="container">
-  <div class="box-bar"><img src="/assets/elements/blob4.png"></div>
-  <h1>How to find us</h1>
+    <p class="open-call-but"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de/{% endif %}blog">{{site.data.translations[page.lang].moreposts}}</a></p>
   </div>
 </div>

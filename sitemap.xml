@@ -11,7 +11,7 @@ permalink: /sitemap.xml
     http://www.sitemaps.org/schemas/sitemap/0.9
     http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
   {% for post in site.posts %}
-    {% if post.url != "/404.html" %}{% if post.url != "/404-de/" %}
+    {% if post.url != "/404.html" %}{% if post.url != "de/404/" %}
       <url>
         <loc>{{ site.url }}{{ post.url }}</loc>
         {% assign versions=site.posts | where:"name", post.name %}

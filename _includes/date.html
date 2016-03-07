@@ -5,9 +5,9 @@
     {{ d }}.
   {% else %}
     {{ d }}{% case d %}
-      {% when '1' or '21' or '31' %}st
-      {% when '2' or '22' %}nd
-      {% when '3' or '23' %}rd
+      {% when '01' or '21' or '31' %}st
+      {% when '02' or '22' %}nd
+      {% when '03' or '23' %}rd
       {% else %}th
     {% endcase %}
   {% endif %}
@@ -30,7 +30,7 @@
     {% when '12' %} Dezember
   {% endcase %}
 {% else %}
- of  {{ include.date | date: " %B"}}
+{{ include.date | date: " %B"}}
 {% endif %}
 {{ include.date | date: " %Y"}}
 {% endcapture %}{{ date | strip_newlines | replace: '  ','' }}

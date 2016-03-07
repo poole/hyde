@@ -1,13 +1,13 @@
 ---
 layout: page
-title: About
+title: Exhibition
 permalink: /exhibition
-name: about
+name: exhibition
 lang: en
 ---
 
-![](/assets/img/twid3.png)
+![](/assets/img/twid3.jpg)
 
 More infos coming soon!
 
-[Submit a game for the exhibition.]({{ site.baseurl }}/submit-game)
+[Submit a game for the exhibition.](/submit-game)

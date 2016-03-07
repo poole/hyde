@@ -17,13 +17,33 @@ en:
 
   contact:
     title: "Contact"
-    url:   "/contact"
+    url:   "/imprint"
 
   blog:
     title: "Blog"
     url:   "/blog"
 
 de:
+  program:
+    title: "Programm"
+    url:   "/de/program"
+
+  exhibition:
+    title: "Ausstellung"
+    url:   "/de/exhibition"
+
+  location:
+   title: "Ort"
+   url:   "/de/location"
+
   about:
-    title: "über uns"
+    title: "Über uns"
     url:   "/de/about"
+
+  contact:
+    title: "Kontakt"
+    url:   "/de/imprint"
+
+  blog:
+    title: "Blog"
+    url:   "/de/blog"

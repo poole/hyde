@@ -1,7 +1,7 @@
 encoding:         UTF-8
 
 # Permalinks
-permalink:        pretty
+permalink:        /:year/:month/:day/:slug
 
 # Gems
 gems:
@@ -17,7 +17,7 @@ baseurl:
 
 author:
   name:           'tiny'
-  url:            https://twitter.com/tinypalace_
+  url:            https://twitter.com/tinytinypalace
   email:          tinypalace@posteo.de
 
 # Custom vars
@@ -93,6 +93,10 @@ prose:
           element: "text"
           label: "Name"
           placeholder: "name me so I know the DE/EN counterpart"
+      - name: "video-id"
+        field:
+          element: "text"
+          label: "Vimeo ID (optional)"
     _posts/en:
       - name: "lang"
         field:
@@ -107,3 +111,7 @@ prose:
           element: "text"
           label: "Name"
           placeholder: "name me so I know the DE/EN counterpart"
+      - name: "video-id"
+        field:
+          element: "text"
+          label: "Vimeo ID (optional)"

@@ -14,6 +14,25 @@
     {% endif %}
   </title>
 
+  <meta name="description" content="{% if page.lang == "de" %}Ein alternatives Games Festival in Kassel.{% else %}An alternative games festival in Kassel.{% endif %}">
+
+  <!-- Facebook -->
+  <meta property="og:title" content="{% if page.title == "Home" %}{{ site.title }}{% else %}{{ site.title }} &hearts; {{ page.title }}{% endif %}">
+  <meta property="og:site_name" content="tinypalace">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:description" content="{% if page.lang == "de" %}Ein alternatives Games Festival in Kassel.{% else %}An alternative games festival in Kassel.{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.url }}/assets/elements/card.jpg">
+
+  <meta property="og:locale" content="{% if page.lang == "de" %}de_DE{% else %}en_US{% endif %}" />
+  <meta property="og:locale:alternate" content="{% if page.lang == "de" %}en_US{% else %}de_DE{% endif %}" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="tinypalace">
+  <meta name="twitter:description" content="{% if page.lang == "de" %}Ein alternatives Games Festival in Kassel.{% else %}An alternative games festival in Kassel.{% endif %}">
+  <meta name="twitter:image" content="{{ site.url }}/assets/elements/card.jpg">
+
   <!-- CSS -->
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/forms.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/poole.css">
@@ -21,7 +40,7 @@
   <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic' rel='stylesheet' type='text/css'>
 
   <!-- maps -->
-  <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet/v0.7.7/leaflet.css" />
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/leaflet.css" />
 
 
   <!-- Icons -->
@@ -73,5 +92,10 @@
   <link rel="alternate" type="application/rss+xml" title="tinypalace RSS" href="/atom.xml">
   <link rel="alternate" type="application/atom+xml" title="tinypalace Atom" href="/atom.xml" />
 
-  <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}" />
+  {% assign posts=site.posts | where:"name", page.name | sort: 'path' %}
+  {% for post in posts %}
+  {% if post.lang == page.lang %}{% else %}
+  <link rel="alternate" hreflang="{{ post.lang }}" href="{{ site.url }}{{ post.url }}" />
+  {% endif %}{% endfor %}
+
 </head>

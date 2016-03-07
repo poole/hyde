@@ -4,55 +4,16 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{% include date.html date=page.date %}</span>
+  <p>{% include date.html date=page.date %}</p>
+  <p></p>
+  {% if page.video-id %}
+  <div class="video" style="margin-bottom: 3rem;">
+    <iframe src="https://player.vimeo.com/video/{{ page.video-id }}?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </div>
+  {% endif %}
   {{ content }}
 </div>
+<hr></hr>
 
-    {% assign posts=site.posts | where:"lang", page.lang %}
-    {% for post in posts | where:"type", posts %}
-    {% if post.layout != "page" %}
-    {{ post.title }}
-    {% if post.lang == en %}{{ post.title }}{% endif %}
-        {% if post.url == page.url %}
-            {% assign post_index0 = forloop.index0 %}
-            {% assign post_index1 = forloop.index %}
-        {% endif %}
-    {% endif %}
-    {% endfor %}
-    {% for post in posts | where:"type", posts %}
-    {% if post.layout != "page" %}
-        {% if post_index0 == forloop.index %}
-            {% assign next_post = post %}
-        {% endif %}
-        {% if post_index1 == forloop.index0 %}
-            {% assign prev_post = post %}
-        {% endif %}
-    {% endif %}
-    {% endfor %}
-    {% if next_post %}
-        <a href="{{ next_post.url }}">Next Post is {{ next_post.title }}</a> <br>
-    {% endif %}
-    {% if prev_post %}
-        <a href="{{ prev_post.url }}">Previous Post is {{ prev_post.title }}</a> <br>
-    {% endif %}
+{{site.data.translations[page.lang].share}} <a style="padding: 0 0.5rem;" class="btn btn-small btn-sm twitter" href="http://twitter.com/share?text={{page.title | encode}}&via=tinytinypalace" target="_blank">Twitter</a> <a style="padding: 0 0.5rem;" class="btn btn-small btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php" target="_blank">Facebook</a> <a style="padding: 0 0.5rem;" class="btn btn-small btn-sm gplus" href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" target="_blank">Google+</a></p>
 
-
-
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% assign relate=site.related_posts limit:3 | where:"lang", page.lang %}
-    {% for post in relate %}
-      {% if post.layout != "page" %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{% include date.html date=post.date %}</small>
-          </a>
-        </h3>
-      </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>

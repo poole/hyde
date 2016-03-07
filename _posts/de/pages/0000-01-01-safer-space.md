@@ -8,7 +8,7 @@ lang: de
 
 Wir sind engagiert, tinypalace zu einem zugänglichem Raum zu machen, unabhängig von Geschlechtsidentität oder -ausdruck, sexueller Orientierung, <span class="help" title="geistige oder körperliche Beinträchtigung">Ability</span>, äußerlicher Erscheinung, ethnischer Herkunft oder Identität, Alter, Religion, Nationalität, Einkommen, Bildungshintergrund oder Kenntnisstand.
 
-Wir tolerieren kein belästigendes, diskriminierendes oder sonst grenzüberschreitendes Verhalten. Darunter fällt:
+Wir tolerieren kein diskriminierendes oder grenzüberschreitendes Verhalten. Darunter fällt:
 
 - Die Verwendung sexistischer, rassistischer, homophobischer, transphobischer, <span class="help" title="Diskriminierend gegenüber Personen mit Behinderung">ableistischer</span> or anders diskriminierender Sprache oder Bilder
 - Beleidigungen, Gewalt, Androhung von Gewalt oder Stalking
@@ -18,7 +18,7 @@ Wir tolerieren kein belästigendes, diskriminierendes oder sonst grenzüberschre
 
 sowie jedes Verhalten, durch das sich unsere Besucher*innen in irgendeiner Weise unwohl oder nicht willkommen fühlen könnten.
 
-Wir wollen unsere Besucher*innen dazu ermutigen uns dabei zu helfen, dass tinypalace ein cooles Festival für alle wird. Solltest du etwas bemerken, was störend ist, oder solltest du das Gefühl haben, dass es jemandem nicht gut geht, zöger nicht die Person zu fragen, ob sie Hilfe braucht oder sag uns Bescheid.
+Wir möchten unsere Besucher*innen dazu ermutigen uns dabei zu helfen, dass tinypalace ein cooles Festival für alle wird. Solltest du etwas bemerken, was störend ist, oder solltest du das Gefühl haben, dass es jemandem nicht gut geht, zöger nicht die Person zu fragen, ob sie Hilfe braucht oder sag uns Bescheid.
 
 Ebenfalls möchten wir alle bitten, zu einem respekt- und verantwortungsvollen Dialog beizutragen. Bevor du Themen ansprichst, die vielleicht <span class="help" title="Trigger (Auslöser) können bestimmte Themen, Wörter oder Bilder sein, die negative Assoziationen oder Erinnerungen bei Menschen mit - meist traumatischen - Erfahrungen auslösen">triggernd</span> sein könnten, frag nach und gib vorher eine angemessene <span class="help" title='Beispiel: "Triggerwarnung, in meinem Vortag werde ich auch über explizite Gewalt und homophobische Sprache reden"'>Warnung</span>.
 

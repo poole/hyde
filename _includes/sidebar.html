@@ -11,6 +11,9 @@
 
 
 <ul class="sidebar-nav" id="close-newsletter"><!--
+
+--><li class="sidebar-home"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de{% endif %}" class="sidebar-nav-subitem{% if page.url == site.baseurl %} active{% endif %}">Home</a></li><!--
+
   -->{% for menu in site.data.navigation[page.lang] %}<!--
   -->{% if menu[1].top == NONE %}<!--
 
@@ -20,6 +23,7 @@
 
     --><!-- add sub menu --><!--
     --><ul class="sidebar-subnav"><!--
+    
       -->{% for submenu in site.data.navigation[page.lang] %}<!--
 
       -->{% if submenu[1].top == menu[1].title %}<!--
