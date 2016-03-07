@@ -1013,6 +1013,7 @@ h1, h2 {
   visibility: hidden;
   opacity: 0;
   z-index: 1050;
+  height: 100%;
 }
 .overlay:target {
   visibility: visible;
