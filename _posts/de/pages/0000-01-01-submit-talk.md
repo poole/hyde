@@ -55,7 +55,7 @@ Auf geht's:
     <hr></hr>
     <li>
         <label>Wenn du schon weißt wie du zu unserer Veranstalltung kommen würdest, sag uns bitte wie und nenne auch die ungefähren Reisekosten:</label>
-        <input type="text" name="traveling costs" placeholder="preferably in €"/>
+        <input type="text" name="traveling costs" placeholder="in €"/>
     </li>
     <li>
         <label>Würdest du länger als einen Tag bleiben? Wenn ja, wäre es okay für dich bei einem unserer Kollektivmitglieder zu übernachten oder würdest du dir eine spezielle Unterkunft wünschen (z.B. Hotel oder Hostel)?</label>
@@ -65,7 +65,7 @@ Auf geht's:
     <hr></hr>
     <li>
         <label>Und dann brauchen noch deine Mail Adresse, damit wir dir antworten können!</label>
-        <input type="email" name="_replyto" placeholder="your@mail.com" />
+        <input type="email" name="_replyto" placeholder="deine@mail.de" />
     </li>
     <input type="hidden" name="_next" value="/de/thanks" />
     <input type="hidden" name="_subject" value="tinypalace - Open Call for Talks / Workshops" />

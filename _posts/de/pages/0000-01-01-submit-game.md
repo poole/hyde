@@ -40,10 +40,10 @@ Erzähl uns etwas von deinem Game:
         <textarea name="about myself"></textarea>
     </li>
 
-    <hr></hr>
+    <hr></hr>s
     <li>
         <label>Und dann brauchen noch deine Mail Adresse, damit wir dir antworten können!</label>
-        <input type="email" name="_replyto" placeholder="your@mail.com" />
+        <input type="email" name="_replyto" placeholder="deine@mail.de" />
     </li>
     <input type="hidden" name="_next" value="/de/thanks" />
     <input type="hidden" name="_subject" value="tinypalace - Open Call for Games" />
