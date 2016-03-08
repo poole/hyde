@@ -6,7 +6,11 @@ layout: default
 
 <h1 class="page-title">{{ tag.name }}</h1>
 {% if tag.description %}
-  <p class="message">{{tag.description}}</p>
+  {% comment %}
+    Adding the "message" class to the last (and usually only) paragraph of the description.
+  {% endcomment %}
+  {% capture desc %}{{ tag.description }}{:.message}{% endcapture %}
+  {{ desc | markdownify }}
 {% endif %}
 <hr/>
 

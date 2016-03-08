@@ -187,7 +187,8 @@
     var DURATION = 200;
     var HITBOX_WIDTH = 75;
     var MAX_OPACITY = 0.67;
-    var VELOCITY_THRESHOLD = 0.5;
+    var VELOCITY_THRESHOLD = 0.33;
+    var VELOCITY_LINEAR_COMBINATION = 0.6;
 
     var startX = 0;
     var startY = 0;
@@ -341,7 +342,8 @@
           timeDiff = time - lastTime;
 
           if (timeDiff > 0) {
-            velocity = (pageX - lastPageX) / timeDiff;
+            velocity = VELOCITY_LINEAR_COMBINATION  * (pageX - lastPageX) / timeDiff +
+                  (1 - VELOCITY_LINEAR_COMBINATION) *  velocity;
           }
 
           var deltaX = pageX - startX;
@@ -381,6 +383,7 @@
             // end animation
             startTranslateX = animationEndX;
             animationFrameRequested = false;
+            velocity = 0;
 
             if (menuOpen === 1) {
               document.body.classList.add('drawer-open');
@@ -410,17 +413,16 @@
       el.style.top = 'auto';
     }
 
-    function setToFullHeight(el) {
-      el.style.height = 'auto'
-      el.style.top = 0;
-    }
+    // function setToFullHeight(el) {
+    //   el.style.height = 'auto'
+    //   el.style.top = 0;
+    // }
 
     function enableSlider() {
       document.body.classList.add('drawer');
       document.addEventListener('touchstart', onTouchStart);
       menu.addEventListener('tap', onMenuClick);
       backdrop.addEventListener('tap', onBackdropClick);
-      addressbarHeightFix(setToScreenHeight);
       animateTo(menuOpen);
     }
 
@@ -429,7 +431,6 @@
       document.removeEventListener('touchstart', onTouchStart);
       menu.removeEventListener('tap', onMenuClick);
       backdrop.removeEventListener('tap', onBackdropClick);
-      addressbarHeightFix(setToFullHeight);
     }
 
     function onResize() {
@@ -438,11 +439,14 @@
       } else {
         enableSlider();
       }
+      // This prevents repaints when the window heights changes due to disappearing address bars in mobile browsers.
+      addressbarHeightFix(setToScreenHeight);
     }
 
     window.addEventListener('resize', onResize);
     window.addEventListener('orientationchange', onResize);
     onResize();
+
 
     // Allow vertical scrolling on code snippets.
     // TODO: Find a generic solution
@@ -453,10 +457,10 @@
     // });
   }
 
-  var sidebar = document.getElementById('sidebar');
-  var backdrop = document.getElementById('backdrop');
-  var menu = document.getElementById('menu');
+  var sidebar = document.getElementById('_sidebar');
+  var backdrop = document.getElementById('_backdrop');
+  var menu = document.getElementById('_menu');
 
-  // TODO: Don't run for incapable browsers
+  // TODO: Don't run in incapable browsers
   createSidebar(sidebar, backdrop, menu);
 }());
