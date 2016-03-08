@@ -37,16 +37,24 @@ Hydejack is developed on and hosted with GitHub. Head to the [GitHub repository]
 I love the original Hyde theme, but unfortunately the layout isn't as great on small screens.
 Since the sidebar moves to the top, the user has to scroll just to read the title of a blog post.
 
-By using a drawer component I was able to retain the original two column layout. It's possible to move the drawer via touch input (with the help of a little JavaScript). However, there is a fallback in case the client has JS disabled.
+By using a drawer component I was able to retain the original two column layout. It's possible to move the drawer via touch input (with the help of a little JavaScript).
 
-Since the background image contributes to the feel of the page I'm letting it peek over the edge a bit. This also provides a hint to the user that there is a possible interaction.
+Since the background image contributes to the feel of the page I'm letting it peek over the edge a bit. This also provides a hint to the user that an interaction is possible.
 
 ### Preview
 {:.preview}
 
-<iframe class="preview" src="/hydejack/2016/02/26/introducing-hydejack/" style="border: 1px solid #ddd; width: 340px; height: 520px; margin-top: 1rem"></iframe>
+<iframe class="preview" src="/hydejack/2016/03/08/introducing-hydejack/" style="border: 1px solid #ddd; width: 340px; height: 520px; margin-top: 1rem"></iframe>
 
 ## Manual
+
+### Configuration
+You can configure important aspects of the theme via [`_config.yml`](https://github.com/qwtel/hydejack/blob/master/_config.yml). This includes:
+
+* the blog description in the sidebar
+* the (optional) author description and photo
+* default image and link color of the blog
+* the github and twitter usernames
 
 ### How to Change the Image and Color of a Post
 In the manifest of a blog post, simply add an url as `image` and a CSS color as `color`:
@@ -62,9 +70,9 @@ color: '#949667'
 
 ### How to Add a New Tag
 
-Tags are not meant to be used #instagram #style: #food #goodfood #goodlife #happy #happylife #didimentionfood #yougetthepoint, as each tag requires some setup work. I tend to think of it as categories that can be combined.
+Tags are not meant to be used #instagram #style: #food #goodfood #happy #happylife #didimentionfood #yougetthepoint, as each tag requires some setup work. I tend to think of it as categories that can be combined.
 
-1.  Add an entry to `_data/tags.yml`, where the key represents a slug and provide at least the `name` and optionally an `image`, `color` and `description`.
+1.  Add an entry to `_data/tags.yml`, where the key represents a slug and provide at least a `name` value and optionally `image`, `color` and `description`.
 
     Example `/_data/tags.yml`:
 
