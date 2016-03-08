@@ -67,7 +67,7 @@ Auf geht's:
         <label>Und dann brauchen noch deine Mail Adresse, damit wir dir antworten können!</label>
         <input type="email" name="_replyto" placeholder="your@mail.com" />
     </li>
-    <input type="hidden" name="_next" value="/thanks" />
+    <input type="hidden" name="_next" value="/de/thanks" />
     <input type="hidden" name="_subject" value="tinypalace - Open Call for Talks / Workshops" />
     <input type="text" name="_gotcha" style="display:none" />
     <li>
