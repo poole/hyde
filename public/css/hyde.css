@@ -41,9 +41,15 @@ html {
 }
 @media (min-width: 58em) {
   html {
-    font-size: 20px;
+    font-size: 22px;
   }
 }
+
+@font-face{
+  font-family: "invader";
+  src: url(/public/invader.ttf);
+}
+
 
 
 /*
@@ -72,31 +78,39 @@ html {
 
 /* Sidebar links */
 .sidebar a {
-  color: #fff;
+  font-family: "invader";
+  color: #00ff00;
 }
 
 /* About section */
 .sidebar-about h1 {
-  color: #fff;
+  color: #00ff00;
   margin-top: 0;
   font-family: "Abril Fatface", serif;
   font-size: 3.25rem;
 }
+.sidebar-about p {
+  color: #00ff00;
+  margin-top: 0;
+  font-size: 22px;
+}
+
 
 /* Sidebar nav */
 .sidebar-nav {
+  font-size: 24px;
   margin-bottom: 1rem;
 }
 .sidebar-nav-item {
   display: block;
-  line-height: 1.75;
+  line-height: 25px;
 }
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
-  text-decoration: underline;
+  text-shadow: 0 0 6px #bbb;
 }
 .sidebar-nav-item.active {
-  font-weight: bold;
+  text-shadow: 0 0 6px #aaa;
 }
 
 /* Sticky sidebar
@@ -189,10 +203,11 @@ a.sidebar-nav-item:focus {
 /* Orange */
 .theme-base-09 .sidebar {
   background-color: #d28445;
+  color: green;
 }
 .theme-base-09 .content a,
 .theme-base-09 .related-posts li a:hover {
-  color: #d28445;
+  color: green;
 }
 
 /* Yellow */
@@ -247,4 +262,39 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
+}
+
+
+/* Mhynlo */
+.sidebar-port img{
+  width: 300px;
+  height: 300px;
+  border-radius: 150px;
+  -webkit-border-radius: 150px;
+  -moz-border-radius: 150px;
+  background: url(URL) no-repeat;
+  box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -webkit-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  -moz-box-shadow: 0 0 8px rgba(0, 0, 0, .8);
+  box-shadow: 0 0 3px #bbb;
+}
+.sidebar .social img{
+  display: inline-block !important;
+  margin-left: auto;
+  margin-right: auto;
+  text-align:center !important;
+  box-shadow: 0 0 3px #aaa;
+}
+
+.theme-mhynlo .sidebar {
+  color: #00bb00;
+  background-color: #222;
+}
+.theme-mhynlo .content a,
+.theme-mhynlo .related-posts li a:hover {
+  font-family: "invader";
+  color: #00ff00;
+}
+.sidebar .siteinfo{
+  font-size: 12px;
 }

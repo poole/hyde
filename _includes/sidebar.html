@@ -1,5 +1,8 @@
 <div class="sidebar">
   <div class="container sidebar-sticky">
+    <div class="sidebar-port">
+      <img border="2" alt="portait" src="/public/images/dib_port.png" style="width:175px;height:175px;"></a>
+    </div>
     <div class="sidebar-about">
       <h1>
         <a href="{{ site.baseurl }}">
@@ -26,11 +29,23 @@
         {% endif %}
       {% endfor %}
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+      <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
+      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a> -->
     </nav>
 
-    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+    <div class="social">
+      <a href="{{ site.social.twitter }}">
+        <img border="0" alt="twitter" src="/public/images/twitter_icon.png"></a>
+      <a href="{{ site.social.twitch }}">
+        <img border="0" alt="twitch" src="/public/images/twitch_icon.png"></a>
+      <a href="{{ site.social.steam }}">
+        <img border="0" alt="steam" src="/public/images/steam_icon.png"></a>
+      <a href="{{ site.social.github }}">
+        <img border="0" alt="github" src="/public/images/github_icon.png"></a>
+    </div>
+    <div class="siteinfo">
+      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+      <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+    </div>
   </div>
 </div>
