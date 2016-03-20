@@ -58,16 +58,21 @@ html {
   }
 }
 
+@font-face{
+  font-family: "invader";
+  src: url(/public/invader.ttf);
+}
+
 body {
-  color: #515151;
-  background-color: #fff;
+  color: #00bb00;
+  background-color: #333;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #268bd2;
+  color: #00ff00;
   text-decoration: none;
 }
 a strong {
@@ -76,7 +81,8 @@ a strong {
 /* `:focus` is linked to `:hover` for basic accessibility */
 a:hover,
 a:focus {
-  text-decoration: underline;
+  /*text-decoration: underline;*/
+  text-shadow: 0 0 10px #ccc;
 }
 
 /* Headings */
@@ -84,8 +90,10 @@ h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
   font-weight: bold;
   line-height: 1.25;
-  color: #313131;
+  color: #00dd00;
   text-rendering: optimizeLegibility;
+  font-family: "invader";
+  font-weight: normal;
 }
 h1 {
   font-size: 2rem;
@@ -110,7 +118,7 @@ p {
 }
 
 strong {
-  color: #303030;
+  color: #00ff00;
 }
 
 
@@ -139,7 +147,7 @@ hr {
 abbr {
   font-size: 85%;
   font-weight: bold;
-  color: #555;
+  color: #00ff00;
   text-transform: uppercase;
 }
 abbr[title] {
@@ -155,8 +163,8 @@ pre {
 code {
   padding: .25em .5em;
   font-size: 85%;
-  color: #bf616a;
-  background-color: #f9f9f9;
+  color: #00ff00;
+  background-color: #222;
   border-radius: 3px;
 }
 pre {
@@ -170,7 +178,7 @@ pre {
   white-space: pre-wrap;
   word-break: break-all;
   word-wrap: break-word;
-  background-color: #f9f9f9;
+  background-color: #222;
 }
 pre code {
   padding: 0;
@@ -184,6 +192,24 @@ pre code {
   margin-bottom: 1rem;
   border-radius: 4px;
 }
+.highlight .c1{
+  color: #bbb !important;
+}
+.highlight .k{
+  color: #07a !important;
+}
+.highlight .kd{
+  color: #07a !important;
+}
+.highlight .s2{
+  color: #f30 !important;
+}
+.highlight .mi{
+  color: #f90 !important;
+}
+.highlight .nb{
+  color: #6aa !important;
+}
 .highlight pre {
   margin-bottom: 0;
 }
@@ -191,9 +217,11 @@ pre code {
 /* Gist via GitHub Pages */
 .gist .gist-file {
   font-family: Menlo, Monaco, "Courier New", monospace !important;
+  border: #666 !important;
 }
-.gist .markdown-body {
+.gist .markdown-body pre{
   padding: 15px;
+  background-color: #444 !important;
 }
 .gist pre {
   padding: 0;
@@ -202,6 +230,9 @@ pre code {
 .gist .gist-file .gist-data {
   font-size: .8rem !important;
   line-height: 1.4;
+  color: #00bb00;
+  background-color: #222 !important;
+  border: #666 !important;
 }
 .gist code {
   padding: 0;
@@ -209,13 +240,23 @@ pre code {
   background-color: transparent;
   border-radius: 0;
 }
+.gist .gist-meta{
+  color: #00bb00 !important;
+  background-color: #444 !important;
+}
+.gist .gist-meta a{
+  color: #00ff00 !important;
+  /*background-color: #444 !important;*/
+}
+
 
 /* Quotes */
 blockquote {
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: #7a7a7a;
-  border-left: .25rem solid #e5e5e5;
+  color: #00bb00;
+  border-left: .25rem solid #00ff00;
+  background-color: #444;
 }
 blockquote p:last-child {
   margin-bottom: 0;
@@ -228,7 +269,7 @@ blockquote p:last-child {
 }
 
 img {
-  display: block;
+  display: inline-block;
   max-width: 100%;
   margin: 0 0 1rem;
   border-radius: 5px;
@@ -241,15 +282,20 @@ table {
   border: 1px solid #e5e5e5;
   border-collapse: collapse;
 }
-td,
+td {
+  padding: .25rem .5rem;
+  border: 1px solid #000;
+}
 th {
   padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
+  border: 1px solid #000;
+  background-color: #222;
 }
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  background-color: #444;
 }
+
 
 
 /*
@@ -274,8 +320,8 @@ tbody tr:nth-child(odd) th {
 .message {
   margin-bottom: 1rem;
   padding: 1rem;
-  color: #717171;
-  background-color: #f9f9f9;
+  color: #00cc00;
+  background-color: #444;
 }
 
 
@@ -327,17 +373,21 @@ tbody tr:nth-child(odd) th {
  * Each post is wrapped in `.post` and is used on default and post layouts. Each
  * page is wrapped in `.page` and is only used on the page layout.
  */
-
 .page,
 .post {
   margin-bottom: 4em;
 }
+.post img{
+  display: block;
+}
+
 
 /* Blog post or page title */
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: #00ff00;
+  font-family: "invader";
 }
 .page-title,
 .post-title {
@@ -349,7 +399,9 @@ tbody tr:nth-child(odd) th {
   display: block;
   margin-top: -.5rem;
   margin-bottom: 1rem;
-  color: #9a9a9a;
+  font-style: italic;
+  color: #009900;
+  font-size:  14px;
 }
 
 /* Related posts */
@@ -390,7 +442,8 @@ tbody tr:nth-child(odd) th {
   margin-left: -1rem;
   margin-right: -1rem;
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
-  color: #ccc;
+  color: #00ff00;
+  background-color: #222;
   text-align: center;
 }
 
@@ -398,7 +451,7 @@ tbody tr:nth-child(odd) th {
 .pagination-item {
   display: block;
   padding: 1rem;
-  border: 1px solid #eee;
+  border: 1px solid #00ff00;
 }
 .pagination-item:first-child {
   margin-bottom: -1px;
