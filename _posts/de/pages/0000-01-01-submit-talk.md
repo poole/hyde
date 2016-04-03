@@ -6,7 +6,7 @@ name: submit-program
 lang: de
 ---
 
-Wir sind bis mindestens Ende März für Bewerbungen / Vorschläge offen!
+Wir sind bis 10. April März für Bewerbungen / Vorschläge offen!
 Du kannst alles mögliche einreichen, sei es ein Talk, ein Workshop, eine Diskussionsrunde oder was du dir sonst noch vorstellen kannst.
 
 Wir sind auch auf der Suche nach Mini-Talks (von 5 bis 10 Minuten Länge) für eine Lightning Talk Runde. Gerne kannst du uns deine Ideen hierfür einreichen.

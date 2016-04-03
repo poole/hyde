@@ -6,10 +6,10 @@ name: submit-game
 lang: de
 ---
 
-Wir sind bis mindestens Ende März für Bewerbungen / Vorschläge offen!
+Wir sind bis 10. April für Bewerbungen / Vorschläge offen!
 Allerdings wollen wir darauf hinweisen, dass tinypalace eine kuratierte Ausstellung ist. Daher kann es sein, dass wir nicht jede Bewerbung annehmen können, zum Einen aus Platzgründen und zum Anderen kann es sein, dass deine Arbeit nicht in unsere Kuration oder das Thema des Festivals passt.
 
-Wir versuchen dir möglichst schnell Bescheid zu geben, ob wir deine Arbeit einplanen oder nicht. Und wenn du nicht ausgewählt wirst, hoffen wir, dass du Teil der show $ tell Ecke wirst, wo alle einen Laptop und einen Controller mitbringen und ihr Game zeigen können. (Mehr Infos dazu gibt's später!)
+Wir versuchen dir möglichst schnell Bescheid zu geben, ob wir deine Arbeit einplanen oder nicht. Und wenn du nicht ausgewählt wirst, hoffen wir, dass du Teil der Show & Tell Ecke wirst, wo alle einen Laptop und einen Controller mitbringen und ihr Game zeigen können. (Mehr Infos dazu gibt's später!)
 
 -----
 

@@ -6,7 +6,7 @@ name: submit-program
 lang: en
 ---
 
-We are open for submissions / suggestions until at least the end of March!  
+We are open for submissions / suggestions until 10th of April!  
 You can suggest anything, be it a talk, a workshop, a discussion panel, a performance or anything else.
 
 We are also looking for mini talks (5 to 10 minutes in length) for a lightning talk session, feel free to submit any ideas you have.

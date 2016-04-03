@@ -6,7 +6,7 @@ name: submit-game
 lang: en
 ---
 
-We are open for game submissions / suggestions until at least the end of March!  
+We are open for game submissions / suggestions until 10th of April!  
 However we'd like to remark that tinypalace is a curated exhibition and we may not be able to include every submission because it may not fit the curation, festival theme or we may just not have enough space for it.
 
 We'll try let you know as soon as possible if we would like to include your work or not. And if you don't get selected we hope you consider participating in the show & tell corner, where anyone can bring a laptop and a controller and display their game (We'll have more infos on that soon!).
