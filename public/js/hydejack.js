@@ -1,5 +1,5 @@
 (function() {
-  /*!
+  /**
    * tap.js
    * Copyright (c) 2015 Alex Gibson
    * https://github.com/alexgibson/tap.js/
@@ -463,4 +463,39 @@
 
   // TODO: Don't run in incapable browsers
   createSidebar(sidebar, backdrop, menu);
+
+  //this function will work cross-browser for loading scripts asynchronously
+  function loadScript(src, callback) {
+    var s,
+        r,
+        t;
+    r = false;
+    s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = src;
+    s.onload = s.onreadystatechange = function() {
+      //console.log( this.readyState ); //uncomment this line to see which ready states are called.
+      if (!r && (!this.readyState || this.readyState == 'complete')) {
+        r = true;
+        callback();
+      }
+    };
+    t = document.getElementsByTagName('script')[0];
+    t.parentNode.insertBefore(s, t);
+  }
+
+  // enable math blocks using KaTeX
+  loadScript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js", function () {
+    // kramdown generates script tags with type "math/tex"
+    var mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
+    Array.prototype.forEach.call(mathBlocks, function(el) {
+      var tex = el.textContent
+        .replace('% <![CDATA[', '')
+        .replace('%]]>', '');
+      // replace the script tag with KaTeX, wrap in <p> if it is a block
+      el.outerHTML = (el.type === 'math/tex; mode=display') ?
+        '<p>' + katex.renderToString(tex, {displayMode: true}) + '</p>' :
+                katex.renderToString(tex);
+    });
+  });
 }());
