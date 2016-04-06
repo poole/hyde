@@ -4,7 +4,6 @@ highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            Hyde
@@ -24,3 +23,6 @@ version:          2.1.0
 
 github:
   repo:           https://github.com/poole/hyde
+
+# Gems
+gems: ['jekyll-paginate', 'jekyll-gist']
