@@ -9,5 +9,3 @@ lang: en
 ![](/assets/img/twid3.jpg)
 
 More infos coming soon!
-
-[Submit a game for the exhibition.](/submit-game)
