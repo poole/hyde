@@ -1,10 +1,9 @@
 /*
- * Author: Emma Carberry
- * URL: http://emmacarberry.com
+ * Author: Ciarab
+ * URL: ciaran.design
  *
- * Project Name: Emma Carberry
+ * Project Name: Ciaran
  * Version: 1.0
- * URL: http://blacktie.co
  */
 
 
@@ -33,10 +32,10 @@
 @import url(http://fonts.googleapis.com/css?family=Montserrat:400,700);
 
 body {
-	background-color: rgb(66, 133, 244);
+	background-color: white;
   -webkit-font-smoothing: antialiased;
   -webkit-overflow-scrolling: touch;
-  color: #fff;
+  color: #000;
 }
 
 h1 {
@@ -84,7 +83,7 @@ b {
 
 /* Links */
 a {
-    color: #f5f5f5;
+    color: #888;
     word-wrap: break-word;
     cursor: pointer;
     -webkit-transition: color 0.1s ease-in, background 0.1s ease-in;
@@ -96,8 +95,8 @@ a {
 
 a:hover,
 a:focus {
-    color: #fff;
-    text-decoration: none;
+    color: #aaa;
+    text-decoration: underline dotted;
     outline: 0;
 }
 
@@ -114,7 +113,7 @@ a:after {
 /*nav*/
 .navbar-brand {
   font-family: 'graphik-web-medium', helvetica, sans-serif;
-  color: #fff;
+  color: #000;
 }
 
 .nav {
