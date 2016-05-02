@@ -71,8 +71,12 @@ html {
 }
 
 /* Sidebar links */
-.sidebar a {
+p.lead {
   color: #000;
+}
+
+.sidebar a {
+  color: #fff;
 }
 
 /* About section */
