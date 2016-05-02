@@ -1,6 +1,6 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
@@ -9,7 +9,7 @@ permalink:        pretty
 # Setup
 title:            Party Life Productions
 tagline:          'A working group'
-description:      'A brazen collaboration. Made by <a href="http://cv.colingramsnyder.com" target="_blank">colin snyder</a>.'
+description:      'A brazen collaboration.'
 url:              http://partylife.productions
 baseurl:          /
 
