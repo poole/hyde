@@ -5,8 +5,7 @@ title: Team
 
 Party Life Productions is currently two:
 
-* [Bell](https://www.instagram.com/bellnavarro/)
-* [Colin](http://cv.colingramsnyder.com)
+[Bell](https://www.instagram.com/bellnavarro/) & [Colin](http://cv.colingramsnyder.com)
 
 ## A HA
 
