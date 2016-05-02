@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducting PLP
+title: Introducing PLP
 ---
 
 Party Life Productions is a brazen collaboration between Bell Navarro and Colin Snyder.  
@@ -16,6 +16,7 @@ Parties and Tech.
 ### The People
 
 Bell Navarro - The Bitch
+
 Colin Snyder - The Baby
 
 ### The Testimony
