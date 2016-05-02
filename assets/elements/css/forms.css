@@ -503,3 +503,19 @@ tr:nth-child(even) {
     width: 60%; }
   .four-fifth {
     width: 80%; } }
+
+.inner-row {
+  border-spacing: 0;
+  display: table;
+  table-layout: fixed;
+  margin:0;
+}
+.inner-row > * {
+    display: table-cell;
+    vertical-align: top;
+    margin: 0; }
+.inner-left {
+    width: 35%; }
+.inner-right {
+     }
+
