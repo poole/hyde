@@ -1,5 +1,5 @@
 ---
-layout: blog_by_tag
+layout: blog-by-tag
 tag: hyde
 permalink: /tag/hyde/
 ---

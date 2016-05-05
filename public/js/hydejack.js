@@ -163,9 +163,42 @@
     };
   }
 
+  //this function will work cross-browser for loading scripts asynchronously
+  function loadScript(src, callback) {
+    var s,
+        r,
+        t;
+    r = false;
+    s = document.createElement('script');
+    s.type = 'text/javascript';
+    s.src = src;
+    s.onload = s.onreadystatechange = function() {
+      //console.log( this.readyState ); //uncomment this line to see which ready states are called.
+      if (!r && (!this.readyState || this.readyState == 'complete')) {
+        r = true;
+        callback();
+      }
+    };
+    t = document.getElementsByTagName('script')[0];
+    t.parentNode.insertBefore(s, t);
+  }
+
+  function loadCSS(href) {
+    var l,
+        h;
+
+    // load KaTeX CSS
+    l = document.createElement('link');
+    l.rel = 'stylesheet';
+    l.href = href;
+
+    h = document.getElementsByTagName('head')[0];
+    h.parentNode.insertBefore(l, h);
+  }
+
   /**
    * Copyright (c) 2016 Florian Klampfer
-   * https://github.com/qwtel/hydejack/
+   * http://qwtel.com/hydejack/
    * Released under MIT license
    */
   function createSidebar(sidebar, backdrop, menu) {
@@ -185,7 +218,6 @@
     var ANIMATING = 'ANIMATING';
 
     var DURATION = 200;
-    var HITBOX_WIDTH = 75;
     var MAX_OPACITY = 0.67;
     var VELOCITY_THRESHOLD = 0.33;
     var VELOCITY_LINEAR_COMBINATION = 0.6;
@@ -282,6 +314,21 @@
     }
 
     function onTouchStart(e) {
+      function isCodeBlock(path) {
+        for (var i = 0; i < path.length; i++) {
+          var node = path[i];
+          var classList = node.classList;
+
+          if (classList &&
+              (classList.contains('highlight') || classList.contains('katex-display')) &&
+              node.scrollLeft > 0) {
+            return true;
+          }
+        }
+
+        return false;
+      }
+
       if (e.touches.length === 1) {
         isScrolling = undefined;
 
@@ -289,7 +336,7 @@
         startX = pageX = lastPageX = touch.pageX;
         startY = pageY = lastPageY = touch.pageY;
 
-        if (menuOpen || !menuOpen && pageX < (window.innerWidth / 3 || HITBOX_WIDTH)) {
+        if (menuOpen || (!menuOpen && pageX < window.innerWidth / 3 && !isCodeBlock(e.path))) {
           document.addEventListener('touchmove', onTouchMove);
           document.addEventListener('touchend', onTouchEnd);
         }
@@ -298,7 +345,7 @@
 
     function onMenuClick(e) {
       e.preventDefault();
-      animateTo((menuOpen + 1) % 2);
+      animateTo(1);
     }
 
     function onBackdropClick(e) {
@@ -402,22 +449,6 @@
       backdrop.style['opacity'] = MAX_OPACITY * (translateX / sliderWidth);
     }
 
-    function addressbarHeightFix(f) {
-      f(sidebar);
-      f(backdrop);
-    }
-
-    function setToScreenHeight(el) {
-      var screenHeight = window.screen.height;
-      el.style.height = screenHeight + 'px';
-      el.style.top = 'auto';
-    }
-
-    // function setToFullHeight(el) {
-    //   el.style.height = 'auto'
-    //   el.style.top = 0;
-    // }
-
     function enableSlider() {
       document.body.classList.add('drawer');
       document.addEventListener('touchstart', onTouchStart);
@@ -439,14 +470,11 @@
       } else {
         enableSlider();
       }
-      // This prevents repaints when the window heights changes due to disappearing address bars in mobile browsers.
-      addressbarHeightFix(setToScreenHeight);
     }
 
     window.addEventListener('resize', onResize);
     window.addEventListener('orientationchange', onResize);
     onResize();
-
 
     // Allow vertical scrolling on code snippets.
     // TODO: Find a generic solution
@@ -464,38 +492,30 @@
   // TODO: Don't run in incapable browsers
   createSidebar(sidebar, backdrop, menu);
 
-  //this function will work cross-browser for loading scripts asynchronously
-  function loadScript(src, callback) {
-    var s,
-        r,
-        t;
-    r = false;
-    s = document.createElement('script');
-    s.type = 'text/javascript';
-    s.src = src;
-    s.onload = s.onreadystatechange = function() {
-      //console.log( this.readyState ); //uncomment this line to see which ready states are called.
-      if (!r && (!this.readyState || this.readyState == 'complete')) {
-        r = true;
-        callback();
-      }
-    };
-    t = document.getElementsByTagName('script')[0];
-    t.parentNode.insertBefore(s, t);
-  }
+  // KaTeX support
+  var mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
 
-  // enable math blocks using KaTeX
-  loadScript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js", function () {
-    // kramdown generates script tags with type "math/tex"
-    var mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
-    Array.prototype.forEach.call(mathBlocks, function(el) {
-      var tex = el.textContent
-        .replace('% <![CDATA[', '')
-        .replace('%]]>', '');
-      // replace the script tag with KaTeX, wrap in <p> if it is a block
-      el.outerHTML = (el.type === 'math/tex; mode=display') ?
-        '<p>' + katex.renderToString(tex, {displayMode: true}) + '</p>' :
-                katex.renderToString(tex);
+  // only load if math blocks are present
+  if (mathBlocks.length) {
+    // enable math blocks using KaTeX
+    loadCSS("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css");
+    loadScript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js", function () {
+      requestAnimationFrame(function () {
+        // hide the preview
+        document.body.classList.add('katex-loaded');
+
+        // kramdown generates script tags with type "math/tex"
+        Array.prototype.forEach.call(mathBlocks, function(el) {
+          var tex = el.textContent
+            .replace('% <![CDATA[', '')
+            .replace('%]]>', '');
+
+          // replace the script tag with KaTeX
+          el.outerHTML = katex.renderToString(tex, {
+            displayMode: el.type === 'math/tex; mode=display'
+          });
+        });
+      });
     });
-  });
+  }
 }());

@@ -60,12 +60,10 @@ You can configure important aspects of the theme via [`_config.yml`](https://git
 In the manifest of a blog post, simply add an url as `image` and a CSS color as `color`:
 
 ~~~yml
----
 layout: post
 title: Introducing Hydejack
 image: http://qwtel.com/hydejack/public/img/hyde.jpg
 color: '#949667'
----
 ~~~
 
 ### How to Add a New Tag
@@ -86,21 +84,17 @@ Tags are not meant to be used #instagram #style: #food #goodfood #happy #happyli
     Example `/tag/mytag.md`:
 
     ~~~yml
-    ---
     layout: blog_by_tag
     tag: mytag
     permalink: /tag/mytag/
-    ---
     ~~~
 
 3.  Tag your blog posts using the `tags` key (color and image will only depend on the first tag).
 
     ~~~yml
-    ---
     layout: post
     title: Introducing My New Tag
     tags: [mytag, othertag]
-    ---
     ~~~
 
 4. (optional) Add the tag to the sidebar, by adding it to `sidebar_tags` in `_config.yml`.

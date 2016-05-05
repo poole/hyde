@@ -2,20 +2,15 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
-  <title>
-    {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
-    {% else %}
-      {% if page.tag %} {{ site.data.tags[page.tag].name }} {% else %} {{ page.title }} {% endif %} &middot; {{ site.title }}
-    {% endif %}
-  </title>
+  <title>{% if page.title == "Home" %}{{ site.title }} &middot; {{ site.tagline }}{% else %}{% if page.tag %}{{ site.data.tags[page.tag].name }}{% else %}{{ page.title }}{% endif %} &middot; {{ site.title }}{% endif %}</title>
 
   <!-- CSS -->
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:700|PT+Serif:400,400italic,700,700italic" type="text/css">
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/poole.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/hyde.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/jekyll-github.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css">
+
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
 
   {% assign color = page.color %}
 
@@ -52,9 +47,9 @@
   </style>
 
   <!-- Icons -->
-  <!-- <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/public/apple-touch-icon-144-precomposed.png"> -->
-  <!-- <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon.ico"> -->
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/public/apple-touch-icon-144-precomposed.png">
+  <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon.ico">
 
   <!-- RSS -->
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/atom.xml">
 </head>

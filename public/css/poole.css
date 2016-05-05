@@ -13,7 +13,7 @@
  * https://github.com/poole/poole.
  *
  * Hijacked and adoped by @qwtel. Learn more at
- * http://hydejack.github.io
+ * http://qwtel.com/hydejack.
  */
 
 /*
@@ -37,7 +37,7 @@ body {
 html {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 16px;
-  line-height: 1.5;
+  line-height: 1.56;
 }
 @media (min-width: 38em) {
   html {
@@ -150,11 +150,7 @@ pre {
 code {
   padding: .25em .5em;
   font-size: .85rem;
-  /* Could be mistaken for a link if the user choses a similar link-color, so better no colored inline code. */
-  /*color: #bf616a;*/
   background-color: #f9f9f9;
-  border-radius: 3px;
-  font-size: .85rem;
 }
 pre {
   display: block;
@@ -180,8 +176,7 @@ pre code {
   color: inherit;
   background-color: transparent;
 
-  /* Fit 80 chars in the block without side-scroll for large screens */
-  font-size: .74rem;
+  font-size: .75rem;
 }
 
 /* <del>Pygments</del> Rouge via Jekyll */
@@ -277,8 +272,11 @@ tbody tr:nth-child(odd) th {
   padding-right: 1rem;
   margin-left:  auto;
   margin-right: auto;
-}
 
+  /* Prevent side-scrolling on mobile */
+  overflow-x: hidden;
+  position: relative;
+}
 
 /*
  * Masthead
@@ -359,7 +357,7 @@ tbody tr:nth-child(odd) th {
 }
 .related-posts li a:hover {
   color: #268bd2;
-  /*text-decoration: none;*/
+  text-decoration: none;
 }
 .related-posts li a:hover small {
   color: inherit;

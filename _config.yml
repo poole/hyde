@@ -11,7 +11,7 @@ title:            Hydejack
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:      >
-  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [@qwtel](https://twitter.com/qwtel)
+  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [`@qwtel`](https://twitter.com/qwtel)
   from [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
@@ -26,6 +26,7 @@ author:
   name:           'Florian Klampfer'
   twitter:        qwtel
   github:         qwtel
+  disqus:         qwtel
   photo:          http://qwtel.com/public/img/flo.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
