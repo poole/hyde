@@ -491,11 +491,42 @@ img.emoji {
   background-color: #252239;
 }
 
+.foo-magic {
+  z-index: 1010;
+position: fixed;
+right: 2rem;
+bottom: 1rem;
+-webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+}
+
+.foo-magic.topp {
+    opacity: 0;
+}
+
+
+
 .wrapper {
   width: 100%;
   margin: 0px 0px -5.6rem;
   min-height: 100%;
 }
+
+
+.distancery {
+  margin-top:1rem;
+    display: inline-block;
+}
+
+@media (min-width: 48em) {
+  .distancery {
+    display: none;
+  }
+}
+
 
 #logo {
   margin: 1rem 0 1rem 0;
@@ -769,6 +800,73 @@ h1, h2 {
     padding: 1.5rem 2rem 0rem;
     vertical-align: middle;
  }
+
+
+
+ .talk-list:hover {
+    background-color: rgba(255, 255, 255, 0.2);
+ }
+
+ .talk-list {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  margin: 0 0 0.5rem 0;
+  border-spacing: 0;
+  transition: background-color .2s ease;
+ }
+
+ .content-exp {display:none;}
+
+ .content-exp {
+  font-style: italic;
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  -webkit-transition: all 0.3s;
+    -moz-transition: all 0.3s;
+    -ms-transition: all 0.3s;
+    -o-transition: all 0.3s;
+    transition: all 0.3s;
+ }
+
+a.expanded {
+    padding-left: 13px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-image: url("/assets/elements/exp.png");
+}
+
+a.collapsed {
+    padding-left: 13px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    background-image: url("/assets/elements/col.png");
+}
+
+a.collapsed:before
+ {content: url("/assets/elements/exp.png");
+                 width:0;
+                 height:0;
+                 display:none;}
+
+ .special {
+  width: 100%;
+  display: table;
+  table-layout: fixed;
+  margin: 0 0 0.5rem 0;
+  border-spacing: 0;
+  transition: background-color .2s ease;
+  background-color: rgba(255, 255, 255, 0.33);
+ }
+
+ .talk-list .third {
+    padding: 1rem 2rem;
+ }
+
+  .talk-list .two-third {
+    padding: 1rem 2rem;
+ }
+
 
  .video-blog {
   position: relative;

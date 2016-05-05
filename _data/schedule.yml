@@ -1,0 +1,277 @@
+en:
+  thursday:
+    entry1:
+      title: "Opening Party"
+      time: "19:00"
+
+  friday:
+    entry2:
+      title: "Exhibiton opens"
+      time: "11:00"
+
+    entry3:
+      title: "Food"
+      time: "13:00 - 14:30"
+
+    entry4:
+      title: "Gender Representation in Games"
+      time: "14:30 - 15:30"
+      type: "Workshop"
+      by: "Nina Kiel"
+      detail: "In this workshop you will learn how a character's design conveys information about their biography, sexuality and motivation. This knowledge helps you to quickly detect visual shortcuts that can be considered problematic and to avoid them in your own work."
+      url: "http://ninakiel.de/"
+
+    entry5:
+      title: "Achievement Machine"
+      time: "TBD"
+      type: "Talk"
+      by: "Pixeldiskurs"
+      detail: "TBD"
+      url: "http://pixeldiskurs.de/"
+
+    entry5b:
+      title: "Magic Bag of Magic"
+      time: "17:00 - 18:00"
+      type: "Talks & Panels"
+      by: "tinypalace"
+      detail: "We're still working this out, but be prepared for a mixed array of let's plays, analysis, ramblings and wonderous panels by the tinypalace people."
+
+    entry6:
+      title: "Random Steam Roulette"
+      time: "18:00 - 18:30"
+      type: "Panel"
+      by: "tinypalace & Nina Kiel"
+      detail: "We buy a random Steam key online and play the game live, no matter what it is. Afterwards we critique and analyse the game... The goal of this panel is to take a closer look at the underlying mechanics and systems behind Valve's Steam store and the games featured on it. Joining us will be Nina Kiel."
+
+    entry7:
+      title: "Evening Program & Fun"
+      time: "19:00"
+
+  saturday:
+    entry8:
+      title: "Exhibiton opens"
+      time: "11:00"
+
+    entry9:
+      title: "Makey Makey D.I.Y. Custom Controllers"
+      time: "11:00 - 14:00"
+      type: "Workshop"
+      by: "Darsha Hewitt"
+      detail: "TBD"
+      url: "http://darsha.org/"
+
+    entry10:
+      title: "Food"
+      time: "13:00 - 14:30"
+
+    entry11:
+      title: "Talk"
+      time: "14:30 - 15:30"
+      type: "Talk"
+      by: "Creative Gaming"
+      detail: "TBD"
+      url: "http://www.creative-gaming.eu/"
+
+    entry12:
+      title: "Journalistic Videogames and the Core Mechanics of Politics "
+      titlelong: "Play the News! Journalistic Videogames and the Core Mechanics of Politics "
+      time: "15:30 - 16:30"
+      type: "Talk"
+      by: "Eric Jannot"
+      detail: "Newsgames are a new form of videogames aiming to make news interactive through the use of procedural rhetorics. The use of game core mechanics to narrate social and political issues as complex systems is a key strength of News Games such as September, 12th, or Papers Please. The talk focuses on the presentation of news games as a genre, best practice examples and tips on how to do your own newsgames with simple tools."
+      url: "https://twitter.com/_fnord_prefect_"
+
+    entry13:
+      title: "Talk"
+      time: "17:00 - 18:00"
+      type: "Talk"
+      by: "Erik Günther"
+      detail: "TBD"
+      url: "https://keofifty.wordpress.com/"
+
+    entry14:
+      title: "changing the story in games and literature"
+      titlelong: "'this time oedipus won’t sleep with his mom' - changing the story in games and literature"
+      time: "18:00 - 19:00"
+      type: "Talk"
+      by: "Anja Zeltner"
+      detail: "interactions or configurations have always been an essential part of the game and its advantage over traditional media like literature. this talk tries to explore from a theoretical perspective which possibilities games have in terms of narration. it also focuses on restrictions and impediments the medium still has, looking at some examples of this festival."
+      url: "https://keofifty.wordpress.com/"
+
+    entry15:
+      title: "Evening Program & Fun"
+      time: "19:00"
+
+    entry16:
+      title: "Parrrr(~^_^)~rrty"
+      detail: "Dj* sets and bands.<br><b>We'll announce the full playlist soon! :)</b>"
+      time: "20:30"
+
+  sunday:
+    entry17:
+      title: "Exhibiton opens"
+      time: "11:00"
+
+    entry18:
+      title: "Gamejam"
+      time: "11:00 - 17:00"
+      detail: "For the last day of our festival we'll host the short & relaxed, no-stress, no-crunchtime tinypalace gamejam. You can use any tools you want, and make anything you like. The theme will be announced on sunday, follow us <a href='https://twitter.com/tinytinypalace' target='_blank'>@tinytinypalace</a> if you want to join in from home."
+
+    entry19:
+      title: "Food"
+      time: "13:00 - 14:30"
+
+    entry19b:
+      title: "Talk"
+      time: "TBD"
+      type: "Talk"
+      by: "Tale of Tales"
+      detail: "TBD"
+      url: "http://tale-of-tales.com/"
+
+    entry20:
+      title: "ByeBye tinypalace"
+      time: "18:00 - 19:00"
+      type: "Panel"
+      detail: "Post-palace sadness panel. We sit down, let the last minutes of the festival pass by and reminisce about the good (and the bad) old times. If you ever wanted to know how stressful it is to organize a game festival or if you have any questions for us, come join us. :)"
+
+
+
+
+
+de:
+  thursday:
+    entry1:
+      title: "Eröffnung"
+      time: "19:00"
+
+  friday:
+    entry2:
+      title: "Ausstellung"
+      time: "11:00"
+
+    entry3:
+      title: "Essen"
+      time: "13:00 - 14:30"
+
+    entry4:
+      title: "Gender Representation in Games"
+      time: "14:30 - 15:30"
+      type: "Workshop"
+      by: "Nina Kiel"
+      detail: "In this workshop you will learn how a character's design conveys information about their biography, sexuality and motivation. This knowledge helps you to quickly detect visual shortcuts that can be considered problematic and to avoid them in your own work."
+      url: "http://ninakiel.de/"
+
+    entry5:
+      title: "Achievement Machine"
+      time: "TBD"
+      type: "Vortrag"
+      by: "Pixeldiskurs"
+      detail: "TBD"
+      url: "http://pixeldiskurs.de/"
+
+    entry5b:
+      title: "Magic Bag of Magic"
+      time: "17:00 - 18:00"
+      type: "Vorträge & Panels"
+      by: "tinypalace"
+      detail: "We're still working this out, but be prepared for a mixed array of let's plays, analysis, ramblings and wonderous panels by the tinypalace people."
+
+    entry6:
+      title: "Random Steam Roulette"
+      time: "18:00 - 18:30"
+      type: "Panel"
+      by: "tinypalace & Nina Kiel"
+      detail: "We buy a random Steam key online and play the game live, no matter what it is. Afterwards we critique and analyse the game... The goal of this panel is to take a closer look at the underlying mechanics and systems behind Valve's Steam store and the games featured on it. Joining us will be Nina Kiel."
+
+    entry7:
+      title: "Abendprogramm & Fun"
+      time: "19:00"
+
+  saturday:
+    entry8:
+      title: "Ausstellung"
+      time: "11:00"
+
+    entry9:
+      title: "Makey Makey D.I.Y. Custom Controllers"
+      time: "11:00 - 14:00"
+      type: "Workshop"
+      by: "Darsha Hewitt"
+      detail: "TBD"
+      url: "http://darsha.org/"
+
+    entry10:
+      title: "Essen"
+      time: "13:00 - 14:30"
+
+    entry11:
+      title: "Vortrag"
+      time: "14:30 - 15:30"
+      type: "Vortrag"
+      by: "Creative Gaming"
+      detail: "TBD"
+      url: "http://www.creative-gaming.eu/"
+
+    entry12:
+      title: "Journalistic Videogames and the Core Mechanics of Politics "
+      titlelong: "Play the News! Journalistic Videogames and the Core Mechanics of Politics "
+      time: "15:30 - 16:30"
+      type: "Vortrag"
+      by: "Eric Jannot"
+      detail: "Newsgames are a new form of videogames aiming to make news interactive through the use of procedural rhetorics. The use of game core mechanics to narrate social and political issues as complex systems is a key strength of News Games such as September, 12th, or Papers Please. The talk focuses on the presentation of news games as a genre, best practice examples and tips on how to do your own newsgames with simple tools."
+      url: "https://twitter.com/_fnord_prefect_"
+
+    entry13:
+      title: "Vortrag"
+      time: "17:00 - 18:00"
+      type: "Vortrag"
+      by: "Erik Günther"
+      detail: "TBD"
+      url: "https://keofifty.wordpress.com/"
+
+    entry14:
+      title: "changing the story in games and literature"
+      titlelong: "'this time oedipus won’t sleep with his mom' - changing the story in games and literature"
+      time: "18:00 - 19:00"
+      type: "Vortrag"
+      by: "Anja Zeltner"
+      detail: "interactions or configurations have always been an essential part of the game and its advantage over traditional media like literature. this talk tries to explore from a theoretical perspective which possibilities games have in terms of narration. it also focuses on restrictions and impediments the medium still has, looking at some examples of this festival."
+      url: "https://keofifty.wordpress.com/"
+
+    entry15:
+      title: "Abendprogramm & Fun"
+      time: "19:00"
+
+    entry16:
+      title: "Parrrr(~^_^)~rrty"
+      detail: "Dj* Sets und Bands.<br><b>Die komplette Playlist gibts bald! :)</b>"
+      time: "20:30"
+
+  sunday:
+    entry17:
+      title: "Ausstellung"
+      time: "11:00"
+
+    entry18:
+      title: "Gamejam"
+      time: "11:00 - 17:00"
+      detail: "For the last day of our festival we'll host the short & relaxed, no-stress, no-crunchtime tinypalace gamejam. You can use any tools you want, and make anything you like. The theme will be announced on sunday, follow us <a href='https://twitter.com/tinytinypalace' target='_blank'>@tinytinypalace</a> if you want to join in from home."
+
+    entry19:
+      title: "Essen"
+      time: "13:00 - 14:30"
+
+    entry19b:
+      title: "Vortrag"
+      time: "TBD"
+      type: "Vortrag"
+      by: "Tale of Tales"
+      detail: "TBD"
+      url: "http://tale-of-tales.com/"
+
+    entry20:
+      title: "ByeBye tinypalace"
+      time: "18:00 - 19:00"
+      type: "Panel"
+      detail: "Post-palace sadness panel. We sit down, let the last minutes of the festival pass by and reminisce about the good (and the bad) old times. If you ever wanted to know how stressful it is to organize a game festival or if you have any questions for us, come join us. :)"
