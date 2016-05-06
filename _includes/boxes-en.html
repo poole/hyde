@@ -15,7 +15,7 @@
   <h1>{{site.data.translations[page.lang].box-title-1}}</h1>
     <div class="row" style="text-align: center;">
       <div class="third">
-        <p><b>{% if page.lang == "de" %}Freitag 20.{% else %}Friday 20th{%endif%}</b></p><hr>
+        <p><b>{% if page.lang == "de" %}Freitag 20. Mai{% else %}Friday 20th May{%endif%}</b></p><hr>
 {% for list in site.data.schedule[page.lang]["friday"] %}
 <div class="{% if list[1].type %}special-inner-row {%endif%}inner-row" style="text-align: left">
   <div class="inner-left">{{ list[1].time }}</div>
@@ -24,7 +24,7 @@
 {% endfor %}
       </div><p class="distancery"></p>
       <div class="third">
-        <p><b>{% if page.lang == "de" %}Samstag 21.{% else %}Saturday 21st{%endif%}</b></p><hr>
+        <p><b>{% if page.lang == "de" %}Samstag 21. Mai{% else %}Saturday 21st May{%endif%}</b></p><hr>
 {% for list in site.data.schedule[page.lang]["saturday"] %}
 <div class="{% if list[1].type %}special-inner-row {%endif%}inner-row" style="text-align: left">
   <div class="inner-left">{{ list[1].time }}</div>
@@ -33,7 +33,7 @@
 {% endfor %}
       </div><p class="distancery"></p>
       <div class="third">
-        <p><b>{% if page.lang == "de" %}Sonntag 22.{% else %}Sunday 22nd{%endif%}</b></p><hr>
+        <p><b>{% if page.lang == "de" %}Sonntag 22. Mai{% else %}Sunday 22nd May{%endif%}</b></p><hr>
 {% for list in site.data.schedule[page.lang]["sunday"] %}
 <div class="{% if list[1].type %}special-inner-row {%endif%}inner-row" style="text-align: left">
   <div class="inner-left">{{ list[1].time }}</div>
@@ -50,6 +50,7 @@
   <div class="container">
   <div class="box-bar"><img src="/assets/elements/blob2.png"></div>
   <h1>{{site.data.translations[page.lang].box-title-2}}</h1>
+  
   {% if page.lang == "de" %}
   <p>The full exhibition list will be announced soon!!</p>
   {% else %}
@@ -74,7 +75,7 @@
     <div class="fourth">
     <p><b>Offen</b></p>
     <p>Vom <b>20. Mai</b>
-    bis <b>22. Mai</b></br>
+    bis <b>22. Mai</b> 2016</br>
     Vernissage 19. Mai</p>
     </div>
     <div class="fourth">
@@ -96,7 +97,7 @@
     <div class="fourth">
     <p><b>Open</b></p>
     <p>From <b>20th May</b>
-    to <b>22nd May</b></br>
+    to <b>22nd May 2016</b></br>
     Vernissage 19th May</p>
     </div>
     <div class="fourth">

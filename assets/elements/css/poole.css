@@ -868,6 +868,51 @@ a.collapsed:before
  }
 
 
+
+.box-games {
+  width:100%;
+  margin: -0.5rem;
+
+}
+
+.box-games:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.ggg {
+  float: left;
+  width: 50%;
+  display: inline-block;
+  margin: 0.5rem;
+  background-color: white;
+}
+
+a.ggg-inner {
+  width: 100%;
+  display: inline-block;
+
+  transition: opacity .2s ease;
+  opacity: 1;
+  border: none;
+
+  color: transparent;
+  font-family: polaris, sans-serif;
+  font-weight: 300;
+  font-size: 3rem;
+  line-height: 1.25;
+  text-rendering: optimizeLegibility;
+  text-transform: lowercase;
+  letter-spacing: 0.1rem;
+}
+
+a.ggg-inner:hover {
+  opacity: 0.8;
+  color: #fff;
+}
+
+
  .video-blog {
   position: relative;
   padding-bottom: 56.25%; /* 16:9 */

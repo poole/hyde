@@ -1,7 +1,7 @@
 en:
   thursday:
     entry1:
-      title: "Opening Party"
+      title: "Vernissage"
       time: "19:00"
 
   friday:
@@ -26,7 +26,8 @@ en:
       time: "TBD"
       type: "Talk"
       by: "Pixeldiskurs"
-      detail: "TBD"
+      bylong: "Heiko Schmelz und Stefan Simond (Pixeldiskurs)"
+      detail: "<b>Note: This talk is available multilingual (DE/EN).</b><br>In spielerischen Kontexten ist ein gesundes Verhältnis zwischen zu erbringender Leistung und zu erwartender Belohnung oftmals entscheidend. Auf das außerspielerische Leben wird dieses Prinzip oftmals im Zuge der sog. 'Gamification' übertragen. Wie aber verändert das beständige Verlangen nach Belohnung die Subjekt-Welt-Beziehung? Brauchen wir tatsächlich für jede noch so triviale Handlung eine Belohnung? Die Achievement Machine kann uns vielleicht keine Antworten geben, wirft aber zumindest interessante Fragen auf, die Heiko Schmelz und Stefan Simond mit euch diskutieren möchten."
       url: "http://pixeldiskurs.de/"
 
     entry5b:
@@ -53,11 +54,12 @@ en:
       time: "11:00"
 
     entry9:
-      title: "Makey Makey D.I.Y. Custom Controllers"
+      title: "The Cut and Paste DIY Game Controller Workshop"
+      titlelong: "--8<---(cut)-----The Cut and Paste DIY Game Controller Workshop ---8<---(cut)-----"
       time: "11:00 - 14:00"
       type: "Workshop"
       by: "Darsha Hewitt"
-      detail: "TBD"
+      detail: "<b>Note: This workshop is available multilingual (DE/EN).</b><br>Is it possible to build game controllers with materials from the craft store such as glue, sparkles, cardboard, pompoms, googley eyes, clay and yo-yos?<br>The answer is YES!!! And it is a lot of fun! This workshop is one part introduction to electronics, one part craft circle and one part weird video game experiment. <br>It is for people that like to build up crafts, who are curious about technology and who like to have fun with games. People 12 years and older and families with younger kids are welcome to join! It is a drop-in style workshop where you can come and go as you please."
       url: "http://darsha.org/"
 
     entry10:
@@ -65,11 +67,13 @@ en:
       time: "13:00 - 14:30"
 
     entry11:
-      title: "Talk"
+      title: "Physis"
       time: "14:30 - 15:30"
       type: "Talk"
       by: "Creative Gaming"
-      detail: "TBD"
+      bylong: "Valentina Birke & Christiane Schwinge (Creative Gaming)"
+      detail: "Im Talk Physis gehen die Referentinnen der Frage nach, welche Rolle der Körper im Zusammenhang mit digitalen Spielen einnimmt. Dabei geht es sowohl um den Körper der Spielenden, wie um Körper und ihre Repräsentation in Spielen. Am Beispiel von Diversität und Inklusion
+wird das Thema zugespitzt."
       url: "http://www.creative-gaming.eu/"
 
     entry12:
@@ -122,11 +126,12 @@ en:
       time: "13:00 - 14:30"
 
     entry19b:
-      title: "Talk"
+      title: "Flemish Primitives in Cyberspace"
       time: "TBD"
       type: "Talk"
       by: "Tale of Tales"
-      detail: "TBD"
+      bylong: "Auriea Harvey & Michaël Samyn (Tale of Tales)"
+      detail: "An exploration of the links between pre-modern art and the creative opportunities offered by the computer as they present themselves in the videogames by Tale of Tales and their plans for a post-games future."
       url: "http://tale-of-tales.com/"
 
     entry20:
@@ -142,7 +147,7 @@ en:
 de:
   thursday:
     entry1:
-      title: "Eröffnung"
+      title: "Vernissage"
       time: "19:00"
 
   friday:
@@ -167,7 +172,8 @@ de:
       time: "TBD"
       type: "Vortrag"
       by: "Pixeldiskurs"
-      detail: "TBD"
+      bylong: "Heiko Schmelz und Stefan Simond (Pixeldiskurs)"
+      detail: "<b>Info: Dieser Vortrag wird multilingual angeboten (DE/EN).</b><br>In spielerischen Kontexten ist ein gesundes Verhältnis zwischen zu erbringender Leistung und zu erwartender Belohnung oftmals entscheidend. Auf das außerspielerische Leben wird dieses Prinzip oftmals im Zuge der sog. 'Gamification' übertragen. Wie aber verändert das beständige Verlangen nach Belohnung die Subjekt-Welt-Beziehung? Brauchen wir tatsächlich für jede noch so triviale Handlung eine Belohnung? Die Achievement Machine kann uns vielleicht keine Antworten geben, wirft aber zumindest interessante Fragen auf, die Heiko Schmelz und Stefan Simond mit euch diskutieren möchten."
       url: "http://pixeldiskurs.de/"
 
     entry5b:
@@ -194,11 +200,12 @@ de:
       time: "11:00"
 
     entry9:
-      title: "Makey Makey D.I.Y. Custom Controllers"
+      title: "The Cut and Paste DIY Game Controller Workshop"
+      titlelong: "--8<---(cut)-----The Cut and Paste DIY Game Controller Workshop ---8<---(cut)-----"
       time: "11:00 - 14:00"
       type: "Workshop"
       by: "Darsha Hewitt"
-      detail: "TBD"
+      detail: "<b>Info: Dieser Workshop wird multilingual angeboten (DE/EN).</b><br>Is it possible to build game controllers with materials from the craft store such as glue, sparkles, cardboard, pompoms, googley eyes, clay and yo-yos?<br>The answer is YES!!! And it is a lot of fun! This workshop is one part introduction to electronics, one part craft circle and one part weird video game experiment. <br>It is for people that like to build up crafts, who are curious about technology and who like to have fun with games. People 12 years and older and families with younger kids are welcome to join! It is a drop-in style workshop where you can come and go as you please."
       url: "http://darsha.org/"
 
     entry10:
@@ -206,11 +213,13 @@ de:
       time: "13:00 - 14:30"
 
     entry11:
-      title: "Vortrag"
+      title: "Physis"
       time: "14:30 - 15:30"
       type: "Vortrag"
       by: "Creative Gaming"
-      detail: "TBD"
+      bylong: "Valentina Birke & Christiane Schwinge (Creative Gaming)"
+      detail: "Im Talk Physis gehen die Referentinnen der Frage nach, welche Rolle der Körper im Zusammenhang mit digitalen Spielen einnimmt. Dabei geht es sowohl um den Körper der Spielenden, wie um Körper und ihre Repräsentation in Spielen. Am Beispiel von Diversität und Inklusion
+wird das Thema zugespitzt."
       url: "http://www.creative-gaming.eu/"
 
     entry12:
@@ -263,11 +272,12 @@ de:
       time: "13:00 - 14:30"
 
     entry19b:
-      title: "Vortrag"
+      title: "Flemish Primitives in Cyberspace"
       time: "TBD"
       type: "Vortrag"
       by: "Tale of Tales"
-      detail: "TBD"
+      bylong: "Auriea Harvey & Michaël Samyn (Tale of Tales)"
+      detail: "An exploration of the links between pre-modern art and the creative opportunities offered by the computer as they present themselves in the videogames by Tale of Tales and their plans for a post-games future."
       url: "http://tale-of-tales.com/"
 
     entry20:
