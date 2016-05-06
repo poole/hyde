@@ -54,14 +54,49 @@ h1, h2, h3, h4, h5, h6 {
 
 a {
   position: relative;
-  padding-bottom: 0.15rem;
-  border-bottom: 0.2rem solid transparent;
+  padding-bottom: 0.15em;
+  border-bottom: 0.15em solid transparent;
 }
 a:hover,
 a:focus {
   text-decoration: none;
-  border-bottom: 0.2rem solid;
+  border-bottom: 0.15em solid;
 }
+
+/* Styles for "Cesar" link hover effect. */
+/*a::after,
+a::before {
+  font-family: 'icomoon'!important;
+  font-style: normal;
+  font-weight: normal;
+  display: inline-block;
+  width: 0;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 100ms;
+  text-shadow: 0 0 .125em #fff, 0 0 .25em #fff, 0 0 .5em #fff;
+}
+
+a:hover::after,
+a:hover::before,
+a:focus::after,
+a:focus::before {
+  opacity: 1;
+}
+
+ a::before {
+  content: "(";
+  -webkit-transform: translateX(-0.5em) translateY(0.075em);
+  -ms-transform: translateX(-0.5em) translateY(0.075em);
+  transform: translateX(-0.5em) translateY(0.075em);
+}
+
+ a::after {
+  content: ")";
+  -webkit-transform: translateX(0.05em) translateY(0.075em);
+  -ms-transform: translateX(0.05em) translateY(0.075em);
+  transform: translateX(0.05em) translateY(0.075em);
+}*/
 
 /*
  * Sidebar
@@ -121,11 +156,11 @@ a:focus {
   left:   1rem;
 }
 
-#_backdrop {
+.backdrop {
   display: none;
 }
 
-.drawer > #_backdrop {
+.drawer > .backdrop {
   display: block;
   position: fixed;
   top: 0;
@@ -143,11 +178,11 @@ a:focus {
   overflow: hidden;
 }
 
-.drawer-open > #_backdrop {
+.drawer-open > .backdrop {
   pointer-events: all;
 }
 
-#_menu {
+.menu {
   display: block;
   position: absolute;
   top: 0;
@@ -156,17 +191,17 @@ a:focus {
   color: #9a9a9a;
 }
 
-#_menu:hover,
-#_menu:focus {
+.menu:hover,
+.menu:focus {
   border-bottom: none;
 }
 
-.drawer > #_menu {
+.drawer > .menu {
   left: 0.5rem;
 }
 
 @media (min-width: 48em) {
-  .drawer > #_menu {
+  .menu {
     display: none;
   }
 
@@ -326,19 +361,19 @@ a:focus {
     z-index: 2;
     float: right;
 }
-@media (min-width: 38rem) {
+@media (min-width: 38em) {
   .me {
     width: 7rem;
     margin-top: -5.05rem;
   }
 }
-@media (min-width: 48rem) {
+@media (min-width: 48em) {
   .me {
     width: 6.5rem;
     margin-top: -4.8rem;
   }
 }
-@media (min-width: 58rem) {
+@media (min-width: 58em) {
   .me {
     width: 7rem;
     margin-top: -5.05rem;

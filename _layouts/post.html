@@ -82,10 +82,11 @@ layout: default
     };
 
     var loaded = false;
-    var disqus_thread_offsetTop = document.getElementById('disqus_thread').offsetTop;
+    var disqusThreadOffsetTop = document.getElementById('disqus_thread').offsetTop;
 
     window.addEventListener('scroll', function (e) {
-      if (!loaded && document.body.scrollTop + window.innerHeight >= disqus_thread_offsetTop) {
+      var bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
+      if (!loaded && bodyScrollTop + window.innerHeight >= disqusThreadOffsetTop) {
         loaded = true;
         var d = document, s = d.createElement('script');
 

@@ -17,8 +17,8 @@
   {% assign image = site.image %}
 {% endunless %}
 
-<div   id="_backdrop"></div>
-<a     id="_menu" href="#_sidebar">☰</a>
+<div   id="_backdrop" class="backdrop"></div>
+<a     id="_menu" class="menu" href="#_sidebar">☰</a>
 <aside id="_sidebar" class="sidebar" {% if image %}style="background-image:url('{{ image }}')"{% endif %}>
   <div class="container sidebar-sticky">
     <div class="sidebar-about">
