@@ -35,3 +35,8 @@ author:
     I just [wanted a short username](http://qwtel.com/how-to-find-a-short-username) and that one happened to be available.
 
     Read my thoughts on [#software](http://qwtel.com/tag/software) and [#cryptoeconomics](http://qwtel.com/tag/cryptoeconomics).
+
+kramdown:
+  math_engine: mathjax
+  math_engine_opts:
+    preview: true

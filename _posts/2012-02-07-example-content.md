@@ -1,10 +1,9 @@
 ---
 layout: post
 title: Example content
+description: >
+  Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
 ---
-
-Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-{:.message}
 
 Cum sociis natoque penatibus et magnis <a href="#">dis parturient montes</a>, nascetur ridiculus mus. *Aenean eu leo quam.* Pellentesque ornare sem lacinia quam venenatis vestibulum. Sed posuere consectetur est at lobortis. Cras mattis consectetur purus sit amet fermentum.
 
@@ -45,7 +44,27 @@ adder(2, 6);
 // > 8
 ~~~
 
-Aenean lacinia bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
+### Math
+
+Aenean lacinia $$ f(x) = x^2 $$ bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
+
+$$
+  \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right) =
+  \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) =
+$$
+
+$$
+  (x_1, \ldots, x_n) \left( \begin{array}{ccc}
+      \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
+      \vdots & \ddots & \vdots \\
+      \phi(e_n, e_1) & \cdots & \phi(e_n, e_n)
+    \end{array} \right)
+  \left( \begin{array}{c}
+      y_1 \\
+      \vdots \\
+      y_n
+    \end{array} \right)
+$$
 
 ### Lists
 
