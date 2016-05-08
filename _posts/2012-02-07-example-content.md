@@ -19,7 +19,7 @@ HTML defines a long list of available inline tags, a complete list of which can 
 - *To italicize text*, use `*To italicize text*`.
 - Abbreviations, like HTML should be defined like this `*[HTML]: HyperText Markup Language`.
 - Citations, like <cite>&mdash; Mark otto</cite>, should use `<cite>`.
-- <del>Deleted</del> text should use `<del>` and <ins>inserted</ins> text should use `<ins>`.
+- ~~Deleted~~ text should use `~~deleted~~` and <ins>inserted</ins> text should use `<ins>`.
 - Superscript <sup>text</sup> uses `<sup>` and subscript <sub>text</sub> uses `<sub>`[^1].
 
 Most of these elements are styled by browsers with few modifications on our part.
@@ -121,7 +121,7 @@ Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur e
 
 <!-- ## Footnotes -->
 
-[^1]: You can also insert footnote marks using `[^1]`, `[^2]`, etc and write the footnote text at the bottom of your file like this: `[^1]: You can also insert footnote marks...`
+[^1]: You can insert footnote marks using `[^1]`, `[^2]`, etc and write the footnote text at the bottom of your file like this: `[^1]: You can also insert footnote marks...`
 
 *[HTML]: HyperText Markup Language
 *[CSS]: Cascading Style Sheets
