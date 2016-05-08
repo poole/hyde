@@ -1,0 +1,27 @@
+---
+layout: null
+permalink: /sitemap.xml
+---
+
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset
+  xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  xsi:schemaLocation="
+    http://www.sitemaps.org/schemas/sitemap/0.9
+    http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
+  {% for post in site.posts %}
+    {% if post.url != "/404.html" %}{% if post.url != "de/404/" %}
+      <url>
+        <loc>{{ site.url }}{{ post.url }}</loc>
+        {% assign versions=site.posts | where:"name", post.name %}
+        {% for version in versions %}
+          <xhtml:link rel="alternate" hreflang="{{ version.lang }}" href="{{ site.url }}{{ version.url }}" />
+          {% endfor %}
+        <priority>{% if post.name == "index" %}1.0{% else %}{% if post.layout != "page" %}0.5{% else %}0.8{% endif %}{% endif %}</priority>
+        {% if post.layout != "page" %}<lastmod>{{ post.date | date_to_xmlschema }}</lastmod>{% endif %}
+        <changefreq>monthly</changefreq>
+       </url>
+    {% endif %}{% endif %}
+  {% endfor %}
+</urlset>

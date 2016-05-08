@@ -1,0 +1,6 @@
+---
+layout:
+permalink: /robots.txt
+---
+User-agent: *
+Allow: /

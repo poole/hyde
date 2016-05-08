@@ -12,6 +12,7 @@ _site
 *.swo
 *.swp
 *.zip
+*.lock
 *.vi
 *~
 

@@ -1,0 +1,49 @@
+en:
+  program:
+    title: "Program"
+    url:   "/program"
+
+  exhibition:
+    title: "Exhibition"
+    url:   "/exhibition"
+
+  location:
+   title: "Location"
+   url:   "/location"
+
+  about:
+    title: "About"
+    url:   "/about"
+
+  contact:
+    title: "Contact"
+    url:   "/imprint"
+
+  blog:
+    title: "Blog"
+    url:   "/blog"
+
+de:
+  program:
+    title: "Programm"
+    url:   "/de/program"
+
+  exhibition:
+    title: "Ausstellung"
+    url:   "/de/exhibition"
+
+  location:
+   title: "Ort"
+   url:   "/de/location"
+
+  about:
+    title: "Über uns"
+    url:   "/de/about"
+
+  contact:
+    title: "Kontakt"
+    url:   "/de/imprint"
+
+  blog:
+    title: "Blog"
+    url:   "/de/blog"

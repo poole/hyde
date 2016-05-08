@@ -1,5 +1,6 @@
 ---
 layout: null
+permalink: /atom.xml
 ---
 
 <?xml version="1.0" encoding="utf-8"?>
@@ -15,7 +16,9 @@ layout: null
    <email>{{ site.author.email }}</email>
  </author>
 
- {% for post in site.posts %}
+ {% assign posts=site.posts | where:"lang", "en" | where:"layout", "post" %}
+ {% for post in posts %}
+
  <entry>
    <title>{{ post.title }}</title>
    <link href="{{ site.url }}{{ post.url }}"/>
