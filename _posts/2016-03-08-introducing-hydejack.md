@@ -28,6 +28,8 @@ Features included are:
 * Optional author section at the bottom of each post.
 * Posts grouped by year on front and tag page.
 * Social media icons (github, twitter) on sidebar.
+* Optional comment section powered by Disqus.
+* Math blocks via [KaTeX](https://khan.github.io/KaTeX/).
 
 ## Download
 

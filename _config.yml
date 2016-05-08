@@ -24,9 +24,15 @@ color:            '#A85641'
 
 author:
   name:           'Florian Klampfer'
+
+  # Setting social media usernames will add icons at the bottom of the sidebar
   twitter:        qwtel
   github:         qwtel
+
+  # Setting a disqus username will enable the comment section
   disqus:         qwtel
+
+  # This photo will be used in the about section
   photo:          http://qwtel.com/public/img/flo.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
