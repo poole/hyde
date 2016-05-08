@@ -8,22 +8,99 @@
 
   <title>
     {% if page.title == "Home" %}
-      {{ site.title }} &middot; {{ site.tagline }}
+      {{ site.title }}
     {% else %}
-      {{ page.title }} &middot; {{ site.title }}
+      {{ site.title }} &hearts; {{ page.title }}
     {% endif %}
   </title>
 
+  <meta name="description" content="{% if page.lang == "de" %}Ein alternatives Games Festival in Kassel.{% else %}An alternative games festival in Kassel.{% endif %}">
+
+  <!-- Facebook -->
+  <meta property="og:title" content="{% if page.title == "Home" %}{{ site.title }}{% else %}{{ site.title }} &hearts; {{ page.title }}{% endif %}">
+  <meta property="og:site_name" content="tinypalace">
+  <meta property="og:url" content="{{ site.url }}{{ page.url }}">
+  <meta property="og:description" content="{% if page.lang == "de" %}Ein alternatives Games Festival in Kassel.{% else %}An alternative games festival in Kassel.{% endif %}">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="{{ site.url }}/assets/elements/card.jpg">
+
+  <meta property="og:locale" content="{% if page.lang == "de" %}de_DE{% else %}en_US{% endif %}" />
+  <meta property="og:locale:alternate" content="{% if page.lang == "de" %}en_US{% else %}de_DE{% endif %}" />
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary">
+  <meta name="twitter:title" content="tinypalace">
+  <meta name="twitter:description" content="{% if page.lang == "de" %}Ein alternatives Games Festival in Kassel.{% else %}An alternative games festival in Kassel.{% endif %}">
+  <meta name="twitter:image" content="{{ site.url }}/assets/elements/card.jpg">
+  <meta name="twitter:site" content="@tinytinypalace"/>
+
   <!-- CSS -->
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/poole.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/syntax.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}public/css/hyde.css">
-  <link rel="stylesheet" href="http://fonts.googleapis.com/css?family=PT+Sans:400,400italic,700|Abril+Fatface">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/forms.css">
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/poole.css">
+  <!-- we don't really need this: <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/syntax.css"> -->
+  <link href='https://fonts.googleapis.com/css?family=Roboto:400,400italic,500,500italic' rel='stylesheet' type='text/css'>
+
+  <!-- maps -->
+  <link rel="stylesheet" href="{{ site.baseurl }}/assets/elements/css/leaflet.css" />
+
 
   <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}public/apple-touch-icon-144-precomposed.png">
-                                 <link rel="shortcut icon" href="{{ site.baseurl }}public/favicon.ico">
+  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/assets/elements/apple-touch-icon-144-precomposed.png">
+                                 <link rel="shortcut icon" href="{{ site.baseurl }}/assets/elements/favicon.ico">
+
+  <!-- js -->
+  <script src="{{ site.baseurl }}/assets/elements/js/jquery-1.12.0.min.js"></script>
+  <script>
+  $(function() {
+   $(window).scroll(function() {
+       var scroll = $(window).scrollTop();
+       if (scroll >= 10) {
+           $(".sidebar").addClass('topp');
+           $(".foo-magic").addClass('topp');
+       } else {
+           $(".sidebar").removeClass("topp");
+           $(".foo-magic").removeClass('topp');
+       }
+   });
+   $(window).load(function() {
+       var scroll = $(window).scrollTop();
+       if (scroll >= 10) {
+           $(".sidebar").addClass('topp');
+           $(".foo-magic").addClass('topp');
+       } else {
+           $(".sidebar").removeClass("topp");
+           $(".foo-magic").removeClass('topp');
+       }
+   });
+  });
+  </script>
+  <script>
+   $(document).ready(function(){
+
+        $(window).scroll(function(){
+            if ($(this).scrollTop() > 10) {
+                $('.scrollup').fadeIn();
+            } else {
+                $('.scrollup').fadeOut();
+            }
+        });
+
+        $('.scrollup').click(function(){
+            $("html, body").animate({ scrollTop: 0 }, 600);
+            return false;
+        });
+
+    });
+  </script>
 
   <!-- RSS -->
-  <link rel="alternate" type="application/rss+xml" title="RSS" href="/atom.xml">
+  <link rel="alternate" type="application/rss+xml" title="tinypalace RSS" href="/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="tinypalace Atom" href="/atom.xml" />
+
+  {% assign posts=site.posts | where:"name", page.name | sort: 'path' %}
+  {% for post in posts %}
+  {% if post.lang == page.lang %}{% else %}
+  <link rel="alternate" hreflang="{{ post.lang }}" href="{{ site.url }}{{ post.url }}" />
+  {% endif %}{% endfor %}
+
 </head>

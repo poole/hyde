@@ -1,0 +1,146 @@
+<div class="box">
+  <div class="container">
+    <div class="biglogo">
+    <img alt="TINYPALACE / 20.-22. MAY / INTERIM KASSEL" src="/assets/elements/logo-big-back.png">
+    <img class="biglogo1" src="/assets/elements/logo-big-1.png">
+    <img class="biglogo2" src="/assets/elements/logo-big-2.png">
+    <img class="biglogo3" src="/assets/elements/logo-big-3.png">
+    <img class="biglogo4" src="/assets/elements/logo-big-4.png">
+    </div>
+  </div>
+</div>
+<div class="box2">
+  <div class="container">
+  <div class="box-bar"><img src="/assets/elements/blob1.png"></div>
+  <h1>{{site.data.translations[page.lang].box-title-1}}</h1>
+    <div class="row" style="text-align: center;">
+      <div class="third">
+        <p><b>{% if page.lang == "de" %}Freitag 20. Mai{% else %}Friday 20th May{%endif%}</b></p><hr>
+{% for list in site.data.schedule[page.lang]["friday"] %}
+<div class="{% if list[1].type %}special-inner-row {%endif%}inner-row" style="text-align: left">
+  <div class="inner-left">{{ list[1].time }}</div>
+  <div class="inner-right"><b>{{ list[1].title }}</b>{% if list[1].by %} - {{ list[1].by }}{% endif %}</div>
+</div>
+{% endfor %}
+      </div><p class="distancery"></p>
+      <div class="third">
+        <p><b>{% if page.lang == "de" %}Samstag 21. Mai{% else %}Saturday 21st May{%endif%}</b></p><hr>
+{% for list in site.data.schedule[page.lang]["saturday"] %}
+<div class="{% if list[1].type %}special-inner-row {%endif%}inner-row" style="text-align: left">
+  <div class="inner-left">{{ list[1].time }}</div>
+  <div class="inner-right"><b>{{ list[1].title }}</b>{% if list[1].by %} - {{ list[1].by }}{% endif %}</div>
+</div>
+{% endfor %}
+      </div><p class="distancery"></p>
+      <div class="third">
+        <p><b>{% if page.lang == "de" %}Sonntag 22. Mai{% else %}Sunday 22nd May{%endif%}</b></p><hr>
+{% for list in site.data.schedule[page.lang]["sunday"] %}
+<div class="{% if list[1].type %}special-inner-row {%endif%}inner-row" style="text-align: left">
+  <div class="inner-left">{{ list[1].time }}</div>
+  <div class="inner-right"><b>{{ list[1].title }}</b>{% if list[1].by %} - {{ list[1].by }}{% endif %}</div>
+</div>
+{% endfor %}
+      </div>
+    </div>
+  <p class="open-call-but"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de/{% endif %}program">{{site.data.translations[page.lang].fullprogram}}</a></p>
+
+  </div>  
+</div>
+<div class="box2">
+  <div class="container">
+  <div class="box-bar"><img src="/assets/elements/blob2.png"></div>
+  <h1>{{site.data.translations[page.lang].box-title-2}}</h1>
+  
+  {% if page.lang == "de" %}
+  <p>The full exhibition list will be announced soon!!</p>
+  {% else %}
+  <p>The full exhibition list will be announced soon!</p>
+  {% endif %}
+  </div>
+</div>
+<div class="box2">
+  <div class="container">
+  <div class="box-bar"><img src="/assets/elements/blob3.png"></div>
+  <h1>{{site.data.translations[page.lang].box-title-3}}</h1>
+  <img src="/assets/img/pep.jpg" style="width: 100%;margin-bottom: 3rem;">
+  <div class="row" style="text-align: center;">
+    {% if page.lang == "de" %}
+    <div class="fourth">
+    <p><b>Ort</b></p>
+    <p><b>Interim</b></br>
+    Franz-Ulrich-Straße 16</br>
+    Kassel</br>
+    <a href="/de/location">➡ Karte anzeigen</a></p>
+    </div>
+    <div class="fourth">
+    <p><b>Offen</b></p>
+    <p>Vom <b>20. Mai</b>
+    bis <b>22. Mai</b> 2016</br>
+    Vernissage 19. Mai</p>
+    </div>
+    <div class="fourth">
+    <p><b>Eintritt</b></p>
+    <p>&#x2728;Kostenlos!&#x2728;</p>
+    </div>
+    <div class="fourth">
+    <p><b>Kontakt</b></p>
+    <p><a href='mailt&#111;&#58;ti&#110;%7&#57;p&#97;lace&#64;p%&#54;F&#37;7&#51;&#37;7&#52;&#101;&#111;&#46;&#100;e'>tin<span style="display:none">REMOVETHIS</span>ypala&#99;e&#64;post&#101;o&#46;d&#101;</a></p>
+    </div>
+    {% else %}
+    <div class="fourth">
+    <p><b>Location</b></p>
+    <p><b>Interim</b></br>
+    Franz-Ulrich-Straße 16</br>
+    Kassel, Germany</br>
+    <a href="/location">➡ See the map</a></p>
+    </div>
+    <div class="fourth">
+    <p><b>Open</b></p>
+    <p>From <b>20th May</b>
+    to <b>22nd May 2016</b></br>
+    Vernissage 19th May</p>
+    </div>
+    <div class="fourth">
+    <p><b>Entry</b></p>
+    <p>&#x2728;Free!&#x2728;</p>
+    </div>
+    <div class="fourth">
+    <p><b>Contact</b></p>
+    <p><a href='mailt&#111;&#58;ti&#110;%7&#57;p&#97;lace&#64;p%&#54;F&#37;7&#51;&#37;7&#52;&#101;&#111;&#46;&#100;e'>tin<span style="display:none">REMOVETHIS</span>ypala&#99;e&#64;post&#101;o&#46;d&#101;</a></p>
+    </div>
+    {% endif %}
+  </div>  
+  </div>
+</div>
+<div class="box2" style="padding-bottom: 12rem;">
+  <div class="container">
+  <div class="box-bar"><img src="/assets/elements/blob4.png"></div>
+  <h1>{{site.data.translations[page.lang].box-title-4}}</h1>
+  <div class="video" style="margin-bottom: 3rem;">
+    {% if page.lang == "de" %}
+    <iframe src="https://player.vimeo.com/video/156843242?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    {% else %}
+    <iframe src="https://player.vimeo.com/video/156839554?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+    {% endif %}
+  </div>
+  {% if page.lang == "de" %}
+  <div class="row">
+    <div class="half">
+    <p>tinypalace ist ein Ort um Ideen zu teilen und zu hören, was Andere zu sagen haben. Ein Ort zum experimentieren, diskutieren, essen, tanzen und spielen.</p>
+    </div>
+    <div class="half">
+    <p style="text-align:right;">tinypalace ist ein Games Festival & Play Space in Kassel.</p>
+    </div>
+  </div>  
+  {% else %}
+  <div class="row">
+    <div class="half">
+    <p>tinypalace is a place to share ideas and hear what others have on their mind. A place for experimenting, talking, eating, dancing and playing.</p>
+    </div>
+    <div class="half">
+    <p style="text-align:right;">tinypalace is a games festival & play space in Kassel, Germany.</p>
+    </div>
+  </div>  
+  {% endif %}
+  </div>
+</div>

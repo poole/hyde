@@ -1,15 +1,27 @@
 <!DOCTYPE html>
-<html lang="en-us">
+<html lang="{{ page.lang }}" xmlns:og="http://opengraphprotocol.org/schema/" xmlns:fb="http://www.facebook.com/2008/fbml">
 
   {% include head.html %}
 
   <body>
+    <div class="wrapper">
 
     {% include sidebar.html %}
 
+    {% if page.title == "Home" %}
+      {% include boxes-en.html %}
+
+    {% else %}
     <div class="content container">
       {{ content }}
     </div>
+    {% endif %}
+
+    </div>
+    {% include footer.html %}
 
   </body>
+
 </html>
+
+

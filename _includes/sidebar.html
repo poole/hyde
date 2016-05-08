@@ -1,36 +1,50 @@
 <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1>
-        <a href="{{ site.baseurl }}">
-          {{ site.title }}
-        </a>
-      </h1>
-      <p class="lead">{{ site.description }}</p>
-    </div>
+<!-- SPOILER: It's not actually a sidebar <3 -->
 
-    <nav class="sidebar-nav">
-      <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
+<div class="container">
 
-      {% comment %}
-        The code below dynamically generates a sidebar nav of pages with
-        `layout: page` in the front-matter. See readme for usage.
-      {% endcomment %}
+  <div id="logo"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de{% endif %}">
+    {{ site.title }}
+  </a>
+</div>
 
-      {% assign pages_list = site.pages %}
-      {% for node in pages_list %}
-        {% if node.title != null %}
-          {% if node.layout == "page" %}
-            <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
-    </nav>
 
-    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
-  </div>
+<ul class="sidebar-nav" id="close-newsletter"><!--
+
+--><li class="sidebar-home"><a href="{{ site.baseurl }}/{% if page.lang == "de" %}de{% endif %}" class="sidebar-nav-subitem{% if page.url == site.baseurl %} active{% endif %}">Home</a></li><!--
+
+  -->{% for menu in site.data.navigation[page.lang] %}<!--
+  -->{% if menu[1].top == NONE %}<!--
+
+  --><!-- add top menu --><!--
+  --><li><a href="{{ menu[1].url }}" class="sidebar-nav-item{% if page.url == site.baseurl %}<!-- active{% endif %}"><!--
+    -->{{ menu[1].title }}</a><!--
+
+    --><!-- add sub menu --><!--
+    --><ul class="sidebar-subnav"><!--
+    
+      -->{% for submenu in site.data.navigation[page.lang] %}<!--
+
+      -->{% if submenu[1].top == menu[1].title %}<!--
+      --><li><a href="{{ submenu[1].url }}" class="sidebar-nav-subitem{% if page.url == site.baseurl %} active{% endif %}"><!--
+        -->{{ submenu[1].title }}</a></li><!--
+        -->{% endif %}<!--
+
+        -->{% endfor %}<!--
+      --></ul><!--
+
+    --></li><!--
+
+    -->{% endif %}<!--
+    -->{% endfor %}<!--
+
+
+    -->{% assign posts=site.posts | where:"name", page.name | sort: 'path' %}<!--
+    -->{% for post in posts %}<!--
+    -->{% if post.lang == page.lang %}{% else %}<!--
+    --><li><a href="{{ post.url }}" class="lang"><span class="over">{{ post.lang }}</span><span class="out">{{ page.lang }}</span></a></li><!--
+    -->{% endif %}{% endfor %}<!--
+  --></ul><!--
+--></div>
 </div>

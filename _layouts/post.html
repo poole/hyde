@@ -4,22 +4,16 @@ layout: default
 
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
+  <p>{% include date.html date=page.date %}</p>
+  <p></p>
+  {% if page.video-id %}
+  <div class="video" style="margin-bottom: 3rem;">
+    <iframe src="https://player.vimeo.com/video/{{ page.video-id }}?color=53adf9&title=0&byline=0" width="100%" height="100%" frameborder="0" webkitallowfullscreen mozallowfullscreen allowfullscreen></iframe>
+  </div>
+  {% endif %}
   {{ content }}
 </div>
+<hr></hr>
 
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+{{site.data.translations[page.lang].share}} <a style="padding: 0 0.5rem;" class="btn btn-small btn-sm twitter" href="http://twitter.com/share?text={{page.title | encode}}&via=tinytinypalace" target="_blank">Twitter</a> <a style="padding: 0 0.5rem;" class="btn btn-small btn-sm facebook" href="https://www.facebook.com/sharer/sharer.php" target="_blank">Facebook</a> <a style="padding: 0 0.5rem;" class="btn btn-small btn-sm gplus" href="https://plus.google.com/share?url={{ site.url }}{{ page.url }}" target="_blank">Google+</a></p>
+
