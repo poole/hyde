@@ -189,6 +189,7 @@ a:focus::before {
   left: 0;
   padding: 1.25rem 1rem ;
   color: #9a9a9a;
+  z-index: 2;
 }
 
 .menu:hover,
