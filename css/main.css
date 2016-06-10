@@ -176,6 +176,19 @@ ul.dropdown-menu {
   background: none;
 }
 
+.hero-background-image {
+    position: absolute;
+    top: 0px;
+    right: 0;
+    margin-right: auto;
+    margin-left: auto;
+    opacity: 1;
+    z-index: -1;
+ } 
+
+@media (max-width: 768px) {
+  .hero-background-image {opacity: .4;}
+}
 
 /*index about*/
 section.about-me {
