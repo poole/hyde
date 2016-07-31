@@ -9,7 +9,7 @@ permalink:        pretty
 # Setup
 title:            México en Datos
 tagline:          ''
-description:      'Análisis Exploratorio y Predictivo de Datos sobre México'
+description:      'Análisis Exploratorio, Estadístico y Predictivo de Datos sobre México'
 url:              https://mexicoendatos.github.io/
 baseurl:          /
 
@@ -24,3 +24,8 @@ version:          2.1.0
 
 github:
   repo:           https://github.com/mexicoendatos/Mexico-Data
+
+# Gems
+gems:
+  - jekyll-gist
+  - jekyll-paginate
