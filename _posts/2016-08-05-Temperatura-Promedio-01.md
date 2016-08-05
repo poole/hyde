@@ -57,13 +57,13 @@ Primero, graficamos un [mapa de calor](https://en.wikipedia.org/wiki/Heat_map) d
 
 ### El estado más caliente: **Tabasco**
 
-El estado más caliente es **Tabasco**, con una temperatura promedio de **26.84 ºC** en 20 años.
+El estado más caliente es **Tabasco**, con una temperatura promedio de **26.84 ºC** en 30 años.
 
 ![testing](/figs/2016-08-05-Temperatura-Promedio-01/hottest-1.png)
 
 ### El estado más frío: **Tlaxcala**
 
-El estado más frío es **Tlaxcala**, con una temperatura promedio de **14.44 ºC** en 20 años. 
+El estado más frío es **Tlaxcala**, con una temperatura promedio de **14.44 ºC** en 30 años. 
 
 ![testing](/figs/2016-08-05-Temperatura-Promedio-01/coldest-1.png)
 
