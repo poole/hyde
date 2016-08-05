@@ -1,0 +1,340 @@
+---
+layout: post
+title: "Temperatura Promedio en México (Parte 1)"
+output: html_document
+excerpt_separator: <!--more-->
+categories: blog
+tags: temperatura r exploratorio
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+<div class="message">
+  En este primer análisis, nos damos a la tarea de explorar las variaciones de temperatura desde 1985 en los 32 estados de la República Mexicana.
+</div>
+
+México es uno de los países que cuenta con uno de los sistemas climáticos más diversos del mundo. Uno de los factores que contribuye es la situación geográfica del país, ubicándolo en un área atravesada por el **Trópico de Cáncer**.
+
+<!--more-->
+
+> "México presenta un gran variedad de climas; áridos en el norte del territorio, cálidos húmedos y subhúmedos en el sur, sureste y climas fríos o templados en las regiones geográficas elevadas."
+
+> Instituto Nacional de Estadística y Geografía ([INEGI](http://www.inegi.org.mx/geo/contenidos/recnat/clima/))
+
+Por lo mismo, es posible encontrar climas fríos a unos cuántos cientos de kilómetros de climas calurosos. Además, algunos estados de la República pueden mostrar una gran variabilidad climática.
+
+> El más notable por sus variaciones es el clima del estado de **Durango**, donde se dan las *temperaturas más bajas del país*, que llegan en ocasiones a los -26 °C, y las *más altas* en el desierto de Mexicali, **Baja California** que en ocasiones supera los 50 °C.
+
+> Wikipedia: [México](https://es.wikipedia.org/wiki/M%C3%A9xico#Clima)
+
+A continuación presentamos un análisis exploratorio de la temperatura promedio a nivel mensual estatal desde 1985 a finales del 2015, medida a través de estaciones convencionales y automáticas. Todo el código necesario para el análisis fue desarrollado en [R](https://www.r-project.org/) y se encuentra disponible en nuestro [repositorio](https://github.com/mexicoendatos/Mexico-Data/tree/master/R/Temperature/TemperatureMax) en GitHub. El código que genera este post se encuentra en este [sitio](AGREGAR).
+
+## Datos de Temperatura
+
+Los datos fueron proveídos por la Comisión Nacional del Agua (CONAGUA) y se encuentran disponibles en la página de [datos abiertos](http://datos.gob.mx/busca/dataset/temperatura-promedio-excel) del Gobierno de la República Mexicana. Éstos fueron leídos directamente del sitio web para facilitar la reproducibilidad del análisis. Posteriormente, los datos fueron preprocesados para poder trabajar con ellos adecuadamente en R, y el resultado se muestra en la siguiente tabla. Las variables a considerar son: la entidad federativa, el año, el mes y la temperatura correspondiente.
+
+```{r packages, message=FALSE}
+# Load packages
+library(data.table)
+library(readr)
+library(plyr)
+library(dplyr)
+library(tidyr)
+library(DT)
+library(ggplot2)
+library(ggthemes)
+library(scales)
+library(viridis)
+library(reshape2)
+library(d3heatmap)
+library(plotly)
+```
+
+```{r getting data}
+# Read data from website
+col.names <- c('ENTIDAD', 'ANYO', 'ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+               'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE', 'UNIDAD')
+
+temperature <- fread('http://201.116.60.46/DatosAbiertos/Temperatura_promedio.csv',
+                     col.names = col.names,
+                     encoding = "Latin-1")
+```
+
+```{r data wrangling}
+# Data Wrangling
+temperature <- temperature %>% select(-UNIDAD) %>%        # Delete 'UNIDAD' column
+  gather(key = MES, value = TEMPERATURA, -ENTIDAD, -ANYO) # Gather the dataset
+
+months <- c('ENERO', 'FEBRERO', 'MARZO', 'ABRIL', 'MAYO', 'JUNIO',
+            'JULIO', 'AGOSTO', 'SEPTIEMBRE', 'OCTUBRE', 'NOVIEMBRE', 'DICIEMBRE')
+temperature$MES <- factor(temperature$MES, levels = months)
+
+states <- c('Aguascalientes',
+            'Baja California',
+            'Baja California Sur',
+            'Campeche',
+            'Chiapas',
+            'Chihuahua',
+            'Coahuila',
+            'Colima',
+            'Ciudad de Mexico',
+            'Durango',
+            'Guanajuato',
+            'Guerrero',
+            'Hidalgo',
+            'Jalisco',
+            'Michoacan',
+            'Morelos',
+            'Estado de Mexico',
+            'Nayarit',
+            'Nuevo Leon',
+            'Oaxaca',
+            'Puebla',
+            'Queretaro',
+            'Quintana Roo',
+            'San Luis Potosi',
+            'Sinaloa',
+            'Sonora',
+            'Tabasco',
+            'Tamaulipas',
+            'Tlaxcala',
+            'Veracruz',
+            'Yucatan',
+            'Zacatecas')
+temperature$ENTIDAD <- as.factor(mapvalues(temperature$ENTIDAD, from = unique(temperature$ENTIDAD), to = states))
+table1 <- datatable(temperature,
+                    caption = htmltools::tags$caption(
+                      style = 'caption-side: bottom; text-align: center;',
+                      'Tabla 1: ', htmltools::em('Datos de temperatura promedio mensual a nivel estatal desde 1985 a finales del 2015')))
+# Uncomment this lines to save the widget
+#saveWidget(table1, file = "temperature_data.html", selfcontained = TRUE)
+#file.rename("temperature_data.html", "widgets/2016-08-05-Temperatura-Promedio-01/temperature_data.html")
+```
+
+<p> 
+<iframe frameborder="0" width="700" height="650" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/temperature_data.html">
+</iframe>
+</p> 
+
+Primero, graficamos un [mapa de calor](https://en.wikipedia.org/wiki/Heat_map) de los valores en la Tabla 1 para cada uno de los estados. El gráfico que obtenemos muestra una serie de patrones interesantes a nivel estatal. Las más interesantes las resumimos a continuación. 
+
+```{r plotting, fig.width=10, fig.height=10}
+## Plot heatmap (based on https://rud.is/projects/facetedheatmaps.html)
+gg <- ggplot(temperature, aes(x = ANYO, y = MES, fill = TEMPERATURA))
+
+# geom_tile() will make tiles at each x&y location we???ve already specified.
+# We're also telling it to use a thin (0.1 units) white border to separate the tiles.
+gg <- gg + geom_tile(colour = "white", size = 0.1)
+
+# An awesome color scale
+gg <- gg + scale_fill_viridis(name = "Temperatura [C]", option = "inferno")
+
+# This ensures the plot will have a 1:1 aspect ratio 
+# (i.e. geom_tile(), which draws rectangles will draw nice squares).
+gg <- gg + coord_equal()
+
+# By state
+gg <- gg + facet_wrap(~ ENTIDAD, ncol = 4)
+
+# This tells ggplot to not use an x- or y-axis label and to also not reserve any space for them.
+gg <- gg + labs(x=NULL, y=NULL, title = "Temperatura Promedio por Estado")
+
+# Customize the plot
+gg <- gg + theme_tufte(base_family="Helvetica")
+
+# I like my plot titles left-aligned. 
+gg <- gg + theme(plot.title=element_text(hjust=0))
+
+# We don???t want any tick marks on the axes and I want the text to be slightly smaller 
+# than the default.
+gg <- gg + theme(axis.ticks=element_blank())
+
+# Rotate x axis and set more breaks
+gg <- gg + theme(axis.text.x = element_text(size = 7, angle = 90, vjust = 0.5, hjust = 1))
+gg <- gg + theme(axis.text.y = element_text(size = 4))
+gg <- gg + scale_x_continuous(breaks = pretty_breaks(n = 7))
+
+# For the legend, I just needed to tweak the title and text sizes a wee bit.
+gg <- gg + theme(legend.title=element_text(size=6))
+gg <- gg + theme(legend.title.align=1)
+gg <- gg + theme(legend.text=element_text(size=6))
+gg <- gg + theme(legend.position="bottom")
+gg <- gg + theme(legend.key.size=unit(0.2, "cm"))
+gg <- gg + theme(legend.key.width=unit(1, "cm"))
+gg
+```
+
+```{r mean temperature}
+table2 <- temperature %>% group_by(ENTIDAD, ANYO) %>%
+  summarise(ME = mean(TEMPERATURA, na.rm = TRUE)) %>%
+  summarise(MEprom = mean(ME, na.rm = TRUE)) %>%
+  arrange(desc(MEprom)) %>%
+  datatable(colnames = c('TEMPERATURA PROMEDIO' = "MEprom"),
+            caption = htmltools::tags$caption(
+                      style = 'caption-side: bottom; text-align: center;',
+                      'Tabla 2: ', htmltools::em('Temperatura promedio anual a nivel estatal desde 1985 a finales del 2015')),
+            options = list(pageLength = 50))
+#saveWidget(table2, file = "mean_temperature.html", selfcontained = TRUE)
+#file.rename("mean_temperature.html", "widgets/2016-08-05-Temperatura-Promedio-01/mean_temperature.html")
+hottest <- table2$x$data$ENTIDAD[1]
+coldest <- table2$x$data$ENTIDAD[32]
+```
+
+```{r plotting function}
+plotState <- function(estado) {
+  ## Plot heatmap (based on https://rud.is/projects/facetedheatmaps.html)
+  gg <- ggplot(subset(temperature, ENTIDAD %in% estado), aes(x = ANYO, y = MES, fill = TEMPERATURA))
+  
+  # geom_tile() will make tiles at each x&y location we???ve already specified.
+  # We're also telling it to use a thin (0.1 units) white border to separate the tiles.
+  gg <- gg + geom_tile(colour = "white", size = 0.1)
+  
+  # An awesome color scale
+  gg <- gg + scale_fill_viridis(limits = c(min(temperature$TEMPERATURA, na.rm = TRUE),   max(temperature$TEMPERATURA, na.rm = TRUE)), 
+                                name = "Temperatura [C]", 
+                                option = "inferno")
+  
+  # This ensures the plot will have a 1:1 aspect ratio 
+  # (i.e. geom_tile()???which draws rectangles???will draw nice squares).
+  gg <- gg + coord_equal()
+  
+  # This tells ggplot to not use an x- or y-axis label and to also not reserve any space for them.
+  gg <- gg + labs(x=NULL, y=NULL, title = paste("Temperatura Promedio de ", estado, sep = ""))
+  
+  # Customize the plot
+  gg <- gg + theme_tufte(base_family="Helvetica")
+  
+  # I like my plot titles left-aligned. 
+  gg <- gg + theme(plot.title=element_text(hjust=0))
+  
+  # We don???t want any tick marks on the axes and I want the text to be slightly smaller 
+  # than the default.
+  gg <- gg + theme(axis.ticks=element_blank())
+  
+  # Rotate x axis and set more breaks
+  gg <- gg + theme(axis.text.x = element_text(size = 11, angle = 90, vjust = 0.5, hjust = 1))
+  gg <- gg + theme(axis.text.y = element_text(size = 10))
+  gg <- gg + scale_x_continuous(breaks = pretty_breaks(n = 7))
+  
+  # For the legend, I just needed to tweak the title and text sizes a wee bit.
+  gg <- gg + theme(legend.title=element_text(size=9))
+  gg <- gg + theme(legend.title.align=1)
+  gg <- gg + theme(legend.text=element_text(size=8))
+  gg <- gg + theme(legend.position="bottom")
+  gg <- gg + theme(legend.key.size=unit(0.2, "cm"))
+  gg <- gg + theme(legend.key.width=unit(1, "cm"))
+  gg
+}
+```
+
+### El estado más caliente: **`r hottest`**
+
+El estado más caliente es **`r hottest`**, con una temperatura promedio de **`r format(table2$x$data$MEprom[1], digits = 4)` ºC** en 20 años.
+
+```{r hottest, fig.width=10, fig.height=5}
+plotState(hottest)
+```
+
+### El estado más frío: **`r coldest`**
+
+El estado más frío es **`r coldest`**, con una temperatura promedio de **`r format(table2$x$data$MEprom[32], digits = 4)` ºC** en 20 años. 
+
+```{r coldest, fig.width=10, fig.height=5}
+plotState(coldest)
+```
+
+```{r mean variance}
+table3 <- temperature %>% group_by(ENTIDAD, ANYO) %>%
+  summarise(SD = sd(TEMPERATURA, na.rm = TRUE)) %>%
+  summarise(SDprom = mean(SD, na.rm = TRUE)) %>%
+  arrange(desc(SDprom)) %>%
+  datatable(colnames = c('VARIABILIDAD PROMEDIO' = "SDprom"),
+            caption = htmltools::tags$caption(
+                      style = 'caption-side: bottom; text-align: center;',
+                      'Tabla 3: ', htmltools::em('Variación de temperatura promedio anual a nivel estatal desde 1985 a finales del 2015')),
+            options = list(pageLength = 50))
+#saveWidget(table3, file = "mean_variability.html", selfcontained = TRUE)
+#file.rename("mean_variability.html", "widgets/2016-08-05-Temperatura-Promedio-01/mean_variability.html")
+mostVar <- table3$x$data$ENTIDAD[1]
+leastVar <- table3$x$data$ENTIDAD[32]
+```
+
+### El estado más variable: **`r mostVar`**
+
+El estado con los cambios de temperatura más grandes es **`r mostVar`**, con una variabilidad de temperatura promedio anual de **`r format(table3$x$data$SDprom[1], digits = 4)` ºC**. 
+
+```{r most variable, fig.width=10, fig.height=5}
+plotState(mostVar)
+```
+
+### El estado menos variable: **`r leastVar`**
+
+El estado con la temperatura más estable es **`r leastVar`**, con una variabilidad de temperatura promedio anual de **`r format(table3$x$data$SDprom[32], digits = 4)` ºC**. 
+
+```{r least variable, fig.width=10, fig.height=5}
+plotState(leastVar)
+```
+
+### Mención Honorífica 1: **Chiapas**
+
+```{r}
+table4 <- temperature %>% 
+  group_by(ENTIDAD, ANYO) %>%
+  filter(ENTIDAD == "Chiapas") %>%
+  summarise(ME = mean(TEMPERATURA, na.rm = TRUE))%>%
+  datatable(options = list(pageLength = 31))
+  
+```
+
+Uno de los estados en donde se nota más el aumento de la temperatura en los últimos años es **Chiapas**. En 1985, la temperatura promedio anual fue de **`r format(table4$x$data$ME[1], digits = 4)` ºC**. Para 2015, la temperatura promedio anual subió a **`r format(table4$x$data$ME[31], digits = 4)` ºC**
+
+```{r, fig.width=10, fig.height=5}
+plotState("Chiapas")
+```
+
+### Mención Honorífica 2: **Nuevo León**
+
+El estado de **Nuevo León** presenta un patrón interesante ya que del 2002 al 2005 la temperatura estatal disminuyó drásticamente respecto a años anteriores. Del 2006 en adelante, la temperatura aumentó y en promedio se ha mantenido más alta con respecto a las temperaturas previas al 2002.
+
+```{r, fig.width=10, fig.height=5}
+ggplotly(plotState("Nuevo Leon"))
+#saveWidget(as.widget(p), file = "NL.html", selfcontained = TRUE)
+#file.rename("NL.html", "widgets/2016-08-05-Temperatura-Promedio-01/NL.html")
+```
+
+<p> 
+<iframe frameborder="0" width="710" height="350" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/NL.html">
+</iframe>
+</p> 
+
+## Temperatura por Estado
+
+Las temperaturas promedio de todos los estados se encuentran ordenadas en la siguiente tabla. Haz click en las flechas para ordenar alfabéticamente la entidad, o de forma ascendente (o decreciente) la temperatura promedio.
+
+<p> 
+<iframe frameborder="0" width="700" height="1350" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/mean_temperature.html">
+</iframe>
+</p> 
+
+## Variabilidad de Temperatura por Estado
+
+Las variablidades de temperatura promedio de todos los estados se encuentran ordenadas en la siguiente tabla. Haz click en las flechas para ordenar alfabéticamente la entidad, o de forma ascendente (o decreciente) la variabilidad promedio.
+
+<p> 
+<iframe frameborder="0" width="700" height="1350" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/mean_variability.html">
+</iframe>
+</p> 
