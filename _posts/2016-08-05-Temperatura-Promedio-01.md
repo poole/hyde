@@ -27,7 +27,7 @@ Por lo mismo, es posible encontrar climas fríos a unos cuántos cientos de kil�
 
 > Wikipedia: [México](https://es.wikipedia.org/wiki/M%C3%A9xico#Clima)
 
-A continuación presentamos un análisis exploratorio de la temperatura promedio a nivel mensual estatal desde 1985 a finales del 2015, medida a través de estaciones convencionales y automáticas. Todo el código necesario para el análisis fue desarrollado en [R](https://www.r-project.org/) y se encuentra disponible en nuestro [repositorio](https://github.com/mexicoendatos/Mexico-Data/tree/master/R/Temperature/TemperatureMax) en GitHub. El código que genera este post se encuentra en este [sitio](AGREGAR).
+A continuación presentamos un análisis exploratorio de la temperatura promedio a nivel mensual estatal desde 1985 a finales del 2015, medida a través de estaciones convencionales y automáticas. Todo el código necesario para el análisis fue desarrollado en [R](https://www.r-project.org/) y se encuentra disponible en nuestro [repositorio](https://github.com/mexicoendatos/Mexico-Data/tree/master/R/Temperature/TemperatureMax) en GitHub. El código que genera este post se encuentra en este [sitio](https://github.com/mexicoendatos/mexicoendatos.github.io/blob/master/_R/2016-08-05-Temperatura-Promedio-01.Rmd).
 
 ## Datos de Temperatura
 
