@@ -186,6 +186,13 @@ coldest <- table2$x$data$ENTIDAD[32]
 ```
 
 ```{r plotting function}
+simpleCap <- function(x) {
+  s <- strsplit(x, " ")[[1]]
+  paste(toupper(substring(s, 1,1)), substring(s, 2),
+      sep="", collapse=" ")
+}
+temperature$MES <- factor(sapply(tolower(temperature$MES), simpleCap), levels = sapply(tolower(months), simpleCap))
+
 plotState <- function(estado) {
   ## Plot heatmap (based on https://rud.is/projects/facetedheatmaps.html)
   gg <- ggplot(subset(temperature, ENTIDAD %in% estado), aes(x = ANYO, y = MES, fill = TEMPERATURA))
