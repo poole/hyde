@@ -13,9 +13,9 @@
    height="990"
    id="svg2"
    version="1.1"
-   inkscape:version="0.48.4 r9939"
+   inkscape:version="0.91 r13725"
    sodipodi:docname="bioinformatics-course-poster.svg"
-   inkscape:export-filename="/home/matsen/course.png"
+   inkscape:export-filename="/home/matsen/Downloads/bioinf-course.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -78,7 +78,7 @@
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
      inkscape:zoom="0.72424242"
-     inkscape:cx="-132.00448"
+     inkscape:cx="68.410968"
      inkscape:cy="404.21026"
      inkscape:document-units="px"
      inkscape:current-layer="layer1"
@@ -90,10 +90,10 @@
      inkscape:snap-center="true"
      inkscape:object-paths="true"
      inkscape:window-width="1920"
-     inkscape:window-height="1199"
-     inkscape:window-x="1600"
+     inkscape:window-height="1164"
+     inkscape:window-x="0"
      inkscape:window-y="0"
-     inkscape:window-maximized="1"
+     inkscape:window-maximized="0"
      fit-margin-top="0"
      fit-margin-left="0"
      fit-margin-right="0"
@@ -346,13 +346,17 @@
     <text
        sodipodi:linespacing="125%"
        id="text3115"
-       y="234.285"
-       x="78.140747"
-       style="font-size:30px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;text-align:start;line-height:125%;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;font-family:JSL Ancient;-inkscape-font-specification:JSL Ancient"
+       y="228.285"
+       x="-105.07264"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:30px;line-height:125%;font-family:'JSL Ancient';-inkscape-font-specification:'JSL Ancient';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none"
        xml:space="preserve"><tspan
          id="tspan3117"
-         y="234.285"
-         x="78.140747"
-         sodipodi:role="line">For registration and more details visit</tspan></text>
+         y="228.285"
+         x="-105.07264"
+         sodipodi:role="line">Courses starting <tspan
+   style="fill:#ff0000"
+   id="tspan3395">August 15</tspan> and <tspan
+   style="fill:#ff0000"
+   id="tspan3397">October 3</tspan>; For registration and details visit</tspan></text>
   </g>
 </svg>
