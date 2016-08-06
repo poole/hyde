@@ -12,7 +12,7 @@ knitr::opts_chunk$set(echo = FALSE)
 ```
 
 <div class="message">
-  En este primer análisis, nos damos a la tarea de explorar las variaciones de temperatura desde 1985 en los 32 estados de la República Mexicana.
+  En este primer análisis, nos damos a la tarea de explorar la temperatura promedio en los 32 estados de la República Mexicana desde 1985.
 </div>
 
 México es uno de los países que cuenta con uno de los sistemas climáticos más diversos del mundo. Uno de los factores que contribuye es la situación geográfica del país, ubicándolo en un área atravesada por el **Trópico de Cáncer**.
@@ -29,11 +29,11 @@ Por lo mismo, es posible encontrar climas fríos a unos cuántos cientos de kil�
 
 > Wikipedia: [México](https://es.wikipedia.org/wiki/M%C3%A9xico#Clima)
 
-A continuación presentamos un análisis exploratorio de la temperatura promedio a nivel mensual estatal desde 1985 a finales del 2015, medida a través de estaciones convencionales y automáticas. Todo el código necesario para el análisis fue desarrollado en [R](https://www.r-project.org/) y se encuentra disponible en nuestro [repositorio](https://github.com/mexicoendatos/Mexico-Data/tree/master/R/Temperature/TemperatureMax) en GitHub. El código que genera este post se encuentra en este [sitio](https://github.com/mexicoendatos/mexicoendatos.github.io/blob/master/_R/2016-08-05-Temperatura-Promedio-01.Rmd).
+A continuación presentamos un análisis exploratorio de la temperatura promedio mensual a nivel estatal desde 1985 a finales del 2015, medida a través de estaciones convencionales y automáticas. Todo el código necesario para el análisis fue desarrollado en [R](https://www.r-project.org/) y se encuentra disponible en nuestro [repositorio](https://github.com/mexicoendatos/Mexico-Data/tree/master/R/Temperature/TemperatureMax) en GitHub bajo una licencia de código abierto [GNU GPLv3](https://www.gnu.org/licenses/quick-guide-gplv3.html). El código que genera este post se encuentra en este [sitio](https://github.com/mexicoendatos/mexicoendatos.github.io/blob/master/_R/2016-08-05-Temperatura-Promedio-01.Rmd).
 
 ## Datos de Temperatura
 
-Los datos fueron proveídos por la Comisión Nacional del Agua (CONAGUA) y se encuentran disponibles en la página de [datos abiertos](http://datos.gob.mx/busca/dataset/temperatura-promedio-excel) del Gobierno de la República Mexicana. Éstos fueron leídos directamente del sitio web para facilitar la reproducibilidad del análisis. Posteriormente, los datos fueron preprocesados para poder trabajar con ellos adecuadamente en R, y el resultado se muestra en la siguiente tabla. Las variables a considerar son: la entidad federativa, el año, el mes y la temperatura correspondiente.
+Los datos de temperatura fueron proveídos por la Comisión Nacional del Agua (CONAGUA) y se encuentran disponibles en la página de [datos abiertos](http://datos.gob.mx/busca/dataset/temperatura-promedio-excel) del Gobierno de la República Mexicana. Éstos fueron leídos directamente del sitio web para facilitar la reproducibilidad del análisis. Posteriormente, los datos fueron preprocesados para poder trabajar con ellos adecuadamente en R, y el resultado se muestra en la siguiente tabla. Las variables a considerar son: la entidad federativa, el año, el mes y la temperatura correspondiente.
 
 ```{r packages, message=FALSE}
 # Load packages
@@ -185,14 +185,16 @@ hottest <- table2$x$data$ENTIDAD[1]
 coldest <- table2$x$data$ENTIDAD[32]
 ```
 
-```{r plotting function}
+```{r capitalize}
 simpleCap <- function(x) {
   s <- strsplit(x, " ")[[1]]
   paste(toupper(substring(s, 1,1)), substring(s, 2),
       sep="", collapse=" ")
 }
 temperature$MES <- factor(sapply(tolower(temperature$MES), simpleCap), levels = sapply(tolower(months), simpleCap))
+```
 
+```{r plotting function}
 plotState <- function(estado) {
   ## Plot heatmap (based on https://rud.is/projects/facetedheatmaps.html)
   gg <- ggplot(subset(temperature, ENTIDAD %in% estado), aes(x = ANYO, y = MES, fill = TEMPERATURA))
@@ -202,7 +204,7 @@ plotState <- function(estado) {
   gg <- gg + geom_tile(colour = "white", size = 0.1)
   
   # An awesome color scale
-  gg <- gg + scale_fill_viridis(limits = c(min(temperature$TEMPERATURA, na.rm = TRUE),   max(temperature$TEMPERATURA, na.rm = TRUE)), 
+  gg <- gg + scale_fill_viridis(limits = c(min(temperature$TEMPERATURA, na.rm = TRUE),   max(temperature$TEMPERATURA, na.rm = TRUE)),
                                 name = "Temperatura [C]", 
                                 option = "inferno")
   
@@ -229,12 +231,12 @@ plotState <- function(estado) {
   gg <- gg + scale_x_continuous(breaks = pretty_breaks(n = 7))
   
   # For the legend, I just needed to tweak the title and text sizes a wee bit.
-  gg <- gg + theme(legend.title=element_text(size=9))
+  gg <- gg + theme(legend.title=element_text(size=11))
   gg <- gg + theme(legend.title.align=1)
-  gg <- gg + theme(legend.text=element_text(size=8))
+  gg <- gg + theme(legend.text=element_text(size=10))
   gg <- gg + theme(legend.position="bottom")
   gg <- gg + theme(legend.key.size=unit(0.2, "cm"))
-  gg <- gg + theme(legend.key.width=unit(1, "cm"))
+  gg <- gg + theme(legend.key.width=unit(0.5, "cm"))
   gg
 }
 ```
@@ -244,16 +246,36 @@ plotState <- function(estado) {
 El estado más caliente es **`r hottest`**, con una temperatura promedio de **`r format(table2$x$data$MEprom[1], digits = 4)` ºC** en 30 años.
 
 ```{r hottest, fig.width=10, fig.height=5}
-plotState(hottest)
+#p <- ggplotly(plotState(hottest))
+#saveWidget(as.widget(p), file = "Tabasco.html", selfcontained = TRUE)
+#file.rename("Tabasco.html", "widgets/2016-08-05-Temperatura-Promedio-01/Tabasco.html")
 ```
+
+<p> 
+<iframe frameborder="0" width="710" height="350" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/Tabasco.html">
+</iframe>
+</p> 
 
 ### El estado más frío: **`r coldest`**
 
 El estado más frío es **`r coldest`**, con una temperatura promedio de **`r format(table2$x$data$MEprom[32], digits = 4)` ºC** en 30 años. 
 
 ```{r coldest, fig.width=10, fig.height=5}
-plotState(coldest)
+#p <- ggplotly(plotState(coldest))
+#saveWidget(as.widget(p), file = "Tlaxcala.html", selfcontained = TRUE)
+#file.rename("Tlaxcala.html", "widgets/2016-08-05-Temperatura-Promedio-01/Tlaxcala.html")
 ```
+
+<p> 
+<iframe frameborder="0" width="710" height="350" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/Tlaxcala.html">
+</iframe>
+</p> 
 
 ```{r mean variance}
 table3 <- temperature %>% group_by(ENTIDAD, ANYO) %>%
@@ -276,16 +298,36 @@ leastVar <- table3$x$data$ENTIDAD[32]
 El estado con los cambios de temperatura más grandes es **`r mostVar`**, con una variabilidad de temperatura promedio anual de **`r format(table3$x$data$SDprom[1], digits = 4)` ºC**. 
 
 ```{r most variable, fig.width=10, fig.height=5}
-plotState(mostVar)
+#p <- ggplotly(plotState(mostVar))
+#saveWidget(as.widget(p), file = "Sonora.html", selfcontained = TRUE)
+#file.rename("Sonora.html", "widgets/2016-08-05-Temperatura-Promedio-01/Sonora.html")
 ```
 
-### El estado menos variable: **`r leastVar`**
+<p> 
+<iframe frameborder="0" width="710" height="350" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/Sonora.html">
+</iframe>
+</p> 
+
+### El estado más estable: **`r leastVar`**
 
 El estado con la temperatura más estable es **`r leastVar`**, con una variabilidad de temperatura promedio anual de **`r format(table3$x$data$SDprom[32], digits = 4)` ºC**. 
 
 ```{r least variable, fig.width=10, fig.height=5}
-plotState(leastVar)
+#p <- ggplotly(plotState(leastVar))
+#saveWidget(as.widget(p), file = "Guerrero.html", selfcontained = TRUE)
+#file.rename("Guerrero.html", "widgets/2016-08-05-Temperatura-Promedio-01/Guerrero.html")
 ```
+
+<p> 
+<iframe frameborder="0" width="710" height="350" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/Guerrero.html">
+</iframe>
+</p> 
 
 ### Mención Honorífica 1: **Chiapas**
 
@@ -301,17 +343,28 @@ table4 <- temperature %>%
 Uno de los estados en donde se nota más el aumento de la temperatura en los últimos años es **Chiapas**. En 1985, la temperatura promedio anual fue de **`r format(table4$x$data$ME[1], digits = 4)` ºC**. Para 2015, la temperatura promedio anual subió a **`r format(table4$x$data$ME[31], digits = 4)` ºC**
 
 ```{r, fig.width=10, fig.height=5}
-plotState("Chiapas")
+#p <- plotState("Chiapas")
+#saveWidget(as.widget(p), file = "Chiapas.html", selfcontained = TRUE)
+#file.rename("Chiapas.html", "widgets/2016-08-05-Temperatura-Promedio-01/Chiapas.html")
 ```
+
+<p> 
+<iframe frameborder="0" width="710" height="350" 
+        sandbox="allow-same-origin allow-scripts"
+        scrolling="no" seamless="seamless"
+        src="/widgets/2016-08-05-Temperatura-Promedio-01/Chiapas.html">
+</iframe>
+</p> 
 
 ### Mención Honorífica 2: **Nuevo León**
 
 El estado de **Nuevo León** presenta un patrón interesante ya que del 2002 al 2005 la temperatura estatal disminuyó drásticamente respecto a años anteriores. Del 2006 en adelante, la temperatura aumentó y en promedio se ha mantenido más alta con respecto a las temperaturas previas al 2002.
 
 ```{r, fig.width=10, fig.height=5}
-ggplotly(plotState("Nuevo Leon"))
+#p <- ggplotly(plotState("Nuevo Leon"))
 #saveWidget(as.widget(p), file = "NL.html", selfcontained = TRUE)
 #file.rename("NL.html", "widgets/2016-08-05-Temperatura-Promedio-01/NL.html")
+#ct_opts(on = "plotly_hover", off = "plotly_doubleclick", color = "red")
 ```
 
 <p> 
