@@ -124,7 +124,7 @@ El estado de **Nuevo León** presenta un patrón interesante ya que del 2002 al 
 
 ## Temperatura por Estado
 
-Las temperaturas promedio de todos los estados se encuentran ordenadas en la siguiente tabla. Haz click en las flechas para ordenar alfabéticamente la entidad, o de forma ascendente (o descendente) la temperatura promedio.
+Las temperaturas promedio de todos los estados se encuentran ordenadas en la siguiente tabla. Haz clic en las flechas para ordenar alfabéticamente la entidad, o de forma ascendente (o descendente) la temperatura promedio.
 
 <p> 
 <iframe frameborder="0" width="700" height="1350" 
@@ -137,7 +137,7 @@ Las temperaturas promedio de todos los estados se encuentran ordenadas en la sig
 
 ## Variabilidad de Temperatura por Estado
 
-Las variablidades de temperatura promedio de todos los estados se encuentran ordenadas en la siguiente tabla. Haz click en las flechas para ordenar alfabéticamente la entidad, o de forma ascendente (o descendente) la variabilidad promedio.
+Las variabilidades de temperatura promedio de todos los estados se encuentran ordenadas en la siguiente tabla. Haz clic en las flechas para ordenar alfabéticamente la entidad, o de forma ascendente (o descendente) la variabilidad promedio.
 
 <p> 
 <iframe frameborder="0" width="700" height="1350" 
