@@ -3,6 +3,7 @@ layout: post
 title: "Temperatura en México (Parte 1)"
 output: html_document
 excerpt_separator: <!--more-->
+comments: True
 categories: blog
 tags: temperatura r exploratorio
 ---
