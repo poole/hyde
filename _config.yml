@@ -4,23 +4,27 @@ highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
+#relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            Jordan Walsh
+tagline:          'Jordan's Developer Portfolio and Blog'
+description:      'A software <a href="https://www.linkedin.com/in/jordancwalshsoftwaredeveloper/" target="_blank">developer</a> and tutorial writer, merging his technical skills with clear communication. Find him on twitter <a href="https://twitter.com/JCWsoftwareDev" target="_blank">@JCWsoftwareDev</a>.'
+url:              http://localhost:4000/
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Jordan C Walsh'
+  url:            https://twitter.com/JCWsoftwareDev
 
-paginate:         5
+paginate:         1
 
-# Custom vars
-version:          2.1.0
+# Custom var
+version:		  1.0.1
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/JordanCWalsh/JordanCWalsh.GitHub.io
+
+# Gems
+gems:
+  - jekyll-paginate
