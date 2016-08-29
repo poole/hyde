@@ -1,0 +1,19 @@
+{% assign post = include.post %}
+
+<aside class="related">
+  <h2 class="aside-title">Related Posts</h2>
+
+  <ul class="related-posts">
+    {% assign plusone = false %}
+    {% assign tag_name = post.tags[0] %}
+    {% for post in site.tags[tag_name] limit:4 %}
+      {% if post.url == page.url %}
+        {% assign plusone = true %}
+        {% continue %}
+      {% endif %}
+      {% if forloop.index < 4 or plusone == true %}
+        {% include post-list-element.html post=post format="%m/%d/%y" %}
+      {% endif %}
+    {% endfor %}
+  </ul>
+</aside>

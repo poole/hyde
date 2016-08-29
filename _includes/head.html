@@ -3,9 +3,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   <title>{% if page.title == "Home" %}{{ site.title }} &middot; {{ site.tagline }}{% else %}{% if page.tag %}{{ site.data.tags[page.tag].name }}{% else %}{{ page.title }}{% endif %} &middot; {{ site.title }}{% endif %}</title>
+  {% if page.description %}
+  {% capture desc %}{{ page.description }}{:.message}{% endcapture %}
+  <meta name="description" content="{{ desc | markdownify | strip_html | truncatewords: 50 }}">
+  {% else %}{% if page.excerpt %}
+  <meta name="description" content="{{ page.excerpt | strip_html }}">
+  {% endif %}{% endif %}
 
   <!-- CSS -->
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto+Slab:700|PT+Serif:400,400italic,700,700italic" type="text/css">
+  {% if site.load_google_fonts %}
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.load_google_fonts }}" type="text/css">
+  {% endif %}
+  {% if site.author.social %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/icons.css">
+  {% endif %}
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/poole.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/hyde.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/jekyll-github.css">
@@ -32,6 +43,12 @@
   {% endunless %}
 
   <style>
+    html {
+      font-family: {{ site.font }};
+    }
+    .font-accent {
+      font-family: {{ site.font_accent }};
+    }
     .content a,
     .related-posts li a:hover {
       color: {{ color }};
@@ -51,5 +68,5 @@
   <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon.ico">
 
   <!-- RSS -->
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.url }}{{ site.baseurl }}/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
 </head>

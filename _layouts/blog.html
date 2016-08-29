@@ -1,0 +1,10 @@
+---
+layout: default
+---
+
+{% for post in paginator.posts %}
+  {% include post.html post=post link_title=true %}
+  <br/>
+{% endfor %}
+
+{% include pagination.html %}

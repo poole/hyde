@@ -16,27 +16,12 @@
  * http://qwtel.com/hydejack.
  */
 
-/* Icon font for github, twitter, etc */
-@font-face {
-    font-family: 'icomoon';
-    src:    url('../fonts/icomoon.eot?bytfto');
-    src:    url('../fonts/icomoon.eot?bytfto#iefix') format('embedded-opentype'),
-        url('../fonts/icomoon.ttf?bytfto') format('truetype'),
-        url('../fonts/icomoon.woff?bytfto') format('woff'),
-        url('../fonts/icomoon.svg?bytfto#icomoon') format('svg');
-    font-weight: normal;
-    font-style: normal;
-}
-
 /*
  * Global resets
  *
  * Update the foundational and global aspects of the page.
  */
 
-html {
-  font-family: "PT Serif", Georgia, serif;
-}
 @media (min-width: 48em) {
   html {
     font-size: 16px;
@@ -46,10 +31,6 @@ html {
   html {
     font-size: 18px;
   }
-}
-
-h1, h2, h3, h4, h5, h6 {
-  font-family: "PT Serif", Georgia, serif;
 }
 
 a {
@@ -189,7 +170,6 @@ a:focus::before {
   left: 0;
   padding: 1.25rem 1rem ;
   color: #9a9a9a;
-  z-index: 2;
 }
 
 .menu:hover,
@@ -231,7 +211,6 @@ a:focus::before {
 
 /* About section */
 .sidebar-about > h1 {
-  font-family: "Roboto Slab", "PT Serif", Georgia, serif;
   color: #fff;
   margin-top: 0;
   font-size: 2rem;
@@ -250,7 +229,6 @@ a:focus::before {
   padding-left: 0;
 }
 .sidebar-nav-item {
-  font-family: "Roboto Slab", "PT Serif", Georgia, serif;
   font-weight: bold;
   display: block;
   line-height: 1.75;
@@ -263,13 +241,12 @@ a:focus::before {
   border-bottom: 1px solid rgba(255, 255, 255, 0.23);
 }
 
-.sidebar-social {
-  margin-bottom: 1.25rem;
-}
 .sidebar-social > a {
   font-size: 1.4rem;
   line-height: 1.4rem;
   margin-right: 1rem;
+  margin-bottom: 0.5rem;
+  display: inline-block;
 }
 .sidebar-social > a:last-child {
   margin-right: 0;
@@ -328,29 +305,6 @@ a:focus::before {
 
 .related-posts li a {
   font-weight: normal;
-}
-
-/* Icon font styles */
-[class^="icon-"], [class*=" icon-"] {
-  /* use !important to prevent issues with browser extensions that change fonts */
-  font-family: 'icomoon' !important;
-  speak: none;
-  font-style: normal;
-  font-weight: normal;
-  font-variant: normal;
-  text-transform: none;
-  line-height: 1;
-
-  /* "Better" Font Rendering =========== */
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-.icon-icon-github:before {
-  content: "\e900";
-}
-.icon-icon-twitter:before {
-  content: "\e901";
 }
 
 .me {

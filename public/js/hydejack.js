@@ -314,14 +314,19 @@
     }
 
     function onTouchStart(e) {
-      function isCodeBlock(node) {
-        var classList = node.classList;
-        if (classList &&
-            (classList.contains('highlight') || classList.contains('katex-display')) &&
-            node.scrollLeft > 0) {
-          return true;
+      function isCodeBlock(path) {
+        for (var i = 0; i < path.length; i++) {
+          var node = path[i];
+          var classList = node.classList;
+
+          if (classList &&
+              (classList.contains('highlight') || classList.contains('katex-display')) &&
+              node.scrollLeft > 0) {
+            return true;
+          }
         }
-        return node.parentNode ? isCodeBlock(node.parentNode) : false;
+
+        return false;
       }
 
       if (e.touches.length === 1) {
@@ -331,7 +336,7 @@
         startX = pageX = lastPageX = touch.pageX;
         startY = pageY = lastPageY = touch.pageY;
 
-        if (menuOpen || (!menuOpen && pageX < window.innerWidth / 3 && !isCodeBlock(e.target))) {
+        if (menuOpen || (!menuOpen && pageX < window.innerWidth / 3 && !isCodeBlock(e.path))) {
           document.addEventListener('touchmove', onTouchMove);
           document.addEventListener('touchend', onTouchEnd);
         }

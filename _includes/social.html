@@ -1,0 +1,144 @@
+{% for link in include.social %}
+  {% assign platform = link[0] %}
+  {% assign username = link[1] %}
+
+  {% if platform == "facebook" %}
+    <a href="https://facebook.com/{{ username }}"><span class="icon-facebook"></span></a>
+  {% endif %}
+
+  {% if platform == "instagram" %}
+    <a href="https://instagram.com/{{ username }}"><span class="icon-instagram"></span></a>
+  {% endif %}
+
+  {% if platform == "twitter" %}
+    <a href="https://twitter.com/{{ username }}"><span class="icon-twitter"></span></a>
+  {% endif %}
+
+  {% if platform == "vine" %}
+    <a href="https://vine.com/{{ username }}"><span class="icon-vine"></span></a>
+  {% endif %}
+
+  {% if platform == "google" %}
+    <a href="https://plus.google.com/{{ username }}"><span class="icon-google"></span></a>
+  {% endif %}
+
+  {% if platform == "spotify" %}
+    <a href="https://play.spotify.com/{{ username }}"><span class="icon-spotify"></span></a>
+  {% endif %}
+
+  {% if platform == "soundcloud" %}
+    <a href="https://soundcloud.com/{{ username }}"><span class="icon-soundcloud"></span></a>
+  {% endif %}
+
+  {% if platform == "lastfm" %}
+    <a href="http://www.last.fm/user/{{ username }}"><span class="icon-lastfm"></span></a>
+  {% endif %}
+
+  {% if platform == "twitch" %}
+    <a href="https://www.twitch.tv/{{ username }}"><span class="icon-twitch"></span></a>
+  {% endif %}
+
+  {% if platform == "steam" %}
+    <a href="http://steamcommunity.com/profiles/{{ username }}"><span class="icon-steam"></span></a>
+  {% endif %}
+
+  {% if platform == "youtube" %}
+    <a href="https://www.youtube.com/channel/{{ username }}"><span class="icon-youtube"></span></a>
+  {% endif %}
+
+  {% if platform == "vimeo" %}
+    <a href="https://www.vimeo.com/{{ username }}"><span class="icon-vimeo"></span></a>
+  {% endif %}
+
+  {% if platform == "flickr" %}
+    <a href="https://flickr.com/people/{{ username }}"><span class="icon-flickr2"></span></a>
+  {% endif %}
+
+  {% if platform == "dribble" %}
+    <a href="https://dribbble.com/{{ username }}"><span class="icon-dribbble"></span></a>
+  {% endif %}
+
+  {% if platform == "behance" %}
+    <a href="https://www.behance.net/{{ username }}"><span class="icon-behance"></span></a>
+  {% endif %}
+
+  {% if platform == "deviantart" %}
+    <a href="https://{{ username }}.deviantart.com"><span class="icon-deviantart"></span></a>
+  {% endif %}
+
+  {% if platform == "500px" %}
+    <a href="https://500px.com/{{ username }}"><span class="icon-500px"></span></a>
+  {% endif %}
+
+  {% if platform == "github" %}
+    <a href="https://github.com/{{ username }}"><span class="icon-github"></span></a>
+  {% endif %}
+
+  {% if platform == "npm" %}
+    <a href="https://npmjs.com/~{{ username }}"><span class="icon-npm"></span></a>
+  {% endif %}
+
+  {% if platform == "ello" %}
+    <a href="https://ello.co/{{ username }}"><span class="icon-ello"></span></a>
+  {% endif %}
+
+  {% if platform == "tumblr" %}
+    <a href="http://{{ username }}.tumblr.com"><span class="icon-tumblr"></span></a>
+  {% endif %}
+
+  {% if platform == "blogger" %}
+    <a href="https://www.blogger.com/profile/{{ username }}"><span class="icon-blogger"></span></a>
+  {% endif %}
+
+  {% if platform == "reddit" %}
+    <a href="https://www.reddit.com/user/{{ username }}"><span class="icon-reddit"></span></a>
+  {% endif %}
+
+  {% if platform == "hackernews" %}
+    <a href="https://news.ycombinator.com/user?id={{ username }}"><span class="icon-hackernews"></span></a>
+  {% endif %}
+
+  {% if platform == "linkedin" %}
+    <a href="https://www.linkedin.com/in/{{ username }}"><span class="icon-linkedin2"></span></a>
+  {% endif %}
+
+  {% if platform == "xing" %}
+    <a href="https://www.xing.com/profile/{{ username }}"><span class="icon-xing2"></span></a>
+  {% endif %}
+
+  {% if platform == "stackoverflow" %}
+    <a href="http://stackoverflow.com/users/{{ username }}"><span class="icon-stackoverflow"></span></a>
+  {% endif %}
+
+  {% if platform == "trello" %}
+    <a href="https://trello.com/{{ username }}"><span class="icon-trello"></span></a>
+  {% endif %}
+
+  {% if platform == "pinterest" %}
+    <a href="https://www.pinterest.com/{{ username }}"><span class="icon-pinterest"></span></a>
+  {% endif %}
+
+  {% if platform == "paypal" %}
+    <a href="https://www.paypal.me/{{ username }}"><span class="icon-paypal"></span></a>
+  {% endif %}
+
+  {% if platform == "foursquare" %}
+    <a href="https://foursquare.com/user/{{ username }}"><span class="icon-foursquare"></span></a>
+  {% endif %}
+
+  {% if platform == "yelp" %}
+    <a href="https://www.yelp.com/user_details?userid={{ username }}"><span class="icon-yelp"></span></a>
+  {% endif %}
+
+  {% if platform == "delicious" %}
+    <a href="http://del.icio.us/{{ username }}"><span class="icon-delicious"></span></a>
+  {% endif %}
+
+  {% if platform == "stumbleupon" %}
+    <a href="http://www.stumbleupon.com/stumbler/{{ username }}"><span class="icon-stumbleupon"></span></a>
+  {% endif %}
+
+  {% if platform == "vk" %}
+    <a href="https://vk.com/{{ username }}"><span class="icon-vk"></span></a>
+  {% endif %}
+{% endfor %}

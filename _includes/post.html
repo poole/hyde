@@ -1,0 +1,38 @@
+{% assign post = include.post %}
+
+<article id="post-{{ post.id | slice: 1,9999 }}" class="post">
+  {% if include.link_title %}<a href="{{ post.url | prepend:site.baseurl }}">{% endif %}
+  <h1 class="post-title">{{ post.title }}</h1>
+  {% if include.link_title %}</a>{% endif %}
+
+  {% if post.tags.size > 0 %}
+  {% capture tags_content %}on {% endcapture %}
+  {% for post_tag in post.tags %}
+    {% assign tag = site.data.tags[post_tag] %}
+    {% if tag %}
+      {% capture tags_content_temp %}{{ tags_content }}<a href="{{ site.baseurl }}/tag/{{ post_tag }}/">{{ tag.name }}</a>{% if forloop.last == false %}<span>, </span>{% endif %}{% endcapture %}
+      {% assign tags_content = tags_content_temp %}
+    {% endif %}
+  {% endfor %}
+  {% else %}
+  {% assign tags_content = '' %}
+  {% endif %}
+
+  <div class="post-date">
+    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%d/%y" }}</time>
+    <span>{{ tags_content }}</span>
+  </div>
+
+  {% if post.description %}
+    {% comment %}
+      Adding the "message" class to the last (and usually only) paragraph of the description.
+    {% endcomment %}
+    {% capture desc %}{{ post.description }}{:.message}{% endcapture %}
+    {{ desc | markdownify }}
+  {% endif %}
+
+  <hr/>
+
+  {{ post.content }}
+
+</article>

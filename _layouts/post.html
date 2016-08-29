@@ -2,101 +2,14 @@
 layout: default
 ---
 
-{% assign post = page %}
-{% if post.tags.size > 0 %}
-  {% capture tags_content %}on {% endcapture %}
-  {% for post_tag in post.tags %}
-    {% assign tag = site.data.tags[post_tag] %}
-    {% if tag %}
-      {% capture tags_content_temp %}{{ tags_content }}<a href="{{ site.baseurl }}/tag/{{ post_tag }}/">{{ tag.name }}</a>{% if forloop.last == false %}<span>, </span>{% endif %}{% endcapture %}
-      {% assign tags_content = tags_content_temp %}
-    {% endif %}
-  {% endfor %}
-{% else %}
-  {% assign tags_content = '' %}
-{% endif %}
-
-<article class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <div class="post-date">
-    <time datetime="{{ page.date | date_to_xmlschema }}">{{ page.date | date: "%m/%d/%y" }}</time>
-    <span>{{ tags_content }}</span>
-  </div>
-  {% if post.description %}
-    {% comment %}
-      Adding the "message" class to the last (and usually only) paragraph of the description.
-    {% endcomment %}
-    {% capture desc %}{{ post.description }}{:.message}{% endcapture %}
-    {{ desc | markdownify }}
-  {% endif %}
-  <hr/>
-  {{ content }}
-</article>
+{% include post.html post=page link_title=false %}
 
 {% if site.author.about %}
-<aside class="author">
-  <h2 class="aside-title">About</h2>
-
-  {% if site.author.photo %}
-  <img class="me" src="{{ site.author.photo }}" alt="{{ site.author.name }}"/>
-  {% endif %}
-
-  {{ site.author.about | markdownify }}
-</aside>
+  {% include about.html author=site.author %}
 {% endif %}
 
-<aside class="related">
-  <h2 class="aside-title">Related Posts</h2>
-  <ul class="related-posts">
-    {% assign plusone = false %}
-    {% assign tag_name = page.tags[0] %}
-    {% for post in site.tags[tag_name] limit:4 %}
-      {% if post.url == page.url %}
-        {% assign plusone = true %}
-        {% continue %}
-      {% endif %}
-      {% if forloop.index < 4 or plusone == true %}
-        <li>
-          <h4>
-            <a href="{{ post.url | prepend:site.baseurl }}">
-              <span>{{ post.title }}</span>
-              <small>{{ post.date | date: "%m/%d/%y" }}</small>
-            </a>
-          </h4>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</aside>
+{% include related.html post=page %}
 
-{% if site.author.disqus %}
-<aside class="comments">
-  <h2 class="aside-title">Comments</h2>
-
-  <div id="disqus_thread"></div>
-
-  <script>
-    var disqus_config = function () {
-      this.page.url = '{{ site.url }}{{ site.baseurl }}{{ post.url }}';
-      this.page.identifier = '{{ post.id }}';
-    };
-
-    var loaded = false;
-    var disqusThreadOffsetTop = document.getElementById('disqus_thread').offsetTop;
-
-    window.addEventListener('scroll', function (e) {
-      var bodyScrollTop = document.documentElement.scrollTop || document.body.scrollTop;
-      if (!loaded && bodyScrollTop + window.innerHeight >= disqusThreadOffsetTop) {
-        loaded = true;
-        var d = document, s = d.createElement('script');
-
-        s.src = '//{{site.author.disqus}}.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-    });
-  </script>
-  <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
-</aside>
+{% if site.disqus %}
+{% include comments.html post=page %}
 {% endif %}

@@ -1,46 +1,97 @@
+# Dependencies
+gems:
+  - jekyll-paginate
+
 # Permalinks
-permalink:        pretty
+permalink:         pretty
 
 # Setup
-url:              http://qwtel.com
+url:               http://qwtel.com
 
-# Set to '' in case of hosting on `http://<your-github-name>.github.io`
-baseurl:          /hydejack
+# Set to '' in case of hosting on GitHub pages,
+# i.e. `http://<username>.github.io`
+baseurl:           /hydejack
 
-title:            Hydejack
+title:             Hydejack
+
+# Pagination
+paginate:          5
+paginate_path:     '/pages-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
-description:      >
+description:       >
   A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [`@qwtel`](https://twitter.com/qwtel)
   from [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
 # The tags listed as entries in the sidebar
-sidebar_tags:     [jekyll, hyde]
+sidebar_tags:      [jekyll, hyde]
 
 # Fallback image and color if not overwritten for tag or post
-image:            /hydejack/public/img/nap.jpg
-color:            '#A85641'
+image:             /hydejack/public/img/nap.jpg
+color:             '#A85641'
 
+# Fonts
+font:              '"PT Serif", Georgia, serif'
+font_accent:       '"Roboto Slab", "PT Serif", Georgia, serif'
+load_google_fonts: 'Roboto+Slab:700|PT+Serif:400,400italic,700,700italic'
+
+# About yourself
 author:
-  name:           'Florian Klampfer'
-
-  # Setting social media usernames will add icons at the bottom of the sidebar
-  twitter:        qwtel
-  github:         qwtel
-
-  # Setting a disqus username will enable the comment section
-  disqus:         qwtel
+  name:            'Florian Klampfer'
 
   # This photo will be used in the about section
-  photo:          http://qwtel.com/public/img/flo.jpg
+  photo:           http://qwtel.com/public/img/flo.jpg
 
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
-  about:          |
+  about:           |
     Hi, I'm Florian or [`@qwtel`](https://www.twitter.com/qwtel), which isn't an acronym,
     I just [wanted a short username](http://qwtel.com/how-to-find-a-short-username) and that one happened to be available.
 
     Read my thoughts on [#software](http://qwtel.com/tag/software) and [#cryptoeconomics](http://qwtel.com/tag/cryptoeconomics).
+
+  # Social media icons in sidebar
+  # Comment/uncommet to show/hide
+  # Icons appear in order, can be rearranged:
+  social:
+    facebook:      <username>
+    twitter:       <username>
+    google:        <number>
+    vk:            <username>
+    youtube:       <string>_<string>_<string>
+    # vimeo:         <username>
+    # vine:          <username>
+    # spotify:       user/<number>
+    # soundcloud:    <username>
+    # lastfm:        <username>
+    # instagram:     <username>
+    # flickr:        <string>@<string>
+    # 500px:         <username>
+    # dribble:       <username>
+    # behance:       <username>
+    # deviantart:    <username>
+    # ello:          <username>
+    # twitch:        <username>
+    # steam:         <number>
+    # reddit:        <username>
+    # tumblr:        <username>
+    # pinterest:     <username>
+    # foursquare:    <number>
+    # yelp:          <string>
+    # github:        <username>
+    # stackoverflow: <number>/<username>
+    # npm:           <username>
+    # hackernews:    <username>
+    # trello:        <firstname><lastname>
+    # linkedin:      <firstname>-<lastname>-<string>
+    # xing:          <firstname>_<lastname><counter>
+    # blogger:       <number>
+    # delicious:     <username>
+    # stumbleupon:   <username>
+    # paypal:        <username>
+
+# Setting a disqus subdomain will enable the comment section
+disqus:            <username>
 
 kramdown:
   math_engine: mathjax
