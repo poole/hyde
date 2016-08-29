@@ -35,13 +35,13 @@
 
 a {
   position: relative;
-  padding-bottom: 0.15em;
-  border-bottom: 0.15em solid transparent;
+  padding-bottom: 0.15rem;
+  border-bottom: 0.18rem solid transparent;
 }
 a:hover,
 a:focus {
   text-decoration: none;
-  border-bottom: 0.15em solid;
+  border-bottom: 0.18rem solid;
 }
 
 /* Styles for "Cesar" link hover effect. */

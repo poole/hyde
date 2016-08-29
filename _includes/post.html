@@ -1,9 +1,11 @@
 {% assign post = include.post %}
 
 <article id="post-{{ post.id | slice: 1,9999 }}" class="post">
+  <h1 class="post-title">
   {% if include.link_title %}<a href="{{ post.url | prepend:site.baseurl }}">{% endif %}
-  <h1 class="post-title">{{ post.title }}</h1>
+    {{ post.title }}
   {% if include.link_title %}</a>{% endif %}
+  </h1>
 
   {% if post.tags.size > 0 %}
   {% capture tags_content %}on {% endcapture %}
