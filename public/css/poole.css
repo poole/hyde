@@ -327,6 +327,10 @@ tbody tr:nth-child(odd) th {
   margin-top: 0;
   margin-bottom: 0.75rem;
 }
+.page-title > a,
+.post-title > a {
+  padding-bottom: 0;
+}
 
 /* Meta data line below post title */
 .post-date {
