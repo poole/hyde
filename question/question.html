@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	body {
+		background-size: cover;
+	}
+	button {
+		background-color: #4CAF50;
+		border: none;
+		color: white;
+		padding: 15px 32px;
+		text-align: center;
+		text-decoration: none;
+		display: inline-block;
+		font-size: 16px;
+		margin: 4px 20px;
+		cursor: pointer;
+	}
+	#question {
+		text-align: center;
+		text-transform: uppercase;
+		color: #4CAF50;
+		font-size: 32px;
+	}
+</style>
+</head>
+<body>
+
+	<p id="question"></p>
+	<div id="wrapper" style="text-align: center">
+		<button type="button" id="yesButton" onmouseover="yesButtonHover()" onclick="yesButtonClick(this)">Yes</button>
+		<button type="button" id="noButton" onmouseover="noButtonHover()">No</button>
+	</div>
+<script>
+	var size = {
+		width: (window.innerWidth || document.body.clientWidth) - 40,
+		height: (window.innerHeight || document.body.clientHeight) - 40
+	}
+	var countHappy = 0;
+	var countSad = 0;
+	var happy = "res/kitty_h"
+	var sad = "res/kitty_s"
+	
+	function yesButtonClick(yesButton) {
+		yesButton.parentNode.remove(yesButton);
+		document.getElementById("question").innerHTML = "When are you free?";
+	}
+	function yesButtonHover() {
+		document.body.style.backgroundImage = "url('" + happy + countHappy + ".jpg')";
+		countHappy = (countHappy + 1) % 3;
+	}
+
+	function noButtonHover() { 
+		var noButton = document.getElementById("noButton");
+		noButton.style.position = "absolute";
+		noButton.style.right = null;
+		noButton.style.left = (size.width * Math.random()) + "px"; 
+		noButton.style.top = (size.height * Math.random()) + "px";
+		document.body.style.backgroundImage = "url('" + sad + countSad + ".jpg')";
+		countSad = (countSad + 1) % 4;
+	}
+	document.addEventListener("DOMContentLoaded", function(event) {
+		document.getElementById("question").innerHTML = decodeURIComponent(location.search.slice(1));
+		yesButtonHover();
+	});
+
+</script>
+</body>
+</html>
