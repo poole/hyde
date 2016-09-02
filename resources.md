@@ -39,6 +39,12 @@ published: true
 * [Biopython tutorial](http://biopython.org/DIST/docs/tutorial/Tutorial.html)
 
 
+### Inkscape
+
+* [Inkscape tutorial](https://github.com/fredhutchio/inkscape-tutorial)
+* [inkscape.org learning resources](https://inkscape.org/en/learn/)
+
+
 ### Fred Hutch specific
 
 * [Computational Biology Shared Resources](http://sharedresources.fhcrc.org/core-facilities/computational-biology)
