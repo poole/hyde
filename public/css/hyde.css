@@ -170,6 +170,7 @@ a:focus::before {
   left: 0;
   padding: 1.25rem 1rem ;
   color: #9a9a9a;
+  z-index: 2;
 }
 
 .menu:hover,
@@ -241,14 +242,19 @@ a:focus::before {
   border-bottom: 1px solid rgba(255, 255, 255, 0.23);
 }
 
-.sidebar-social > a {
+.sidebar-social > ul  {
+  list-style: none;
+  padding: 0;
+}
+
+.sidebar-social > ul > li {
   font-size: 1.4rem;
   line-height: 1.4rem;
   margin-right: 1rem;
   margin-bottom: 0.5rem;
   display: inline-block;
 }
-.sidebar-social > a:last-child {
+.sidebar-social > ul > li:last-child {
   margin-right: 0;
 }
 
@@ -350,4 +356,15 @@ a:focus::before {
 
 .katex-loaded .MathJax_Preview {
   display: none;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
 }

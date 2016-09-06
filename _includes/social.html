@@ -1,144 +1,181 @@
+<ul>
 {% for link in include.social %}
   {% assign platform = link[0] %}
   {% assign username = link[1] %}
 
   {% if platform == "facebook" %}
-    <a href="https://facebook.com/{{ username }}"><span class="icon-facebook"></span></a>
+    {% assign url = "https://facebook.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "instagram" %}
-    <a href="https://instagram.com/{{ username }}"><span class="icon-instagram"></span></a>
+    {% assign url = "https://instagram.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "twitter" %}
-    <a href="https://twitter.com/{{ username }}"><span class="icon-twitter"></span></a>
+    {% assign url = "https://twitter.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "vine" %}
-    <a href="https://vine.com/{{ username }}"><span class="icon-vine"></span></a>
+    {% assign url = "https://vine.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "google" %}
-    <a href="https://plus.google.com/{{ username }}"><span class="icon-google"></span></a>
+    {% assign url = "https://plus.google.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "spotify" %}
-    <a href="https://play.spotify.com/{{ username }}"><span class="icon-spotify"></span></a>
+    {% assign url = "https://play.spotify.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "soundcloud" %}
-    <a href="https://soundcloud.com/{{ username }}"><span class="icon-soundcloud"></span></a>
+    {% assign url = "https://soundcloud.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "lastfm" %}
-    <a href="http://www.last.fm/user/{{ username }}"><span class="icon-lastfm"></span></a>
+    {% assign url = "http://www.last.fm/user/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "twitch" %}
-    <a href="https://www.twitch.tv/{{ username }}"><span class="icon-twitch"></span></a>
+    {% assign url = "https://www.twitch.tv/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "steam" %}
-    <a href="http://steamcommunity.com/profiles/{{ username }}"><span class="icon-steam"></span></a>
+    {% assign url = "http://steamcommunity.com/profiles/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "youtube" %}
-    <a href="https://www.youtube.com/channel/{{ username }}"><span class="icon-youtube"></span></a>
+    {% assign url = "https://www.youtube.com/channel/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "vimeo" %}
-    <a href="https://www.vimeo.com/{{ username }}"><span class="icon-vimeo"></span></a>
+    {% assign url = "https://www.vimeo.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "flickr" %}
-    <a href="https://flickr.com/people/{{ username }}"><span class="icon-flickr2"></span></a>
+    {% assign url = "https://flickr.com/people/" | append: username %}
+    {% include social-list-item.html platform=platform url=url icon="flickr2" %}
   {% endif %}
 
   {% if platform == "dribble" %}
-    <a href="https://dribbble.com/{{ username }}"><span class="icon-dribbble"></span></a>
+    {% assign url = "https://dribbble.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "behance" %}
-    <a href="https://www.behance.net/{{ username }}"><span class="icon-behance"></span></a>
+    {% assign url = "https://www.behance.net/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "deviantart" %}
-    <a href="https://{{ username }}.deviantart.com"><span class="icon-deviantart"></span></a>
+    {% assign url = ".deviantart.com" | prepend: username | prepend: "https://" %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "500px" %}
-    <a href="https://500px.com/{{ username }}"><span class="icon-500px"></span></a>
+    {% assign url = "https://500px.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "github" %}
-    <a href="https://github.com/{{ username }}"><span class="icon-github"></span></a>
+    {% assign url = "https://github.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "npm" %}
-    <a href="https://npmjs.com/~{{ username }}"><span class="icon-npm"></span></a>
+    {% assign url = "https://npmjs.com/~" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "ello" %}
-    <a href="https://ello.co/{{ username }}"><span class="icon-ello"></span></a>
+    {% assign url = "https://ello.co/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "tumblr" %}
-    <a href="http://{{ username }}.tumblr.com"><span class="icon-tumblr"></span></a>
+    {% assign url = ".tumblr.com" | prepend: username | prepend: "http://" %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "blogger" %}
-    <a href="https://www.blogger.com/profile/{{ username }}"><span class="icon-blogger"></span></a>
+    {% assign url = "https://www.blogger.com/profile/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "reddit" %}
-    <a href="https://www.reddit.com/user/{{ username }}"><span class="icon-reddit"></span></a>
+    {% assign url = "https://www.reddit.com/user/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "hackernews" %}
-    <a href="https://news.ycombinator.com/user?id={{ username }}"><span class="icon-hackernews"></span></a>
+    {% assign url = "https://news.ycombinator.com/user?id=" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "linkedin" %}
-    <a href="https://www.linkedin.com/in/{{ username }}"><span class="icon-linkedin2"></span></a>
+    {% assign url = "https://www.linkedin.com/in/" | append: username %}
+    {% include social-list-item.html platform=platform url=url icon='linkedin2'%}
   {% endif %}
 
   {% if platform == "xing" %}
-    <a href="https://www.xing.com/profile/{{ username }}"><span class="icon-xing2"></span></a>
+    {% assign url = "https://www.xing.com/profile/" | append: username %}
+    {% include social-list-item.html platform=platform url=url icon='xing2'%}
   {% endif %}
 
   {% if platform == "stackoverflow" %}
-    <a href="http://stackoverflow.com/users/{{ username }}"><span class="icon-stackoverflow"></span></a>
+    {% assign url = "http://stackoverflow.com/users/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "trello" %}
-    <a href="https://trello.com/{{ username }}"><span class="icon-trello"></span></a>
+    {% assign url = "https://trello.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "pinterest" %}
-    <a href="https://www.pinterest.com/{{ username }}"><span class="icon-pinterest"></span></a>
+    {% assign url = "https://www.pinterest.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "paypal" %}
-    <a href="https://www.paypal.me/{{ username }}"><span class="icon-paypal"></span></a>
+    {% assign url = "https://www.paypal.me/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "foursquare" %}
-    <a href="https://foursquare.com/user/{{ username }}"><span class="icon-foursquare"></span></a>
+    {% assign url = "https://foursquare.com/user/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "yelp" %}
-    <a href="https://www.yelp.com/user_details?userid={{ username }}"><span class="icon-yelp"></span></a>
+    {% assign url = "https://www.yelp.com/user_details?userid=" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "delicious" %}
-    <a href="http://del.icio.us/{{ username }}"><span class="icon-delicious"></span></a>
+    {% assign url = "http://del.icio.us/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "stumbleupon" %}
-    <a href="http://www.stumbleupon.com/stumbler/{{ username }}"><span class="icon-stumbleupon"></span></a>
+    {% assign url = "http://www.stumbleupon.com/stumbler/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 
   {% if platform == "vk" %}
-    <a href="https://vk.com/{{ username }}"><span class="icon-vk"></span></a>
+    {% assign url = "https://vk.com/" | append: username %}
+    {% include social-list-item.html platform=platform url=url %}
   {% endif %}
 {% endfor %}
+</ul>

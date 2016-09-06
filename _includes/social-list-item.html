@@ -1,0 +1,10 @@
+{% assign icon = include.icon %}
+{% unless icon %}
+  {% assign icon = include.platform %}
+{% endunless %}
+<li>
+  <a href="{{ include.url }}">
+    <span class="icon-{{ icon }}"></span>
+    <span class="sr-only">{{ include.platform }}</span>
+  </a>
+</li>

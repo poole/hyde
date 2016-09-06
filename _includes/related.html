@@ -12,7 +12,7 @@
         {% continue %}
       {% endif %}
       {% if forloop.index < 4 or plusone == true %}
-        {% include post-list-element.html post=post format="%m/%d/%y" %}
+        {% include post-list-item.html post=post format="%m/%d/%y" %}
       {% endif %}
     {% endfor %}
   </ul>

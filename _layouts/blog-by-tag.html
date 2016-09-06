@@ -30,6 +30,6 @@ layout: default
     <ul class="related-posts">
     {% assign date = currentdate %}
   {% endif %}
-  {% include post-list-element.html post=post format="%m/%d" %}
+  {% include post-list-item.html post=post format="%m/%d" %}
   {% if forloop.last %}</ul><hr/>{% endif %}
 {% endfor %}

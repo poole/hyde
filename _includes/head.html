@@ -1,5 +1,5 @@
 <head>
-  <meta charset="UTF-8">
+  <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
 
   <title>{% if page.title == "Home" %}{{ site.title }} &middot; {{ site.tagline }}{% else %}{% if page.tag %}{{ site.data.tags[page.tag].name }}{% else %}{{ page.title }}{% endif %} &middot; {{ site.title }}{% endif %}</title>
@@ -7,8 +7,10 @@
   {% capture desc %}{{ page.description }}{:.message}{% endcapture %}
   <meta name="description" content="{{ desc | markdownify | strip_html | truncatewords: 50 }}">
   {% else %}{% if page.excerpt %}
-  <meta name="description" content="{{ page.excerpt | strip_html }}">
+  <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}">
   {% endif %}{% endif %}
+
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
 
   <!-- CSS -->
   {% if site.load_google_fonts %}
@@ -21,25 +23,26 @@
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/hyde.css">
   <link rel="stylesheet" href="{{ site.baseurl }}/public/css/jekyll-github.css">
 
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-
   {% assign color = page.color %}
 
   {% unless color %}
     {% if page.tag %}
       {% assign tag = site.data.tags[page.tag] %}
       {% assign color = tag.color %}
+      {% assign image = tag.image %}
     {% else %}
       {% if page.tags.size > 0 %}
         {% assign tag_name = page.tags[0] %}
         {% assign tag = site.data.tags[tag_name] %}
         {% assign color = tag.color %}
+        {% assign image = tag.image %}
       {% endif %}
     {% endif %}
   {% endunless %}
 
   {% unless color %}
     {% assign color = site.color %}
+    {% assign image = site.image %}
   {% endunless %}
 
   <style>
@@ -61,6 +64,11 @@
       color: #fff;
       background: {{ color }};
     }
+    {% if image %}
+    .sidebar {
+      background-image: url('{{ image }}');
+    }
+    {% endif %}
   </style>
 
   <!-- Icons -->
