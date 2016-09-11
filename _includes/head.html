@@ -23,24 +23,24 @@
 
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
 
-  {% assign color = page.color %}
+  {% assign color = site.color %}
+  {% assign image = site.image %}
 
-  {% unless color %}
-    {% if page.tag %}
-      {% assign tag = site.data.tags[page.tag] %}
-      {% assign color = tag.color %}
-    {% else %}
-      {% if page.tags.size > 0 %}
-        {% assign tag_name = page.tags[0] %}
-        {% assign tag = site.data.tags[tag_name] %}
-        {% assign color = tag.color %}
-      {% endif %}
+  {% if page.tag %}
+    {% assign tag = site.data.tags[page.tag] %}
+    {% if tag.color %}{% assign color = tag.color %}{% endif %}
+    {% if tag.image %}{% assign image = tag.image %}{% endif %}
+  {% else %}
+    {% if page.tags.size > 0 %}
+      {% assign tag_name = page.tags[0] %}
+      {% assign tag = site.data.tags[tag_name] %}
+      {% if tag.color %}{% assign color = tag.color %}{% endif %}
+      {% if tag.image %}{% assign image = tag.image %}{% endif %}
     {% endif %}
-  {% endunless %}
+  {% endif %}
 
-  {% unless color %}
-    {% assign color = site.color %}
-  {% endunless %}
+  {% if page.color %}{% assign color = page.color %}{% endif %}
+  {% if page.image %}{% assign image = page.image %}{% endif %}
 
   <style>
     html {
