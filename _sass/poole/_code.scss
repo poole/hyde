@@ -53,16 +53,16 @@ pre code {
   //   overflow-x: auto;
   // }
 
-  .lineno {
-    display: inline-block; // Ensures the null space also isn't selectable
-    padding-right: .75rem;
-    padding-left: .25rem;
-    color: #999;
-    // Make sure numbers aren't selectable
-    -webkit-user-select: none;
-       -moz-user-select: none;
-            user-select: none;
-  }
+  // .lineno {
+  //   display: inline-block; // Ensures the null space also isn't selectable
+  //   padding-right: .75rem;
+  //   padding-left: .25rem;
+  //   color: #999;
+  //   // Make sure numbers aren't selectable
+  //   -webkit-user-select: none;
+  //      -moz-user-select: none;
+  //           user-select: none;
+  // }
 }
 
 

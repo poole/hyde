@@ -17,8 +17,9 @@
  */
 
 @import "hydejack/globals";
+@import "hydejack/aside";
 @import "hydejack/sidebar";
-@import "hydejack/container";
-@import "hydejack/overrides";
+@import "hydejack/drawer";
+@import "hydejack/content";
 @import "hydejack/me";
 @import "hydejack/katex";

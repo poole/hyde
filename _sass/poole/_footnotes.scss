@@ -1,0 +1,28 @@
+// Markdown footnotes
+//
+// See the example content post for an example.
+
+// Footnote number within body text
+a[href^="#fn:"],
+// Back to footnote link
+a[href^="#fnref:"] {
+  display: inline-block;
+  margin-left: .1rem;
+  font-weight: bold;
+}
+
+// List of footnotes
+.footnotes {
+  > ol {
+    color: #7a7a7a;
+  }
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #fff;
+  }
+}
