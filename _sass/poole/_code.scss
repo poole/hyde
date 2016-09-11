@@ -10,37 +10,48 @@ pre {
 
 code {
   padding: .25em .5em;
-  font-size: 85%;
-  color: $code-color;
+  font-size: .85rem;
+  // color: $code-color;
   background-color: #f9f9f9;
-  border-radius: 3px;
+  // border-radius: 3px;
 }
 
 pre {
   margin-top: 0;
   margin-bottom: 1rem;
+  padding: 1rem;
+  display: block;
+  line-height: 1.4;
+  /* Prevent code linebreaks and allow side-scrolling (much better readability on mobile) */
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  background-color: #f9f9f9;
+
+  /* Make code same width as regular text, and scroll the full page width on mobile */
+  margin-left: -1rem;
+  margin-right: -1rem;
 }
 
 pre code {
   padding: 0;
-  font-size: 100%;
+  font-size: .75rem;
   color: inherit;
   background-color: transparent;
 }
 
 // Pygments via Jekyll
 .highlight {
-  padding: 1rem;
+  // padding: 1rem;
   margin-bottom: 1rem;
-  font-size: .8rem;
-  line-height: 1.4;
-  background-color: #f9f9f9;
-  border-radius: .25rem;
+  // font-size: .8rem;
+  // line-height: 1.4;
+  // background-color: #f9f9f9;
+  // border-radius: .25rem;
 
-  pre {
-    margin-bottom: 0;
-    overflow-x: auto;
-  }
+  // pre {
+  //   margin-bottom: 0;
+  //   overflow-x: auto;
+  // }
 
   .lineno {
     display: inline-block; // Ensures the null space also isn't selectable

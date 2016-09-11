@@ -103,8 +103,18 @@ a[href^="#fnref:"] {
 
 // List of footnotes
 .footnotes {
-  margin-top: 2rem;
-  font-size: 85%;
+  > ol {
+    color: #7a7a7a;
+  }
+
+  &::before, &::after {
+    content: "";
+    display: block;
+    margin: 1.5rem 0;
+    border: 0;
+    border-top: 1px solid #eee;
+    border-bottom: 1px solid #fff;
+  }
 }
 
 // Custom type
