@@ -13,6 +13,7 @@
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
 
   <!-- CSS -->
+  <!-- http://www.kevinsweet.com/inline-scss-jekyll-github-pages -->
   <style>
     {% capture include_to_scssify %}
     {% include essentials.scss %}
@@ -33,40 +34,29 @@
     {% endif %}
   </noscript>
 
-  {% comment %}
-  {% if site.author.social %}
-  <style>
-    @font-face {
-      font-family:'icomoon';
-      src: url(data:application/x-font-woff;charset=utf-8;base64,{% include base64/icomoon.woff %}) format('woff');
-      font-weight: normal;
-      font-style: normal;
-    }
-  </style>
-  {% endif %}
-  {% endcomment %}
+  {% assign color = site.color %}
+  {% assign image = site.image %}
 
-  {% assign color = page.color %}
-
-  {% unless color %}
-    {% if page.tag %}
-      {% assign tag = site.data.tags[page.tag] %}
+  {% if page.tag %}
+    {% assign tag = site.data.tags[page.tag] %}
+    {% assign color = tag.color %}
+    {% assign image = tag.image %}
+  {% else %}
+    {% if page.tags.size > 0 %}
+      {% assign tag_name = page.tags[0] %}
+      {% assign tag = site.data.tags[tag_name] %}
       {% assign color = tag.color %}
       {% assign image = tag.image %}
-    {% else %}
-      {% if page.tags.size > 0 %}
-        {% assign tag_name = page.tags[0] %}
-        {% assign tag = site.data.tags[tag_name] %}
-        {% assign color = tag.color %}
-        {% assign image = tag.image %}
-      {% endif %}
     {% endif %}
-  {% endunless %}
+  {% endif %}
 
-  {% unless color %}
-    {% assign color = site.color %}
-    {% assign image = site.image %}
-  {% endunless %}
+  {% if page.color %}
+    {% assign color = page.color %}
+  {% endif %}
+
+  {% if page.image %}
+    {% assign image = page.image %}
+  {% endif %}
 
   <style>
     html {
