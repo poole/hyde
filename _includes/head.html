@@ -13,15 +13,18 @@
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
 
   <!-- CSS -->
-  {% if site.load_google_fonts %}
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.load_google_fonts }}" type="text/css">
-  {% endif %}
+  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/style.css">
+
   {% if site.author.social %}
-  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/icons.css">
+  <style>
+    @font-face {
+      font-family:'icomoon';
+      src: url(data:application/x-font-woff;charset=utf-8;base64,{% include base64/icomoon.woff %}) format('woff');
+      font-weight: normal;
+      font-style: normal;
+    }
+  </style>
   {% endif %}
-  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/poole.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/hyde.css">
-  <link rel="stylesheet" href="{{ site.baseurl }}/public/css/jekyll-github.css">
 
   {% assign color = page.color %}
 
@@ -70,10 +73,6 @@
     }
     {% endif %}
   </style>
-
-  <!-- Icons -->
-  <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{{ site.baseurl }}/public/apple-touch-icon-144-precomposed.png">
-  <link rel="shortcut icon" href="{{ site.baseurl }}/public/favicon.ico">
 
   <!-- RSS -->
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">

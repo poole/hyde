@@ -1,10 +1,18 @@
+---
+layout: compress
+---
+
 <!DOCTYPE html>
 <html lang="en">
 
   {% include head.html %}
 
   <body>
-    <a id="_menu" class="menu" href="#_sidebar">☰</a>
+    <a id="_menu" class="menu" href="#_sidebar">
+      <span>☰</span>
+      <span class="sr-only"> </span>
+      <span class="sr-only">Menu</span>
+    </a>
 
     <main class="content container">
       {{ content }}
@@ -12,6 +20,20 @@
 
     {% include sidebar.html %}
 
-    <script src="{{ site.baseurl }}/public/js/hydejack.js" async></script>
+    <script async src="{{ site.baseurl }}/public/js/hydejack.min.js"></script>
+
+    <!-- Web fonts -->
+    {% if site.load_google_fonts %}
+    <script async src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js"></script>
+    <script>
+    WebFontConfig = {
+      google: {
+        families: '{{ site.load_google_fonts }}'.split('|')
+      },
+      classes: false,
+      events: false
+    };
+    </script>
+    {% endif %}
   </body>
 </html>

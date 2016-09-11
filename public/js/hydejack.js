@@ -208,7 +208,7 @@
     new Tap(menu);
 
     var browerCapabilities = getBrowserCapabilities();
-    var transformPrefix = browerCapabilities.prefix;
+    // var transformPrefix = browerCapabilities.prefix;
     var transformProperty = browerCapabilities.transform;
 
     var IDLE = 'IDLE';
@@ -245,7 +245,6 @@
     var timeDiff;
 
     var sliderWidth;
-    var screenWidth;
 
     function requestAnimationLoop() {
       if (!animationFrameRequested) {
