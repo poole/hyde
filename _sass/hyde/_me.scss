@@ -1,0 +1,27 @@
+.me {
+    width: 6.5rem;
+    margin-top: -4.8rem;
+    margin-left: 1rem;
+    border-radius: 100%;
+    position: relative;
+    z-index: 2;
+    float: right;
+}
+@media (min-width: 38em) {
+  .me {
+    width: 7rem;
+    margin-top: -5.05rem;
+  }
+}
+@media (min-width: 48em) {
+  .me {
+    width: 6.5rem;
+    margin-top: -4.8rem;
+  }
+}
+@media (min-width: 58em) {
+  .me {
+    width: 7rem;
+    margin-top: -5.05rem;
+  }
+}

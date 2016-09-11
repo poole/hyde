@@ -1,0 +1,37 @@
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+@media (min-width: 48em) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 58em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+a {
+  position: relative;
+  padding-bottom: 0.15rem;
+  border-bottom: 0.18rem solid transparent;
+}
+a:hover,
+a:focus {
+  text-decoration: none;
+  border-bottom: 0.18rem solid;
+}
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+}

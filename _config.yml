@@ -1,5 +1,6 @@
 # Dependencies
 gems:
+  - jekyll-sitemap
   - jekyll-paginate
 
 # Permalinks

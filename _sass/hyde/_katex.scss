@@ -1,0 +1,16 @@
+.katex-display {
+  overflow-x: auto;
+  overflow-y: hidden;
+  margin: 1rem -1rem;
+  padding: 1rem;
+  background-color: #f9f9f9;
+}
+
+.MathJax_Preview {
+  font-family: monospace;
+  margin-bottom: 1rem;
+}
+
+.katex-loaded .MathJax_Preview {
+  display: none;
+}
