@@ -1,0 +1,18 @@
+{% if include.author.photo %}
+  {% if include.author.photo2x %}
+  <img
+    class="me"
+    alt="{{ include.author.name }}"
+    src="{{ include.author.photo }}"
+    srcset="{{ include.author.photo2x }} 2x"
+    />
+  {% else %}
+  <img
+    class="me"
+    alt="{{ include.author.name }}"
+    src="{{ include.author.photo }}"
+    />
+  {% endif %}
+{% endif %}
+
+{{ include.author.about | markdownify }}

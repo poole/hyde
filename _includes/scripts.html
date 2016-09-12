@@ -1,16 +1,3 @@
-<script>
-function loadJSDeferred(src) {
-  function loadOnLoad() {
-    var element = document.createElement("script");
-    element.src = src;
-    document.body.appendChild(element);
-  }
-  if (window.addEventListener) window.addEventListener("load", loadOnLoad, false);
-  else if (window.attachEvent) window.attachEvent("onload", loadOnLoad);
-  else window.onload = loadOnLoad;
-}
-</script>
-
 <!-- <script defer src="{{ site.baseurl }}/public/js/hydejack.min.js"></script> -->
 <script>loadJSDeferred('{{ site.baseurl }}/public/js/hydejack.min.js')</script>
 

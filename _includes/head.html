@@ -81,4 +81,17 @@
   <!-- URLs -->
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
+
+  <script>
+  function loadJSDeferred(src) {
+    function loadOnLoad() {
+      var element = document.createElement("script");
+      element.src = src;
+      document.body.appendChild(element);
+    }
+    if (window.addEventListener) window.addEventListener("load", loadOnLoad, false);
+    else if (window.attachEvent) window.attachEvent("onload", loadOnLoad);
+    else window.onload = loadOnLoad;
+  }
+  </script>
 </head>
