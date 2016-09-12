@@ -3,7 +3,7 @@
   {% assign icon = include.platform %}
 {% endunless %}
 <li>
-  <a href="{{ include.url }}">
+  <a tabindex="1" href="{{ include.url }}">
     <span class="icon-{{ icon }}"></span>
     <span class="sr-only">{{ include.platform }}</span>
   </a>
