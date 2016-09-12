@@ -104,7 +104,11 @@ kramdown:
     preview: true
 
 compress_html:
+  comments: ["<!-- ", " -->"]
   clippings: all
+  endings: all
+  ignore:
+    envs: [local]
 
 sass:
   style: compressed
