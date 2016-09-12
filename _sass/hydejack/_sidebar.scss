@@ -100,7 +100,7 @@
 
 /* Sidebar nav */
 .sidebar-nav {
-  margin-bottom: 1.25rem;
+  margin-bottom: 1rem;
 }
 .sidebar-nav > ul {
   list-style: none;
@@ -117,22 +117,6 @@
 }
 .sidebar-nav > ul > li:last-child {
   border-bottom: 1px solid rgba(255, 255, 255, 0.23);
-}
-
-.sidebar-social > ul  {
-  list-style: none;
-  padding: 0;
-}
-
-.sidebar-social > ul > li {
-  font-size: 1.4rem;
-  line-height: 1.4rem;
-  margin-right: 1rem;
-  margin-bottom: 0.5rem;
-  display: inline-block;
-}
-.sidebar-social > ul > li:last-child {
-  margin-right: 0;
 }
 
 /* Enable z-index (derived from DOM structure) for the sidbar content. */
