@@ -1,9 +1,9 @@
 .post > .katex-display {
-  overflow-x: auto;
-  overflow-y: hidden;
   margin: 1rem -1rem;
   padding: 1rem;
   background-color: #f9f9f9;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
 .MathJax_Preview {

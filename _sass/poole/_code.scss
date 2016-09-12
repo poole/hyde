@@ -24,10 +24,11 @@ pre {
   padding: 1rem;
   display: block;
   line-height: 1.4;
+  background-color: #f9f9f9;
+
   /* Prevent code linebreaks and allow side-scrolling (much better readability on mobile) */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
-  background-color: #f9f9f9;
 
   /* Make code same width as regular text, and scroll the full page width on mobile */
   margin-left: -1rem;
