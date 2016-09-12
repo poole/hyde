@@ -10,8 +10,6 @@
   <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}">
   {% endif %}{% endif %}
 
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-
   <!-- CSS -->
   <!-- http://www.kevinsweet.com/inline-scss-jekyll-github-pages -->
   <style>
@@ -21,7 +19,6 @@
     {{ include_to_scssify | scssify }}
   </style>
 
-  <link rel="preload" href="{{ site.baseurl }}/public/css/non-essentials.css" as="style" onload="this.rel='stylesheet'">
   <noscript>
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/non-essentials.css">
 
@@ -33,6 +30,8 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/icons.css">
     {% endif %}
   </noscript>
+
+  <link rel="preload" href="{{ site.baseurl }}/public/css/non-essentials.css" as="style" onload="this.rel='stylesheet'">
 
   {% assign color = site.color %}
   {% assign image = site.image %}
@@ -79,6 +78,7 @@
     {% endif %}
   </style>
 
-  <!-- RSS -->
+  <!-- URLs -->
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
 </head>

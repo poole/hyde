@@ -288,22 +288,18 @@
   }
 
   //this function will work cross-browser for loading scripts asynchronously
-  function loadScript(src, callback) {
-    var s,
-        r,
-        t;
-    r = false;
-    s = document.createElement('script');
+  function loadJS(src, callback) {
+    var r = false,
+        s = document.createElement('script'),
+        t = document.getElementsByTagName('script')[0];
     s.type = 'text/javascript';
     s.src = src;
     s.onload = s.onreadystatechange = function() {
-      //console.log( this.readyState ); //uncomment this line to see which ready states are called.
       if (!r && (!this.readyState || this.readyState == 'complete')) {
         r = true;
         callback();
       }
     };
-    t = document.getElementsByTagName('script')[0];
     t.parentNode.insertBefore(s, t);
   }
 
@@ -609,7 +605,7 @@
   if (mathBlocks.length) {
     // enable math blocks using KaTeX
     loadCSS("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css");
-    loadScript("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js", function () {
+    loadJS("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js", function () {
       requestAnimationFrame(function () {
         // hide the preview
         document.body.classList.add('katex-loaded');
