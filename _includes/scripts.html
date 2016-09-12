@@ -24,3 +24,14 @@
   };
   </script>
 {% endif %}
+
+<!-- Google Analytics -->
+{% if site.google_analytics_id %}
+<script>
+window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+ga('create', '{{ site.google_analytics_id }}', 'auto');
+ga('send', 'pageview');
+</script>
+<!-- <script defer src='https://www.google-analytics.com/analytics.js'></script> -->
+<script>loadJSDeferred('https://www.google-analytics.com/analytics.js');</script>
+{% endif %}
