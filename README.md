@@ -27,11 +27,6 @@ By using a drawer component I was able to retain the original two column layout.
 
 Since the background image contributes to the feel of the page I'm letting it peek over the edge a bit. This also provides a hint to the user that an interaction is possible.
 
-### Preview
-{:.preview}
-
-<iframe class="preview" src="/hydejack/2016/03/08/introducing-hydejack/" style="border: 1px solid #ddd; width: 340px; height: 520px; margin-top: 1rem">Seems like <iframe/>s are not allowed here.</iframe>
-
 ## Manual
 
 ### Configuration
