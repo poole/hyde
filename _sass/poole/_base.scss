@@ -15,7 +15,6 @@ body {
 }
 
 html {
-  font-family: $root-font-family;
   font-size: $root-font-size;
   line-height: $root-line-height;
 
@@ -29,7 +28,7 @@ body {
   background-color: $body-bg;
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
-      
+
   /* Prevent side-scrolling on mobile */
   overflow-x: hidden;
   position: relative;
@@ -55,7 +54,8 @@ img {
   display: block;
   max-width: 100%;
   margin: 0 0 1rem;
-  border-radius: 5px;
+  // No border radius to be consistent with code/math
+  // border-radius: 5px;
 }
 
 table {

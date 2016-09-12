@@ -1,46 +1,55 @@
 .drawer {
   padding-left: 0.5rem;
+
+  /* Use larg desktop styles for mobile as well when the JS "drawer" is active */
+  > .sidebar {
+    position: fixed;
+    bottom: 0;
+    top: 0;
+    left: -17.5rem;
+    width: 18rem;
+    will-change: transform;
+    /*box-shadow: 0.25rem 0 0.5rem rgba(0, 0, 0, 0.15)*/
+
+    &::before {
+      background: -moz-linear-gradient(bottom,  rgba(32,32,32,0) 0%, rgba(32,32,32,.5) 100%);
+      background: -webkit-linear-gradient(bottom,  rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
+      background: linear-gradient(to bottom,  rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
+    }
+  }
+
+  > .backdrop {
+    display: block;
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background: #000;
+    opacity: 0;
+    z-index: 3;
+    will-change: opacity;
+    pointer-events: none;
+  }
+
+  &.drawer-open {
+    overflow: hidden;
+
+    > .backdrop {
+      pointer-events: all;
+    }
+  }
+
+  > .menu {
+    left: 0.5rem;
+  }
 }
 
-/* Use larg desktop styles for mobile as well when the JS "drawer" is active */
-.drawer > .sidebar {
-  position: fixed;
-  bottom: 0;
-  top: 0;
-  left: -17.5rem;
-  width: 18rem;
-  will-change: transform;
-  /*box-shadow: 0.25rem 0 0.5rem rgba(0, 0, 0, 0.15)*/
-}
-
-.drawer > .sidebar::before {
-  background: -moz-linear-gradient(bottom,  rgba(32,32,32,0) 0%, rgba(32,32,32,.5) 100%);
-  background: -webkit-linear-gradient(bottom,  rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
-  background: linear-gradient(to bottom,  rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
-}
-
-.drawer > .backdrop {
-  display: block;
-  position: fixed;
-  top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
-  background: #000;
-  opacity: 0;
-  z-index: 3;
-  will-change: opacity;
-  pointer-events: none;
-}
-
-.drawer-open {
-  overflow: hidden;
-}
-
-.drawer-open > .backdrop {
-  pointer-events: all;
-}
-
-.drawer > .menu {
-  left: 0.5rem;
+@media (min-width: 48em) {
+  .sidebar {
+    /* Disable drawer positiioning on larger screens (already done via JS, but just to be sure) */
+    -webkit-transform: translate3d(0,0,0)!important;
+    -ms-transform: translate3d(0,0,0)!important;
+    transform: translate3d(0,0,0)!important;
+  }
 }

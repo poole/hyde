@@ -11,8 +11,10 @@ pre {
 code {
   padding: .25em .5em;
   font-size: .85rem;
+  // Could be mistaken for a link if the user choses a similar link-color, so better no colored inline code.
   // color: $code-color;
   background-color: #f9f9f9;
+  // No border radius to prevent repaint on code scroll
   // border-radius: 3px;
 }
 
