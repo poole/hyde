@@ -1,0 +1,67 @@
+/*
+ * Sidebar
+ *
+ * Flexible banner for housing site name, intro, and "footer" content. Starts
+ * out above content in mobile and later moves to the side with wider viewports.
+ */
+
+.backdrop {
+  display: none;
+}
+
+.sidebar {
+  position: relative;
+  z-index: 4;
+  padding: 2rem 1rem;
+  color: rgba(255,255,255,.75);
+  background-color: #202020;
+  text-align: left;
+  min-height: 100vh;
+  background-size: cover;
+  background-position: center center;
+
+  /* Sidebar links */
+  a {
+    color: #fff;
+  }
+
+  ul {
+    list-style: none;
+    padding-left: 0;
+  }
+}
+
+.sidebar-sticky {
+  position: absolute;
+  right:  1rem;
+  bottom: 1rem;
+  left:   1rem;
+}
+
+/* About section */
+.sidebar-about > h1 {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.sidebar-nav-item {
+  font-weight: bold;
+  display: block;
+  line-height: 1.75;
+  padding: .25rem .1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.23);
+}
+
+.sidebar-social > ul {
+  min-height: 3.5rem;
+}
+
+@media (min-width: 48em) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem;
+  }
+}

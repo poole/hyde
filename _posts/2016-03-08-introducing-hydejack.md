@@ -7,18 +7,6 @@ description: >
 
 ---
 
-<style>
-  .preview {
-    display: none;
-  }
-
-  @media (min-width: 48em) {
-    .preview {
-      display: block;
-    }
-  }
-</style>
-
 ## Features
 Unlike Hyde, it's very opinionated about how you are going to use it.
 

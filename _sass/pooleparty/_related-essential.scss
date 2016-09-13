@@ -1,4 +1,5 @@
 // Related posts
+
 .related {
   padding-top: 2rem;
   padding-bottom: 2rem;
@@ -11,27 +12,11 @@
   padding-left: 0;
   list-style: none;
 
-  h3 {
+  > h3 {
     margin-top: 0;
   }
 
-  li {
-    small {
-      font-size: 75%;
-      color: #999;
-    }
-
-    a {
-      font-weight: normal;
-
-      &:hover {
-        color: #268bd2;
-        text-decoration: none;
-
-        small {
-          color: inherit;
-        }
-      }
-    }
+  > li a {
+    font-weight: normal;
   }
 }

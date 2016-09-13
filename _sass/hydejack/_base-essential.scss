@@ -1,0 +1,20 @@
+/*
+ * Global resets
+ *
+ * Update the foundational and global aspects of the page.
+ */
+@media (min-width: 48em) {
+  html {
+    font-size: 16px;
+  }
+}
+@media (min-width: 58em) {
+  html {
+    font-size: 18px;
+  }
+}
+
+.sr-only {
+  // will be properly styled in the non-essential part
+  display: none;
+}

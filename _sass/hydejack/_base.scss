@@ -1,17 +1,10 @@
-/*
- * Global resets
- *
- * Update the foundational and global aspects of the page.
- */
-@media (min-width: 48em) {
-  html {
-    font-size: 16px;
-  }
-}
-@media (min-width: 58em) {
-  html {
-    font-size: 18px;
-  }
+body {
+  /* Prevent side-scrolling on mobile */
+  overflow-x: hidden;
+  position: relative;
+
+  -webkit-text-size-adjust: 100%;
+      -ms-text-size-adjust: 100%;
 }
 
 a {
@@ -23,6 +16,12 @@ a {
     text-decoration: none;
     border-bottom: 0.18rem solid;
   }
+
+  &.menu {
+    &:hover, &:focus {
+      border-bottom: none;
+    }
+  }
 }
 
 h1 > a {
@@ -30,6 +29,7 @@ h1 > a {
 }
 
 .sr-only {
+  display: static;
   position: absolute;
   width: 1px;
   height: 1px;

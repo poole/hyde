@@ -1,16 +1,13 @@
 .sidebar-social > ul > li {
-  font-size: 1.5rem;
-  line-height: 1.5rem;
   margin-bottom: 0.5rem;
-  margin-right: 0.35rem;
   display: inline-block;
 
   > a {
     display: inline-block;
-    padding: 0.4rem;
-  }
-
-  &:last-child {
-    margin-right: 0;
+    font-size: 1.4rem;
+    line-height: 2.6rem;
+    text-align: center;
+    width: 2.6rem;
+    height: 2.6rem;
   }
 }
