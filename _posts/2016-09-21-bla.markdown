@@ -1,0 +1,6 @@
+---
+published: true
+title: bla
+layout: post
+---
+# tin press first post!
