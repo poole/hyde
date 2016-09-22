@@ -1,6 +1,7 @@
 #
 # This file contains configuration flags to customize your site
 #
+	markdown: kramdown
 
 # Name of your site (displayed in the header)
 name: Ron Apelbaum

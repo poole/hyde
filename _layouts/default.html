@@ -1,65 +1,29 @@
 <!DOCTYPE html>
 <html>
+<head>
+    <title>{{ page.title }}</title>
+    <!-- link to main stylesheet -->
+    <link rel="stylesheet" type="text/css" href="/css/main.css">
+</head>
+<body>
+<nav>
+    <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/about">About</a></li>
+        <li><a href="/cv">CV</a></li>
+        <li><a href="/blog">Blog</a></li>
+    </ul>
+</nav>
+<div class="container">
 
-  <head>
-    <meta charset='utf-8'>
-    <meta http-equiv="X-UA-Compatible" content="chrome=1">
-    <meta name="description" content="ronapelbaum.github.io : my personal blog about frontend">
+    {{ content }}
 
-    <!--<link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">-->
-
-    <title>ronapelbaum.github.io</title>
-  </head>
-
-  <body>
-    <!-- HEADER -->
-    <div id="header_wrap" class="outer">
-        <header class="inner">
-          <a id="forkme_banner" href="https://github.com/ronapelbaum">View on GitHub</a>
-
-          <h1 id="project_title">ronapelbaum.github.io</h1>
-          <h2 id="project_tagline">my personal blog about frontend</h2>
-
-        </header>
-    </div>
-
-    <!-- MAIN CONTENT -->
-<!--    <div id="main_content_wrap" class="outer">-->
-<!--      <section id="main_content" class="inner">-->
-<!--        <h1>-->
-<!--<a id="ronapelbaumgithubio" class="anchor" href="#ronapelbaumgithubio" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>ronapelbaum.github.io</h1>-->
-
-<!--<h3>-->
-<!--<a id="i-blog-about-frontend" class="anchor" href="#i-blog-about-frontend" aria-hidden="true"><span aria-hidden="true" class="octicon octicon-link"></span></a>I blog about frontend</h3>-->
-
-<!--<div class="highlight highlight-source-js"><pre>(<span class="pl-k">function</span>(){-->
-<!--    <span class="pl-k">function</span> <span class="pl-en">getContent</span>(){-->
-<!--        <span class="pl-k">return</span> <span class="pl-s"><span class="pl-pds">'</span>javascript<span class="pl-pds">'</span></span>;-->
-<!--    }-->
-<!--    <span class="pl-c1">document</span>.<span class="pl-c1">body</span>.<span class="pl-c1">write</span>(<span class="pl-en">getContent</span>());-->
-<!--})();</pre></div>-->
-<!--      </section>-->
-<!--    </div>-->
-
-<!-- POSTS -->
-{% for post in site.posts %}
-      <li>
-        <span class="post-meta">{{ post.date | date: "%b %-d, %Y" }}</span>
-
-        <h2>
-          <a class="post-link" href="{{ post.url | prepend: site.baseurl }}">{{ post.title | escape }}</a>
-        </h2>
-      </li>
-    {% endfor %}
-    
-    <!-- FOOTER  -->
-    <div id="footer_wrap" class="outer">
-      <footer class="inner">
-        <p>Published with <a href="https://pages.github.com">GitHub Pages</a></p>
-      </footer>
-    </div>
-
-    
-
-  </body>
+</div><!-- /.container -->
+<footer>
+    <ul>
+        <li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
+        <li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
+    </ul>
+</footer>
+</body>
 </html>
