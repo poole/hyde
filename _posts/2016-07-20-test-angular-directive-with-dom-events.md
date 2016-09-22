@@ -1,6 +1,6 @@
 ---
 layout: post
-title: angular unit test: directive with DOM events
+title: angular unit test -  directive with DOM events
 date: 2016-07-20 10:20
 author: ronapelbaum
 comments: true
