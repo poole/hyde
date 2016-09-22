@@ -1,9 +1,8 @@
 ---
-published: true
-title: bla
 layout: post
+title: My first post
 ---
-# tin press first post!
+# first post!
 ```javascript
 function foo(){
     return 5;
