@@ -10,7 +10,7 @@ categories: [angular-jasmine, javascript]
 This is easy, since we are creating a new controller for each test, so we can inject different spies to it.
 But what about testing services?
 
-[code language="javascript" gutter="false"]
+```javascript
 function MyDataService() {
     this.getName = function() {
         return 'bob';
@@ -22,25 +22,25 @@ function MyUpperCaseService(MyDataService) {
         return MyDataService.getName().toUpperCase();
     }
 }
-[/code]
+```
 Here we can use $inject()..
 
 First, we will inject the service to out testing scope.
 
-[code language="javascript" gutter="false"]
+```javascript
 var MyDataService;
 beforeEach(inject(function(_MyDataService_) {
     MyDataService = _MyDataService_;
 }));
-[/code]
+```
 Now, we can directly spy on this service, and test the controller:
 
-[code language="javascript" gutter="false"]
+```javascript
 it(&amp;amp;amp;quot;spyOn() and return 'alice'&amp;amp;amp;quot;, function () {
     spyOn(MyDataService, 'getName').and.returnValue('alice');
     expect(MyUpperCaseService.getUppercaseName()).toBe('ALICE');
 });
-[/code]
+```
 Note that we are spying on the same service that is injected to our service. It's the same object instance.
 
 https://jsfiddle.net/ronapelbaum/nt8rf1yf/

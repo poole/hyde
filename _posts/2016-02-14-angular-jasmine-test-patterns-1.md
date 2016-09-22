@@ -13,22 +13,22 @@ categories: [angular-jasmine, angularjs, javascript]
 <!--more-->
 <div>Say you have a Service:</div>
 <div></div>
-[code language="javascript" gutter="false"]
+```javascript
 function MyService() {
    this.greet = function(name) {
        return 'hello ' + name;
    }
 };
-[/code]
+```
 <div></div>
 <div>so, in order to test it you can access it from global scope:</div>
 <div></div>
-[code language="javascript" gutter="false"]
+```javascript
 it(&amp;quot;test greet()&amp;quot;, function() {
     var myService = new MyService();
     expect(myService.greet('bob')).toBe('hello bob');
 });
-[/code]
+```
 <div></div>
 <div><a href="https://jsfiddle.net/ronapelbaum/4uwetpy5/" target="_blank">https://jsfiddle.net/ronapelbaum/4uwetpy5/</a></div>
 <div></div>
@@ -36,7 +36,7 @@ it(&amp;quot;test greet()&amp;quot;, function() {
 <div>OK, now let's take this service, and register it to angular.</div>
 <div>Now we'd like to test it, using angular's DI mechanism:</div>
 <div></div>
-[code language="javascript" gutter="false"]
+```javascript
 var MyService;
 
 beforeEach(module('MyModule'));
@@ -48,7 +48,7 @@ beforeEach(inject(function(_MyService_) {
 it(&amp;quot;test greet()&amp;quot;, function() {
     expect(MyService.greet('bob')).toBe('hello bob');
 });
-[/code]
+```
 <div></div>
 <div><a href="https://jsfiddle.net/ronapelbaum/m6Ltvh82/">https://jsfiddle.net/ronapelbaum/m6Ltvh82/</a></div>
 <div></div>

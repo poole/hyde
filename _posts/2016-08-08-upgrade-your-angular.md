@@ -16,13 +16,13 @@ This will probably not be easy, but here are some refactoring that you probably 
 <h2>The Goal - class oriented code</h2>
 If you take a look at the example of a service in angular 2, you'll see somthing like this:
 
-[code language="javascript" gutter="false"]
+```javascript
 @Injectable()
 export class HeroService {
     getHeroes() {
     }
 }
-[/code]
+```
 
 It doesn't really matter if you prefer TypeScript or ES6, the main concept here is the use of <strong>class</strong>.
 

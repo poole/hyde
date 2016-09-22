@@ -10,20 +10,20 @@ After we've managed to help jasmine's spies infiltrate a 'real' service that was
 
 Until now, before each test, we've declared:
 
-[code language="javascript" gutter="false"]
+```javascript
 beforeEach(angular.mock.module('MyModule'));
-[/code]
+```
 
 This is a call to <em>angular.mock</em> to set the "name space" for the injector.
 But this might not be enough...
 What if our tested service is using a module that we don't have (or don't want to have) access to in the tests?
 What if we have a service in our current module that we don't want to instantiate (i.e. constructor is too heavy)?
 <h4>Overriding dependencies</h4>
-[code language="javascript" gutter="false"]
+```javascript
 beforeEach(angular.mock.module(function($provide) {
     $provide.value('MyDataService', spyObj);
 }));
-[/code]
+```
 
 So, what do we have here?
 We are using <em>$provide()</em>, telling angular to provide use with the <em>spyObj</em> when we ask for '<em>MyDataService</em>'.
@@ -42,10 +42,10 @@ We used <em>$provide.value()</em>, since we've already created the service insta
 
 You can use also <em>$provide.service()</em>:
 
-[code language="javascript" gutter="false"]
+```javascript
 beforeEach(angular.mock.module(function($provide) {
     $provide.service('MyDataService', function(){
         return spyObj;
     });
 }));
-[/code]
+```

@@ -15,46 +15,46 @@ categories: [angular-jasmine, javascript]
 <h3><strong>Dependency injection in 30 sec.</strong></h3>
 <div>Let's say that we have this service:</div>
 <div></div>
-[code language="javascript" gutter="false"]
+```javascript
 function MyDataService(){
     this.getName = function(){
         return 'bob';
     }
 }
-[/code]
+```
 <div>and this controller</div>
-[code language="javascript" gutter="false"]
+```javascript
 function MyController() {
     this.greet = function () {
         return 'hello ' + MyDataService.getName();
     }
 }
-[/code]
+```
 <div>This is an example for <i>bad coding</i>.</div>
 <div>Why?</div>
 <div>Because the controller is using the service directly from the global scope.</div>
 <div>When you write good code with angular, you don't access your dependencies directly, but use angular to inject them for you.</div>
-[code language="javascript" gutter="false"]
+```javascript
 function MyController(MyDataService) {
     this.greet = function () {
         return 'hello ' + MyDataService.getName();
     }
 }
-[/code]
+```
 <div>the controller now expects to get the service in it's init params, and all is regieterd to angular:</div>
 <div>
 
-[code language="javascript" gutter="false"]
+```javascript
 angular.module('MyModule', [])
     .service('MyDataService', MyDataService)
     .controller('MyController', ['MyDataService', MyController]);
-[/code]
+```
 <h3>Now back to unit testing...</h3>
 <div>How do we test the controller without testing the service?</div>
 <div></div>
 <div>Well, jasmine here helps us with <a href="http://jasmine.github.io/2.0/introduction.html#section-Spies">spies</a>.</div>
 <div>Since we are instantiating a new controller for each test, we can use angular's DI to inject a 'mock' service instead of the 'real' service:</div>
-[code language="javascript" gutter="false"]
+```javascript
 it(&quot;test greet() - expect spyObj.getName() to have been called&quot;, function() {
     var spyObj = jasmine.createSpyObj('MockService', ['getName']);
 
@@ -64,10 +64,10 @@ it(&quot;test greet() - expect spyObj.getName() to have been called&quot
     ctrl.greet();
     expect(spyObj.getName).toHaveBeenCalled();
 });
-[/code]
+```
 <div>Here we are testing that our tested code, the controller, is doing as expected and calling the service.</div>
 <div>we can also mock the output:</div>
-[code language="javascript" gutter="false"]
+```javascript
 it(&quot;test greet() - mock spyObj.getName() to return 'alice'&quot;, function() {
     var spyObj = jasmine.createSpyObj('MockService', ['getName']);
     spyObj.getName.and.returnValue('alice');
@@ -77,6 +77,6 @@ it(&quot;test greet() - mock spyObj.getName() to return 'alice'&quot;, f
     });
     expect(ctrl.greet()).toBe('hello alice');
 });
-[/code]
+```
 <div><a href="https://jsfiddle.net/ronapelbaum/Luug0kd8/">https://jsfiddle.net/ronapelbaum/Luug0kd8/</a></div>
 </div>
