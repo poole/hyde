@@ -1,15 +1,20 @@
 <!DOCTYPE html>
 <html lang="en-us">
 
-  {% include head.html %}
+{% include head.html %}
 
-  <body class="theme-base-0d layout-reverse">
+<body class="theme-base-0d layout-reverse">
 
-    {% include sidebar.html %}
+{% include sidebar.html %}
 
-    <div class="content container">
-      {{ content }}
-    </div>
+<div class="content container">
+    {{ content }}
+</div>
 
-  </body>
+</body>
+
+<script type="text/javascript">
+    var classList = $('body').classList;
+    console.log(classList);
+</script>
 </html>
