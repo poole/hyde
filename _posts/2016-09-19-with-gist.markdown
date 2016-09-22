@@ -1,6 +1,0 @@
----
-layout: post
-title: post with gist
----
-*gist*
-{% gist 41b3911721edd9f3c388278f9cdc84f3 %}
