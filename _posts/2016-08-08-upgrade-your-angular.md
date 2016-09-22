@@ -34,7 +34,7 @@ As usual, we'll start with services.
 
 Your current angular 1.x probably looks somthing like that:
 
-https://gist.github.com/ronapelbaum/8f03be3b051bdfb9eaa71d4d681afd48
+{% gist 8f03be3b051bdfb9eaa71d4d681afd48 %}
 
 This is a straight forward service declaration of angular 1, as we were tought at the docs. What do we have here?
 <ol>
@@ -46,7 +46,7 @@ Yes, the function that we are writing here is a constructor to an <em>instance<
 <h2>Write <em>function</em>, Think <em>class</em></h2>
 Let's try to make our code better:
 
-https://gist.github.com/ronapelbaum/70ed5ca295a7837e585cdbfa20e8c5c8
+{% gist 70ed5ca295a7837e585cdbfa20e8c5c8 %}
 
 What do we have here?
 
@@ -56,7 +56,7 @@ The class also has a static member that tells angular where to look for depen
 <h2>javascript modules</h2>
 How do you get your javascript code into the browser? you are probably doing somthing like this:
 
-https://gist.github.com/ronapelbaum/f6ab1d527cdc8e3e58b4fdc04cda4b72
+{% gist f6ab1d527cdc8e3e58b4fdc04cda4b72 %}
 
 While loading all your script to the borowser like this is however a bit old fashioned it is very ok (I'll talk about javascript module loading and <a href="https://webpack.github.io/">webpack </a>in the future).
 
@@ -70,7 +70,7 @@ An important pattern to use here is <a href="http://www.w3schools.com/js/js_func
 
 Let'e see our code now:
 
-https://gist.github.com/ronapelbaum/41b3911721edd9f3c388278f9cdc84f3
+{% gist 41b3911721edd9f3c388278f9cdc84f3 %}
 
 Now, the definition of MyService is <em>private</em> withing that anonymous function. Note that <em>angular.module(...)</em> refers to the angular object on the global scope.
 <h2>This is it?</h2>
