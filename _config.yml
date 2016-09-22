@@ -18,6 +18,9 @@ author:
 
 paginate:         5
 
+sass:
+  style: compressed
+
 # Custom vars
 version:          2.1.0
 
