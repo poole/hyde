@@ -1,6 +1,0 @@
-{
-  "name": "ronapelbaum.github.io",
-  "tagline": "my personal blog about frontend",
-  "body": "# ronapelbaum.github.io\r\n\r\n\r\n### I blog about frontend \r\n\r\n```javascript\r\n(function(){\r\n    function getContent(){\r\n        return 'javascript';\r\n    }\r\n    document.body.write(getContent());\r\n})();\r\n```",
-  "note": "Don't delete this file! It's used internally to help with page regeneration."
-}
