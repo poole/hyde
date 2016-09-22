@@ -1,10 +1,26 @@
-#
-# This file contains configuration flags to customize your site
-#
-markdown: kramdown
+# Dependencies
+markdown:         redcarpet
+highlighter:      pygments
 
-# Name of your site (displayed in the header)
-name: Ron Apelbaum
+# Permalinks
+permalink:        pretty
+relative_permalinks: false
 
-# Short bio or description (displayed in the header)
-description: I blog about front end
+# Setup
+title:            Hyde
+tagline:          'A Jekyll theme'
+description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+url:              http://hyde.getpoole.com
+baseurl:          /
+
+author:
+  name:           'Ron Apelbaum'
+  url:            https://twitter.com/mdo
+
+paginate:         5
+
+# Custom vars
+version:          2.1.0
+
+github:
+  repo:           https://github.com/poole/hyde

@@ -1,22 +1,15 @@
 <!DOCTYPE html>
-<html>
-<head>
-    <title>{{ page.title }}</title>
-    <!-- link to main stylesheet -->
-    <link rel="stylesheet" type="text/css" href="/stylesheets/stylesheet.css">
-    <link rel="stylesheet" type="text/css" href="/stylesheets/github-light.css">
-</head>
-<body>
-<div class="container">
+<html lang="en-us">
 
-    {{ content }}
+  {% include head.html %}
 
-</div><!-- /.container -->
-<footer>
-    <ul>
-        <li><a href="mailto:hankquinlanhub@gmail.com">email</a></li>
-        <li><a href="https://github.com/hankquinlan">github.com/hankquinlan</a></li>
-    </ul>
-</footer>
-</body>
+  <body>
+
+    {% include sidebar.html %}
+
+    <div class="content container">
+      {{ content }}
+    </div>
+
+  </body>
 </html>
