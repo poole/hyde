@@ -12,7 +12,7 @@ You finally finished writing your directive. A very interactive piece of UI, wi
 <h2>Your directive</h2>
 Probably looks somthing like this:
 
-https://gist.github.com/ronapelbaum/3d386c0df3d1beb70f34d633c8b5150c
+{% gist 3d386c0df3d1beb70f34d633c8b5150c %}
 
 Now, how do you test it?
 The obvious solution will be to use some browser testing framework like protractor or selenium in order to simulate mouse events.
@@ -27,7 +27,7 @@ Let's do it in unit testing - without clicking!
 <h2>Creating DOM event in javascript</h2>
 The key here is to create a DOM event using <em>pure javascript</em>:
 
-https://gist.github.com/ronapelbaum/0f214713408282adcfa3c089f91da633
+{% gist 0f214713408282adcfa3c089f91da633 %}
 
 What do we have here?
 
@@ -37,7 +37,7 @@ What do we have here?
 <h2>Testing your directive element</h2>
 As we've seen in <a href="https://ronapelbaum.wordpress.com/2016/03/06/test-angular-directive/">previous post</a>, we can use angular jqLite in order to get the DOMElement. Take this and dispatch you event on it:
 
-https://gist.github.com/ronapelbaum/ed29d0d51364a9a6de9e118d46da34ba
+{% gist ed29d0d51364a9a6de9e118d46da34ba %}
 
 Take a look at the live example:
 

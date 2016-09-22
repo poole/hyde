@@ -15,7 +15,7 @@ So modules are containers for your code. You can group part of your code to mod
 
 But pay attention: angular (1.x) doesn't see modules' heirarchy as you would expect:
 
-https://gist.github.com/ronapelbaum/0b2ad949d11a27dfaaab32665dc3f8c5
+{% gist 0b2ad949d11a27dfaaab32665dc3f8c5 %}
 
 Here you can see that ServiceB in moduleB depends on ServiceA from moduleA, but moduleB doesn't depend on moduleA!
 <h4>So how can this code work?</h4>
