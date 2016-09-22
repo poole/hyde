@@ -29,7 +29,7 @@
     ];
     var classList = $('body').attr('class').split(' ');
     console.log(classList);
-    var i = rnd(themes.length)
+    var i = rnd(themes.length)-1;
     $('body').attr('class', themes[i] + ' ' + classList[1])
 </script>
 </html>
