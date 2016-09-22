@@ -1,6 +1,6 @@
 ---
 layout: post
-title: angular unit test: service with $promise
+title: angular unit test - service with $promise
 date: 2016-07-13 08:39
 author: ronapelbaum
 comments: true

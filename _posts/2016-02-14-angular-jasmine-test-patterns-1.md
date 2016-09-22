@@ -1,6 +1,6 @@
 ---
 layout: post
-title: angular unit test: service test
+title: angular unit test service test
 date: 2016-02-14 22:05
 author: ronapelbaum
 comments: true
