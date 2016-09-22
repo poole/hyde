@@ -7,7 +7,6 @@ permalink:        pretty
 
 # Setup
 title:            frontend.io
-tagline:          'A Jekyll theme'
 description:      'I blog about front end'
 url:              http://hyde.getpoole.com
 baseurl:          /
@@ -23,3 +22,13 @@ version:          2.1.0
 
 github:
   repo:           https://github.com/ronapelbaum
+
+links:
+  email: ronapelbaum@gmail.com
+  rss:
+  github: ronapelbaum
+  linkedin: ronapelbaum
+  stackoverflow: ronapelbaum
+  facebook:
+  googleplus:
+  youtube:
