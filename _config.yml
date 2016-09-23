@@ -7,8 +7,8 @@ permalink:        pretty
 
 # Setup
 title:            Adel Lahlou
-tagline:          'Adel's site about a developer, budding data scientist, witty jokes, and occasionally food.'
-description:      'Adel's site about a developer, budding data scientist, witty jokes, and occasionally food.'
+tagline:          "Adel's site about a developer, budding data scientist, witty jokes, and occasionally food."
+description:      "Adel's site about a developer, budding data scientist, witty jokes, and occasionally food."
 url:              http://adellahlou.com
 baseurl:          /
 
