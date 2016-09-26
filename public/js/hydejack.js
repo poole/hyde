@@ -470,12 +470,16 @@
     // });
   }
 
-  var sidebar = document.getElementById('_sidebar');
-  var backdrop = document.getElementById('_backdrop');
-  var menu = document.getElementById('_menu');
+  if ('matchMedia' in window &&
+      'getComputedStyle' in window) {
 
-  // TODO: Don't run in incapable browsers
-  createSidebar(sidebar, backdrop, menu);
+    var sidebar = document.getElementById('_sidebar');
+    var backdrop = document.getElementById('_backdrop');
+    var menu = document.getElementById('_menu');
+
+    // TODO: Don't run in incapable browsers
+    createSidebar(sidebar, backdrop, menu);
+  }
 
   // KaTeX support
   var mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
