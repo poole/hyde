@@ -347,6 +347,9 @@ tbody tr:nth-child(odd) th {
 .page-tags,
 .post-tags li{
   display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
 }
 /* Meta data line below post title */
 .post-date {
