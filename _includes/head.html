@@ -10,6 +10,7 @@
   <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}">
   {% endif %}{% endif %}
 
+<!--[if gt IE 8]> -->
   <!-- CSS -->
   <!-- http://www.kevinsweet.com/inline-scss-jekyll-github-pages -->
   <style>
@@ -80,6 +81,7 @@
     }
     {% endif %}
   </style>
+<!-- <![endif]-->
 
   <!-- URLs -->
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
@@ -98,7 +100,7 @@
   }
   </script>
 
-  <!--[if lt IE 9]>
-    <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
-  <![endif]-->
+<!--[if lt IE 9]>
+  <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
+<![endif]-->
 </head>
