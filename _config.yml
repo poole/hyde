@@ -8,7 +8,8 @@ permalink:        pretty
 # Setup
 title:            frontend.io
 tagline:          ronapelbaum
-description:      'I blog about front end'
+description:      'My thoughts about web development, mainly javascript & angular...'
+
 url:              http://hyde.getpoole.com
 baseurl:          /
 
@@ -44,6 +45,7 @@ gems:
   - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
   - jekyll-gist
   - jekyll-paginate
+  - jekyll-avatar
 
 # Exclude these files from your production _site
 exclude:
