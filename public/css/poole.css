@@ -345,11 +345,18 @@ tbody tr:nth-child(odd) th {
 }
 
 .page-tags,
+.post-tags{
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.page-tags,
 .post-tags li{
   display: inline;
   list-style-type: none;
   margin: 0;
   padding: 0;
+  font-size: 16px;
 }
 /* Meta data line below post title */
 .post-date {
