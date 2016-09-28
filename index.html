@@ -2,7 +2,10 @@
 layout: default
 title: Home
 ---
-
+<script type="text/javascript">
+  var global = global || {};
+  global.posts = {% posts %};
+</script>
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
