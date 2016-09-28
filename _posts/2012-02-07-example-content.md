@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Example content
+tags: [jekyll]
 description: >
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
 ---
@@ -98,11 +99,10 @@ Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur e
 Aenean lacinia $$ f(x) = x^2 $$ bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
 
 $$
-  \phi(x,y) = \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right) =
-  \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j) =
-$$
-
-$$
+\begin{aligned}
+  \phi(x,y) &= \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right) \\[2.5em]
+            &= \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j)  \\[2.5em]
+            &=
   (x_1, \ldots, x_n) \left( \begin{array}{ccc}
       \phi(e_1, e_1) & \cdots & \phi(e_1, e_n) \\
       \vdots & \ddots & \vdots \\
@@ -113,6 +113,7 @@ $$
       \vdots \\
       y_n
     \end{array} \right)
+\end{aligned}
 $$
 
 [^1]: You can insert footnote marks using `[^1]`, `[^2]`, etc and write the footnote text at the bottom of your file like this: `[^1]: You can also insert footnote marks...`
