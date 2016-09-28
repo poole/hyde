@@ -1,3 +1,22 @@
+{% assign color = site.color %}
+{% assign image = site.image %}
+
+{% if page.tag %}
+  {% assign tag = site.data.tags[page.tag] %}
+  {% if tag.color %}{% assign color = tag.color %}{% endif %}
+  {% if tag.image %}{% assign image = tag.image %}{% endif %}
+{% else %}
+  {% if page.tags.size > 0 %}
+    {% assign tag_name = page.tags[0] %}
+    {% assign tag = site.data.tags[tag_name] %}
+    {% if tag.color %}{% assign color = tag.color %}{% endif %}
+    {% if tag.image %}{% assign image = tag.image %}{% endif %}
+  {% endif %}
+{% endif %}
+
+{% if page.color %}{% assign color = page.color %}{% endif %}
+{% if page.image %}{% assign image = page.image %}{% endif %}
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
@@ -10,9 +29,7 @@
   <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}">
   {% endif %}{% endif %}
 
-<!--[if gt IE 8]>-->
-  <!-- CSS -->
-  <!-- http://www.kevinsweet.com/inline-scss-jekyll-github-pages -->
+  <!--[if gt IE 9]> -->
   <style>
     {% capture include_to_scssify %}
     {% include essentials.scss %}
@@ -33,25 +50,6 @@
   </noscript>
 
   <link rel="preload" href="{{ site.baseurl }}/public/css/non-essentials.css" as="style" onload="this.rel='stylesheet'">
-
-  {% assign color = site.color %}
-  {% assign image = site.image %}
-
-  {% if page.tag %}
-    {% assign tag = site.data.tags[page.tag] %}
-    {% if tag.color %}{% assign color = tag.color %}{% endif %}
-    {% if tag.image %}{% assign image = tag.image %}{% endif %}
-  {% else %}
-    {% if page.tags.size > 0 %}
-      {% assign tag_name = page.tags[0] %}
-      {% assign tag = site.data.tags[tag_name] %}
-      {% if tag.color %}{% assign color = tag.color %}{% endif %}
-      {% if tag.image %}{% assign image = tag.image %}{% endif %}
-    {% endif %}
-  {% endif %}
-
-  {% if page.color %}{% assign color = page.color %}{% endif %}
-  {% if page.image %}{% assign image = page.image %}{% endif %}
 
   <style>
     html {
@@ -81,9 +79,8 @@
     }
     {% endif %}
   </style>
-<!--<![endif]-->
+  <!--<![endif] -->
 
-  <!-- URLs -->
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
 
@@ -103,4 +100,5 @@
 <!--[if lt IE 9]>
   <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
 <![endif]-->
+
 </head>
