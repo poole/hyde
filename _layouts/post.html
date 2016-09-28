@@ -6,7 +6,7 @@ layout: default
     <h1 class="post-title">{{ page.title }}</h1>
     <div class="post-date">
         <time datetime='{{ page.date | date_to_string }}'>{{ page.date | date_to_string }}</time>
-
+        {% if page.tags %}
         &nbsp;|&nbsp;
 
         <ul class="post-tags">
@@ -14,6 +14,7 @@ layout: default
             <li class="inline archive_list"><a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a></li>
             {% endfor %}
         </ul>
+        {% endif %}
     </div>
 
     <div>{{ content }}</div>
