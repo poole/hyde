@@ -5,6 +5,8 @@ layout: default
 <article class="post">
     <h1 class="post-title">{{ page.title }}</h1>
     <time class="post-date" datetime='{{ page.date | date_to_string }}'>{{ page.date | date_to_string }}</time>
+    {{ post.tags}}
+    {{ post.categories }}
     <ul class="tag_list">
         {% for tag in post.tags %}
         <li class="inline archive_list"><a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a></li>
