@@ -10,7 +10,7 @@ layout: default
         &nbsp;|&nbsp;
 
         <ul class="post-tags">
-            {% for tag in page.tags %}
+            {% for tag in page.tags != nil %}
             <li class="inline archive_list"><a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a></li>
             {% endfor %}
         </ul>
