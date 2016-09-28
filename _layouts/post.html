@@ -4,15 +4,13 @@ layout: default
 
 <article class="post">
     <h1 class="post-title">{{ page.title }}</h1>
-    <time class="post-date" datetime='{{ page.date | date_to_string }}'>{{ page.date | date_to_string }}</time> | <span> {{ page.author }}</span>
+    <div class="post-date"><time class="post-date" datetime='{{ page.date | date_to_string }}'>{{ page.date | date_to_string }}</time>|
 
-    {{ page.tags}}
-    {{ page.categories }}
-    <ul class="tag_list">
+    <ul class="post-tags">
         {% for tag in page.tags %}
         <li class="inline archive_list"><a class="tag_list_link" href="/tag/{{ tag }}">{{ tag }}</a></li>
         {% endfor %}
-    </ul>
+    </ul></div>
 
     <div>{{ content }}</div>
     {% include disqus.html %}
