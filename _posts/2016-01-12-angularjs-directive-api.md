@@ -5,6 +5,7 @@ date: 2016-01-12 21:23
 author: ronapelbaum
 comments: true
 categories: [angularjs, javascript]
+tags: [angularjs, javascript]
 ---
 suppose you're using angular and you have a directive that you pass data to:
 <pre><code>&lt;my-chart data="chartData"&gt;&lt;/my-chart&gt;
