@@ -1,3 +1,7 @@
+/*! modernizr 3.3.1 (Custom Build) | MIT *
+ * https://modernizr.com/download/?-classlist-csspointerevents-cssremunit-csstransforms-eventlistener-matchmedia-opacity-queryselector-requestanimationframe-touchevents !*/
+!function(e,t,n){function r(e,t){return typeof e===t}function o(){var e,t,n,o,i,s,a;for(var u in y)if(y.hasOwnProperty(u)){if(e=[],t=y[u],t.name&&(e.push(t.name.toLowerCase()),t.options&&t.options.aliases&&t.options.aliases.length))for(n=0;n<t.options.aliases.length;n++)e.push(t.options.aliases[n].toLowerCase());for(o=r(t.fn,"function")?t.fn():t.fn,i=0;i<e.length;i++)s=e[i],a=s.split("."),1===a.length?Modernizr[a[0]]=o:(!Modernizr[a[0]]||Modernizr[a[0]]instanceof Boolean||(Modernizr[a[0]]=new Boolean(Modernizr[a[0]])),Modernizr[a[0]][a[1]]=o),C.push((o?"":"no-")+a.join("-"))}}function i(e){return e.replace(/([a-z])-([a-z])/g,function(e,t,n){return t+n.toUpperCase()}).replace(/^-/,"")}function s(){return"function"!=typeof t.createElement?t.createElement(arguments[0]):T?t.createElementNS.call(t,"http://www.w3.org/2000/svg",arguments[0]):t.createElement.apply(t,arguments)}function a(){var e=t.body;return e||(e=s(T?"svg":"body"),e.fake=!0),e}function u(e,n,r,o){var i,u,f,l,d="modernizr",c=s("div"),p=a();if(parseInt(r,10))for(;r--;)f=s("div"),f.id=o?o[r]:d+(r+1),c.appendChild(f);return i=s("style"),i.type="text/css",i.id="s"+d,(p.fake?p:c).appendChild(i),p.appendChild(c),i.styleSheet?i.styleSheet.cssText=e:i.appendChild(t.createTextNode(e)),c.id=d,p.fake&&(p.style.background="",p.style.overflow="hidden",l=S.style.overflow,S.style.overflow="hidden",S.appendChild(p)),u=n(c,e),p.fake?(p.parentNode.removeChild(p),S.style.overflow=l,S.offsetHeight):c.parentNode.removeChild(c),!!u}function f(e,t){return!!~(""+e).indexOf(t)}function l(e,t){return function(){return e.apply(t,arguments)}}function d(e,t,n){var o;for(var i in e)if(e[i]in t)return n===!1?e[i]:(o=t[e[i]],r(o,"function")?l(o,n||t):o);return!1}function c(e){return e.replace(/([A-Z])/g,function(e,t){return"-"+t.toLowerCase()}).replace(/^ms-/,"-ms-")}function p(t,r){var o=t.length;if("CSS"in e&&"supports"in e.CSS){for(;o--;)if(e.CSS.supports(c(t[o]),r))return!0;return!1}if("CSSSupportsRule"in e){for(var i=[];o--;)i.push("("+c(t[o])+":"+r+")");return i=i.join(" or "),u("@supports ("+i+") { #modernizr { position: absolute; } }",function(e){return"absolute"==getComputedStyle(e,null).position})}return n}function m(e,t,o,a){function u(){d&&(delete A.style,delete A.modElem)}if(a=r(a,"undefined")?!1:a,!r(o,"undefined")){var l=p(e,o);if(!r(l,"undefined"))return l}for(var d,c,m,v,h,y=["modernizr","tspan","samp"];!A.style&&y.length;)d=!0,A.modElem=s(y.shift()),A.style=A.modElem.style;for(m=e.length,c=0;m>c;c++)if(v=e[c],h=A.style[v],f(v,"-")&&(v=i(v)),A.style[v]!==n){if(a||r(o,"undefined"))return u(),"pfx"==t?v:!0;try{A.style[v]=o}catch(g){}if(A.style[v]!=h)return u(),"pfx"==t?v:!0}return u(),!1}function v(e,t,n,o,i){var s=e.charAt(0).toUpperCase()+e.slice(1),a=(e+" "+z.join(s+" ")+s).split(" ");return r(t,"string")||r(t,"undefined")?m(a,t,o,i):(a=(e+" "+b.join(s+" ")+s).split(" "),d(a,t,n))}function h(e,t,r){return v(e,n,n,t,r)}var y=[],g={_version:"3.3.1",_config:{classPrefix:"",enableClasses:!0,enableJSClass:!0,usePrefixes:!0},_q:[],on:function(e,t){var n=this;setTimeout(function(){t(n[e])},0)},addTest:function(e,t,n){y.push({name:e,fn:t,options:n})},addAsyncTest:function(e){y.push({name:null,fn:e})}},Modernizr=function(){};Modernizr.prototype=g,Modernizr=new Modernizr,Modernizr.addTest("eventlistener","addEventListener"in e),Modernizr.addTest("queryselector","querySelector"in t&&"querySelectorAll"in t);var C=[],x=g._config.usePrefixes?" -webkit- -moz- -o- -ms- ".split(" "):["",""];g._prefixes=x;var S=t.documentElement;Modernizr.addTest("classlist","classList"in S);var T="svg"===S.nodeName.toLowerCase();Modernizr.addTest("opacity",function(){var e=s("a").style;return e.cssText=x.join("opacity:.55;"),/^0.55$/.test(e.opacity)}),Modernizr.addTest("csspointerevents",function(){var e=s("a").style;return e.cssText="pointer-events:auto","auto"===e.pointerEvents});var w=g.testStyles=u;Modernizr.addTest("touchevents",function(){var n;if("ontouchstart"in e||e.DocumentTouch&&t instanceof DocumentTouch)n=!0;else{var r=["@media (",x.join("touch-enabled),("),"heartz",")","{#modernizr{top:9px;position:absolute}}"].join("");w(r,function(e){n=9===e.offsetTop})}return n});var _="Moz O ms Webkit",z=g._config.usePrefixes?_.split(" "):[];g._cssomPrefixes=z;var E=function(t){var r,o=x.length,i=e.CSSRule;if("undefined"==typeof i)return n;if(!t)return!1;if(t=t.replace(/^@/,""),r=t.replace(/-/g,"_").toUpperCase()+"_RULE",r in i)return"@"+t;for(var s=0;o>s;s++){var a=x[s],u=a.toUpperCase()+"_"+r;if(u in i)return"@-"+a.toLowerCase()+"-"+t}return!1};g.atRule=E;var b=g._config.usePrefixes?_.toLowerCase().split(" "):[];g._domPrefixes=b;var q={elem:s("modernizr")};Modernizr._q.push(function(){delete q.elem});var A={style:q.elem.style};Modernizr._q.unshift(function(){delete A.style}),g.testAllProps=v;var P=g.prefixed=function(e,t,n){return 0===e.indexOf("@")?E(e):(-1!=e.indexOf("-")&&(e=i(e)),t?v(e,t,n):v(e,"pfx"))};Modernizr.addTest("requestanimationframe",!!P("requestAnimationFrame",e),{aliases:["raf"]}),Modernizr.addTest("matchmedia",!!P("matchMedia",e)),g.testAllProps=h,Modernizr.addTest("csstransforms",function(){return-1===navigator.userAgent.indexOf("Android 2.")&&h("transform","scale(1)",!0)}),Modernizr.addTest("cssremunit",function(){var e=s("a").style;try{e.fontSize="3rem"}catch(t){}return/rem/.test(e.fontSize)}),o(),delete g.addTest,delete g.addAsyncTest;for(var L=0;L<Modernizr._q.length;L++)Modernizr._q[L]();e.Modernizr=Modernizr}(window,document);
+
 /*! loadCSS: load a CSS file asynchronously. [c]2016 @scottjehl, Filament Group, Inc. Licensed MIT */
 (function(w){
 	"use strict";
@@ -123,46 +127,6 @@
 }( this ));
 
 (function(document, window) {
-  function polyfillRequestAnimationFrame() {
-    var lastTime = 0;
-    var vendors = ['webkit', 'moz'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-      window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-      window.cancelAnimationFrame =
-        window[vendors[x]+'CancelAnimationFrame'] || window[vendors[x]+'CancelRequestAnimationFrame'];
-    }
-
-    if (!window.requestAnimationFrame) {
-      window.requestAnimationFrame = function(callback, element) {
-        var currTime = new Date().getTime();
-        var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-        var id = window.setTimeout(function() { callback(currTime + timeToCall); },
-          timeToCall);
-        lastTime = currTime + timeToCall;
-        return id;
-      };
-    }
-
-    if (!window.cancelAnimationFrame) {
-      window.cancelAnimationFrame = function(id) {
-        clearTimeout(id);
-      };
-    }
-  }
-
-  function getBrowserCapabilities() {
-    var styles = window.getComputedStyle(document.documentElement, '');
-    var pre = (Array.prototype.slice
-        .call(styles)
-        .join('')
-        .match(/-(moz|webkit|ms)-/) || (styles.OLink === '' && ['', 'o'])
-      )[1];
-    return {
-      prefix: '-' + pre + '-',
-      transform: pre[0].toUpperCase() + pre.substr(1) + 'Transform'
-    };
-  }
-
   //this function will work cross-browser for loading scripts asynchronously
   function loadJS(src, callback) {
     var r = false,
@@ -179,18 +143,20 @@
     t.parentNode.insertBefore(s, t);
   }
 
+  function hasFeatures(features) {
+    return Array.prototype.reduce.call(features, function(acc, feature) {
+      var hasFeature = Modernizr[feature];
+      // if (!hasFeature) console.warn('Feature "' + feature + '" missing!');
+      return acc && hasFeature;
+    }, true);
+  }
+
   /**
    * Copyright (c) 2016 Florian Klampfer
    * http://qwtel.com/hydejack/
    * Released under MIT license
    */
   function createSidebar(sidebar, backdrop, menu) {
-    polyfillRequestAnimationFrame();
-
-    var browerCapabilities = getBrowserCapabilities();
-    // var transformPrefix = browerCapabilities.prefix;
-    var transformProperty = browerCapabilities.transform;
-
     var IDLE = 'IDLE';
     var START_TOUCHING = 'START_TOUCHING';
     var TOUCHING = 'TOUCHING';
@@ -426,8 +392,8 @@
     };
 
     function updateDOM(translateX, sliderWidth) {
-      sidebar.style[transformProperty] = 'translate3d(' + translateX + 'px,0,0)';
-      backdrop.style['opacity'] = MAX_OPACITY * (translateX / sliderWidth);
+      sidebar.style.transform = 'translate3d(' + translateX + 'px,0,0)';
+      backdrop.style.opacity = MAX_OPACITY * (translateX / sliderWidth);
     }
 
     function enableSlider() {
@@ -460,36 +426,35 @@
     window.addEventListener('resize', onResize);
     window.addEventListener('orientationchange', onResize);
     onResize();
-
-    // Allow vertical scrolling on code snippets.
-    // TODO: Find a generic solution
-    // Array.prototype.forEach.call(document.querySelectorAll('pre'), function(pre) {
-    //   pre.addEventListener('touchstart', function(e) {
-    //     e.stopPropagation();
-    //   });
-    // });
   }
 
-  if ('matchMedia' in window &&
-      'getComputedStyle' in window) {
+  if (hasFeatures(['eventlistener',
+                   'matchmedia',
+                   'requestanimationframe',
+                   'classlist',
+                   'opacity',
+                   'csstransforms',
+                   'csspointerevents',
+                   'cssremunit'])) {
 
     var sidebar = document.getElementById('_sidebar');
     var backdrop = document.getElementById('_backdrop');
     var menu = document.getElementById('_menu');
 
-    // TODO: Don't run in incapable browsers
     createSidebar(sidebar, backdrop, menu);
   }
 
   // KaTeX support
-  var mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
+  if (hasFeatures(['queryselector',
+                   'classlist'])) {
 
-  // only load if math blocks are present
-  if (mathBlocks.length) {
-    // enable math blocks using KaTeX
-    loadCSS("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.css");
-    loadJS("https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.5.1/katex.min.js", function () {
-      requestAnimationFrame(function () {
+    var mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
+
+    // only load if math blocks are present
+    if (mathBlocks.length) {
+      // enable math blocks using KaTeX
+      loadCSS("https://unpkg.com/katex@0.6.0/dist/katex.min.css");
+      loadJS("https://unpkg.com/katex@0.6.0/dist/katex.min.js", function () {
         // hide the preview
         document.body.classList.add('katex-loaded');
 
@@ -505,6 +470,6 @@
           });
         });
       });
-    });
+    }
   }
 }(document, window));
