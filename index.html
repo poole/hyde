@@ -4,7 +4,7 @@ title: Home
 ---
 <script type="text/javascript">
   var global = global || {};
-  global.posts = {{ site.posts | jsonify }};
+  global.posts = JSON.parse("{{ site.posts | jsonify }}");
 </script>
 <div class="posts">
   {% for post in paginator.posts %}
