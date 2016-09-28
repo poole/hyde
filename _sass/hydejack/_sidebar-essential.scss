@@ -16,9 +16,10 @@
   color: rgba(255,255,255,.75);
   background-color: #202020;
   text-align: left;
-  min-height: 100vh;
   background-size: cover;
   background-position: center center;
+  min-height: 640px; // fallback
+  min-height: 100vh;
 
   /* Sidebar links */
   a {
