@@ -4,7 +4,7 @@ title: javascript hoisting
 date: 2016-01-12 20:40
 author: ronapelbaum
 comments: true
-tags: [javascript, javascript]
+tags: [javascript]
 ---
 <h3>var declaration</h3>
 hoisted to the top of scope, without assignment.

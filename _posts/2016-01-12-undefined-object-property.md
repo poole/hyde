@@ -4,7 +4,7 @@ title: undefined object property
 date: 2016-01-12 21:18
 author: ronapelbaum
 comments: true
-tags: [javascript, javascript]
+tags: [javascript]
 ---
 If you try to access a non-existing property of an object you'll get undefined:
 <pre style="padding-left:30px;"><span style="font-family:'courier new', courier, monospace;"><code>var A = {};
