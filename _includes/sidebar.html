@@ -6,9 +6,9 @@
             <p class="lead">&lt;under construction&gt;</p>
         </div>
 
-        {% if page.id != null %}
 
         <nav class="sidebar-nav">
+            {% if page.id != null %}
             <a class="sidebar-nav-item{% if page.url == site.baseurl %} active{% endif %}" href="{{ site.baseurl }}">Home</a>
 
             {% comment %}
@@ -25,18 +25,17 @@
             {% endif %}
             {% endfor %}
 
+            {% else %}
+            <ul class="post-tags">
+                {% for tag in site.tags %}
+                {% assign t = tag | first %}
+                {% assign posts = tag | last %}
+                {% assign size = posts | size %}
+                <li><a href="/tag/{{ t }}" style="font-size: {{size | divided_by: 2 | plus: 14}}px">{{ t }}</a></li>
+                {% endfor %}
+            </ul>
         </nav>
         {% endif %}
-        <nav>
-            <ul class="post-tags">
-            {% for tag in site.tags %}
-            {% assign t = tag | first %}
-            {% assign posts = tag | last %}
-            {% assign size = posts | size %}
-            <li><a href="/tag/{{ t }}" style="font-size: {{size | divided_by: 2 | plus: 14}}px">{{ t }}</a></li>
-            {% endfor %}
-        </ul>
-        </nav>
 
         <div>
             {% include svg-icons.html %}
