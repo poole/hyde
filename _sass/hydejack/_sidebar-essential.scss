@@ -20,6 +20,7 @@
   background-position: center center;
   min-height: 640px; // fallback
   min-height: 100vh;
+  margin-left: -0.5rem;
 
   /* Sidebar links */
   a {
@@ -64,5 +65,6 @@
     left: 0;
     bottom: 0;
     width: 18rem;
+    margin-left: 0;
   }
 }

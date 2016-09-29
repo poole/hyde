@@ -14,6 +14,10 @@
   }
 }
 
+body {
+  border-left: 0.5rem solid #e8e8e8;
+}
+
 .sr-only {
   // will be properly styled in the non-essential part
   display: none;

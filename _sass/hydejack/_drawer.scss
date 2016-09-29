@@ -1,7 +1,5 @@
+// Use larg desktop styles for mobile as well when the JS "drawer" is active
 .drawer {
-  padding-left: 0.5rem;
-
-  /* Use larg desktop styles for mobile as well when the JS "drawer" is active */
   > .sidebar {
     position: fixed;
     bottom: 0;
@@ -9,7 +7,7 @@
     left: -17.5rem;
     width: 18rem;
     will-change: transform;
-    /*box-shadow: 0.25rem 0 0.5rem rgba(0, 0, 0, 0.15)*/
+    margin-left: 0;
   }
 
   > .backdrop {
@@ -33,15 +31,11 @@
       pointer-events: all;
     }
   }
-
-  > .menu {
-    left: 0.5rem;
-  }
 }
 
 @media (min-width: 48em) {
+  // Disable drawer positiioning on larger screens (already done via JS, but just to be sure)
   .sidebar {
-    /* Disable drawer positiioning on larger screens (already done via JS, but just to be sure) */
     -webkit-transform: translate3d(0,0,0)!important;
     -ms-transform: translate3d(0,0,0)!important;
     transform: translate3d(0,0,0)!important;
