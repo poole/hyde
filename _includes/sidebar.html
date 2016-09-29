@@ -5,7 +5,9 @@
             <p class="lead">{{ site.description }}</p>
             <p class="lead">&lt;under construction&gt;</p>
         </div>
-
+        <div style="text-align: center;">
+            {% include svg-icons.html %}
+        </div>
 
         <nav class="sidebar-nav">
             {% if page.id != null %}
@@ -37,9 +39,6 @@
         </nav>
         {% endif %}
 
-        <div>
-            {% include svg-icons.html %}
-        </div>
 
     </div>
 </div>
