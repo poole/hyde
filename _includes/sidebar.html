@@ -34,15 +34,12 @@
                 {% assign t = tag | first %}
                 {% assign posts = tag | last %}
                 {% assign size = posts | size %}
-                <li><a href="/tag/{{ t }}" style="font-size: {{size | divided_by: 2 | plus: 14}}px">{{ t }}</a></li>
+                <li><a href="/tag/#{{ t }}" style="font-size: {{size | divided_by: 2 | plus: 14}}px">{{ t }}</a></li>
                 {% endfor %}
             </ul>
+            {% endif %}
         </nav>
-        {% endif %}
 
 
     </div>
 </div>
-<script>
-    console.log('{{page.id}}');
-</script>
