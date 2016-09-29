@@ -3,20 +3,16 @@
 .related {
   padding-top: 2rem;
   padding-bottom: 2rem;
-  // margin-bottom: 2rem;
-  // border-top: 1px solid #eee;
-  // border-bottom: 1px solid #eee;
 }
 
 .related-posts {
   padding-left: 0;
   list-style: none;
 
-  > h3 {
-    margin-top: 0;
-  }
-
-  > li a {
-    font-weight: normal;
+  > li {
+    margin-top: 1rem;
+    > * {
+      font-weight: normal;
+    }
   }
 }

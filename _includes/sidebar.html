@@ -1,43 +1,19 @@
 <div   id="_backdrop" class="backdrop"></div>
 <aside id="_sidebar" class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1 class="font-accent"><a tabindex="1" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+  <div id="_asidebar" class="container sidebar-sticky">
+    <header class="sidebar-about">
+      <h1 class="font-accent"><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
       {{ site.description | markdownify }}
-    </div>
+    </header>
 
     <nav class="sidebar-nav font-accent">
-      <ul>
-        {% for tag_key in site.sidebar_tags %}
-          {% assign tag = site.data.tags[tag_key] %}
-          <li>
-            <a tabindex="1" class="sidebar-nav-item {% if page.tag == tag_key %}active{% endif %}" href="{{ site.baseurl }}/tag/{{ tag_key }}/">{{ tag.name }}</a>
-          </li>
-        {% endfor %}
-
-        {% comment %}
-          The code below dynamically generates a sidebar nav of pages with
-          `layout: page` in the front-matter. See readme for usage.
-        {% endcomment %}
-
-        {% assign pages_list = site.pages %}
-        {% for node in pages_list %}
-          {% if node.title != null %}
-            {% if node.layout == "page" %}
-            <li>
-              <a tabindex="1" class="sidebar-nav-item {% if page.url == node.url %}active{% endif %}" href="{{ node.url | prepend:site.baseurl }}">{{ node.title }}</a>
-            </li>
-            {% endif %}
-          {% endif %}
-        {% endfor %}
-      </ul>
+      {% include nav.html %}
     </nav>
 
     {% if site.author.social %}
-    <div class="sidebar-social">
+    <footer class="sidebar-social">
       {% include social.html social=site.author.social %}
-    </div>
+    </footer>
     {% endif %}
-
   </div>
 </aside>

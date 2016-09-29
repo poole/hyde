@@ -1,0 +1,24 @@
+<ul>
+  {% for tag_key in site.sidebar_tags %}
+    {% assign tag = site.data.tags[tag_key] %}
+    <li>
+      <a class="sidebar-nav-item {% if page.tag == tag_key %}active{% endif %}" href="{{ site.baseurl }}/tag/{{ tag_key }}/">{{ tag.name }}</a>
+    </li>
+  {% endfor %}
+
+  {% comment %}
+    The code below dynamically generates a sidebar nav of pages with
+    `layout: page` in the front-matter. See readme for usage.
+  {% endcomment %}
+
+  {% assign pages_list = site.pages %}
+  {% for node in pages_list %}
+    {% if node.title != null %}
+      {% if node.layout == "page" %}
+      <li>
+        <a class="sidebar-nav-item {% if page.url == node.url %}active{% endif %}" href="{{ node.url | prepend:site.baseurl }}">{{ node.title }}</a>
+      </li>
+      {% endif %}
+    {% endif %}
+  {% endfor %}
+</ul>
