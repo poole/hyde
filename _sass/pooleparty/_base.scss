@@ -48,4 +48,11 @@ img {
   margin: 0 0 1rem;
   // No border radius to be consistent with code/math
   // border-radius: 5px;
+
+  &.lead {
+    max-width: calc(100% + 2rem);
+    width: calc(100% + 2rem);
+    margin-left: calc(-1rem);
+    margin-right: calc(-1rem);
+  }
 }

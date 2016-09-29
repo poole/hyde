@@ -22,6 +22,11 @@ h2 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+
+  &.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+  }
 }
 
 ul, ol, dl {
@@ -35,13 +40,4 @@ hr {
   border: 0;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff;
-}
-
-// Custom type
-//
-// Extend paragraphs with `.lead` for larger introductory text.
-
-.lead {
-  font-size: 1.25rem;
-  font-weight: 300;
 }
