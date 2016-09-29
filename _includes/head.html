@@ -29,7 +29,7 @@
   <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}">
   {% endif %}{% endif %}
 
-  <!--[if gt IE 9]> -->
+  <!--[if gt IE 8]><!---->
   <style>
     {% capture include_to_scssify %}
     {% include essentials.scss %}
@@ -79,7 +79,7 @@
     }
     {% endif %}
   </style>
-  <!--<![endif] -->
+  <!--<![endif]-->
 
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }}" href="{{ site.baseurl }}/atom.xml">
