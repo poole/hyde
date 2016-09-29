@@ -39,3 +39,43 @@ h1 > a {
   clip: rect(0,0,0,0);
   border: 0;
 }
+
+body::before {
+  content: '';
+  background: #e8e8e8;
+  position: fixed;
+  left: 0;
+  top: 0;
+  bottom: 0;
+  width: 0.5rem;
+  z-index: 2;
+}
+
+main {
+  &::before, &::after {
+    content: '';
+    position: fixed;
+    left: 0;
+    right: 0;
+    height: 4rem;
+    z-index: 1;
+    pointer-events: none;
+  }
+
+  &::before {
+    top: 0;
+    background: linear-gradient(to bottom, #fff, rgba(255,255,255,0));
+  }
+
+  &::after {
+    bottom: 0;
+    background: linear-gradient(to top, #fff, rgba(255,255,255,0));
+  }
+}
+
+@media(min-width: 48em) {
+  body::before, main::before, main::after {
+    content: none;
+    display: none;
+  }
+}

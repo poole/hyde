@@ -3,19 +3,21 @@
  *
  * Update the foundational and global aspects of the page.
  */
+body {
+  padding-left: 0.5rem;
+}
 @media (min-width: 48em) {
   html {
     font-size: 16px;
+  }
+  body {
+    padding-left: 0;
   }
 }
 @media (min-width: 58em) {
   html {
     font-size: 18px;
   }
-}
-
-body {
-  border-left: 0.5rem solid #e8e8e8;
 }
 
 .sr-only {
