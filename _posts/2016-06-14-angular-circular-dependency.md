@@ -14,7 +14,7 @@ It means, that it first loading the definition of all dependencies, and then in
 
 Let's have a look at this code:
 
-{% gist 110b28e47ff358f1d2a571659f627acb %}
+<script src="https://gist.github.com/ronapelbaum/110b28e47ff358f1d2a571659f627acb.js"></script> 
 <div></div>
 Well, this code will obviously get us:
 
@@ -26,7 +26,7 @@ When angular is trying to load service A, it goes and tries to load service B, b
 <h2>Solution: use $injector</h2>
 In order to solve this, we can use the <strong>$injector</strong> explicitly in service B:
 
-{% gist f8dd3a7ada22a52ba154e59a75ba63c6 %}
+<script src="https://gist.github.com/ronapelbaum/f8dd3a7ada22a52ba154e59a75ba63c6.js"></script> 
 <div></div>
 Why is this working? didn't we call the injector anyway?
 
@@ -38,5 +38,5 @@ While using $injector explicitly might have some good reasons (though I doubt it
 
 Please, don't be afraid to refactor:
 
-{% gist 9adc004af8c2a8db04c2d883f4cb5a68 %}
+<script src="https://gist.github.com/ronapelbaum/9adc004af8c2a8db04c2d883f4cb5a68.js"></script> 
 <div></div>

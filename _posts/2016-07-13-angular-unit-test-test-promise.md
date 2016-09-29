@@ -14,7 +14,7 @@ So you have a controller that uses a service, and that service returns a promise
 
 We already know that we'de want to <em>mock</em> this service. But how should we mock the promised return?
 
-{% gist e78e593b86a5e98db3baa0e303e69d9b %}
+<script src="https://gist.github.com/ronapelbaum/e78e593b86a5e98db3baa0e303e69d9b.js"></script> 
 
 Let's explain, step by step.
 <ol>

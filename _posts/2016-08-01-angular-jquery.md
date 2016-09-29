@@ -21,13 +21,13 @@ Never use the <code>$('#myId')</code> syntax. It's messy and buggy.
 
 Take a look at this:
 
-{% gist 5da7135fe9846996a9e801fd716bfb6b %}
+<script src="https://gist.github.com/ronapelbaum/5da7135fe9846996a9e801fd716bfb6b.js"></script> 
 
 Well, first, this is obviously a bug: if you'de try to use more that one instance of this directive, it won't work, since the selector will apply only to the first element.
 
 Second, imagin a complex DOM, with <em>a lot</em> of these little directives. In every jquery selector, we scan the whole DOM, and for what?
 <h2>TL;DR</h2>
-{% gist a7c4bb0abb7ea505e26adda78270190a %}
+<script src="https://gist.github.com/ronapelbaum/a7c4bb0abb7ea505e26adda78270190a.js"></script> 
 
 This is good because:
 <ol>
