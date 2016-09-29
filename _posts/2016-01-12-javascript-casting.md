@@ -4,7 +4,6 @@ title: javascript casting
 date: 2016-01-12 21:10
 author: ronapelbaum
 comments: true
-categories: [javascript]
 tags: [javascript]
 ---
 cast primitive variables quite easily

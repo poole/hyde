@@ -4,7 +4,7 @@ title: angular-jasmine 101 reference
 date: 2016-03-30 09:28
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, javascript]
+tags: [angular-jasmine, javascript]
 ---
 [gallery ids="382,383" type="rectangular"]
 <h2>motivation</h2>

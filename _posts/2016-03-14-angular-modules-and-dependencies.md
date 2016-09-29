@@ -4,7 +4,7 @@ title: angular modules and dependencies
 date: 2016-03-14 13:41
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, javascript]
+tags: [angular-jasmine, javascript]
 ---
 Everybody knows that angular js has modules. But what are these module do?
 

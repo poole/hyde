@@ -4,7 +4,7 @@ title: angular unit test  – use $provide (Part 3)
 date: 2016-03-03 19:31
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, javascript]
+tags: [angular-jasmine, javascript]
 ---
 After we've managed to help jasmine's spies infiltrate a 'real' service that was injected with angular's dependency-injection mechanism, it's time to mess up with the DI itself.
 

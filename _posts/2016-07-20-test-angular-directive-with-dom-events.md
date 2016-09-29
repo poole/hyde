@@ -4,7 +4,7 @@ title: angular unit test -  directive with DOM events
 date: 2016-07-20 10:20
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, javascript]
+tags: [angular-jasmine, javascript]
 ---
 You finally finished writing your directive. A very interactive piece of UI, with a lot of mouse events. How do you test it?
 

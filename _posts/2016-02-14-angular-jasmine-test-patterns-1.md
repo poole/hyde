@@ -4,7 +4,7 @@ title: angular unit test service test
 date: 2016-02-14 22:05
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, angularjs, javascript]
+tags: [angular-jasmine, angularjs, javascript]
 ---
 [gallery ids="382,383" type="rectangular"]
 <div>Ok. Let's talk about javascript real unit-testing...</div>

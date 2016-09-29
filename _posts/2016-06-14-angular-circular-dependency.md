@@ -4,7 +4,7 @@ title: angular Circular Dependency
 date: 2016-06-14 19:00
 author: ronapelbaum
 comments: true
-categories: [angularjs, javascript]
+tags: [angularjs, javascript]
 ---
 So, angular is/has a dependency injection mechanism.
 

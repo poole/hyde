@@ -4,7 +4,7 @@ title: angular unit test - service with $promise
 date: 2016-07-13 08:39
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, javascript]
+tags: [angular-jasmine, javascript]
 ---
 Now let's talk about promises.
 

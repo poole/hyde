@@ -4,7 +4,7 @@ title: angular unit test with DI (Part 1)
 date: 2016-02-21 20:45
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, javascript]
+tags: [angular-jasmine, javascript]
 ---
 <div>After we've set-up the initial tests for our cute controllers and services, let' get to the real world. In the real world, controllers user services, and services use services, and everything is just swimming in the big browsers jacuzzi...</div>
 <div></div>

@@ -4,7 +4,7 @@ title: angular unit test with dependency injection - summary
 date: 2016-03-03 19:41
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, javascript]
+tags: [angular-jasmine, javascript]
 ---
 Let the code speak for itself:
 

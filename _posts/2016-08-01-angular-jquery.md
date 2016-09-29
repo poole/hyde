@@ -4,7 +4,7 @@ title: angular & jquery
 date: 2016-08-01 14:05
 author: ronapelbaum
 comments: true
-categories: [angularjs, javascript, jquery]
+tags: [angularjs, javascript, jquery]
 ---
 Angular and JQuery. Jquery and angularjs.
 

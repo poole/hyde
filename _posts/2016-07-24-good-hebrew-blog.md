@@ -4,7 +4,7 @@ title: Good Hebrew blog..
 date: 2016-07-24 15:00
 author: ronapelbaum
 comments: true
-categories: [javascript, Link]
+tags: [javascript, Link]
 ---
 &nbsp;
 

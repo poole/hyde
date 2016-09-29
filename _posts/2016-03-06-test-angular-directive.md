@@ -4,7 +4,7 @@ title: Test angular directive
 date: 2016-03-06 14:15
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, javascript]
+tags: [angular-jasmine, javascript]
 ---
 Let's define our directive:
 

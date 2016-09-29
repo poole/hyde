@@ -4,7 +4,7 @@ title: angular controller test
 date: 2016-02-14 23:21
 author: ronapelbaum
 comments: true
-categories: [angular-jasmine, angularjs, javascript]
+tags: [angular-jasmine, angularjs, javascript]
 ---
 <h3>Testing controller with controllerAs</h3>
 After we've seen how to <a href="https://ronapelbaum.wordpress.com/2016/02/14/angular-jasmine-test-patterns-1/">test a service</a>, let's talk about testing a controller.

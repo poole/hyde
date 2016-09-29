@@ -4,10 +4,7 @@ title: upgrade your angular
 date: 2016-08-08 10:00
 author: ronapelbaum
 comments: true
-categories: [javascript]
-tags: 
-    - javascript
-    - angularjs
+tags: [javascript, angularjs]
 ---
 So you've probably seen already some concepts and code examples of <a href="https://angular.io/">angular 2</a>. Maybe you've even took the <a href="https://angular.io/docs/ts/latest/tutorial/">great tutorial</a>.
 
