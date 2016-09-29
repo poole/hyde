@@ -50,6 +50,7 @@ Yes, the function that we are writing here is a constructor to an <em>instance<
 Let's try to make our code better:
 
 {% gist 70ed5ca295a7837e585cdbfa20e8c5c8 %}
+<script src="https://gist.github.com/ronapelbaum/70ed5ca295a7837e585cdbfa20e8c5c8.js"></script>
 
 What do we have here?
 
