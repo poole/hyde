@@ -458,9 +458,6 @@
       // enable math blocks using KaTeX
       loadCSS("https://unpkg.com/katex@0.6.0/dist/katex.min.css");
       loadJS("https://unpkg.com/katex@0.6.0/dist/katex.min.js", function () {
-        // hide the preview
-        document.body.classList.add('katex-loaded');
-
         // kramdown generates script tags with type "math/tex"
         Array.prototype.forEach.call(mathBlocks, function(el) {
           var tex = el.textContent
@@ -468,9 +465,19 @@
             .replace('%]]>', '');
 
           // replace the script tag with KaTeX
-          el.outerHTML = katex.renderToString(tex, {
-            displayMode: el.type === 'math/tex; mode=display'
-          });
+          try {
+            var preview = el.previousElementSibling;
+
+            el.outerHTML = katex.renderToString(tex, {
+              displayMode: el.type === 'math/tex; mode=display'
+            });
+
+            // hide the preview only when successful
+            preview.style.display = 'none';
+            preview.style.visibility = 'hidden';
+          } catch (e) {
+            console.error(e);
+          }
         });
       });
     }
