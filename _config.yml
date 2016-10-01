@@ -101,7 +101,8 @@ google_analytics_id: 'UA-84025722-2'
 kramdown:
   math_engine: mathjax
   math_engine_opts:
-    preview: true
+    preview:         true
+    preview_as_code: true
 
 compress_html:
   comments: ["<!-- ", " -->"]

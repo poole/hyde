@@ -1,6 +1,6 @@
 {% assign post = include.post %}
 
-<article id="post-{{ post.id | slice: 1,9999 }}" class="post">
+<article id="post-{{ post.id | slice: 1,9999 }}" class="post" role="article">
   <h1 class="post-title">
   {% if include.link_title %}<a href="{{ post.url | prepend:site.baseurl }}">{% endif %}
     {{ post.title }}

@@ -25,7 +25,7 @@ a {
 }
 
 .sr-only {
-  display: static;
+  display: unset;
   position: absolute;
   width: 1px;
   height: 1px;
@@ -47,31 +47,7 @@ body::before {
   z-index: 2;
 }
 
-main {
-  &::before, &::after {
-    content: '';
-    position: fixed;
-    left: 0;
-    right: 0;
-    height: 4rem;
-    z-index: 1;
-    pointer-events: none;
-  }
-
-  &::before {
-    top: 0;
-    background: linear-gradient(to bottom, #fff, rgba(255,255,255,0));
-  }
-
-  &::after {
-    bottom: 0;
-    background: linear-gradient(to top, #fff, rgba(255,255,255,0));
-  }
-}
-
-@media(min-width: 48em) {
-  body::before, main::before, main::after {
-    content: none;
-    display: none;
-  }
+body, main {
+  position: relative;
+  overflow-x: hidden;
 }
