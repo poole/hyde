@@ -32,7 +32,7 @@
   <!--[if gt IE 8]><!---->
   <style>
     {% capture include_to_scssify %}
-    {% include essentials.scss %}
+    {% include styles/essentials.scss %}
     {% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
@@ -84,18 +84,7 @@
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="{{ site.baseurl }}/atom.xml">
 
-  <script>
-  function loadJSDeferred(src) {
-    function loadOnLoad() {
-      var element = document.createElement("script");
-      element.src = src;
-      document.body.appendChild(element);
-    }
-    if (window.addEventListener) window.addEventListener("load", loadOnLoad, false);
-    else if (window.attachEvent) window.attachEvent("onload", loadOnLoad);
-    else window.onload = loadOnLoad;
-  }
-  </script>
+  <script>{% include scripts/load-js-deferred.min.js %}</script>
 
   <!--[if lt IE 9]>
   <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>

@@ -126,23 +126,7 @@
   }
 }( this ));
 
-(function(document, window) {
-  //this function will work cross-browser for loading scripts asynchronously
-  function loadJS(src, callback) {
-    var r = false,
-        s = document.createElement('script'),
-        t = document.getElementsByTagName('script')[0];
-    s.type = 'text/javascript';
-    s.src = src;
-    s.onload = s.onreadystatechange = function() {
-      if (!r && (!this.readyState || this.readyState == 'complete')) {
-        r = true;
-        callback();
-      }
-    };
-    t.parentNode.insertBefore(s, t);
-  }
-
+(function(window, document) {
   function hasFeatures(features) {
     var acc = true;
     for (var i = 0; i < features.length; i++) {
@@ -457,7 +441,7 @@
     if (mathBlocks.length) {
       // enable math blocks using KaTeX
       loadCSS("https://unpkg.com/katex@0.6.0/dist/katex.min.css");
-      loadJS("https://unpkg.com/katex@0.6.0/dist/katex.min.js", function () {
+      loadJSDeferred("https://unpkg.com/katex@0.6.0/dist/katex.min.js", function () {
         // kramdown generates script tags with type "math/tex"
         Array.prototype.forEach.call(mathBlocks, function(el) {
           var tex = el.textContent
@@ -482,4 +466,4 @@
       });
     }
   }
-}(document, window));
+}(window, document));
