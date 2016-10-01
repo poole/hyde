@@ -58,6 +58,20 @@
   min-height: 3.5rem;
 }
 
+.sidebar::before {
+  // make sidebar slightly darker to increase text readability (when using a background image)
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  background: rgba(32, 32, 32, .33);
+  background: -moz-linear-gradient(bottom, rgba(32,32,32,0) 0%, rgba(32,32,32,.5) 100%);
+  background: -webkit-linear-gradient(bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
+  background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
+}
+
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
