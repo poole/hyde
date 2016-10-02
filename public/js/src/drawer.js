@@ -1,14 +1,9 @@
-import { loadCSS } from 'fg-loadcss/src/loadCSS';
 import YDrawer from 'y-drawer/src/vanilla';
 import HTMLYDrawerElement from 'y-drawer/src/webcomponent';
 
-import hasFeatures from './has-features';
+import hasFeatures from '../lib/has-features';
 
 const MEDIA_QUERY = '(min-width: 48em)';
-
-function hasShadowDOM() {
-  return hasShadowDOMV0() || hasShadowDOMV1();
-}
 
 function hasShadowDOMV0() {
   return 'createShadowRoot' in document.body;
@@ -18,8 +13,8 @@ function hasShadowDOMV1() {
   return 'attachShadow' in document.body;
 }
 
-function hasCustomElements() {
-  return hasCustomElementsV0() || hasCustomElementsV1();
+function hasShadowDOM() {
+  return hasShadowDOMV0() || hasShadowDOMV1();
 }
 
 function hasCustomElementsV0() {
@@ -30,8 +25,12 @@ function hasCustomElementsV1() {
   return 'customElements' in window;
 }
 
+function hasCustomElements() {
+  return hasCustomElementsV0() || hasCustomElementsV1();
+}
+
 function defineCustomElement() {
-  if (hasCustomElementsV1())  {
+  if (hasCustomElementsV1()) {
     customElements.define('y-drawer', HTMLYDrawerElement);
   } else if (hasCustomElementsV0()) {
     document.registerElement('y-drawer', HTMLYDrawerElement);
@@ -49,7 +48,6 @@ if (hasFeatures(['eventlistener',
                  'cssremunit',
                  'template',
                ])) {
-
   let drawer = document.querySelector('y-drawer');
   let isDesktop = window.matchMedia(MEDIA_QUERY).matches;
 
@@ -75,7 +73,7 @@ if (hasFeatures(['eventlistener',
     });
   }
 
-  window.addEventListener('resize', e => {
+  window.addEventListener('resize', () => {
     const hasChanged = isDesktop !== window.matchMedia(MEDIA_QUERY).matches;
     if (hasChanged) {
       isDesktop = !isDesktop;
@@ -84,8 +82,9 @@ if (hasFeatures(['eventlistener',
     }
   });
 
-  _menu.addEventListener('click', e => {
-    e.preventDefault();
-    drawer.toggle();
+  document.getElementById('_menu').addEventListener('click', () => {
+    if (!isDesktop) {
+      drawer.toggle();
+    }
   });
 }

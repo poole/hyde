@@ -8,21 +8,26 @@
     "build": "browserify public/js/src/index.js | uglifyjs -c -m -o public/js/hydejack.js",
     "build:dev": "browserify --debug public/js/src/index.js -o public/js/hydejack.js",
     "watch": "watchify --debug public/js/src/index.js -o public/js/hydejack.js",
-    "lint": "echo \"Warning: no lint specified\" && exit 0",
+    "lint": "eslint public/js/src",
     "prepublish": "npm run lint && npm run test && npm run clean && npm run build"
   },
   "author": "Florian Klampfer <f.klampfer@gmail.com> (http://qwtel.com)",
   "license": "MIT",
   "devDependencies": {
-    "babel-preset-es2015": "6.14.0",
+    "babel-preset-es2015": "6.16.0",
     "babelify": "7.3.0",
     "browserify": "13.1.0",
+    "eslint": "3.7.0",
+    "eslint-config-airbnb": "12.0.0",
+    "eslint-plugin-import": "1.16.0",
+    "eslint-plugin-jsx-a11y": "2.2.2",
+    "eslint-plugin-react": "6.3.0",
     "uglify-js": "2.7.3",
     "watchify": "3.7.0"
   },
   "dependencies": {
     "fg-loadcss": "1.2.0",
-    "y-drawer": "2.0.1"
+    "y-drawer": "2.0.3"
   },
   "browserify": {
     "transform": [

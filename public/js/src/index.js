@@ -4,4 +4,4 @@ import './katex';
 import './drawer';
 
 global.loadCSS = loadCSS;
-require('./cssrelpreload');
+require('../lib/cssrelpreload');

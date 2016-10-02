@@ -1,0 +1,10 @@
+{
+  "extends": "eslint-config-airbnb",
+  "env": {
+    "browser": true
+  },
+  "globals": {
+    "loadJSDeferred": true,
+    "customElements": true
+  }
+}
