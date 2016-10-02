@@ -1,5 +1,5 @@
 <!--[if gt IE 8]><!---->
-<script>loadJSDeferred('{{ site.baseurl }}/public/js/hydejack.min.js')</script>
+<script>loadJSDeferred('{{ site.baseurl }}/public/js/hydejack.js')</script>
 
 <!-- Web fonts -->
 {% if site.load_google_fonts or site.author.social %}
@@ -10,12 +10,14 @@
       families: '{{ site.load_google_fonts }}'.split('|')
     },
     {% endif %}
+
     {% if site.author.social %}
     custom: {
       families: ['icomoon'],
       urls: ['{{ site.baseurl }}/public/css/icons.css']
     },
     {% endif %}
+
     classes: false,
     events: false
   };

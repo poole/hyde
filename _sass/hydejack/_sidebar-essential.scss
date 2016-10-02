@@ -5,13 +5,8 @@
  * out above content in mobile and later moves to the side with wider viewports.
  */
 
-.backdrop {
-  display: none;
-}
-
 .sidebar {
   position: relative;
-  z-index: 4;
   padding: 2rem 1rem;
   color: rgba(255,255,255,.75);
   background-color: #202020;
@@ -20,7 +15,7 @@
   background-position: center center;
   min-height: 640px; // fallback
   min-height: 100vh;
-  margin-left: -0.5rem;
+  // margin-left: -0.5rem;
 
   /* Sidebar links */
   a {

@@ -21,8 +21,9 @@ paginate_path:       '/page-:num/'
 
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
-  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [`@qwtel`{:style="background: rgba(255, 255, 255, 0.15)"}](https://twitter.com/qwtel)
-  from [Hyde](http://hyde.getpoole.com).
+  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by
+  [`@qwtel`{:style="background: rgba(255, 255, 255, 0.15)"}](https://twitter.com/qwtel) from
+  [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
 # The tags listed as entries in the sidebar
@@ -97,6 +98,8 @@ google_analytics_id: 'UA-84025722-2'
 
 # Setting a disqus subdomain will enable the comment section
 # disqus:            <username>
+
+exclude:             [node_modules]
 
 kramdown:
   math_engine:       mathjax
