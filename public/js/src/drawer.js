@@ -1,5 +1,7 @@
-import YDrawer from 'y-drawer/src/vanilla';
-import HTMLYDrawerElement from 'y-drawer/src/webcomponent';
+import 'core-js/fn/object/assign';
+import 'core-js/fn/object/define-property';
+import 'core-js/fn/object/keys';
+import { loadCSS } from 'fg-loadcss/src/loadCSS';
 
 import hasFeatures from '../lib/has-features';
 
@@ -29,12 +31,13 @@ function hasCustomElements() {
   return hasCustomElementsV0() || hasCustomElementsV1();
 }
 
-function defineCustomElement() {
-  if (hasCustomElementsV1()) {
-    customElements.define('y-drawer', HTMLYDrawerElement);
-  } else if (hasCustomElementsV0()) {
-    document.registerElement('y-drawer', HTMLYDrawerElement);
-  }
+function importCustomElement() {
+  const link = document.createElement('link');
+  link.rel = 'import';
+  link.href = 'https://unpkg.com/y-drawer@2.0.5/dist/webcomponent/y-drawer.html';
+
+  const ref = document.getElementsByTagName('link')[0];
+  ref.parentNode.insertBefore(link, ref);
 }
 
 if (hasFeatures(['eventlistener',
@@ -46,7 +49,6 @@ if (hasFeatures(['eventlistener',
                  'csstransforms',
                  'csspointerevents',
                  'cssremunit',
-                 'template',
                ])) {
   let drawer = document.querySelector('y-drawer');
   let isDesktop = window.matchMedia(MEDIA_QUERY).matches;
@@ -54,22 +56,24 @@ if (hasFeatures(['eventlistener',
   if (hasShadowDOM()) {
     if (isDesktop) drawer.setAttribute('opened', '');
     if (isDesktop) drawer.setAttribute('persistent', '');
-    if (hasCustomElements()) {
-      defineCustomElement();
+
+    if (hasFeatures(['template', 'htmlimports']) && hasCustomElements()) {
+      importCustomElement();
     } else {
-      loadJSDeferred('https://unpkg.com/webcomponents.js@0.7.22/CustomElements.js');
-      window.addEventListener('WebComponentsReady', defineCustomElement);
+      loadJSDeferred('https://unpkg.com/webcomponents.js@0.7.22/webcomponents-lite.min.js');
+      window.addEventListener('WebComponentsReady', importCustomElement);
     }
   } else {
-    const style = document.getElementById('y-drawer-template-v1')
-      .content
-      .querySelector('style')
-      .cloneNode(true);
-    const ref = document.querySelector('style,link[rel="stylesheet"]');
-    ref.parentNode.insertBefore(style, ref);
-    drawer = new YDrawer(drawer, {
-      opened: isDesktop,
-      persistent: isDesktop,
+    const ref = document.getElementsByTagName('style')[0];
+    loadCSS('https://unpkg.com/y-drawer@2.0.5/dist/drawer.css', ref);
+    loadJSDeferred('https://unpkg.com/y-drawer@2.0.5/dist/vanilla/index.js', () => {
+      /* global y */
+      const YDrawer = y.drawer.vanilla.default;
+
+      drawer = new YDrawer(drawer, {
+        opened: isDesktop,
+        persistent: isDesktop,
+      });
     });
   }
 
@@ -82,8 +86,9 @@ if (hasFeatures(['eventlistener',
     }
   });
 
-  document.getElementById('_menu').addEventListener('click', () => {
+  document.getElementById('_menu').addEventListener('click', (e) => {
     if (!isDesktop) {
+      e.preventDefault();
       drawer.toggle();
     }
   });
