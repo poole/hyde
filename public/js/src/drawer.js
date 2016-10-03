@@ -34,7 +34,7 @@ function hasCustomElements() {
 function importCustomElement() {
   const link = document.createElement('link');
   link.rel = 'import';
-  link.href = 'https://unpkg.com/y-drawer@2.0.5/dist/webcomponent/y-drawer.html';
+  link.href = 'https://unpkg.com/y-drawer@2.0.6/dist/webcomponent/y-drawer.html';
 
   const ref = document.getElementsByTagName('link')[0];
   ref.parentNode.insertBefore(link, ref);
@@ -65,8 +65,8 @@ if (hasFeatures(['eventlistener',
     }
   } else {
     const ref = document.getElementsByTagName('style')[0];
-    loadCSS('https://unpkg.com/y-drawer@2.0.5/dist/drawer.css', ref);
-    loadJSDeferred('https://unpkg.com/y-drawer@2.0.5/dist/vanilla/index.js', () => {
+    loadCSS('https://unpkg.com/y-drawer@2.0.6/dist/drawer.css', ref);
+    loadJSDeferred('https://unpkg.com/y-drawer@2.0.6/dist/vanilla/index.js', () => {
       /* global y */
       const YDrawer = y.drawer.vanilla.default;
 
