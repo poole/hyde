@@ -1,22 +1,3 @@
-{% assign color = site.color %}
-{% assign image = site.image %}
-
-{% if page.tag %}
-  {% assign tag = site.data.tags[page.tag] %}
-  {% if tag.color %}{% assign color = tag.color %}{% endif %}
-  {% if tag.image %}{% assign image = tag.image %}{% endif %}
-{% else %}
-  {% if page.tags.size > 0 %}
-    {% assign tag_name = page.tags[0] %}
-    {% assign tag = site.data.tags[tag_name] %}
-    {% if tag.color %}{% assign color = tag.color %}{% endif %}
-    {% if tag.image %}{% assign image = tag.image %}{% endif %}
-  {% endif %}
-{% endif %}
-
-{% if page.color %}{% assign color = page.color %}{% endif %}
-{% if page.image %}{% assign image = page.image %}{% endif %}
-
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
@@ -50,35 +31,6 @@
   </noscript>
 
   <link rel="preload" href="{{ site.baseurl }}/public/css/non-essentials.css" as="style" onload="this.rel='stylesheet'">
-
-  <style>
-    html {
-      font-family: {{ site.font }};
-    }
-    :focus {
-      outline-color: {{ color }};
-    }
-    .font-accent {
-      font-family: {{ site.font_accent }};
-    }
-    .content a,
-    .related-posts li a:hover {
-      color: {{ color }};
-    }
-    ::selection {
-      color: #fff;
-      background: {{ color }};
-    }
-    ::-moz-selection {
-      color: #fff;
-      background: {{ color }};
-    }
-    {% if image %}
-    .sidebar {
-      background-image: url('{{ image }}');
-    }
-    {% endif %}
-  </style>
   <!--<![endif]-->
 
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />

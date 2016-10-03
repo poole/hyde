@@ -50,12 +50,12 @@ if (hasFeatures(['eventlistener',
                  'csspointerevents',
                  'cssremunit',
                ])) {
-  let drawer = document.querySelector('y-drawer');
-  let isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+  window.drawer = document.querySelector('y-drawer');
+  window.isDesktop = window.matchMedia(MEDIA_QUERY).matches;
 
   if (hasShadowDOM()) {
-    if (isDesktop) drawer.setAttribute('opened', '');
-    if (isDesktop) drawer.setAttribute('persistent', '');
+    if (window.isDesktop) window.drawer.setAttribute('opened', '');
+    if (window.isDesktop) window.drawer.setAttribute('persistent', '');
 
     if (hasFeatures(['template', 'htmlimports']) && hasCustomElements()) {
       importCustomElement();
@@ -70,26 +70,26 @@ if (hasFeatures(['eventlistener',
       /* global y */
       const YDrawer = y.drawer.vanilla.default;
 
-      drawer = new YDrawer(drawer, {
-        opened: isDesktop,
-        persistent: isDesktop,
+      window.drawer = new YDrawer(window.drawer, {
+        opened: window.isDesktop,
+        persistent: window.isDesktop,
       });
     });
   }
 
   window.addEventListener('resize', () => {
-    const hasChanged = isDesktop !== window.matchMedia(MEDIA_QUERY).matches;
-    if (hasChanged) {
-      isDesktop = !isDesktop;
-      drawer.persistent = isDesktop;
-      drawer.jumpTo(isDesktop);
+    const hasChanged = window.isDesktop !== window.matchMedia(MEDIA_QUERY).matches;
+    if (window.drawer && hasChanged) {
+      window.isDesktop = !window.isDesktop;
+      window.drawer.persistent = window.isDesktop;
+      window.drawer.jumpTo(window.isDesktop);
     }
   });
 
   document.getElementById('_menu').addEventListener('click', (e) => {
-    if (!isDesktop) {
+    if (window.drawer && !window.isDesktop) {
       e.preventDefault();
-      drawer.toggle();
+      window.drawer.toggle();
     }
   });
 }

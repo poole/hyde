@@ -8,3 +8,7 @@ y-drawer {
 .y-drawer-content {
   left: -17.5rem;
 }
+
+header, body::before {
+  backface-visibility: hidden; // wat?
+}

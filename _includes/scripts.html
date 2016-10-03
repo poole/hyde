@@ -1,9 +1,9 @@
 <!--[if gt IE 8]><!---->
-<script>loadJSDeferred('{{ site.baseurl }}/public/js/hydejack.js')</script>
+<script>loadJSDeferred('{{ site.baseurl }}/public/js/hydejack.js');</script>
 
 <!-- Web fonts -->
 {% if site.load_google_fonts or site.author.social %}
-  <script>
+<script>
   WebFontConfig = {
     {% if site.load_google_fonts %}
     google: {
@@ -21,23 +21,17 @@
     classes: false,
     events: false
   };
-  </script>
-  <script>loadJSDeferred('https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js')</script>
+  loadJSDeferred('https://ajax.googleapis.com/ajax/libs/webfont/1.6.16/webfont.js');
+</script>
 {% endif %}
 
 <!-- Google Analytics -->
 {% if site.google_analytics_id %}
 <script>
-window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-ga('create', '{{ site.google_analytics_id }}', 'auto');
-ga('send', 'pageview');
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', '{{ site.google_analytics_id }}', 'auto');
+  ga('send', 'pageview');
+  loadJSDeferred('https://www.google-analytics.com/analytics.js');
 </script>
-<script>loadJSDeferred('https://www.google-analytics.com/analytics.js')</script>
 {% endif %}
 <!--<![endif]-->
-
-{% comment %}
-<script type="text/javascript" async
-  src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-MML-AM_CHTML">
-</script>
-{% endcomment %}

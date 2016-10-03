@@ -10,11 +10,14 @@ layout: compress
   <body>
     {% include menu.html %}
 
-    <main class="content container" role="main">
-      {{ content }}
-    </main>
+    <div id="_smooth-state">
+      <main class="content container" role="main">
+        {% include page-style.html %}
+        {{ content }}
+      </main>
 
-    {% include sidebar.html %}
+      {% include sidebar.html %}
+    </div>
 
     {% include scripts.html %}
   </body>

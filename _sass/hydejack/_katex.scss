@@ -7,6 +7,8 @@ article {
     /* Prevent code linebreaks and allow side-scrolling (much better readability on mobile) */
     overflow-x: auto;
     -webkit-overflow-scrolling: touch;
+
+    backface-visibility: hidden; // wat?
   }
 
   div.MathJax_Preview {

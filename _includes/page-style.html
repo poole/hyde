@@ -1,0 +1,49 @@
+{% assign color = site.color %}
+{% assign image = site.image %}
+
+{% if page.tag %}
+  {% assign tag = site.data.tags[page.tag] %}
+  {% if tag.color %}{% assign color = tag.color %}{% endif %}
+  {% if tag.image %}{% assign image = tag.image %}{% endif %}
+{% else %}
+  {% if page.tags.size > 0 %}
+    {% assign tag_name = page.tags[0] %}
+    {% assign tag = site.data.tags[tag_name] %}
+    {% if tag.color %}{% assign color = tag.color %}{% endif %}
+    {% if tag.image %}{% assign image = tag.image %}{% endif %}
+  {% endif %}
+{% endif %}
+
+{% if page.color %}{% assign color = page.color %}{% endif %}
+{% if page.image %}{% assign image = page.image %}{% endif %}
+
+<!--[if gt IE 8]><!---->
+<style>
+  html {
+    font-family: {{ site.font }};
+  }
+  :focus {
+    outline-color: {{ color }};
+  }
+  .font-accent {
+    font-family: {{ site.font_accent }};
+  }
+  .content a,
+  .related-posts li a:hover {
+    color: {{ color }};
+  }
+  ::selection {
+    color: #fff;
+    background: {{ color }};
+  }
+  ::-moz-selection {
+    color: #fff;
+    background: {{ color }};
+  }
+  {% if image %}
+  .sidebar {
+    background-image: url('{{ image }}');
+  }
+  {% endif %}
+</style>
+<!--<![endif]-->

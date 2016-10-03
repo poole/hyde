@@ -33,6 +33,8 @@ pre {
   /* Make code same width as regular text, and scroll the full page width on mobile */
   margin-left: -1rem;
   margin-right: -1rem;
+
+  backface-visibility: hidden; // wat?
 }
 
 pre code {
