@@ -1,90 +1,133 @@
-/* eslint-disable prefer-arrow-callback, func-names */
+/* eslint-disable no-console */
 
-import $ from 'jquery';
-import '../lib/smoothState';
+import { Observable } from 'rxjs-es/Observable';
+import { Subject } from 'rxjs-es/Subject';
 
-import doKatex from './katex';
+import 'rxjs-es/add/observable/of';
+import 'rxjs-es/add/observable/dom/ajax';
+import 'rxjs-es/add/observable/fromEvent';
+import 'rxjs-es/add/observable/merge';
 
-function resetScrollPostion() {
-  const state = history.state || {};
-  $(document.body).css({ minHeight: state.scrollHeight || 0 });
-  $(window).scrollTop(state.scrollTop || 0);
-}
+import 'rxjs-es/add/operator/map';
+import 'rxjs-es/add/operator/filter';
+import 'rxjs-es/add/operator/mergeAll';
+import 'rxjs-es/add/operator/do';
+import 'rxjs-es/add/operator/switch';
+import 'rxjs-es/add/operator/switchMap';
+import 'rxjs-es/add/operator/retry';
+import 'rxjs-es/add/operator/debounce';
 
-function saveScrollPosition() {
-  const state = history.state || {};
-  state.scrollTop = $(window).scrollTop();
-  state.scrollHeight = $(document).height();
-  history.replaceState(state, document.title, window.location.href);
-}
+import { shouldLoadAnchor } from './smooth-state-util';
 
-$(function () {
-  if ('scrollRestoration' in history) {
-    history.scrollRestoration = 'manual';
+window.Observable = Observable;
+
+const LINK_SELECTOR = 'a[href]'; // 'a[href^="/"]';
+const CONTENT_SELECTOR = 'main';
+
+function makeSmooth(contentSelector = CONTENT_SELECTOR, linkSelector = LINK_SELECTOR) {
+  const titleElement = document.querySelector('title') || {};
+
+  function fragmentFromString(strHTML) {
+    return document.createRange().createContextualFragment(strHTML);
   }
 
-  resetScrollPostion();
+  function beNice(e, options = {}) {
+    return (
+      !e.metaKey &&
+      !e.ctrlKey &&
+      shouldLoadAnchor(e.currentTarget, options.blacklist, options.hrefRegex)
+    );
+  }
 
-  $('#_smooth-state').smoothState({
-    scroll: false,
-    // cacheLength: 3,
-    repeatDelay: 250,
-    onBefore() {
-      saveScrollPosition();
+  function bindEvents(d = document) {
+    return Observable.of(d.querySelectorAll(linkSelector))
+      .map(link => Observable.fromEvent(link, 'click'))
+      .mergeAll()
+      .filter(beNice)
+      .do(e => e.preventDefault())
+      .map(e => e.currentTarget.href);
+  }
 
-      // close the drawer if on mobile
-      if (!window.isDesktop) {
-        window.drawer.close();
-      }
-    },
-    onReady: {
-      render($container, $newContent) {
-        resetScrollPostion();
-
-        // set the content
-        const main = $newContent.first();
-        const header = $newContent.find('header');
-        $container.find('main').replaceWith(main);
-        $container.find('header').replaceWith(header);
+  function hrefToRquestData({ href, isPush }) {
+    return {
+      isPush,
+      requestData: {
+        method: 'GET',
+        url: href,
+        responseType: 'text',
       },
-    },
-    onAfter() {
-      // send google analytics pageview
-      if (window.ga) window.ga('send', 'pageview');
+    };
+  }
 
-      // upgrade math blocks
-      doKatex();
-    },
-  });
+  function makeRequest({ requestData, isPush }) {
+    return Observable
+      .ajax(requestData)
+      .retry(3)
+      .map(ajaxResponse => ({
+        ajaxResponse,
+        isPush,
+      }));
+      // TODO: catch and show error msg
+      // .catch(() => Observable.empty())
+  }
 
-  window.addEventListener('beforeunload', () => {
-    saveScrollPosition();
-  }, { passive: true });
+  function ajaxResponseToCache({ isPush, ajaxResponse }) {
+    const documentFragment = fragmentFromString(ajaxResponse.response);
+    const title = (documentFragment.querySelector('title') || {}).textContent;
+    const url = ajaxResponse.request.url;
 
-  window.addEventListener('popstate', () => {
-    if (!window.isDesktop) {
-      window.drawer.jumpTo(false);
-    }
-  });
+    // TODO: abort if content_selector not present
+    const content = documentFragment.querySelector(contentSelector);
 
-  // Can no longer call `replaceState` on `poopstate` event -- useless
-  // window.addEventListener('popstate', (e) => {
-  //   console.log(e.state, history.state);
-  //   console.log($(window).scrollTop());
-  //   // if (typeof history.state.scrollTop === 'undefined') {
-  //   //   history.state.scrollTop = $(document.body).scrollTop();
-  //   //   console.log('popstate', history.state);
-  //   //   history.replaceState(history.state, document.title, window.location.href);
-  //   // }
-  // });
+    return { title, url, content, isPush };
+  }
 
-  // Using the scroll event to store scroll position: very bad idea
-  // function rememberScrollTop(e) {
-  //   console.log(e.target.URL, window.location.href);
-  //   history.state.scrollTop = $(window).scrollTop();
-  //   history.state.scrollHeight = $(document).height();
-  //   history.replaceState(history.state, document.title, window.location.href);
-  // }
-  //
-  // document.addEventListener('scroll', debounce(rememberScrollTop, 100), { passive: true });
-});
+  function updateDOMContent({ title, content, url, isPush }) {
+    // update content
+    const main = document.querySelector(contentSelector);
+    main.parentNode.replaceChild(content, main); // TODO: Don't add all at once!?
+    // main.innerHTML = content.innerHTML; // TODO: could this be faster?
+
+    // update title
+    titleElement.textContent = title;
+
+    // push new frame to history if not a popstate
+    if (isPush) window.history.pushState({}, title, url);
+    if (isPush) document.body.scrollTop = 0;
+  }
+
+  // Observable<Observable<ClickEvents>>
+  const clickClick$ = new Subject();
+
+  const pushstate$ = clickClick$
+    .switch()
+    .map(href => ({
+      isPush: true,
+      href,
+    }));
+
+  const popstate$ = Observable.fromEvent(window, 'popstate')
+    .filter(({ state }) => state != null)
+    .map(() => ({
+      isPush: false,
+      href: window.location.href,
+    }));
+
+  Observable.merge(pushstate$, popstate$)
+    .map(hrefToRquestData)
+    .do(() => document.body.classList.add('is-loading'))
+    .switchMap(makeRequest)
+    .map(ajaxResponseToCache)
+    .do(updateDOMContent)
+    .do(() => document.body.classList.remove('is-loading'))
+    // TODO: catch
+    .subscribe(() => {
+      clickClick$.next(bindEvents()); // TODO: possible without subject?
+    });
+
+  // TODO: startwith instead?
+  clickClick$.next(bindEvents());
+}
+
+// TODO: options
+makeSmooth();
