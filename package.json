@@ -5,9 +5,9 @@
   "scripts": {
     "clean": "rm -f public/js/hydejack.js & rm -f public/js/hydejack.min.js",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "build": "browserify public/js/src/index.js | uglifyjs -c -m -o public/js/hydejack.js",
-    "build:dev": "browserify --debug public/js/src/index.js -o public/js/hydejack.js",
-    "watch": "watchify --debug public/js/src/index.js -o public/js/hydejack.js",
+    "build": "browserify public/js/src/index.js -g babelify | uglifyjs -c -m -o public/js/hydejack.js",
+    "build:dev": "browserify --debug public/js/src/index.js -g babelify -o public/js/hydejack.js",
+    "watch": "watchify --debug public/js/src/index.js -g babelify -o public/js/hydejack.js",
     "lint": "eslint public/js/src",
     "dev": "npm run watch",
     "prepublish": "npm run lint && npm run test && npm run clean && npm run build"
@@ -28,22 +28,11 @@
   },
   "dependencies": {
     "core-js": "2.4.1",
-    "fg-loadcss": "1.2.0",
-    "jquery": "3.1.1",
-    "lodash.debounce": "4.0.8",
-    "rxjs-es": "5.0.0-beta.12",
-    "smoothstate": "0.7.2"
+    "fg-loadcss": "1.2.0"
   },
   "browserify": {
     "transform": [
-      [
-        "babelify",
-        {
-          "presets": [
-            "es2015"
-          ]
-        }
-      ]
+      "babelify"
     ]
   }
 }

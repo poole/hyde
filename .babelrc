@@ -1,0 +1,4 @@
+{
+  "presets": ["es2015"],
+  "only": ["public/js", "y-smooth-state", "rxjs-es"]
+}
