@@ -1,43 +1,47 @@
 ---
 ---
+
 @import "svg-icons";
 @import "public/css/hyde.css";
 @import "public/css/poole.css";
 @import "public/css/syntax.css";
 
-.sidebar{
+.sidebar {
   .sidebar-nav,
-  .sidebar-about{
-    img{
+  .sidebar-about {
+    img {
       width: 60%;
       display: block;
       margin: auto;
-      padding: 15px;
+      //padding: 15px;
     }
-    h1,a{
-      &:hover{
+    h1, a {
+      &:hover {
         filter: invert(70%);
       }
     }
+    p {
+      text-align: center;
+    }
   }
-  .social-icon{
+  .social-icon {
     filter: invert(100%);
 
-    &:hover{
+    &:hover {
       filter: invert(30%);
     }
   }
 }
 
-.social-icon{
+.social-icon {
   width: 40px;
   height: 40px;
   margin: 0;
   display: inline-block;
 }
 
-.post{
-  .social-icon{
+.post {
+  .social-icon {
     padding: 8px;
   }
 }
