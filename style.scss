@@ -19,4 +19,8 @@
   margin: 0;
   display: inline-block;
   filter: invert(100%);
+
+  &:hover{
+    filter: invert(30%);
+  }
 }
