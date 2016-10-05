@@ -16,7 +16,7 @@ This will probably not be easy, but here are some refactoring that you probably 
 ## The Goal - class oriented code
 If you take a look at the example of a service in angular 2, you'll see something like this:
 
-    ```typescript
+```typescript
 @Injectable()
 export class HeroService {
     getHeroes() {
@@ -35,7 +35,13 @@ As usual, we'll start with services.
 
 Your current angular 1.x probably looks something like that:
 
-<script src="https://gist.github.com/ronapelbaum/8f03be3b051bdfb9eaa71d4d681afd48.js"></script> 
+```javascript
+angular.module('app').service('MyService', ['OtherService', function(OtherService){
+    this.foo = function(){
+        OtherService.goo();
+    }
+}]);
+```
 
 This is a straight forward service declaration of angular 1, as we were tought at the docs. What do we have here?
 1. angular, please *get* module "app".
@@ -49,17 +55,30 @@ Basically, on demand of "MyService", angular calls this constructor (once, since
 ## Write *function*, Think *class*
 Let's try to make our code better:
 
-<script src="https://gist.github.com/ronapelbaum/70ed5ca295a7837e585cdbfa20e8c5c8.js"></script> 
+```javascript
+function MyService(OtherService) {
+  this.foo = function () {
+    OtherService.goo();
+  }
+}
+MyService.$inject = ['OtherService'];
+
+angular.module('app').service('MyService', MyService);
+```
 
 What do we have here?
 
 The *function* MyService, is our constructor, and it is registerd to angular as a service. We can now refer to MyService as a *class*.
 
 The class also has a static member that tells angular where to look for dependencies to inject (since you're probably minify your code on production).
-##javascript modules
-How do you get your javascript code into the browser? you are probably doing somthing like this:
 
-<script src="https://gist.github.com/ronapelbaum/f6ab1d527cdc8e3e58b4fdc04cda4b72.js"></script> 
+## javascript modules
+How do you get your javascript code into the browser? you are probably doing somthing like this:
+```html
+<script src="app.js"></script>
+<script src="OtherService.js"></script>
+<script src="MyService.js"></script>
+```
 
 While loading all your script to the browser like this is however a bit old fashioned it is very ok (I'll talk about javascript module loading and [webpack](https://webpack.github.io/) in the future).
 
@@ -73,8 +92,18 @@ An important pattern to use here is [self-invoking functions](http://www.w3schoo
 `(function(){...})();`
 
 Let'e see our code now:
+```javascript
+(function () {
+    function MyService(OtherService) {
+        this.foo = function () {
+            OtherService.goo();
+        }
+    }
+    MyService.$inject = ['OtherService'];
 
-<script src="https://gist.github.com/ronapelbaum/41b3911721edd9f3c388278f9cdc84f3.js"></script> 
+    angular.module('app').service('MyService', MyService);
+})();
+```
 
 Now, the definition of MyService is *private* withing that anonymous function. Note that `angular.module(...)` refers to the angular object on the global scope.
 
