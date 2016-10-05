@@ -8,7 +8,7 @@ permalink:        pretty
 # Setup
 title:            frontend.io
 tagline:          ronapelbaum
-description:      'I blog about web development.'
+description:      'I blog about front end'
 
 url:              https://ronapelbaum.github.io
 baseurl:          /
@@ -16,7 +16,7 @@ baseurl:          /
 author:
   name:           'Ron Apelbaum'
   url:            https://ronapelbaum.github.io
-  email: ronapelbaum@gmail.com
+  email:          ronapelbaum@gmail.com
 
 paginate:         5
 # Enter your Disqus shortname (not your username) to enable commenting on posts
