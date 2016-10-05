@@ -11,10 +11,13 @@ permalink: /tag/
 <ul  style="list-style: none; padding: 0;">
     {% for post in posts %}
     {% if post.tags contains t %}
+    {% if post.publish != false %}
+
     <li>
         <a href="{{ post.url }}">{{ post.title }}</a>
         <time datetime='{{ post.date | date_to_string }}' class="post-date" style="display: inline">{{ post.date | date_to_string }}</time>
     </li>
+    {% endif %}
     {% endif %}
     {% endfor %}
 </ul>

@@ -4,6 +4,7 @@ title: Home
 ---
 <div class="posts">
   {% for post in paginator.posts %}
+  {% if post.publish != false %}
   <div class="post">
     <h2 class="post-title">
       <a href="{{ post.url }}">
@@ -19,6 +20,7 @@ title: Home
 
     <a href="{{ post.url }}" class="read-more">More...</a>
   </div>
+  {% endif %}
   {% endfor %}
 </div>
 
