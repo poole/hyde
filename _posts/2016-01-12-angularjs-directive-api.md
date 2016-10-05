@@ -7,10 +7,12 @@ comments: true
 tags: [angularjs, javascript]
 ---
 suppose you're using angular and you have a directive that you pass data to:
-<pre><code>&lt;my-chart data="chartData"&gt;&lt;/my-chart&gt;
-</code></pre>
+```html
+<my-chart data="chartData"></my-chart>;
+```
 suppose the directive needs to perform some logic when data changes. you'll probably use $watch:
-<pre><code>angular.module('app')
+```javascript
+angular.module('app')
 .controller('MainController', function($scope){
     function dataChange(){
         $scope.chartData= {...};
@@ -25,11 +27,13 @@ suppose the directive needs to perform some logic when data changes. you'll prob
         }
     };
 });
-</code></pre>
+```
+
 the problem with this solution is that it's dependent on angular's $digest loop.
 
 here is a way to invoke the directive's redraw() directly from the controller:
-<pre><code>angular.module('app')
+```javascript
+angular.module('app')
 .controller('MainController', function($scope){
     $scope.chartApi= {};//empty object
     function dataChange(){
@@ -46,6 +50,11 @@ here is a way to invoke the directive's redraw() directly from the controller:
         }
     };
 });
-</code></pre>
+```
+
 and in html:
-<pre><code>&lt;my-chart data="chartData" api="chartApi"&gt;&lt;/my-chart&gt;</code></pre>
+
+```html
+<my-chart data="chartData" api="chartApi"></my-chart>
+```
+

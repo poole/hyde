@@ -6,9 +6,11 @@ author: ronapelbaum
 comments: true
 tags: [javascript]
 ---
-<h3>var declaration</h3>
+
+### var declaration
 hoisted to the top of scope, without assignment.
-<pre><code> var a = 1;
+```javascript
+ var a = 1;
  function printA() {
      console.log(a);
      var a = 2;
@@ -17,19 +19,24 @@ hoisted to the top of scope, without assignment.
  printA();
  //undefined
  //2
-</code></pre>
-<h3>function declaration</h3>
+```
+
+### function declaration
 hoisted with assignment.
-<pre><code> foo();
+```javascript
+ foo();
  //foo
  function foo() {
      console.log('foo');
  }
-</code></pre>
-<h3>Pay attention!</h3>
+```
+
+### Pay attention!
 while function declarations are hoisted with their assignment, function expressionsare just regular vars hence hoisted without their assignment.
-<pre><code> goo();
+```javascript
+ goo();
  //undefined is not a function
  var goo = function () {
      console.log('goo');
- }</code></pre>
+ }
+```
