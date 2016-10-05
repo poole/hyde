@@ -6,8 +6,8 @@ author: ronapelbaum
 comments: true
 tags: [angular-jasmine, angularjs, javascript]
 ---
-<h3>Testing controller with controllerAs</h3>
-After we've seen how to <a href="https://ronapelbaum.wordpress.com/2016/02/14/angular-jasmine-test-patterns-1/">test a service</a>, let's talk about testing a controller.
+### Testing controller with controllerAs
+After we've seen how to [test a service](/2016/02/14/angular-service-unit-test/), let's talk about testing a controller.
 
 ```javascript
 function MyController(MyService) {
@@ -20,10 +20,10 @@ function MyController(MyService) {
 We'd like angular's DI to inject an instance of our controller to our test, but controllers are not singltons as services.
 
 Therefore, we will:
-<ol>
-	<li>inject the <a href="https://docs.angularjs.org/api/ngMock/service/$controller">$controller</a> service</li>
-	<li>use it to instance a controller for us</li>
-</ol>
+- inject the [$controller](https://docs.angularjs.org/api/ngMock/service/$controller) service
+
+- use it to instance a controller for us
+
 ```javascript
 var $controller;
 beforeEach(module('MyModule'));
@@ -36,9 +36,11 @@ it('test greetUpperCase()', function() {
 });
 ```
 
-https://jsfiddle.net/ronapelbaum/tcmsw688/
-<h3>Testing controller with $scope</h3>
-Now, if you're still workng with $scope:
+<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/tcmsw688/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+
+### Testing controller with $scope
+
+Now, if you're still working with $scope:
 
 ```javascript
 function MyController($scope, MyService) {
@@ -51,12 +53,11 @@ function MyController($scope, MyService) {
 Basically, when you're working with $scope, you don't really care about the controller itself, since it's doing everything on it's scope.
 
 So, we will need to:
-<ol>
-	<li>inject $rootScope</li>
-	<li>create a new scope</li>
-	<li>inject it to a new controller</li>
-	<li>test the $scope</li>
-</ol>
+1. inject $rootScope
+2. create a new scope
+3. inject it to a new controller
+4. test the $scope
+
 ```javascript
 it('test greetUpperCase()', function() {
  var myScope = $rootScope.$new();
@@ -66,4 +67,5 @@ it('test greetUpperCase()', function() {
  expect(myScope .greetUpperCase('bob')).toBe('HELLO BOB');
 });
 ```
-https://jsfiddle.net/ronapelbaum/pkhaxmdg/
+
+<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/pkhaxmdg/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
