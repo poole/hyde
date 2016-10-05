@@ -6,17 +6,17 @@ author: ronapelbaum
 comments: true
 tags: [javascript, angularjs]
 ---
-So you've probably seen already some concepts and code examples of <a href="https://angular.io/">angular 2</a>. Maybe you've even took the <a href="https://angular.io/docs/ts/latest/tutorial/">great tutorial</a>.
+So you've probably seen already some concepts and code examples of [angular 2](https://angular.io/). 
+Maybe you've even took the [great tutorial](https://angular.io/docs/ts/latest/tutorial/).
 
 But now you ask yourself: Can I take my current angular 1.x project and upgrade it to angular 2? How to do that?
 
 This will probably not be easy, but here are some refactoring that you probably should do anyway...
 
-<!--more-->
-<h2>The Goal - class oriented code</h2>
-If you take a look at the example of a service in angular 2, you'll see somthing like this:
+## The Goal - class oriented code
+If you take a look at the example of a service in angular 2, you'll see something like this:
 
-```javascript
+    ```typescript
 @Injectable()
 export class HeroService {
     getHeroes() {
@@ -24,56 +24,61 @@ export class HeroService {
 }
 ```
 
-It doesn't really matter if you prefer TypeScript or ES6, the main concept here is the use of <strong>class</strong>.
+It doesn't really matter if you prefer TypeScript or ES6, the main concept here is the use of **class**.
 
 But, wait a minute!
 
-Where is the <code>angular.module(...)</code>? What is a <strong>class?</strong> How is it even slightly resemble to my current angular code?
-<h2>Your code</h2>
+Where is the `angular.module(...)`? What is a **class?** How is it even slightly resemble to my current angular code?
+
+## Your code
 As usual, we'll start with services.
 
-Your current angular 1.x probably looks somthing like that:
+Your current angular 1.x probably looks something like that:
 
 <script src="https://gist.github.com/ronapelbaum/8f03be3b051bdfb9eaa71d4d681afd48.js"></script> 
 
 This is a straight forward service declaration of angular 1, as we were tought at the docs. What do we have here?
-<ol>
-	<li>angular, please <em>get</em> module "app".</li>
-	<li>please <em>provide</em> a service named "MyService".</li>
-	<li>when you provide this service, use this <em>constructor</em>.</li>
-</ol>
-Yes, the function that we are writing here is a constructor to an <em>instance</em> of an anonymous type. Why anonymous? because we use angular, and we trust it to manage <strong><em>all</em></strong> of our object instances and dependencies. Basically, on demand of "MyService", angular calls this constructor (once, since services are singletons) and creates a (single) instance.
-<h2>Write <em>function</em>, Think <em>class</em></h2>
+1. angular, please *get* module "app".
+2. please *provide* a service named "MyService".
+3. when you provide this service, use this *constructor*.
+
+Yes, the function that we are writing here is a constructor to an *instance* of an anonymous type. 
+Why anonymous? because we use angular, and we trust it to manage **all** of our object instances and dependencies. 
+Basically, on demand of "MyService", angular calls this constructor (once, since services are singletons) and creates a (single) instance.
+
+## Write *function*, Think *class*
 Let's try to make our code better:
 
 <script src="https://gist.github.com/ronapelbaum/70ed5ca295a7837e585cdbfa20e8c5c8.js"></script> 
 
 What do we have here?
 
-The <em>function</em> MyService, is our constructor, and it is registerd to angular as a service. We can now refer to MyService as a <em>class</em>.
+The *function* MyService, is our constructor, and it is registerd to angular as a service. We can now refer to MyService as a *class*.
 
 The class also has a static member that tells angular where to look for dependencies to inject (since you're probably minify your code on production).
-<h2>javascript modules</h2>
+##javascript modules
 How do you get your javascript code into the browser? you are probably doing somthing like this:
 
 <script src="https://gist.github.com/ronapelbaum/f6ab1d527cdc8e3e58b4fdc04cda4b72.js"></script> 
 
-While loading all your script to the borowser like this is however a bit old fashioned it is very ok (I'll talk about javascript module loading and <a href="https://webpack.github.io/">webpack </a>in the future).
+While loading all your script to the browser like this is however a bit old fashioned it is very ok (I'll talk about javascript module loading and [webpack](https://webpack.github.io/) in the future).
 
 The problem with our new code, that now our MyService class is on the global sopce, and this is bad for many reasons. We do not want to pollute our global scope.
 
 What can we do about that?
-<h2>Self Invoking Function</h2>
-An important pattern to use here is <a href="http://www.w3schools.com/js/js_function_definition.asp">self-invoking functions</a>. It means defining an anonymouse functon and executing it immidiatly:
 
-<code>(function(){...})();</code>
+## Self Invoking Function
+An important pattern to use here is [self-invoking functions](http://www.w3schools.com/js/js_function_definition.asp). It means defining an anonymous function and executing it immediately:
+
+`(function(){...})();`
 
 Let'e see our code now:
 
 <script src="https://gist.github.com/ronapelbaum/41b3911721edd9f3c388278f9cdc84f3.js"></script> 
 
-Now, the definition of MyService is <em>private</em> withing that anonymous function. Note that <em>angular.module(...)</em> refers to the angular object on the global scope.
-<h2>This is it?</h2>
+Now, the definition of MyService is *private* withing that anonymous function. Note that `angular.module(...)` refers to the angular object on the global scope.
+
+## This is it?
 For now...
 
 This is a very simple refactoring, and I'll try to take it to the next level in the future...
@@ -82,4 +87,4 @@ But, what about controllers? and directives?
 
 That will probably be my next post...
 
-&nbsp;
+
