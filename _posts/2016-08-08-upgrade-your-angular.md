@@ -43,7 +43,7 @@ angular.module('app').service('MyService', ['OtherService', function(OtherServic
 }]);
 ```
 
-This is a straight forward service declaration of angular 1, as we were tought at the docs. What do we have here?
+This is a straight forward service declaration of angular 1, as we were taught at the docs. What do we have here?
 1. angular, please *get* module "app".
 2. please *provide* a service named "MyService".
 3. when you provide this service, use this *constructor*.
@@ -68,12 +68,13 @@ angular.module('app').service('MyService', MyService);
 
 What do we have here?
 
-The *function* MyService, is our constructor, and it is registerd to angular as a service. We can now refer to MyService as a *class*.
+The *function* MyService, is our constructor, and it is register to angular as a service. We can now refer to MyService as a *class*.
 
 The class also has a static member that tells angular where to look for dependencies to inject (since you're probably minify your code on production).
 
 ## javascript modules
-How do you get your javascript code into the browser? you are probably doing somthing like this:
+How do you get your javascript code into the browser? you are probably doing something like this:
+
 ```html
 <script src="app.js"></script>
 <script src="OtherService.js"></script>
@@ -92,6 +93,7 @@ An important pattern to use here is [self-invoking functions](http://www.w3schoo
 `(function(){...})();`
 
 Let'e see our code now:
+
 ```javascript
 (function () {
     function MyService(OtherService) {
