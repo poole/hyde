@@ -357,6 +357,7 @@ tbody tr:nth-child(odd) th {
   margin: 0;
   padding: 0;
   font-size: 16px;
+  font-style: italic;
 }
 /* Meta data line below post title */
 .post-date {
