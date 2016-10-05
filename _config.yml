@@ -24,7 +24,7 @@ paginate:         5
 disqus: ronapelbaum
 
 # Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
-google_analytics:
+google_analytics: UA-85226162-1
 
 # Jekyll 3 now only supports Kramdown for Markdown
 kramdown:
