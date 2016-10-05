@@ -12,18 +12,18 @@ Let's define our directive:
 
 Now let's test it. But what exactly we would like to test?
 
-In angular, directives are all about linking a model (<em>scope</em>) to a view (<em>element</em>).
-How do we get this element? we will use <em>angular.element()</em> + <em>$compile</em>
+In angular, directives are all about linking a model (*scope*) to a view (*element*).
+How do we get this element? we will use *angular.element()* + *$compile*
 
 <script src="https://gist.github.com/ronapelbaum/355c7d03c3ea87d4f038b8b29375f09e.js"></script>
 
-Here we are creating a jqLite element, <em>compiling</em> it with the relevant scope, and triggering the <em>digest cycle</em>.
+Here we are creating a jqLite element, *compiling* it with the relevant scope, and triggering the *digest cycle*.
 
-Now we can test the <em><strong>element</strong> </em>itself:
+Now we can test the **element** itself:
 
 <script src="https://gist.github.com/ronapelbaum/f49a2c94170d76b43639e7b88cc2c133.js"></script>
 
-<h4>Another example.</h4>
+#### Another example.
 Now, the directive is referring to parent's scope:
 
 <script src="https://gist.github.com/ronapelbaum/0119786551d1378031b474d181b47421.js"></script>
@@ -36,4 +36,5 @@ the test setup will be:
 
 checkout this live example:
 
-http://codepen.io/ronapelbaum/pen/mPeNNP?editors=0011
+<p data-height="565" data-theme-id="light" data-slug-hash="mPeNNP" data-default-tab="js,result" data-user="ronapelbaum" data-embed-version="2" class="codepen">See the Pen <a href="http://codepen.io/ronapelbaum/pen/mPeNNP/">angular jasmine: directive test</a> by ronapelbaum (<a href="http://codepen.io/ronapelbaum">@ronapelbaum</a>) on <a href="http://codepen.io">CodePen</a>.</p>
+<script async src="//assets.codepen.io/assets/embed/ei.js"></script>
