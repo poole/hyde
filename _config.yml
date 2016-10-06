@@ -14,6 +14,7 @@ url:              https://ronapelbaum.github.io
 baseurl:          /
 
 author:
+  id:             ronapelbaum
   name:           'Ron Apelbaum'
   url:            https://ronapelbaum.github.io
   email:          ronapelbaum@gmail.com
