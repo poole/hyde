@@ -19,6 +19,14 @@ layout: default
     {% include disqus.html %}
 </article>
 
+<div class="page-nav">
+    {% if page.previous.url %}
+    <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+    {% endif %}
+    {% if page.next.url %}
+    <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+    {% endif %}
+</div>
 <!--<div class="related">-->
 <!--<h2>Related Posts</h2>-->
 <!--<ul class="related-posts">-->

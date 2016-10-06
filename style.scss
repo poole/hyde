@@ -9,19 +9,23 @@
 .sidebar {
   .sidebar-nav,
   .sidebar-about {
+    text-align: center;
     img {
       width: 60%;
       display: block;
       margin: auto;
       //padding: 15px;
     }
-    h1, a {
+    h1 {
+      margin: 0;
+    }
+    h2 {
+      margin: 0 0 10px 0;
+    }
+    a {
       &:hover {
         filter: invert(70%);
       }
-    }
-    p {
-      text-align: center;
     }
   }
   .social-icon {
@@ -43,5 +47,21 @@
 .post {
   .social-icon {
     padding: 8px;
+  }
+}
+
+.page-nav {
+  font-size: 14px;
+  display: block;
+  width: auto;
+  overflow: hidden;
+  a {
+    display: block;
+    width: 50%;
+    float: left;
+    margin: 1em 0;
+  }
+  .next {
+    text-align: right;
   }
 }
