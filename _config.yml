@@ -8,7 +8,7 @@ permalink:        pretty
 # Setup
 title:            frontend.io
 tagline:          ronapelbaum
-description:      "Ron Apelbaum's blog"
+description:      "I blog about front end"
 
 url:              https://ronapelbaum.github.io
 baseurl:          /
