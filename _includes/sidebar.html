@@ -2,6 +2,7 @@
     <div class="container">
         <div class="sidebar-about">
             <a href="{{ site.baseurl }}" title="{{ site.title }}"><h1>{{ site.title }}</h1></a>
+            <h2>{{ site.author.name }}</h2>
             <a href="{{ site.baseurl }}about/" title="About me..."><img src="/public/ronapelbaum.jpg"></a>
             &nbsp;
             <p class="lead">{{ site.description }}</p>
@@ -19,7 +20,7 @@
                 {% assign t = tag | first %}
                 {% assign posts = tag | last %}
                 {% assign size = posts | size %}
-                <li><a href="/tag/#{{ t }}" style="font-size: {{size | divided_by: 2 | plus: 14}}px">{{ t }}</a></li>
+                <li><a href="/tag/#{{ t }}" style="font-size: {{size | divided_by: 2 | plus: 14}}px" title="posts about {{ t }}">{{ t }}</a></li>
                 {% endfor %}
             </ul>
         </nav>
