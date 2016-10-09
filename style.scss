@@ -2,9 +2,9 @@
 ---
 
 @import "svg-icons";
-@import "public/css/hyde.css";
 @import "public/css/poole.css";
 @import "public/css/syntax.css";
+@import "public/css/hyde.css";
 
 .sidebar {
   .sidebar-nav,
@@ -69,4 +69,20 @@
 
 .share-icons{
   text-align: center;
+}
+
+.page-tags,
+.post-tags{
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.page-tags,
+.post-tags li{
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-style: italic;
 }

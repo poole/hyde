@@ -344,21 +344,7 @@ tbody tr:nth-child(odd) th {
   margin-top: 0;
 }
 
-.page-tags,
-.post-tags{
-  display: inline;
-  margin: 0;
-  padding: 0;
-}
-.page-tags,
-.post-tags li{
-  display: inline;
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-  font-size: 16px;
-  font-style: italic;
-}
+
 /* Meta data line below post title */
 .post-date {
   display: block;
