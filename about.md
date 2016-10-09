@@ -4,7 +4,7 @@ title: About Me
 permalink: /about/
 ---
 
-<img class=" size-medium wp-image-114 alignleft" src="/public/ronapelbaum.jpg" width="250"  />
+<img class=" size-medium wp-image-114 alignleft" src="/public/author/ronapelbaum.jpg" width="250"  />
 
 My name is Ron Apelbaum, married +2, live in Israel.
 
