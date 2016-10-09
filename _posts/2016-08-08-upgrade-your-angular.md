@@ -5,6 +5,7 @@ date: 2016-08-08 10:00
 author: ronapelbaum
 comments: true
 tags: [javascript, angularjs]
+desc: let's start talking about how to upgrade your angular 1.x code into more updated code style...
 ---
 So you've probably seen already some concepts and code examples of [angular 2](https://angular.io/). 
 Maybe you've even took the [great tutorial](https://angular.io/docs/ts/latest/tutorial/).
