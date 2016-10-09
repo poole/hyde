@@ -45,6 +45,10 @@ Very recommended..
 - play with intellij customization - check out [Hadi Hariri post](http://hadihariri.com/2014/01/04/using-webstorm-to-maintain-a-jekyll-site/)
 - add google analytics - check out [Michael Lee post](https://michaelsoolee.com/google-analytics-jekyll/)
 
+### Show me the money... 
+Well, since I didn't buy my own domain yet, it's free under \<username\>.github.io.
+Total time invested in investigation and implementation: 2 days.
+
 ### What's next?
 I don't know.
 but I run my own site.
