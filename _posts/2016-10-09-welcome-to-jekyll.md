@@ -43,6 +43,7 @@ Very recommended..
 - add disqus integration - check out [DSQUS docs](https://help.disqus.com/customer/portal/articles/472138-jekyll-installation-instructions)
 - add next & prev buttons - check out [David Elbe post](http://david.elbe.me/jekyll/2015/06/20/how-to-link-to-next-and-previous-post-with-jekyll.html)
 - play with intellij customization - check out [Hadi Hariri post](http://hadihariri.com/2014/01/04/using-webstorm-to-maintain-a-jekyll-site/)
+- add google analytics - check out [Michael Lee post](https://michaelsoolee.com/google-analytics-jekyll/)
 
 ### What's next?
 I don't know.
