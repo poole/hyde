@@ -10,8 +10,8 @@ layout: compress
   <body>
     {% include menu.html %}
 
-    <y-smooth-state>
-      <main class="content container" role="main">
+    <y-smooth-state replace-ids="_main,_asidebar" link-selector="a[href^='/']">
+      <main id="_main" class="content container" role="main">
         {% include page-style.html %}
         {{ content }}
       </main>

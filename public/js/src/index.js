@@ -1,3 +1,5 @@
+import 'core-js/shim';
+
 import { loadCSS } from 'fg-loadcss/src/loadCSS';
 
 import './katex';

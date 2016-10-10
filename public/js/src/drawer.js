@@ -1,44 +1,44 @@
-import 'core-js/fn/object/assign';
-import 'core-js/fn/object/define-property';
-import 'core-js/fn/object/keys';
-import { loadCSS } from 'fg-loadcss/src/loadCSS';
+/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
 
+// import 'core-js/fn/object/assign';
+// import 'core-js/fn/object/define-property';
+// import 'core-js/fn/object/keys';
+
+import { loadCSS } from 'fg-loadcss/src/loadCSS';
+import YDrawer from 'y-drawer/src/vanilla';
+// import HTMLYDrawerElement from 'y-drawer/src/webcomponent';
+
+// import { defineCustomElement, ensureCustomElements } from './common';
 import hasFeatures from '../lib/has-features';
 
 const MEDIA_QUERY = '(min-width: 48em)';
 
-function hasShadowDOMV0() {
-  return 'createShadowRoot' in document.body;
+function addEventListeners(drawer) {
+  const d = drawer;
+
+  global.addEventListener('resize', () => {
+    const hasChanged = global.isDesktop !== global.matchMedia(MEDIA_QUERY).matches;
+    if (hasChanged) {
+      global.isDesktop = !global.isDesktop;
+      d.persistent = global.isDesktop;
+      d.jumpTo(global.isDesktop);
+    }
+  });
+
+  document.getElementById('_menu').addEventListener('click', (e) => {
+    if (!global.isDesktop) {
+      e.preventDefault();
+      d.toggle();
+    }
+  });
+
+  global.drawer = d;
 }
 
-function hasShadowDOMV1() {
-  return 'attachShadow' in document.body;
-}
-
-function hasShadowDOM() {
-  return hasShadowDOMV0() || hasShadowDOMV1();
-}
-
-function hasCustomElementsV0() {
-  return 'registerElement' in document;
-}
-
-function hasCustomElementsV1() {
-  return 'customElements' in window;
-}
-
-function hasCustomElements() {
-  return hasCustomElementsV0() || hasCustomElementsV1();
-}
-
-function importCustomElement() {
-  const link = document.createElement('link');
-  link.rel = 'import';
-  link.href = 'https://unpkg.com/y-drawer@3/dist/webcomponent/y-drawer.html';
-
-  const ref = document.getElementsByTagName('link')[0];
-  ref.parentNode.insertBefore(link, ref);
-}
+// function defineYDrawer() {
+//   defineCustomElement('y-drawer', HTMLYDrawerElement);
+//   addEventListeners(document.querySelector('y-drawer'));
+// }
 
 if (hasFeatures(['eventlistener',
                  'queryselector',
@@ -50,46 +50,25 @@ if (hasFeatures(['eventlistener',
                  'csspointerevents',
                  'cssremunit',
                ])) {
-  window.drawer = document.querySelector('y-drawer');
-  window.isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+  global.isDesktop = global.matchMedia(MEDIA_QUERY).matches;
 
-  if (hasShadowDOM()) {
-    if (window.isDesktop) window.drawer.setAttribute('opened', '');
-    if (window.isDesktop) window.drawer.setAttribute('persistent', '');
+  const drawer = document.querySelector('y-drawer');
 
-    if (hasFeatures(['template', 'htmlimports']) && hasCustomElements()) {
-      importCustomElement();
-    } else {
-      loadJSDeferred('https://unpkg.com/webcomponents.js@0.7.22/webcomponents-lite.min.js');
-      window.addEventListener('WebComponentsReady', importCustomElement);
-    }
-  } else {
-    const ref = document.getElementsByTagName('style')[0];
-    loadCSS('https://unpkg.com/y-drawer@3/dist/drawer.css', ref);
-    loadJSDeferred('https://unpkg.com/y-drawer@3/dist/vanilla/index.js', () => {
-      /* global y */
-      const YDrawer = y.drawer.vanilla.default;
-
-      window.drawer = new YDrawer(window.drawer, {
-        opened: window.isDesktop,
-        persistent: window.isDesktop,
+  // if ('attachShadow' in document.body || 'createShadowRoot' in document.body) {
+  //   if (global.isDesktop) drawer.setAttribute('opened', '');
+  //   if (global.isDesktop) drawer.setAttribute('persistent', '');
+  //   ensureCustomElements(defineYDrawer);
+  // } else {
+  const ref = document.getElementsByTagName('style')[0];
+  loadCSS('https://unpkg.com/y-drawer@3/dist/drawer.css', ref).addEventListener('load', () => {
+    // You Only Load Once
+    if (!(global.drawer instanceof YDrawer)) {
+      const drawerObj = new YDrawer(drawer, {
+        opened: global.isDesktop,
+        persistent: global.isDesktop,
       });
-    });
-  }
-
-  window.addEventListener('resize', () => {
-    const hasChanged = window.isDesktop !== window.matchMedia(MEDIA_QUERY).matches;
-    if (window.drawer && hasChanged) {
-      window.isDesktop = !window.isDesktop;
-      window.drawer.persistent = window.isDesktop;
-      window.drawer.jumpTo(window.isDesktop);
+      addEventListeners(drawerObj);
     }
   });
-
-  document.getElementById('_menu').addEventListener('click', (e) => {
-    if (window.drawer && !window.isDesktop) {
-      e.preventDefault();
-      window.drawer.toggle();
-    }
-  });
+  // }
 }

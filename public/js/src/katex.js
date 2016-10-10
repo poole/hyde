@@ -1,21 +1,20 @@
-// eslint-globals katex
 import { loadCSS } from 'fg-loadcss/src/loadCSS';
 
 import hasFeatures from '../lib/has-features';
 
 export default function upgradeMathBlocks() {
   /* global katex */
-  if (!window.katex) return;
+  if (!global.katex) return;
 
   const mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
 
-  for (const mathBlock of mathBlocks) {
-    mathBlock.style.willChange = 'content';
-  }
+  Array.prototype.forEach.call(mathBlocks, (element) => {
+    element.style.willChange = 'content'; // eslint-disable-line no-param-reassign
+  });
 
   requestAnimationFrame(() => {
     // kramdown generates script tags with type "math/tex"
-    for (const element of mathBlocks) {
+    Array.prototype.forEach.call(mathBlocks, (element) => {
       const el = element;
 
       const tex = el.textContent
@@ -38,13 +37,12 @@ export default function upgradeMathBlocks() {
       } catch (e) {
         console.error(e); // eslint-disable-line no-console
       }
-    }
+    });
   });
 }
 
 // KaTeX support
 if (hasFeatures(['queryselector',
-                 'classlist',
                  'requestanimationframe',
                ])) {
   // enable math blocks using KaTeX
