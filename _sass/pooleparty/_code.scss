@@ -21,18 +21,15 @@ code {
 pre {
   margin-top: 0;
   margin-bottom: 1rem;
-  padding: 1rem;
   display: block;
   line-height: 1.4;
-  background-color: #f9f9f9;
 
   /* Prevent code linebreaks and allow side-scrolling (much better readability on mobile) */
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
 
   /* Make code same width as regular text, and scroll the full page width on mobile */
-  margin-left: -1rem;
-  margin-right: -1rem;
+  @include figure();
 
   backface-visibility: hidden; // wat?
 }
@@ -42,6 +39,25 @@ pre code {
   font-size: .75rem;
   color: inherit;
   background-color: transparent;
+}
+
+figure, .figure {
+  margin-left: -1rem;
+  margin-right: -1rem;
+
+  > *:first-child {
+    padding: 1rem;
+    background: #f9f9f9;
+  }
+
+  > figcaption, > .figcaption {
+    font-size: 0.85rem;
+    color: #9a9a9a;
+    text-align: center;
+    font-style: italic;
+    margin-top: 0.5rem;
+    padding: 0 1rem;
+  }
 }
 
 // Pygments via Jekyll
@@ -69,7 +85,6 @@ pre code {
   //           user-select: none;
   // }
 }
-
 
 // Gist via GitHub Pages
 // .gist .gist-file {
