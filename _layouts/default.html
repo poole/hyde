@@ -10,14 +10,14 @@ layout: compress
   <body>
     {% include menu.html %}
 
-    <y-smooth-state replace-ids="_main,_asidebar" link-selector="a[href^='/']">
+    <y-push-state replace-ids="_main,_asidebar" link-selector="a[href^='/']" scroll-restoration>
       <main id="_main" class="content container" role="main">
         {% include page-style.html %}
         {{ content }}
       </main>
 
       {% include sidebar.html %}
-    </y-smooth-state>
+    </y-push-state>
 
     {% include scripts.html %}
   </body>

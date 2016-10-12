@@ -1,5 +1,35 @@
+import '../lib/modernizr';
+
+export function hasFeatures(features) {
+  let acc = true;
+  for (let i = 0; i < features.length; i += 1) {
+    const feature = features[i];
+    const hasFeature = window.Modernizr[feature];
+    // if (!hasFeature) console.warn('Feature "' + feature + '" missing!');
+    acc = acc && hasFeature;
+  }
+  return acc;
+}
+
+export function show(el) {
+  el.style.display = 'block'; // eslint-disable-line no-param-reassign
+  el.style.visibility = 'visible'; // eslint-disable-line no-param-reassign
+}
+
+export function hide(el) {
+  el.style.display = 'none'; // eslint-disable-line no-param-reassign
+  el.style.visibility = 'hidden'; // eslint-disable-line no-param-reassign
+}
+
+export function unshow(el) {
+  el.style.display = ''; // eslint-disable-line no-param-reassign
+  el.style.visibility = ''; // eslint-disable-line no-param-reassign
+}
+
+export const unhide = unshow;
+
 export function defineCustomElement(tagName, CustomHTMLElement) {
-  if ('customElements' in global) {
+  if ('customElements' in window) {
     customElements.define(tagName, CustomHTMLElement);
   } else if ('registerElement' in document) {
     document.registerElement(tagName, CustomHTMLElement);
@@ -7,11 +37,16 @@ export function defineCustomElement(tagName, CustomHTMLElement) {
 }
 
 export function ensureCustomElements(f) {
-  if ('customElements' in global || 'registerElement' in document) {
+  if ('customElements' in window || 'registerElement' in document) {
     f();
   } else {
-    if (!global.loadingCustomElements) loadJSDeferred('https://unpkg.com/webcomponents.js@0.7.22/CustomElements.min.js');
-    global.loadingCustomElements = true;
-    global.addEventListener('WebComponentsReady', f);
+    if (!window.loadingCustomElements) loadJSDeferred('https://unpkg.com/webcomponents.js@0.7.22/CustomElements.min.js');
+    window.loadingCustomElements = true;
+    window.addEventListener('WebComponentsReady', f);
   }
+}
+
+export function matches(el, selector) {
+  return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector ||
+    el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector);
 }

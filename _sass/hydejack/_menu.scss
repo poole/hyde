@@ -1,4 +1,4 @@
-.menu, .status {
+.menu /*, .status*/ {
   display: block;
   padding: 1.25rem 1.5rem;
   color: #9a9a9a;
@@ -12,16 +12,16 @@
   z-index: 2;
 }
 
-.status {
-  right: 0;
-  z-index: 1;
-}
+// .status {
+//   right: 0;
+//   z-index: 1;
+// }
 
-#_error, #_loading {
-  display: none;
-  visibility: hidden;
-  line-height: 1.65;
-}
+// #_error, #_loading {
+//   display: none;
+//   visibility: hidden;
+//   line-height: 1.65;
+// }
 
 @media (min-width: 48em) {
   .menu {
