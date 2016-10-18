@@ -13,7 +13,7 @@ I left WordPress.com and moved on...
 ### What happened?
 I've been wanting to move on to my own site for some time..
 <br />
-I came across [Barry Clark's artical in Smashing Magazine](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/) regarding migrating from wordpress to jekyll + github pages.
+I came across [Barry Clark's article in Smashing Magazine](https://www.smashingmagazine.com/2014/08/build-blog-jekyll-github-pages/) regarding migrating from wordpress to jekyll + github pages.
 
 ### GitHub Pages - the revelation
 GitHub pages? 
