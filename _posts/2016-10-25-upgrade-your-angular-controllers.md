@@ -71,7 +71,7 @@ angular.module('app')
     ]);
 ```
 
-> **Tip**
+> **Tip**<br/>
 > I find it very easy to refactor the code, if we just add the `var that = this;` statement at the beginning of the controller, and then just replacing (ctrl+R) all `$scope` with `that`.
 
 In the HTML we will use the [`controller as`](https://docs.angularjs.org/api/ng/directive/ngController) syntax:
@@ -85,7 +85,7 @@ In the HTML we will use the [`controller as`](https://docs.angularjs.org/api/ng/
 
 For further reading, I recommend [Todd Motto's post](https://toddmotto.com/digging-into-angulars-controller-as-syntax/).
 
-> **Note**
+> **Note**<br/>
 > You can still inject and use the $scope for other purposes (i.e. `$broadcast`), but just don't use it as a state manager.
  
 ## class style
@@ -109,7 +109,7 @@ So let's refactor to class style:
 
 Now, the definition of MyController is private withing that anonymous function. Note that angular.module(...) refers to the angular object on the global scope.
 
-## class with prototype
+## class with [prototype](http://www.w3schools.com/js/js_object_prototypes.asp)
 You may also write your class with `prototype`. It is considered best practice, but I find it a bit overhead...
 
 ```javascript
