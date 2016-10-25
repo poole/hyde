@@ -4,10 +4,10 @@ title: upgrade your angular II - controllers
 date: 2016-10-25
 author: ronapelbaum
 comments: true
-tags: []
+tags: [javascript, angularjs]
 ---
 
-In [previous post](https://ronapelbaum.github.io/2016/08/08/upgrade-your-angular/) we've seen how to take your angular services one step into the future.
+In [previous post](/2016/08/08/upgrade-your-angular/) we've seen how to take your angular services one step into the future.
 <br/>
 Now, let's talk about controllers. 
 

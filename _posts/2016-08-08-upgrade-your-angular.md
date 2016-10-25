@@ -117,6 +117,6 @@ This is a very simple refactoring, and I'll try to take it to the next level in 
 
 But, what about controllers? and directives?
 
-That will probably be my next post...
+That will probably be my [next post](/2016/10/25/upgrade-your-angular-controllers/)...
 
 
