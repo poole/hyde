@@ -17,11 +17,13 @@ First thing you should know - they've killed the *$scope*. Well, not really kill
 Assume that you have a controller, that uses a service to get more details from server:
 
 ```javascript
-angular.module('app').controller('MyController', ['$scope', 'OtherService', function($scope, OtherService){
-    $scope.greet = function(){
-        console.log(OtherService.getDetails($scope.name));
-    };
-}]);
+angular.module('app').controller('MyController', ['$scope', 'OtherService', 
+    function($scope, OtherService){
+        $scope.greet = function(){
+            console.log(OtherService.getDetails($scope.name));
+        };
+    }
+]);
 ```
 
 And HTML:
@@ -40,11 +42,13 @@ Your controller function is in fact a *constructor* that create controller insta
 You shouldn't depend on the $scope hierarchy as the store of all data. Instead, use the javascript scope of the controller instance:
 
 ```javascript
-angular.module('app').controller('MyController', ['OtherService', function(OtherService){
-    this.logDetails = function(){
-        console.log(OtherService.getDetails(this.name));
-    };
-}]);
+angular.module('app').controller('MyController', ['OtherService', 
+    function(OtherService){
+        this.logDetails = function(){
+            console.log(OtherService.getDetails(this.name));
+        };
+    }
+]);
 ```
 
 In the HTML we will use the [`controller as`](https://docs.angularjs.org/api/ng/directive/ngController) syntax:
