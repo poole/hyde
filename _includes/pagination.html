@@ -3,7 +3,7 @@
   <ul>
     <li class="pagination-item older" >
       {% if paginator.next_page %}
-      <a rel="next" href="{{ site.baseurl }}/page-{{paginator.next_page}}">Older</a>
+      <a rel="next" href="{{ site.baseurl }}/page-{{paginator.next_page}}/">Older</a>
       {% else %}
       <span>Older</span>
       {% endif %}
@@ -13,7 +13,7 @@
         {% if paginator.page == 2 %}
         <a rel="prev" href="{{ site.baseurl }}/">Newer</a>
         {% else %}
-        <a rel="prev" href="{{ site.baseurl }}/page-{{paginator.previous_page}}">Newer</a>
+        <a rel="prev" href="{{ site.baseurl }}/page-{{paginator.previous_page}}/">Newer</a>
         {% endif %}
       {% else %}
       <span>Newer</span>

@@ -1,9 +1,12 @@
 <ul>
-  {% for tag_key in site.sidebar_tags %}
-    {% assign tag = site.data.tags[tag_key] %}
-    <li>
-      <a class="sidebar-nav-item {% if page.tag == tag_key %}active{% endif %}" href="{{ site.baseurl }}/tag/{{ tag_key }}/">{{ tag.name }}</a>
-    </li>
+  {% for tag_hash in site.data.tags | sort:"order" %}
+    {% assign tag_key = tag_hash[0] %}
+    {% assign tag = tag_hash[1] %}
+    {% if tag.order %}
+      <li>
+        <a class="sidebar-nav-item {% if page.tag == tag_key %}active{% endif %}" href="{{ site.baseurl }}/tag/{{ tag_key }}/">{{ tag.name }}</a>
+      </li>
+    {% endif %}
   {% endfor %}
 
   {% comment %}
@@ -11,8 +14,8 @@
     `layout: page` in the front-matter. See readme for usage.
   {% endcomment %}
 
-  {% assign pages_list = site.pages %}
-  {% for node in pages_list %}
+  {% assign sorted_pages = site.pages | sort:"order" %}
+  {% for node in sorted_pages %}
     {% if node.title != null %}
       {% if node.layout == "page" %}
       <li>

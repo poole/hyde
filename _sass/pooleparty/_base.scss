@@ -46,7 +46,7 @@ img {
   display: block;
   max-width: 100%;
   margin: 0 0 1rem;
-  // No border radius to be consistent with code/math
+  border: none;
   // border-radius: 5px;
 
   &.lead {

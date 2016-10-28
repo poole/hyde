@@ -7,7 +7,7 @@ body {
       -ms-text-size-adjust: 100%;
 }
 
-a {
+a, .a {
   position: relative;
   padding-bottom: 0.15rem;
   border-bottom: 0.18rem solid transparent;
@@ -17,10 +17,9 @@ a {
     border-bottom: 0.18rem solid;
   }
 
-  &.menu {
-    &:hover, &:focus {
-      border-bottom: none;
-    }
+  &.no-hover {
+    border-bottom: none;
+    padding-bottom: none;
   }
 }
 

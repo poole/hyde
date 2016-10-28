@@ -5,22 +5,23 @@ layout: default
 {% assign tag = site.data.tags[page.tag] %}
 
 {% if tag %}
+  {% assign title = tag.name %}
+  {% assign description = tag.description %}
   {% assign posts = site.tags[page.tag] %}
-
-  <h1 class="page-title">{{ tag.name }}</h1>
-
-  {% if tag.description %}
-    {% comment %}
-      Adding the "message" class to the last (and usually only) paragraph of the description.
-    {% endcomment %}
-    {% capture desc %}{{ tag.description }}{:.message}{% endcapture %}
-    {{ desc | markdownify }}
-  {% endif %}
-
-  <hr/>
 {% else %}
+  {% assign title = page.title %}
+  {% assign description = page.description %}
   {% assign posts = site.posts %}
 {% endif %}
+
+<h1 class="page-title">{{ title }}</h1>
+
+{% if description %}
+  {% capture desc %}{{ description }}{:.message}{% endcapture %}
+  {{ desc | markdownify }}
+{% endif %}
+
+<hr/>
 
 {% for post in posts %}
   {% assign currentdate = post.date | date: "%Y" %}

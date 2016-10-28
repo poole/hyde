@@ -6,7 +6,12 @@
 body {
   padding-left: 0.5rem;
 }
-@media (min-width: 48em) {
+@media (min-width: 38em) {
+  html {
+    font-size: 18px;
+  }
+}
+@media (min-width: 50em) {
   html {
     font-size: 16px;
   }
