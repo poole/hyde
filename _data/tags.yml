@@ -18,6 +18,7 @@ hyde:
   description: >
     Hyde is a brazen two-column Jekyll theme that pairs a prominent sidebar with uncomplicated content.
     It’s based on Poole, the Jekyll butler.
+  order: 2
 
 jekyll:
   name: Jekyll
@@ -25,3 +26,4 @@ jekyll:
   color: '#949667'
   description: >
     Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.
+  order: 1
