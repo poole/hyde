@@ -99,6 +99,11 @@ google_analytics_id: 'UA-84025722-2'
 # Setting a disqus subdomain will enable the comment section
 # disqus:            <username>
 
+collections:
+  projects:
+    permalink:       /projects/:path/
+    output:          true
+
 exclude:             [node_modules, package.json]
 
 kramdown:
