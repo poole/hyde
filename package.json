@@ -3,11 +3,11 @@
   "version": "6.0.0",
   "description": "",
   "scripts": {
-    "clean": "rm -f public/js/hydejack.js",
+    "clean": "rm -f public/js/hydejack.js & rm -f public/js/hydejack.min.js",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "build": "browserify public/js/src/index.js -g babelify | uglifyjs -c -m -o public/js/hydejack.js",
-    "watch": "watchify --debug public/js/src/index.js -g babelify -o public/js/hydejack.js",
-    "lint": "eslint public/js/src",
+    "build": "browserify _js/src/index.js -g babelify | uglifyjs -c -m -o public/js/hydejack.js",
+    "watch": "watchify --debug _js/src/index.js -g babelify -o public/js/hydejack.js",
+    "lint": "eslint _js/src",
     "dev": "npm run watch",
     "prepublish": "npm run lint && npm run test && npm run clean && npm run build"
   },
@@ -29,9 +29,9 @@
     "core-js": "2.4.1",
     "fg-loadcss": "1.2.0",
     "katex": "0.6.0",
-    "rxjs-es": "5.0.0-beta.12",
     "y-drawer": "4.0.0",
-    "y-push-state": "2.0.0"
+    "y-push-state": "2.0.0",
+    "rxjs-es": "5.0.0-beta.12"
   },
   "browserify": {
     "transform": [
