@@ -37,6 +37,10 @@
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="{{ site.baseurl }}/atom.xml">
 
   <script>{% include scripts/load-js-deferred.js %}</script>
+  <script>window.site = {
+    url: '{{ site.url }}',
+    baseurl: '{{ site.baseurl }}'
+  }</script>
 
   <!--[if lt IE 9]>
   <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
