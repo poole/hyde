@@ -19,16 +19,16 @@
 
 <!--[if gt IE 8]><!---->
 <style>
-  html {
-    font-family: {{ site.font }};
-  }
-
   :focus {
     outline-color: {{ color }};
   }
 
-  .font-accent {
-    font-family: {{ site.font_accent }};
+  html {
+    font-family: {{ site.font }};
+  }
+
+  h1, h2, h3, h4, h5, h6, .sidebar-nav {
+    font-family: {{ site.font_heading }};
   }
 
   .content a,
