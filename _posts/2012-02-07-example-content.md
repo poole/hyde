@@ -25,20 +25,20 @@ HTML defines a long list of available inline tags, a complete list of which can 
 
 Most of these elements are styled by browsers with few modifications on our part.
 
-## Heading
+## Heading 2
 Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. Duis mollis, est non commodo luctus, nisi erat porttitor ligula, eget lacinia odio sem nec elit. Morbi leo risus, porta ac consectetur ac, vestibulum at eros.
 
-### Vivamus sagittis
+### Heading 3
 Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor.
 
-#### Lacus vel augue
+#### Heading 4
 Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor.
 
-##### Rutrum faucibus
+##### Heading 5
 Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor.
 
-###### Dolor auctor.
-Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor. 
+###### Heading 6
+Vivamus sagittis lacus vel augue rutrum faucibus dolor auctor.
 
 ## Code
 
