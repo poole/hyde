@@ -8,6 +8,10 @@ body
     margin-top: 80px ! important;
 }
 
+table
+{
+	font-size: 50%;
+}
 /*      SIDEBAR SETTINGS    */
 
 #picture{
