@@ -12,7 +12,7 @@ title: Syllabus
  <tr><td>3</td><td>Gene flow </td><td>12-Jan</td><td>Owens</td><td>Ellstrand 2014</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>4</td><td>Phylogeography</td><td>14-Jan</td><td>Owens</td><td>Bernard-Kubow et al. 2015</td><td>Yes</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>5</td><td>Local adaptation </td><td>19-Jan</td><td>Owens</td><td>Savolainen 2011</td><td>&nbsp;</td><td>Yes</td><td>&nbsp;</td></tr>
- <tr><td>6</td><td>Coevolution </td><td>21-Jan</td><td>Owens</td><td>Whitall & Hodges 2007</td><td>Yes</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>6</td><td>Coevolution </td><td>21-Jan</td><td>Owens</td><td>Whitall & Hodges 2007</td><td align="center" style="text-align:center; font-size:150%; font-weight:bold; color:green;">&#10004;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>7</td><td>Mating system evolution </td><td>26-Jan</td><td>Owens</td><td>Kalisz et al. 2004</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>8</td><td>Sexual system evolution </td><td>28-Jan</td><td>Owens</td><td>Barrett 2002</td><td>Yes</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td colspan="8"><b>Plant Speciation</b></td></tr>
