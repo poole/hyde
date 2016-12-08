@@ -2,9 +2,11 @@
 layout: page
 title: Syllabus
 ---
+.main {
+  font-size:1em; 
+}
 
-
-<table font-size:	10px;>
+<table class="main">
 <thead><tr class="tableizer-firstrow"><th>Lecture Number</th><th>TOPIC</th><th>Date</th><th>Lecturer</th><th>Readings</th><th>Discussion section</th><th>Quiz</th><th>Research project due</th></tr></thead><tbody>
  <tr><td>1</td><td>Introduction</td><td>05-Jan</td><td>Owens</td><td>None</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td colspan="8" font-weight: bold;>Evolution of Populations</td></tr>
