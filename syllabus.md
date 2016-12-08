@@ -4,10 +4,10 @@ title: Syllabus
 ---
 
 
-<table>
+<table font-size:	10px;>
 <thead><tr class="tableizer-firstrow"><th>Lecture Number</th><th>TOPIC</th><th>Date</th><th>Lecturer</th><th>Readings</th><th>Discussion section</th><th>Quiz</th><th>Research project due</th></tr></thead><tbody>
  <tr><td>1</td><td>Introduction</td><td>05-Jan</td><td>Owens</td><td>None</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td colspan="8">Evolution of Populations</td></tr>
+ <tr><td colspan="8" font-weight: bold;>Evolution of Populations</td></tr>
  <tr><td>2</td><td>Genetic drift & population structure</td><td>07-Jan</td><td>Rieseberg</td><td>Dlugosch and Parker 2008</td><td>Yes</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>3</td><td>Gene flow </td><td>12-Jan</td><td>Owens</td><td>Ellstrand 2014</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>4</td><td>Phylogeography</td><td>14-Jan</td><td>Owens</td><td>Bernard-Kubow et al. 2015</td><td>Yes</td><td>&nbsp;</td><td>&nbsp;</td></tr>
