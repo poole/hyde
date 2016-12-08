@@ -5,7 +5,7 @@ title: Syllabus
 
 
 <table>
-<thead><tr class="tableizer-firstrow"><th><sub>Lecture Number</sub></th><th>TOPIC</th><th>Date</th><th>Lecturer</th><th>Readings</th><th>Discussion section</th><th>Quiz</th><th>Research project due</th></tr></thead><tbody>
+<thead><tr class="tableizer-firstrow"><th><sub>Lecture Number</sub></th><th><sub>Topic</sub></th><th><sub>Date</sub></th><th><sub>Lecturer</sub></th><th><sub>Readings</sub></th><th><sub>Discussion</sub></th><th><sub>Quiz</sub></th><th><sub>Project due</sub></th></tr></thead><tbody>
  <tr><td>1</td><td>Introduction</td><td>05-Jan</td><td>Owens</td><td>None</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td colspan="8"> **Evolution of Populations** </td></tr>
  <tr><td>2</td><td>Genetic drift & population structure</td><td>07-Jan</td><td>Rieseberg</td><td>Dlugosch and Parker 2008</td><td>Yes</td><td>&nbsp;</td><td>&nbsp;</td></tr>
