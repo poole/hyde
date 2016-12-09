@@ -1,1 +1,1 @@
-# Slides for lecture 2
+# Slides for Lecture 2
