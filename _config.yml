@@ -5,7 +5,6 @@ highlighter:      rouge
 # Permalinks
 permalink:        pretty
 
-
 # Setup
 title:            Biol415
 tagline:          'Plant Evolution'
