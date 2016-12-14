@@ -1,6 +1,7 @@
 ---
 layout: page
 title: Syllabus
+permalink: /papers/
 ---
 
 
