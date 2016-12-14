@@ -9,7 +9,7 @@ title: Syllabus
  <tr><td>1</td><td><sub>Introduction</sub></td><td>Jan-03</td><td>Owens</td><td>None</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td colspan="8"> <b><sub>Evolution of Populations</sub></b> </td></tr>
  <tr><td>2</td><td><sub>Genetic drift & population structure</sub></td><td>Jan-05</td><td>Owens</td><td><sub><a href="/papers/Dlugosch2008.pdf">Dlugosch and Parker 2008</a></sub></td><td align="center" style="text-align:center; font-size:150%; font-weight:bold; color:green;">&#10004;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
- <tr><td>3</td><td><sub>Gene flow </sub></td><td>Jan-10</td><td>Owens</td><td><sub>Ellstrand 2014</sub></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>3</td><td><sub>Gene flow </sub></td><td>Jan-10</td><td>Owens</td><td><sub><a href="/papers/Ellstrand2014.pdf">Ellstrand 2014</a></sub></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>4</td><td><sub>Phylogeography</sub></td><td>Jan-12</td><td>Owens</td><td><sub>Bernard-Kubow et al. 2015</sub></td><td align="center" style="text-align:center; font-size:150%; font-weight:bold; color:green;">&#10004;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>5</td><td><sub>Local adaptation</sub> </td><td>Jan-17</td><td>Owens</td><td><sub>Savolainen 2011; Fournier-Level et al. 2011</sub></td><td>&nbsp;</td><td align="center" style="text-align:center; font-size:150%; font-weight:bold; color:green;">&#10004;</td><td>&nbsp;</td></tr>
  <tr><td>6</td><td><sub>Coevolution</sub> </td><td>Jan-19</td><td>Owens</td><td><sub>Whitall & Hodges 2007</sub></td><td align="center" style="text-align:center; font-size:150%; font-weight:bold; color:green;">&#10004;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
