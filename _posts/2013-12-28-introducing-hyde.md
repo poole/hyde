@@ -25,7 +25,7 @@ Grades will be based on preparedness as demonstrated by your paper summaries/dis
 
 ### Readings:
 
-See the [syllabus](syllabus) for the weekly readings. 
+See the [syllabus](../syllabus) for the weekly readings. 
 
 
 ### Some Relevant Books:
