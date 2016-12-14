@@ -6,7 +6,7 @@ title: Syllabus
 
 <table>
 <thead><tr class="tableizer-firstrow"><th><sub>Lecture Number</sub></th><th><sub>Topic</sub></th><th><sub>Date</sub></th><th><sub>Lecturer</sub></th><th><sub>Readings</sub></th><th><sub>Discussion</sub></th><th><sub>Quiz</sub></th><th><sub>Project due</sub></th></tr></thead><tbody>
- <tr><td>1</td><td><sub>Introduction</sub></td><td>Jan-03</td><td>Owens</td><td>None</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
+ <tr><td>1</td><td><sub><a href="/papers/Dlugosch2008.pdf">link text</a>Introduction</sub></td><td>Jan-03</td><td>Owens</td><td>None</td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td colspan="8"> <b><sub>Evolution of Populations</sub></b> </td></tr>
  <tr><td>2</td><td><sub>Genetic drift & population structure</sub></td><td>Jan-05</td><td>Owens</td><td><sub>[[Dlugosch and Parker 2008]](/papers/Dlugosch2008.pdf)</sub></td><td align="center" style="text-align:center; font-size:150%; font-weight:bold; color:green;">&#10004;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
  <tr><td>3</td><td><sub>Gene flow </sub></td><td>Jan-10</td><td>Owens</td><td><sub>Ellstrand 2014</sub></td><td>&nbsp;</td><td>&nbsp;</td><td>&nbsp;</td></tr>
