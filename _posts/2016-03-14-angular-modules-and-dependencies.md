@@ -8,7 +8,7 @@ tags: [angular-jasmine, javascript]
 ---
 Everybody knows that angular js has modules. But what are these module do?
 
-#### [angular docks](https://docs.angularjs.org/guide/module)
+#### [angular docs](https://docs.angularjs.org/guide/module)
 > You can think of a module as a container for the different parts of your app.
 So modules are containers for your code. You can group part of your code to module 'A', and part to module 'B'.
 
