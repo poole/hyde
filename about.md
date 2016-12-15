@@ -20,5 +20,5 @@ Gregory L. Owens; Biodiversity 326; gregory.owens@alumni.ubc.ca<br>Joon Seon Lee
 11-12 am, Tuesday, Biodiversity 304 (Owens)
 				
 **Lecture Slides**:
-Posted in [Syllabus](https://ubcbiol415.github.io/syllabus/) table before each lecture.
+Posted in [syllabus](https://ubcbiol415.github.io/syllabus/) table before each lecture.
 
