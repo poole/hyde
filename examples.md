@@ -2,14 +2,12 @@
 layout: page
 title: Examples
 ---
-## Examples
 
-Here are example finished work for the course
+Here are example finished work for assignments in the course:
 
 #### Summaries
 * [[1]](/examples/Summary_Example1.pdf)
 * [[2]](/examples/Summary_Example2.pdf)
-
 
 #### Proposal
 * [[1]](/examples/proposal_example1.pdf)
