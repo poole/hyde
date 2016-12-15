@@ -5,7 +5,8 @@ date: 2016-03-30 09:28
 author: ronapelbaum
 comments: true
 tags: [angular-jasmine, javascript]
-publish: false
+publish: true
+desc: This is a reference to the course "javascript unit-testing with angular 1.x"
 ---
 
 Reference for angular unit testing course. 
@@ -19,7 +20,7 @@ Reference for angular unit testing course.
 ##### modular code
 <iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/y959gzeg/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
-####  very fast
+#### very fast
 
 
 ## jasmine
