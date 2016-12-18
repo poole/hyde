@@ -46,7 +46,9 @@ Javascript unit testing is *much* faster than the alternative, slow UI testing..
 
 
 ---
+
 # jasmine
+
 ## jasmine introduction
 
 Check out jasmine [docs](http://jasmine.github.io/)
@@ -74,6 +76,7 @@ var Greeter = function() {
 ```
 
 ---
+
 ## jasmine spies
 
 #### spyOn
@@ -103,60 +106,67 @@ var Greeter = function() {
 };
 ```
 
-##### spyOn and return
+#### spyOn and return
 *TODO*: fix this test.
 <iframe width="100%" height="800" src="//jsfiddle.net/ronapelbaum/v6otvszz/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/v6otvszz/3/)
 
-##### createSpyObj
+#### createSpyObj
 *TODO*: fix this test.
 <iframe width="100%" height="800" src="//jsfiddle.net/ronapelbaum/v6otvszz/6/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/v6otvszz/7/)
 
 ---
+
 # angular + jasmine
+
 ### ngMock
+
 See [docs](https://docs.angularjs.org/api/ngMock)
 - angular.mock.module
 - angular.mock.inject
 
 ## testing services
 
-##### simple service test 
+#### simple service test 
+
 *TODO*: fix this test.
 <iframe width="100%" height="500" src="//jsfiddle.net/ronapelbaum/kLuxt4pf/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/kLuxt4pf/2/)
 
-##### service test with spyOn
+#### service test with spyOn
+
 *TODO*: fix this test.
 <iframe width="100%" height="500" src="//jsfiddle.net/ronapelbaum/1qgxbp9L/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/1qgxbp9L/2/)
 
 ---
+
 ## testing services with *real* DI
 
-##### service with inject(spyOn)
+#### service with inject(spyOn)
 <iframe width="100%" height="1200" src="//jsfiddle.net/ronapelbaum/z34kyuev/7/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 #### $provide
 See [docs](https://docs.angularjs.org/api/auto/service/$provide)
 
-##### service with real DI (createSpyObj)
+#### service with real DI (createSpyObj)
 *TODO*: fix this test.
 <iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/cLakkvy6/4/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/cLakkvy6/5/)
 
 ---
+
 ## testing controllers
 
 use $controller - controllers are NOT singleton
 
-##### stateless controller (controller as)
+#### stateless controller (controller as)
 
 ```javascript
 describe("MyController test suite", function() {
@@ -175,36 +185,38 @@ describe("MyController test suite", function() {
 });
 ```
 
-##### controller as (state on this) 
+#### controller as (state on this) 
 *TODO*: fix this test.
 <iframe width="100%" height="1000" src="//jsfiddle.net/ronapelbaum/4ntc2gtx/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/4ntc2gtx/1/)
 
-##### controller with $scope (state on scope)
+#### controller with $scope (state on scope)
 *TODO*: fix this test.
 <iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/kgtgt57j/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/kgtgt57j/1/)
 
-##### controller with DI
+#### controller with DI
 Now try to solve previous example with *createSpyObj*.
 <br/>
 [solution](http://jsfiddle.net/ronapelbaum/kgtgt57j/2/) 
 
 ---
+
 ## testing directives
 
 - use $compile
 - test element - use jqlite selectors test
 
-##### directive using scope + $watch
+#### directive using scope + $watch
 *TODO*: fix this test.
 <iframe width="100%" height="1300" src="//jsfiddle.net/ronapelbaum/f629Lm4o/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/f629Lm4o/1/)
 
 ---
+
 ## Other angular patterns
 
 #### test a controller using *$http*
