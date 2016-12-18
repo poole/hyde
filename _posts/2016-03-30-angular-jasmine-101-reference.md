@@ -107,7 +107,8 @@ Solve this:
 ##### createSpyObj
 Solve this:
 <iframe width="100%" height="800" src="//jsfiddle.net/ronapelbaum/v6otvszz/6/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
-[solution](http://jsfiddle.net/ronapelbaum/v6otvszz/4/)
+
+[solution](http://jsfiddle.net/ronapelbaum/v6otvszz/7/)
 
 # angular + jasmine
 ### [ngMock](https://docs.angularjs.org/api/ngMock)
@@ -117,10 +118,16 @@ Solve this:
 ### testing services 1
 
 ##### simple service test 
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/ruv0u3ef/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+Solve this:
+<iframe width="100%" height="500" src="//jsfiddle.net/ronapelbaum/kLuxt4pf/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+
+[solution](http://jsfiddle.net/ronapelbaum/kLuxt4pf/2/)
 
 ##### service test with spyOn
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/a82kkvjx/2/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+Solve this:
+<iframe width="100%" height="500" src="//jsfiddle.net/ronapelbaum/1qgxbp9L/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+
+[solution](http://jsfiddle.net/ronapelbaum/1qgxbp9L/2/)
 
 ### testing controllers
 
