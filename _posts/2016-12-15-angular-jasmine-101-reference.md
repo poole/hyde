@@ -217,6 +217,17 @@ Now try to solve previous example with *createSpyObj*.
 
 ---
 
+## testing components (angular 1.5+)
+
+- use `$componentController` to test the controller
+- use `$compile` to test element, like a directive
+
+<iframe width="100%" height="1300" src="//jsfiddle.net/ronapelbaum/Latsa00r/2/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+
+> and what about testing *lifecycle hooks*?
+
+---
+
 ## Other angular patterns
 
 #### test a controller using *$http*
