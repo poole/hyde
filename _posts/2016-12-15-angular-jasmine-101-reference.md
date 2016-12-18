@@ -222,7 +222,7 @@ Now try to solve previous example with *createSpyObj*.
 - use `$componentController` to test the controller
 - use `$compile` to test element, like a directive
 
-<iframe width="100%" height="1300" src="//jsfiddle.net/ronapelbaum/Latsa00r/2/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+<iframe width="100%" height="1100" src="//jsfiddle.net/ronapelbaum/Latsa00r/2/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 > and what about testing *lifecycle hooks*?
 
