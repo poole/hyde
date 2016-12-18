@@ -1,7 +1,7 @@
 ---
 layout: post
 title: javascript unit test with angular 1.x (course exercise)
-date: 2016-03-30 09:28
+date: 2016-12-15 09:28
 author: ronapelbaum
 comments: true
 tags: [angular-jasmine, javascript]
