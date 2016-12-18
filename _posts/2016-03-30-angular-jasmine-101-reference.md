@@ -1,6 +1,6 @@
 ---
 layout: post
-title: javascript unit test with angular 1.x (course reference)
+title: javascript unit test with angular 1.x (course exercise)
 date: 2016-03-30 09:28
 author: ronapelbaum
 comments: true
@@ -44,6 +44,7 @@ Yes.
 Javascript unit testing is *much* faster than the alternative, slow UI testing.. 
 
 
+---
 # jasmine
 ## jasmine introduction
 
@@ -53,7 +54,7 @@ Check out jasmine [docs](http://jasmine.github.io/)
 <iframe width="100%" height="320" src="//jsfiddle.net/ronapelbaum/u6dLzpmc/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 #### test a javascript object
-Solve this:
+*TODO*: fix this test.
 <iframe width="100%" height="540" src="//jsfiddle.net/ronapelbaum/32medvkz/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/32medvkz/6/)
@@ -70,6 +71,7 @@ var Greeter = function() {
 };
 ```
 
+---
 ## jasmine spies
 
 #### spyOn
@@ -99,17 +101,18 @@ var Greeter = function() {
 ```
 
 ##### spyOn and return
-Solve this:
+*TODO*: fix this test.
 <iframe width="100%" height="800" src="//jsfiddle.net/ronapelbaum/v6otvszz/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/v6otvszz/3/)
 
 ##### createSpyObj
-Solve this:
+*TODO*: fix this test.
 <iframe width="100%" height="800" src="//jsfiddle.net/ronapelbaum/v6otvszz/6/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/v6otvszz/7/)
 
+---
 # angular + jasmine
 ### ngMock
 See [docs](https://docs.angularjs.org/api/ngMock)
@@ -119,17 +122,18 @@ See [docs](https://docs.angularjs.org/api/ngMock)
 ## testing services
 
 ##### simple service test 
-Solve this:
+*TODO*: fix this test.
 <iframe width="100%" height="500" src="//jsfiddle.net/ronapelbaum/kLuxt4pf/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/kLuxt4pf/2/)
 
 ##### service test with spyOn
-Solve this:
+*TODO*: fix this test.
 <iframe width="100%" height="500" src="//jsfiddle.net/ronapelbaum/1qgxbp9L/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/1qgxbp9L/2/)
 
+---
 ## testing services with *real* DI
 
 ##### service with inject(spyOn)
@@ -139,11 +143,12 @@ Solve this:
 See [docs](https://docs.angularjs.org/api/auto/service/$provide)
 
 ##### service with real DI (createSpyObj)
-Solve this:
+*TODO*: fix this test.
 <iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/cLakkvy6/4/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/cLakkvy6/5/)
 
+---
 ## testing controllers
 
 use $controller - controllers are NOT singleton
@@ -167,13 +172,13 @@ describe("MyController test suite", function() {
 ```
 
 ##### controller as (state on this) 
-Solve this:
+*TODO*: fix this test.
 <iframe width="100%" height="1000" src="//jsfiddle.net/ronapelbaum/4ntc2gtx/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/4ntc2gtx/1/)
 
 ##### controller with $scope (state on scope)
-Solve this:
+*TODO*: fix this test.
 <iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/kgtgt57j/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
 [solution](http://jsfiddle.net/ronapelbaum/kgtgt57j/1/)
@@ -183,32 +188,58 @@ Now try to solve previous example with *createSpyObj*.
 <br/>
 [solution](http://jsfiddle.net/ronapelbaum/kgtgt57j/2/) 
 
+---
 ## testing directives
 
 - use $compile
 - test element - use jqlite selectors test
 
-##### directive using attrs
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/xgojw58j/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
-
 ##### directive using scope + $watch
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/qorkcnnL/2/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+*TODO*: fix this test.
+<iframe width="100%" height="1300" src="//jsfiddle.net/ronapelbaum/f629Lm4o/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
-### other angular patterns:
+[solution](http://jsfiddle.net/ronapelbaum/f629Lm4o/1/)
 
-##### $http
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/bhLmdkms/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
+---
+## Other angular patterns
+
+#### test a controller using *$http*
+> use `$httpBackend` and don't forget `$httpBackend.flush()`
+
+*TODO*: write a test for the second scenario.
+
+<iframe width="100%" height="1150" src="//jsfiddle.net/ronapelbaum/bhLmdkms/2/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe>
  
-##### $timeout
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/9mt79yaf/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+[solution](http://jsfiddle.net/ronapelbaum/bhLmdkms/)
 
-##### events
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/9pogcprf/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+#### test a controller using *$timeout*
 
-##### promise
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/nd8t4ef0/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+> don't forget `$timeout.flush()`
 
-### Finally
-Test writing challange:
+*TODO*: Write a test for this controller.
 
-https://github.com/ronapelbaum/mangal/tree/master
+<iframe width="100%" height="550" src="//jsfiddle.net/ronapelbaum/k0tutm1h/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+
+[solution](http://jsfiddle.net/ronapelbaum/k0tutm1h/1/)
+
+#### test a controller using *events*
+
+*TODO*: Write a test for this controller.
+
+<iframe width="100%" height="500" src="//jsfiddle.net/ronapelbaum/mn4cfb3e/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+
+[solution](http://jsfiddle.net/ronapelbaum/mn4cfb3e/1/)
+
+#### test a controller using *promise*
+> angular docs: "it's important to know that the resolution of promises is tied to the digest cycle"
+
+*TODO*: write a test for the second scenario.
+
+<iframe width="100%" height="1300" src="//jsfiddle.net/ronapelbaum/nd8t4ef0/4/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+
+[solution](http://jsfiddle.net/ronapelbaum/nd8t4ef0/)
+
+---
+
+## Finally
+Test writing [challenge](https://github.com/ronapelbaum/mangal/tree/master)
