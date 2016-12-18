@@ -111,11 +111,12 @@ Solve this:
 [solution](http://jsfiddle.net/ronapelbaum/v6otvszz/7/)
 
 # angular + jasmine
-### [ngMock](https://docs.angularjs.org/api/ngMock)
+### ngMock
+See [docs](https://docs.angularjs.org/api/ngMock)
 - angular.mock.module
 - angular.mock.inject
 
-### testing services 1
+## testing services
 
 ##### simple service test 
 Solve this:
@@ -129,37 +130,64 @@ Solve this:
 
 [solution](http://jsfiddle.net/ronapelbaum/1qgxbp9L/2/)
 
-### testing controllers
-
-- use $controller - controllers are NOT singleton
-
-##### stateless controller
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/4hbb79rg/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
-
-##### controller as (state on this) 
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/uneb5gu5/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
-
-##### controller with $scope (state on scope)
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/z8g8mk3h/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
-
-##### controller with dI (createSpyObj)
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/z8g8mk3h/7/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
-
-### testing services with real DI
+## testing services with *real* DI
 
 ##### service with inject(spyOn)
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/z34kyuev/4/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+<iframe width="100%" height="1200" src="//jsfiddle.net/ronapelbaum/z34kyuev/7/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
-##### $provide
-https://docs.angularjs.org/api/auto/service/$provide
+#### $provide
+See [docs](https://docs.angularjs.org/api/auto/service/$provide)
 
 ##### service with real DI (createSpyObj)
-<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/cLakkvy6/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+Solve this:
+<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/cLakkvy6/4/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
-### testing directives
+[solution](http://jsfiddle.net/ronapelbaum/cLakkvy6/5/)
+
+## testing controllers
+
+use $controller - controllers are NOT singleton
+
+##### stateless controller (controller as)
+```javascript
+describe("MyController test suite", function() {
+    var ctrl;
+    beforeEach(module('MyModule'));
+
+    beforeEach(inject(function($controller) {
+        ctrl = $controller("MyController");
+    }));
+
+    it("should greet corretly", function() {
+        expect(ctrl.greet()).toBe('Hello Bob');
+    });
+
+
+});
+```
+
+##### controller as (state on this) 
+Solve this:
+<iframe width="100%" height="1000" src="//jsfiddle.net/ronapelbaum/4ntc2gtx/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+
+[solution](http://jsfiddle.net/ronapelbaum/4ntc2gtx/1/)
+
+##### controller with $scope (state on scope)
+Solve this:
+<iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/kgtgt57j/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
+
+[solution](http://jsfiddle.net/ronapelbaum/kgtgt57j/1/)
+
+##### controller with DI
+Now try to solve previous example with *createSpyObj*.
+<br/>
+[solution](http://jsfiddle.net/ronapelbaum/kgtgt57j/2/) 
+
+## testing directives
 
 - use $compile
 - test element - use jqlite selectors test
+
 ##### directive using attrs
 <iframe width="100%" height="300" src="//jsfiddle.net/ronapelbaum/xgojw58j/embedded/js,result/" allowfullscreen="allowfullscreen" frameborder="0"></iframe> 
 
