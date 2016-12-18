@@ -20,6 +20,7 @@ Our javascript code never gets compiled, hence we are open to *a lot* of runtime
 
 #### testable code === modular code
 When we write with angular, we often mistake with our module separation.
+
 ```javascript
 angular.module('a', [])
     .service('ServiceA', function() {
@@ -61,6 +62,7 @@ Check out jasmine [docs](http://jasmine.github.io/)
 
 #### testable code
 How can we test this?
+
 ```javascript
 var Greeter = function() {
     function greet(name) {
@@ -79,6 +81,7 @@ var Greeter = function() {
 
 #### dependency injection?
 How can we test this?
+
 ```javascript
 var LastNameService = function() {
     this.getLastName = function(firstName) {
@@ -154,6 +157,7 @@ See [docs](https://docs.angularjs.org/api/auto/service/$provide)
 use $controller - controllers are NOT singleton
 
 ##### stateless controller (controller as)
+
 ```javascript
 describe("MyController test suite", function() {
     var ctrl;
