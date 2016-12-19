@@ -7,5 +7,5 @@ group :jekyll_plugins do
   gem "jekyll-sitemap", "~> 0.12"
   gem "jekyll-gist"
   gem "jekyll-paginate"
-  gem "hyde-theme"
+  gem "jekyll-theme-hyde"
 end
