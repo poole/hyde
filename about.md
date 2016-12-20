@@ -14,10 +14,11 @@ BIOL 415, Evolutionary Processes in Plants
 2-4 pm, Thursday, Forest Sciences Centre 1611
 		
 **Instructors**:	
-Gregory L. Owens; Biodiversity 326; gregory.owens@alumni.ubc.ca<br>Joon Seon Lee; Biodiversity 3XX; joon.lee@botany.ubc.ca 
+Gregory L. Owens; Biodiversity 326; gregory.owens@alumni.ubc.ca<br>Joon Seon Lee; Biodiversity 318; joon.lee@botany.ubc.ca 
 
 **Office Hours**:	
 11-12 am, Tuesday, Biodiversity 326 or 304 (Owens)
+By appointment (Lee)
 				
 **Lecture Slides**:
 Posted in [syllabus](https://ubcbiol415.github.io/syllabus/) table before each lecture.
