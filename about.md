@@ -8,10 +8,10 @@ title: Course Info
 BIOL 415, Evolutionary Processes in Plants
 
 **Lecture**:	
-10-11 am, Tuesday & Thursday, TBD	
+10-11 am, Tuesday & Thursday, Irving K Barber Learning Centre 158	
 
 **Tutorial**: 	
-2-4 pm, Thursday, TBD
+2-4 pm, Thursday, Forest Sciences Centre 1611
 		
 **Instructors**:	
 Gregory L. Owens; Biodiversity 326; gregory.owens@alumni.ubc.ca<br>Joon Seon Lee; Biodiversity 3XX; joon.lee@botany.ubc.ca 
