@@ -1,5 +1,5 @@
 # Dependencies
-markdown:         redcarpet
+#markdown:         redcarpet
 highlighter:      pygments
 
 # Permalinks
@@ -20,6 +20,7 @@ paginate:         5
 
 # Custom vars
 version:          2.1.0
+gems: [jekyll-paginate]
 
 github:
   repo:           https://github.com/jyt0532/jyt0532.github.io
