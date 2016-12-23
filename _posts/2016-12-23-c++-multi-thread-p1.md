@@ -18,8 +18,8 @@ title: Introduction to C++ multithread Part 1
 
 ### New 一個thread
 
-```C++
-#include <thread>                                                                                           
+{% highlight cpp %}
+#include <thread>
 #include <iostream>
 using namespace std;
 void thread_function(){
@@ -30,12 +30,12 @@ int main(){
     t1.join();// without this line, program will abort
     return 0;
 }
-```
+{% endhighlight %}
 
 簡直輕鬆愉快 這裏有一點要注意 你要把原本的程式想成一個master thread 他new一個thread出去的時候你必須要等它跑完 自己才能結束掉 master thread 會在t1.join()那行等t1跑完 才會繼續往下跑 如果master return 的時候還有thread在跑會噴錯 不過你也可以call detach master就可以放生它自己結束程式
 
-```C++
-#include <thread>                                                                                           
+{% highlight cpp %}
+#include <thread>
 #include <iostream>
 #include <unistd.h>
 using namespace std;
@@ -52,12 +52,12 @@ int main(){
     cout << "I am master thread and I am about to finish"<< std::endl;
     return 0;
 }
-```
+{% endhighlight %}
 
 ### 給thread參數
 
-```C++
-#include <thread>                                                                                           
+{% highlight cpp %}
+#include <thread>
 #include <iostream>
 #include <string>
 #include <vector>
@@ -78,5 +78,5 @@ int main()
     }   
     return 0;
 }
-```
+{% endhighlight %}
 
