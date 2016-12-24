@@ -6,10 +6,14 @@ title: Introduction to C++ multithread Part 2
 深入淺出C++ multithread part2
 
 ### lock
-恭喜你 現在已經走出十里坡 現在開始來動真格了 融會貫通才是真本事 來看一下stackoverflow對於thread和process的比較http://stackoverflow.com/questions/200469/what-is-the-difference-between-a-process-and-a-thread
+恭喜你 現在已經走出十里坡 現在開始來動真格了 
+融會貫通才是真本事 
+來看一下stackoverflow對於thread和process的比較
+[What is the difference between a process and a thread?](http://stackoverflow.com/questions/200469/what-is-the-difference-between-a-process-and-a-thread)
 
 > Both processes and threads are independent sequences of execution. The typical difference is that threads (of the same process) run in a shared memory space, while processes run in separate memory spaces.
 
+這就是為什麼當你new出很多thread的時候 你必須要非常小心shared data
 比如說下面的例子
 {% highlight cpp %}
 #include <iostream>
@@ -80,7 +84,7 @@ int main()
     return 0;
 }
 {% endhighlight %}
-這裏把sum這個variable跟mutex包在一起 是個比較理想的做法 當然你要用global variable我也阻止不了你 
+這裏把sum這個variable跟mutex包在一起 是個比較理想的做法 當然你的mutex要用global variable我也阻止不了你 
 可是大家都知道global variable is evil 特別是多線程的program 不想debug到死就要養成好習慣
 
 總結一下 一個thread要改sum variable之前 先去要lock, 如果有人在用 我就一直等 等到鎖被release 如果沒有人在用鎖 我就拿這個鎖  改動資料之後 再把鎖release 看起來相當完美 在shared data(sum) 的前後加lock 任何人都寫得出來 如果面試官問你 這種程式有什麼潛在的問題 你看出來了嗎？
