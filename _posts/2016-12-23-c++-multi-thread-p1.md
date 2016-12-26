@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Introduction to C++ multithread Part 1
+comments: True
 ---
 
 深入淺出C++ multithread part1
@@ -23,7 +24,7 @@ title: Introduction to C++ multithread Part 1
 #include <iostream>
 using namespace std;
 void thread_function(){
-    cout << "I am a new thread "<< std::endl;
+    cout << "I am a new thread "<< endl;
 }
 int main(){
     thread t1(thread_function);
@@ -46,16 +47,16 @@ master thread 會在t1.join()那行等t1跑完 才會繼續往下跑
 #include <unistd.h>
 using namespace std;
 void thread_function(){
-    cout << "I am a new thread"<< std::endl;
+    cout << "I am a new thread"<< endl;
     usleep(2000);
-    cout << "This messenge is unlikely to show"<< std::endl;
+    cout << "This messenge is unlikely to show"<< endl;
 }
 
 int main(){
     thread t1(thread_function);
     t1.detach();
     
-    cout << "I am master thread and I am about to finish"<< std::endl;
+    cout << "I am master thread and I am about to finish"<< endl;
     return 0;
 }
 {% endhighlight %}
@@ -70,7 +71,7 @@ int main(){
 using namespace std;
 void func(int i, string s)
 {
-    std::cout << i << ", " << s << std::endl;
+    cout << i << ", " << s << endl;
 }
 
 int main()
@@ -86,7 +87,7 @@ int main()
 }
 {% endhighlight %}
 相當簡單易懂 給thread的第一個參數就是function, 之後就是function的arguments
-最後 每個thread有自己的id 可以呼叫get_id()取得
+最後 每個thread有自己的id 可以call this_thread::get_id()取得自己id, 或是call get_id()來得到相對應thread的id
 {% highlight cpp %}
 #include <thread>
 #include <iostream>
@@ -95,7 +96,7 @@ int main()
 using namespace std;
 void func(int i, string s)
 {
-        std::cout << i << ", " << s << std::endl;
+    cout << i << ", " << this_thread::get_id() << endl;
 }
 
 int main()
