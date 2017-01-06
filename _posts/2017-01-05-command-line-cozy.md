@@ -220,11 +220,11 @@ Consider this list of files, which is the various posts that have appeared on fr
 2014-04-24-command-line.md        2015-04-06-R-sequence-analysis.md
 2014-04-27-terminal-multiplex.md  2015-04-23-ucsc-xena-workshop.md
 2014-05-09-galaxy.md              2015-04-24-third-galaxy-101.md
-2014-05-11-editing.md             2015-05-04-spring-2015-intermediate-r.md
+2014-05-11-editing.md             2015-05-04-spring-2015-r.md
 2014-05-17-git.md                 2015-05-20-spring-2015-unix-hpc.md
-2014-05-20-R.md                   2015-06-03-summer-bioinformatics-course.md
+2014-05-20-R.md                   2015-06-03-summer-bioinfo.md
 2014-07-13-toolbox.md             2015-08-26-data-center-tour.md
-2014-07-16-aws.md                 2015-08-27-cloud-computing-presentation.md
+2014-07-16-aws.md                 2015-08-27-cloud-computing.md
 2014-08-13-synapse.md             2015-12-02-galaxy-rna-seq.md
 2014-09-19-R-course.md            2016-01-21-cds-git.md
 2014-10-20-introductory-r-.md     2016-02-25-immunespace.md
@@ -234,7 +234,7 @@ Consider this list of files, which is the various posts that have appeared on fr
 2014-11-07-intermediate-R.md      2016-07-28-galaxy-101.md
 2014-12-09-hidra.md               2016-08-23-chipseq-class.md
 2014-12-15-scicomp-unix-hpc.md    2016-08-31-rnaseq-class.md
-2015-02-11-scicomp-unix-hpc.md    2016-09-08-illustration-inkscape.md
+2015-02-11-scicomp-unix-hpc.md    2016-09-08-inkscape.md
 2015-03-09-introductory-R.md      2016-09-27-intro-r.md
 2015-03-12-rollout-galaxy-101.md  2016-10-03-introbio.md
 2015-04-02-april-galaxy-101.md    2017-01-05-command-line-cozy.md
