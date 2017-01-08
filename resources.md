@@ -19,8 +19,8 @@ published: true
 
 ### Terminal/Shell
 
-* [Command line: introduction]({% post_url 2014-04-24-command-line %})
-* [Command Line Crash Course](http://cli.learncodethehardway.org/book/) (great if you don't mind the tone)
+* [Our bioinformatics course notes](http://fredhutchio.github.io/intro-bioinformatics/)
+* [Command Line Crash Course](https://learnpythonthehardway.org/book/appendixa.html)
 * [POSIX Shell reference](http://shellhaters.heroku.com/posix) and accompanying [talk](http://shellhaters.heroku.com/)
 
 
