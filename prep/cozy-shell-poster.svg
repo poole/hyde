@@ -43,13 +43,13 @@
      guidetolerance="10"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:window-width="1920"
-     inkscape:window-height="1047"
+     inkscape:window-width="640"
+     inkscape:window-height="817"
      id="namedview4140"
      showgrid="false"
-     inkscape:zoom="0.80416065"
-     inkscape:cx="340.54833"
-     inkscape:cy="425.63537"
+     inkscape:zoom="0.48383838"
+     inkscape:cx="495"
+     inkscape:cy="382.5"
      inkscape:window-x="0"
      inkscape:window-y="0"
      inkscape:window-maximized="0"
@@ -94,7 +94,7 @@
        x="37.52364"
        y="383.81223"
        style="font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;font-family:URWMartinGothicW01-Bold;-inkscape-font-specification:'URWMartinGothicW01-Bold Bold';fill:#f72119;fill-opacity:1"
-       id="tspan4136">And goodnight tmux</tspan></text>
+       id="tspan4136">And detach tmux</tspan></text>
   <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:67.89649963px;line-height:125%;font-family:Lato;-inkscape-font-specification:'Lato, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f72119;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
@@ -118,7 +118,7 @@
          x="14.922391"
          y="501.37109"
          style="-inkscape-font-specification:'2CA19B_0_0';font-family:'2CA19B_0_0';font-weight:normal;font-style:normal;font-stretch:normal;font-variant:normal;" /></flowRegion><flowPara
-       id="flowPara4222"></flowPara></flowRoot>  <text
+       id="flowPara4222" /></flowRoot>  <text
      xml:space="preserve"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:Lato;-inkscape-font-specification:'Lato, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#000000;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
      x="19.896523"
@@ -133,67 +133,77 @@
      xml:space="preserve"
      id="flowRoot4228"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:Lato;-inkscape-font-specification:'Lato, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f72119;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     transform="translate(0,2)"><flowRegion
+     transform="translate(58,2)"><flowRegion
        id="flowRegion4230"><rect
          id="rect4232"
-         width="974.92957"
-         height="263.62891"
+         width="904.04822"
+         height="262.38541"
          x="7.4611955"
          y="496.39694"
          style="fill:#f72119;fill-opacity:1" /></flowRegion><flowPara
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';fill:#f72119;fill-opacity:1"
        id="flowPara4246">A one-session class for people who already use the shell, and want to make their experience more comfortable and convenient. This includes: finding things, terminal multiplexing, your history, interacting with the web, shell prompt, moving around, fuzzy finding, and making friends with vi. </flowPara><flowPara
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';fill:#f72119;fill-opacity:1"
-       id="flowPara4248" /></flowRoot>  <g
-     id="g5016"
-     transform="matrix(0.92800696,0,0,0.92800696,70.690908,54.79964)">
-    <g
-       id="g5007">
-      <circle
-         r="26.811916"
-         cy="702.44495"
-         cx="949.3266"
-         style="fill:#3272b3;fill-opacity:1;stroke:none"
-         id="path3165-7" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path54-1-3"
-         style="fill:#3272b3;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         d="m 867.51646,611.27895 c 0,-0.85775 0.68869,-1.63073 1.6323,-1.63073 l 35.55506,0 c 0.94136,0 1.6323,0.77298 1.6323,1.63073 l 0,9.36157 c 0,0.85775 -0.69094,1.63073 -1.6323,1.63073 l -23.78909,0 0,12.36613 19.57866,0 c 0.85863,0 1.63229,0.77321 1.63229,1.63341 l 0,9.35912 c 0,0.86019 -0.77366,1.63319 -1.63229,1.63319 l -19.57866,0 0,20.86683 c 0,0.86019 -0.77367,1.63318 -1.63453,1.63318 l -10.13144,0 c -0.94361,0 -1.6323,-0.77299 -1.6323,-1.63318 l 0,-56.85098" />
-      <path
-         inkscape:connector-curvature="0"
-         id="path62-6-5"
-         style="fill:#3272b3;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         d="m 923.41942,611.28799 c 0,-0.86249 0.77793,-1.63977 1.64357,-1.63977 l 10.27519,0 c 0.94883,0 1.64357,0.77728 1.64357,1.63977 l 0,21.76201 24.69639,0 0,-21.76201 c 0,-0.86249 0.69028,-1.63977 1.6391,-1.63977 l 10.27518,0 c 0.86563,0 1.64133,0.77728 1.64133,1.63977 l 0,57.16555 c 0,0.86496 -0.7757,1.64223 -1.64133,1.64223 l -10.27518,0 c -0.94882,0 -1.6391,-0.77727 -1.6391,-1.64223 l 0,-22.71064 -24.69639,0 0,22.71064 c 0,0.86496 -0.69474,1.64223 -1.64357,1.64223 l -10.27519,0 c -0.86564,0 -1.64357,-0.77727 -1.64357,-1.64223 l 0,-57.16555" />
-      <path
-         style="fill:#3272b3;fill-opacity:1;fill-rule:nonzero;stroke:none"
-         d="m 896.87384,676.34945 c -0.91106,0 -1.66078,0.7525 -1.66078,1.66072 0,17.59619 0,31.82368 0,49.58613 0,0.90813 0.74972,1.66059 1.66078,1.66059 l 8.54113,0 c 0.90632,0 1.66079,-0.75246 1.66079,-1.66059 0,-16.48163 0,-34.78838 0,-49.58613 0,-0.90822 -0.75447,-1.66072 -1.66079,-1.66072 z"
-         id="path3160-8"
-         inkscape:connector-curvature="0"
-         sodipodi:nodetypes="sccssccss" />
-      <circle
-         r="7.9567289"
-         cy="721.30023"
-         cx="874.73352"
-         style="fill:#3272b3;fill-opacity:1;stroke:none"
-         id="path3267-2" />
-      <text
-         xml:space="preserve"
-         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.23334503px;line-height:125%;font-family:'2CA19B_1_0';-inkscape-font-specification:'2CA19B_1_0';letter-spacing:0px;word-spacing:0px;fill:#3272b3;fill-opacity:1;stroke:none"
-         x="860.56091"
-         y="760.99377"
-         id="text3080"
-         sodipodi:linespacing="125%"><tspan
-           sodipodi:role="line"
-           id="tspan3082"
-           x="860.56091"
-           y="760.99377">fredhutch.io</tspan></text>
-    </g>
-    <circle
-       style="fill:#4e272c;fill-opacity:1;stroke:none"
-       id="path3935-9"
-       cx="949.3266"
-       cy="702.44495"
-       r="15.104046" />
-  </g>
-</svg>
+       id="flowPara4248" /></flowRoot>  <circle
+     r="24.881645"
+     cy="706.67346"
+     cx="951.67261"
+     style="fill:#2b639b;fill-opacity:1;stroke:none"
+     id="path3165-7" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path54-1-3"
+     style="fill:#2b639b;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 875.75222,622.07076 c 0,-0.796 0.63911,-1.51333 1.51479,-1.51333 l 32.99534,0 c 0.87359,0 1.51479,0.71733 1.51479,1.51333 l 0,8.6876 c 0,0.796 -0.6412,1.51333 -1.51479,1.51333 l -22.07644,0 0,11.47586 18.16913,0 c 0.79682,0 1.51478,0.71754 1.51478,1.51581 l 0,8.68533 c 0,0.79826 -0.71796,1.51561 -1.51478,1.51561 l -18.16913,0 0,19.36457 c 0,0.79826 -0.71797,1.5156 -1.51686,1.5156 l -9.40204,0 c -0.87568,0 -1.51479,-0.71734 -1.51479,-1.5156 l 0,-52.75811" />
+  <path
+     inkscape:connector-curvature="0"
+     id="path62-6-5"
+     style="fill:#2b639b;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 927.63056,622.07915 c 0,-0.8004 0.72192,-1.52172 1.52524,-1.52172 l 9.53545,0 c 0.88052,0 1.52524,0.72132 1.52524,1.52172 l 0,20.1953 22.91843,0 0,-20.1953 c 0,-0.8004 0.64058,-1.52172 1.52109,-1.52172 l 9.53544,0 c 0.80331,0 1.52317,0.72132 1.52317,1.52172 l 0,53.05003 c 0,0.80269 -0.71986,1.524 -1.52317,1.524 l -9.53544,0 c -0.88051,0 -1.52109,-0.72131 -1.52109,-1.524 l 0,-21.07563 -22.91843,0 0,21.07563 c 0,0.80269 -0.64472,1.524 -1.52524,1.524 l -9.53545,0 c -0.80332,0 -1.52524,-0.72131 -1.52524,-1.524 l 0,-53.05003" />
+  <path
+     style="fill:#2b639b;fill-opacity:1;fill-rule:nonzero;stroke:none"
+     d="m 902.99607,682.45664 c -0.84547,0 -1.54121,0.69832 -1.54121,1.54116 0,16.32938 0,29.53259 0,46.01627 0,0.84275 0.69574,1.54104 1.54121,1.54104 l 7.92623,0 c 0.84107,0 1.54123,-0.69829 1.54123,-1.54104 0,-15.29507 0,-32.28386 0,-46.01627 0,-0.84284 -0.70016,-1.54116 -1.54123,-1.54116 z"
+     id="path3160-8"
+     inkscape:connector-curvature="0"
+     sodipodi:nodetypes="sccssccss" />
+  <circle
+     r="7.3838997"
+     cy="724.17126"
+     cx="882.44971"
+     style="fill:#2b639b;fill-opacity:1;stroke:none"
+     id="path3267-2" />
+  <text
+     xml:space="preserve"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:21.56070518px;line-height:125%;font-family:'2CA19B_1_0';-inkscape-font-specification:'2CA19B_1_0';letter-spacing:0px;word-spacing:0px;fill:#2b639b;fill-opacity:1;stroke:none;"
+     x="869.29742"
+     y="761.00714"
+     id="text3080"
+     sodipodi:linespacing="125%"><tspan
+       sodipodi:role="line"
+       id="tspan3082"
+       x="869.29742"
+       y="761.00714">fredhutch.io</tspan></text>
+  <circle
+     r="14.01666"
+     cy="706.67346"
+     cx="951.67261"
+     id="path3935-9"
+     style="fill:#4e272c;fill-opacity:1;stroke:none" />
+  <flowRoot
+     transform="translate(169.024,170.73685)"
+     style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:Lato;-inkscape-font-specification:'Lato, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f72119;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+     id="flowRoot4161"
+     xml:space="preserve"><flowRegion
+       id="flowRegion4163"><rect
+         style="fill:#f72119;fill-opacity:1"
+         y="496.39694"
+         x="7.4611955"
+         height="262.38541"
+         width="904.04822"
+         id="rect4165" /></flowRegion><flowPara
+       id="flowPara4167"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;font-family:'2CA19B_1_0';-inkscape-font-specification:'2CA19B_1_0';fill:#f72119;fill-opacity:1">Class: 2:30pm Wednesday, February 22nd in Pelton</flowPara><flowPara
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';fill:#f72119;fill-opacity:1"
+       id="flowPara4171">Office hour: 2:30pm Wednesday, March 1st, M1-A303</flowPara><flowPara
+       id="flowPara4169"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';fill:#f72119;fill-opacity:1" /></flowRoot></svg>
