@@ -28,7 +28,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
@@ -43,11 +43,11 @@
      guidetolerance="10"
      inkscape:pageopacity="1"
      inkscape:pageshadow="2"
-     inkscape:window-width="640"
+     inkscape:window-width="1280"
      inkscape:window-height="817"
      id="namedview4140"
      showgrid="false"
-     inkscape:zoom="0.48383838"
+     inkscape:zoom="0.83660131"
      inkscape:cx="495"
      inkscape:cy="382.5"
      inkscape:window-x="0"
@@ -133,16 +133,16 @@
      xml:space="preserve"
      id="flowRoot4228"
      style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:40px;line-height:125%;font-family:Lato;-inkscape-font-specification:'Lato, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#f72119;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
-     transform="translate(58,2)"><flowRegion
+     transform="translate(4,2)"><flowRegion
        id="flowRegion4230"><rect
          id="rect4232"
-         width="904.04822"
-         height="262.38541"
+         width="968.59509"
+         height="257.60416"
          x="7.4611955"
          y="496.39694"
          style="fill:#f72119;fill-opacity:1" /></flowRegion><flowPara
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';fill:#f72119;fill-opacity:1"
-       id="flowPara4246">A one-session class for people who already use the shell, and want to make their experience more comfortable and convenient. This includes: finding things, terminal multiplexing, your history, interacting with the web, shell prompt, moving around, fuzzy finding, and making friends with vi. </flowPara><flowPara
+       id="flowPara4246">A class for people who already use the shell, and want to make their experience more comfortable and convenient. This includes: finding things, terminal multiplexing, your history, interacting with the web, shell prompt, moving around, fuzzy finding, and making friends with vi. Taught by Erick Matsen.</flowPara><flowPara
        style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:27.5px;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';fill:#f72119;fill-opacity:1"
        id="flowPara4248" /></flowRoot>  <circle
      r="24.881645"
