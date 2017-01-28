@@ -318,6 +318,9 @@ There are lots of ways to move around beyond the arrow keys, but I'm just going 
 You can prefix these commands with numbers to move faster, e.g. `3w` moves you forward three words.
 If you want more, see the documentation, [this wallpaper](https://github.com/LevelbossMike/vim_shortcut_wallpaper) and [this poster](http://vimcheatsheet.com/).
 
+`Ctrl-o` jumps you back to previously visited locations, while `Ctrl-i` jumps you forward.
+You can think of these as undo and redo for movement.
+
 #### Cutting and pasting
 
 There is a simple way to cut and paste using vim which is exactly analogous to a word processor: highlight a block of text, then copy or cut, then paste.
