@@ -12,6 +12,7 @@ If you have suggestions, make them [here](https://github.com/fredhutchio/fredhut
 * [Finding things](#finding-things)
 * [Terminal multiplexing](#terminal-multiplexing)
 * [History](#history)
+* [Command line editing](#command-line-editing)
 * [Interacting with the web](#interacting-with-the-web)
 * [Git prompt](#git-prompt)
 * [Moving around](#moving-around)
@@ -158,6 +159,29 @@ But there's something slicker.
 In this example, I could say `vi ` `Alt-.` `Alt-.` and `vi horribly/long/path/to/file.txt` would result.
 
 For the OS X fans out there, you will use `Option` in place of `Alt`, which may require [some configuration](http://osxdaily.com/2013/02/01/use-option-as-meta-key-in-mac-os-x-terminal/) (note `Meta` is another name for `Alt` in this context).
+
+
+## Command line editing
+
+Maybe you just put together a big command, but realized that there's some problem at the very beginning.
+Do you use the arrow keys to go one letter by letter to the start of the line?
+No!
+You use the following handy commands:
+
+* `Ctrl-a`: move to the start of the line
+* `Ctrl-e`: move to the end of the line
+* `Meta-f`: move forward one word
+* `Meta-b`: move backward one word
+* `Ctrl-k`: delete to the end of the line
+
+What is `Meta`?
+If you are on a PC keyboard, it's the `Alt` key.
+If you are on a Mac, it may be `Option` already, or [a little configuration may be required](http://osxdaily.com/2013/02/01/use-option-as-meta-key-in-mac-os-x-terminal/).
+
+On the other hand, if you are using Ubuntu (e.g. you are using the Fred Hutch servers) then you should just be able to use `Ctrl` with the left and right arrows to move by word.
+If this doesn't work, you just need to [add a little to your `.bashrc`](http://stackoverflow.com/a/5030038/467327).
+
+If things get really gnarly, you can use `Ctrl-x-e` to drop into your specified editor and edit your line.
 
 
 ## Interacting with the web
