@@ -10,6 +10,7 @@ This guide is intended for people who already use the shell, and want to make th
 If you have suggestions, make them [here](https://github.com/fredhutchio/fredhutch.io/issues/4).
 
 * [Finding things](#finding-things)
+* [Handling lots of output](handling-lots-of-output)
 * [Terminal multiplexing](#terminal-multiplexing)
 * [History](#history)
 * [Command line editing](#command-line-editing)
@@ -94,6 +95,19 @@ will get you a nicely formatted list of instances.
 Note that ag also has lots of nice editor integrations.
 
 
+## Handling lots of output
+
+Sometimes you run a command, say `ps aux`, and it spits a lot of output onto your screen and you lose what was at the top.
+One way to handle this is just to let it do its thing then scroll around using `Shift` with `Page Up` and `Page Down`.
+Another way is to pipe the output to `less`, for example
+
+```
+ps aux | less
+```
+
+If your output is wide and long, then you may want `less -S`, which doesn't wrap lines.
+
+
 ## Terminal multiplexing
 
 When working on a modern desktop computer, it's easy to arrange multiple windows side by side, to switch between applications, etc.
@@ -103,6 +117,9 @@ This is absolutely essential for working on remote machines, where one can detac
 We've covered this in detail [in our bioinformatics intro class slides](http://fredhutchio.github.io/intro-bioinformatics/01-gestalt.html#/tmux---terminal-multiplexer)
 and in an [intro article](http://www.fredhutch.io/articles/2014/04/27/terminal-multiplex/)
 so I'm not going to go into detail beyond that.
+
+I should mention that if you are using a terminal multiplexer then the scrolling described above is a little different: the `Shift-Page Up` won't work as you want it to.
+In tmux you enter the copy mode, then just use `Page Up` and `Page Down` to scroll.
 
 
 ## History
