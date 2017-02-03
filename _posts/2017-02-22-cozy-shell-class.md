@@ -3,7 +3,7 @@ layout: post
 title: "Class: feeling cozy on the command line"
 category: events
 tags: education
-hide_in_feed: true
+hide_in_feed: false
 ---
 
 ### *2:30pm Wednesday, February 22nd in Pelton*
