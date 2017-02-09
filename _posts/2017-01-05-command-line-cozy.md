@@ -15,7 +15,7 @@ If you have suggestions, make them [here](https://github.com/fredhutchio/fredhut
 * [History](#history)
 * [Command line editing](#command-line-editing)
 * [Interacting with the web](#interacting-with-the-web)
-* [Git prompt](#git-prompt)
+* [Customization](#customization)
 * [Moving around](#moving-around)
 * [Fuzzy finding](#fuzzy-finding)
 * [Making friends with vi (and vim)](#making-friends-with-vi-and-vim)
@@ -220,7 +220,24 @@ telnet nyancat.dakko.us
 ```
 
 
-## Git prompt
+## Customization
+
+If you want to customize the way your shell works, you need to run certain programs each time your shell starts.
+If you use bash (and you probably use bash if you don't know what shell you use) then you can run these programs by putting them in your `.bashrc`.
+Perhaps you already know about this file for modifying your `PATH` variable.
+
+For example, here are a few of my favorite aliases:
+
+```
+alias lst='ls -clth | head'
+alias ll='ls -lh'
+alias path='readlink -f'
+```
+
+If I want those to be there every time I log in, I want to put those lines in my `.bashrc`.
+
+
+### Git prompt
 
 I don't mind what shells or editors people in my group use, but I really feel strongly that everyone should use a shell prompt that displays information about git status.
 Not having this inevitably leads to confusion with partial commits.
@@ -317,6 +334,7 @@ Vi is a wonderful, powerful, but completely arcane editor.
 It's worth being able to use because even the sparsest linux install will have some variant of vi.
 Also, when working with remote machines, it's nice to be able to edit text in a powerful editor directly on that machine.
 Finally, sometimes another program (e.g. git) will plop you into vim without you realizing it, so it's nice to know what to do in this situation.
+In addition, many programs, such as `less` use vim keybindings for fast navigation.
 
 Your first encounter with vi is likely to mostly be concerned with how to exit.
 So, here we go (you can execute `vi` at the command line to test this out in a vi session):
