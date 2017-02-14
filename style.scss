@@ -1,0 +1,88 @@
+---
+---
+
+@import "svg-icons";
+@import "poole";
+@import "syntax";
+@import "hyde";
+
+.sidebar {
+  .sidebar-nav,
+  .sidebar-about {
+    text-align: center;
+    img {
+      width: 60%;
+      display: block;
+      margin: auto;
+      //padding: 15px;
+    }
+    h1 {
+      margin: 0;
+    }
+    h2 {
+      margin: 0 0 10px 0;
+      color: #4e4e4e;
+    }
+    h1, a {
+      &:hover {
+        filter: invert(70%);
+      }
+    }
+  }
+  .social-icon {
+    filter: invert(100%);
+
+    &:hover {
+      filter: invert(30%);
+    }
+  }
+}
+
+.social-icon {
+  width: 40px;
+  height: 40px;
+  margin: 0;
+  display: inline-block;
+}
+
+.post {
+  .social-icon {
+    padding: 8px;
+  }
+}
+
+.page-nav {
+  font-size: 14px;
+  display: block;
+  width: auto;
+  overflow: hidden;
+  a {
+    display: block;
+    width: 50%;
+    float: left;
+    margin: 1em 0;
+  }
+  .next {
+    text-align: right;
+  }
+}
+
+.share-icons{
+  text-align: center;
+}
+
+.page-tags,
+.post-tags{
+  display: inline;
+  margin: 0;
+  padding: 0;
+}
+.page-tags,
+.post-tags li{
+  display: inline;
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+  font-style: italic;
+}

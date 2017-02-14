@@ -1,26 +1,75 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            frontend.io
+tagline:          ronapelbaum
+description:      "I blog about front end"
+
+url:              https://ronapelbaum.github.io
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  id:             ronapelbaum
+  name:           'Ron Apelbaum'
+  url:            https://ronapelbaum.github.io
+  email:          ronapelbaum@gmail.com
 
 paginate:         5
+# Enter your Disqus shortname (not your username) to enable commenting on posts
+# You can find your shortname on the Settings page of your Disqus account
+disqus: ronapelbaum
+
+# Enter your Google Analytics web tracking code (e.g. UA-2110908-2) to activate tracking
+google_analytics: UA-85226162-1
+
+# Jekyll 3 now only supports Kramdown for Markdown
+kramdown:
+  # Use GitHub flavored markdown, including triple backtick fenced code blocks
+  input: GFM
+  # Jekyll 3 and GitHub Pages now only support rouge for syntax highlighting
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    # Use existing pygments syntax highlighting css
+    css_class: 'highlight'
+
+# Set the Sass partials directory, as we're using @imports
+sass:
+  style: :expanded # You might prefer to minify using :compressed
+
+# Use the following plug-ins
+gems:
+  - jekyll-sitemap # Create a sitemap using the official Jekyll sitemap gem
+  - jekyll-feed # Create an Atom feed using the official Jekyll feed gem
+  - jekyll-gist
+  - jekyll-paginate
+  - jekyll-avatar
+
+# Exclude these files from your production _site
+exclude:
+  - Gemfile
+  - Gemfile.lock
+  - LICENSE
+  - README.md
+  - CNAME
+
 
 # Custom vars
-version:          2.1.0
+version:          1.0.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/ronapelbaum
+
+links:
+  email: ronapelbaum@gmail.com
+  rss:
+  github: ronapelbaum
+  linkedin: ronapelbaum
+  stackoverflow: users/775948/ronapelbaum
+  facebook:
+  googleplus:
+  youtube:

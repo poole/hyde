@@ -2,24 +2,43 @@
 layout: default
 ---
 
-<div class="post">
-  <h1 class="post-title">{{ page.title }}</h1>
-  <span class="post-date">{{ page.date | date_to_string }}</span>
-  {{ content }}
-</div>
+<article class="post">
+    <h1 class="post-title">{{ page.title }}</h1>
+    <div class="post-date">
+        <time datetime='{{ page.date | date_to_string }}'>{{ page.date | date_to_string }}</time>
+        &nbsp;
+        <ul class="post-tags">
+            {% for tag in page.tags %}
+            <li><a href="/tag/#{{ tag }}">{{ tag }}</a></li>
+            {% endfor %}
+        </ul>
+    </div>
 
-<div class="related">
-  <h2>Related Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
-    {% endfor %}
-  </ul>
-</div>
+    <div>{{ content }}</div>
+    {% include share.html %}
+    <div class="page-nav">
+        {% if page.previous.url %}
+        <a class="prev" href="{{page.previous.url}}">&laquo; {{page.previous.title}}</a>
+        {% endif %}
+        {% if page.next.url %}
+        <a class="next" href="{{page.next.url}}">{{page.next.title}} &raquo;</a>
+        {% endif %}
+    </div>
+    {% include disqus.html %}
+</article>
+
+<!--<div class="related">-->
+<!--<h2>Related Posts</h2>-->
+<!--<ul class="related-posts">-->
+<!--{% for post in site.related_posts limit:3 %}-->
+<!--<li>-->
+<!--<h3>-->
+<!--<a href="{{ post.url }}">-->
+<!--{{ post.title }}-->
+<!--<small>{{ post.date | date_to_string }}</small>-->
+<!--</a>-->
+<!--</h3>-->
+<!--</li>-->
+<!--{% endfor %}-->
+<!--</ul>-->
+<!--</div>-->

@@ -79,8 +79,8 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Abril Fatface", serif;
-  font-size: 3.25rem;
+  /*font-family: "Abril Fatface", serif;*/
+  font-size: 2.8rem;
 }
 
 /* Sidebar nav */
@@ -220,6 +220,15 @@ a.sidebar-nav-item:focus {
 .theme-base-0c .content a,
 .theme-base-0c .related-posts li a:hover {
   color: #75b5aa;
+}
+
+/* about.me blue */
+.theme-base-1b .sidebar {
+  background-color: #006b96;
+}
+.theme-base-1b .content a,
+.theme-base-1b .related-posts li a:hover {
+  color: #006b96;
 }
 
 /* Blue */
