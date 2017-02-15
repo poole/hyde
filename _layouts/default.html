@@ -3,7 +3,7 @@
 
   {% include head.html %}
 
-  <body>
+  <body{% if page.theme %} class="{{ page.theme }}"{% endif %}>
 
     {% include sidebar.html %}
 
