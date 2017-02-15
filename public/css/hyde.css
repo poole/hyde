@@ -177,6 +177,96 @@ a.sidebar-nav-item:focus {
 
 /* Base16 (http://chriskempson.github.io/base16/#default) */
 
+/* Black 1 */
+.theme-base-00 .sidebar {
+  background-color: #151515;
+}
+.theme-base-00 .content a,
+.theme-base-00 .related-posts li a:hover {
+  color: #151515;
+}
+.theme-base-00 progress {
+  color: #151515;
+}
+.theme-base-00 progress::-moz-progress-bar {
+  background: #151515;
+}
+.theme-base-00 progress::-webkit-progress-value {
+  background: #151515;
+}
+
+/* Black 2 */
+.theme-base-01 .sidebar {
+  background-color: #202020;
+}
+.theme-base-01 .content a,
+.theme-base-01 .related-posts li a:hover {
+  color: #202020;
+}
+.theme-base-01 progress {
+  color: #202020;
+}
+.theme-base-01 progress::-moz-progress-bar {
+  background: #202020;
+}
+.theme-base-01 progress::-webkit-progress-value {
+  background: #202020;
+}
+
+/* Black 3 */
+.theme-base-02 .sidebar {
+  background-color: #303030;
+}
+.theme-base-02 .content a,
+.theme-base-02 .related-posts li a:hover {
+  color: #303030;
+}
+.theme-base-02 progress {
+  color: #303030;
+}
+.theme-base-02 progress::-moz-progress-bar {
+  background: #303030;
+}
+.theme-base-02 progress::-webkit-progress-value {
+  background: #303030;
+}
+
+/* Dark Gray */
+.theme-base-03 .sidebar {
+  background-color: #505050;
+}
+.theme-base-03 .content a,
+.theme-base-03 .related-posts li a:hover {
+  color: #505050;
+}
+.theme-base-03 progress {
+  color: #505050;
+}
+.theme-base-03 progress::-moz-progress-bar {
+  background: #505050;
+}
+.theme-base-03 progress::-webkit-progress-value {
+  background: #505050;
+}
+
+/* Light Gray */
+.theme-base-04 .sidebar {
+  background-color: #b0b0b0;
+}
+.theme-base-04 .content a,
+.theme-base-04 .related-posts li a:hover {
+  color: #b0b0b0;
+}
+.theme-base-04 progress {
+  color: #b0b0b0;
+}
+.theme-base-04 progress::-moz-progress-bar {
+  background: #b0b0b0;
+}
+.theme-base-04 progress::-webkit-progress-value {
+  background: #b0b0b0;
+}
+
 /* Red */
 .theme-base-08 .sidebar {
   background-color: #ac4142;
@@ -184,6 +274,15 @@ a.sidebar-nav-item:focus {
 .theme-base-08 .content a,
 .theme-base-08 .related-posts li a:hover {
   color: #ac4142;
+}
+.theme-base-08 progress {
+  color: #ac4142;
+}
+.theme-base-08 progress::-moz-progress-bar {
+  background: #ac4142;
+}
+.theme-base-08 progress::-webkit-progress-value {
+  background: #ac4142;
 }
 
 /* Orange */
@@ -194,6 +293,15 @@ a.sidebar-nav-item:focus {
 .theme-base-09 .related-posts li a:hover {
   color: #d28445;
 }
+.theme-base-09 progress {
+  color: #d28445;
+}
+.theme-base-09 progress::-moz-progress-bar {
+  background: #d28445;
+}
+.theme-base-09 progress::-webkit-progress-value {
+  background: #d28445;
+}
 
 /* Yellow */
 .theme-base-0a .sidebar {
@@ -202,6 +310,15 @@ a.sidebar-nav-item:focus {
 .theme-base-0a .content a,
 .theme-base-0a .related-posts li a:hover {
   color: #f4bf75;
+}
+.theme-base-0a progress {
+  color: #f4bf75;
+}
+.theme-base-0a progress::-moz-progress-bar {
+  background: #f4bf75;
+}
+.theme-base-0a progress::-webkit-progress-value {
+  background: #f4bf75;
 }
 
 /* Green */
@@ -212,6 +329,15 @@ a.sidebar-nav-item:focus {
 .theme-base-0b .related-posts li a:hover {
   color: #90a959;
 }
+.theme-base-0b progress {
+  color: #90a959;
+}
+.theme-base-0b progress::-moz-progress-bar {
+  background: #90a959;
+}
+.theme-base-0b progress::-webkit-progress-value {
+  background: #90a959;
+}
 
 /* Cyan */
 .theme-base-0c .sidebar {
@@ -220,6 +346,15 @@ a.sidebar-nav-item:focus {
 .theme-base-0c .content a,
 .theme-base-0c .related-posts li a:hover {
   color: #75b5aa;
+}
+.theme-base-0c progress {
+  color: #75b5aa;
+}
+.theme-base-0c progress::-moz-progress-bar {
+  background: #75b5aa;
+}
+.theme-base-0c progress::-webkit-progress-value {
+  background: #75b5aa;
 }
 
 /* Blue */
@@ -230,6 +365,15 @@ a.sidebar-nav-item:focus {
 .theme-base-0d .related-posts li a:hover {
   color: #6a9fb5;
 }
+.theme-base-0d progress {
+  color: #6a9fb5;
+}
+.theme-base-0d progress::-moz-progress-bar {
+  background: #6a9fb5;
+}
+.theme-base-0d progress::-webkit-progress-value {
+  background: #6a9fb5;
+}
 
 /* Magenta */
 .theme-base-0e .sidebar {
@@ -239,6 +383,15 @@ a.sidebar-nav-item:focus {
 .theme-base-0e .related-posts li a:hover {
   color: #aa759f;
 }
+.theme-base-0e progress {
+  color: #aa759f;
+}
+.theme-base-0e progress::-moz-progress-bar {
+  background: #aa759f;
+}
+.theme-base-0e progress::-webkit-progress-value {
+  background: #aa759f;
+}
 
 /* Brown */
 .theme-base-0f .sidebar {
@@ -247,4 +400,13 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
+}
+.theme-base-0f progress {
+  color: #8f5536;
+}
+.theme-base-0f progress::-moz-progress-bar {
+  background: #8f5536;
+}
+.theme-base-0f progress::-webkit-progress-value {
+  background: #8f5536;
 }
