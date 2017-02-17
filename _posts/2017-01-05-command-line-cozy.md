@@ -156,6 +156,7 @@ export HISTFILESIZE=
 export HISTSIZE=
 ```
 
+More about your `.bashrc` below.
 Note that [this isn't a perfect solution and a better one exists](http://superuser.com/a/664061), but it's good enough.
 
 ### The last word in history
@@ -396,6 +397,12 @@ You can also cut and paste using `d` and `y` together with a motion key (e.g. `d
 #### Undo/redo
 
 If you ever mess anything up (which is easy to do in command mode), `u` is undo and `Ctrl-r` is redo (from command mode).
+
+#### Everyone does this once
+
+To save, do *not* use `Ctrl-s`.
+This will only lock your terminal, which you then must rescue by using `Ctrl-q`.
+As described above, use escape to leave insert mode then call `:w`, or `:wa` to save all files you might have open.
 
 #### Vim resources
 
