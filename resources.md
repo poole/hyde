@@ -20,6 +20,7 @@ published: true
 ### Terminal/Shell
 
 * [Feeling cozy on the command line]({% post_url 2017-01-05-command-line-cozy %})
+* [Shell scripting, the Puritan way]({% post_url 2017-02-25-shell-scripting %})
 * [Our bioinformatics course notes](http://fredhutchio.github.io/intro-bioinformatics/)
 * [Command Line Crash Course](https://learnpythonthehardway.org/book/appendixa.html)
 * [POSIX Shell reference](http://shellhaters.heroku.com/posix) and accompanying [talk](http://shellhaters.heroku.com/)
