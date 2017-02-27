@@ -1,0 +1,183 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+    <title>Bullet Pool</title>
+    <meta charset="utf-8">
+    <script src="https://github.com/photonstorm/phaser/releases/download/v2.6.2/phaser.min.js"></script>
+    <script src="Weapon.js"></script>
+
+</head>
+<body>
+
+    <div id="game"></div>
+
+    <script type="text/javascript">
+
+    var game = new Phaser.Game(800, 600, Phaser.AUTO, 'game');
+    //  The core game loop
+
+    var PhaserGame = function () {
+
+        this.background = null;
+
+        this.player = null;
+        this.cursors = null;
+        this.speed = 250;
+
+        this.weapons = [];
+        this.currentWeapon = 0;
+        this.weaponName = null;
+
+    };
+
+    PhaserGame.prototype = {
+
+        init: function () {
+
+            this.game.renderer.renderSession.roundPixels = true;
+
+            this.physics.startSystem(Phaser.Physics.ARCADE);
+
+        },
+
+        preload: function () {
+
+            //  We need this because the assets are on Amazon S3
+            //  Remove the next 2 lines if running locally
+            // TODO Have proper link
+            this.load.baseURL = 'http://127.0.0.1:8000/';
+            //this.load.crossOrigin = 'anonymous';
+
+            this.load.image('background', 'assets/back.png');
+            this.load.spritesheet(
+              'player',
+              'assets/player-85x94x8.png', 85, 94, 8);
+            this.load.bitmapFont('shmupfont', 'assets/shmupfont.png', 'assets/shmupfont.xml');
+
+            for (var i = 1; i <= 11; i++)
+            {
+                this.load.image('bullet' + i, 'assets/bullet' + i + '.png');
+            }
+
+            //  Note: Graphics are not for use in any commercial project
+
+        },
+
+        create: function () {
+
+            this.background = this.add.tileSprite(0, 0, this.game.width, this.game.height, 'background');
+            //this.background.autoScroll(-40, 0);
+
+            this.weapons.push(new Weapon.SingleBullet(this.game));
+            this.weapons.push(new Weapon.FrontAndBack(this.game));
+            this.weapons.push(new Weapon.ThreeWay(this.game));
+            this.weapons.push(new Weapon.EightWay(this.game));
+            this.weapons.push(new Weapon.ScatterShot(this.game));
+            this.weapons.push(new Weapon.Beam(this.game));
+            this.weapons.push(new Weapon.SplitShot(this.game));
+            this.weapons.push(new Weapon.Pattern(this.game));
+            this.weapons.push(new Weapon.Rockets(this.game));
+            this.weapons.push(new Weapon.ScaleBullet(this.game));
+            this.weapons.push(new Weapon.Combo1(this.game));
+            this.weapons.push(new Weapon.Combo2(this.game));
+
+            this.currentWeapon = 0;
+
+            for (var i = 1; i < this.weapons.length; i++)
+            {
+                this.weapons[i].visible = false;
+            }
+
+            this.player = this.add.sprite(64, 200, 'player', 5);
+
+            this.player.smoothed = true;
+
+            anim = this.player.animations.add('walk');
+
+            anim.play(10, true);
+
+            this.physics.arcade.enable(this.player);
+
+            this.player.body.collideWorldBounds = true;
+
+            this.player.body.gravity.y = 500;
+
+            this.weaponName = this.add.bitmapText(8, 364, 'shmupfont', "ENTER = Next Weapon", 24);
+
+            //  Cursor keys to fly + space to fire
+            this.cursors = this.input.keyboard.createCursorKeys();
+
+            this.input.keyboard.addKeyCapture([ Phaser.Keyboard.SPACEBAR ]);
+
+            var changeKey = this.input.keyboard.addKey(Phaser.Keyboard.ENTER);
+            changeKey.onDown.add(this.nextWeapon, this);
+
+        },
+
+        nextWeapon: function () {
+
+            //  Tidy-up the current weapon
+            if (this.currentWeapon > 9)
+            {
+                this.weapons[this.currentWeapon].reset();
+            }
+            else
+            {
+                this.weapons[this.currentWeapon].visible = false;
+                this.weapons[this.currentWeapon].callAll('reset', null, 0, 0);
+                this.weapons[this.currentWeapon].setAll('exists', false);
+            }
+
+            //  Activate the new one
+            this.currentWeapon++;
+
+            if (this.currentWeapon === this.weapons.length)
+            {
+                this.currentWeapon = 0;
+            }
+
+            this.weapons[this.currentWeapon].visible = true;
+
+            this.weaponName.text = this.weapons[this.currentWeapon].name;
+
+        },
+
+        update: function () {
+
+            this.player.body.velocity.x = 0;
+
+            if (this.cursors.left.isDown)
+            {
+                this.player.body.velocity.x = -this.speed;
+            }
+            else if (this.cursors.right.isDown)
+            {
+                this.player.body.velocity.x = this.speed;
+            }
+
+            if (this.cursors.up.isDown &&
+              (this.player.body.onFloor() || this.player.body.touching.down))
+            {
+                this.player.body.velocity.y = -400;
+            }
+
+            if (this.input.keyboard.isDown(Phaser.Keyboard.SPACEBAR))
+            {
+                var source = new Object();
+                source.x = this.player.x + this.player.width / 2;
+                source.y = this.player.y + this.player.height / 2;
+                this.weapons[this.currentWeapon].fire(source);
+            }
+
+        }
+
+    };
+
+    game.state.add('Game', PhaserGame, true);
+
+    </script>
+
+    <a href="http://phaser.io"><img src="http://files.phaser.io.s3.amazonaws.com/codingtips/issue007/phaser-tips-header1.png" title="Phaser Coding Tips Weekly" style="margin-top: 8px" /></a>
+
+</body>
+</html>
