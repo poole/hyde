@@ -3,7 +3,7 @@
 <head>
     <title>Bullet Pool</title>
     <meta charset="utf-8">
-    <script src="https://github.com/photonstorm/phaser/releases/download/v2.6.2/phaser.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/phaser/2.6.2/phaser.min.js"></script>
     <script src="Weapon.js"></script>
 
 </head>
@@ -48,15 +48,15 @@
             this.load.baseURL = 'http://127.0.0.1:8000/';
             //this.load.crossOrigin = 'anonymous';
 
-            this.load.image('background', 'assets/back.png');
+            this.load.image('background', './assets/back.png');
             this.load.spritesheet(
               'player',
-              'assets/player-85x94x8.png', 85, 94, 8);
-            this.load.bitmapFont('shmupfont', 'assets/shmupfont.png', 'assets/shmupfont.xml');
+              './assets/player-85x94x8.png', 85, 94, 8);
+            this.load.bitmapFont('shmupfont', './assets/shmupfont.png', './assets/shmupfont.xml');
 
             for (var i = 1; i <= 11; i++)
             {
-                this.load.image('bullet' + i, 'assets/bullet' + i + '.png');
+                this.load.image('bullet' + i, './assets/bullet' + i + '.png');
             }
 
             //  Note: Graphics are not for use in any commercial project
