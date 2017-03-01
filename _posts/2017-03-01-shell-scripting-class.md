@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "Class: feeling cozy on the command line"
+title: "Class: Puritanical shell scripting"
 category: events
 tags: education
 hide_in_feed: false
