@@ -7,20 +7,34 @@ permalink:        pretty
 relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            Gaea Project
+tagline:          'per Eric Parga'
+description:      'Compendi de l&#39;univers literari d&#39;Eric Parga.</br><small>Fork del Hyde de <a href="https://twitter.com/mdo" target="_blank">@mdo</a> per <a href="http://jekyllrb.com" target="_blank">Jekyll</a>.</small>'
+url:              http://hacknug.github.io/
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Nestor Vera'
+  url:            https://twitter.com/hack_nug
 
-paginate:         5
+paginate:         2
 
 # Custom vars
 version:          2.1.0
 
 github:
   repo:           https://github.com/poole/hyde
+
+collections:
+  personajes:
+    output:       true
+  religiones:
+    output:       true
+  microrrelatos:
+    output:       true
+  fauna-y-flora:
+    output:       true
+  tecnologia:
+    output:       true
+  drogas:
+    output:       true
