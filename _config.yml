@@ -11,7 +11,7 @@ title:            Liuuu
 tagline:          'A Jekyll theme'
 description:      'A  simple site '
 url:              
-baseurl:          https://liuuu.github.io/hyde/
+baseurl:          https://liuuu.github.io/
 
 author:
   name:           'Liuuu'
