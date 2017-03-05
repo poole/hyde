@@ -1,6 +1,6 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         
+highlighter:      
 
 # Permalinks
 permalink:        pretty
@@ -17,7 +17,7 @@ author:
   name:           'Liuuu'
   url:            https://twitter.com/newliuuu
 
-paginate:         5
+paginate:         
 
 # Custom vars
 version:          2.1.0
