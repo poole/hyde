@@ -206,13 +206,26 @@ In principle they go from 0 to 255, but you only need to know that 0 is success 
 This might sound backwards (and is indeed opposite of languages such as Python), but in shell there are lots more ways to fail than there are to succeed.
 We have heard of these concepts above in the discussion of `set -eu`.
 
+The return code is held in the `$?` variable.
+
+```
+echo "the most recent return code is $?"
+this_command_doesnt_exist
+echo "the most recent return code is $?"
+```
+
 These concepts are used in AND lists and OR lists.
 
 * `cmd && other_cmd`: `other_cmd` will only be run if `cmd` succeeds
 * `cmd || other_cmd`: `other_cmd` will only be run if `cmd` fails
 
+Try this:
 
-Here it is in action:
+```
+this_command_doesnt_exist || echo "the previous command failed"
+```
+
+More return code action:
 
 ```
 $ ls gefilte_fish && echo "we have fish"
@@ -306,12 +319,13 @@ done
 ```
 
 There's also a for loop, which I use all the time.
-The following script uses [imagemagick](https://www.imagemagick.org/)'s `convert` command to convert all `.jpg` files in the current directory to PNGs.
+Here's a silly example, which tells you about the file type of everything in your home directory.
 
 ```
-for i in *.jpg
+for i in ~/*
 do
-  convert $i $i.png
+  echo "what is the type of $i?"
+  file $i
 done
 ```
 
