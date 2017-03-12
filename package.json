@@ -6,7 +6,7 @@
     "clean": "rm -f public/js/hydejack.js & rm -f public/js/hydejack.min.js",
     "test": "echo \"Warning: no test specified\" && exit 0",
     "build": "browserify _js/src/index.js -g babelify | uglifyjs -c -m -o public/js/hydejack.js",
-    "watch": "watchify --debug _js/src/index.js -g babelify -o public/js/hydejack.js",
+    "watch": "watchify -d _js/src/index.js -g babelify -o public/js/hydejack.js",
     "lint": "eslint _js/src",
     "dev": "npm run watch",
     "prepublish": "npm run lint && npm run test && npm run clean && npm run build"
