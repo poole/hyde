@@ -1,4 +1,4 @@
 {
-  "presets": ["es2015"],
+  "presets": ["es2015", "es2016"],
   "only": ["_js", "y-drawer", "y-push-state", "rxjs-es"]
 }

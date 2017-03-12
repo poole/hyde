@@ -1,9 +1,9 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
 
-import { Observable } from 'rxjs-es/Observable';
-import 'rxjs-es/add/operator/debounceTime';
-import 'rxjs-es/add/operator/do';
-import 'rxjs-es/add/observable/fromEvent';
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/operator/debounceTime';
+import 'rxjs/add/operator/do';
+import 'rxjs/add/observable/fromEvent';
 
 import PushState from 'y-push-state/src/vanilla';
 // import HTMLPushStateElement from 'y-push-state/src/webcomponent';
@@ -71,7 +71,7 @@ function withoutCustomElements() {
 
 if (hasFeatures(REQUIREMENTS)) {
   pushState.addEventListener('y-push-state-before', beforeCallback);
-  pushState.addEventListener('y-smooth-state-error', errorCallback);
+  pushState.addEventListener('y-push-state-error', errorCallback);
   afterSequence(Observable.fromEvent(pushState, 'y-push-state-after'));
 
   // if ('customElement' in window || 'registerElement' in document) {
