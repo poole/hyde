@@ -26,6 +26,25 @@
     list-style: none;
     padding-left: 0;
   }
+
+  @media (min-width: $break-point-1) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 18rem; // duplicate!
+    margin-left: 0;
+  }
+
+  @media (min-width: $break-point-dynamic) {
+    width: $dynamic-width;
+  }
+}
+
+y-drawer[persistent] .sidebar {
+  @media (min-width: $break-point-dynamic) {
+    width: 100%;
+  }
 }
 
 .sidebar-sticky {
@@ -51,15 +70,4 @@
 
 .sidebar-social > ul {
   min-height: 3.5rem;
-}
-
-@media (min-width: 50em) {
-  .sidebar {
-    position: fixed;
-    top: 0;
-    left: 0;
-    bottom: 0;
-    width: 18rem;
-    margin-left: 0;
-  }
 }

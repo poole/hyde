@@ -23,7 +23,7 @@
 //   line-height: 1.65;
 // }
 
-@media (min-width: 50em) {
+@media (min-width: $break-point-1) {
   .menu {
     position: absolute;
     left: -9999px;
@@ -33,7 +33,7 @@
   }
 }
 
-@media (min-width: 64em) {
+@media (min-width: $break-point-2) {
   .menu:focus {
     left: 21.5rem;
   }

@@ -7,19 +7,23 @@
 .content {
   padding-top: 4rem;
   padding-bottom: 4rem;
-}
 
-@media (min-width: 50em) {
-  .content {
+  @media (min-width: $break-point-1) {
     max-width: 38rem;
     margin-left: 20rem;
     margin-right: 2rem;
   }
-}
 
-@media (min-width: 64em) {
-  .content {
+  @media (min-width: $break-point-font-2) {
     margin-left: 22rem;
     margin-right: 4rem;
+  }
+
+  @media (min-width: $break-point-3) {
+    max-width: 48rem;
+  }
+
+  @media (min-width: $break-point-dynamic) {
+    margin: auto;
   }
 }

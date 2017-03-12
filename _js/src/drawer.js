@@ -18,7 +18,7 @@ const REQUIREMENTS = [
   'cssremunit',
 ];
 
-const MEDIA_QUERY = '(min-width: 50em)';
+const MEDIA_QUERY = '(min-width: 801px)';
 
 function resizeCallback() {
   const hasChanged = window.isDesktop !== window.matchMedia(MEDIA_QUERY).matches;

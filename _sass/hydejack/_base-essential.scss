@@ -6,12 +6,14 @@
 body {
   padding-left: 0.5rem;
 }
-@media (min-width: 38em) {
+
+@media (min-width: $break-point-font-1) {
   html {
     font-size: 18px;
   }
 }
-@media (min-width: 50em) {
+
+@media (min-width: $break-point-1) {
   html {
     font-size: 16px;
   }
@@ -19,7 +21,8 @@ body {
     padding-left: 0;
   }
 }
-@media (min-width: 58em) {
+
+@media (min-width: $break-point-font-2) {
   html {
     font-size: 18px;
   }
