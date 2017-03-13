@@ -157,6 +157,8 @@ You define them like so:
 color="chicken"
 ```
 
+Note that there can be no spaces around the equals sign when assigning variables.
+
 It's common to use all caps for shell variables:
 
 ```
