@@ -20,7 +20,7 @@
   {% assign tags_content = '' %}
   {% endif %}
 
-  <div class="post-date">
+  <div class="post-date heading">
     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%d/%y" }}</time>
     <span>{{ tags_content }}</span>
   </div>
