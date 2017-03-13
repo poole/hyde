@@ -1,10 +1,8 @@
 /* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
 
-import { loadCSS } from 'fg-loadcss/src/loadCSS';
 import YDrawer from 'y-drawer/src/vanilla';
-// import HTMLYDrawerElement from 'y-drawer/src/webcomponent';
 
-import { hasFeatures /* , defineCustomElement, ensureCustomElements */ } from './common';
+import { hasFeatures } from './common';
 
 const REQUIREMENTS = [
   'eventlistener',
@@ -42,41 +40,14 @@ function addEventListeners(drawer) {
   document.getElementById('_menu').addEventListener('click', menuClickClallback);
 }
 
-// function defineYDrawer() {
-//   defineCustomElement('y-drawer', HTMLYDrawerElement);
-//   addEventListeners(document.querySelector('y-drawer'));
-// }
-
-// function withShadowDOM(drawer) {
-//   if (window.isDesktop) drawer.setAttribute('opened', '');
-//   if (window.isDesktop) drawer.setAttribute('persistent', '');
-//   ensureCustomElements(defineYDrawer);
-// }
-
-function globalCSSLoaded(drawer) {
-  // You Only Load Once
-  if (!(window.drawer instanceof YDrawer)) {
-    addEventListeners(new YDrawer(drawer, {
-      opened: window.isDesktop,
-      persistent: window.isDesktop,
-    }));
-  }
-}
-
-function withoutShadowDOM(drawer) {
-  const ref = document.getElementsByTagName('style')[0];
-  loadCSS('https://unpkg.com/y-drawer@3/dist/drawer.css', ref)
-    .addEventListener('load', () => globalCSSLoaded(drawer));
-}
-
 if (hasFeatures(REQUIREMENTS)) {
   window.isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+  const drawer = document.querySelector('#y-drawer');
 
-  const drawer = document.querySelector('y-drawer');
+  addEventListeners(new YDrawer(drawer, {
+    opened: window.isDesktop,
+    persistent: window.isDesktop,
+  }));
 
-  // if ('attachShadow' in document.body || 'createShadowRoot' in document.body) {
-  //   withShadowDOM(drawer);
-  // } else {
-  withoutShadowDOM(drawer);
-  // }
+  drawer.classList.add('loaded');
 }

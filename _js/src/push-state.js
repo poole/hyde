@@ -6,9 +6,8 @@ import 'rxjs/add/operator/do';
 import 'rxjs/add/observable/fromEvent';
 
 import PushState from 'y-push-state/src/vanilla';
-// import HTMLPushStateElement from 'y-push-state/src/webcomponent';
 
-import { hasFeatures /* , defineCustomElement */ } from './common';
+import { hasFeatures } from './common';
 import upgradeMathBlocks from './katex';
 
 const REQUIREMENTS = [
@@ -20,7 +19,7 @@ const REQUIREMENTS = [
   'history',
 ];
 
-const pushState = document.querySelector('y-push-state');
+const pushState = document.querySelector('#y-push-state');
 
 function beforeCallback() {
   document.body.classList.add('is-loading');
@@ -51,32 +50,14 @@ function errorCallback() {
   // show(error);
 }
 
-// function withCustomElements() {
-//   const setup = () => {
-//     pushState.startHistory();
-//     pushState.removeEventListener('y-push-state-attached', setup);
-//   };
-//
-//   pushState.addEventListener('y-push-state-attached', setup);
-//   defineCustomElement('y-push-state', HTMLPushStateElement);
-// }
-
-function withoutCustomElements() {
-  new PushState(pushState, {
-    replaceIds: ['_main', '_asidebar'],
-    linkSelector: 'a[href^="/"]',
-    scrollRestoration: true,
-  }).startHistory();
-}
-
 if (hasFeatures(REQUIREMENTS)) {
   pushState.addEventListener('y-push-state-before', beforeCallback);
   pushState.addEventListener('y-push-state-error', errorCallback);
   afterSequence(Observable.fromEvent(pushState, 'y-push-state-after'));
 
-  // if ('customElement' in window || 'registerElement' in document) {
-  //   withCustomElements();
-  // } else {
-  withoutCustomElements();
-  // }
+  new PushState(pushState, {
+    replaceIds: ['_main', '_asidebar'],
+    linkSelector: 'a[href^="/"]',
+    scrollRestoration: true,
+  }).startHistory();
 }

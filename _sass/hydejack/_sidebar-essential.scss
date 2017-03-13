@@ -41,7 +41,7 @@
   }
 }
 
-y-drawer[persistent] .sidebar {
+#y-drawer.loaded .sidebar {
   @media (min-width: $break-point-dynamic) {
     width: 100%;
   }
