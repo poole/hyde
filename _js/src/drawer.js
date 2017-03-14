@@ -47,6 +47,7 @@ if (hasFeatures(REQUIREMENTS)) {
   addEventListeners(new YDrawer(drawer, {
     opened: window.isDesktop,
     persistent: window.isDesktop,
+    transitionDuration: 150,
   }));
 
   drawer.classList.add('loaded');
