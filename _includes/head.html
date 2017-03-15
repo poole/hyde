@@ -3,21 +3,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
   {% if page.title == "Home" %}
-    {% capture title %}
-      {{ site.title }} &middot; {{ site.tagline }}
-    {% endcapture %}
+    {% capture title %}{{ site.title }} &middot; {{ site.tagline }}{% endcapture %}
   {% elsif page.tag %}
-    {% capture title %}
-      {{ site.data.tags[page.tag].name }}
-    {% endcapture %}
-  {% elsif page.title == null %}
-    {% capture title %}
-      {{ site.title }}
-    {% endcapture %}
+    {% capture title %}{{ site.data.tags[page.tag].name }} &middot; {{ site.title }}{% endcapture %}
+  {% elsif page.title != null %}
+    {% capture title %}{{ page.title }} &middot; {{ site.title }}{% endcapture %}
   {% else %}
-    {% capture title %}
-      {{ page.title }} &middot; {{ site.title }}
-    {% endcapture %}
+    {% capture title %}{{ site.title }}{% endcapture %}
   {% endif %}
 
   <title>{{ title }}</title>
@@ -50,6 +42,8 @@
   </noscript>
 
   <link rel="preload" href="{{ site.baseurl }}/public/css/non-essentials.css" as="style" onload="this.rel='stylesheet'">
+
+  {% include page-style.html %}
   <!--<![endif]-->
 
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />

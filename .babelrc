@@ -1,4 +1,12 @@
 {
-  "presets": ["es2015", "es2016"],
+  "env": {
+    "development": {
+      "presets": ["es2016"],
+      "plugins": ["transform-es2015-modules-commonjs"]
+    },
+    "production": {
+      "presets": ["es2015", "es2016"]
+    }
+  },
   "only": ["_js", "rxjs"]
 }

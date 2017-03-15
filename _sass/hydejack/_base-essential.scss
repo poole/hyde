@@ -7,6 +7,15 @@ body {
   padding-left: 0.5rem;
 }
 
+#shadow-main {
+  display:none;
+  position:fixed;
+  width:100%;
+  top:0;
+  left: 0.5rem;
+  z-index:1;
+}
+
 @media (min-width: $break-point-font-1) {
   html {
     font-size: 18px;
@@ -19,6 +28,10 @@ body {
   }
   body {
     padding-left: 0;
+  }
+
+  #shadow-main {
+    left: 0;
   }
 }
 
