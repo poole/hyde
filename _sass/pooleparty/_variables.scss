@@ -27,3 +27,13 @@ $large-font-size: 20px;
 
 $code-font-family: Menlo, Monaco, "Courier New", monospace;
 $code-color: inherit;
+
+$break-point-1: 800px + 1px;
+$break-point-2: 1024px + 1px;
+$break-point-3: 1440px + 1px;
+
+$break-point-font-1: 608px;
+$break-point-font-2: 1152px;
+$break-point-dynamic: 1656px;
+
+$dynamic-width: calc(50% - 28rem);

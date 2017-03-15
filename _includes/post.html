@@ -2,7 +2,7 @@
 
 <article id="post-{{ post.id | slice: 1,9999 }}" class="post" role="article">
   <h1 class="post-title">
-  {% if include.link_title %}<a href="{{ post.url | prepend:site.baseurl }}">{% endif %}
+  {% if include.link_title %}<a href="{{ post.url | prepend:site.baseurl }}" data-flip>{% endif %}
     {{ post.title }}
   {% if include.link_title %}</a>{% endif %}
   </h1>
@@ -12,7 +12,7 @@
   {% for post_tag in post.tags %}
     {% assign tag = site.data.tags[post_tag] %}
     {% if tag %}
-      {% capture tags_content_temp %}{{ tags_content }}<a href="{{ site.baseurl }}/tag/{{ post_tag }}/">{{ tag.name }}</a>{% if forloop.last == false %}<span>, </span>{% endif %}{% endcapture %}
+      {% capture tags_content_temp %}{{ tags_content }}<a href="{{ site.baseurl }}/tag/{{ post_tag }}/" data-flip>{{ tag.name }}</a>{% if forloop.last == false %}<span>, </span>{% endif %}{% endcapture %}
       {% assign tags_content = tags_content_temp %}
     {% endif %}
   {% endfor %}
@@ -20,7 +20,7 @@
   {% assign tags_content = '' %}
   {% endif %}
 
-  <div class="post-date">
+  <div class="post-date heading">
     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%d/%y" }}</time>
     <span>{{ tags_content }}</span>
   </div>

@@ -41,9 +41,4 @@ blockquote {
   p:last-child {
     margin-bottom: 0;
   }
-
-  @media (min-width: 30em) {
-    padding-right: 5rem;
-    padding-left: 1.25rem;
-  }
 }

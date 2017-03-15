@@ -1,9 +1,10 @@
 {% assign post = include.post %}
-<li>
-  <a href="{{ post.url | prepend:site.baseurl }}">
+
+<li class="heading">
+  <a href="{{ post.url | prepend:site.baseurl }}" data-flip>
     <span>{{ post.title }}</span>
-    <small><time datetime="{{ post.date | date_to_xmlschema }}">
-      {{ post.date | date: include.format }}
-    </time></small>
   </a>
+  <small><time datetime="{{ post.date | date_to_xmlschema }}">
+    {{ post.date | date: include.format }}
+  </time></small>
 </li>

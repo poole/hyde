@@ -10,14 +10,15 @@ layout: compress
   <body>
     {% include menu.html %}
 
-    <y-push-state replace-ids="_main,_asidebar" link-selector="a[href^='/']" scroll-restoration>
-      <main id="_main" class="content container" role="main">
-        {% include page-style.html %}
+    <div id="shadow-main">
+      <div class="content container"></div>
+    </div>
+    <div id="y-push-state">
+      <main id="_main" class="content container" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}" data-font="{{ site.font | escape }}" data-font-heading="{{ site.font_heading | escape }}">
         {{ content }}
       </main>
-
       {% include sidebar.html %}
-    </y-push-state>
+    </div>
 
     {% include scripts.html %}
   </body>

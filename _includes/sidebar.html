@@ -1,4 +1,4 @@
-<y-drawer>
+<div id="y-drawer">
   <header id="_sidebar" class="sidebar" role="banner">
     <div id="_asidebar" class="container sidebar-sticky">
       <div class="sidebar-about">
@@ -6,7 +6,7 @@
         {{ site.description | markdownify }}
       </div>
 
-      <nav class="sidebar-nav" role="navigation">
+      <nav class="sidebar-nav heading" role="navigation">
         {% include nav.html %}
       </nav>
 
@@ -17,4 +17,4 @@
       {% endif %}
     </div>
   </header>
-</y-drawer>
+</div>

@@ -2,13 +2,24 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
-  <title>{% if page.title == "Home" %}{{ site.title }} &middot; {{ site.tagline }}{% else %}{% if page.tag %}{{ site.data.tags[page.tag].name }}{% else %}{{ page.title }}{% endif %} &middot; {{ site.title }}{% endif %}</title>
+  {% if page.title == "Home" %}
+    {% capture title %}{{ site.title }} &middot; {{ site.tagline }}{% endcapture %}
+  {% elsif page.tag %}
+    {% capture title %}{{ site.data.tags[page.tag].name }} &middot; {{ site.title }}{% endcapture %}
+  {% elsif page.title != null %}
+    {% capture title %}{{ page.title }} &middot; {{ site.title }}{% endcapture %}
+  {% else %}
+    {% capture title %}{{ site.title }}{% endcapture %}
+  {% endif %}
+
+  <title>{{ title }}</title>
+
   {% if page.description %}
-  {% capture desc %}{{ page.description }}{:.message}{% endcapture %}
-  <meta name="description" content="{{ desc | markdownify | strip_html | truncatewords: 50 }}">
-  {% else %}{% if page.excerpt %}
-  <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}">
-  {% endif %}{% endif %}
+    {% capture desc %}{{ page.description }}{:.message}{% endcapture %}
+    <meta name="description" content="{{ desc | markdownify | strip_html | truncatewords: 50 }}">
+  {% elsif page.excerpt %}
+    <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}">
+  {% endif %}
 
   <!--[if gt IE 8]><!---->
   <style>
@@ -31,6 +42,8 @@
   </noscript>
 
   <link rel="preload" href="{{ site.baseurl }}/public/css/non-essentials.css" as="style" onload="this.rel='stylesheet'">
+
+  {% include page-style.html %}
   <!--<![endif]-->
 
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />

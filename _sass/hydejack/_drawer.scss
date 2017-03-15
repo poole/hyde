@@ -1,14 +1,12 @@
-// when shadowdom is available
-y-drawer {
-  --y-drawer-width: 18rem;
-  --y-drawer-slide-width: 17.5rem;
-}
-
-// fallback otherwise
 .y-drawer-content {
+  width: 18rem;
   left: -17.5rem;
+
+  @media (min-width: $break-point-dynamic) {
+    width: $dynamic-width;
+  }
 }
 
 header, body::before {
-  backface-visibility: hidden; // wat?
+  backface-visibility: hidden;
 }

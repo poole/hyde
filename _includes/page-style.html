@@ -17,23 +17,22 @@
 {% if page.color %}{% assign color = page.color %}{% endif %}
 {% if page.image %}{% assign image = page.image %}{% endif %}
 
-<!--[if gt IE 8]><!---->
-<style>
-  :focus {
-    outline-color: {{ color }};
-  }
-
+<style id="_pageStyle">
   html {
     font-family: {{ site.font }};
   }
 
-  h1, h2, h3, h4, h5, h6, .sidebar-nav {
+  h1, h2, h3, h4, h5, h6, .heading {
     font-family: {{ site.font_heading }};
+    font-weight: bold;
   }
 
-  .content a,
-  .related-posts li a:hover {
+  .content a {
     color: {{ color }};
+  }
+
+  :focus {
+    outline-color: {{ color }};
   }
 
   ::selection {
@@ -48,25 +47,8 @@
 
   .sidebar {
     background-color: {{ color }};
-  }
-
-  {% if image != "none" %}
-    .sidebar {
+    {% if image != "none" %}
       background-image: url('{{ image }}');
-    }
-    .sidebar::before {
-      /* make sidebar slightly darker to increase text readability (when using a background image) */
-      content: "";
-      position: absolute;
-      top: 0;
-      left: 0;
-      bottom: 0;
-      right: 0;
-      background: rgba(32, 32, 32, .33);
-      background: -moz-linear-gradient(bottom, rgba(32,32,32,0) 0%, rgba(32,32,32,.5) 100%);
-      background: -webkit-linear-gradient(bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
-      background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
-    }
-  {% endif %}
+    {% endif %}
+  }
 </style>
-<!--<![endif]-->

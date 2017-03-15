@@ -11,8 +11,9 @@
 
   > li {
     margin-top: 1rem;
-    > * {
-      font-weight: normal;
+    > small {
+      font-size: 75%;
+      color: #9a9a9a;
     }
   }
 }

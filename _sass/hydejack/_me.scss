@@ -6,19 +6,19 @@
   border-radius: 100%;
   position: relative;
 }
-@media (min-width: 38em) {
+@media (min-width: $break-point-font-1) {
   .me {
     width: 7rem;
     margin-top: -5.05rem;
   }
 }
-@media (min-width: 50em) {
+@media (min-width: $break-point-1) {
   .me {
     width: 6.5rem;
     margin-top: -4.8rem;
   }
 }
-@media (min-width: 58em) {
+@media (min-width: $break-point-font-2) {
   .me {
     width: 7rem;
     margin-top: -5.05rem;
