@@ -6,10 +6,8 @@ no-param-reassign, import/no-extraneous-dependencies, import/no-unresolved, impo
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 
-import 'rxjs/add/operator/debounceTime';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/exhaustMap';
-import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/switchMap';
@@ -17,8 +15,12 @@ import 'rxjs/add/operator/zip';
 
 import PushState from 'y-push-state/src/vanilla';
 
-import { hasFeatures } from './common';
+import { hasFeatures, animate } from './common';
 import upgradeMathBlocks from './katex';
+
+import Flip from './flip/flip';
+import './flip/title';
+import './flip/project';
 
 const REQUIREMENTS = [
   'eventlistener',
@@ -27,10 +29,12 @@ const REQUIREMENTS = [
   'classlist',
   'documentfragment',
   'history',
+  'opacity',
+  'cssanimations',
+  'dataset',
 ];
 
-const TITLE_SELECTOR = '.page-title, .post-title';
-const DURATION = 200;
+const DURATION = 150;
 
 const pushState = document.querySelector('#y-push-state');
 const shadowMain = document.getElementById('shadow-main');
@@ -54,21 +58,6 @@ function updateStyle({ font = 'serif', fontHeading = 'sans-serif', color = '#00f
   }
 }
 
-function animate(el, keyframes, options) {
-  return Observable.create((observer) => {
-    const anim = el.animate(keyframes, options);
-
-    anim.addEventListener('finish', (e) => {
-      observer.next(e);
-      observer.complete();
-    });
-
-    return () => {
-      if (anim.playState !== 'finished') anim.cancel();
-    };
-  });
-}
-
 if (hasFeatures(REQUIREMENTS)) {
   // pushState.addEventListener('y-push-state-error', errorCallback);
 
@@ -76,7 +65,6 @@ if (hasFeatures(REQUIREMENTS)) {
     .map(kind => [kind, document.querySelector('main')])
     .do(() => {
       // TODO: does animate handle will-change?
-      // will change opacity
       // main.style.willChange = 'opacity';
 
       // if a link on the drawer has been clicked, close it
@@ -90,44 +78,14 @@ if (hasFeatures(REQUIREMENTS)) {
   const after$ = Observable.fromEvent(pushState, 'y-push-state-after').share();
 
   start$
-    .filter(([{ detail: { type, event: { currentTarget } } }]) => type === 'push' &&
-      currentTarget.hasAttribute('data-flip'))
+    .do(() => { shadowMain.style.display = 'none'; })
     .switchMap(([{ detail }]) => {
-      const { event: { currentTarget } } = detail;
-      detail.flip = true;
+      const { type, event: { currentTarget } } = detail;
 
-      // FLIP
-      // Get the first position.
-      const first = currentTarget.getBoundingClientRect();
-      const firstFontSize = parseInt(getComputedStyle(currentTarget).fontSize, 10);
+      const flip = Flip.create(type === 'push' && currentTarget.dataset.flip, shadowMain);
+      detail.flip = flip;
 
-      // Move it to the end.
-      const titleEl = document.querySelector(TITLE_SELECTOR).cloneNode(true);
-      shadowMain.querySelector('*').innerHTML = '';
-      shadowMain.querySelector('*').appendChild(titleEl);
-      shadowMain.style.display = 'block';
-      titleEl.textContent = currentTarget.textContent;
-      titleEl.style.display = 'inline-block';
-      titleEl.style.transformOrigin = 'left top';
-
-      // Get the last position.
-      const last = titleEl.getBoundingClientRect();
-      const lastFontSize = parseInt(getComputedStyle(titleEl).fontSize, 10);
-
-      // Invert.
-      const invertX = first.left - last.left;
-      const invertY = first.top - last.top;
-      const invertScale = firstFontSize / lastFontSize;
-
-      currentTarget.style.visibility = 'hidden';
-
-      return animate(titleEl, [
-        { transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})` },
-        { transform: 'translate3d(0, 0, 0) scale(1)' },
-      ], {
-        duration: DURATION,
-        easing: 'cubic-bezier(0,0,0.32,1)',
-      });
+      return flip.start(currentTarget);
     })
     .subscribe();
 
@@ -147,14 +105,16 @@ if (hasFeatures(REQUIREMENTS)) {
   ready$
     .subscribe(({ detail: { flip, content: [main] } }) => {
       updateStyle(main.dataset);
-      // main.style.willChange = 'transform, opacity';
+
+      // TODO: req anim frame?
       main.style.opacity = 0;
-      if (flip) main.querySelector(TITLE_SELECTOR).style.visibility = 'hidden';
+
+      flip.ready(main);
     });
 
   after$
     .map(kind => [kind, document.querySelector('main')])
-    .switchMap(([, main]) =>
+    .switchMap(([{ detail: { flip } }, main]) =>
       animate(main, [
         { transform: 'translateY(-2rem)', opacity: 0 },
         { transform: 'translateY(0)', opacity: 1 },
@@ -162,11 +122,7 @@ if (hasFeatures(REQUIREMENTS)) {
         duration: DURATION,
         easing: 'cubic-bezier(0,0,0.32,1)',
         fill: 'forwards',
-      }).do(() => {
-        // main.style.willChange = '';
-        shadowMain.style.display = 'none';
-        main.querySelector(TITLE_SELECTOR).style.visibility = 'visible';
-      }))
+      }).do(() => { flip.after(main); }))
     .subscribe(() => {
       // send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');
