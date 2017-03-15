@@ -35,7 +35,7 @@ color:               '#A85641'
 
 # Fonts
 font:                '"Noto Serif", Georgia, serif'
-font_heading:        '"Roboto Slab", "Noto Serif", Georgia, serif'
+font_heading:        '"Roboto Slab", Helvetica, Arial, sans-serif'
 load_google_fonts:   'Roboto+Slab:700|Noto+Serif:400,400italic,700,700italic'
 
 # About yourself

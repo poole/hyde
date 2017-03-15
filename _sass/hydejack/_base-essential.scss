@@ -8,12 +8,13 @@ body {
 }
 
 #shadow-main {
-  display:none;
-  position:fixed;
-  width:100%;
-  top:0;
+  display: none;
+  position: fixed;
+  top: 0;
   left: 0.5rem;
-  z-index:1;
+  width: calc(100% - 0.5rem);
+  z-index: 1;
+  pointer-events: none;
 }
 
 @media (min-width: $break-point-font-1) {
@@ -32,6 +33,7 @@ body {
 
   #shadow-main {
     left: 0;
+    width: 100%;
   }
 }
 
@@ -44,4 +46,8 @@ body {
 .sr-only {
   // will be properly styled in the non-essential part
   display: none;
+}
+
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
 }

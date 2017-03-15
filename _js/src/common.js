@@ -1,3 +1,5 @@
+import { Observable } from 'rxjs/Observable';
+
 import '../lib/modernizr';
 
 export function hasFeatures(features) {
@@ -49,4 +51,19 @@ export function ensureCustomElements(f) {
 export function matches(el, selector) {
   return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector ||
     el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector);
+}
+
+export function animate(el, keyframes, options) {
+  return Observable.create((observer) => {
+    const anim = el.animate(keyframes, options);
+
+    anim.addEventListener('finish', (e) => {
+      observer.next(e);
+      observer.complete();
+    });
+
+    return () => {
+      if (anim.playState !== 'finished') anim.cancel();
+    };
+  });
 }

@@ -1,7 +1,7 @@
 {% assign post = include.post %}
 
 <li class="heading">
-  <a href="{{ post.url | prepend:site.baseurl }}" data-flip>
+  <a href="{{ post.url | prepend:site.baseurl }}" data-flip="title">
     <span>{{ post.title }}</span>
   </a>
   <small><time datetime="{{ post.date | date_to_xmlschema }}">
