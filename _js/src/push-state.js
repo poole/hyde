@@ -6,11 +6,16 @@ no-param-reassign, import/no-extraneous-dependencies, import/no-unresolved, impo
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 
+import { animationFrame } from 'rxjs/scheduler/animationFrame';
+
 import 'rxjs/add/operator/do';
+import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/exhaustMap';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/observeOn';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/switchMap';
+import 'rxjs/add/operator/takeUntil';
 import 'rxjs/add/operator/zip';
 
 import PushState from 'y-push-state/src/vanilla';
@@ -34,8 +39,7 @@ const REQUIREMENTS = [
   'dataset',
 ];
 
-// TODO: unify
-const DURATION = 150;
+const DURATION = 300;
 
 // TODO: naming!
 const pushState = document.getElementById('y-push-state');
@@ -67,9 +71,6 @@ if (hasFeatures(REQUIREMENTS)) {
   const start$ = Observable.fromEvent(pushState, 'y-push-state-start')
     .map(kind => [kind, document.querySelector('main')])
     .do(() => {
-      // TODO: does animate handle will-change?
-      // main.style.willChange = 'opacity';
-
       // if a link on the drawer has been clicked, close it
       if (!window.isDesktop && window.drawer.opened) {
         window.drawer.close();
@@ -77,16 +78,19 @@ if (hasFeatures(REQUIREMENTS)) {
     })
     .share();
 
-  const ready$ = Observable.fromEvent(pushState, 'y-push-state-ready'); // .share();
+  const ready$ = Observable.fromEvent(pushState, 'y-push-state-ready').share();
   const progress$ = Observable.fromEvent(pushState, 'y-push-state-progress'); // .share();
   const after$ = Observable.fromEvent(pushState, 'y-push-state-after').share();
 
+  // FLIP animation (when applicable)
   start$
-    .do(() => { shadowMain.style.display = 'none'; })
     .switchMap(([{ detail }]) => {
       const { type, event: { currentTarget } } = detail;
 
-      const flip = Flip.create(type === 'push' && currentTarget.dataset.flip, shadowMain);
+      const flip = Flip.create(type === 'push' && currentTarget.dataset.flip, {
+        shadowMain,
+        duration: DURATION,
+      });
 
       // HACK: This assumes knowledge of the internal rx pipeline.
       // Could possibly be replaced with `withLatestFrom` shinanigans,
@@ -97,8 +101,9 @@ if (hasFeatures(REQUIREMENTS)) {
     })
     .subscribe();
 
+  // Fade main content out
   start$
-    .exhaustMap(([, main]) =>
+    .switchMap(([, main]) =>
       animate(main, [
         { opacity: 1 },
         { opacity: 0 },
@@ -106,26 +111,31 @@ if (hasFeatures(REQUIREMENTS)) {
         duration: DURATION,
         easing: 'cubic-bezier(0,0,0.32,1)',
         fill: 'forwards',
-      }).zip(after$), // "stretch" animation until the next page is loaded
-    )
+      }))
     .subscribe();
 
+  // Show loading bar when taking longer than expected
+  // TODO: Don't hide main when there's already a new "start$"
   progress$
+    .observeOn(animationFrame)
     .do(() => {
       loading.style.display = 'block';
       document.querySelector('main').style.display = 'none';
     })
     .subscribe();
 
+  // Prepare showing the new content
   ready$
+    .do(({ detail: { content: [main] } }) => { main.style.opacity = 0; })
+    .observeOn(animationFrame)
     .do(({ detail: { content: [main] } }) => {
-      updateStyle(main.dataset);
-      main.style.opacity = 0;
       loading.style.display = 'none';
+      updateStyle(main.dataset);
     })
     .switchMap(({ detail: { flip, content: [main] } }) => flip.ready(main))
     .subscribe();
 
+  // Animate the new content
   after$
     .map(kind => [kind, document.querySelector('main')])
     .switchMap(([{ detail: { flip } }, main]) =>
@@ -136,7 +146,9 @@ if (hasFeatures(REQUIREMENTS)) {
         duration: DURATION,
         easing: 'cubic-bezier(0,0,0.32,1)',
         fill: 'forwards',
-      }).do(() => { flip.after(main); }))
+      })
+      .observeOn(animationFrame)
+      .do(() => { flip.after(main); }))
     .subscribe(() => {
       // send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');

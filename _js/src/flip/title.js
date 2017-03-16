@@ -15,7 +15,6 @@ import 'rxjs/add/operator/do';
 import { animate } from '../common';
 import Flip from './flip';
 
-const DURATION = 200; // TODO: pass via constructor or smthing?
 const TITLE_SELECTOR = '.page-title, .post-title';
 
 class TitleFlip extends Flip {
@@ -51,7 +50,7 @@ class TitleFlip extends Flip {
       { transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})` },
       { transform: 'translate3d(0, 0, 0) scale(1)' },
     ], {
-      duration: DURATION,
+      duration: this.duration,
       easing: 'cubic-bezier(0,0,0.32,1)',
     }).do(() => {
       // TODO: scrolltop?

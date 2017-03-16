@@ -13,11 +13,15 @@ export default class Flip {
       new Flip(...args);
   }
 
-  constructor(shadowMain) {
+  constructor({ shadowMain, duration }) {
     this.shadowMain = shadowMain;
+    this.duration = duration;
   }
 
   start() {
+    // TODO: shouldn't this be part of the FLIP cleanup?
+    this.shadowMain.style.display = 'none';
+
     return Observable.empty();
   }
 
