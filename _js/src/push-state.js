@@ -77,8 +77,8 @@ if (hasFeatures(REQUIREMENTS)) {
     })
     .share();
 
-  const ready$ = Observable.fromEvent(pushState, 'y-push-state-ready').share();
-  const progress$ = Observable.fromEvent(pushState, 'y-push-state-progress').share();
+  const ready$ = Observable.fromEvent(pushState, 'y-push-state-ready'); // .share();
+  const progress$ = Observable.fromEvent(pushState, 'y-push-state-progress'); // .share();
   const after$ = Observable.fromEvent(pushState, 'y-push-state-after').share();
 
   start$
@@ -87,6 +87,10 @@ if (hasFeatures(REQUIREMENTS)) {
       const { type, event: { currentTarget } } = detail;
 
       const flip = Flip.create(type === 'push' && currentTarget.dataset.flip, shadowMain);
+
+      // HACK: This assumes knowledge of the internal rx pipeline.
+      // Could possibly be replaced with `withLatestFrom` shinanigans,
+      // but it's more convenient like that.
       detail.flip = flip;
 
       return flip.start(currentTarget);
@@ -114,15 +118,13 @@ if (hasFeatures(REQUIREMENTS)) {
     .subscribe();
 
   ready$
-    .subscribe(({ detail: { flip, content: [main] } }) => {
+    .do(({ detail: { content: [main] } }) => {
       updateStyle(main.dataset);
-
-      // TODO: req anim frame?
       main.style.opacity = 0;
       loading.style.display = 'none';
-
-      flip.ready(main);
-    });
+    })
+    .switchMap(({ detail: { flip, content: [main] } }) => flip.ready(main))
+    .subscribe();
 
   after$
     .map(kind => [kind, document.querySelector('main')])

@@ -22,7 +22,7 @@ export default class Flip {
   }
 
   ready() {
-    return null;
+    return Observable.empty();
   }
 
   after() {

@@ -4,7 +4,11 @@ no-param-reassign,
 import/no-extraneous-dependencies,
 import/no-unresolved,
 import/extensions,
+class-methods-use-this,
 */
+
+import { Observable } from 'rxjs/Observable';
+import 'rxjs/add/observable/empty';
 
 import 'rxjs/add/operator/do';
 
@@ -56,8 +60,8 @@ class TitleFlip extends Flip {
   }
 
   ready(main) {
-    this.main = main; // TODO: remove
     main.querySelector(TITLE_SELECTOR).style.opacity = 0;
+    return Observable.empty();
   }
 
   after(main) {
