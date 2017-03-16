@@ -34,7 +34,7 @@ const REQUIREMENTS = [
 ];
 
 // TODO: unify
-const DURATION = 200;
+const DURATION = 150;
 
 const pushState = document.querySelector('#y-push-state');
 const shadowMain = document.getElementById('shadow-main');
@@ -61,8 +61,6 @@ function updateStyle({ font = 'serif', fontHeading = 'sans-serif', color = '#00f
 if (hasFeatures(REQUIREMENTS)) {
   // pushState.addEventListener('y-push-state-error', errorCallback);
 
-  pushState.addEventListener('y-push-state-progress', x => console.log(x));
-
   const start$ = Observable.fromEvent(pushState, 'y-push-state-start')
     .map(kind => [kind, document.querySelector('main')])
     .do(() => {
@@ -77,6 +75,7 @@ if (hasFeatures(REQUIREMENTS)) {
     .share();
 
   const ready$ = Observable.fromEvent(pushState, 'y-push-state-ready').share();
+  const progress$ = Observable.fromEvent(pushState, 'y-push-state-progress').share();
   const after$ = Observable.fromEvent(pushState, 'y-push-state-after').share();
 
   start$
@@ -102,6 +101,10 @@ if (hasFeatures(REQUIREMENTS)) {
         fill: 'forwards',
       }).zip(after$), // "stretch" animation until the next page is loaded
     )
+    .subscribe();
+
+  progress$
+    .do(() => { document.querySelector('main').style.display = 'none'; })
     .subscribe();
 
   ready$
