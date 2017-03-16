@@ -17,6 +17,15 @@ body {
   pointer-events: none;
 }
 
+#_loading {
+  display:none;
+  position: fixed;
+  top: 1rem;
+  right: 0;
+  transform-origin: top left;
+  transform: scale(0.33);
+}
+
 @media (min-width: $break-point-font-1) {
   html {
     font-size: 18px;

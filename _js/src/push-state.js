@@ -36,10 +36,12 @@ const REQUIREMENTS = [
 // TODO: unify
 const DURATION = 150;
 
-const pushState = document.querySelector('#y-push-state');
+// TODO: naming!
+const pushState = document.getElementById('y-push-state');
 const shadowMain = document.getElementById('shadow-main');
-
+const loading = document.getElementById('_loading');
 const sTag = document.getElementById('_pageStyle');
+
 const styleSheet = Array.prototype.find.call(document.styleSheets, x => x.ownerNode === sTag);
 const rules = styleSheet.cssRules || styleSheet.rules;
 
@@ -104,7 +106,10 @@ if (hasFeatures(REQUIREMENTS)) {
     .subscribe();
 
   progress$
-    .do(() => { document.querySelector('main').style.display = 'none'; })
+    .do(() => {
+      loading.style.display = 'block';
+      document.querySelector('main').style.display = 'none';
+    })
     .subscribe();
 
   ready$
@@ -113,6 +118,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
       // TODO: req anim frame?
       main.style.opacity = 0;
+      loading.style.display = 'none';
 
       flip.ready(main);
     });

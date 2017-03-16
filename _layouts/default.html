@@ -15,8 +15,13 @@ layout: compress
         <div class="page"></div>
       </div>
     </div>
+
     <div id="y-push-state">
-      <main id="_main" class="content container" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}" data-font="{{ site.font | escape }}" data-font-heading="{{ site.font_heading | escape }}">
+      <main id="_main" class="content container" role="main"
+          data-color="{{ color | escape }}"
+          data-image="{{ image | escape }}"
+          data-font="{{ site.font | escape }}"
+          data-font-heading="{{ site.font_heading | escape }}">
         {{ content }}
       </main>
       {% include sidebar.html %}
