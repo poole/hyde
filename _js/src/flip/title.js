@@ -11,7 +11,7 @@ import 'rxjs/add/operator/do';
 import { animate } from '../common';
 import Flip from './flip';
 
-const DURATION = 150; // TODO: pass via constructor or smthing?
+const DURATION = 200; // TODO: pass via constructor or smthing?
 const TITLE_SELECTOR = '.page-title, .post-title';
 
 class TitleFlip extends Flip {

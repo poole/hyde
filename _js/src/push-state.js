@@ -34,7 +34,8 @@ const REQUIREMENTS = [
   'dataset',
 ];
 
-const DURATION = 150;
+// TODO: unify
+const DURATION = 200;
 
 const pushState = document.querySelector('#y-push-state');
 const shadowMain = document.getElementById('shadow-main');
@@ -60,6 +61,8 @@ function updateStyle({ font = 'serif', fontHeading = 'sans-serif', color = '#00f
 
 if (hasFeatures(REQUIREMENTS)) {
   // pushState.addEventListener('y-push-state-error', errorCallback);
+
+  pushState.addEventListener('y-push-state-progress', x => console.log(x));
 
   const start$ = Observable.fromEvent(pushState, 'y-push-state-start')
     .map(kind => [kind, document.querySelector('main')])
