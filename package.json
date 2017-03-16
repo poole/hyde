@@ -34,10 +34,5 @@
     "web-animations-js": "2.2.2",
     "y-drawer": "4.0.0",
     "y-push-state": "2.0.0"
-  },
-  "browserify": {
-    "transform": [
-      "babelify"
-    ]
   }
 }
