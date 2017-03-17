@@ -31,6 +31,7 @@
     /* make sidebar slightly darker to increase text readability (when using a background image) */
     content: "";
     position: absolute;
+    z-index: 2;
     top: 0;
     left: 0;
     bottom: 0;
@@ -63,6 +64,7 @@
 
 .sidebar-sticky {
   position: absolute;
+  z-index: 3;
   right:  1rem;
   bottom: 1rem;
   left:   1rem;

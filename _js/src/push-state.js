@@ -5,13 +5,16 @@ no-param-reassign, import/no-extraneous-dependencies, import/no-unresolved, impo
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
+import 'rxjs/add/observable/merge';
 
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
 
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/exhaustMap';
+import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/observeOn';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/switchMap';
@@ -21,6 +24,7 @@ import 'rxjs/add/operator/zip';
 import PushState from 'y-push-state/src/vanilla';
 
 import { hasFeatures, animate } from './common';
+import { upgradeStyle } from './cross-fade';
 import upgradeMathBlocks from './katex';
 
 import Flip from './flip/flip';
@@ -45,25 +49,6 @@ const DURATION = 300;
 const pushState = document.getElementById('y-push-state');
 const shadowMain = document.getElementById('shadow-main');
 const loading = document.getElementById('_loading');
-const sTag = document.getElementById('_pageStyle');
-
-const styleSheet = Array.prototype.find.call(document.styleSheets, x => x.ownerNode === sTag);
-const rules = styleSheet.cssRules || styleSheet.rules;
-
-let lastImage = document.querySelector('main').dataset.image;
-
-function updateStyle({ font = 'serif', fontHeading = 'sans-serif', color = '#00f', image } = {}) {
-  rules[0].style.fontFamily = font; // html
-  rules[1].style.fontFamily = fontHeading; // h1, h2, h3, h4, h5, h6, .heading
-  rules[2].style.color = color; // .content a
-  rules[3].style.outlineColor = color; // :focus
-  rules[4].style.backgroundColor = color; // ::selection
-  rules[5].style.backgroundColor = color; // .sidebar
-  if (image != null && image !== lastImage) {
-    lastImage = image;
-    rules[5].style.backgroundImage = `url(${image})`;
-  }
-}
 
 if (hasFeatures(REQUIREMENTS)) {
   // pushState.addEventListener('y-push-state-error', errorCallback);
@@ -128,11 +113,11 @@ if (hasFeatures(REQUIREMENTS)) {
   ready$
     .do(({ detail: { content: [main] } }) => { main.style.opacity = 0; })
     .observeOn(animationFrame)
-    .do(({ detail: { content: [main] } }) => {
-      loading.style.display = 'none';
-      updateStyle(main.dataset);
-    })
-    .switchMap(({ detail: { flip, content: [main] } }) => flip.ready(main))
+    .do(() => { loading.style.display = 'none'; })
+    .switchMap(({ detail: { flip, content: [main] } }) => Observable.merge(
+      flip.ready(main),
+      upgradeStyle(main.dataset),
+    ))
     .subscribe();
 
   // Animate the new content
