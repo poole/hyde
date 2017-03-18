@@ -114,10 +114,7 @@ if (hasFeatures(REQUIREMENTS)) {
     .do(({ detail: { content: [main] } }) => { main.style.opacity = 0; })
     .observeOn(animationFrame)
     .do(() => { loading.style.display = 'none'; })
-    .switchMap(({ detail: { flip, content: [main] } }) => Observable.merge(
-      flip.ready(main),
-      upgradeStyle(main.dataset),
-    ))
+    .switchMap(({ detail: { flip, content: [main] } }) => flip.ready(main))
     .subscribe();
 
   // Animate the new content
@@ -133,7 +130,8 @@ if (hasFeatures(REQUIREMENTS)) {
         fill: 'forwards',
       })
       .observeOn(animationFrame)
-      .do(() => { flip.after(main); }))
+      .do(() => { flip.after(main); })
+      .switchMap(() => upgradeStyle(main.dataset)))
     .subscribe(() => {
       // send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');

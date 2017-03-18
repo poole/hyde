@@ -68,17 +68,6 @@ export function upgradeStyle(dataset) {
         div.style.right = 0;
         div.style.bottom = 0;
         div.style.left = 0;
-
-        // const rekt = sidebar.getBoundingClientRect();
-        // imgObj.style.zIndex = 1;
-        // imgObj.style.opacity = 0;
-        // imgObj.style.position = 'absolute';
-        // imgObj.style.top = 0;
-        // imgObj.style.right = 0;
-        // imgObj.style.bottom = 0;
-        // imgObj.style.left = 0;
-        // imgObj.style.objectFit = 'cover';
-
         return div;
       })
       .observeOn(animationFrame)

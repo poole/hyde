@@ -52,11 +52,7 @@ class TitleFlip extends Flip {
     ], {
       duration: this.duration,
       easing: 'cubic-bezier(0,0,0.32,1)',
-    });
-    // .do(() => {
-    //   // TODO: scrolltop?
-    //   this.shadowMain.style.position = 'absolute';
-    // });
+    }).do(() => { this.shadowMain.style.position = 'absolute'; });
   }
 
   ready(main) {
