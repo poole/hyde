@@ -1,0 +1,23 @@
+{% assign post = include.project %}
+{% assign src = include.src %}
+
+<a href="{{ site.baseurl }}{{ project.url }}" class="no-hover" data-flip="project">
+  <div class="card">
+    <h3 class="name">
+      <span class="a">{{ project.title }}</span>
+    </h3>
+    <div class="img sixteen-nine">
+      {% if project.screenshot %}
+        <img
+          alt="Thumbnail"
+          srcset="{% for hash in project.screenshot %}{{ hash[1]}} {{ hash[0]}},{% assign src = hash[1]%}{% endfor %}"
+          src="{{ src }}"
+          sizes="(max-width: 28em) 100vw, 19rem"
+        />
+      {% endif %}
+    </div>
+    {% if project.caption %}
+      <div class="caption">{{ project.caption | markdownify }}</div>
+    {% endif %}
+  </div>
+  </a>
