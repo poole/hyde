@@ -56,6 +56,7 @@
   }
 }
 
+// HACK: prevent flahsing while loading the first page
 #y-drawer.loaded .sidebar {
   @media (min-width: $break-point-dynamic) {
     width: 100%;

@@ -21,7 +21,9 @@ layout: default
   {{ desc | markdownify }}
 {% endif %}
 
+{% if title != null %}
 <hr/>
+{% endif %}
 
 {% for post in posts %}
   {% assign currentdate = post.date | date: "%Y" %}

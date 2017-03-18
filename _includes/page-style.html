@@ -47,7 +47,7 @@
 
   .sidebar {
     background-color: {{ color }};
-    {% if image != "none" %}
+    {% if image != null %}
       background-image: url('{{ image }}');
     {% endif %}
   }
