@@ -7,10 +7,11 @@
 .page-title,
 .post-title {
   color: #303030;
-}
-.page-title,
-.post-title {
-  margin-top: 0;
+  margin-top: 1rem;
+
+  @media (min-width: $break-point-1) {
+    margin-top: 0;
+  }
 }
 
 // Meta data line below post title

@@ -18,7 +18,7 @@ import 'rxjs/add/operator/zip';
 import { animate } from './common';
 
 // TODO:....
-const DURATION = 300;
+const DURATION = 150;
 
 // TODO: naming!
 const sTag = document.getElementById('_pageStyle');

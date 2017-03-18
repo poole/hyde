@@ -14,6 +14,7 @@ layout: default
   {% assign posts = site.posts %}
 {% endif %}
 
+{% if title != null %}
 <h1 class="page-title">{{ title }}</h1>
 
 {% if description %}
@@ -21,7 +22,6 @@ layout: default
   {{ desc | markdownify }}
 {% endif %}
 
-{% if title != null %}
 <hr/>
 {% endif %}
 

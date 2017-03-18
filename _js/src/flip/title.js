@@ -27,17 +27,18 @@ class TitleFlip extends Flip {
     // Move it to the end.
     this.shadowMain.querySelector('.page').innerHTML = '';
 
-    const titleEl = document.querySelector(TITLE_SELECTOR).cloneNode(true);
-    titleEl.textContent = currentTarget.textContent;
-    titleEl.style.transformOrigin = 'left top';
+    const title = document.createElement('h1');
+    title.classList.add('page-title');
+    title.textContent = currentTarget.textContent;
+    title.style.transformOrigin = 'left top';
 
-    this.shadowMain.querySelector('.page').appendChild(titleEl);
+    this.shadowMain.querySelector('.page').appendChild(title);
     this.shadowMain.style.position = 'fixed';
     this.shadowMain.style.display = 'block';
 
     // Get the last position.
-    const last = titleEl.getBoundingClientRect();
-    const lastFontSize = parseInt(getComputedStyle(titleEl).fontSize, 10);
+    const last = title.getBoundingClientRect();
+    const lastFontSize = parseInt(getComputedStyle(title).fontSize, 10);
 
     // Invert.
     const invertX = first.left - last.left;
@@ -46,7 +47,7 @@ class TitleFlip extends Flip {
 
     currentTarget.style.opacity = 0;
 
-    return animate(titleEl, [
+    return animate(title, [
       { transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})` },
       { transform: 'translate3d(0, 0, 0) scale(1)' },
     ], {
@@ -57,14 +58,15 @@ class TitleFlip extends Flip {
   }
 
   ready(main) {
-    main.querySelector(TITLE_SELECTOR).style.opacity = 0;
+    const title = main.querySelector(TITLE_SELECTOR);
+    if (title != null) title.style.opacity = 0;
     return Observable.empty();
   }
 
   after(main) {
-    // main.style.willChange = '';
     this.shadowMain.style.display = 'none';
-    main.querySelector(TITLE_SELECTOR).style.opacity = 1;
+    const title = main.querySelector(TITLE_SELECTOR);
+    if (title != null) title.style.opacity = 1;
   }
 }
 
