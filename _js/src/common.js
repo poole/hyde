@@ -63,7 +63,7 @@ export function animate(el, keyframes, options) {
     });
 
     return () => {
-      if (anim.playState !== 'finished') anim.cancel();
+      // if (anim.playState !== 'finished') anim.cancel();
     };
   });
 }

@@ -43,7 +43,7 @@ const REQUIREMENTS = [
   'dataset',
 ];
 
-const DURATION = 300;
+const DURATION = 200;
 
 // TODO: naming!
 const pushState = document.getElementById('y-push-state');
@@ -51,8 +51,6 @@ const shadowMain = document.getElementById('shadow-main');
 const loading = document.getElementById('_loading');
 
 if (hasFeatures(REQUIREMENTS)) {
-  // pushState.addEventListener('y-push-state-error', errorCallback);
-
   const start$ = Observable.fromEvent(pushState, 'y-push-state-start')
     .map(kind => [kind, document.querySelector('main')])
     .do(() => {
@@ -66,6 +64,7 @@ if (hasFeatures(REQUIREMENTS)) {
   const ready$ = Observable.fromEvent(pushState, 'y-push-state-ready').share();
   const progress$ = Observable.fromEvent(pushState, 'y-push-state-progress'); // .share();
   const after$ = Observable.fromEvent(pushState, 'y-push-state-after').share();
+  // const error$ = Observable.fromEvent(pushState, 'y-push-state-error');
 
   // FLIP animation (when applicable)
   start$
@@ -88,7 +87,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   // Fade main content out
   start$
-    .switchMap(([, main]) =>
+    .exhaustMap(([, main]) =>
       animate(main, [
         { opacity: 1 },
         { opacity: 0 },
@@ -96,7 +95,8 @@ if (hasFeatures(REQUIREMENTS)) {
         duration: DURATION,
         easing: 'cubic-bezier(0,0,0.32,1)',
         fill: 'forwards',
-      }))
+      })
+        .zip(after$))
     .subscribe();
 
   // Show loading bar when taking longer than expected
@@ -108,6 +108,14 @@ if (hasFeatures(REQUIREMENTS)) {
       document.querySelector('main').style.display = 'none';
     })
     .subscribe();
+
+  // error$
+  //   // .delay(DURATION) // HACK
+  //   .observeOn(animationFrame)
+  //   .do(() => {
+  //     loading.style.display = 'none';
+  //   })
+  //   .subscribe();
 
   // Prepare showing the new content
   ready$
