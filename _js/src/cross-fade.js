@@ -17,9 +17,6 @@ import 'rxjs/add/operator/zip';
 
 import { animate } from './common';
 
-// TODO:....
-const DURATION = 150;
-
 // TODO: naming!
 const sTag = document.getElementById('_pageStyle');
 
@@ -35,20 +32,16 @@ export function updateStyle({ font = 'serif', fontHeading = 'sans-serif', color 
   rules[3].style.outlineColor = color; // :focus
   rules[4].style.backgroundColor = color; // ::selection
   rules[5].style.backgroundColor = color; // .sidebar
-
-  // if (image != null && image !== lastImage) {
-  //   lastImage = image;
-  //   rules[5].style.backgroundImage = `url(${image})`;
-  // }
 }
 
-export function upgradeStyle(dataset) {
+export function crossFade(dataset, { duration }) {
   const { image } = dataset;
 
   if (image != null && image !== lastImage) {
     const imgObj = new Image();
 
     const imgLoad$ = Observable.fromEvent(imgObj, 'load')
+      .zip(Observable.timer(duration), x => x)
       .finally(() => { imgObj.src = ''; }) // "cancel" the request // TODO: test!
       .do(() => {
         updateStyle(dataset);
@@ -79,23 +72,17 @@ export function upgradeStyle(dataset) {
           { opacity: 0 },
           { opacity: 1 },
         ], {
-          duration: DURATION + 100, // HACK: make it take longer, jtbs
+          duration: duration + 16.67, // HACK: make it take longer, jtbs
           easing: 'cubic-bezier(0,0,0.32,1)',
           fill: 'forwards',
         })
         .finally(() => {
-          // HACK:
+          // HACK: ideally we would do something like `pairwise`
+          // to get a ref of the prev div
           const faded = sidebar.querySelectorAll('._faded');
           if (faded.length > 1) {
             faded[0].parentNode.removeChild(faded[0]);
           }
-
-          // sidebar.querySelector('');
-          // TODO: no need to use css rules when we already know which element (singualr) it effects
-          // rules[5].style.backgroundImage = `url(${image})`;
-
-          // div.parentNode.removeChild(div);
-          // imgObj.parentNode.removeChild(imgObj);
         });
       });
 
@@ -104,5 +91,7 @@ export function upgradeStyle(dataset) {
     return imgLoad$;
   }
 
+  // else
+  updateStyle(dataset);
   return Observable.empty();
 }

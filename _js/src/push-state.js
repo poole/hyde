@@ -24,7 +24,7 @@ import 'rxjs/add/operator/zip';
 import PushState from 'y-push-state/src/vanilla';
 
 import { hasFeatures, animate } from './common';
-import { upgradeStyle } from './cross-fade';
+import { crossFade } from './cross-fade';
 import upgradeMathBlocks from './katex';
 
 import Flip from './flip/flip';
@@ -43,7 +43,7 @@ const REQUIREMENTS = [
   'dataset',
 ];
 
-const DURATION = 150;
+const DURATION = 200;
 
 // TODO: naming!
 const pushState = document.getElementById('y-push-state');
@@ -52,7 +52,7 @@ const loading = document.getElementById('_loading');
 
 if (hasFeatures(REQUIREMENTS)) {
   const start$ = Observable.fromEvent(pushState, 'y-push-state-start')
-    .map(kind => [kind, document.querySelector('main')])
+    .map(kind => [kind, document.getElementById('_main')])
     .do(() => {
       // if a link on the drawer has been clicked, close it
       if (!window.isDesktop && window.drawer.opened) {
@@ -87,6 +87,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   // Fade main content out
   start$
+    // .filter(([kind]) => kind.type === 'push')
     .exhaustMap(([, main]) =>
       animate(main, [
         { opacity: 1 },
@@ -120,16 +121,16 @@ if (hasFeatures(REQUIREMENTS)) {
   // Prepare showing the new content
   ready$
     .do(({ detail: { content: [main] } }) => { main.style.opacity = 0; })
-    .observeOn(animationFrame)
     .do(() => { loading.style.display = 'none'; })
     .switchMap(({ detail: { flip, content: [main] } }) => Observable.merge(
       flip.ready(main),
-      upgradeStyle(main.dataset),
+      crossFade(main.dataset, { duration: DURATION }),
     ))
     .subscribe();
 
   // Animate the new content
   after$
+    .observeOn(animationFrame)
     .map(kind => [kind, document.querySelector('main')])
     .switchMap(([{ detail: { flip } }, main]) =>
       animate(main, [
@@ -142,7 +143,7 @@ if (hasFeatures(REQUIREMENTS)) {
       })
       .observeOn(animationFrame)
       .do(() => { flip.after(main); }))
-      // .switchMap(() => upgradeStyle(main.dataset)))
+      // .switchMap(() => crossFade(main.dataset)))
     .subscribe(() => {
       // send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');
