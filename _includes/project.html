@@ -8,12 +8,7 @@
     </h3>
     <div class="img sixteen-nine">
       {% if project.screenshot %}
-        <img
-          alt="Thumbnail"
-          srcset="{% for hash in project.screenshot %}{{ hash[1]}} {{ hash[0]}},{% assign src = hash[1]%}{% endfor %}"
-          src="{{ src }}"
-          sizes="(max-width: 28em) 100vw, 19rem"
-        />
+        {% include srcset-img.html img=project.screenshot alt="Thumbnail" sizes="(max-width: 28em) 100vw, 19rem" %}
       {% endif %}
     </div>
     {% if project.caption %}
