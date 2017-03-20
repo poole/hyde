@@ -34,7 +34,7 @@ class TitleFlip extends Flip {
 
     this.shadowMain.querySelector('.page').appendChild(title);
     this.shadowMain.style.position = 'fixed';
-    this.shadowMain.style.display = 'block';
+    this.shadowMain.style.opacity = 1;
 
     // Get the last position.
     const last = title.getBoundingClientRect();
@@ -60,13 +60,15 @@ class TitleFlip extends Flip {
   ready(main) {
     const title = main.querySelector(TITLE_SELECTOR);
     if (title != null) title.style.opacity = 0;
+    if (title != null) title.style.willChange = 'opacity';
     return Observable.empty();
   }
 
   after(main) {
-    this.shadowMain.style.display = 'none';
+    this.shadowMain.style.opacity = 0;
     const title = main.querySelector(TITLE_SELECTOR);
     if (title != null) title.style.opacity = 1;
+    if (title != null) title.style.willChange = '';
   }
 }
 

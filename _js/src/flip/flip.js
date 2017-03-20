@@ -20,7 +20,7 @@ export default class Flip {
 
   start() {
     // TODO: shouldn't this be part of the FLIP cleanup?
-    this.shadowMain.style.display = 'none';
+    this.shadowMain.style.opacity = 0;
 
     return Observable.empty();
   }
