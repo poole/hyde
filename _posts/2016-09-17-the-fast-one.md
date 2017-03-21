@@ -18,7 +18,7 @@ Future versions might address this, but it is the currency in which loading spee
 ## Major
 
 * HTML, CSS and JS served minified.
-* JS downloading starts only after the rest of the page is renderd.
+* JS downloading starts only after the rest of the page is rendered.
 * Critical CSS (above-the-fold) is inlined into the document, the rest is fetched later.
 
 In order to minify the CSS and make it more modular it has been rewritten in SCSS.
