@@ -7,15 +7,12 @@ import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/merge';
 
-import { animationFrame } from 'rxjs/scheduler/animationFrame';
-
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/exhaustMap';
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/observeOn';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/takeUntil';
@@ -43,7 +40,7 @@ const REQUIREMENTS = [
   'dataset',
 ];
 
-const DURATION = 200;
+const DURATION = 250;
 
 // TODO: naming!
 const pushState = document.getElementById('y-push-state');
@@ -103,16 +100,14 @@ if (hasFeatures(REQUIREMENTS)) {
   // Show loading bar when taking longer than expected
   // TODO: Don't hide main when there's already a new "start$"
   progress$
-    .observeOn(animationFrame)
     .do(() => {
       loading.style.display = 'block';
-      document.querySelector('main').style.display = 'none';
+      document.getElementById('_main').style.display = 'none';
     })
     .subscribe();
 
   // error$
   //   // .delay(DURATION) // HACK
-  //   .observeOn(animationFrame)
   //   .do(() => {
   //     loading.style.display = 'none';
   //   })
@@ -130,7 +125,6 @@ if (hasFeatures(REQUIREMENTS)) {
 
   // Animate the new content
   after$
-    .observeOn(animationFrame)
     .map(kind => [kind, document.querySelector('main')])
     .switchMap(([{ detail: { flip } }, main]) =>
       animate(main, [
@@ -141,9 +135,8 @@ if (hasFeatures(REQUIREMENTS)) {
         easing: 'cubic-bezier(0,0,0.32,1)',
         fill: 'forwards',
       })
-      .observeOn(animationFrame)
-      .do(() => { flip.after(main); }))
-      // .switchMap(() => crossFade(main.dataset)))
+      .do(() => { flip.after(main); }),
+    )
     .subscribe(() => {
       // send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');

@@ -60,7 +60,7 @@ class TitleFlip extends Flip {
   ready(main) {
     const title = main.querySelector(TITLE_SELECTOR);
     if (title != null) title.style.opacity = 0;
-    if (title != null) title.style.willChange = 'opacity';
+    // if (title != null) title.style.willChange = 'opacity';
     return Observable.empty();
   }
 
@@ -68,7 +68,7 @@ class TitleFlip extends Flip {
     this.shadowMain.style.opacity = 0;
     const title = main.querySelector(TITLE_SELECTOR);
     if (title != null) title.style.opacity = 1;
-    if (title != null) title.style.willChange = '';
+    // if (title != null) title.style.willChange = '';
   }
 }
 
