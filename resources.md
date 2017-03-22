@@ -24,6 +24,7 @@ published: true
 * [Our bioinformatics course notes](http://fredhutchio.github.io/intro-bioinformatics/)
 * [Command Line Crash Course](https://learnpythonthehardway.org/book/appendixa.html)
 * [POSIX Shell reference](http://shellhaters.heroku.com/posix) and accompanying [talk](http://shellhaters.heroku.com/)
+* [Common Bash pitfalls](http://mywiki.wooledge.org/BashPitfalls)
 
 
 ### R
