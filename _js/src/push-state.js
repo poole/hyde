@@ -1,16 +1,21 @@
 /*
 eslint-disable
-no-param-reassign, import/no-extraneous-dependencies, import/no-unresolved, import/extensions
+no-param-reassign,
+import/no-extraneous-dependencies,
+import/no-unresolved,
+import/extensions
 */
 
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 import 'rxjs/add/observable/merge';
 
+import 'rxjs/add/operator/catch';
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/exhaustMap';
 import 'rxjs/add/operator/finally';
+import 'rxjs/add/operator/filter';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
 import 'rxjs/add/operator/share';
@@ -42,12 +47,14 @@ const REQUIREMENTS = [
 
 const DURATION = 250;
 
-// TODO: naming!
-const pushState = document.getElementById('y-push-state');
-const shadowMain = document.getElementById('shadow-main');
-const loading = document.getElementById('_loading');
-
 if (hasFeatures(REQUIREMENTS)) {
+  // const restoreScrollPosition = 'scrollRestoration' in window.history;
+
+  // TODO: naming!
+  const pushState = document.getElementById('y-push-state');
+  const shadowMain = document.getElementById('shadow-main');
+  const loading = document.getElementById('_loading');
+
   const start$ = Observable.fromEvent(pushState, 'y-push-state-start')
     .map(kind => [kind, document.getElementById('_main')])
     .do(() => {
@@ -65,11 +72,13 @@ if (hasFeatures(REQUIREMENTS)) {
 
   // FLIP animation (when applicable)
   start$
+    .filter(([{ detail: { type } }]) => type === 'push')
     .switchMap(([{ detail }]) => {
-      const { type, event: { currentTarget } } = detail;
+      const { event: { currentTarget } } = detail;
 
-      const flip = Flip.create(type === 'push' && currentTarget.dataset.flip, {
+      const flip = Flip.create(currentTarget.dataset.flip, {
         shadowMain,
+        currentTarget,
         duration: DURATION,
       });
 
@@ -80,11 +89,15 @@ if (hasFeatures(REQUIREMENTS)) {
 
       return flip.start(currentTarget);
     })
-    .subscribe();
+    .catch((err, c) => c)
+    .subscribe(() => {
+      if (!('scrollRestoration' in window.history)) window.scrollTo(0, 0);
+    });
 
   // Fade main content out
   start$
-    // .filter(([kind]) => kind.type === 'push')
+    .filter(([{ detail: { type } }]) => type === 'push')
+    .do(([, main]) => { main.style.opacity = 0; })
     .exhaustMap(([, main]) =>
       animate(main, [
         { opacity: 1 },
@@ -92,9 +105,9 @@ if (hasFeatures(REQUIREMENTS)) {
       ], {
         duration: DURATION,
         easing: 'cubic-bezier(0,0,0.32,1)',
-        fill: 'forwards',
       })
         .zip(after$))
+    .catch((err, c) => c)
     .subscribe();
 
   // Show loading bar when taking longer than expected
@@ -104,6 +117,7 @@ if (hasFeatures(REQUIREMENTS)) {
       loading.style.display = 'block';
       document.getElementById('_main').style.display = 'none';
     })
+    .catch((err, c) => c)
     .subscribe();
 
   // error$
@@ -115,40 +129,44 @@ if (hasFeatures(REQUIREMENTS)) {
 
   // Prepare showing the new content
   ready$
-    .do(({ detail: { content: [main] } }) => { main.style.opacity = 0; })
     .do(() => { loading.style.display = 'none'; })
-    .switchMap(({ detail: { flip, content: [main] } }) => Observable.merge(
-      flip.ready(main),
+    .switchMap(({ detail: { flip, type, content: [main] } }) => Observable.merge(
+      type === 'push' ? flip.ready(main) : Observable.emtpy(),
       crossFade(main.dataset, { duration: DURATION }),
     ))
+    .catch((err, c) => c)
     .subscribe();
 
   // Animate the new content
   after$
+    .filter(({ detail: { type } }) => type === 'push')
     .map(kind => [kind, document.querySelector('main')])
-    .switchMap(([{ detail: { flip } }, main]) =>
+    .switchMap(([, main]) =>
       animate(main, [
         { transform: 'translateY(-2rem)', opacity: 0 },
         { transform: 'translateY(0)', opacity: 1 },
       ], {
         duration: DURATION,
         easing: 'cubic-bezier(0,0,0.32,1)',
-        fill: 'forwards',
-      })
-      .do(() => { flip.after(main); }),
-    )
-    .subscribe(() => {
+      }))
+    .catch((err, c) => c)
+    .subscribe();
+
+  after$
+    .do(() => {
       // send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');
 
       // upgrade math blocks
       upgradeMathBlocks();
-    });
+    })
+    .catch((err, c) => c)
+    .subscribe();
 
   new PushState(pushState, {
     replaceIds: ['_main'],
     linkSelector: 'a[href^="/"]',
-    scrollRestoration: true,
+    scrollRestoration: 'scrollRestoration' in window.history,
     duration: DURATION,
   }).startHistory();
 }

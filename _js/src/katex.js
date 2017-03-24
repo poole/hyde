@@ -8,7 +8,6 @@ import { hasFeatures, hide, matches } from './common';
 const REQUIREMENTS = [
   'eventlistener',
   'queryselector',
-  'requestanimationframe',
 ];
 
 function willChangeContent(mathBlocks) {
@@ -53,7 +52,7 @@ export default function upgradeMathBlocks() {
     const mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
     if (mathBlocks.length) {
       willChangeContent(mathBlocks);
-      requestAnimationFrame(() => changeContent(mathBlocks));
+      changeContent(mathBlocks);
     }
   }
 }

@@ -28,10 +28,6 @@ export default class Flip {
   ready() {
     return Observable.empty();
   }
-
-  after() {
-    return null;
-  }
 }
 
 Flip.types = {};

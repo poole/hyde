@@ -1,15 +1,12 @@
 import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/fromEvent';
 
-import { animationFrame } from 'rxjs/scheduler/animationFrame';
-
 import 'rxjs/add/operator/do';
 import 'rxjs/add/operator/delay';
 import 'rxjs/add/operator/exhaustMap';
 import 'rxjs/add/operator/finally';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/mergeMap';
-import 'rxjs/add/operator/observeOn';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/switchMap';
 import 'rxjs/add/operator/takeUntil';
@@ -55,7 +52,6 @@ export function crossFade(dataset, { duration }) {
         div.style.backgroundSize = 'cover';
         div.style.backgroundPosition = 'center center';
         div.style.zIndex = 1;
-        div.style.opacity = 0;
         div.style.position = 'absolute';
         div.style.top = 0;
         div.style.right = 0;
@@ -63,7 +59,6 @@ export function crossFade(dataset, { duration }) {
         div.style.left = 0;
         return div;
       })
-      .observeOn(animationFrame)
       .mergeMap((div) => {
         const sidebar = document.getElementById('_sidebar');
         sidebar.appendChild(div);
@@ -74,7 +69,6 @@ export function crossFade(dataset, { duration }) {
         ], {
           duration: duration + 16.67, // HACK: make it take longer, jtbs
           easing: 'cubic-bezier(0,0,0.32,1)',
-          fill: 'forwards',
         })
         .finally(() => {
           // HACK: ideally we would do something like `pairwise`

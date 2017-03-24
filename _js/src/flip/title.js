@@ -19,28 +19,22 @@ const TITLE_SELECTOR = '.page-title, .post-title';
 
 class TitleFlip extends Flip {
   start(currentTarget) {
-    // FLIP
-    // Get the first position.
-    const first = currentTarget.getBoundingClientRect();
-    const firstFontSize = parseInt(getComputedStyle(currentTarget).fontSize, 10);
-
-    // Move it to the end.
-    this.shadowMain.querySelector('.page').innerHTML = '';
-
     const title = document.createElement('h1');
+
     title.classList.add('page-title');
     title.textContent = currentTarget.textContent;
     title.style.transformOrigin = 'left top';
 
+    this.shadowMain.querySelector('.page').innerHTML = '';
     this.shadowMain.querySelector('.page').appendChild(title);
     this.shadowMain.style.position = 'fixed';
     this.shadowMain.style.opacity = 1;
 
-    // Get the last position.
+    const first = currentTarget.getBoundingClientRect();
+    const firstFontSize = parseInt(getComputedStyle(currentTarget).fontSize, 10);
     const last = title.getBoundingClientRect();
     const lastFontSize = parseInt(getComputedStyle(title).fontSize, 10);
 
-    // Invert.
     const invertX = first.left - last.left;
     const invertY = first.top - last.top;
     const invertScale = firstFontSize / lastFontSize;
@@ -58,17 +52,26 @@ class TitleFlip extends Flip {
   }
 
   ready(main) {
-    const title = main.querySelector(TITLE_SELECTOR);
-    if (title != null) title.style.opacity = 0;
-    // if (title != null) title.style.willChange = 'opacity';
-    return Observable.empty();
-  }
+    this.shadowMain.style.willChange = 'opacity';
 
-  after(main) {
-    this.shadowMain.style.opacity = 0;
     const title = main.querySelector(TITLE_SELECTOR);
-    if (title != null) title.style.opacity = 1;
-    // if (title != null) title.style.willChange = '';
+
+    if (title != null) {
+      title.style.opacity = 0;
+      title.style.willChange = 'opacity';
+    }
+
+    // HACK: add some extra time to prevent hiccups
+    return Observable.timer(this.duration + 100)
+      .do(() => {
+        if (title != null) {
+          title.style.opacity = 1;
+          title.style.willChange = '';
+        }
+
+        this.shadowMain.style.opacity = 0;
+        this.shadowMain.style.willChange = '';
+      });
   }
 }
 
