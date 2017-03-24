@@ -26,7 +26,7 @@ import 'rxjs/add/operator/zip';
 import PushState from 'y-push-state/src/vanilla';
 
 import { hasFeatures, animate } from './common';
-import { crossFade } from './cross-fade';
+import { setup as setupCrossFade, crossFade } from './cross-fade';
 import upgradeMathBlocks from './katex';
 
 import Flip from './flip/flip';
@@ -50,10 +50,18 @@ const DURATION = 250;
 if (hasFeatures(REQUIREMENTS)) {
   // const restoreScrollPosition = 'scrollRestoration' in window.history;
 
-  // TODO: naming!
+  setupCrossFade();
+
   const pushState = document.getElementById('y-push-state');
-  const shadowMain = document.getElementById('shadow-main');
   const loading = document.getElementById('_loading');
+
+  const shadowMain = document.createElement('div');
+  shadowMain.classList.add('shadow-main');
+  shadowMain.innerHTML = `
+    <div class="content container">
+      <div class="page"></div>
+    </div>`;
+  pushState.parentNode.insertBefore(shadowMain, pushState);
 
   const start$ = Observable.fromEvent(pushState, 'y-push-state-start')
     .map(kind => [kind, document.getElementById('_main')])

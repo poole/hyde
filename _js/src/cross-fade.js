@@ -14,13 +14,17 @@ import 'rxjs/add/operator/zip';
 
 import { animate } from './common';
 
-// TODO: naming!
-const sTag = document.getElementById('_pageStyle');
+let pageStyle;
+let styleSheet;
+let rules;
+let lastImage;
 
-const styleSheet = Array.prototype.find.call(document.styleSheets, x => x.ownerNode === sTag);
-const rules = styleSheet.cssRules || styleSheet.rules;
-
-let lastImage = document.querySelector('main').dataset.image;
+export function setup() {
+  pageStyle = document.getElementById('_page-style');
+  styleSheet = Array.prototype.find.call(document.styleSheets, ss => ss.ownerNode === pageStyle);
+  rules = styleSheet.cssRules || styleSheet.rules;
+  lastImage = document.getElementById('_main').getAttribute('data-image');
+}
 
 export function updateStyle({ font = 'serif', fontHeading = 'sans-serif', color = '#00f' } = {}) {
   rules[0].style.fontFamily = font; // html

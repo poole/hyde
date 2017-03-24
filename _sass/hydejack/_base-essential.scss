@@ -7,7 +7,7 @@ body {
   padding-left: 0.5rem;
 }
 
-#shadow-main {
+.shadow-main {
   opacity: 0;
   will-change: opacity;
   position: fixed;
@@ -41,7 +41,7 @@ body {
     padding-left: 0;
   }
 
-  #shadow-main {
+  .shadow-main {
     left: 0;
     width: 100%;
   }
