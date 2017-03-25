@@ -68,7 +68,8 @@ class TitleFlip extends Flip {
           title.style.opacity = 1;
           title.style.willChange = '';
         }
-
+      })
+      .finally(() => {
         this.shadowMain.style.opacity = 0;
         this.shadowMain.style.willChange = '';
       });

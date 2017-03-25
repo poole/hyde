@@ -48,7 +48,8 @@ const REQUIREMENTS = [
 const DURATION = 250;
 
 if (hasFeatures(REQUIREMENTS)) {
-  // const restoreScrollPosition = 'scrollRestoration' in window.history;
+  const ua = navigator.userAgent.toLowerCase();
+  const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
 
   setupCrossFade();
 
@@ -66,7 +67,7 @@ if (hasFeatures(REQUIREMENTS)) {
   const start$ = Observable.fromEvent(pushState, 'y-push-state-start')
     .map(kind => [kind, document.getElementById('_main')])
     .do(() => {
-      // if a link on the drawer has been clicked, close it
+      // If a link on the drawer has been clicked, close it
       if (!window.isDesktop && window.drawer.opened) {
         window.drawer.close();
       }
@@ -74,13 +75,20 @@ if (hasFeatures(REQUIREMENTS)) {
     .share();
 
   const ready$ = Observable.fromEvent(pushState, 'y-push-state-ready').share();
-  const progress$ = Observable.fromEvent(pushState, 'y-push-state-progress'); // .share();
+  const progress$ = Observable.fromEvent(pushState, 'y-push-state-progress');
   const after$ = Observable.fromEvent(pushState, 'y-push-state-after').share();
   // const error$ = Observable.fromEvent(pushState, 'y-push-state-error');
 
+  if (isSafari) {
+    Observable.fromEvent(window, 'popstate')
+      .subscribe(() => { document.body.style.minHeight = '999999px'; });
+
+    after$
+      .subscribe(() => { document.body.style.minHeight = ''; });
+  }
+
   // FLIP animation (when applicable)
   start$
-    .filter(([{ detail: { type } }]) => type === 'push')
     .switchMap(([{ detail }]) => {
       const { event: { currentTarget } } = detail;
 
@@ -98,15 +106,13 @@ if (hasFeatures(REQUIREMENTS)) {
       return flip.start(currentTarget);
     })
     .catch((err, c) => c)
-    .subscribe(() => {
-      if (!('scrollRestoration' in window.history)) window.scrollTo(0, 0);
-    });
+    .subscribe();
 
   // Fade main content out
   start$
-    .filter(([{ detail: { type } }]) => type === 'push')
     .do(([, main]) => { main.style.opacity = 0; })
-    .exhaustMap(([, main]) =>
+    .filter(([{ detail: { type } }]) => type === 'push' || !isSafari)
+    .exhaustMap(([{ detail: { type } }, main]) =>
       animate(main, [
         { opacity: 1 },
         { opacity: 0 },
@@ -114,20 +120,18 @@ if (hasFeatures(REQUIREMENTS)) {
         duration: DURATION,
         easing: 'cubic-bezier(0,0,0.32,1)',
       })
+        .do(() => { if (type === 'push') window.scroll(0, 0); })
         .zip(after$))
     .catch((err, c) => c)
     .subscribe();
 
   // Show loading bar when taking longer than expected
-  // TODO: Don't hide main when there's already a new "start$"
   progress$
-    .do(() => {
-      loading.style.display = 'block';
-      document.getElementById('_main').style.display = 'none';
-    })
+    .do(() => { loading.style.display = 'block'; })
     .catch((err, c) => c)
     .subscribe();
 
+  // TODO: error message!?
   // error$
   //   // .delay(DURATION) // HACK
   //   .do(() => {
@@ -139,15 +143,17 @@ if (hasFeatures(REQUIREMENTS)) {
   ready$
     .do(() => { loading.style.display = 'none'; })
     .switchMap(({ detail: { flip, type, content: [main] } }) => Observable.merge(
-      type === 'push' ? flip.ready(main) : Observable.emtpy(),
-      crossFade(main.dataset, { duration: DURATION }),
+      type === 'push' || !isSafari ?
+        flip.ready(main).takeUntil(start$) :
+        Observable.emtpy(),
+      crossFade(main.dataset, { duration: 2 * DURATION }),
     ))
     .catch((err, c) => c)
     .subscribe();
 
   // Animate the new content
   after$
-    .filter(({ detail: { type } }) => type === 'push')
+    .filter(({ detail: { type } }) => type === 'push' || !isSafari)
     .map(kind => [kind, document.querySelector('main')])
     .switchMap(([, main]) =>
       animate(main, [
@@ -162,10 +168,10 @@ if (hasFeatures(REQUIREMENTS)) {
 
   after$
     .do(() => {
-      // send google analytics pageview
+      // Send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');
 
-      // upgrade math blocks
+      // Upgrade math blocks
       upgradeMathBlocks();
     })
     .catch((err, c) => c)
@@ -174,7 +180,8 @@ if (hasFeatures(REQUIREMENTS)) {
   new PushState(pushState, {
     replaceIds: ['_main'],
     linkSelector: 'a[href^="/"]',
-    scrollRestoration: 'scrollRestoration' in window.history,
     duration: DURATION,
+    noPopDuration: isSafari,
+    scrollRestoration: !isSafari,
   }).startHistory();
 }
