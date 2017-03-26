@@ -7,6 +7,12 @@ body {
   padding-left: 0.5rem;
 }
 
+body, main {
+  /* Prevent side-scrolling on mobile */
+  position: relative;
+  overflow-x: hidden;
+}
+
 .shadow-main {
   opacity: 0;
   will-change: opacity;

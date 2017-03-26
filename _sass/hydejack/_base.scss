@@ -1,8 +1,4 @@
 body {
-  /* Prevent side-scrolling on mobile */
-  overflow-x: hidden;
-  position: relative;
-
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -43,11 +39,6 @@ body::before {
   top: 0;
   bottom: 0;
   width: 0.5rem;
-}
-
-body, main {
-  position: relative;
-  overflow-x: hidden;
 }
 
 .img {
