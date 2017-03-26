@@ -61,7 +61,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   const crossFader = new CrossFader();
 
-  const pushState = document.getElementById('y-push-state');
+  const pushState = document.getElementById('_yPushState');
   const loading = document.getElementById('_loading');
 
   const shadowMain = document.createElement('div');

@@ -24,7 +24,7 @@ const { find } = Array.prototype;
 
 export default class CrossFader {
   constructor() {
-    const pageStyle = document.getElementById('_page-style');
+    const pageStyle = document.getElementById('_pageStyle');
     const styleSheet = document.styleSheets::find(ss => ss.ownerNode === pageStyle);
 
     this.rules = styleSheet.cssRules || styleSheet.rules;

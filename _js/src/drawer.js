@@ -42,7 +42,7 @@ function addEventListeners(drawer) {
 
 if (hasFeatures(REQUIREMENTS)) {
   window.isDesktop = window.matchMedia(MEDIA_QUERY).matches;
-  const drawer = document.getElementById('y-drawer');
+  const drawer = document.getElementById('_yDrawer');
 
   addEventListeners(new YDrawer(drawer, {
     opened: window.isDesktop,
