@@ -101,7 +101,7 @@ if (hasFeatures(REQUIREMENTS)) {
     ::switchMap(([{ detail }]) => {
       const { event: { currentTarget } } = detail;
 
-      const flip = Flip.create(currentTarget.dataset.flip, {
+      const flip = Flip.create(currentTarget.dataset && currentTarget.dataset.flip, {
         shadowMain,
         currentTarget,
         duration: DURATION,
