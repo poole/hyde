@@ -8,7 +8,7 @@
     </h3>
     <div class="img sixteen-nine">
       {% if project.screenshot %}
-        {% include srcset-img.html img=project.screenshot alt="Thumbnail" sizes="(max-width: 28em) 100vw, 19rem" %}
+        {% include srcset-img.html img=project.screenshot alt="Thumbnail" sizes="(min-width: 1441px) 22.5rem, (min-width: 608px) 17.5rem, 100vw" %}
       {% endif %}
     </div>
     {% if project.caption %}
