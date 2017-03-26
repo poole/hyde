@@ -193,7 +193,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   after$
     // Don't send a pageview when the user blasts through the history..
-    ::throttleTime(500)
+    ::throttleTime(2 * DURATION)
     ::effect(() => {
       // Send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');

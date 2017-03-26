@@ -10,7 +10,6 @@ class-methods-use-this,
 import { Observable } from 'rxjs/Observable';
 import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
-import { of } from 'rxjs/observable/of';
 import { timer } from 'rxjs/observable/timer';
 
 import { _do as effect } from 'rxjs/operator/do';
@@ -44,25 +43,28 @@ export default class CrossFader {
   fetchImage(dataset) {
     const { color, image } = dataset;
 
-    let res;
-
     if (image === this.lastImage) {
-      res = Observable::empty();
-    } else if (image === '') {
-      res = Observable::of(true);
+      return Observable::empty();
+    }
+
+    let res$;
+    if (image === '') {
+      res$ = Observable::timer(this.duration);
     } else {
       const imgObj = new Image();
 
-      res = Observable::fromEvent(imgObj, 'load')
+      res$ = Observable::fromEvent(imgObj, 'load')
         ::zipWith(Observable::timer(this.duration), x => x)
-        ::effect(() => { this.lastImage = image; })
         ::cleanup(() => { imgObj.src = ''; });
 
       imgObj.src = image;
     }
 
-    return res
-      ::effect(() => { this::updateStyle(dataset); })
+    return res$
+      ::effect(() => {
+        this::updateStyle(dataset);
+        this.lastImage = image;
+      })
       ::map(() => {
         const div = document.createElement('div');
         div.classList.add('sidebar-bg');
