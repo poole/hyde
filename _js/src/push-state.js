@@ -7,16 +7,17 @@ import/extensions
 */
 
 import { Observable } from 'rxjs/Observable';
-import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
-import { merge } from 'rxjs/observable/merge';
 
 import { _catch as recover } from 'rxjs/operator/catch';
 import { _do as effect } from 'rxjs/operator/do';
 import { exhaustMap } from 'rxjs/operator/exhaustMap';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
+import { mergeMap } from 'rxjs/operator/mergeMap';
+import { pairwise } from 'rxjs/operator/pairwise';
 import { share } from 'rxjs/operator/share';
+import { startWith } from 'rxjs/operator/startWith';
 import { switchMap } from 'rxjs/operator/switchMap';
 import { takeUntil } from 'rxjs/operator/takeUntil';
 import { throttleTime } from 'rxjs/operator/throttleTime';
@@ -25,7 +26,7 @@ import { zipProto as zipWith } from 'rxjs/operator/zip';
 import PushState from 'y-push-state/src/vanilla';
 
 import { hasFeatures, animate } from './common';
-import CrossFader from './cross-fade';
+import CrossFader from './cross-fader';
 import upgradeMathBlocks from './katex';
 
 import Flip from './flip/flip';
@@ -45,6 +46,7 @@ const REQUIREMENTS = [
 ];
 
 const DURATION = 250;
+const FADE_DURATION = 600;
 
 // whenever the source observable encounters an error,
 // we log it to the console, but continue as if it never happend
@@ -59,7 +61,7 @@ if (hasFeatures(REQUIREMENTS)) {
   const ua = navigator.userAgent.toLowerCase();
   const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
 
-  const crossFader = new CrossFader();
+  const crossFader = new CrossFader({ duration: FADE_DURATION });
 
   const pushState = document.getElementById('_yPushState');
   const loading = document.getElementById('_loading');
@@ -73,7 +75,8 @@ if (hasFeatures(REQUIREMENTS)) {
   pushState.parentNode.insertBefore(shadowMain, pushState);
 
   const start$ = Observable::fromEvent(pushState, 'y-push-state-start')
-    ::map(kind => [kind, document.getElementById('_main')])
+    ::map(({ detail }) => detail)
+    ::map(detail => [detail, document.getElementById('_main')])
     ::effect(() => {
       // If a link on the drawer has been clicked, close it
       if (!window.isDesktop && window.drawer.opened) {
@@ -82,9 +85,18 @@ if (hasFeatures(REQUIREMENTS)) {
     })
     ::share();
 
-  const ready$ = Observable::fromEvent(pushState, 'y-push-state-ready')::share();
-  const progress$ = Observable::fromEvent(pushState, 'y-push-state-progress');
-  const after$ = Observable::fromEvent(pushState, 'y-push-state-after')::share();
+  const ready$ = Observable::fromEvent(pushState, 'y-push-state-ready')
+    ::map(({ detail }) => detail)
+    ::share();
+
+  const progress$ = Observable::fromEvent(pushState, 'y-push-state-progress')
+    ::map(({ detail }) => detail);
+    // ::share();
+
+  const after$ = Observable::fromEvent(pushState, 'y-push-state-after')
+    ::map(({ detail }) => detail)
+    ::share();
+
   // const error$ = Observable.fromEvent(pushState, 'y-push-state-error');
 
   // HACK
@@ -98,7 +110,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   // FLIP animation (when applicable)
   start$
-    ::switchMap(([{ detail }]) => {
+    ::switchMap(([detail]) => {
       const { event: { currentTarget } } = detail;
 
       const flip = Flip.create(currentTarget.dataset && currentTarget.dataset.flip, {
@@ -120,8 +132,8 @@ if (hasFeatures(REQUIREMENTS)) {
   // Fade main content out
   start$
     ::effect(([, main]) => { main.style.opacity = 0; })
-    ::filter(([{ detail: { type } }]) => type === 'push' || !isSafari)
-    ::exhaustMap(([{ detail: { type } }, main]) =>
+    ::filter(([{ type }]) => type === 'push' || !isSafari)
+    ::exhaustMap(([{ type }, main]) =>
       animate(main, [
         { opacity: 1 },
         { opacity: 0 },
@@ -151,18 +163,22 @@ if (hasFeatures(REQUIREMENTS)) {
   // Prepare showing the new content
   ready$
     ::effect(() => { loading.style.display = 'none'; })
-    ::switchMap(({ detail: { flip, type, content: [main] } }) => Observable::merge(
-      type === 'push' || !isSafari ?
-        flip.ready(main)::takeUntil(start$) :
-        Observable::empty(),
-      crossFader.crossFade(main.dataset, { duration: 3 * DURATION }),
-    ))
+    ::filter(({ type }) => type === 'push' || !isSafari)
+    ::switchMap(({ flip, content: [main] }) => flip.ready(main)::takeUntil(start$))
+    ::makeUnstoppable()
+    .subscribe();
+
+  ready$
+    ::switchMap(({ content: [main] }) => crossFader.fetchImage(main.dataset)::takeUntil(start$))
+    ::startWith(document.querySelector('.sidebar-bg'))
+    ::pairwise()
+    ::mergeMap(::crossFader.crossFade)
     ::makeUnstoppable()
     .subscribe();
 
   // Animate the new content
   after$
-    ::filter(({ detail: { type } }) => type === 'push' || !isSafari)
+    ::filter(({ type }) => type === 'push' || !isSafari)
     ::map(kind => [kind, document.querySelector('main')])
     ::switchMap(([, main]) =>
       animate(main, [
