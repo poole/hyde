@@ -4,7 +4,7 @@ class-methods-use-this
 */
 
 import { Observable } from 'rxjs/Observable';
-import 'rxjs/add/observable/empty';
+import { empty } from 'rxjs/observable/empty';
 
 export default class Flip {
   static create(type, ...args) {
@@ -19,11 +19,11 @@ export default class Flip {
   }
 
   start() {
-    return Observable.empty();
+    return Observable::empty();
   }
 
   ready() {
-    return Observable.empty();
+    return Observable::empty();
   }
 }
 
