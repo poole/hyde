@@ -79,6 +79,7 @@ if (hasFeatures(REQUIREMENTS)) {
   const after$ = Observable.fromEvent(pushState, 'y-push-state-after').share();
   // const error$ = Observable.fromEvent(pushState, 'y-push-state-error');
 
+  // HACK
   if (isSafari) {
     Observable.fromEvent(window, 'popstate')
       .subscribe(() => { document.body.style.minHeight = '999999px'; });
@@ -146,7 +147,7 @@ if (hasFeatures(REQUIREMENTS)) {
       type === 'push' || !isSafari ?
         flip.ready(main).takeUntil(start$) :
         Observable.emtpy(),
-      crossFade(main.dataset, { duration: 2 * DURATION }),
+      crossFade(main.dataset, { duration: 3 * DURATION }),
     ))
     .catch((err, c) => c)
     .subscribe();

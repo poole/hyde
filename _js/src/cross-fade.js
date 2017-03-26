@@ -72,7 +72,7 @@ export function crossFade(dataset, { duration }) {
           { opacity: 1 },
         ], {
           duration: duration + 16.67, // HACK: make it take longer, jtbs
-          easing: 'cubic-bezier(0,0,0.32,1)',
+          // easing: 'cubic-bezier(0,0,0.32,1)',
         })
         .finally(() => {
           // HACK: ideally we would do something like `pairwise`
