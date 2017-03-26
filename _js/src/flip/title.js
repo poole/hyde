@@ -10,8 +10,8 @@ class-methods-use-this,
 import { Observable } from 'rxjs/Observable';
 import { timer } from 'rxjs/observable/timer';
 
-import { _do as doRx } from 'rxjs/operator/do';
-import { _finally as finallyRx } from 'rxjs/operator/finally';
+import { _do as effect } from 'rxjs/operator/do';
+import { _finally as cleanup } from 'rxjs/operator/finally';
 
 import { animate } from '../common';
 import Flip from './flip';
@@ -49,7 +49,7 @@ class TitleFlip extends Flip {
       duration: this.duration,
       easing: 'cubic-bezier(0,0,0.32,1)',
     })
-      ::doRx(() => { this.shadowMain.style.position = 'absolute'; });
+      ::effect(() => { this.shadowMain.style.position = 'absolute'; });
   }
 
   ready(main) {
@@ -64,13 +64,13 @@ class TitleFlip extends Flip {
 
     // HACK: add some extra time to prevent hiccups
     return Observable::timer(this.duration + 100)
-      ::doRx(() => {
+      ::effect(() => {
         if (title != null) {
           title.style.opacity = 1;
           title.style.willChange = '';
         }
       })
-      ::finallyRx(() => {
+      ::cleanup(() => {
         this.shadowMain.style.opacity = 0;
         this.shadowMain.style.willChange = '';
       });

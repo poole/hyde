@@ -11,8 +11,8 @@ import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { merge } from 'rxjs/observable/merge';
 
-import { _catch as catchRx } from 'rxjs/operator/catch';
-import { _do as doRx } from 'rxjs/operator/do';
+import { _catch as recover } from 'rxjs/operator/catch';
+import { _do as effect } from 'rxjs/operator/do';
 import { exhaustMap } from 'rxjs/operator/exhaustMap';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
@@ -49,7 +49,7 @@ const DURATION = 250;
 // whenever the source observable encounters an error,
 // we log it to the console, but continue as if it never happend
 function makeUnstoppable() {
-  return this::catchRx((error, caught) => {
+  return this::recover((error, caught) => {
     console.error(error); // eslint-disable-line
     return caught;
   });
@@ -74,7 +74,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   const start$ = Observable::fromEvent(pushState, 'y-push-state-start')
     ::map(kind => [kind, document.getElementById('_main')])
-    ::doRx(() => {
+    ::effect(() => {
       // If a link on the drawer has been clicked, close it
       if (!window.isDesktop && window.drawer.opened) {
         window.drawer.close();
@@ -119,7 +119,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   // Fade main content out
   start$
-    ::doRx(([, main]) => { main.style.opacity = 0; })
+    ::effect(([, main]) => { main.style.opacity = 0; })
     ::filter(([{ detail: { type } }]) => type === 'push' || !isSafari)
     ::exhaustMap(([{ detail: { type } }, main]) =>
       animate(main, [
@@ -129,14 +129,14 @@ if (hasFeatures(REQUIREMENTS)) {
         duration: DURATION,
         easing: 'cubic-bezier(0,0,0.32,1)',
       })
-        ::doRx(() => { if (type === 'push') window.scroll(0, 0); })
+        ::effect(() => { if (type === 'push') window.scroll(0, 0); })
         ::zipWith(after$))
     ::makeUnstoppable()
     .subscribe();
 
   // Show loading bar when taking longer than expected
   progress$
-    ::doRx(() => { loading.style.display = 'block'; })
+    ::effect(() => { loading.style.display = 'block'; })
     ::makeUnstoppable()
     .subscribe();
 
@@ -150,7 +150,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   // Prepare showing the new content
   ready$
-    ::doRx(() => { loading.style.display = 'none'; })
+    ::effect(() => { loading.style.display = 'none'; })
     ::switchMap(({ detail: { flip, type, content: [main] } }) => Observable::merge(
       type === 'push' || !isSafari ?
         flip.ready(main)::takeUntil(start$) :
@@ -178,7 +178,7 @@ if (hasFeatures(REQUIREMENTS)) {
   after$
     // Don't send a pageview when the user blasts through the history..
     ::throttleTime(500)
-    ::doRx(() => {
+    ::effect(() => {
       // Send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');
 

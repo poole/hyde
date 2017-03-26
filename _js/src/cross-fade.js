@@ -12,10 +12,10 @@ import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { timer } from 'rxjs/observable/timer';
 
-import { _do as doRx } from 'rxjs/operator/do';
-import { mergeMap } from 'rxjs/operator/mergeMap';
-import { _finally as finallyRx } from 'rxjs/operator/finally';
+import { _do as effect } from 'rxjs/operator/do';
+import { _finally as cleanup } from 'rxjs/operator/finally';
 import { map } from 'rxjs/operator/map';
+import { mergeMap } from 'rxjs/operator/mergeMap';
 import { zipProto as zipWith } from 'rxjs/operator/zip';
 
 import { animate } from './common';
@@ -48,8 +48,8 @@ export default class CrossFader {
 
       const imgLoad$ = Observable::fromEvent(imgObj, 'load')
         ::zipWith(Observable::timer(duration), x => x)
-        ::finallyRx(() => { imgObj.src = ''; }) // "cancel" the request // TODO: test!
-        ::doRx(() => {
+        ::cleanup(() => { imgObj.src = ''; }) // "cancel" the request // TODO: test!
+        ::effect(() => {
           this.updateStyle(dataset);
           this.lastImage = image;
         })
@@ -79,7 +79,7 @@ export default class CrossFader {
             duration: duration + 16.67, // HACK: make it take longer, jtbs
             // easing: 'cubic-bezier(0,0,0.32,1)',
           })
-          ::finallyRx(() => {
+          ::cleanup(() => {
             // HACK: ideally we would do something like `pairwise`
             // to get a ref of the prev div
             const faded = sidebar.querySelectorAll('._faded');
