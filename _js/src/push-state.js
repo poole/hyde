@@ -11,6 +11,7 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 
 import { _catch as recover } from 'rxjs/operator/catch';
 import { _do as effect } from 'rxjs/operator/do';
+import { debounceTime } from 'rxjs/operator/debounceTime';
 import { exhaustMap } from 'rxjs/operator/exhaustMap';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
@@ -20,7 +21,6 @@ import { share } from 'rxjs/operator/share';
 import { startWith } from 'rxjs/operator/startWith';
 import { switchMap } from 'rxjs/operator/switchMap';
 import { takeUntil } from 'rxjs/operator/takeUntil';
-import { throttleTime } from 'rxjs/operator/throttleTime';
 import { zipProto as zipWith } from 'rxjs/operator/zip';
 
 import PushState from 'y-push-state/src/vanilla';
@@ -193,7 +193,7 @@ if (hasFeatures(REQUIREMENTS)) {
 
   after$
     // Don't send a pageview when the user blasts through the history..
-    ::throttleTime(2 * DURATION)
+    ::debounceTime(2 * DURATION)
     ::effect(() => {
       // Send google analytics pageview
       if (window.ga) window.ga('send', 'pageview');
