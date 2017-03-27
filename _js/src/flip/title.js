@@ -47,6 +47,7 @@ class TitleFlip extends Flip {
       { transform: 'translate3d(0, 0, 0) scale(1)' },
     ], {
       duration: this.duration,
+      // easing: 'ease',
       easing: 'cubic-bezier(0,0,0.32,1)',
     })
       ::effect(() => { this.shadowMain.style.position = 'absolute'; });

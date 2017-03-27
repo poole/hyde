@@ -139,6 +139,7 @@ if (hasFeatures(REQUIREMENTS)) {
         { opacity: 0 },
       ], {
         duration: DURATION,
+        // easing: 'ease',
         easing: 'cubic-bezier(0,0,0.32,1)',
       })
         ::effect(() => { if (type === 'push') window.scroll(0, 0); })
@@ -186,6 +187,7 @@ if (hasFeatures(REQUIREMENTS)) {
         { transform: 'translateY(0)', opacity: 1 },
       ], {
         duration: DURATION,
+        // easing: 'ease',
         easing: 'cubic-bezier(0,0,0.32,1)',
       }))
     ::makeUnstoppable()
