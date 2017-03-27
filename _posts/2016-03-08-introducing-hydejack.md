@@ -48,7 +48,7 @@ In the manifest of a blog post, simply add an url as `image` and a CSS color as 
 ~~~yml
 layout: post
 title: Introducing Hydejack
-image: http://qwtel.com/hydejack/public/img/hyde.jpg
+image: https://qwtel.com/hydejack/public/img/hyde.jpg
 color: '#949667'
 ~~~
 
