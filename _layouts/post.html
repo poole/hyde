@@ -4,12 +4,12 @@ layout: default
 
 {% include post.html post=page link_title=false %}
 
-{% if site.author.about %}
-  {% include about.html author=site.author %}
+{% if site.data.custom.author.about %}
+  {% include about.html author=site.data.custom.author %}
 {% endif %}
 
 {% include related.html post=page %}
 
-{% if site.disqus %}
+{% if site.data.custom.disqus %}
 {% include comments.html post=page %}
 {% endif %}

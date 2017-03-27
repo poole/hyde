@@ -3,7 +3,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
   {% if page.title == "Home" %}
-    {% capture title %}{{ site.title }} &middot; {{ site.tagline }}{% endcapture %}
+    {% capture title %}{{ site.title }} &middot; {{ site.data.custom.tagline }}{% endcapture %}
   {% elsif page.tag %}
     {% capture title %}{{ site.data.tags[page.tag].name }} &middot; {{ site.title }}{% endcapture %}
   {% elsif page.title != null %}
@@ -32,11 +32,11 @@
   <noscript>
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/non-essentials-{{ site.version }}.css">
 
-    {% if site.load_google_fonts %}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.load_google_fonts }}">
+    {% if site.data.custom.load_google_fonts %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.data.custom.load_google_fonts }}">
     {% endif %}
 
-    {% if site.author.social %}
+    {% if site.data.custom.author.social %}
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/icons.css">
     {% endif %}
   </noscript>
@@ -50,10 +50,6 @@
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="{{ site.baseurl }}/atom.xml">
 
   <script>{% include scripts/load-js-deferred.js %}</script>
-  <script>window.site = {
-    url: '{{ site.url }}',
-    baseurl: '{{ site.baseurl }}'
-  }</script>
 
   <!--[if lt IE 9]>
   <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>

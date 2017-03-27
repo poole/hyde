@@ -4,16 +4,16 @@
     <div class="container sidebar-sticky">
       <div class="sidebar-about">
         <h1><a href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-        {{ site.description | markdownify }}
+        {{ site.data.custom.description | markdownify }}
       </div>
 
       <nav class="sidebar-nav heading" role="navigation">
         {% include nav.html %}
       </nav>
 
-      {% if site.author.social %}
+      {% if site.data.custom.author.social %}
       <div class="sidebar-social">
-        {% include social.html social=site.author.social %}
+        {% include social.html social=site.data.custom.author.social %}
       </div>
       {% endif %}
     </div>

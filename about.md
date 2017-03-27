@@ -5,9 +5,9 @@ order: 2
 ---
 
 {% comment %}
-  This inserts the "about" photo and text from `_config.yml`.
-  You can edit it there (jekyll needs restart!) or remove it and provide your own photo/text.
+  This inserts the "about" photo and text from `./data/custom.yml`.
+  You can edit it there or remove the line below and provide your own photo/text.
 {% endcomment %}
-{% include about-short.html author=site.author %}
+{% include about-short.html author=site.data.custom.author %}
 
 [write something about self]

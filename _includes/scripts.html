@@ -1,17 +1,19 @@
+{% assign custom = site.data.custom %}
+
 <!--[if gt IE 8]><!---->
 <script>loadJSDeferred('{{ site.baseurl }}/public/js/hydejack-{{ site.version }}.js');</script>
 
 <!-- Web fonts -->
-{% if site.load_google_fonts or site.author.social %}
+{% if custom.load_google_fonts or custom.author.social %}
 <script>
   WebFontConfig = {
-    {% if site.load_google_fonts %}
+    {% if custom.load_google_fonts %}
     google: {
-      families: '{{ site.load_google_fonts }}'.split('|')
+      families: '{{ custom.load_google_fonts }}'.split('|')
     },
     {% endif %}
 
-    {% if site.author.social %}
+    {% if custom.author.social %}
     custom: {
       families: ['icomoon'],
       urls: ['{{ site.baseurl }}/public/css/icons.css']
@@ -26,10 +28,10 @@
 {% endif %}
 
 <!-- Google Analytics -->
-{% if site.google_analytics_id %}
+{% if custom.google_analytics_id %}
 <script>
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-  ga('create', '{{ site.google_analytics_id }}', 'auto');
+  ga('create', '{{ custom.google_analytics_id }}', 'auto');
   ga('send', 'pageview');
   loadJSDeferred('https://www.google-analytics.com/analytics.js');
 </script>
