@@ -1,4 +1,4 @@
-(function(w, d) {
+;(function(w, d) {
   function stdOnEnd(script, cb) {
     script.onload = function () {
       this.onerror = this.onload = null;
@@ -19,10 +19,10 @@
     };
   }
 
-  w.isReady = false;
+  w._loaded = false;
   w.loadJSDeferred = function(src, cb) {
     function loadJS() {
-      w.isReady = true;
+      w._loaded = true;
 
       var script = d.createElement('script');
       script.src = src;
@@ -39,9 +39,9 @@
       ref.parentNode.insertBefore(script, ref);
     }
 
-    if (w.isReady) loadJS();
-    else if (w.addEventListener) w.addEventListener("load", loadJS, false);
-    else if (w.attachEvent) w.attachEvent("onload", loadJS);
+    if (w._loaded) loadJS();
+    else if (w.addEventListener) w.addEventListener('load', loadJS, false);
+    else if (w.attachEvent) w.attachEvent('onload', loadJS);
     else w.onload = loadJS;
   }
 }(window, document));
