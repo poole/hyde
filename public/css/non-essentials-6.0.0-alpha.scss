@@ -6,7 +6,8 @@
 @import "pooleparty/variables";
 @import "pooleparty/mixins";
 
-// @import "pooleparty/base";
+// @import "pooleparty/base-essential";
+@import "pooleparty/base";
 // @import "pooleparty/type-essential";
 @import "pooleparty/type";
 @import "pooleparty/table";
@@ -16,7 +17,7 @@
 @import "pooleparty/footer";
 @import "pooleparty/masthead";
 // @import "pooleparty/posts-essential";
-@import "pooleparty/posts";
+// @import "pooleparty/posts";
 @import "pooleparty/pagination";
 // @import "pooleparty/related-essential";
 @import "pooleparty/related";
@@ -33,7 +34,6 @@
 // @import "hydejack/content";
 // @import "hydejack/me";
 @import "hydejack/katex";
-@import "hydejack/push-state";
 
 @import "jekyll-github";
 @import "spinner";

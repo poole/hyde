@@ -2,13 +2,15 @@
 //
 // Headings, body text, lists, and other misc typographic elements.
 
+h1, h2, h3, h4, h5, h6, .heading {
+  font-weight: bold;
+  text-rendering: optimizeLegibility;
+}
+
 h1, h2, h3, h4, h5, h6 {
   margin-top: 2rem;
   margin-bottom: 1rem;
-  font-weight: 600;
   line-height: 1.25;
-  color: #313131;
-  text-rendering: optimizeLegibility;
 }
 
 h1 {
