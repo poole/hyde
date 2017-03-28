@@ -7,8 +7,8 @@
 </style>
 <!--<![endif]-->
 
-{% assign ordered_projects = site.projects | sort:"date" %}
-{% for project in ordered_projects reversed %}
+{% assign ordered_projects = site.projects | sort:"date" | reverse %}
+{% for project in ordered_projects %}
   {% assign currentdate = project.date | date: "%Y" %}
   {% if currentdate != date %}
     {% unless forloop.first %}</div><br/>{% endunless %}
@@ -16,6 +16,6 @@
     <div class="projects">
     {% assign date = currentdate %}
   {% endif %}
-    {% include project.html project = project %}
+    {% include project-card.html project = project %}
   {% if forloop.last %}</div><br/>{% endif %}
 {% endfor %}

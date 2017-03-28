@@ -1,0 +1,62 @@
+---
+layout: default
+---
+
+{% assign tag = site.data.tags[page.tag] %}
+
+{% if tag %}
+  {% assign title = tag.name %}
+  {% assign description = tag.description %}
+  {% assign posts = site.tags[page.tag] %}
+{% else %}
+  {% assign title = page.title %}
+  {% assign description = page.description %}
+  {% assign posts = site.posts %}
+{% endif %}
+
+{% if title != null %}
+<h1 class="page-title">{{ title }}</h1>
+
+{% if description %}
+  {% capture desc %}{{ description }}{:.message}{% endcapture %}
+  {{ desc | markdownify }}
+{% endif %}
+
+<hr/>
+{% endif %}
+
+{% include about-short.html author=site.data.custom.author %}
+
+<br/>
+
+<!--[if gt IE 8]><!---->
+<style>
+  {% capture include_to_scssify %}
+  {% include styles/projects.scss %}
+  {% endcapture %}
+  {{ include_to_scssify | scssify }}
+</style>
+<!--<![endif]-->
+
+<h1>Projects</h1>
+{% assign ordered_projects = site.projects | sort:"date" | reverse %}
+<div class="projects">
+{% for project in ordered_projects | limit:2 %}
+  {% include project-card.html project=project %}
+{% endfor %}
+</div>
+
+<br/>
+
+<h1>Blog</h1>
+{% for post in posts %}
+  {% assign currentdate = post.date | date: "%Y" %}
+  {% if currentdate != date %}
+    {% unless forloop.first %}</ul><hr/>{% endunless %}
+    <h2 3d="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
+    <ul class="related-posts">
+    {% assign date = currentdate %}
+  {% endif %}
+  {% include post-list-item.html post=post format="%m/%d" %}
+  {% if forloop.last %}</ul><hr/>{% endif %}
+{% endfor %}
