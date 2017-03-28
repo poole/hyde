@@ -3,8 +3,8 @@ title:               Hydejack
 
 url:                 https://qwtel.com
 
-# Set to '' in case of hosting on GitHub pages,
-# i.e. `http://<username>.github.io`
+# Set to '' when hosting a blog on GitHub pages, like `//<username>.github.io`
+# Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             /hydejack
 
 # Dependencies
@@ -12,10 +12,8 @@ gems:
   - jekyll-sitemap
   - jekyll-paginate
 
-# Permalinks
 permalink:           pretty
 
-# Pagination
 paginate:            5
 paginate_path:       '/page-:num/'
 
