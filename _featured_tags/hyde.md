@@ -1,5 +1,5 @@
 ---
-layout: blog-by-tag
+layout: list
 title: Hyde
 slug: hyde
 image: /hydejack/public/img/hyde.jpg

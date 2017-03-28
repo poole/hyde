@@ -18,6 +18,9 @@ paginate:            5
 paginate_path:       '/page-:num/'
 
 collections:
+  featured_categories:
+    permalink:       /category/:name/
+    output:          true
   featured_tags:
     permalink:       /tag/:name/
     output:          true

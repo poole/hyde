@@ -33,21 +33,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(32, 32, 32, .33);
-    background: -moz-linear-gradient(bottom, rgba(32,32,32,0) 0%, rgba(32,32,32,.5) 100%);
-    background: -webkit-linear-gradient(bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
     background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
-  }
-
-  .sidebar-bg {
-    background-size: cover;
-    background-position: center center;
-    background-color: #202020;
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
   }
 
   @media (min-width: $break-point-1) {
@@ -70,6 +56,15 @@
   }
 }
 
+.sidebar-bg {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  background: #202020 center / cover;
+}
+
 .sidebar-sticky {
   position: absolute;
   z-index: 3;
@@ -84,10 +79,15 @@
   font-size: 2rem;
 }
 
+.sidebar-nav > ul > li:last-child {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+}
+
 .sidebar-nav-item {
   font-weight: bold;
   display: block;
   line-height: 1.75;
   padding: .25rem .1rem;
   border-top: 1px solid rgba(255, 255, 255, 0.23);
+
 }

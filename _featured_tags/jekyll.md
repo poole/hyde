@@ -1,5 +1,5 @@
 ---
-layout: blog-by-tag
+layout: list
 title: Jekyll
 slug: jekyll
 image: /hydejack/public/img/jekyll.jpg

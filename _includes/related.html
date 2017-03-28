@@ -8,11 +8,21 @@
       {% for post in site.related_posts limit:3 %}
         {% include post-list-item.html post=post format="%m/%d/%y" %}
       {% endfor %}
-    {% elsif post.tags.first != null %}
-      {% assign tag_name = post.tags.first %}
-      {% assign tag_posts = site.tags[tag_name] %}
+    {% elsif post.categories.first != null %}
+      {% assign category_posts = site.categories[post.categories.first] %}
       {% assign plusone = false %}
-
+      {% for post in category_posts limit:4 %}
+        {% if post.url == page.url %}
+          {% assign plusone = true %}
+          {% continue %}
+        {% endif %}
+        {% if forloop.index < 4 or plusone == true %}
+          {% include post-list-item.html post=post format="%m/%d/%y" %}
+        {% endif %}
+      {% endfor %}
+    {% elsif post.tags.first != null %}
+      {% assign tag_posts = site.tags[post.tags.first] %}
+      {% assign plusone = false %}
       {% for post in tag_posts limit:4 %}
         {% if post.url == page.url %}
           {% assign plusone = true %}

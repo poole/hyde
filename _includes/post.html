@@ -7,25 +7,17 @@
   {% if include.link_title %}</a>{% endif %}
   </h1>
 
-  {% if post.tags.size > 0 %}
-    {% capture tags_content %}on {% endcapture %}
-    {% for post_tag in post.tags %}
-      {% capture separator %}{% if forloop.last == false %}, {% endif %}{% endcapture %}
-      {% assign tag = site.featured_tags | where: "slug", post_tag | first %}
-      {% if tag %}
-        {% capture tags_content_temp %}{{ tags_content }}<a href="{{ site.baseurl }}/tag/{{ post_tag }}/" data-flip="title">{{ tag.title }}</a>{{ separator }}{% endcapture %}
-      {% else %}
-        {% capture tags_content_temp %}{{ tags_content }}<span>#{{ post_tag }}</span>{{ separator }}{% endcapture %}
-      {% endif %}
-      {% assign tags_content = tags_content_temp %}
-    {% endfor %}
-  {% else %}
-    {% assign tags_content = '' %}
-  {% endif %}
+  {% capture categories_content %}
+    {% include tag-list.html tags=post.categories meta=site.featured_categories start_with="in " separator=" / " %}
+  {% endcapture %}
+
+  {% capture tags_content %}
+    {% include tag-list.html tags=post.tags meta=site.featured_tags start_with="on " separator=", " %}
+  {% endcapture %}
 
   <div class="post-date heading">
     <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%d/%y" }}</time>
-    <span>{{ tags_content }}</span>
+    <span>{{ categories_content }} {{ tags_content }}</span>
   </div>
 
   {% if post.description %}

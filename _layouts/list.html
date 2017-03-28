@@ -2,11 +2,16 @@
 layout: default
 ---
 
-{% assign tag = site.featured_tags | where: "slug", page.slug | first %}
-{% if tag %}
-  {% assign posts = site.tags[page.slug] %}
+{% assign category = site.featured_categories | where: "slug", page.slug | first %}
+{% if category %}
+  {% assign posts = site.categories[page.slug] %}
 {% else %}
-  {% assign posts = site.posts %}
+  {% assign tag = site.featured_tags | where: "slug", page.slug | first %}
+  {% if tag %}
+    {% assign posts = site.tags[page.slug] %}
+  {% else %}
+    {% assign posts = site.posts %}
+  {% endif %}
 {% endif %}
 
 {% if page.title != null %}
