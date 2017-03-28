@@ -41,7 +41,7 @@ layout: default
 <h1>Projects</h1>
 {% assign ordered_projects = site.projects | sort:"date" | reverse %}
 <div class="projects">
-{% for project in ordered_projects | limit:2 %}
+{% for project in ordered_projects limit:2 %}
   {% include project-card.html project=project %}
 {% endfor %}
 </div>
