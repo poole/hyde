@@ -4,16 +4,24 @@
   <h2>Related Posts</h2>
 
   <ul class="related-posts">
-    {% assign plusone = false %}
-    {% assign tag_name = post.tags[0] %}
-    {% for post in site.tags[tag_name] limit:4 %}
-      {% if post.url == page.url %}
-        {% assign plusone = true %}
-        {% continue %}
-      {% endif %}
-      {% if forloop.index < 4 or plusone == true %}
+    {% if site.data.custom.use_lsi %}
+      {% for post in site.related_posts limit:3 %}
         {% include post-list-item.html post=post format="%m/%d/%y" %}
-      {% endif %}
-    {% endfor %}
+      {% endfor %}
+    {% else %}
+      {% assign plusone = false %}
+      {% assign tag_name = post.tags[0] %}
+      {% assign tag_posts = site.posts | where: "tags", tag_name %}
+
+      {% for post in tag_posts limit:4 %}
+        {% if post.url == page.url %}
+          {% assign plusone = true %}
+          {% continue %}
+        {% endif %}
+        {% if forloop.index < 4 or plusone == true %}
+          {% include post-list-item.html post=post format="%m/%d/%y" %}
+        {% endif %}
+      {% endfor %}
+    {% endif %}
   </ul>
 </aside>

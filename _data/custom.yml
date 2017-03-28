@@ -7,9 +7,6 @@ description:         >
   [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
-# The tags listed as entries in the sidebar
-sidebar_tags:        [jekyll, hyde]
-
 # Fallback image and color if not overwritten for tag or post
 image:               /hydejack/public/img/nap.jpg
 color:               '#A85641'
@@ -81,3 +78,7 @@ google_analytics_id: UA-84025722-2
 
 # Setting a disqus subdomain will enable the comment section
 # disqus:            <username>
+
+# Set to true when building locally with the `--lsi` option
+# See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`
+use_lsi:             false
