@@ -9,7 +9,9 @@
     "watch": "watchify -d _js/src/index.js -g babelify -o public/js/hydejack-$npm_package_version.js",
     "lint": "eslint _js/src",
     "dev": "npm run watch",
-    "prepublish": "npm run lint && npm run test && npm run clean && npm run build"
+    "prepublish": "npm run lint && npm run test && npm run clean && npm run build",
+    "resume": "json2yaml resume.json > _data/resume.yml",
+    "unresume": "yaml2json _data/resume.yml > resume.json"
   },
   "author": "Florian Klampfer <f.klampfer@gmail.com> (https://qwtel.com)",
   "license": "MIT",
@@ -27,8 +29,10 @@
     "eslint-plugin-import": "2.2.0",
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.3",
+    "json2yaml": "1.1.0",
     "uglify-js": "2.8.16",
-    "watchify": "3.9.0"
+    "watchify": "3.9.0",
+    "yaml2json": "1.0.2"
   },
   "dependencies": {
     "core-js": "2.4.1",
