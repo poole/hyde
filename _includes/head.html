@@ -2,17 +2,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
-  {% if page.title == "Home" %}
-    {% capture title %}{{ site.title }} &middot; {{ site.data.custom.tagline }}{% endcapture %}
-  {% elsif page.tag %}
-    {% capture title %}{{ site.data.tags[page.tag].name }} &middot; {{ site.title }}{% endcapture %}
-  {% elsif page.title != null %}
-    {% capture title %}{{ page.title }} &middot; {{ site.title }}{% endcapture %}
-  {% else %}
-    {% capture title %}{{ site.title }}{% endcapture %}
-  {% endif %}
+  {% capture title %}
+    {% if page.title == "Home" %}
+      {{ site.title }} &middot; {{ site.data.custom.tagline }}
+    {% elsif page.title != null %}
+      {{ page.title }} &middot; {{ site.title }}
+    {% else %}
+      {{ site.title }}
+    {% endif %}
+  {% endcapture %}
 
-  <title>{{ title }}</title>
+  <title>{{ title | strip }}</title>
 
   {% if page.description %}
     {% capture desc %}{{ page.description }}{:.message}{% endcapture %}

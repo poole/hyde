@@ -1,14 +1,15 @@
 {% assign color = custom.color %}
 {% assign image = custom.image %}
 
-{% if page.tag %}
-  {% assign tag = site.data.tags[page.tag] %}
+<!-- <script>console.log('{{ page.layout }}');</script> -->
+
+{% if page.tags.length > 0 %}
   {% if tag.color %}{% assign color = tag.color %}{% endif %}
   {% if tag.image %}{% assign image = tag.image %}{% endif %}
 {% else %}
   {% if page.tags.size > 0 %}
-    {% assign tag_name = page.tags[0] %}
-    {% assign tag = site.data.tags[tag_name] %}
+    {% assign tag_name = page.tags.first %}
+    {% assign tag = site.featured_tags | where: "slug", tag_name | first %}
     {% if tag.color %}{% assign color = tag.color %}{% endif %}
     {% if tag.image %}{% assign image = tag.image %}{% endif %}
   {% endif %}

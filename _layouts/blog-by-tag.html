@@ -2,24 +2,18 @@
 layout: default
 ---
 
-{% assign tag = site.tags | where: "slug", page.slug %}
-{% assign tag = tag[0] %}
-
+{% assign tag = site.featured_tags | where: "slug", page.slug | first %}
 {% if tag %}
-  {% assign title = tag.name %}
-  {% assign description = tag.description %}
-  {% assign posts = site.posts | where: "tags", page.slug %}
+  {% assign posts = site.tags[page.slug] %}
 {% else %}
-  {% assign title = page.title %}
-  {% assign description = page.description %}
   {% assign posts = site.posts %}
 {% endif %}
 
-{% if title != null %}
-<h1 class="page-title">{{ title }}</h1>
+{% if page.title != null %}
+<h1 class="page-title">{{ page.title }}</h1>
 
-{% if description %}
-  {% capture desc %}{{ description }}{:.message}{% endcapture %}
+{% if page.description %}
+  {% capture desc %}{{ page.description }}{:.message}{% endcapture %}
   {{ desc | markdownify }}
 {% endif %}
 

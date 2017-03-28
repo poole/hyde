@@ -8,20 +8,19 @@
   </h1>
 
   {% if post.tags.size > 0 %}
-  {% capture tags_content %}on {% endcapture %}
-  {% for post_tag in post.tags %}
-    {% assign tag = site.tags | where: "slug", post_tag %}
-    {% assign tag = tag[0] %}
-    {% if tag %}
-      {% capture tags_content_temp %}
-        {{ tags_content }}<a href="{{ site.baseurl }}/tag/{{ post_tag }}/" data-flip="title">{{ tag.name }}</a>
-        {% if forloop.last == false %}<span>, </span>{% endif %}
-      {% endcapture %}
+    {% capture tags_content %}on {% endcapture %}
+    {% for post_tag in post.tags %}
+      {% capture separator %}{% if forloop.last == false %}, {% endif %}{% endcapture %}
+      {% assign tag = site.featured_tags | where: "slug", post_tag | first %}
+      {% if tag %}
+        {% capture tags_content_temp %}{{ tags_content }}<a href="{{ site.baseurl }}/tag/{{ post_tag }}/" data-flip="title">{{ tag.title }}</a>{{ separator }}{% endcapture %}
+      {% else %}
+        {% capture tags_content_temp %}{{ tags_content }}<span>#{{ post_tag }}</span>{{ separator }}{% endcapture %}
+      {% endif %}
       {% assign tags_content = tags_content_temp %}
-    {% endif %}
-  {% endfor %}
+    {% endfor %}
   {% else %}
-  {% assign tags_content = '' %}
+    {% assign tags_content = '' %}
   {% endif %}
 
   <div class="post-date heading">

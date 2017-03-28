@@ -1,5 +1,7 @@
+# A short description for the page title (browser tab)
 tagline:             A pretentious two-column Jekyll theme.
 
+# A longer description of the page, used in the sidebar
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
   A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by
@@ -15,7 +17,6 @@ color:               '#A85641'
 font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
 font:                "'Noto Serif', serif"
 load_google_fonts:   Roboto+Slab:700|Noto+Serif:400,400i,700,700i
-
 
 # About yourself
 author:

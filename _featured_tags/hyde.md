@@ -1,7 +1,6 @@
 ---
 layout: blog-by-tag
 title: Hyde
-name: Hyde # remove
 slug: hyde
 image: /hydejack/public/img/hyde.jpg
 color: '#949667'

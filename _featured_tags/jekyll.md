@@ -1,7 +1,6 @@
 ---
 layout: blog-by-tag
 title: Jekyll
-name: Jekyll # remove
 slug: jekyll
 image: /hydejack/public/img/jekyll.jpg
 color: '#949667'
