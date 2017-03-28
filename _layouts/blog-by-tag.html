@@ -2,12 +2,13 @@
 layout: default
 ---
 
-{% assign tag = site.data.tags[page.tag] %}
+{% assign tag = site.tags | where: "slug", page.slug %}
+{% assign tag = tag[0] %}
 
 {% if tag %}
   {% assign title = tag.name %}
   {% assign description = tag.description %}
-  {% assign posts = site.tags[page.tag] %}
+  {% assign posts = site.posts | where: "tags", page.slug %}
 {% else %}
   {% assign title = page.title %}
   {% assign description = page.description %}

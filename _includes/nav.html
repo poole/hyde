@@ -1,27 +1,15 @@
 <ul>
-  {% for tag_hash in site.data.tags | sort:"order" %}
-    {% assign tag_key = tag_hash[0] %}
-    {% assign tag = tag_hash[1] %}
-    {% if tag.order %}
-      <li>
-        <a class="sidebar-nav-item {% if page.tag == tag_key %}active{% endif %}" href="{{ site.baseurl }}/tag/{{ tag_key }}/">{{ tag.name }}</a>
-      </li>
-    {% endif %}
+  {% assign pages = site.pages %}
+
+  {% for document in site.documents %}
+    {% assign pages = pages | push: document %}
   {% endfor %}
 
-  {% comment %}
-    The code below dynamically generates a sidebar nav of pages with
-    `layout: page` in the front-matter. See readme for usage.
-  {% endcomment %}
+  {% assign pages = pages | where: "menu", true | sort: "order" %}
 
-  {% assign sorted_pages = site.pages | sort:"order" %}
-  {% for node in sorted_pages %}
-    {% if node.title != null %}
-      {% if node.layout == "page" %}
-      <li>
-        <a class="sidebar-nav-item {% if page.url == node.url %}active{% endif %}" href="{{ node.url | prepend:site.baseurl }}">{{ node.title }}</a>
-      </li>
-      {% endif %}
-    {% endif %}
+  {% for node in pages %}
+    <li>
+      <a class="sidebar-nav-item {% if page.url == node.url %}active{% endif %}" href="{{ node.url | prepend:site.baseurl }}">{{ node.title }}</a>
+    </li>
   {% endfor %}
 </ul>

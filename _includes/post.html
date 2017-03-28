@@ -10,7 +10,8 @@
   {% if post.tags.size > 0 %}
   {% capture tags_content %}on {% endcapture %}
   {% for post_tag in post.tags %}
-    {% assign tag = site.data.tags[post_tag] %}
+    {% assign tag = site.tags | where: "slug", post_tag %}
+    {% assign tag = tag[0] %}
     {% if tag %}
       {% capture tags_content_temp %}
         {{ tags_content }}<a href="{{ site.baseurl }}/tag/{{ post_tag }}/" data-flip="title">{{ tag.name }}</a>

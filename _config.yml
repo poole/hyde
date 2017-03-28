@@ -18,6 +18,9 @@ paginate:            5
 paginate_path:       '/page-:num/'
 
 collections:
+  tags:
+    permalink:       /tag/:name/
+    output:          true
   projects:
     permalink:       /projects/:path/
     output:          true

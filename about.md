@@ -1,7 +1,8 @@
 ---
 layout: page
 title: About
-order: 2
+menu: true
+order: 4
 ---
 
 {% comment %}
