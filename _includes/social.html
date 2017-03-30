@@ -3,179 +3,153 @@
   {% assign platform = link[0] %}
   {% assign username = link[1] %}
 
-  {% if platform == "facebook" %}
-    {% assign url = "https://facebook.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+  {% if username contains "//" %}
+    {% include social-list-item.html platform=platform url=username %}
+  {% else %}
+    {% case platform %}
+      {% when "facebook" %}
+        {% assign url = "https://facebook.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "instagram" %}
-    {% assign url = "https://instagram.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "instagram" %}
+        {% assign url = "https://instagram.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "twitter" %}
-    {% assign url = "https://twitter.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "twitter" %}
+        {% assign url = "https://twitter.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "vine" %}
-    {% assign url = "https://vine.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "vine" %}
+        {% assign url = "https://vine.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "google" %}
-    {% assign url = "https://plus.google.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "google" %}
+        {% assign url = "https://plus.google.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "spotify" %}
-    {% assign url = "https://play.spotify.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "spotify" %}
+        {% assign url = "https://play.spotify.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "soundcloud" %}
-    {% assign url = "https://soundcloud.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "soundcloud" %}
+        {% assign url = "https://soundcloud.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "lastfm" %}
-    {% assign url = "http://www.last.fm/user/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "lastfm" %}
+        {% assign url = "http://www.last.fm/user/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "twitch" %}
-    {% assign url = "https://www.twitch.tv/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "twitch" %}
+        {% assign url = "https://www.twitch.tv/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "steam" %}
-    {% assign url = "http://steamcommunity.com/profiles/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "steam" %}
+        {% assign url = "http://steamcommunity.com/profiles/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "youtube" %}
-    {% assign url = "https://www.youtube.com/channel/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "youtube" %}
+        {% assign url = "https://www.youtube.com/channel/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "vimeo" %}
-    {% assign url = "https://www.vimeo.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "vimeo" %}
+        {% assign url = "https://www.vimeo.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "flickr" %}
-    {% assign url = "https://flickr.com/people/" | append: username %}
-    {% include social-list-item.html platform=platform url=url icon="flickr2" %}
-  {% endif %}
+      {% when "flickr" %}
+        {% assign url = "https://flickr.com/people/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "dribbble" %}
-    {% assign url = "https://dribbble.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "dribbble" %}
+        {% assign url = "https://dribbble.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "behance" %}
-    {% assign url = "https://www.behance.net/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "behance" %}
+        {% assign url = "https://www.behance.net/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "deviantart" %}
-    {% assign url = ".deviantart.com" | prepend: username | prepend: "https://" %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "deviantart" %}
+        {% assign url = ".deviantart.com" | prepend: username | prepend: "https://" %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "500px" %}
-    {% assign url = "https://500px.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "500px" %}
+        {% assign url = "https://500px.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "github" %}
-    {% assign url = "https://github.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "github" %}
+        {% assign url = "https://github.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "npm" %}
-    {% assign url = "https://npmjs.com/~" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "npm" %}
+        {% assign url = "https://npmjs.com/~" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "ello" %}
-    {% assign url = "https://ello.co/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "ello" %}
+        {% assign url = "https://ello.co/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "tumblr" %}
-    {% assign url = ".tumblr.com" | prepend: username | prepend: "http://" %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "tumblr" %}
+        {% assign url = ".tumblr.com" | prepend: username | prepend: "http://" %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "blogger" %}
-    {% assign url = "https://www.blogger.com/profile/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "blogger" %}
+        {% assign url = "https://www.blogger.com/profile/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "reddit" %}
-    {% assign url = "https://www.reddit.com/user/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "reddit" %}
+        {% assign url = "https://www.reddit.com/user/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "hackernews" %}
-    {% assign url = "https://news.ycombinator.com/user?id=" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "hackernews" %}
+        {% assign url = "https://news.ycombinator.com/user?id=" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "linkedin" %}
-    {% assign url = "https://www.linkedin.com/in/" | append: username %}
-    {% include social-list-item.html platform=platform url=url icon='linkedin2'%}
-  {% endif %}
+      {% when "linkedin" %}
+        {% assign url = "https://www.linkedin.com/in/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "xing" %}
-    {% assign url = "https://www.xing.com/profile/" | append: username %}
-    {% include social-list-item.html platform=platform url=url icon='xing2'%}
-  {% endif %}
+      {% when "xing" %}
+        {% assign url = "https://www.xing.com/profile/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "stackoverflow" %}
-    {% assign url = "http://stackoverflow.com/users/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "stackoverflow" %}
+        {% assign url = "http://stackoverflow.com/users/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "trello" %}
-    {% assign url = "https://trello.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "trello" %}
+        {% assign url = "https://trello.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "pinterest" %}
-    {% assign url = "https://www.pinterest.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "pinterest" %}
+        {% assign url = "https://www.pinterest.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "paypal" %}
-    {% assign url = "https://www.paypal.me/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "paypal" %}
+        {% assign url = "https://www.paypal.me/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "foursquare" %}
-    {% assign url = "https://foursquare.com/user/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "foursquare" %}
+        {% assign url = "https://foursquare.com/user/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "yelp" %}
-    {% assign url = "https://www.yelp.com/user_details?userid=" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "yelp" %}
+        {% assign url = "https://www.yelp.com/user_details?userid=" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "delicious" %}
-    {% assign url = "http://del.icio.us/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "delicious" %}
+        {% assign url = "http://del.icio.us/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "stumbleupon" %}
-    {% assign url = "http://www.stumbleupon.com/stumbler/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
-  {% endif %}
+      {% when "stumbleupon" %}
+        {% assign url = "http://www.stumbleupon.com/stumbler/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
 
-  {% if platform == "vk" %}
-    {% assign url = "https://vk.com/" | append: username %}
-    {% include social-list-item.html platform=platform url=url %}
+      {% when "vk" %}
+        {% assign url = "https://vk.com/" | append: username %}
+        {% include social-list-item.html platform=platform url=url %}
+
+      {% else %}
+        {% include social-list-item.html platform=platform url=username %}
+    {% endcase %}
   {% endif %}
 {% endfor %}
 </ul>

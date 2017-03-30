@@ -3,14 +3,17 @@
  *
  * Update the foundational and global aspects of the page.
  */
-body {
-  padding-left: 0.5rem;
-}
 
 body, main {
   /* Prevent side-scrolling on mobile */
   position: relative;
   overflow-x: hidden;
+}
+
+@media screen {
+  main {
+    border-left: 0.5rem solid #ddd;
+  }
 }
 
 .shadow-main {
@@ -33,18 +36,19 @@ body, main {
   transform: scale(0.33);
 }
 
-@media (min-width: $break-point-font-1) {
+@media screen and (min-width: $break-point-font-1) {
   html {
     font-size: 18px;
   }
 }
 
-@media (min-width: $break-point-1) {
+@media screen and (min-width: $break-point-1) {
   html {
     font-size: 16px;
   }
-  body {
-    padding-left: 0;
+
+  main {
+    border-left: none;
   }
 
   .shadow-main {
@@ -53,9 +57,15 @@ body, main {
   }
 }
 
-@media (min-width: $break-point-font-2) {
+@media screen and (min-width: $break-point-font-2) {
   html {
     font-size: 18px;
+  }
+}
+
+@media print {
+  html {
+    font-size: 16px;
   }
 }
 

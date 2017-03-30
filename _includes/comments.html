@@ -2,6 +2,7 @@
 
 <aside class="comments" role="complementary">
   <h2>Comments</h2>
+  <hr/>
 
   <div id="disqus_thread"></div>
 
@@ -19,7 +20,7 @@
         loaded = true;
         var d = document, s = d.createElement('script');
 
-        s.src = '//{{site.data.custom.disqus}}.disqus.com/embed.js';
+        s.src = '//{{site.disqus}}.disqus.com/embed.js';
 
         s.setAttribute('data-timestamp', +new Date());
         (d.head || d.body).appendChild(s);

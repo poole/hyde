@@ -1,35 +1,35 @@
 {% assign post = include.post %}
 
 <article id="post-{{ post.id | slice: 1,9999 }}" class="post" role="article">
-  <h1 class="post-title">
-  {% if include.link_title %}<a href="{{ post.url | prepend:site.baseurl }}" data-flip="title">{% endif %}
-    {{ post.title }}
-  {% if include.link_title %}</a>{% endif %}
-  </h1>
+  <header>
+    <h1 class="post-title">
+    {% if include.link_title %}<a href="{{ post.url | prepend:site.baseurl }}" data-flip="title">{% endif %}
+      {{ post.title }}
+    {% if include.link_title %}</a>{% endif %}
+    </h1>
 
-  {% capture categories_content %}
-    {% include tag-list.html tags=post.categories meta=site.featured_categories start_with="in " separator=" / " %}
-  {% endcapture %}
+    {% capture categories_content %}
+      {% include tag-list.html tags=post.categories meta=site.featured_categories start_with="in " separator=" / " %}
+    {% endcapture %}
 
-  {% capture tags_content %}
-    {% include tag-list.html tags=post.tags meta=site.featured_tags start_with="on " separator=", " %}
-  {% endcapture %}
+    {% capture tags_content %}
+      {% include tag-list.html tags=post.tags meta=site.featured_tags start_with="on " separator=", " %}
+    {% endcapture %}
 
-  <div class="post-date heading">
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%d/%y" }}</time>
-    <span>{{ categories_content }} {{ tags_content }}</span>
-  </div>
+    <p class="post-date heading">
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%d/%y" }}</time>
+      <span>{{ categories_content }} {{ tags_content }}</span>
+    </p>
+  </header>
 
-  {% if post.description %}
-    {% comment %}
-      Adding the "message" class to the last (and usually only) paragraph of the description.
-    {% endcomment %}
-    {% capture desc %}{{ post.description }}{:.message}{% endcapture %}
-    {{ desc | markdownify }}
-  {% endif %}
+  {% include message.html text=post.description %}
 
-  <hr/>
-
-  {{ post.content }}
+  {% unless include.excerpt %}
+    {{ post.content }}
+  {% else %}
+    {{ post.excerpt }}
+    <hr/>
+    <span class="heading" style="color:#9a9a9a">Continue reading <a href="{{ post.url | prepend:site.baseurl }}" data-flip="title">{{ post.title }}</a>.</span>
+  {% endunless %}
 
 </article>

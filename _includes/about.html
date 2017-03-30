@@ -1,4 +1,4 @@
 <aside class="author" role="complementary">
-  <h2>About</h2>
-  {% include about-short.html author=site.data.custom.author %}
+  {% capture heading %}<h2>About</h2>{% endcapture %}
+  {% include about-short.html heading=heading author=site.data.author %}
 </aside>

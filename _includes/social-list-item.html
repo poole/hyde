@@ -1,10 +1,16 @@
 {% assign icon = include.icon %}
+{% assign platform = include.platform | downcase %}
+
 {% unless icon %}
-  {% assign icon = include.platform %}
+  {% assign icon = platform %}
 {% endunless %}
+
+{% assign = data_social = site.data.social[icon] %}
+{% assign icon_class = data_social.icon %}
+
 <li>
   <a href="{{ include.url }}">
-    <span class="icon-{{ icon }}"></span>
-    <span class="sr-only">{{ include.platform }}</span>
+    <span class="icon-{% if icon_class %}{{ icon_class }}{% else %}link{% endif %}" title="{{ data_social.name }}"></span>
+    <span class="sr-only">{{ data_social.name }}</span>
   </a>
 </li>

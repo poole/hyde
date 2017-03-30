@@ -4,13 +4,7 @@ layout: default
 
 <article class="page" role="article">
   <h1 class="page-title">{{ page.title }}</h1>
-
-  {% if page.description %}
-    {% capture desc %}{{ page.description }}{:.message}{% endcapture %}
-    {{ desc | markdownify }}
-  {% endif %}
-
-  <hr/>
+  {% include message.html text=page.description %}
 
   {{ content }}
 </article>

@@ -8,4 +8,14 @@ mark{background:#FF0;color:#000}
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
+  -webkit-tap-highlight-color: transparent;
+}
+
+@media print {
+  a {
+    &::after {
+      content: " (" attr(href) ") ";
+      font-size: smaller;
+    }
+  }
 }

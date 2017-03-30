@@ -7,21 +7,18 @@
 
 .sidebar {
   position: relative;
-  padding: 2rem 1rem;
   color: rgba(255,255,255,.75);
   text-align: left;
-  min-height: 640px; // fallback
-  min-height: 100vh;
-  // margin-left: -0.5rem;
+
+  @media screen {
+    padding: 2rem 1rem;
+    min-height: 640px; // fallback
+    min-height: 100vh;
+  }
 
   /* Sidebar links */
   a {
     color: #fff;
-  }
-
-  ul {
-    list-style: none;
-    padding-left: 0;
   }
 
   &::before {
@@ -36,7 +33,7 @@
     background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
   }
 
-  @media (min-width: $break-point-1) {
+  @media screen and (min-width: $break-point-1) {
     position: fixed;
     top: 0;
     left: 0;
@@ -45,13 +42,13 @@
     margin-left: 0;
   }
 
-  @media (min-width: $break-point-dynamic) {
+  @media screen and (min-width: $break-point-dynamic) {
     width: $dynamic-width;
   }
 }
 
 #_yDrawer.loaded .sidebar {
-  @media (min-width: $break-point-dynamic) {
+  @media screen and (min-width: $break-point-dynamic) {
     width: 100%;
   }
 }
@@ -66,11 +63,15 @@
 }
 
 .sidebar-sticky {
-  position: absolute;
+  position: relative;
   z-index: 3;
-  right:  1rem;
-  bottom: 1rem;
-  left:   1rem;
+
+  @media screen {
+    position: absolute;
+    right:  1rem;
+    bottom: 1rem;
+    left:   1rem;
+  }
 }
 
 /* About section */
@@ -79,8 +80,13 @@
   font-size: 2rem;
 }
 
-.sidebar-nav > ul > li:last-child {
-  border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+.sidebar-nav > ul {
+  list-style: none;
+  padding-left: 0;
+
+  > li:last-child {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.23);
+  }
 }
 
 .sidebar-nav-item {

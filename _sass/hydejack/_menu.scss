@@ -28,4 +28,8 @@
       left: calc(50% - 24.5rem);
     }
   }
+
+  @media print {
+    display: none;
+  }
 }

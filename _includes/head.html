@@ -2,9 +2,12 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1, user-scalable=no">
 
+  <meta name="format-detection" content="telephone=no">
+  <meta http-equiv="x-rim-auto-match" content="none">
+
   {% capture title %}
     {% if page.url == "/" %}
-      {{ site.title }} &middot; {{ site.data.custom.tagline }}
+      {{ site.title }} &middot; {{ site.tagline }}
     {% elsif page.title != null %}
       {{ page.title }} &middot; {{ site.title }}
     {% else %}
@@ -32,11 +35,11 @@
   <noscript>
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/non-essentials-{{ site.version }}.css">
 
-    {% if site.data.custom.load_google_fonts %}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.data.custom.load_google_fonts }}">
+    {% if site.load_google_fonts %}
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.load_google_fonts }}">
     {% endif %}
 
-    {% if site.data.custom.author.social %}
+    {% if site.data.author.social %}
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/icons.css">
     {% endif %}
   </noscript>
@@ -48,6 +51,14 @@
 
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
   <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="{{ site.baseurl }}/atom.xml">
+
+  {% if page.previous %}
+    <link rel="prev" href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
+  {% endif %}
+
+  {% if page.next %}
+    <link rel="next" href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
+  {% endif %}
 
   <script>{% include scripts/load-js-deferred.js %}</script>
 

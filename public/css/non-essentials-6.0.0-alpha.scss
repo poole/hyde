@@ -29,6 +29,7 @@
 @import "hydejack/sidebar";
 @import "hydejack/aside";
 // @import "hydejack/drawer";
+// @import "hydejack/social-essential";
 @import "hydejack/social";
 // @import "hydejack/menu";
 // @import "hydejack/content";
@@ -37,3 +38,7 @@
 
 @import "jekyll-github";
 @import "spinner";
+
+{% if site.mark_external %}
+@import "mark-external";
+{% endif %}

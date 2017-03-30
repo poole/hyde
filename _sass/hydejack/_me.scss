@@ -2,29 +2,28 @@
   float: right;
   width: 6.5rem;
   height: 6.5rem;
-  margin-top: -4.8rem;
+  // margin-top: 1rem;
   margin-left: 1rem;
   border-radius: 100%;
   position: relative;
 }
-@media (min-width: $break-point-font-1) {
+
+@media screen and (min-width: $break-point-font-1) {
   .me {
     width: 7rem;
     height: 7rem;
-    margin-top: -5.05rem;
   }
 }
-@media (min-width: $break-point-1) {
+@media screen and (min-width: $break-point-1) {
   .me {
     width: 6.5rem;
     height: 6.5rem;
-    margin-top: -4.8rem;
+    margin-top: 0;
   }
 }
-@media (min-width: $break-point-font-2) {
+@media screen and (min-width: $break-point-font-2) {
   .me {
     width: 7rem;
     height: 7rem;
-    margin-top: -5.05rem;
   }
 }

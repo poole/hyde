@@ -3,20 +3,20 @@
   <ul>
     <li class="pagination-item older" >
       {% if paginator.next_page %}
-      <a rel="next" href="{{ site.baseurl }}/page-{{paginator.next_page}}/">Older</a>
+        <a rel="next" href="{{ site.baseurl }}{{ paginator.next_page_path }}">Older</a>
       {% else %}
-      <span>Older</span>
+        <span>Older</span>
       {% endif %}
     </li>
     <li class="pagination-item newer" >
       {% if paginator.previous_page %}
         {% if paginator.page == 2 %}
-        <a rel="prev" href="{{ site.baseurl }}/">Newer</a>
+          <a rel="prev" href="{{ site.baseurl }}/">Newer</a>
         {% else %}
-        <a rel="prev" href="{{ site.baseurl }}/page-{{paginator.previous_page}}/">Newer</a>
+          <a rel="prev" href="{{ site.baseurl }}{{ paginator.previous_page_path }}">Newer</a>
         {% endif %}
       {% else %}
-      <span>Newer</span>
+        <span>Newer</span>
       {% endif %}
     </li>
   </ul>

@@ -1,0 +1,163 @@
+---
+  email:
+    name: Email
+    icon: envelop
+  amazon:
+    name: Amazon
+    icon: amazon
+  google:
+    name: Google
+    icon: google
+  google-plus:
+    name: Google+
+    icon: google-plus
+  google-drive:
+    name: Google Drive
+    icon: google-drive
+  facebook:
+    name: Facebook
+    icon: facebook
+  instagram:
+    name: Instagram
+    icon: instagram
+  whatsapp:
+    name: WhatsApp
+    icon: whatsapp
+  spotify:
+    name: Spotify
+    icon: spotify
+  telegram:
+    name: Telegram
+    icon: telegram
+  twitter:
+    name: Twitter
+    icon: twitter
+  vine:
+    name: Vine
+    icon: vine
+  vk:
+    name: VK
+    icon: vk
+  renren:
+    name: 人人网
+    icon: renren
+  sina-weibo:
+    name: Sina Weibo
+    icon: sina-weibo
+  rss:
+    name: RSS
+    icon: rss
+  youtube:
+    name: YouTube
+    icon: youtube
+  twitch:
+    name: Twitch
+    icon: twitch
+  vimeo:
+    name: Vimeo
+    icon: vimeo
+  lanyrd:
+    name: Lanyrd
+    icon: lanyrd
+  flickr:
+    name: Flickr
+    icon: flickr2
+  dribbble:
+    name: Dribbble
+    icon: dribbble
+  behance:
+    name: Behance
+    icon: behance
+  deviantart:
+    name: DeviantArt
+    icon: deviantart
+  500px:
+    name: 500px
+    icon: 500px
+  steam:
+    name: Steam
+    icon: steam
+  dropbox:
+    name: Dropbox
+    icon: dropbox
+  ondrive:
+    name: OneDrive
+    icon: ondrive
+  github:
+    name: GitHub
+    icon: github
+  npm:
+    name: npm
+    icon: npm
+  basecamp:
+    name: Basecamp
+    icon: basecamp
+  trello:
+    name: Trello
+    icon: trello
+  wordpress:
+    name: WordPress
+    icon: wordpress
+  joomla:
+    name: Joomla!
+    icon: joomla
+  ello:
+    name: Ello
+    icon: ello
+  blogger:
+    name: Blogger
+    icon: blogger
+  tumblr:
+    name: Tumblr
+    icon: tumblr
+  yahoo:
+    name: Yahoo
+    icon: yahoo
+  soundcloud:
+    name: SoundCloud
+    icon: soundcloud
+  skype:
+    name: Skype
+    icon: skype
+  reddit:
+    name: reddit
+    icon: reddit
+  hackernews:
+    name: Hacker News
+    icon: hackernews
+  wikipedia:
+    name: Wikipedia
+    icon  : wikipedia
+  linkedin:
+    name: LinkedIn
+    icon  : linkedin2
+  lastfm:
+    name: Last.fm
+    icon: lastfm
+  delicious:
+    name: Delicious
+    icon: delicious
+  stumbleupon:
+    name: StumbleUpon
+    icon: stumbleupon
+  stackoverflow:
+    name: Stack Overflow
+    icon: stackoverflow
+  pinterest:
+    name: Pinterest
+    icon: pinterest2
+  xing:
+    name: XING
+    icon: xing2
+  flattr:
+    name: Flattr
+    icon: flattr
+  foursquare:
+    name: Foursquare
+    icon: foursquare
+  yelp:
+    name: Yelp
+    icon: yelp
+  paypal:
+    name: PayPal
+    icon: paypal

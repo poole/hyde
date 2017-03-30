@@ -1,5 +1,5 @@
-{% assign color = custom.color %}
-{% assign image = custom.image %}
+{% assign color = site.color %}
+{% assign image = site.image %}
 
 {% if page.categories.size > 0 %}
   {% assign category_name = page.categories.first %}
@@ -18,11 +18,11 @@
 
 <style id="_pageStyle">
   html {
-    font-family: {{ custom.font }};
+    font-family: {{ site.font }};
   }
 
-  h1, h2, h3, h4, h5, h6, .heading {
-    font-family: {{ custom.font_heading }};
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
+    font-family: {{ site.font_heading }};
   }
 
   .content a {

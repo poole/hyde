@@ -4,17 +4,21 @@
     <header class="container sidebar-sticky" role="banner">
       <div class="sidebar-about">
         <h1><a id="_title" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
-        {{ site.data.custom.description | markdownify }}
+        {{ site.description | markdownify }}
       </div>
 
       <nav class="sidebar-nav heading" role="navigation">
         {% include nav.html %}
       </nav>
 
-      {% if site.data.custom.author.social %}
+      {% if site.data.author.social %}
         <div class="sidebar-social">
-          {% include social.html social=site.data.custom.author.social %}
+          {% include social.html social=site.data.author.social %}
         </div>
+      {% endif %}
+
+      {% if site.copyright %}
+        <p style="color:rgba(255,255,255,0.375);">{{ site.copyright }}</p>
       {% endif %}
     </header>
   </div>

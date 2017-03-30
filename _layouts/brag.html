@@ -15,19 +15,16 @@ layout: default
 {% endif %}
 
 {% if title != null %}
-<h1 class="page-title">{{ title }}</h1>
+  {% capture heading %}<h1 class="page-title">{{ title }}</h1>{% endcapture %}
+  {% include about-short.html heading=heading author=site.data.author %}
 
-{% if description %}
-  {% capture desc %}{{ description }}{:.message}{% endcapture %}
-  {{ desc | markdownify }}
+  {% if description %}
+    {% capture desc %}{{ description }}{:.message}{% endcapture %}
+    {{ desc | markdownify }}
+  {% endif %}
 {% endif %}
 
-<hr/>
-{% endif %}
-
-{% include about-short.html author=site.data.custom.author %}
-
-<br/>
+{{ content }}
 
 <!--[if gt IE 8]><!---->
 <style>
@@ -38,7 +35,7 @@ layout: default
 </style>
 <!--<![endif]-->
 
-<h1>Projects</h1>
+<h2>Projects</h2>
 {% assign ordered_projects = site.projects | sort:"date" | reverse %}
 <div class="projects">
 {% for project in ordered_projects limit:2 %}
@@ -48,12 +45,12 @@ layout: default
 
 <br/>
 
-<h1>Blog</h1>
+<h2>Blog</h2>
 {% for post in posts %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
     {% unless forloop.first %}</ul><hr/>{% endunless %}
-    <h2 3d="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
+    <h3 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h3>
     <ul class="related-posts">
     {% assign date = currentdate %}
   {% endif %}

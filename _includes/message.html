@@ -1,0 +1,9 @@
+{% if include.text %}
+  {% capture desc %}
+{{ include.text | strip_newlines }}
+{:.message}
+  {% endcapture %}
+  {{ desc | markdownify }}
+{% else %}
+  <hr/>
+{% endif %}

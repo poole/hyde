@@ -1,0 +1,61 @@
+---
+  # About yourself
+  name:              Florian Klampfer
+  email:             f.klampfer@gmail.com
+
+  # This photo will be used in the about section
+  picture:
+    src: //qwtel.com/public/img/flo.jpg
+    # srcset is optional, but can be used to provide higher res versions for retina displays
+    srcset:
+      1x: //qwtel.com/public/img/flo.jpg
+      2x: //qwtel.com/public/img/flo@2x.jpg
+
+  # Used at the bottom of each page and at the top of the `about` layout
+  # Markdown enabled, can use multiple paragraphs (enabled by `|`)
+  about:             |
+    Hi, I'm Florian or [`@qwtel`](https://www.twitter.com/qwtel){:rel="me"}, which isn't an acronym,
+    I just [wanted a short username](https://qwtel.com/how-to-find-a-short-username) and that one happened to be available.
+
+    Read my thoughts on [#software](https://qwtel.com/tag/software) and [#cryptoeconomics](https://qwtel.com/tag/cryptoeconomics).
+
+  # Social media icons in sidebar
+  # Comment/uncommet to show/hide
+  # Icons appear in order, can be rearranged:
+  social:
+    # facebook:        _username_
+    twitter:         qwtel
+    # google:          _number_
+    # vk:              _username_
+    youtube:         UCu0PYX_kVANdmgIZ4bw6_kA
+    # vimeo:           _username_
+    # vine:            _username_
+    # spotify:         user/_number_
+    # soundcloud:      _username_
+    # lastfm:          _username_
+    # instagram:       _username_
+    # flickr:          _string_@_string_
+    # 500px:           _username_
+    # dribbble:        _username_
+    # behance:         _username_
+    # deviantart:      _username_
+    # ello:            _username_
+    # twitch:          _username_
+    # steam:           _number_
+    # reddit:          _username_
+    # tumblr:          _username_
+    # pinterest:       _username_
+    # foursquare:      _number_
+    # yelp:            _string_
+    github:          qwtel
+    # stackoverflow:   _number_/_username_
+    # npm:             _username_
+    # hackernews:      _username_
+    # trello:          _firstname__lastname_
+    # linkedin:        _firstname_-_lastname_-_string_
+    # xing:            _firstname___lastname__counter_
+    # blogger:         _number_
+    # delicious:       _username_
+    # stumbleupon:     _username_
+    # paypal:          _username_
+    # rss:             //qwtel.com/atom.xml

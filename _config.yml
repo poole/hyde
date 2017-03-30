@@ -1,13 +1,50 @@
 # Setup
 title:               Hydejack
 
+# A short description for the page title (browser tab)
+tagline:             A pretentious two-column Jekyll theme.
+
+# The unique resource location of your page.
+# Set to `https://<username>.github.io` when hosting on GitHub pages (and not using custom domains!)
 url:                 https://qwtel.com
 
 # Set to '' when hosting a blog on GitHub pages, like `//<username>.github.io`
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             /hydejack
 
-# Dependencies
+# A longer description of the page, used in the sidebar, and as fallback for the meta description tag.
+# Markdown enabled, however don't use more than one paragraph (enforced by `>`)
+description:         >
+  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by
+  [`@qwtel`{:style="background: rgba(255, 255, 255, 0.15)" rel="me"}](https://twitter.com/qwtel) from
+  [Hyde](http://hyde.getpoole.com).
+  You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
+
+copyright:           '&copy; 2017 Florian Klampfer'
+
+# Fallback image and color if not overwritten for tag or post
+image:               /hydejack/public/img/nap.jpg
+color:               '#A85641'
+
+# Fonts
+font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
+font:                "'Noto Serif', serif"
+load_google_fonts:   Roboto+Slab:700|Noto+Serif:400,400i,700,700i
+
+# Remove to disable Google Anaylics
+google_analytics_id: UA-84025722-2
+
+# Setting a disqus subdomain will enable the comment section
+# disqus:            <username>
+
+# Set to true when building locally with the `--lsi` option
+# See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`
+use_lsi:             false
+
+# Set to true if you want to show an icon after every link that points to an external site
+mark_external:       true
+
+# Hydejack configuration
 gems:
   - jekyll-sitemap
   - jekyll-paginate
@@ -28,7 +65,7 @@ collections:
     permalink:       /projects/:path/
     output:          true
 
-exclude:             [node_modules, package.json, README.md, LICENSE.md]
+exclude:             [node_modules, package.json, resume.json, README.md]
 
 kramdown:
   math_engine:       mathjax

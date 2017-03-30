@@ -1,4 +1,0 @@
----
-layout: resume
-title: CV
----

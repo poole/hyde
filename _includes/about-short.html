@@ -1,18 +1,8 @@
-{% if include.author.photo %}
-  {% if include.author.photo2x %}
-  <img
-    class="me"
-    alt="{{ include.author.name }}"
-    src="{{ include.author.photo }}"
-    srcset="{{ include.author.photo2x }} 2x"
-    />
-  {% else %}
-  <img
-    class="me"
-    alt="{{ include.author.name }}"
-    src="{{ include.author.photo }}"
-    />
-  {% endif %}
+{% if include.author.picture != null %}
+  {% include srcset-img.html class="me" img=include.author.picture alt=include.author.name %}
 {% endif %}
+
+{{ include.heading }}
+<hr/>
 
 {{ include.author.about | markdownify }}
