@@ -1,3 +1,6 @@
+// Copyright (c) 2017 Florian Klampfer
+// Licensed under MIT
+
 import 'core-js/fn/array/for-each';
 import 'core-js/fn/array/find';
 import 'core-js/fn/function/bind';

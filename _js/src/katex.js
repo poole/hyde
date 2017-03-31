@@ -1,3 +1,6 @@
+// Copyright (c) 2017 Florian Klampfer
+// Licensed under MIT
+
 /* eslint-disable no-param-reassign */
 
 import { loadCSS } from 'fg-loadcss/src/loadCSS';

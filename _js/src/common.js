@@ -1,3 +1,6 @@
+// Copyright (c) 2017 Florian Klampfer
+// Licensed under MIT
+
 import { Observable } from 'rxjs/Observable';
 
 import '../lib/modernizr';

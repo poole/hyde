@@ -1,3 +1,6 @@
+// Copyright (c) 2017 Florian Klampfer
+// Licensed under MIT
+
 import { loadCSS } from 'fg-loadcss/src/loadCSS';
 
 function hasPreloadSupport() {
