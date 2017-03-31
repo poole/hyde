@@ -5,6 +5,7 @@
   padding-left: 0;
   > li {
     display: inline-block;
+
     > a::after {
       display: none;
     }

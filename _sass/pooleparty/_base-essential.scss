@@ -2,6 +2,9 @@
 //
 // Update the foundational and global aspects of the page.
 
+article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
+mark{background:#FF0;color:#000}
+
 * {
   box-sizing: border-box;
 }

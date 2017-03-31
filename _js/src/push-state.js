@@ -24,6 +24,7 @@ import { takeUntil } from 'rxjs/operator/takeUntil';
 import { zipProto as zipWith } from 'rxjs/operator/zip';
 
 import PushState from 'y-push-state/src/vanilla';
+import elemDataset from 'elem-dataset';
 
 import { hasFeatures, animate } from './common';
 import CrossFader from './cross-fader';
@@ -42,7 +43,6 @@ const REQUIREMENTS = [
   'history',
   'opacity',
   'cssanimations',
-  'dataset',
 ];
 
 const DURATION = 250;
@@ -125,11 +125,13 @@ if (hasFeatures(REQUIREMENTS)) {
     ::switchMap(([detail]) => {
       const { event: { currentTarget } } = detail;
 
-      const flip = Flip.create(currentTarget.dataset && currentTarget.dataset.flip, {
-        shadowMain,
-        currentTarget,
-        duration: DURATION,
-      });
+      const flip = Flip.create(
+        currentTarget.getAttribute &&
+        currentTarget.getAttribute('data-flip'), {
+          shadowMain,
+          currentTarget,
+          duration: DURATION,
+        });
 
       // HACK: This assumes knowledge of the internal rx pipeline.
       // Could possibly be replaced with `withLatestFrom` shinanigans,
@@ -182,7 +184,8 @@ if (hasFeatures(REQUIREMENTS)) {
     .subscribe();
 
   ready$
-    ::switchMap(({ content: [main] }) => crossFader.fetchImage(main.dataset)::takeUntil(start$))
+    ::switchMap(({ content: [main] }) =>
+      crossFader.fetchImage(elemDataset(main))::takeUntil(start$))
     ::startWith(document.querySelector('.sidebar-bg'))
     ::pairwise()
     ::mergeMap(::crossFader.crossFade)

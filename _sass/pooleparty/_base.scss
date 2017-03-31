@@ -2,9 +2,6 @@
 //
 // Update the foundational and global aspects of the page.
 
-article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block}
-mark{background:#FF0;color:#000}
-
 * {
   -webkit-box-sizing: border-box;
      -moz-box-sizing: border-box;
@@ -12,10 +9,8 @@ mark{background:#FF0;color:#000}
 }
 
 @media print {
-  a {
-    &::after {
-      content: " (" attr(href) ") ";
-      font-size: smaller;
-    }
+  a::after {
+    content: " (" attr(href) ") ";
+    font-size: smaller;
   }
 }

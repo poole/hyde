@@ -6,20 +6,14 @@
  */
 
 .sidebar {
-  position: relative;
+  // position: absolute;
+  // top: 0;
+  // left: 0;
+  // bottom: 0;
+  // right: 0;
+
   color: rgba(255,255,255,.75);
   text-align: left;
-
-  @media screen {
-    padding: 2rem 1rem;
-    min-height: 640px; // fallback
-    min-height: 100vh;
-  }
-
-  /* Sidebar links */
-  a {
-    color: #fff;
-  }
 
   &::before {
     /* make sidebar slightly darker to increase text readability (when using a background image) */
@@ -30,7 +24,22 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,.5) 100%);
+    background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+  }
+
+  /* Sidebar links */
+  a {
+    color: #fff;
+  }
+}
+
+#_yDrawer {
+  position: relative;
+
+  @media screen {
+    padding: 2rem 1rem;
+    min-height: 640px; // fallback
+    min-height: 100vh;
   }
 
   @media screen and (min-width: $break-point-1) {
@@ -45,13 +54,12 @@
   @media screen and (min-width: $break-point-dynamic) {
     width: $dynamic-width;
   }
-}
 
-#_yDrawer.loaded .sidebar {
-  @media screen and (min-width: $break-point-dynamic) {
-    width: 100%;
+  &.loaded {
+    min-height: 0;
   }
 }
+
 
 .sidebar-bg {
   position: absolute;
