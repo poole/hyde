@@ -7,12 +7,14 @@
 
 @mixin aspect-ratio($width, $height) {
   position: relative;
-  &:before {
+
+  &::before {
     display: block;
     content: "";
     width: 100%;
     padding-top: ($height / $width) * 100%;
   }
+
   > * {
     position: absolute;
     top: 0;
@@ -20,4 +22,14 @@
     right: 0;
     bottom: 0;
   }
+}
+
+@mixin clearfix() {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.clearfix {
+  @include clearfix();
 }

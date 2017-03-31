@@ -37,13 +37,25 @@ layout: default
 
 <h2>Projects</h2>
 {% assign ordered_projects = site.projects | sort:"date" | reverse %}
-<div class="projects">
+{% assign is_newline = true %}
 {% for project in ordered_projects limit:2 %}
-  {% include project-card.html project=project %}
-{% endfor %}
-</div>
+  {% if is_newline %}<div class="grid">{% endif %}
 
-<br/>
+  <div class="col-1-2">{% include project-card.html project = project %}</div>
+
+  {% unless is_newline %}</div>{% endunless %}
+
+  {% if forloop.last %}
+    {% if is_newline %}</div>{% endif %}
+  {% endif %}
+
+  {% if is_newline %}
+    {% assign is_newline = false %}
+  {% else %}
+    {% assign is_newline = true %}
+  {% endif %}
+{% endfor %}
+
 
 <h2>Blog</h2>
 {% for post in posts %}
