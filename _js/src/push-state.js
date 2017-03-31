@@ -64,7 +64,6 @@ if (hasFeatures(REQUIREMENTS)) {
   const crossFader = new CrossFader({ duration: FADE_DURATION });
 
   const pushState = document.getElementById('_yPushState');
-  const loading = document.getElementById('_loading');
 
   const shadowMain = document.createElement('div');
   shadowMain.classList.add('shadow-main');
@@ -73,6 +72,19 @@ if (hasFeatures(REQUIREMENTS)) {
       <div class="page"></div>
     </div>`;
   pushState.parentNode.insertBefore(shadowMain, pushState);
+
+  const loading = document.createElement('div');
+  loading.classList.add('loading');
+  loading.innerHTML = `
+    <span class="sr-only">Loading...</span>
+    <div class="sk-folding-cube">
+      <div class="sk-cube1 sk-cube"></div>
+      <div class="sk-cube2 sk-cube"></div>
+      <div class="sk-cube4 sk-cube"></div>
+      <div class="sk-cube3 sk-cube"></div>
+    </div>
+  `;
+  pushState.parentNode.insertBefore(loading, pushState);
 
   const start$ = Observable::fromEvent(pushState, 'y-push-state-start')
     ::map(({ detail }) => detail)
