@@ -1,4 +1,12 @@
-<aside class="author" role="complementary">
-  {% capture heading %}<h2>About</h2>{% endcapture %}
-  {% include about-short.html heading=heading author=site.data.author %}
-</aside>
+{% if page.author %}
+  {% assign author = site.data.authors[page.author] %}
+{% elsif site.author.authors_key %}
+  {% assign author = site.data.authors[site.author.authors_key] %}
+{% endif %}
+
+{% if author.about %}
+  <aside class="author" role="complementary">
+    {% capture heading %}<h2>About</h2>{% endcapture %}
+    {% include about-short.html heading=heading author=author %}
+  </aside>
+{% endif %}

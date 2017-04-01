@@ -4,9 +4,7 @@ layout: default
 
 {% include post.html post=page link_title=false %}
 
-{% if site.data.author.about %}
-  {% include about.html author=site.data.author %}
-{% endif %}
+{% include about.html %}
 
 {% include related.html post=page %}
 

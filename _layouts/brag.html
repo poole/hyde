@@ -16,7 +16,8 @@ layout: default
 
 {% if title != null %}
   {% capture heading %}<h1 class="page-title">{{ title }}</h1>{% endcapture %}
-  {% include about-short.html heading=heading author=site.data.author %}
+  {% assign author = site.data.authors[site.author.authors_key] %}
+  {% include about-short.html heading=heading author=author %}
 
   {% if description %}
     {% capture desc %}{{ description }}{:.message}{% endcapture %}

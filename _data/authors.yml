@@ -1,7 +1,6 @@
----
-  # About yourself
-  name:              Florian Klampfer
-  email:             f.klampfer@gmail.com
+me:
+  name: Florian Klampfer
+  email: f.klampfer@gmail.com
 
   # This photo will be used in the about section
   picture:
@@ -23,6 +22,7 @@
   # Comment/uncommet to show/hide
   # Icons appear in order, can be rearranged:
   social:
+    # email:           mailto:f.klampfer@gmail.com
     # facebook:        _username_
     twitter:         qwtel
     # google:          _number_
@@ -58,4 +58,12 @@
     # delicious:       _username_
     # stumbleupon:     _username_
     # paypal:          _username_
-    # rss:             //qwtel.com/atom.xml
+    # rss:             //qwtel.com/feed.xml
+
+mdo:
+  name: Mark Otto
+  picture: https://pbs.twimg.com/profile_images/630796572691804161/kYW5TxUR.jpg
+  about: |
+    Mark Otto is the designer of the original [Hyde template](http://hyde.getpoole.com) and author of this blog post.
+    It's included here to showcase the multi-author feature,
+    and to make it seem as if he had anything to do with *this template*, except he totally DOES NOT!

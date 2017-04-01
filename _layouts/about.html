@@ -2,10 +2,14 @@
 layout: default
 ---
 
-{% assign author = site.data.author %}
+{% if page.author %}
+  {% assign author = site.data.authors[page.author] %}
+{% elsif site.author.authors_key %}
+  {% assign author = site.data.authors[site.author.authors_key] %}
+{% endif %}
 
 <article class="page" role="article">
-  {% if author.picture != null %}
+  {% if author.picture %}
     {% include srcset-img.html class="me" img=author.picture alt=author.name %}
   {% endif %}
 

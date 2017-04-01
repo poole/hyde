@@ -1,13 +1,21 @@
-{% capture srcset %}
+{% if include.img.src or include.img.srcset %}
   {% if include.img.srcset %}
-    {% for hash in include.img.srcset %}{{ hash[1]}} {{ hash[0] }}{% unless forloop.last %},{% endunless %}{% endfor %}
+    {% capture srcset %}
+      {% for hash in include.img.srcset %}{{ hash[1]}} {{ hash[0] }}{% unless forloop.last %},{% endunless %}{% endfor %}
+    {% endcapture %}
   {% endif %}
-{% endcapture %}
 
-<img
-  class="{{ include.class }}"
-  alt="{{ include.alt }}"
-  src="{{ include.img.src }}"
-  srcset="{{ srcset | strip }}"
-  sizes="{{ include.sizes }}"
-/>
+  <img
+    class="{{ include.class }}"
+    alt="{{ include.alt }}"
+    src="{{ include.img.src }}"
+    srcset="{{ srcset | strip }}"
+    sizes="{{ include.sizes }}"
+  />
+{% else %}
+  <img
+    class="{{ include.class }}"
+    alt="{{ include.alt }}"
+    src="{{ include.img }}"
+  />
+{% endif %}

@@ -4,6 +4,7 @@ title: 'v6: JavaScripten'
 tags: [hyde]
 description: >
   This release adds a layer of JavaScript that effectively turns the template into a singe page app*.
+author: me
 ---
 
 The last release made the template fast in the eyes of Google, but not so much in the eyes of your redaders.

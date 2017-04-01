@@ -11,9 +11,10 @@
         {% include nav.html %}
       </nav>
 
-      {% if site.data.author.social %}
+      {% assign author = site.data.authors[site.author.authors_key] %}
+      {% if author.social %}
         <div class="sidebar-social">
-          {% include social.html social=site.data.author.social %}
+          {% include social.html social=author.social %}
         </div>
       {% endif %}
 

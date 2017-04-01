@@ -20,7 +20,11 @@ description:         >
   [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
-copyright:           '&copy; 2017 Florian Klampfer'
+# See also: `_data/authors.yml`
+author:
+  name: Florian Klampfer
+  email: f.klampfer@gmail.com
+  authors_key: me
 
 # Fallback image and color if not overwritten for tag or post
 image:               /hydejack/public/img/nap.jpg
@@ -30,6 +34,8 @@ color:               '#A85641'
 font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
 font:                "'Noto Serif', serif"
 load_google_fonts:   Roboto+Slab:700|Noto+Serif:400,400i,700,700i
+
+copyright:           '&copy; 2017 Florian Klampfer'
 
 # Remove to disable Google Anaylics
 google_analytics_id: UA-84025722-2
@@ -44,8 +50,11 @@ use_lsi:             false
 # Set to true if you want to show an icon after every link that points to an external site
 mark_external:       true
 
+# ======================
 # Hydejack configuration
+# ======================
 gems:
+  - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
 
@@ -84,3 +93,9 @@ sass:
   style:             compressed
 
 version:             6.0.0-alpha
+
+# If you are updating form a previous verison of Hydejack, uncomment this line below,
+# so that existing subscribers to your feed continue to receive updates.
+
+# feed:
+#   path: atom.xml

@@ -4,7 +4,6 @@
 
 <!--[if gt IE 8]><!---->
 <!-- Web fonts -->
-{% if site.load_google_fonts or site.data.author.social %}
 <script>
   WebFontConfig = {
     {% if site.load_google_fonts %}
@@ -13,19 +12,16 @@
     },
     {% endif %}
 
-    {% if site.data.author.social %}
     custom: {
       families: ['icomoon'],
       urls: ['{{ site.baseurl }}/public/css/icons.css']
     },
-    {% endif %}
 
     classes: false,
     events: false
   };
   loadJSDeferred('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 </script>
-{% endif %}
 
 <!-- Google Analytics -->
 {% if site.google_analytics_id %}
