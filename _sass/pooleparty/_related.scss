@@ -9,7 +9,7 @@
   padding-left: 0;
   list-style: none;
 
-  > li {
+  > li, > li + li {
     margin-top: 1rem;
     > small {
       font-size: 75%;
