@@ -11,7 +11,7 @@ Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a pro
 
 Poole is the Jekyll Butler, serving as an upstanding and effective foundation for Jekyll themes by [`@mdo`](https://twitter.com/mdo). Poole, and every theme built on it (like Hyde here) includes the following:
 
-* Complete Jekyll setup included (layouts, config, [404]({{ site.baseurl }}/404), [RSS feed]({{ site.baseurl }}/atom.xml){:.no-push-state}, posts, and [example page]({{ site.baseurl }}/about))
+* Complete Jekyll setup included (layouts, config, [404]({{ site.baseurl }}/404), [RSS feed]({{ site.baseurl }}/feed.xml){:.no-push-state}, posts, and [example page]({{ site.baseurl }}/about))
 * Mobile friendly design and development
 * Easily scalable text and component sizing with `rem` units in the CSS
 * Support for a wide gamut of HTML elements

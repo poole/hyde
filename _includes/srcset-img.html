@@ -3,6 +3,8 @@
     {% capture srcset %}
       {% for hash in include.img.srcset %}{{ hash[1]}} {{ hash[0] }}{% unless forloop.last %},{% endunless %}{% endfor %}
     {% endcapture %}
+  {% else %}
+    {% assign srcset = '' %}
   {% endif %}
 
   <img

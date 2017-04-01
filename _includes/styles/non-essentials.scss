@@ -1,8 +1,3 @@
----
-# this ensures Jekyll reads the file to be transformed into CSS later
-# only Main files contain this front matter, not partials.
----
-
 @import "pooleparty/variables";
 @import "pooleparty/mixins";
 
@@ -35,10 +30,11 @@
 // @import "hydejack/content";
 // @import "hydejack/me";
 @import "hydejack/katex";
+@import "hydejack/footer";
 
 @import "jekyll-github";
 @import "spinner";
 
 {% if site.mark_external %}
-@import "mark-external";
+  @import "mark-external";
 {% endif %}

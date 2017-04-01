@@ -1,4 +1,6 @@
-;(function(w, d) {
+// Compress via uglify:
+// uglifyjs load-js-deferred.js -c -m > load-js-deferred.min.js
+(function(w, d) {
   function stdOnEnd(script, cb) {
     script.onload = function () {
       this.onerror = this.onload = null;

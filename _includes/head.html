@@ -58,7 +58,10 @@
     <link rel="next" href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
   {% endif %}
 
-  <script>{% include scripts/load-js-deferred.js %}</script>
+  <script>
+    window._version = '{{ site.version }}';
+    {% include scripts/load-js-deferred.min.js %}
+  </script>
 
   <!--[if lt IE 9]>
   <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>

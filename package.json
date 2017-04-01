@@ -1,11 +1,11 @@
 {
   "name": "hydejack",
   "version": "6.0.0-alpha",
-  "description": "",
+  "description": "Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).",
   "scripts": {
     "clean": "rm -f public/js/hydejack.js & rm -f public/js/hydejack.min.js",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "build": "cross-env NODE_ENV=production browserify _js/src/index.js -g babelify | uglifyjs -c -m -o public/js/hydejack-$npm_package_version.js",
+    "build": "cat .header.js > public/js/hydejack-$npm_package_version.js; cross-env NODE_ENV=production browserify _js/src/index.js -g babelify | uglifyjs -c -m >> public/js/hydejack-$npm_package_version.js",
     "watch": "watchify -d _js/src/index.js -g babelify -o public/js/hydejack-$npm_package_version.js",
     "lint": "eslint _js/src",
     "dev": "npm run watch",
@@ -42,5 +42,13 @@
     "web-animations-js": "2.2.2",
     "y-drawer": "^5.0.0",
     "y-push-state": "^5.0.0"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/qwtel/hydejack.git"
+  },
+  "bugs": {
+    "url": "https://github.com/qwtel/hydejack/issues"
+  },
+  "homepage": "https://github.com/qwtel/hydejack#readme"
 }

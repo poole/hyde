@@ -8,5 +8,8 @@
   <aside class="author" role="complementary">
     {% capture heading %}<h2>About</h2>{% endcapture %}
     {% include about-short.html heading=heading author=author %}
+    <div class="sidebar-social">
+      {% include social.html social=author.social %}
+    </div>
   </aside>
 {% endif %}

@@ -28,5 +28,5 @@ layout: default
     {% assign date = currentdate %}
   {% endif %}
   {% include post-list-item.html post=post format="%m/%d" %}
-  {% if forloop.last %}</ul><hr/>{% endif %}
+  {% if forloop.last %}</ul>{% endif %}
 {% endfor %}

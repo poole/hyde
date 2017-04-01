@@ -74,7 +74,7 @@ collections:
     permalink:       /projects/:path/
     output:          true
 
-exclude:             [node_modules, package.json, resume.json, README.md]
+exclude:             [node_modules, README.md, package.json, resume.json, header.js]
 
 kramdown:
   math_engine:       mathjax

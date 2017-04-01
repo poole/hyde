@@ -1,27 +1,23 @@
 ---
 layout: compress
-author: me
 ---
 
-<!DOCTYPE html>
-<html lang="en">
+{% include head.html %}
 
-  {% include head.html %}
+<body>
+  {% include menu.html %}
 
-  <body>
-    {% include menu.html %}
+  <div id="_yPushState">
+    <main id="_main" class="content container" role="main"
+        data-color="{{ color | escape }}"
+        data-image="{{ image | escape }}"
+        data-font="{{ site.font | escape }}"
+        data-font-heading="{{ site.font_heading | escape }}">
+      {{ content }}
+      {% include footer.html %}
+    </main>
+    {% include sidebar.html %}
+  </div>
 
-    <div id="_yPushState">
-      <main id="_main" class="content container" role="main"
-          data-color="{{ color | escape }}"
-          data-image="{{ image | escape }}"
-          data-font="{{ site.font | escape }}"
-          data-font-heading="{{ site.font_heading | escape }}">
-        {{ content }}
-      </main>
-      {% include sidebar.html %}
-    </div>
-
-    {% include scripts.html %}
-  </body>
-</html>
+  {% include scripts.html %}
+</body>

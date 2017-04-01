@@ -12,6 +12,7 @@ body, main {
 
 @media screen {
   main {
+    min-height: 100vh;
     border-left: 0.5rem solid #ddd;
   }
 }

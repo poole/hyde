@@ -30,8 +30,9 @@
   }
 
   // Only provide a hover state for linked pagination items
-  > a:hover {
+  > a:hover, a:focus {
     background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
   }
 }
 
