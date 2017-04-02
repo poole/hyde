@@ -1,9 +1,6 @@
 # Setup
 title:               Hydejack
 
-# A short description for the page title (browser tab)
-tagline:             A pretentious two-column Jekyll theme.
-
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub pages (and not using custom domains!)
 url:                 https://qwtel.com
@@ -11,6 +8,9 @@ url:                 https://qwtel.com
 # Set to '' when hosting a blog on GitHub pages, like `//<username>.github.io`
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             /hydejack
+
+# A short description for the page title (browser tab)
+tagline:             A pretentious two-column Jekyll theme.
 
 # A longer description of the page, used in the sidebar, and as fallback for the meta description tag.
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
