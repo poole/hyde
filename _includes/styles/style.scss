@@ -36,3 +36,13 @@
 {% if site.mark_external %}
   @import "mark-external";
 {% endif %}
+
+{% if site.load_google_fonts %}
+  {% assign font = site.font | split:',' | first %}
+  {% assign font_heading = site.font_heading | split:',' | first %}
+
+  .wf-active {
+    font-family: {{ font }};
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading }}; }
+  }
+{% endif %}

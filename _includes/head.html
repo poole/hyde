@@ -36,19 +36,23 @@
     {{ include_to_scssify | scssify }}
   </style>
 
+  <link rel="preload" href="{{ site.baseurl }}/public/css/hydejack-{{ site.version }}.css" as="style" onload="this.rel='stylesheet'">
+
+  {% include page-style.html %}
+
   <noscript>
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/hydejack-{{ site.version }}.css">
 
     {% if site.load_google_fonts %}
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.load_google_fonts }}">
+      <style>
+        html { font-family: {{ site.font }} }
+        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ site.font_heading }} }
+      </style>
     {% endif %}
 
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/icons.css">
   </noscript>
-
-  <link rel="preload" href="{{ site.baseurl }}/public/css/hydejack-{{ site.version }}.css" as="style" onload="this.rel='stylesheet'">
-
-  {% include page-style.html %}
   <!--<![endif]-->
 
   <!-- =============== -->

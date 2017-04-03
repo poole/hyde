@@ -24,12 +24,10 @@ import { animate } from './common';
 
 const { find } = Array.prototype;
 
-function updateStyle({ font = 'serif', fontHeading = 'sans-serif', color = '#00f' } = {}) {
-  this.rules[0].style.fontFamily = font; // html
-  this.rules[1].style.fontFamily = fontHeading; // h1, h2, h3, h4, h5, h6, .heading
-  this.rules[2].style.color = color; // .content a
-  this.rules[3].style.outlineColor = color; // :focus
-  this.rules[4].style.backgroundColor = color; // ::selection
+function updateStyle({ color = '#00f' } = {}) {
+  this.rules[0].style.color = color; // .content a
+  this.rules[1].style.outlineColor = color; // :focus
+  this.rules[2].style.backgroundColor = color; // ::selection
 }
 
 export default class CrossFader {
