@@ -1,9 +1,9 @@
 // Copyright (c) 2017 Florian Klampfer
 // Licensed under MIT
 
-import { Observable } from 'rxjs/Observable';
+/* eslint-disable no-param-reassign */
 
-import '../lib/modernizr';
+import { Observable } from 'rxjs/Observable';
 
 export function hasFeatures(features) {
   let acc = true;
@@ -17,39 +17,21 @@ export function hasFeatures(features) {
 }
 
 export function show(el) {
-  el.style.display = 'block'; // eslint-disable-line no-param-reassign
-  el.style.visibility = 'visible'; // eslint-disable-line no-param-reassign
+  el.style.display = 'block';
+  el.style.visibility = 'visible';
 }
 
 export function hide(el) {
-  el.style.display = 'none'; // eslint-disable-line no-param-reassign
-  el.style.visibility = 'hidden'; // eslint-disable-line no-param-reassign
+  el.style.display = 'none';
+  el.style.visibility = 'hidden';
 }
 
 export function unshow(el) {
-  el.style.display = ''; // eslint-disable-line no-param-reassign
-  el.style.visibility = ''; // eslint-disable-line no-param-reassign
+  el.style.display = '';
+  el.style.visibility = '';
 }
 
 export const unhide = unshow;
-
-export function defineCustomElement(tagName, CustomHTMLElement) {
-  if ('customElements' in window) {
-    customElements.define(tagName, CustomHTMLElement);
-  } else if ('registerElement' in document) {
-    document.registerElement(tagName, CustomHTMLElement);
-  }
-}
-
-export function ensureCustomElements(f) {
-  if ('customElements' in window || 'registerElement' in document) {
-    f();
-  } else {
-    if (!window.loadingCustomElements) loadJSDeferred('https://unpkg.com/webcomponents.js@0.7.22/CustomElements.min.js');
-    window.loadingCustomElements = true;
-    window.addEventListener('WebComponentsReady', f);
-  }
-}
 
 export function matches(el, selector) {
   return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector ||

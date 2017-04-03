@@ -1,33 +1,33 @@
 .menu {
-  display: block;
-  padding: 1.25rem 1.5rem;
-  color: #9a9a9a;
-  border-bottom: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  z-index: 1;
-
-  @media (min-width: $break-point-1) {
-    position: absolute;
-    left: -9999px;
-
-    &:focus {
-      left: 19.5rem;
-    }
-  }
-
-  @media (min-width: $break-point-2) {
-    &:focus {
-      left: 21.5rem;
-    }
-  }
-
-  @media (min-width: $break-point-dynamic) {
-    &:focus {
-      left: calc(50% - 24.5rem);
-    }
-  }
+  // display: block;
+  // padding: 1.25rem 1.5rem;
+  // color: #9a9a9a;
+  // border-bottom: none;
+  // position: fixed;
+  // top: 0;
+  // left: 0;
+  // z-index: 1;
+  //
+  // @media (min-width: $break-point-1) {
+  //   position: absolute;
+  //   left: -9999px;
+  //
+  //   &:focus {
+  //     left: 19.5rem;
+  //   }
+  // }
+  //
+  // @media (min-width: $break-point-2) {
+  //   &:focus {
+  //     left: 21.5rem;
+  //   }
+  // }
+  //
+  // @media (min-width: $break-point-dynamic) {
+  //   &:focus {
+  //     left: calc(50% - 24.5rem);
+  //   }
+  // }
 
   @media print {
     display: none;

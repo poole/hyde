@@ -26,9 +26,23 @@
   <meta name="description" content="{{ description | strip_html | truncatewords: 50 }}">
 
   <!-- =============== -->
+  <!-- LINKS           -->
+  <!-- =============== -->
+  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ site.baseurl }}/{% if site.feed.path %}{{ site.feed.path }}{% else %}feed.xml{% endif %}">
+
+  {% if page.previous %}
+    <link rel="prev" href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
+  {% endif %}
+
+  {% if page.next %}
+    <link rel="next" href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
+  {% endif %}
+
+  <!-- =============== -->
   <!-- STYLES          -->
   <!-- =============== -->
-  <!--[if gt IE 8]>-->
+  <!--[if gt IE 8]><!---->
   <style>
     {% capture include_to_scssify %}
     {% include styles/inline.scss %}
@@ -56,25 +70,16 @@
   <!--<![endif]-->
 
   <!-- =============== -->
-  <!-- LINKS           -->
-  <!-- =============== -->
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ site.baseurl }}/{% if site.feed.path %}{{ site.feed.path }}{% else %}feed.xml{% endif %}">
-
-  {% if page.previous %}
-    <link rel="prev" href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
-  {% endif %}
-
-  {% if page.next %}
-    <link rel="next" href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
-  {% endif %}
-
-  <!-- =============== -->
-  <!-- BASIC SCRIPTS   -->
+  <!-- SCRIPTS         -->
   <!-- =============== -->
   <script>
     window._version = '{{ site.version }}';
     {% include scripts/load-js-deferred.min.js %}
+    {% include scripts/loadCSS.min.js %}
+    {% include scripts/cssrelpreload.min.js %}
   </script>
 
+  <!--[if lt IE 9]>
+  <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
+  <![endif]-->
 </head>
