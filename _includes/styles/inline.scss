@@ -33,10 +33,6 @@
 // @import "jekyll-github";
 // @import "spinner";
 
-// {% if site.mark_external %}
-//   @import "mark-external";
-// {% endif %}
-
 {% assign font = site.font %}
 {% assign font_heading = site.font_heading %}
 

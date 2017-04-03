@@ -1,4 +1,4 @@
-{% if include.href %}
+{% if include.href.size > 0 %}
   <a href="{{ include.href }}">{{ include.title }}</a>
 {% else %}
   <span>{{ include.title }}</span>

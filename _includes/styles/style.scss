@@ -33,10 +33,6 @@
 @import "jekyll-github";
 @import "spinner";
 
-{% if site.mark_external %}
-  @import "mark-external";
-{% endif %}
-
 {% if site.load_google_fonts %}
   {% assign font = site.font | split:',' | first %}
   {% assign font_heading = site.font_heading | split:',' | first %}
@@ -44,5 +40,26 @@
   .wf-active {
     font-family: {{ font }};
     h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading }}; }
+  }
+{% endif %}
+
+{% if site.mark_external %}
+  @media screen {
+    a[href*=":"]:not([href*="{{ site.url }}"])::after {
+      content: "\00A0\ea7e";
+      /* use !important to prevent issues with browser extensions that change fonts */
+      font-family: 'icomoon' !important;
+      speak: none;
+      font-style: normal;
+      font-weight: normal;
+      font-variant: normal;
+      text-transform: none;
+      line-height: 1;
+      font-size: smaller;
+
+      /* Better Font Rendering =========== */
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
   }
 {% endif %}
