@@ -40,8 +40,8 @@
     "katex": "0.7.1",
     "rxjs": "5.2.0",
     "web-animations-js": "2.2.2",
-    "y-drawer": "^5.0.0",
-    "y-push-state": "^5.0.0"
+    "y-drawer": "^6.0.0",
+    "y-push-state": "^6.0.0"
   },
   "repository": {
     "type": "git",

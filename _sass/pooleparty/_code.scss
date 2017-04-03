@@ -3,12 +3,11 @@
 // Inline and block-level code snippets. Includes tweaks to syntax highlighted
 // snippets from Pygments/Rouge and Gist embeds.
 
-code,
-pre {
+code, pre, .code {
   font-family: $code-font-family;
 }
 
-code {
+code, .code {
   padding: .25em .5em;
   font-size: .85em;
   // Could be mistaken for a link if the user choses a similar link-color, so better no colored inline code.

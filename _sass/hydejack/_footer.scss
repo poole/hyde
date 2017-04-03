@@ -5,9 +5,10 @@ main > footer {
   right: 0;
   padding: 0 1rem;
   color: #9a9a9a;
-  // font-size: smaller;
+  font-size: smaller;
   text-align: center;
   // opacity: 0.5;
+
   a::after {
     display: none;
   }

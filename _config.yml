@@ -32,10 +32,10 @@ color:               '#A85641'
 
 # Fonts
 font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
-font:                "'Noto Serif', serif"
+font:                "'Noto Serif', Georgia, serif"
 load_google_fonts:   Roboto+Slab:700|Noto+Serif:400,400i,700,700i
 
-copyright:           '&copy; 2017 Florian Klampfer'
+copyright:           '&copy; 2017. All rights reserved.'
 
 # Remove to disable Google Anaylics
 google_analytics_id: UA-84025722-2

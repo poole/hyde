@@ -8,13 +8,13 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
 }
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-  line-height: 1.25;
+  margin: 2rem 0 1rem;
+  line-height: 1.55;
 }
 
 h1, .h1 {
   font-size: 2rem;
+  line-height: 1.25;
 }
 
 h2, .h2 {
@@ -40,10 +40,6 @@ ul, ol, dl {
   margin-bottom: 1rem;
 }
 
-// ul, ol {
-//   padding-left: 1.5rem;
-// }
-
 hr {
   position: relative;
   margin: 1.5rem 0;
@@ -51,9 +47,3 @@ hr {
   border-top: 1px solid #eee;
   border-bottom: 1px solid #fff;
 }
-
-// .hr {
-//   padding-bottom: 1.5rem;
-//   border-bottom: 1px solid #eee;
-//   margin-bottom: 1.5rem;
-// }

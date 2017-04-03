@@ -78,3 +78,7 @@ body, main {
 .sixteen-nine {
   @include aspect-ratio(16, 9);
 }
+
+.faded {
+  color: #9a9a9a;
+}

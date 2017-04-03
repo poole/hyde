@@ -8,7 +8,7 @@
   {% capture title %}
     {% if page.url == "/" %}
       {{ site.title }} &middot; {{ site.tagline }}
-    {% elsif page.title != null %}
+    {% elsif page.title.size > 0 %}
       {{ page.title }} &middot; {{ site.title }}
     {% else %}
       {{ site.title }}
@@ -17,23 +17,28 @@
 
   <title>{{ title | strip }}</title>
 
-  {% if page.description %}
-    {% capture desc %}{{ page.description }}{:.message}{% endcapture %}
-    <meta name="description" content="{{ desc | markdownify | strip_html | truncatewords: 50 }}">
-  {% elsif page.excerpt %}
-    <meta name="description" content="{{ page.excerpt | strip_html | truncatewords: 50 }}">
+  {% if page.description.size > 0 %}
+    {% assign description = page.description | markdownify %}
+  {% elsif page.excerpt.size > 0 %}
+    {% assign description = page.excerpt %}
+  {% else %}
+    {% assign description = site.description | markdownify %}
   {% endif %}
+  <meta name="description" content="{{ description | strip_html | truncatewords: 50 }}">
 
+  <!-- ============= -->
+  <!-- STYLES        -->
+  <!-- ============= -->
   <!--[if gt IE 8]><!---->
   <style>
     {% capture include_to_scssify %}
-    {% include styles/essentials.scss %}
+    {% include styles/essential.scss %}
     {% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
 
   <noscript>
-    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/non-essentials-{{ site.version }}.css">
+    <link rel="stylesheet" href="{{ site.baseurl }}/public/css/non-essential-{{ site.version }}.css">
 
     {% if site.load_google_fonts %}
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.load_google_fonts }}">
@@ -42,13 +47,16 @@
     <link rel="stylesheet" href="{{ site.baseurl }}/public/css/icons.css">
   </noscript>
 
-  <link rel="preload" href="{{ site.baseurl }}/public/css/non-essentials-{{ site.version }}.css" as="style" onload="this.rel='stylesheet'">
+  <link rel="preload" href="{{ site.baseurl }}/public/css/non-essential-{{ site.version }}.css" as="style" onload="this.rel='stylesheet'">
 
   {% include page-style.html %}
   <!--<![endif]-->
 
+  <!-- ============= -->
+  <!-- LINKS         -->
+  <!-- ============= -->
   <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Atom Feed" href="{{ site.baseurl }}/atom.xml">
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ site.baseurl }}/{% if site.feed.path %}{{ site.feed.path }}{% else %}feed.xml{% endif %}">
 
   {% if page.previous %}
     <link rel="prev" href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
@@ -58,6 +66,9 @@
     <link rel="next" href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
   {% endif %}
 
+  <!-- ============= -->
+  <!-- BASIC SCRIPTS -->
+  <!-- ============= -->
   <script>
     window._version = '{{ site.version }}';
     {% include scripts/load-js-deferred.min.js %}
