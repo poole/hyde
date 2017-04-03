@@ -22,6 +22,10 @@ export default class Flip {
   }
 
   start() {
+    // HACK: use proper cleanup instead
+    this.shadowMain.style.opacity = 0;
+    this.shadowMain.style.willChange = '';
+
     return Observable::empty();
   }
 
