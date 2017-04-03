@@ -18,7 +18,7 @@ This release addresses this but adding a layer of JavaScript, effectively turnin
 * ...
 
 ### Robust
-Adding a lot of JavaScript fanciness it tricky. While it makes the site feel appy and mordern, it's very frustrating when it breaks down. Thanks to excessive engineering, a lot of site today are slower, less reliable and less useable then a simple web page from 20 years ago.
+Adding a lot of JavaScript fanciness it tricky. While it makes the site feel app-y and mordern, it's very frustrating when it breaks down. Thanks to excessive engineering, a lot of site today are slower, less reliable and less useable then a simple web page from 20 years ago.
 
 Hydejack takes a number of steps to ensure that js doesn't get in the way.
 
