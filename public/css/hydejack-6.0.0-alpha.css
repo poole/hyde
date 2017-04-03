@@ -14,4 +14,4 @@
  * Licensed under MIT.
  * Design: Hydejack by @qwtel. Get it at: https://qwtel.com/hydejack
  */
-{% capture include_to_scssify %}{% include styles/non-essential.scss %}{% endcapture %}{{ include_to_scssify | scssify }}
+{% capture include_to_scssify %}{% include styles/style.scss %}{% endcapture %}{{ include_to_scssify | scssify }}

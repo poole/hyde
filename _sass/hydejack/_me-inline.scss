@@ -1,0 +1,22 @@
+.me {
+  float: right;
+  width: 6.5rem;
+  height: 6.5rem;
+  margin-left: 1rem;
+  border-radius: 100%;
+  position: relative;
+
+  @media screen and (min-width: $break-point-font-1) {
+    width: 7rem;
+    height: 7rem;
+  }
+  @media screen and (min-width: $break-point-1) {
+    width: 6.5rem;
+    height: 6.5rem;
+    margin-top: 0;
+  }
+  @media screen and (min-width: $break-point-font-2) {
+    width: 7rem;
+    height: 7rem;
+  }
+}

@@ -1,0 +1,26 @@
+/* Container
+ *
+ * Align the contents of the site above the proper threshold with some margin-fu
+ * with a 25%-wide `.sidebar`.
+ */
+
+.content {
+  padding-top: 5rem;
+  padding-bottom: 10rem;
+
+  @media screen and (min-width: $break-point-1) {
+    padding-top: 4rem;
+    max-width: 48rem;
+    margin-left: 20rem;
+    margin-right: 2rem;
+  }
+
+  @media screen and (min-width: $break-point-font-2) {
+    margin-left: 22rem;
+    margin-right: 4rem;
+  }
+
+  @media screen and (min-width: $break-point-dynamic) {
+    margin: auto;
+  }
+}

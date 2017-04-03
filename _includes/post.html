@@ -29,7 +29,7 @@
   {% else %}
     {{ post.excerpt }}
     <hr/>
-    <span class="heading faded">» Continue reading <a href="{{ post.url | prepend:site.baseurl }}" data-flip="title">{{ post.title }}</a>.</span>
+    <span class="heading faded">Continue reading <a href="{{ post.url | prepend:site.baseurl }}" data-flip="title">{{ post.title }}</a> »</span>
   {% endunless %}
 
 </article>

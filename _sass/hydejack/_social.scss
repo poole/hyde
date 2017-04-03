@@ -1,22 +1,27 @@
 .sidebar-social > ul  {
   // list-style: none;
-  margin-left: -0.5rem;
-  margin-right: -0.5rem;
+  // padding-left: 0;
+  // margin-left: -0.5rem;
+  // margin-right: -0.5rem;
 
   > li {
     // display: inline-block;
 
     > a {
-      display: inline-block;
-      text-align: center;
-      font-size: 1.6rem;
-      line-height: 3rem;
-      width: 3rem;
-      height: 3rem;
+      // display: inline-block;
+      // text-align: center;
+      // font-size: 1.6rem;
+      // line-height: 3rem;
+      // width: 3rem;
+      // height: 3rem;
+
+      &::after {
+        display: none;
+      }
     }
   }
 
-  li + li {
-    margin-top: 0;
-  }
+  // li + li {
+  //   margin-top: 0;
+  // }
 }
