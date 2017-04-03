@@ -92,7 +92,7 @@ compress_html:
 sass:
   style:             compressed
 
-version:             6.0.0-alpha
+version:             6.0.0-alpha2
 
 # If you are updating form a previous verison of Hydejack, uncomment this line below,
 # so that existing subscribers to your feed continue to receive updates.
