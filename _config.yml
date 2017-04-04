@@ -41,7 +41,7 @@ copyright:           '&copy; 2017. All rights reserved.'
 google_analytics_id: UA-84025722-2
 
 # Setting a disqus subdomain will enable the comment section
-# disqus:            <username>
+disqus_shortname:    qwtel
 
 # Set to true when building locally with the `--lsi` option
 # See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`

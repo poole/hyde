@@ -1,5 +1,3 @@
-{% assign post = include.post %}
-
 <aside class="comments" role="complementary">
   <h2>Comments</h2>
   <hr/>
@@ -7,25 +5,7 @@
   <div id="disqus_thread"></div>
 
   <script>
-    var disqus_config = function () {
-      this.page.url = '{{ site.url }}{{ site.baseurl }}{{ post.url }}';
-      this.page.identifier = '{{ post.id }}';
-    };
-
-    var loaded = false;
-    var disqus_thread_offsetTop = document.getElementById('disqus_thread').offsetTop;
-
-    window.addEventListener('scroll', function (e) {
-      if (!loaded && document.body.scrollTop + window.innerHeight >= disqus_thread_offsetTop) {
-        loaded = true;
-        var d = document, s = d.createElement('script');
-
-        s.src = '//{{site.disqus}}.disqus.com/embed.js';
-
-        s.setAttribute('data-timestamp', +new Date());
-        (d.head || d.body).appendChild(s);
-      }
-    });
+    {% include scripts/load-disqus.min.js %}
   </script>
   <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
 </aside>

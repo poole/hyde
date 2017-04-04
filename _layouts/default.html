@@ -10,6 +10,11 @@ layout: compress
   <div id="_yPushState">
     <main id="_main" class="content container" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
       {{ content }}
+
+      {% if site.disqus_shortname and page.comments %}
+        {% include comments.html %}
+      {% endif %}
+
       {% include footer.html %}
     </main>
     {% include sidebar.html %}
