@@ -2,7 +2,7 @@
 layout: about
 title: About
 menu: true
-order: 10
+order: 5
 ---
 
 {% comment %}

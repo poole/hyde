@@ -1,7 +1,8 @@
 ---
 layout: post
 title: Introducing Hyde
-tags: [hyde, jekyll]
+tags: [hyde]
+
 author: mdo
 ---
 

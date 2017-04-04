@@ -1,6 +1,6 @@
 ---
 layout: list
-title: Archive
+title: Posts
 menu: true
-order: 100
+order: 2
 ---

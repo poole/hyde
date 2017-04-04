@@ -1,7 +1,7 @@
 ---
 layout: post
 title: 'v6: JavaScripten'
-tags: [hyde]
+tags: [hydejack]
 description: >
   This release adds a layer of JavaScript that effectively turns the template into a singe page app*.
 author: me

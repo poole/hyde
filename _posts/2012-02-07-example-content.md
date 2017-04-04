@@ -1,9 +1,13 @@
 ---
 layout: post
 title: Example content
-tags: [jekyll]
+tags: [hyde]
 description: >
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
+
+# http://jsfiddle.net/LPxrT/
+image: 'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
+color: '#268bd2'
 author: mdo
 ---
 
