@@ -3,7 +3,6 @@
 
 /* eslint-disable no-param-reassign */
 
-import { loadCSS } from 'fg-loadcss/src/loadCSS';
 import katex from 'katex';
 
 import { hasFeatures, hide, matches } from './common';

@@ -5,7 +5,7 @@
     "browser": true
   },
   "globals": {
-    "loadJSDeferred": true,
-    "customElements": true
+    "loadCSS": true,
+    "loadJSDeferred": true
   }
 }
