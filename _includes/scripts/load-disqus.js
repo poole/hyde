@@ -4,7 +4,7 @@
   var disqus_config = function () {
     this.page.title = '{{ page.title }}';
     this.page.identifier = '{{ page.id }}';
-    this.page.url = '{{ site.url }}{{ site.baseurl }}{{ page.url }}';
+    this.page.url = '{{ page.url | absolute_url }}';
   };
 
   w._disqusFirst = typeof w._disqusFirst != 'undefined' ? w._disqusFirst : true;

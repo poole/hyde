@@ -28,15 +28,20 @@
   <!-- =============== -->
   <!-- LINKS           -->
   <!-- =============== -->
-  <link rel="canonical" href="{{ site.url }}{{ site.baseurl }}{{ page.url }}" />
-  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ site.baseurl }}/{% if site.feed.path %}{{ site.feed.path }}{% else %}feed.xml{% endif %}">
+  <link rel="canonical" href="{{ page.url | absolute_url }}" />
+
+  {% assign feed_path = "feed.xml" %}
+  {% if site.feed.path %}
+    {% assign feed_path = site.feed.path %}
+  {% endif %}
+  <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ feed_path | absolute_url }}">
 
   {% if page.previous %}
-    <link rel="prev" href="{{ site.url }}{{ site.baseurl }}{{ page.previous.url }}">
+    <link rel="prev" href="{{ page.previous.url | absolute_url }}">
   {% endif %}
 
   {% if page.next %}
-    <link rel="next" href="{{ site.url }}{{ site.baseurl }}{{ page.next.url }}">
+    <link rel="next" href="{{ page.next.url | absolute_url }}">
   {% endif %}
 
   <!-- =============== -->
@@ -50,12 +55,13 @@
     {{ include_to_scssify | scssify }}
   </style>
 
-  <link rel="preload" href="{{ site.baseurl }}/assets/css/hydejack-{{ site.version }}.css" as="style" onload="this.rel='stylesheet'">
+  {% capture style_url %}/assets/css/hydejack-{{ site.version }}.css{% endcapture %}
+  <link rel="preload" href="{{ style_url | relative_url }}" as="style" onload="this.rel='stylesheet'">
 
   {% include page-style.html %}
 
   <noscript>
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/hydejack-{{ site.version }}.css">
+    <link rel="stylesheet" href="{{ style_url | relative_url }}">
 
     {% if site.load_google_fonts %}
       <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ site.load_google_fonts }}">
@@ -65,7 +71,7 @@
       </style>
     {% endif %}
 
-    <link rel="stylesheet" href="{{ site.baseurl }}/assets/css/icons.css">
+    <link rel="stylesheet" href="{{ '/assets/css/icons.css' | relative_url }}">
   </noscript>
   <!--<![endif]-->
 

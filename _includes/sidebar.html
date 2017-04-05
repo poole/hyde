@@ -3,7 +3,7 @@
     <div class="sidebar-bg" style="background-color:{{ color }};background-image:url({{ image }})"></div>
     <header class="container sidebar-sticky" role="banner">
       <div class="sidebar-about">
-        <h1><a id="_title" href="{{ site.baseurl }}/">{{ site.title }}</a></h1>
+        <h1><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
         {{ site.description | markdownify }}
       </div>
 

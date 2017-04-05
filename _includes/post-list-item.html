@@ -1,7 +1,7 @@
 {% assign post = include.post %}
 
 <li class="h4">
-  <a href="{{ post.url | prepend:site.baseurl }}" data-flip="title">
+  <a href="{{ post.url | relative_url }}" data-flip="title">
     <span>{{ post.title }}</span>
   </a>
   <small><time datetime="{{ post.date | date_to_xmlschema }}">

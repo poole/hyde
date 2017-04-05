@@ -9,14 +9,15 @@
 
     custom: {
       families: ['icomoon'],
-      urls: ['{{ site.baseurl }}/assets/css/icons.css']
+      urls: ['{{ "/assets/css/icons.css" | relative_url }}']
     }
   };
   loadJSDeferred('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 </script>
 
 <!--[if gt IE 9]><!---->
-<script>loadJSDeferred('{{ site.baseurl }}/assets/js/hydejack-{{ site.version }}.js');</script>
+{% catpure js_url %}/assets/js/hydejack-{{ site.version }}.js{% endcapture %}
+<script>loadJSDeferred('{{ js_url | relative_url }}');</script>
 <!--<![endif]-->
 
 {% if site.google_analytics_id %}

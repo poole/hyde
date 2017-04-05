@@ -10,7 +10,7 @@
 
   {% for node in pages %}
     <li>
-      <a class="sidebar-nav-item {% if page.url == node.url %}active{% endif %}" href="{{ node.url | prepend:site.baseurl }}">{{ node.title }}</a>
+      <a class="sidebar-nav-item {% if page.url == node.url %}active{% endif %}" href="{{ node.url | relative_url }}">{{ node.title }}</a>
     </li>
   {% endfor %}
 </ul>

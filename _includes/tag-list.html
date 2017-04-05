@@ -12,7 +12,7 @@
     {% assign tag = meta | where: "slug", tag_slug | first %}
 
     {% if tag %}
-      {% capture content_temp %}{{ content }}<a href="{{ tag.url | prepend: site.baseurl }}" data-flip="title">{{ tag.title }}</a>{{ iter_separator }}{% endcapture %}
+      {% capture content_temp %}{{ content }}<a href="{{ tag.url | relative_url }}" data-flip="title">{{ tag.title }}</a>{{ iter_separator }}{% endcapture %}
     {% else %}
       {% capture content_temp %}{{ content }}<span>{{ tag_slug | capitalize }}</span>{{ iter_separator }}{% endcapture %}
     {% endif %}
