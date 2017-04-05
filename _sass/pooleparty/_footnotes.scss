@@ -17,7 +17,7 @@ a[href^="#fnref:"] {
     color: #7a7a7a;
   }
 
-  &::before, &::after {
+  &::before {
     content: "";
     display: block;
     margin: 1.5rem 0;
@@ -25,4 +25,9 @@ a[href^="#fnref:"] {
     border-top: 1px solid #eee;
     border-bottom: 1px solid #fff;
   }
+}
+
+// Prevent supscripts from increasing the line height
+sup {
+  line-height: 1;
 }

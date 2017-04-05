@@ -79,6 +79,12 @@ blockquote {
   color: #7a7a7a;
   border-left: .25rem solid #e5e5e5;
 
+  &.lead {
+    font-size: 1.25rem;
+    font-weight: 300;
+    margin: 1.5rem -1rem;
+  }
+
   p:last-child {
     margin-bottom: 0;
   }

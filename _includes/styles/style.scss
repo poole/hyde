@@ -44,9 +44,8 @@
 
 {% if site.mark_external %}
   @media screen {
-    a[href*=":"]:not([href*="{{ site.url }}"])::after {
+    a[href*="//"]:not([href*="{{ site.url }}"])::after {
       content: "\00A0\ea7e";
-      /* use !important to prevent issues with browser extensions that change fonts */
       font-family: 'icomoon' !important;
       speak: none;
       font-style: normal;
@@ -55,8 +54,6 @@
       text-transform: none;
       line-height: 1;
       font-size: smaller;
-
-      /* Better Font Rendering =========== */
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
     }
