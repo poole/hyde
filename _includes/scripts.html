@@ -16,7 +16,7 @@
 </script>
 
 <!--[if gt IE 9]><!---->
-{% catpure js_url %}/assets/js/hydejack-{{ site.version }}.js{% endcapture %}
+{% capture js_url %}/assets/js/hydejack-{{ site.version }}.js{% endcapture %}
 <script>loadJSDeferred('{{ js_url | relative_url }}');</script>
 <!--<![endif]-->
 
