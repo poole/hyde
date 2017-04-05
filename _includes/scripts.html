@@ -9,14 +9,14 @@
 
     custom: {
       families: ['icomoon'],
-      urls: ['{{ site.baseurl }}/public/css/icons.css']
+      urls: ['{{ site.baseurl }}/assets/css/icons.css']
     }
   };
   loadJSDeferred('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 </script>
 
 <!--[if gt IE 9]><!---->
-<script>loadJSDeferred('{{ site.baseurl }}/public/js/hydejack-{{ site.version }}.js');</script>
+<script>loadJSDeferred('{{ site.baseurl }}/assets/js/hydejack-{{ site.version }}.js');</script>
 <!--<![endif]-->
 
 {% if site.google_analytics_id %}

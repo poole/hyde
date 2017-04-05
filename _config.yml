@@ -27,7 +27,7 @@ author:
   authors_key: me
 
 # Fallback image and color if not overwritten for tag or post
-image:               /hydejack/public/img/nap.jpg
+image:               /hydejack/assets/img/nap.jpg
 color:               '#A85641'
 
 # Fonts

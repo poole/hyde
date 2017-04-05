@@ -3,14 +3,14 @@
   "version": "6.0.0-alpha2",
   "description": "Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).",
   "scripts": {
-    "clean": "rm -f public/js/hydejack.js & rm -f public/js/hydejack.min.js",
+    "clean": "rm -f assets/js/hydejack.js & rm -f assets/js/hydejack.min.js",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "build": "cat .header.js > public/js/hydejack-$npm_package_version.js; cross-env NODE_ENV=production browserify _js/src/index.js -g babelify | uglifyjs -c -m >> public/js/hydejack-$npm_package_version.js",
-    "watch": "watchify -d _js/src/index.js -g babelify -o public/js/hydejack-$npm_package_version.js",
+    "build": "cat .header.js > assets/js/hydejack-$npm_package_version.js; cross-env NODE_ENV=production browserify _js/src/index.js -g babelify | uglifyjs -c -m >> assets/js/hydejack-$npm_package_version.js",
+    "watch": "watchify -d _js/src/index.js -g babelify -o assets/js/hydejack-$npm_package_version.js",
     "lint": "eslint _js/src",
     "dev": "npm run watch",
     "prepublish": "npm run lint && npm run test && npm run clean && npm run build",
-    "resume": "json2yaml resume.json > _data/resume.yml"
+    "resume": "json2yaml _data/resume.json > _data/resume.yml"
   },
   "author": "Florian Klampfer <f.klampfer@gmail.com> (https://qwtel.com)",
   "license": "MIT",
