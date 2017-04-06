@@ -34,6 +34,11 @@
 //   text-decoration: none;
 // }
 //
+// .lead {
+//   margin-left: -1rem;
+//   margin-right: -1rem;
+// }
+//
 // img, .img {
 //   display: block;
 //   max-width: 100%;
@@ -43,8 +48,6 @@
 //   &.lead {
 //     max-width: calc(100% + 2rem);
 //     width: calc(100% + 2rem);
-//     margin-left: calc(-1rem);
-//     margin-right: calc(-1rem);
 //   }
 // }
 

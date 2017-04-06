@@ -21,7 +21,7 @@ pre {
   margin-top: 0;
   margin-bottom: 1rem;
   display: block;
-  line-height: 1;
+  line-height: 1.1;
 
   /* Prevent code linebreaks and allow side-scrolling (much better readability on mobile) */
   overflow-x: auto;
@@ -43,11 +43,6 @@ pre code {
 figure, .figure {
   margin-left: 0;
   margin-right: 0;
-
-  &.lead {
-    margin-left: -1rem;
-    margin-right: -1rem;
-  }
 
   > *:first-child {
     padding: 1rem;

@@ -24,9 +24,9 @@ description:         >
 author:
   name: Florian Klampfer
   email: f.klampfer@gmail.com
-  authors_key: me
+  authors_key: me # the key of this author in `_data/authors.yml`
 
-# Fallback image and color if not overwritten for tag or post
+# Fallback image and color if not overwritten
 image:               /hydejack/assets/img/nap.jpg
 color:               '#A85641'
 
@@ -76,7 +76,7 @@ collections:
     permalink:       /projects/:path/
     output:          true
 
-exclude:             [node_modules, README.md, package.json, resume.json, header.js]
+exclude:             [node_modules, README.md, package.json, resume.json]
 
 kramdown:
   math_engine:       mathjax
