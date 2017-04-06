@@ -1,0 +1,333 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="765"
+   height="990"
+   id="svg2"
+   version="1.1"
+   inkscape:version="0.91 r13725"
+   sodipodi:docname="r-with-intermediate.svg"
+   inkscape:export-filename="/home/matsen/Downloads/r.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
+  <defs
+     id="defs4">
+    <inkscape:path-effect
+       effect="spiro"
+       id="path-effect4174"
+       is_visible="true" />
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 526.18109 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="744.09448 : 526.18109 : 1"
+       inkscape:persp3d-origin="372.04724 : 350.78739 : 1"
+       id="perspective10" />
+    <inkscape:perspective
+       id="perspective2824"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2838"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2852"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2866"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2880"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <inkscape:perspective
+       id="perspective2894"
+       inkscape:persp3d-origin="0.5 : 0.33333333 : 1"
+       inkscape:vp_z="1 : 0.5 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_x="0 : 0.5 : 1"
+       sodipodi:type="inkscape:persp3d" />
+    <linearGradient
+       gradientTransform="matrix(0.9899476,0,0,1.0101545,-85.865554,-618.83862)"
+       id="gradientFill-2"
+       x1="301.02603"
+       x2="703.06751"
+       y1="151.40061"
+       y2="553.44209"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad">
+      <stop
+         offset="0"
+         stop-color="rgb(39,109,195)"
+         stop-opacity="1"
+         id="stop4257" />
+      <stop
+         offset="1"
+         stop-color="rgb(22,92,170)"
+         stop-opacity="1"
+         id="stop4259" />
+    </linearGradient>
+    <linearGradient
+       gradientTransform="matrix(1.2219423,0,0,0.81836924,-85.865554,-618.83862)"
+       id="gradientFill-1"
+       x1="0.74144253"
+       x2="590.86259"
+       y1="3.6658269"
+       y2="593.78698"
+       gradientUnits="userSpaceOnUse"
+       spreadMethod="pad">
+      <stop
+         offset="0"
+         stop-color="rgb(203,206,208)"
+         stop-opacity="1"
+         id="stop4252" />
+      <stop
+         offset="1"
+         stop-color="rgb(132,131,139)"
+         stop-opacity="1"
+         id="stop4254" />
+    </linearGradient>
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.99727613"
+     inkscape:cx="309.58013"
+     inkscape:cy="495"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     inkscape:snap-global="false"
+     inkscape:snap-object-midpoints="true"
+     inkscape:snap-center="true"
+     inkscape:object-paths="true"
+     inkscape:window-width="1920"
+     inkscape:window-height="1167"
+     inkscape:window-x="0"
+     inkscape:window-y="0"
+     inkscape:window-maximized="0"
+     fit-margin-top="0"
+     fit-margin-left="0"
+     fit-margin-right="0"
+     fit-margin-bottom="0" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+        <dc:title></dc:title>
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     transform="translate(116.06091,662.62708)">
+    <circle
+       r="26.811916"
+       cy="259.90961"
+       cx="602.95575"
+       style="fill:#1b334b;fill-opacity:1;stroke:none"
+       id="path3165-7" />
+    <circle
+       r="15.104046"
+       cy="259.90964"
+       cx="602.95575"
+       id="path3935-9"
+       style="fill:#ffffff;fill-opacity:1;stroke:none" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path54-1-3"
+       style="fill:#1b334b;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 521.14563,168.7436 c 0,-0.85775 0.6887,-1.63073 1.6323,-1.63073 l 35.55506,0 c 0.94136,0 1.6323,0.77298 1.6323,1.63073 l 0,9.36157 c 0,0.85775 -0.69094,1.63073 -1.6323,1.63073 l -23.78908,0 0,12.36613 19.57865,0 c 0.85864,0 1.6323,0.77321 1.6323,1.63341 l 0,9.35912 c 0,0.86019 -0.77366,1.63318 -1.6323,1.63318 l -19.57865,0 0,20.86683 c 0,0.8602 -0.77367,1.63319 -1.63454,1.63319 l -10.13144,0 c -0.9436,0 -1.6323,-0.77299 -1.6323,-1.63319 l 0,-56.85097" />
+    <path
+       inkscape:connector-curvature="0"
+       id="path62-6-5"
+       style="fill:#1b334b;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 577.04859,168.75263 c 0,-0.86248 0.77793,-1.63976 1.64357,-1.63976 l 10.2752,0 c 0.94882,0 1.64357,0.77728 1.64357,1.63976 l 0,21.76202 24.69638,0 0,-21.76202 c 0,-0.86248 0.69028,-1.63976 1.6391,-1.63976 l 10.27518,0 c 0.86563,0 1.64134,0.77728 1.64134,1.63976 l 0,57.16556 c 0,0.86496 -0.77571,1.64222 -1.64134,1.64222 l -10.27518,0 c -0.94882,0 -1.6391,-0.77726 -1.6391,-1.64222 l 0,-22.71064 -24.69638,0 0,22.71064 c 0,0.86496 -0.69475,1.64222 -1.64357,1.64222 l -10.2752,0 c -0.86564,0 -1.64357,-0.77726 -1.64357,-1.64222 l 0,-57.16556" />
+    <path
+       style="fill:#1b334b;fill-opacity:1;fill-rule:nonzero;stroke:none"
+       d="m 550.50301,233.8141 c -0.91105,0 -1.66078,0.7525 -1.66078,1.66072 0,17.59618 0,31.82368 0,49.58613 0,0.90813 0.74973,1.66059 1.66078,1.66059 l 8.54113,0 c 0.90633,0 1.66079,-0.75246 1.66079,-1.66059 0,-16.48163 0,-34.78838 0,-49.58613 0,-0.90822 -0.75446,-1.66072 -1.66079,-1.66072 z"
+       id="path3160-8"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="sccssccss" />
+    <circle
+       r="7.9567289"
+       cy="278.76486"
+       cx="528.36273"
+       style="fill:#1b334b;fill-opacity:1;stroke:none"
+       id="path3267-2" />
+    <flowRoot
+       xml:space="preserve"
+       id="flowRoot3056"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:48px;line-height:125%;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       transform="matrix(1.1063498,0,0,1.1063498,20.469062,-266.88241)"><flowRegion
+         id="flowRegion3058"><rect
+           id="rect3060"
+           width="538.82239"
+           height="309.23242"
+           x="-108.04552"
+           y="401.18149"
+           style="fill:#000000;fill-opacity:1" /></flowRegion><flowPara
+         style="font-size:21px;fill:#000000;fill-opacity:1"
+         id="flowPara4217">Learn the R statistical environment at Fred Hutch through a combination of interactive tutorials and classroom sessions. See course material at https://www.datacamp.com/ and register at http://fredhutch.io/. Classes starting April 20.</flowPara></flowRoot>    <text
+       xml:space="preserve"
+       style="font-size:23.23334503px;font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;line-height:125%;letter-spacing:0px;word-spacing:0px;fill:#1b334b;fill-opacity:1;stroke:none;font-family:'2CA19B_1_0';-inkscape-font-specification:'2CA19B_1_0'"
+       x="514.19006"
+       y="318.4584"
+       id="text3080"
+       sodipodi:linespacing="125%"><tspan
+         sodipodi:role="line"
+         id="tspan3082"
+         x="514.19006"
+         y="318.4584">fredhutch.io</tspan></text>
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:url(#gradientFill-1);fill-rule:evenodd"
+       d="m 275.58745,-132.90162 c -199.124004,0 -360.547004,-108.109 -360.547004,-241.468 0,-133.36 161.423,-241.469 360.547004,-241.469 199.125,0 360.54699,108.109 360.54699,241.469 0,133.359 -161.42199,241.468 -360.54699,241.468 z m 55.188,-388.531 c -151.352,0 -274.047004,73.908 -274.047004,165.078 0,91.17 122.695004,165.078 274.047004,165.078 151.351,0 263.04599,-50.529 263.04599,-165.078 0,-114.513 -111.69499,-165.078 -263.04599,-165.078 z"
+       id="path4261" />
+    <path
+       inkscape:connector-curvature="0"
+       style="fill:url(#gradientFill-2);fill-rule:evenodd"
+       d="m 464.13445,-241.83862 c 0,0 21.822,6.585 34.5,13 4.399,2.226 12.01,6.668 17.5,12.5 5.378,5.712 8,11.5 8,11.5 l 85.99999,145.000003 -138.99999,0.062 -65,-122.062003 c 0,0 -13.31,-22.869 -21.5,-29.5 -6.832,-5.531 -9.745,-7.5 -16.5,-7.5 -4.702,0 -33.026,0 -33.026,0 l 0.026,158.974003 -123,0.052 0,-406.088003 247,0 c 0,0 112.49999,2.029 112.49999,109.062 0,107.033 -107.49999,115 -107.49999,115 z m -53.5,-135.976 -74.463,-0.048 -0.037,69.05 74.5,-0.024 c 0,0 34.5,-0.107 34.5,-35.125 0,-35.722 -34.5,-33.853 -34.5,-33.853 z"
+       id="path4263" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:102.5px;line-height:125%;font-family:Lato;-inkscape-font-specification:'Lato, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ec3612;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;"
+       id="text4845"
+       sodipodi:linespacing="125%"><textPath
+         xlink:href="#path4176"
+         id="textPath4178"><tspan
+   style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'Lobster 1.4';-inkscape-font-specification:'Lobster 1.4, ';fill:#ec3612;font-size:102.5px;fill-opacity:1;"
+   id="tspan4847">learn</tspan></textPath></text>
+    <path
+       style="fill:none;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M -47.548799,-499.33989 C 111.17092,-669.47829 370.37507,-621.51981 370.37507,-621.51981"
+       id="path4176"
+       inkscape:connector-curvature="0"
+       sodipodi:nodetypes="cc" />
+    <flowRoot
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.10478973px;line-height:125%;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"
+       id="flowRoot4187"
+       xml:space="preserve"
+       transform="translate(-334.25613,-74.070249)"><flowRegion
+         id="flowRegion4189"><rect
+           style="fill:#000000;fill-opacity:1"
+           y="-20.197046"
+           x="-105.06708"
+           height="197.60197"
+           width="301.40192"
+           id="rect4191" /></flowRegion><flowPara
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.23334503px;font-family:'2CA19B_1_0';-inkscape-font-specification:'2CA19B_1_0';fill:#000000;fill-opacity:1"
+         id="flowPara4195">Introduction to R</flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara4197">• Importing &amp; Cleaning Data</flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara4199">• Data Manipulation</flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara4201">• Data Visualization with ggplot</flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara4242">• Simple Statistical Modeling</flowPara></flowRoot>    <g
+       id="g5573"
+       transform="translate(-4,-18)">
+      <path
+         id="path816"
+         d="m 123.60821,-68.567629 52.3716,60.4709145 -16.96083,-89.6133885 85.64588,39.578039 -43.50962,-57.573296 99.46287,20.983666 -86.38462,-47.799766 89.28436,-18.705 -65.73849,-29.00621 45.01082,-36.83208 -57.93257,-3.56649 32.53956,-51.99858 -60.93095,23.65985 -1.63297,-54.58705 -47.88583,38.51134 c 0.682,-3.23269 -12.66401,-50.59609 -13.84796,-50.84586 -1.18395,-0.24978 -32.52664,40.15531 -32.52664,40.15531 l -31.097449,-49.9829 -20.323571,46.79578 -28.511674,-49.7535 c 0,0 -10.686115,46.60933 -13.0540147,46.10978 -2.3678727,-0.49955 -50.4335823,-40.93489 -50.4335823,-40.93489 0,0 1.76132,56.02215 1.489835,57.30899 -0.271485,1.28685 -56.832081,-21.68346 -56.832081,-21.68346 l 40.30924,48.64615 -55.006203,6.7131 c 0,0 36.140979,41.61453 34.685363,42.65156 -1.455531,1.03705 -45.192733,25.97343 -45.192733,25.97343 0,0 65.996599,12.24173 64.812654,11.99196 -0.357684,1.05008 -73.121194,35.77593 -73.392674,37.06275 -0.27149,1.28686 71.785873,-2.76838 71.785873,-2.76838 l -60.063083,57.296946 88.047003,-38.168296 -28.625113,55.546272 52.9349289,-27.499138 -5.8428149,40.122408 51.317847,-26.277595 13.848721,63.1261485 28.845684,-52.5225655 26.455194,30.838252 16.87805,-43.424208 z"
+         inkscape:connector-curvature="0"
+         style="fill:#ffffff;fill-opacity:0.5;fill-rule:evenodd;stroke-width:10;stroke-miterlimit:4;stroke-dasharray:none" />
+      <path
+         sodipodi:nodetypes="cccccccccccccccsccccscsccccccsccccccccccc"
+         style="fill:#ffeeaa;fill-rule:evenodd;stroke:#000000;stroke-width:7.80755806;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none"
+         inkscape:connector-curvature="0"
+         id="path599"
+         d="m 150.62074,-98.80632 52.37159,60.470912 -16.96082,-89.613402 85.64587,39.578053 -43.50959,-57.573293 99.46285,20.98366 -86.38463,-47.79977 89.28437,-18.705 -65.7385,-29.0062 45.01083,-36.83209 -57.93258,-3.56649 32.53959,-51.99857 -60.93098,23.65984 -1.63297,-54.58703 -47.88582,38.51133 c 0.682,-3.23269 -12.66401,-50.59609 -13.84797,-50.84586 -1.18392,-0.24978 -32.52663,40.1553 -32.52663,40.1553 l -31.097457,-49.9829 -20.323571,46.79578 -28.511673,-49.7535 c 0,0 -10.686116,46.60934 -13.053998,46.10979 -2.367882,-0.49955 -50.433587,-40.93488 -50.433587,-40.93488 0,0 1.761312,56.02213 1.489825,57.30898 -0.271485,1.28684 -56.832083,-21.68347 -56.832083,-21.68347 l 40.309248,48.64616 -55.006225,6.7131 c 0,0 45.341822,30.47639 43.886194,31.51344 -1.455521,1.03705 -61.325003,25.68412 -61.325003,25.68412 l 71.744107,23.41938 c -0.357672,1.05007 -73.121187,35.77591 -73.392677,37.06277 -0.27149,1.28685 71.785893,-2.76839 71.785893,-2.76839 l -60.063092,57.29692 88.0469941,-38.16828 -28.6251131,55.546279 52.934952,-27.499159 -5.842856,40.122425 51.317882,-26.277587 17.111592,54.700387 25.582798,-44.096808 26.4552,30.838225 z" />
+      <text
+         transform="matrix(0.97846222,0.20642598,-0.20642598,0.97846222,0,0)"
+         sodipodi:linespacing="125%"
+         id="text4859"
+         y="-250.81038"
+         x="56.69664"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:34.51971817px;line-height:125%;font-family:Lato;-inkscape-font-specification:'Lato, Normal';text-align:start;letter-spacing:0px;word-spacing:0px;writing-mode:lr-tb;text-anchor:start;fill:#ec3612;fill-opacity:1;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+         xml:space="preserve"><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'P22 Johnston Underground';-inkscape-font-specification:'P22 Johnston Underground';text-align:center;text-anchor:middle;fill:#ec3612;fill-opacity:1"
+           id="tspan4871"
+           y="-250.81038"
+           x="63.00053"
+           sodipodi:role="line">Now In an </tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'P22 Johnston Underground';-inkscape-font-specification:'P22 Johnston Underground';text-align:center;text-anchor:middle;fill:#ec3612;fill-opacity:1"
+           id="tspan4875"
+           y="-207.66074"
+           x="56.696644"
+           sodipodi:role="line">intermediate</tspan><tspan
+           style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-family:'P22 Johnston Underground';-inkscape-font-specification:'P22 Johnston Underground';text-align:center;text-anchor:middle;fill:#ec3612;fill-opacity:1"
+           id="tspan4877"
+           y="-164.51108"
+           x="56.696644"
+           sodipodi:role="line">FLAVOR!</tspan></text>
+    </g>
+    <flowRoot
+       transform="translate(33.156641,-22.238477)"
+       xml:space="preserve"
+       id="flowRoot4900"
+       style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:53.10478973px;line-height:125%;font-family:'2CA19B_0_0';-inkscape-font-specification:'2CA19B_0_0';letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none"><flowRegion
+         id="flowRegion4902"><rect
+           id="rect4904"
+           width="293.38007"
+           height="207.62929"
+           x="-105.06708"
+           y="-20.197046"
+           style="fill:#000000;fill-opacity:1" /></flowRegion><flowPara
+         id="flowPara4906"
+         style="font-style:normal;font-variant:normal;font-weight:normal;font-stretch:normal;font-size:23.23334503px;font-family:'2CA19B_1_0';-inkscape-font-specification:'2CA19B_1_0';fill:#000000;fill-opacity:1">Intermediate R</flowPara><flowPara
+         id="flowPara4914"
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1">• Data manipulation with dplyr </flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara5554">• Programming in R</flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara5556">• The “apply” functions </flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara5558">• Parallelization and efficiency</flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara5560">• Tools for reproducibility</flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara5562">• Reporting with R Markdown</flowPara><flowPara
+         style="font-size:23.23334503px;fill:#000000;fill-opacity:1"
+         id="flowPara5564" /></flowRoot>  </g>
+</svg>
