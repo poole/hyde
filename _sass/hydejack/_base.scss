@@ -111,6 +111,10 @@ a, .a {
   }
 }
 
+.content a {
+  transition: color 300ms;
+}
+
 .img {
   // overflow: hidden;
   // background-color: #f9f9f9;

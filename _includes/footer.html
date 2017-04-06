@@ -1,7 +1,8 @@
 <footer>
   <hr/>
   <p>
-    {% if site.copyright %}<span>{{ site.copyright }}</span><br/>{% endif %}
+    <span>{{ site.copyright | default:"&copy; 2017. All rights reserved." }}</span>
+    <br/>
     <a class="code" href="https://qwtel.com/hydejack">
       Made with
       <span class="icon-droplet" title="Blood" style="color:#de6767"></span><span class="icon-droplet" title="Sweat" style="color:#66dcff"></span><span class="icon-droplet" title="Tears" style="color:#66beff"></span>

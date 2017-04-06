@@ -1,0 +1,4 @@
+---
+---
+{% capture include_to_scssify %}{% include styles/style.scss %}{% endcapture %}
+{% include copyright-header %}{{ include_to_scssify | scssify }}

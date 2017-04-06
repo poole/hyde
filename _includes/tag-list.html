@@ -4,6 +4,8 @@
 {% assign separator = include.separator %}
 {% assign end_with = include.end_with %}
 
+{% assign content = '' %}
+
 {% if tags.size > 0 %}
   {% assign content = start_with %}
   {% for tag_slug in tags %}
@@ -19,8 +21,6 @@
 
     {% assign content = content_temp %}
   {% endfor %}
-{% else %}
-  {% assign content = '' %}
 {% endif %}
 
 {{ content }}

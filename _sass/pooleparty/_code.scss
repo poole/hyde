@@ -41,8 +41,13 @@ pre code {
 }
 
 figure, .figure {
-  margin-left: -1rem;
-  margin-right: -1rem;
+  margin-left: 0;
+  margin-right: 0;
+
+  &.lead {
+    margin-left: -1rem;
+    margin-right: -1rem;
+  }
 
   > *:first-child {
     padding: 1rem;

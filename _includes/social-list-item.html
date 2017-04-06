@@ -14,14 +14,9 @@
   {% assign url = username | prepend:data_social.prepend | append:data_soical.append %}
 {% endif %}
 
-{% assign icon_class = data_social.icon %}
-{% unless icon_class %}
-  {{ icon_class = "icon-link" }}
-{% endunless %}
-
 <li>
   <a href="{{ url }}">
-    <span class="{{ icon_class }}" title="{{ data_social.name }}"></span>
+    <span class="{{ data_social.icon  | default:'icon-link' }}" title="{{ data_social.name }}"></span>
     <span class="sr-only">{{ data_social.name }}</span>
   </a>
 </li>

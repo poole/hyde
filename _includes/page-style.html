@@ -1,24 +1,5 @@
-{% assign color = site.color %}
-{% assign image = site.image %}
-
-{% if page.categories.size > 0 %}
-  {% assign category_name = page.categories.first %}
-  {% assign category = site.featured_categories | where: "slug", category_name | first %}
-  {% if category.color %}{% assign color = category.color %}{% endif %}
-  {% if category.image %}{% assign image = category.image %}{% endif %}
-{% elsif page.tags.size > 0 %}
-  {% assign tag_name = page.tags.first %}
-  {% assign tag = site.featured_tags | where: "slug", tag_name | first %}
-  {% if tag.color %}{% assign color = tag.color %}{% endif %}
-  {% if tag.image %}{% assign image = tag.image %}{% endif %}
-{% endif %}
-
-{% if page.color %}{% assign color = page.color %}{% endif %}
-{% if page.image %}{% assign image = page.image %}{% endif %}
-
 <style id="_pageStyle">
   .content a {
-    transition: color 300ms;
     color: {{ color }};
   }
 

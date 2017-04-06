@@ -1,9 +1,14 @@
+{% assign google_fonts = site.google_fonts %}
+{% unless site.font and site.font_heading and google_fonts %}
+  {% assign google_fonts = "Roboto+Slab:700|Noto+Serif:400,400i,700,700i" %}
+{% endunless %}
+
 <!--[if gt IE 8]><!---->
 <script>
   WebFontConfig = {
-    {% if site.load_google_fonts %}
+    {% if google_fonts %}
     google: {
-      families: '{{ site.load_google_fonts }}'.split('|')
+      families: '{{ google_fonts }}'.split('|')
     },
     {% endif %}
 
@@ -16,14 +21,14 @@
 </script>
 
 <!--[if gt IE 9]><!---->
-{% capture js_url %}/assets/js/hydejack-{{ site.version }}.js{% endcapture %}
+{% capture js_url %}/assets/js/hydejack.js?v=6.0.0-alpha{% endcapture %}
 <script>loadJSDeferred('{{ js_url | relative_url }}');</script>
 <!--<![endif]-->
 
-{% if site.google_analytics_id %}
+{% if site.google_analytics %}
 <script>
   window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-  ga('create', '{{ site.google_analytics_id }}', 'auto');
+  ga('create', '{{ site.google_analytics }}', 'auto');
   ga('send', 'pageview');
   loadJSDeferred('https://www.google-analytics.com/analytics.js');
 </script>

@@ -33,15 +33,17 @@ color:               '#A85641'
 # Fonts
 font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
 font:                "'Noto Serif', Georgia, serif"
-load_google_fonts:   Roboto+Slab:700|Noto+Serif:400,400i,700,700i
 
-copyright:           '&copy; 2017. All rights reserved.'
+# Remove to disable Google Fonts
+google_fonts:        Roboto+Slab:700|Noto+Serif:400,400i,700,700i
 
 # Remove to disable Google Anaylics
-google_analytics_id: UA-84025722-2
+google_analytics:    UA-84025722-2
 
 # Setting a disqus subdomain will enable the comment section
 disqus_shortname:    qwtel
+
+copyright:           '&copy; 2017. All rights reserved.'
 
 # Set to true when building locally with the `--lsi` option
 # See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`
@@ -91,8 +93,6 @@ compress_html:
 
 sass:
   style:             compressed
-
-version:             6.0.0-alpha2
 
 # If you are updating form a previous verison of Hydejack, uncomment this line below,
 # so that existing subscribers to your feed continue to receive updates.
