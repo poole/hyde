@@ -29,6 +29,16 @@ layout: compress
 
   <div id="_yPushState">
     <main id="_main" class="content container" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
+
+      {% if page.layout == 'welcome' or page.layout == 'projects' or page.layout == 'project' or page.layout == 'resume' %}
+        <style>.warning{position:absolute;top:0;left:0;right:0;padding:1rem;font-size:smaller;} @media(max-width:800px){.warning{margin-left:2rem;}}</style>
+        {% capture warning %}
+**NOTE**: The `{{ page.layout }}` layout is not part of the free version of Hydejack.
+{:.warning.faded}
+        {% endcapture %}
+        {{ warning | markdownify }}
+      {% endif %}
+
       {{ content }}
 
       {% if site.disqus_shortname and page.comments %}
