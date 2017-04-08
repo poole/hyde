@@ -1,20 +1,20 @@
-me:
-  name: Florian Klampfer
-  email: f.klampfer@gmail.com
-
-  # This photo will be used in the about section
-  picture:
-    src: //qwtel.com/assets/img/me.jpg
-    # srcset is optional, but can be used to provide higher res versions for retina displays
-    srcset:
-      1x: //qwtel.com/assets/img/me.jpg
-      2x: //qwtel.com/assets/img/me@2x.jpg
+qwtel:
+  name:              Florian Klampfer
+  email:             f.klampfer@gmail.com
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
   about:             |
     Hi, I'm Florian or [`@qwtel`](https://www.twitter.com/qwtel){:rel="me"}, which isn't an acronym,
     I just [wanted a short username](https://qwtel.com/how-to-find-a-short-username) and that one happened to be available.
+
+  # This photo will be used in the about section
+  picture:
+    src:             //qwtel.com/assets/img/me.jpg
+    # srcset is optional, but can be used to provide higher res versions for retina displays
+    srcset:
+      1x:            //qwtel.com/assets/img/me.jpg
+      2x:            //qwtel.com/assets/img/me@2x.jpg
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
@@ -59,11 +59,11 @@ me:
     # rss:             //qwtel.com/feed.xml
 
 mdo:
-  name: Mark Otto
-  picture: https://pbs.twimg.com/profile_images/630796572691804161/kYW5TxUR.jpg
-  about: |
+  name:              Mark Otto
+  about:             |
     Mark Otto is the designer of the original [Hyde template](http://hyde.getpoole.com) and author of this blog post.
     It's included here to showcase the multi-author feature,
     and to make it seem as if he had anything to do with *this template*, except he totally DOES NOT!
+  picture:           https://pbs.twimg.com/profile_images/630796572691804161/kYW5TxUR.jpg
   social:
-    twitter: mdo
+    twitter:         mdo

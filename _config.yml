@@ -1,4 +1,6 @@
-# Setup
+# -----------------------------------------------------------------------------
+#  User configuration
+# -----------------------------------------------------------------------------
 title:               Hydejack
 
 # The unique resource location of your page.
@@ -22,9 +24,9 @@ description:         >
 
 # See also: `_data/authors.yml`
 author:
-  name: Florian Klampfer
-  email: f.klampfer@gmail.com
-  authors_key: me # the key of this author in `_data/authors.yml`
+  name:              Florian Klampfer
+  email:             f.klampfer@gmail.com
+  authors_key:       qwtel # the key of this author in `_data/authors.yml`
 
 # Fallback image and color if not overwritten
 image:               /hydejack/assets/img/nap.jpg
@@ -52,19 +54,17 @@ use_lsi:             false
 # Set to true if you want to show an icon after every link that points to an external site
 mark_external:       true
 
-# ======================
-# Hydejack configuration
-# ======================
-gems:
-  - jekyll-feed
-  - jekyll-sitemap
-  - jekyll-paginate
+# If you are updating form a previous verison of Hydejack, uncomment this line below,
+# so that existing subscribers to your feed continue to receive updates.
+# feed:
+#   path:              atom.xml
 
+# Format of the permalinks 
 permalink:           pretty
 
-paginate:            5
-paginate_path:       '/page-:num/'
-
+# -----------------------------------------------------------------------------
+#  Collections
+# -----------------------------------------------------------------------------
 collections:
   featured_categories:
     permalink:       /category/:name/
@@ -75,6 +75,17 @@ collections:
   projects:
     permalink:       /projects/:path/
     output:          true
+
+# -----------------------------------------------------------------------------
+#  Plugin configuration
+# -----------------------------------------------------------------------------
+gems:
+  - jekyll-feed
+  - jekyll-sitemap
+  - jekyll-paginate
+
+paginate:            5
+paginate_path:       '/page-:num/'
 
 exclude:             [node_modules, README.md, package.json, resume.json]
 
@@ -93,8 +104,3 @@ compress_html:
 
 sass:
   style:             compressed
-
-# If you are updating form a previous verison of Hydejack, uncomment this line below,
-# so that existing subscribers to your feed continue to receive updates.
-# feed:
-#   path: atom.xml
