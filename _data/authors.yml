@@ -20,7 +20,6 @@ qwtel:
   # Comment/uncommet to show/hide
   # Icons appear in order, can be rearranged:
   social:
-    # email:           mailto:f.klampfer@gmail.com
     # facebook:        _username_
     twitter:         qwtel
     # google:          _number_
@@ -56,6 +55,7 @@ qwtel:
     # delicious:       _username_
     # stumbleupon:     _username_
     # paypal:          _username_
+    # email:           mailto:f.klampfer@gmail.com
     # rss:             //qwtel.com/feed.xml
 
 mdo:

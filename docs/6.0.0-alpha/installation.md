@@ -54,7 +54,6 @@ You can now point your browser to [http://localhost:4000](http://localhost:4000)
 **NOTE**: If you are missing the `bundle` command, you can install Bundler by running `gem install bundler`.
 {:.message}
 
-
 For more information on gem-based themes, see the [Jekyll Documentation](http://jekyllrb.com/docs/themes/).
 
 ## Via zip
@@ -98,6 +97,14 @@ You can now point your browser to [http://localhost:4000](http://localhost:4000)
 
 **NOTE**: If you are missing the `bundle` command, you can install Bundler by running `gem install bundler`.
 {:.message}
+
+### Without Bundler
+If you do not want to use Bundler, you can install the dependencies yourself via `gem install <dep>`. They are
+
+- `jekyll`
+- `jekyll-paginate`
+- `jekyll-feed`
+- `jekyll-sitemap`
 
 ## Via git
 If you are familiar with using git, you can add the [Hydejack repository](https://github.com/qwtel/hydejack) as a remote, and merge its master branch into your working branch.

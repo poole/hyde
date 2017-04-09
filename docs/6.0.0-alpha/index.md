@@ -25,12 +25,19 @@ Rumor has it, you can even view it via [`lynx`](http://lynx.browser.org/). -->
 
 <!-- *** -->
 
-1. [Installation]{:.heading data-flip="title"}
-1. [Configuration]{:.heading data-flip="title"}
-1. [Basics]{:.heading data-flip="title"}
-1. [Markdown]{:.heading data-flip="title"}
-1. [Migration]{:.heading data-flip="title"}
-1. [Advanced]{:.heading data-flip="title"}
+## Getting started
+
+* [Installation]{:.heading data-flip="title"} -- How to install and run Hydejack.
+* [Configuration]{:.heading data-flip="title"} -- Once Jekyll is running you can start with basic configuration.
+* [Migration]{:.heading data-flip="title"} -- You can skip this if you are staring a new blog.
+{:.faded}
+
+## Using Hydejack
+
+* [Basics]{:.heading data-flip="title"} -- How to add different types of content.
+* [Writing]{:.heading data-flip="title"} -- Producing markdown content for Hydejack.
+* [Advanced]{:.heading data-flip="title"} -- TODO
+{:.faded}
 
 <!-- \* Part of the "PRO" verison of Hydejack. -->
 
@@ -42,7 +49,7 @@ Rumor has it, you can even view it via [`lynx`](http://lynx.browser.org/). -->
 [installation]: {{ site.baseurl }}{% link docs/6.0.0-alpha/installation.md %}
 [configuration]: {{ site.baseurl }}{% link docs/6.0.0-alpha/configuration.md %}
 [basics]: {{ site.baseurl }}{% link docs/6.0.0-alpha/basics.md %}
-[markdown]: {{ site.baseurl }}{% link docs/6.0.0-alpha/markdown.md %}
+[writing]: {{ site.baseurl }}{% link docs/6.0.0-alpha/writing.md %}
 [migration]: {{ site.baseurl }}{% link docs/6.0.0-alpha/migration.md %}
 [advanced]: {{ site.baseurl }}{% link docs/6.0.0-alpha/advanced.md %}
 [jankfree]: http://jankfree.org/

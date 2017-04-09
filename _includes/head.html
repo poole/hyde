@@ -50,7 +50,7 @@
   {{ include_to_scssify | scssify }}
 </style>
 
-{% capture style_url %}/assets/css/hydejack.css?v=6.0.0-alpha{% endcapture %}
+{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.0.0-alpha{% endcapture %}
 <link rel="preload" href="{{ style_url | relative_url }}" as="style" onload="this.rel='stylesheet'">
 
 {% include page-style.html %}
@@ -68,7 +68,7 @@
     </style>
   {% endif %}
 
-  <link rel="stylesheet" href="{{ '/assets/icomoon/style.css' | relative_url }}">
+  <link rel="stylesheet" href="{{ site.baseurl }}{% link assets/icomoon/style.css %}">
 </noscript>
 <!--<![endif]-->
 
