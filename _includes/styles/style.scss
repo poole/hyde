@@ -54,7 +54,7 @@
 
 {% if site.mark_external %}
   @media screen {
-    a[href*="//"]:not([href*="{{ site.url }}"])::after {
+    a[href*="//"]::after, a.no-push-state::after {
       content: "\00A0\ea7e";
       font-family: 'icomoon' !important;
       speak: none;

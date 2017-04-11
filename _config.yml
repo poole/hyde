@@ -26,7 +26,6 @@ description:         >
 author:
   name:              Florian Klampfer
   email:             f.klampfer@gmail.com
-  authors_key:       qwtel # the key of this author in `_data/authors.yml`
 
 # Fallback image and color if not overwritten
 image:               /hydejack/assets/img/nap.jpg
@@ -59,7 +58,7 @@ mark_external:       true
 # feed:
 #   path:              atom.xml
 
-# Format of the permalinks 
+# Format of the permalinks
 permalink:           pretty
 
 # -----------------------------------------------------------------------------

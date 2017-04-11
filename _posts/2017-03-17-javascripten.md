@@ -11,7 +11,9 @@ This release addresses this but adding a layer of JavaScript, effectively turnin
 
 ## Major
 
-### FAST!
+Pages are now loaded and swapped through JavaScript. This has a number of effects. First of all its looks cool, but the animations aren't just about aesthetics. They also help to hide the network time of fetching the next page, making the page feel faster. At the same time, the FOUC introduced in the last release will no longer occur (except on the initial page load).
+
+<!-- ### Fast
 * Loading the next page starts as soon as possible: When users hover over link with their mouse, when they put their finger on it or when an element receives the focus via keyboard. This saves somewhere between 50ms and 100ms, depending on how fast your users are.
 * Animations not only make the website feel like an app, they add another 300ms to complete the request without the user noticing.
 * ...
@@ -26,7 +28,7 @@ Hydejack takes a number of steps to ensure that js doesn't get in the way.
 * Build on top of RxJS. Lots of complex, time-based logic is necessary to load, pre-load and animate the app. RxJS is a powerful tool to do these things and Hydejack is built on it.
 
 ...
-
+ -->
 
 ## Minor
 
@@ -38,6 +40,10 @@ Hydejack takes a number of steps to ensure that js doesn't get in the way.
 
 ...
 
+See the [the migration guide]({{ site.baseurl }}{% link docs/6.0.0-alpha/migration.md %}) for further instructions.
+
 ***
 
 [Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.0.0)
+
+*[FOUC]: Flash of Unstyled Content

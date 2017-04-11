@@ -61,9 +61,10 @@ qwtel:
 mdo:
   name:              Mark Otto
   about:             |
-    Mark Otto is the designer of the original [Hyde template](http://hyde.getpoole.com) and author of this blog post.
-    It's included here to showcase the multi-author feature,
-    and to make it seem as if he had anything to do with *this template*, except he totally DOES NOT!
+    Mark Otto is the designer of the original [Hyde Jekyll theme](http://hyde.getpoole.com) and author of this blog post.
+    The post is included here as filler content and to showcase Hydejacks's multi-author feature.
   picture:           https://pbs.twimg.com/profile_images/630796572691804161/kYW5TxUR.jpg
   social:
     twitter:         mdo
+  image: 'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' # http://jsfiddle.net/LPxrT/
+  color: '#268bd2'

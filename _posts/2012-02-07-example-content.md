@@ -4,10 +4,6 @@ title: Example content
 tags: [hyde]
 description: >
   Howdy! This is an example blog post that shows several types of HTML content supported in this theme.
-
-# http://jsfiddle.net/LPxrT/
-image: 'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
-color: '#268bd2'
 author: mdo
 ---
 
@@ -26,7 +22,7 @@ HTML defines a long list of available inline tags, a complete list of which can 
 - Abbreviations, like HTML should be defined like this `*[HTML]: HyperText Markup Language`.
 - Citations, like <cite>&mdash; Mark otto</cite>, should use `<cite>`.
 - ~~Deleted~~ text should use `~~deleted~~` and <ins>inserted</ins> text should use `<ins>`.
-- Superscript <sup>text</sup> uses `<sup>` and subscript <sub>text</sub> uses `<sub>`[^1].
+- Superscript <sup>text</sup> uses `<sup>` and subscript <sub>text</sub> uses `<sub>`.
 
 Most of these elements are styled by browsers with few modifications on our part.
 
@@ -109,30 +105,6 @@ Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, conse
 |Totals    |        21 |        23 |
 
 Nullam id dolor id nibh ultricies vehicula ut id elit. Sed posuere consectetur est at lobortis. Nullam quis risus eget urna mollis ornare vel eu leo.
-
-## Math
-
-Aenean lacinia $$ f(x) = x^2 $$ bibendum nulla sed consectetur. Etiam porta sem malesuada magna mollis euismod. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa.
-
-$$
-\begin{aligned}
-  \phi(x,y) &= \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right) \\[2em]
-            &= \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j)            \\[2em]
-            &= (x_1, \ldots, x_n)
-               \left(\begin{array}{ccc}
-                 \phi(e_1, e_1)  & \cdots & \phi(e_1, e_n) \\
-                 \vdots          & \ddots & \vdots         \\
-                 \phi(e_n, e_1)  & \cdots & \phi(e_n, e_n)
-               \end{array}\right)
-               \left(\begin{array}{c}
-                 y_1    \\
-                 \vdots \\
-                 y_n
-               \end{array}\right)
-\end{aligned}
-$$
-
-[^1]: You can insert footnote marks using `[^1]`, `[^2]`, etc and write the footnote text at the bottom of your file like this: `[^1]: You can also insert footnote marks...`
 
 *[HTML]: HyperText Markup Language
 *[CSS]: Cascading Style Sheets

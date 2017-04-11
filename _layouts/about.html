@@ -2,11 +2,7 @@
 layout: base
 ---
 
-{% if page.author %}
-  {% assign author = site.data.authors[page.author] %}
-{% elsif site.author.authors_key %}
-  {% assign author = site.data.authors[site.author.authors_key] %}
-{% endif %}
+{% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] %}
 
 <article class="page" role="article">
   {% if author.picture %}

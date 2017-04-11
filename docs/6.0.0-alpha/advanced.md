@@ -58,7 +58,6 @@ If you want to actively develop the scripts, it is better to run
 which will build a non-minified, non-transpiled (ES6) version of `hydejack.js` after every filechange.
 
 ## Adding a custom FLIP animation
-
 [TODO]
 
 *[FLIP]: First Last Invert Play

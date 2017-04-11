@@ -2,6 +2,8 @@
 layout: compress
 ---
 
+{% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] %}
+
 {% assign color = site.color | default:'#A85641' %}
 {% assign image = site.image | default:'/assets/img/nap.jpg' %}
 
@@ -15,6 +17,9 @@ layout: compress
   {% assign tag = site.featured_tags | where: "slug", tag_name | first %}
   {% if tag.color %}{% assign color = tag.color %}{% endif %}
   {% if tag.image %}{% assign image = tag.image %}{% endif %}
+{% elsif author %}
+  {% if author.color %}{% assign color = author.color %}{% endif %}
+  {% if author.image %}{% assign image = author.image %}{% endif %}
 {% endif %}
 
 {% if page.color %}{% assign color = page.color %}{% endif %}
@@ -32,8 +37,7 @@ layout: compress
 
       {{ content }}
 
-      {% assign disqus_shortname = site.disqus_shortname | defaut:site.disqus %}
-      {% if disqus_shortname and page.comments %}
+      {% if site.disqus_shortname and page.comments %}
         {% include comments.html %}
       {% endif %}
 

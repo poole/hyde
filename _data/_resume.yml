@@ -1,8 +1,5 @@
 # If you don't have a JSON Resume you can edit this YAML file instead.
 # To use this file, rename it to `resume.yml` and delete `resume.json`.
-#
-# You can also turn an existing `resume.json` into YAML, by placing it into the `_data` directory
-# and running `npm run resume`. Again, delete `resume.json` afterwards.
 ---
   basics:
     name: "Richard Hendricks"

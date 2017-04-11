@@ -9,7 +9,7 @@
       {% for post in site.related_posts limit:3 %}
         {% include post-list-item.html post=post format="%m/%d/%y" %}
       {% endfor %}
-    {% elsif post.categories.first != null %}
+    {% elsif post.categories.first %}
       {% assign category_posts = site.categories[post.categories.first] %}
       {% assign plusone = false %}
       {% for post in category_posts limit:4 %}
@@ -21,7 +21,7 @@
           {% include post-list-item.html post=post format="%m/%d/%y" %}
         {% endif %}
       {% endfor %}
-    {% elsif post.tags.first != null %}
+    {% elsif post.tags.first %}
       {% assign tag_posts = site.tags[post.tags.first] %}
       {% assign plusone = false %}
       {% for post in tag_posts limit:4 %}

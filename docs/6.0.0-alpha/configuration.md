@@ -72,6 +72,28 @@ The `google_fonts` key is the string necessary to fetch the fonts from Google. Y
 ### Using safe web fonts
 If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead, all you have to do is remove the `google_fonts` key entirely. In this case, `font` and `font_heading` do not have to contain more than one font.
 
+## Choosing a blog layout
+Hydejack features two layouts for showing your blog posts.
+
+* The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
+[Demo]({{ site.basurel }}{% link index.html %}).
+
+* The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
+[Demo]({{ site.basurel }}{% link posts.md %}).
+
+In order to choose either layout, open `index.html` in the root folder and change the `layout` property in the front matter, e.g.
+
+~~~yml
+---
+layout: blog
+title:  Home
+---
+~~~
+
+**NOTE**: The paginated `blog` layout needs to have the `.html` file extension, while the (non-paginated) `list` layout may have the `.md` or `.markdown` extension. This is due to the `jekyll-paginate` plugin.
+{:.message}
+
+
 ## Adding an author
 At the very least, you should add an `author` key with a `name` and `email` sub-key (used by the [feed plugin](https://github.com/jekyll/jekyll-feed)) to `_config.yml`:
 
@@ -79,34 +101,28 @@ At the very least, you should add an `author` key with a `name` and `email` sub-
       name:  Florian Klampfer
       email: f.klampfer@gmail.com
 
-If you would like the author information to be displayed in the about section of a post or project\*, as well as on the about and welcome\* page, you have to provide additional information in `_data/authors.yml`. If you've installed Hydejack via zip, this file already exists. Otherwise you have to create it (possibly the `_data` directory also). You can find the default file [here](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml).
+If you would like the author information to be displayed in the about section of a post or project\*, as well as on the about and welcome\* page, you have to provide additional information in `_data/authors.yml`. If you've installed Hydejack via zip, this file already exists. Otherwise you have to create it (and possibly the `_data` directory as well). You can find the default file [here](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml).
 
 The `authors.yml` consists of key-value pairs, where the key is a shorthand for the author (e.g. the GitHub or Twitter handle) and the value is a hash containing the author's information.
 
-    me:
+    qwtel:
       name:  Florian Klampfer
       email: f.klampfer@gmail.com
 
       about: |
         Hi, I'm Florian or `@qwtel`...
 
-In order to set an author as the default author, you have to add the shorthand (in this case `me`) to the author in `_config.yml` via the `authors_key` property.
-
-    author:
-      name:        Florian Klampfer
-      email:       f.klampfer@gmail.com
-      authors_key: me
-
-If an author's `about` value isn't empty, it will appear (markdownifyed) below each of the author's blog posts and projects* below the heading "About", as well as at the top of the `about` and `welcome`\* layout.
+Now, if an author's `about` value isn't empty, the text will appear (markdownifyed) at the bottom of each blog post and project*, as well as at the top of a page using the `about` and `welcome`\* layout.
 
 ### Dealing with multiple authors
-If a blog post, project\*, about or welcome\* page doesn't belong to the default author, you can mark it by setting the `author` key in the front matter to the key of the author (as defined in `authors.yml`), e.g.:
+The first entry in `authors.yml` will be used as the default author.
+However, if a blog post, project\*, about or welcome\* page doesn't belong to the default author, you can mark it by setting the `author` key in the front matter. The value must match the key as defined in `authors.yml`, e.g.
 
 ~~~yml
 ---
 layout: post
 title: "Hello World"
-author: notme
+author: qwtel
 ---
 ~~~
 
@@ -180,8 +196,8 @@ Now comments can be enabled on every page by adding `comments: true` to the fron
 
 ~~~yml
 ---
-layout: page
-title: Configuration
+layout:   page
+title:    Configuration
 comments: true
 ---
 ~~~
@@ -192,11 +208,15 @@ comments: true
 ## Enabling Google Analytics
 Enabling Google Anaylists is as simple as setting the `google_analytics` key in `_config.yml` .
 
-    google_analytics:    UA-84025722-2
+    google_analytics: UA-84025722-2
 
 Conversely, if you want to disable it, you only have to remove the key and no GA code will be part of the generated pages.
 
 **Note**: Pasting code snippets provided by 3rd parties into the body will have undesired side effects (and may not work at all), because pages are loaded and swapped via JavaScript.
 {:.message}
+
+***
+
+\* Part of the "PRO" verison of Hydejack.
 
 *[FOIT]: Flash of Invisible Text

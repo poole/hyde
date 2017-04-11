@@ -14,7 +14,7 @@ layout: base
   {% endif %}
 {% endif %}
 
-{% if page.title != null %}
+{% if page.title.size > 0 %}
   <h1 class="page-title">{{ page.title }}</h1>
   {% include message.html text=page.description %}
 {% endif %}
