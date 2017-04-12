@@ -1,9 +1,10 @@
 ---
 layout: page
 title: Installation
+image: '/hydejack/assets/img/doc.jpg'
+color: '#8e5c75'
 ---
 
-<!-- ## Installation -->
 There are multiple ways of installing Hydejack.
 The easiest is [via the Ruby gem](#via-gem).
 If you bought the "PRO" version of Hydejack or downloaded the zip, you'll want to install [via the zip file](#via-zip).

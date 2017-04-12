@@ -3,7 +3,6 @@ table {
   width: 100%;
   width: calc(100% + 2rem);
   margin-left: -1rem;
-  font-size: 85%;
   border: 1px solid #e5e5e5;
   border-collapse: collapse;
 }
@@ -19,10 +18,6 @@ td, th {
   &:last-child {
     padding-right: 1rem;
   }
-}
-
-th {
-  text-align: left;
 }
 
 tbody tr:nth-child(odd) td,

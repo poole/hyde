@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Configuration
+image: '/hydejack/assets/img/doc.jpg'
+color: '#8e5c75'
 ---
 
 Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`.

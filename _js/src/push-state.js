@@ -49,7 +49,7 @@ const REQUIREMENTS = [
 ];
 
 const DURATION = 250;
-const FADE_DURATION = 600;
+const FADE_DURATION = 500;
 
 // whenever the source observable encounters an error,
 // we log it to the console, but continue as if it never happend

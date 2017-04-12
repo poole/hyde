@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Advanced
+image: '/hydejack/assets/img/doc.jpg'
+color: '#8e5c75'
 ---
 
 [TODO]
@@ -9,7 +11,6 @@ title: Advanced
 * this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
-<!-- ## Advanced -->
 ## Adding a custom social media icon
 Hydejack includes a number of social media icons by default (in fact, everything that is provided by [IcoMoon](https://icomoon.io/)), but since the landscape is always changing, it is likely that a platform that is important to you will be missing at some point.
 
@@ -57,7 +58,6 @@ If you want to actively develop the scripts, it is better to run
 
 which will build a non-minified, non-transpiled (ES6) version of `hydejack.js` after every filechange.
 
-## Adding a custom FLIP animation
-[TODO]
+<!-- ## Adding a custom FLIP animation -->
 
 *[FLIP]: First Last Invert Play

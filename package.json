@@ -33,6 +33,7 @@
     "watchify": "3.9.0"
   },
   "dependencies": {
+    "color": "1.0.3",
     "core-js": "2.4.1",
     "elem-dataset": "1.1.1",
     "katex": "0.7.1",

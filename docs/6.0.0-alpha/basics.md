@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Basics
+image: '/hydejack/assets/img/doc.jpg'
+color: '#8e5c75'
 ---
 
 [TODO]
@@ -67,7 +69,9 @@ layout: list
 title:  Hyde
 slug:   hyde
 description: >
-  Hyde is a brazen two-column Jekyll theme ...
+  Hyde is a brazen two-column Jekyll](http://jekyllrb.com) theme
+  that pairs a prominent sidebar with uncomplicated content.
+  It's based on [Poole](http://getpoole.com), the Jekyll butler.
 image:  'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
 color:  '#268bd2'
 menu:   true
@@ -224,7 +228,9 @@ link: http://hyde.getpoole.com
 source: https://github.com/poole/hyde
 caption: Hyde is a brazen two-column Jekyll theme.
 description: >
-  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+  Hyde is a brazen two-column Jekyll](http://jekyllrb.com) theme
+  that pairs a prominent sidebar with uncomplicated content.
+  It's based on [Poole](http://getpoole.com), the Jekyll butler.
 tags: [hyde]
 author: mdo
 ---
@@ -237,7 +243,7 @@ author: mdo
 : Providing a year is the minimum requirement. Used to sort the projects.
 
 `screenshot`
-: A 16:9 screenshot of the project. An a single URL to an image is enough, but it is recommended that you provide an entire `srcset`. Hydejack will show the screenshot in various sizes, depending on the screen width, so that no exact size will fit all. Instead this recommended that you use a [mipmap]-like approach, providing the image in multiple versions, each image half the width of the previous one. Then, the browser will determine which image to use.
+: A 16:9 screenshot of the project. An a single URL to an image is enough, but it is recommended that you provide an entire `srcset`. Hydejack will show the screenshot in various sizes, depending on the screen width, so that no specific size will fit all. Instead it is recommended that you use a [mipmap]-like approach, providing the image in multiple sizes, each image half the width of the previous one. [TODO srcset docu]
 
 `link`
 : A URL pointing to a live version of the project.

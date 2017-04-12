@@ -38,6 +38,9 @@ Rumor has it, you can even view it via [`lynx`](http://lynx.browser.org/).
 Sidebar (default)
 : [Napoleon Crossing the Alps ](https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps#/media/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg)
 
+Sidebar (Documentation)
+: [Annie Spratt](https://unsplash.com/search/library?photo=lIWF2uHxs0Q)
+
 
 [^1]: Perceived speed: Latency hidden through complex pre-fetching logic and animations. Load speed: Inlining styles and removing other requests from the critical rendering path.
 [^r]: I felt that using `RxJS` was reason enough to give it the "reactive" label.

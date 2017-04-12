@@ -1,15 +1,18 @@
 ---
 layout: page
-title: Manual
+title: Documentation
 menu: true
 order: 5
+category: docs
+image: '/hydejack/assets/img/doc.jpg'
+color: '#8e5c75'
 ---
 
 Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
 Should you think something is missing, [please let me know](https://github.com/qwtel/hydejack/issues).
 Should you discover a mistake in the docs (or a bug in general) feel free to [open an issue](https://github.com/qwtel/hydejack/issues) on GitHub.
 
-**NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands. 
+**NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands.
 {:.message}
 
 <!-- ## Table of Contents

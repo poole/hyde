@@ -3,16 +3,16 @@
 // Inline and block-level code snippets. Includes tweaks to syntax highlighted
 // snippets from Pygments/Rouge and Gist embeds.
 
-code, pre, .code {
+code, pre {
   font-family: $code-font-family;
 }
 
-code, .code {
+code {
   padding: .25em .5em;
   font-size: .85em;
   // Could be mistaken for a link if the user choses a similar link-color, so better no colored inline code.
   // color: $code-color;
-  background-color: #f9f9f9;
+  background-color: rgba(0, 0, 0, 0.03);
   // No border radius to prevent repaint on code scroll
   // border-radius: 3px;
 }
@@ -46,7 +46,7 @@ figure, .figure {
 
   > *:first-child {
     padding: 1rem;
-    background: #f9f9f9;
+    background-color: rgba(0, 0, 0, 0.05);
   }
 
   > figcaption, > .figcaption {

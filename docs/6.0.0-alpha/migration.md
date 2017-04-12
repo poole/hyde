@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Migration
+image: '/hydejack/assets/img/doc.jpg'
+color: '#8e5c75'
 ---
 
 [TODO]

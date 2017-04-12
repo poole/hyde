@@ -28,6 +28,11 @@
   /* Sidebar links */
   a {
     color: #fff;
+    border-bottom-color: rgba(255, 255, 255, 0.2);
+
+    // &:hover, &:focus {
+    //   border-bottom-color: #fff;
+    // }
   }
 }
 
@@ -95,7 +100,7 @@
   }
 }
 
-.sidebar-nav-item {
+a.sidebar-nav-item {
   font-weight: bold;
   display: block;
   line-height: 1.75;
@@ -103,10 +108,12 @@
   padding: .25rem 2rem;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
   border-bottom: none;
-
+  // transition: background-color 500ms ease;
+  //
   // &:hover, &:focus {
   //   border-bottom: none;
   //   background-color: rgba(255, 255, 255, 0.1);
+  //   transition: background-color 50ms ease;
   // }
 }
 

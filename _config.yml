@@ -89,6 +89,7 @@ paginate_path:       '/page-:num/'
 exclude:             [node_modules, README.md, package.json, resume.json]
 
 kramdown:
+  footnote_backlink: '&#x21a9;&#xfe0e;'
   math_engine:       mathjax
   math_engine_opts:
     preview:         true

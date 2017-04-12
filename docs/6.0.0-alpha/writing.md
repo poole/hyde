@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Writing
+image: '/hydejack/assets/img/doc.jpg'
+color: '#8e5c75'
 ---
 
 Hydejack offers a few additional features to markup your markdown. Don't worry, these are merely CSS classes added via the standard `{:.my-class}` syntax, so that your posts remain compatible with other kramdown processors.
