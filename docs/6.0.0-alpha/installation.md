@@ -116,3 +116,8 @@ If you are familiar with using git, you can add the [Hydejack repository](https:
 You can also update Hydejack this way. The master branch will not contain work in progress, but will contain major (breaking) releases.
 
 If you are starting a new blog you can also fork or clone the repository and use it as basis, though it's debatable whether that's desirable.
+
+***
+
+Continue with [Configuration]({{ site.baseurl }}{% link docs/6.0.0-alpha/configuration.md %}){:data-flip="title"} »
+{:.faded.heading}

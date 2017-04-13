@@ -120,3 +120,8 @@ If you'd like to add examples of the new layouts, you can additionally copy:
 * `welcome.md`
 
 For more information on how to use these, see [TODO: add links to docu].
+
+***
+
+Continue with [Basics]({{ site.baseurl }}{% link docs/6.0.0-alpha/basics.md %}){:data-flip="title"} »
+{:.faded.heading}

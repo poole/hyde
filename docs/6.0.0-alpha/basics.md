@@ -284,6 +284,7 @@ title: Resume
 
 ***
 
-\* Part of the "PRO" verison of Hydejack.
+Continue with [Writing]({{ site.baseurl }}{% link docs/6.0.0-alpha/writing.md %}){:data-flip="title"} »
+{:.faded.heading}
 
 [mipmap]: https://en.wikipedia.org/wiki/Mipmap

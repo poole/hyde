@@ -217,8 +217,10 @@ Conversely, if you want to disable it, you only have to remove the key and no GA
 **Note**: Pasting code snippets provided by 3rd parties into the body will have undesired side effects (and may not work at all), because pages are loaded and swapped via JavaScript.
 {:.message}
 
+
 ***
 
-\* Part of the "PRO" verison of Hydejack.
+Continue with [Migration]({{ site.baseurl }}{% link docs/6.0.0-alpha/migration.md %}){:data-flip="title"} »
+{:.faded.heading}
 
 *[FOIT]: Flash of Invisible Text

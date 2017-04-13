@@ -10,11 +10,7 @@ code, pre {
 code {
   padding: .25em .5em;
   font-size: .85em;
-  // Could be mistaken for a link if the user choses a similar link-color, so better no colored inline code.
-  // color: $code-color;
   background-color: rgba(0, 0, 0, 0.03);
-  // No border radius to prevent repaint on code scroll
-  // border-radius: 3px;
 }
 
 pre {
@@ -28,7 +24,7 @@ pre {
   -webkit-overflow-scrolling: touch;
 
   /* Make code same width as regular text, and scroll the full page width on mobile */
-  @include figure();
+  @include pre();
 
   backface-visibility: hidden; // wat?
 }
@@ -51,7 +47,7 @@ figure, .figure {
 
   > figcaption, > .figcaption {
     font-size: smaller;
-    color: #9a9a9a;
+    color: $gray;
     text-align: center;
     font-style: italic;
     margin-top: 0.5rem;

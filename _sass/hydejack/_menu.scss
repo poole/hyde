@@ -1,14 +1,14 @@
 .menu {
   // display: block;
   // padding: 1.25rem 1.5rem;
-  // color: #9a9a9a;
+  // color: $gray;
   // border-bottom: none;
   // position: fixed;
   // top: 0;
   // left: 0;
   // z-index: 1;
   //
-  // @media (min-width: $break-point-1) {
+  // @media (min-width: $break-point-2) {
   //   position: absolute;
   //   left: -9999px;
   //
@@ -17,7 +17,7 @@
   //   }
   // }
   //
-  // @media (min-width: $break-point-2) {
+  // @media screen and (min-width: $break-point-3) {
   //   &:focus {
   //     left: 21.5rem;
   //   }

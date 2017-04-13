@@ -11,9 +11,10 @@
 
   > li, > li + li {
     margin-top: 1rem;
+
     > small {
       font-size: 75%;
-      color: #9a9a9a;
+      color: $gray;
     }
   }
 }

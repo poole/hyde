@@ -1,8 +1,8 @@
-@mixin figure() {
+@mixin pre() {
   margin-left: -1rem;
   margin-right: -1rem;
   padding: 1rem;
-  background-color: #f9f9f9;
+  background-color: $gray-bg;
 }
 
 @mixin aspect-ratio($width, $height) {

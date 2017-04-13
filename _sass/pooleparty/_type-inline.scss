@@ -74,7 +74,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 //
 //   &[title] {
 //     cursor: help;
-//     border-bottom: 1px dotted #e5e5e5;
+//     border-bottom: 1px dotted $border-color;
 //   }
 // }
 //
@@ -82,7 +82,7 @@ h4, h5, h6, .h4, .h5, .h6 {
 //   padding: .5rem 1rem;
 //   margin: .8rem 0;
 //   color: #7a7a7a;
-//   border-left: .25rem solid #e5e5e5;
+//   border-left: .25rem solid $border-color;
 //
 //   &.lead {
 //     font-size: 1.25rem;

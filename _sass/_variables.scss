@@ -1,43 +1,25 @@
-$gray-1: #f9f9f9;
-$gray-2: #ccc;
-$gray-3: #767676;
-$gray-4: #515151;
-$gray-5: #313131;
-
-$red: #ac4142;
-$orange: #d28445;
-$yellow: #f4bf75;
-$green: #90a959;
-$cyan: #75b5aa;
-$blue: #268bd2;
-// $blue: #6a9fb5;
-$brown: #8f5536;
+$gray: #9a9a9a;
+$gray-bg: #f9f9f9;
+$gray-text: #787878;
 
 $root-font-size: 16px;
+$root-font-size-large: 18px;
 $root-line-height: 1.75;
 
 $body-color: #464646;
 $body-bg: #fff;
-$link-color: $blue;
 
 $border-color: #e5e5e5;
-
-$large-breakpoint: 38em;
-$large-font-size: 20px;
+$border-color-light: #eee;
 
 $code-font-family: Menlo, Monaco, Consolas, monospace;
 $code-color: inherit;
 
-$scrollbar-width: 18px;
-
-$break-point-1: 800px + 1px;
-$break-point-2: 1024px + 1px;
-$break-point-3: 1440px + 1px;
-
-$break-point-font-1: 608px;
-$break-point-font-2: 1152px;
-
-$break-point-content-max: 82em; // content max width reached
-$break-point-dynamic: 1656px; // left-right margin equal
+$break-point-1: 38em;
+$break-point-2: 50em;
+$break-point-3: 66em;
+$break-point-4: 76em;
+$break-point-5: 96em;
+$break-point-dynamic: 103.5em;
 
 $dynamic-width: calc(50% - 28rem);

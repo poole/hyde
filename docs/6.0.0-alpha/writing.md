@@ -180,3 +180,8 @@ $$
 \end{aligned}
 $$
 ~~~
+
+***
+
+Continue with [Advanced]({{ site.baseurl }}{% link docs/6.0.0-alpha/advanced.md %}){:data-flip="title"} »
+{:.faded.heading}

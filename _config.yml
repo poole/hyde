@@ -18,7 +18,7 @@ tagline:             A pretentious two-column Jekyll theme.
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
   A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by
-  [`@qwtel`{:style="background: rgba(255, 255, 255, 0.15)" rel="me"}](https://twitter.com/qwtel) from
+  [`@qwtel`{:rel="me"}](https://twitter.com/qwtel) from
   [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
@@ -93,7 +93,7 @@ kramdown:
   math_engine:       mathjax
   math_engine_opts:
     preview:         true
-    preview_as_code: true
+    preview_as_code: false
 
 compress_html:
   comments:          ["<!-- ", " -->"]

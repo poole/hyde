@@ -3,13 +3,13 @@ table {
   width: 100%;
   width: calc(100% + 2rem);
   margin-left: -1rem;
-  border: 1px solid #e5e5e5;
+  border: 1px solid $border-color;
   border-collapse: collapse;
 }
 
 td, th {
   padding: .25rem .5rem;
-  border: 1px solid #e5e5e5;
+  border: 1px solid $border-color;
 
   &:first-child {
     padding-left: 1rem;
@@ -22,5 +22,5 @@ td, th {
 
 tbody tr:nth-child(odd) td,
 tbody tr:nth-child(odd) th {
-  background-color: #f9f9f9;
+  background-color: $gray-bg;
 }
