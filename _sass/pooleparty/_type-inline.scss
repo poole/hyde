@@ -9,7 +9,7 @@ h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   margin: 3rem 0 1rem;
-  line-height: 1.55;
+  line-height: 1.6;
 }
 
 h1, .h1 {
@@ -41,6 +41,10 @@ ul, ol, dl {
   margin-bottom: 1rem;
 }
 
+ul, ol {
+  padding-left: 1.25rem;
+}
+
 hr {
   position: relative;
   margin: 1.5rem 0;
@@ -54,10 +58,6 @@ h4, h5, h6, .h4, .h5, .h6 {
   font-size: 1rem;
 }
 
-// strong {
-//   color: #303030;
-// }
-//
 // dt {
 //   font-weight: bold;
 // }

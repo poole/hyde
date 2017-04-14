@@ -93,7 +93,7 @@ kramdown:
   math_engine:       mathjax
   math_engine_opts:
     preview:         true
-    preview_as_code: false
+    preview_as_code: true
 
 compress_html:
   comments:          ["<!-- ", " -->"]
