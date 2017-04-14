@@ -42,7 +42,7 @@ body, main {
 
 @media screen and (min-width: $break-point-1) {
   html {
-    font-size: $root-font-size-large;
+    font-size: $root-font-size-medium;
   }
 }
 
@@ -61,7 +61,13 @@ body, main {
   // }
 }
 
-@media screen and (min-width: $break-point-4) {
+@media screen and (min-width: $break-point-3) {
+  html {
+    font-size: $root-font-size-medium;
+  }
+}
+
+@media screen and (min-width: $break-point-5) {
   html {
     font-size: $root-font-size-large;
   }
@@ -74,7 +80,7 @@ body, main {
 // }
 
 .sr-only {
-  // will be properly styled in the non-essential part
+  // will be properly styled in the main css
   display: none;
   // display: unset;
   // position: absolute;

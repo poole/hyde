@@ -8,7 +8,7 @@
   // left: 0;
   // z-index: 1;
   //
-  // @media (min-width: $break-point-2) {
+  // @media screen and (min-width: $break-point-2) {
   //   position: absolute;
   //   left: -9999px;
   //
@@ -23,7 +23,7 @@
   //   }
   // }
   //
-  // @media (min-width: $break-point-dynamic) {
+  // @media screen and (min-width: $break-point-dynamic) {
   //   &:focus {
   //     left: calc(50% - 24.5rem);
   //   }

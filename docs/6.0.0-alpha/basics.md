@@ -5,8 +5,6 @@ image: '/hydejack/assets/img/doc.jpg'
 color: '#8e5c75'
 ---
 
-[TODO]
-
 ## Table of Contents
 * this unordered seed list will be replaced by toc as unordered list
 {:toc}
@@ -231,7 +229,6 @@ description: >
   Hyde is a brazen two-column Jekyll](http://jekyllrb.com) theme
   that pairs a prominent sidebar with uncomplicated content.
   It's based on [Poole](http://getpoole.com), the Jekyll butler.
-tags: [hyde]
 author: mdo
 ---
 ~~~
@@ -243,7 +240,8 @@ author: mdo
 : Providing a year is the minimum requirement. Used to sort the projects.
 
 `screenshot`
-: A 16:9 screenshot of the project. An a single URL to an image is enough, but it is recommended that you provide an entire `srcset`. Hydejack will show the screenshot in various sizes, depending on the screen width, so that no specific size will fit all. Instead it is recommended that you use a [mipmap]-like approach, providing the image in multiple sizes, each image half the width of the previous one. [TODO srcset docu]
+: A 16:9 screenshot of the project. You can pass a URL to an image, but it is recommended that you provide an entire `srcset` (see above). Hydejack will show the screenshot in various sizes, depending on the screen width, so that no specific size will fit all. Instead it is recommended that you use a [mipmap]-like approach, providing the image in multiple sizes, each image half the width of the previous one. The `src` key is a fallback image for browsers that don't support the `srcset` attribute. The keys of the `srcset` hash will be used as descriptors.
+For more information on `srcset`, see the [documentation at MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset), or [this article from CSS-Tricks](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/).
 
 `link`
 : A URL pointing to a live version of the project.
@@ -255,7 +253,10 @@ author: mdo
 : A short description, shown as part of each "project card" in the `projects` layout.
 
 `description`
-: A medium-length description, used on the project's detail page as meta description and shown as message box below the screenshot.
+: A medium-length description, used on the project's detail page as meta description and shown as message box below he screenshot.
+
+`author`
+: Shown below the project, similar to posts. 
 
 
 ## Adding a resume*

@@ -82,7 +82,7 @@ If you downloaded the zip, the folder structure will look like:
 │   ├── img
 │   └── js
 ├── docs
-│   └── 6.0.0-alpha
+│   └── 6.0.0
 ├── _config.yml
 ├── 404.md
 ├── about.md

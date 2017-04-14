@@ -78,10 +78,10 @@ If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfon
 Hydejack features two layouts for showing your blog posts.
 
 * The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
-[Demo]({{ site.basurel }}{% link index.html %}).
+[Demo]({{ site.baseurl }}{% link index.html %}).
 
 * The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
-[Demo]({{ site.basurel }}{% link posts.md %}).
+[Demo]({{ site.baseurl }}{% link posts.md %}).
 
 In order to choose either layout, open `index.html` in the root folder and change the `layout` property in the front matter, e.g.
 
@@ -144,7 +144,7 @@ If you'd like to provide multiple versions of the picture for screens with diffe
 The `src` key is a fallback image for browsers that don't support the `srcset` attribute.
 
 The keys of the `srcset` hash will be used as descriptors.
-For mor information on `srcset`, see the [documentation at MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset), or [this article from CSS-Tricks](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/).
+For more information on `srcset`, see the [documentation at MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset), or [this article from CSS-Tricks](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/).
 
 ## Adding social media icons
 Hydejack supports a variety of social media icons out of the box.
@@ -208,7 +208,7 @@ comments: true
 {:.message}
 
 ## Enabling Google Analytics
-Enabling Google Anaylists is as simple as setting the `google_analytics` key in `_config.yml` .
+Enabling Google Analytics is as simple as setting the `google_analytics` key in `_config.yml` .
 
     google_analytics: UA-84025722-2
 

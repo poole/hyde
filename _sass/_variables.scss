@@ -3,10 +3,11 @@ $gray-bg: #f9f9f9;
 $gray-text: #787878;
 
 $root-font-size: 16px;
+$root-font-size-medium: 17px;
 $root-font-size-large: 18px;
 $root-line-height: 1.75;
 
-$body-color: #464646;
+$body-color: #333;
 $body-bg: #fff;
 
 $border-color: #e5e5e5;
@@ -17,9 +18,9 @@ $code-color: inherit;
 
 $break-point-1: 38em;
 $break-point-2: 50em;
-$break-point-3: 66em;
-$break-point-4: 76em;
-$break-point-5: 96em;
+$break-point-3: 60em;
+$break-point-4: 72em;
+$break-point-5: 92em;
 $break-point-dynamic: 103.5em;
 
 $dynamic-width: calc(50% - 28rem);

@@ -5,11 +5,6 @@ menu: true
 order: 6
 ---
 
-{% comment %}
-  This layout automatically inserts the "about" photo and text from `./data/custom.yml` here.
-  If you prefer a blank page, change `layout: about` to `layout: page` in line 2.
-{% endcomment %}
-
 ## Hydejack
 {:.sr-only}
 
@@ -29,6 +24,7 @@ Hydejack is a complete, interactive, configureable, responsive, reactive[^r], mo
 
 It can be hosted on GitHub Pages, where it has support for categories and tags, math blocks via KaTeX,
 opt-in comments via Disqus, multiple authors [enumerate more features] and that's just the free version[^3].
+[TODO]
 
 The site works all the way down to IE10; IE9 if you don't need fancy animations, and IE5 if you don't need fancy anything.
 Rumor has it, you can even view it via [`lynx`](http://lynx.browser.org/).

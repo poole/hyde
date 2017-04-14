@@ -5,8 +5,6 @@ image: '/hydejack/assets/img/doc.jpg'
 color: '#8e5c75'
 ---
 
-[TODO]
-
 ## Table of Contents
 * this unordered seed list will be replaced by toc as unordered list
 {:toc}
@@ -25,8 +23,8 @@ Consult the [IcoMoon docs](https://icomoon.io/#docs) for additional help.
 Once you've created and downloaded the icon font form IconMoon, replace the `icomoon` folder in `assets` in it's entirety. Keep in mind that future updates of Hydejack will override this folder.
 
 ### Adding the platform's metadata
-This recommended, but not strictly necessary, to add the network's metadata to `_data/social.yml`.
-Create a new entry like
+In this second step it is necessary, to add the network's metadata to `_data/social.yml`.
+An entry looks like:
 
     deviantart:
       name: DeviantArt
@@ -34,9 +32,17 @@ Create a new entry like
       prepend: "https://"
       append: ".deviantart.com"
 
+`name`
+: The name of the network. Used for for the title attribute and screen readers.
 
-[TODO]
+`icon`
+: The icon CSS class. Can be chosen during the IcoMoon creation process.
 
+`prepend`
+: Optional. A string that is prepended to the username to form the link to the profile. If the final URL should be `https://<username>.deviantart.com`, this would be `https://`
+
+`append`
+: Optional. A string that is appended to the username to form the link to the profile. If the final URL should be `https://<username>.deviantart.com`, this would be `.deviantart.com`.
 
 ## Building the JavaScript
 **NOTE**: In order to build the JavaScript you need to have [node.js](https://nodejs.org/en/) installed. Specifically, the `npm` command needs to be available, which is part of node.js.

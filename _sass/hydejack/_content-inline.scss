@@ -9,13 +9,13 @@
   padding-bottom: 10rem;
 
   @media screen and (min-width: $break-point-2) {
+    max-width: 42rem;
     padding-top: 4rem;
     margin-left: 20rem;
     margin-right: 2rem;
   }
 
-  @media screen and (min-width: $break-point-3) {
-    max-width: 40rem;
+  @media screen and (min-width: $break-point-4) {
     margin-left: 22rem;
     margin-right: 4rem;
   }

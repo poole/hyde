@@ -15,13 +15,6 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 **NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands.
 {:.message}
 
-<!-- ## Table of Contents
-* this unordered seed list will be replaced by toc as unordered list
-{:toc}
- -->
-
-<!-- *** -->
-
 ## Getting started
 Hopefully, you will only need to follow these guides once.
 
