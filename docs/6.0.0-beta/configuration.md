@@ -6,7 +6,7 @@ color: '#8e5c75'
 ---
 
 Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`.
-Besides the documentation here, the file is also extensively documented. If you're using the gem-based theme, the `_config.yml` in the root directory is provided by Jekyll and does not contain any documentation. However, you can get the example config file [here](https://github.com/qwtel/hydejack/blob/master/_config.yml).
+Besides the documentation here, the file is also extensively documented. If you're using the gem-based theme, the `_config.yml` in the root directory is provided by Jekyll and does not contain any documentation. However, you can get the example config file [here](https://github.com/qwtel/hydejack/blob/v6/_config.yml).
 
 **NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for the changes to take effect.
 {:.message}
@@ -103,7 +103,7 @@ At the very least, you should add an `author` key with a `name` and `email` sub-
       name:  Florian Klampfer
       email: f.klampfer@gmail.com
 
-If you would like the author information to be displayed in the about section of a post or project\*, as well as on the about and welcome\* page, you have to provide additional information in `_data/authors.yml`. If you've installed Hydejack via zip, this file already exists. Otherwise you have to create it (and possibly the `_data` directory as well). You can find the default file [here](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml).
+If you would like the author information to be displayed in the about section of a post or project\*, as well as on the about and welcome\* page, you have to provide additional information in `_data/authors.yml`. If you've installed Hydejack via zip, this file already exists. Otherwise you have to create it (and possibly the `_data` directory as well). You can find the default file [here](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml).
 
 The `authors.yml` consists of key-value pairs, where the key is a shorthand for the author (e.g. the GitHub or Twitter handle) and the value is a hash containing the author's information.
 
@@ -150,12 +150,12 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 Hydejack supports a variety of social media icons out of the box.
 These are defined on a per-author basis, so make sure you've followed the steps in [Adding an author](#adding-an-author).
 
-**NOTE**: If you are using the gem-based version of Hydejack, download [`social.yml`](https://github.com/qwtel/hydejack/blob/master/_data/social.yml) and put it into `_data` in the root directory. This is necessary because gem-based themes do not support including `_data`.
+**NOTE**: If you are using the gem-based version of Hydejack, download [`social.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/social.yml) and put it into `_data` in the root directory. This is necessary because gem-based themes do not support including `_data`.
 {:.message}
 
 Links to social networks are shown as icons in the sidebar, as well as wherever the author information is displayed (on the about page, in the about section of a post, etc).
 
-You can add a link to a social network by adding an entry to the `social` key in [`authors.yml`](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml). It consists of the
+You can add a link to a social network by adding an entry to the `social` key in [`authors.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml). It consists of the
 (slugifyed) name of the social network as key and your username within that network as value, e.g.
 
     social:
@@ -168,7 +168,7 @@ You can change the order in which the icons appear by moving lines up or down, e
       github:  qwtel # github appears first
       twitter: qwtel # twitter second
 
-To get an overview of which networks are available and how a typical username in that network looks like, see the exemplary [`authors.yml`](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml).
+To get an overview of which networks are available and how a typical username in that network looks like, see the exemplary [`authors.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml).
 
 Should providing a username not produce a correct link for some reason, you can provide a complete URL instead, e.g.
 
@@ -176,7 +176,7 @@ Should providing a username not produce a correct link for some reason, you can 
       youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
 
 
-**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/master/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic]({{ site.baseurl }}{% link docs/6.0.0-alpha/advanced.md %}).
+**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic]({{ site.baseurl }}{% link docs/6.0.0-beta/advanced.md %}).
 {:.message}
 
 ### Adding an email or RSS icon
@@ -220,7 +220,7 @@ Conversely, if you want to disable it, you only have to remove the key and no GA
 
 ***
 
-Continue with [Migration]({{ site.baseurl }}{% link docs/6.0.0-alpha/migration.md %}){:data-flip="title"} »
+Continue with [Migration]({{ site.baseurl }}{% link docs/6.0.0-beta/migration.md %}){:data-flip="title"} »
 {:.faded.heading}
 
 *[FOIT]: Flash of Invisible Text

@@ -35,7 +35,7 @@ Since the background image contributes to the feel of the page I'm letting it pe
 ## Manual
 
 ### Configuration
-You can configure important aspects of the theme via [`_config.yml`](https://github.com/qwtel/hydejack/blob/master/_config.yml). This includes:
+You can configure important aspects of the theme via [`_config.yml`](https://github.com/qwtel/hydejack/blob/v3/_config.yml). This includes:
 
 * the blog description in the sidebar
 * the (optional) author description and photo

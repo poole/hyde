@@ -16,7 +16,7 @@ Hydejack includes a number of social media icons by default (in fact, everything
 {:.message}
 
 ### Creating the icon font
-In order to add a custom social media icon you have to use the [IcoMoon App](https://icomoon.io/app/) (free) to create a custom icon webfont. However, it is important that the generated font include all icons already in use by Hydejack. For this purpose, find the `selection.json` at [`assets/icomoon/selection.json`](https://github.com/qwtel/hydejack/blob/master/assets/icomoon/selection.json) and upload it to the app via "Import Icons".
+In order to add a custom social media icon you have to use the [IcoMoon App](https://icomoon.io/app/) (free) to create a custom icon webfont. However, it is important that the generated font include all icons already in use by Hydejack. For this purpose, find the `selection.json` at [`assets/icomoon/selection.json`](https://github.com/qwtel/hydejack/blob/v6/assets/icomoon/selection.json) and upload it to the app via "Import Icons".
 Then, use the app to add your icon(s).
 Consult the [IcoMoon docs](https://icomoon.io/#docs) for additional help.
 

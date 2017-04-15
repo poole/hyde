@@ -1,3 +1,6 @@
+<!-- =============== -->
+<!-- META            -->
+<!-- =============== -->
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
 <meta name="format-detection" content="telephone=no">
@@ -50,7 +53,7 @@
   {{ include_to_scssify | scssify }}
 </style>
 
-{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.0.0-alpha{% endcapture %}
+{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.0.0-beta{% endcapture %}
 <link rel="preload" href="{{ style_url | relative_url }}" as="style" onload="this.rel='stylesheet'">
 
 {% include page-style.html %}
@@ -76,7 +79,7 @@
 <!-- SCRIPTS         -->
 <!-- =============== -->
 <script>
-  window._version = '6.0.0-alpha';
+  window._version = '6.0.0-beta';
   {% include scripts/load-js-deferred.min.js %}
   {% include scripts/loadCSS.min.js %}
   {% include scripts/cssrelpreload.min.js %}
