@@ -53,7 +53,7 @@
   {{ include_to_scssify | scssify }}
 </style>
 
-{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.0.0-beta{% endcapture %}
+{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.0.0-beta2{% endcapture %}
 <link rel="preload" href="{{ style_url | relative_url }}" as="style" onload="this.rel='stylesheet'">
 
 {% include page-style.html %}
@@ -87,7 +87,7 @@
 <!-- SCRIPTS         -->
 <!-- =============== -->
 <script>
-  window._version = '6.0.0-beta';
+  window._version = '6.0.0-beta2';
   {% include scripts/load-js-deferred.min.js %}
   {% include scripts/loadCSS.min.js %}
   {% include scripts/cssrelpreload.min.js %}
