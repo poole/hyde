@@ -3,6 +3,7 @@ layout: page
 title: Advanced
 image: '/hydejack/assets/img/doc.jpg'
 color: '#8e5c75'
+redirect_from: /docs/latest/advanced/
 ---
 
 ## Table of Contents
@@ -63,7 +64,5 @@ If you want to actively develop the scripts, it is better to run
     $ npm run dev
 
 which will build a non-minified, non-transpiled (ES6) version of `hydejack.js` after every filechange.
-
-<!-- ## Adding a custom FLIP animation -->
 
 *[FLIP]: First Last Invert Play

@@ -2,7 +2,7 @@
 layout: about
 title: About
 menu: true
-order: 6
+order: 7
 ---
 
 ## Hydejack

@@ -86,6 +86,7 @@ gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
+  - jekyll-redirect-from
 
 exclude:
   - node_modules
@@ -108,7 +109,7 @@ compress_html:
   clippings:         all
   endings:           all
   ignore:
-    envs:            [local, dev, development]
+    envs:            [development]
 
 sass:
   style:             compressed

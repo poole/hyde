@@ -3,6 +3,7 @@ layout: page
 title: Installation
 image: '/hydejack/assets/img/doc.jpg'
 color: '#8e5c75'
+redirect_from: /docs/latest/installation/
 ---
 
 There are multiple ways of installing Hydejack.

@@ -21,6 +21,8 @@
   loadJSDeferred('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 </script>
 
+{% unless page.redirect %}
+
 <!--[if gt IE 9]><!---->
 {% capture js_url %}{% link assets/js/hydejack.js %}?v=6.0.0-beta2{% endcapture %}
 <script>loadJSDeferred('{{ js_url | relative_url }}');</script>
@@ -35,3 +37,5 @@
 </script>
 {% endif %}
 <!--<![endif]-->
+
+{% endunless %}

@@ -10,7 +10,7 @@
 //
 // Copyright (c) 2017 Florian Klampfer
 // Licensed under MIT
-// Design: Hydejack by @qwtel. Get it at: https://qwtel.com/hydejack
+// Powered by Hydejack (https://qwtel.com/hydejack)
 
 import 'core-js/fn/array/for-each';
 import 'core-js/fn/array/find';

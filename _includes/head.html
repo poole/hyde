@@ -16,7 +16,12 @@
   {% endif %}
 {% endcapture %}
 
-<title>{{ title | strip }}</title>
+{% unless page.redirect %}
+  <title>{{ title | strip }}</title>
+{% else %}
+  <meta http-equiv="refresh" content="0; url={{ page.redirect.to }}">
+  <title>Redirecting...</title>
+{% endunless %}
 
 {% if page.description.size > 0 %}
   {% assign description = page.description | markdownify %}
@@ -41,6 +46,20 @@
 {% if page.next %}
   <link rel="next" href="{{ page.next.url | absolute_url }}">
 {% endif %}
+
+<!-- =============== -->
+<!-- SCRIPTS         -->
+<!-- =============== -->
+<script>
+  window._version = '6.0.0-beta2';
+  {% include scripts/load-js-deferred.min.js %}
+  {% include scripts/loadCSS.min.js %}
+  {% include scripts/cssrelpreload.min.js %}
+</script>
+
+<!--[if lt IE 9]>
+<script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
+<![endif]-->
 
 <!-- =============== -->
 <!-- STYLES          -->
@@ -82,17 +101,3 @@
   <link rel="stylesheet" href="{{ icons_url | relative_url }}">
 </noscript>
 <!--<![endif]-->
-
-<!-- =============== -->
-<!-- SCRIPTS         -->
-<!-- =============== -->
-<script>
-  window._version = '6.0.0-beta2';
-  {% include scripts/load-js-deferred.min.js %}
-  {% include scripts/loadCSS.min.js %}
-  {% include scripts/cssrelpreload.min.js %}
-</script>
-
-<!--[if lt IE 9]>
-<script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
-<![endif]-->

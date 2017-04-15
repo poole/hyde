@@ -6,6 +6,7 @@ order: 5
 category: docs
 image: '/hydejack/assets/img/doc.jpg'
 color: '#8e5c75'
+redirect_from: /docs/latest/
 ---
 
 Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
