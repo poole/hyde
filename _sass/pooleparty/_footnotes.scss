@@ -10,6 +10,10 @@ a[href^="#fnref:"] {
   font-weight: bold;
 }
 
+sup {
+  line-height: 1;
+}
+
 // List of footnotes
 .footnotes {
   > ol {
