@@ -1,11 +1,11 @@
 PATH
   remote: .
   specs:
-    jekyll-theme-hydejack (6.0.0.pre.alpha)
+    jekyll-theme-hydejack (6.0.0.pre.beta)
       jekyll (~> 3.4)
-      jekyll-feed
-      jekyll-paginate
-      jekyll-sitemap
+      jekyll-feed (~> 0.9)
+      jekyll-paginate (~> 1.1)
+      jekyll-sitemap (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
