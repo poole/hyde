@@ -152,7 +152,7 @@ author: qwtel
 If you bought the "PRO" version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
-[Demo]({{ site.baseurl }}{% link welcome.md %}).
+
 
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
@@ -260,8 +260,7 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 
 
 ## Adding a resume*
-Hydejack's "PRO" version features a generalized resume layout. [Demo]({{ site.baseurl }}{% link resume.md %}).
-
+Hydejack's "PRO" version features a generalized resume layout.
 It generates the resume page from a valid [JSON Resume](https://jsonresume.org/), which is good news if you already have a JSON resume. Otherwise, there are various ways of obtaining one:
 
 * You can use the visual [JSON Resume Editor](http://registry.jsonresume.org/).

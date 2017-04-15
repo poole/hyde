@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'v6: JavaScripten'
+title: '[BETA] v6: JavaScripten'
 tags: [hydejack]
 description: >
   The last release made the theme fast in the eyes of Google, but not so much in the eyes of its readers.
@@ -48,6 +48,6 @@ See the [the migration guide]({{ site.baseurl }}{% link docs/6.0.0-beta/migratio
 
 ***
 
-[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.0.0)
+[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.0.0-beta)
 
 *[FOUC]: Flash of Unstyled Content
