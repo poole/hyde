@@ -1,10 +1,11 @@
 ---
 layout: post
-title: '[BETA] v6: JavaScripten'
+title: '[Beta] v6: JavaScripten'
 tags: [hydejack]
 description: >
   The last release made the theme fast in the eyes of Google, but not so much in the eyes of its readers.
   This release addresses this by adding a layer of JavaScript, effectively turning the whole site into a single page app.
+redirect_from: /2017/04/15/javascripten-beta/
 ---
 
 Hydejack has always featured a JavaScript-heavy sidebar, but other than that, JS has been used sparingly. This changes with this release, which adds a ton of (optional) code that changes the feel of the theme dramatically.
