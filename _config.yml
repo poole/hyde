@@ -78,15 +78,23 @@ collections:
 # -----------------------------------------------------------------------------
 #  Plugin configuration
 # -----------------------------------------------------------------------------
+
+paginate:            5
+paginate_path:       '/page-:num/'
+
 gems:
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
 
-paginate:            5
-paginate_path:       '/page-:num/'
-
-exclude:             [node_modules, README.md, package.json, resume.json]
+exclude:
+  - node_modules
+  - README.md
+  - LICENSE.md
+  - package.json
+  - Gemfile
+  - Gemfile.lock
+  - jekyll-theme-hydejack.gemspec
 
 kramdown:
   footnote_backlink: '&#x21a9;&#xfe0e;'

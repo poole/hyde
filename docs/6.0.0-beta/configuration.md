@@ -29,7 +29,6 @@ If your entire Jekyll blog is hosted in a subdirectory of your page, provide the
 Otherwise, provide the empty string `''`
 
 ### GitHub Pages
-
 When hosting on [GitHub Pages](https://pages.github.com/) (unless you are using a custom domain), the `url` is
 
     url: https://<username>.github.io
@@ -77,11 +76,12 @@ If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfon
 ## Choosing a blog layout
 Hydejack features two layouts for showing your blog posts.
 
-* The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
-[Demo]({{ site.baseurl }}{% link index.html %}).
-
 * The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
 [Demo]({{ site.baseurl }}{% link posts.md %}).
+
+* The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
+[Demo]({{ site.baseurl }}{% link index.html %}).
+  Note that this layout requires the `jekyll-pagiante` plugin.
 
 In order to choose either layout, open `index.html` in the root folder and change the `layout` property in the front matter, e.g.
 
@@ -189,7 +189,6 @@ If you'd like to add email <span class="icon-envelop"></span> or RSS <span class
 Note the the location of your `feed.xml` may vary.
 
 ## Enabling comments
-
 Hydejack supports comments via [Disqus](https://disqus.com/). Before you can add comments to a page, you need to register and add your Hydejack site to Disqus' admin console. Once you have your "Disqus shortname", you must add it to `_config.yml`, e.g.
 
     disqus_shortname: qwtel

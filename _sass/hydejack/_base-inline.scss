@@ -61,13 +61,13 @@ body, main {
   // }
 }
 
-@media screen and (min-width: $break-point-3) {
+@media screen and (min-width: $break-point-4) {
   html {
     font-size: $root-font-size-medium;
   }
 }
 
-@media screen and (min-width: $break-point-5) {
+@media screen and (min-width: $break-point-font-large) {
   html {
     font-size: $root-font-size-large;
   }
