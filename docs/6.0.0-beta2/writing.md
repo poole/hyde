@@ -184,5 +184,5 @@ $$
 
 ***
 
-Continue with [Advanced]({{ site.baseurl }}{% link docs/6.0.0-beta2/advanced.md %}){:data-flip="title"} »
+Continue with [Build]({{ site.baseurl }}{% link docs/6.0.0-beta2/build.md %}){:data-flip="title"} »
 {:.faded.heading}
