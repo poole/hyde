@@ -120,5 +120,5 @@ If you are starting a new blog you can also fork or clone the repository and use
 
 ***
 
-Continue with [Configuration]({{ site.baseurl }}{% link docs/6.0.0-beta2/configuration.md %}){:data-flip="title"} »
+Continue with [Configuration]({{ site.baseurl }}{% link docs/6.0.0-beta3/configuration.md %}){:data-flip="title"} »
 {:.faded.heading}

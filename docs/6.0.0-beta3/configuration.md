@@ -185,7 +185,7 @@ Should providing a username not produce a correct link for some reason, you can 
       youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
 
 
-**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic]({{ site.baseurl }}{% link docs/6.0.0-beta2/advanced.md %}).
+**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic]({{ site.baseurl }}{% link docs/6.0.0-beta3/advanced.md %}).
 {:.message}
 
 ### Adding an email or RSS icon
@@ -228,7 +228,7 @@ Conversely, if you want to disable it, you only have to remove the key and no GA
 
 ***
 
-Continue with [Migration]({{ site.baseurl }}{% link docs/6.0.0-beta2/migration.md %}){:data-flip="title"} »
+Continue with [Migration]({{ site.baseurl }}{% link docs/6.0.0-beta3/migration.md %}){:data-flip="title"} »
 {:.faded.heading}
 
 *[FOIT]: Flash of Invisible Text

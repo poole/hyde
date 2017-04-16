@@ -30,7 +30,7 @@
 {% else %}
   {% assign description = site.description | markdownify %}
 {% endif %}
-<meta name="description" content="{{ description | strip_html | truncatewords: 50 }}">
+<meta name="description" content="{{ description | strip_html | truncatewords:50 }}">
 
 <!-- =============== -->
 <!-- LINKS           -->
@@ -51,7 +51,6 @@
 <!-- SCRIPTS         -->
 <!-- =============== -->
 <script>
-  window._version = '6.0.0-beta2';
   {% include scripts/load-js-deferred.min.js %}
   {% include scripts/loadCSS.min.js %}
   {% include scripts/cssrelpreload.min.js %}
@@ -72,7 +71,7 @@
   {{ include_to_scssify | scssify }}
 </style>
 
-{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.0.0-beta2{% endcapture %}
+{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.0.0-beta3{% endcapture %}
 <link rel="preload" href="{{ style_url | relative_url }}" as="style" onload="this.rel='stylesheet'">
 
 {% include page-style.html %}

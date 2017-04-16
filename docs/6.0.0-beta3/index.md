@@ -32,10 +32,10 @@ Guides for producing content with Hydejack.
 * [Advanced]{:.heading data-flip="title"} -- Guides for more advanced tasks.
 {:.faded}
 
-[installation]: {{ site.baseurl }}{% link docs/6.0.0-beta2/installation.md %}
-[configuration]: {{ site.baseurl }}{% link docs/6.0.0-beta2/configuration.md %}
-[basics]: {{ site.baseurl }}{% link docs/6.0.0-beta2/basics.md %}
-[writing]: {{ site.baseurl }}{% link docs/6.0.0-beta2/writing.md %}
-[migration]: {{ site.baseurl }}{% link docs/6.0.0-beta2/migration.md %}
-[build]: {{ site.baseurl }}{% link docs/6.0.0-beta2/build.md %}
-[advanced]: {{ site.baseurl }}{% link docs/6.0.0-beta2/advanced.md %}
+[installation]: {{ site.baseurl }}{% link docs/6.0.0-beta3/installation.md %}
+[configuration]: {{ site.baseurl }}{% link docs/6.0.0-beta3/configuration.md %}
+[basics]: {{ site.baseurl }}{% link docs/6.0.0-beta3/basics.md %}
+[writing]: {{ site.baseurl }}{% link docs/6.0.0-beta3/writing.md %}
+[migration]: {{ site.baseurl }}{% link docs/6.0.0-beta3/migration.md %}
+[build]: {{ site.baseurl }}{% link docs/6.0.0-beta3/build.md %}
+[advanced]: {{ site.baseurl }}{% link docs/6.0.0-beta3/advanced.md %}

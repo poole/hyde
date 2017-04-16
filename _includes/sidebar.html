@@ -4,7 +4,7 @@
     <header class="container sidebar-sticky" role="banner">
       <div class="sidebar-about">
         <h1><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
-        {{ site.description | markdownify }}
+        {{ site.description | truncatewords:50 | markdownify }}
       </div>
 
       <nav class="sidebar-nav heading" role="navigation">
