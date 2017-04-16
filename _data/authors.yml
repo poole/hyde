@@ -1,3 +1,6 @@
+# The primary author of this blog.
+# Must be the same as `author` in `_config.yml`.
+# Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
 qwtel:
   name:              Florian Klampfer
   email:             f.klampfer@gmail.com
@@ -58,6 +61,7 @@ qwtel:
     # email:           mailto:f.klampfer@gmail.com
     # rss:             //qwtel.com/feed.xml
 
+# Another author
 mdo:
   name:              Mark Otto
   about:             |

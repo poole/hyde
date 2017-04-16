@@ -1,17 +1,18 @@
 # -----------------------------------------------------------------------------
 #  User configuration
 # -----------------------------------------------------------------------------
+
 title:               Hydejack
 
 # The unique resource location of your page.
-# Set to `https://<username>.github.io` when hosting on GitHub pages (and not using custom domains!)
+# Set to `https://<username>.github.io` when hosting on GitHub Pages (and not using custom domains!)
 url:                 https://qwtel.com
 
-# Set to '' when hosting a blog on GitHub pages, like `//<username>.github.io`
+# Set to '' when hosting a blog on GitHub Pages, ie on `//<username>.github.io`
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             /hydejack
 
-# A short description for the page title (browser tab)
+# A very short description  of your page
 tagline:             A pretentious two-column Jekyll theme.
 
 # A longer description of the page, used in the sidebar, and as fallback for the meta description tag.
@@ -22,7 +23,7 @@ description:         >
   [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
-# See also: `_data/authors.yml`
+# This should be the same author as first in `_data/authors.yml`
 author:
   name:              Florian Klampfer
   email:             f.klampfer@gmail.com
@@ -31,19 +32,19 @@ author:
 image:               /hydejack/assets/img/nap.jpg
 color:               '#A85641'
 
-# Fonts
-font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
-font:                "'Noto Serif', Georgia, serif"
-
 # Remove to disable Google Fonts
 google_fonts:        Roboto+Slab:700|Noto+Serif:400,400i,700,700i
+font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
+font:                "'Noto Serif', Georgia, serif"
 
 # Remove to disable Google Anaylics
 google_analytics:    UA-84025722-2
 
-# Setting a disqus subdomain will enable the comment section
+# Setting a disqus shortname will enable the comment section on pages
+# that have `comments: true` in the front matter
 disqus_shortname:    qwtel
 
+# This text will appear in the footer of every page. Markdown enabled.
 copyright:           '&copy; 2017. All rights reserved.'
 
 # Set to true when building locally with the `--lsi` option
@@ -53,17 +54,22 @@ use_lsi:             false
 # Set to true if you want to show an icon after every link that points to an external site
 mark_external:       true
 
-# If you are updating form a previous verison of Hydejack, uncomment this line below,
+# Format of the permalinks
+permalink:           pretty
+
+# Pagination configuration (used by the `blog` layout)
+paginate:            5
+paginate_path:       '/page-:num/'
+
+# If you are updating form a previous verison of Hydejack, uncomment the two lines below,
 # so that existing subscribers to your feed continue to receive updates.
 # feed:
 #   path:              atom.xml
 
-# Format of the permalinks
-permalink:           pretty
-
 # -----------------------------------------------------------------------------
 #  Collections
 # -----------------------------------------------------------------------------
+
 collections:
   featured_categories:
     permalink:       /category/:name/
@@ -76,11 +82,8 @@ collections:
     output:          true
 
 # -----------------------------------------------------------------------------
-#  Plugin configuration
+#  Advanced configuration
 # -----------------------------------------------------------------------------
-
-paginate:            5
-paginate_path:       '/page-:num/'
 
 gems:
   - jekyll-feed
@@ -89,9 +92,9 @@ gems:
   - jekyll-redirect-from
 
 exclude:
-  - node_modules
   - README.md
   - LICENSE.md
+  - node_modules
   - package.json
   - Gemfile
   - Gemfile.lock
