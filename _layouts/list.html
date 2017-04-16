@@ -27,6 +27,6 @@ layout: base
     <ul class="related-posts">
     {% assign date = currentdate %}
   {% endif %}
-  {% include post-list-item.html post=post format="%m/%d" %}
+  {% include post-list-item.html post=post format="%d %b" %}
   {% if forloop.last %}</ul>{% endif %}
 {% endfor %}

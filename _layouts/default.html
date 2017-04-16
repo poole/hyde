@@ -14,7 +14,7 @@ Looks like you are using the `{{ page.layout }}` layout. This layout is not supp
   <h2>Posts</h2>
   <ul class="related-posts">
     {% for post in site.posts %}
-      {% include post-list-item.html post=post format="%m/%d/%y" %}
+      {% include post-list-item.html post=post %}
     {% endfor %}
   </ul>
 

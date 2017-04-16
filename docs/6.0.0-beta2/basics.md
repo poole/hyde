@@ -45,9 +45,9 @@ As far as Jekyll is concerned, these are the only differences.
 ### Tags and categories in Hydejack
 Categories and tags are displayed by Hydejack below the title, after the date. Categories are displayed with the preposition "in", while tags are displayed with the preposition "on", e.g.
 
-Categories | Welcome to Jekyll¬ 04/07/17 **in** Jekyll / Update
-Tags       | Welcome to Jekyll¬ 04/07/17 **on** Jekyll, Update
-Both       | Welcome to Jekyll¬ 04/07/17 **in** Jekyll / Update **on** Jekyll, Update
+Categories | Welcome to Jekyll¬ 07 Apr 2017 **in** Jekyll / Update
+Tags       | Welcome to Jekyll¬ 07 Apr 2017 **on** Jekyll, Update
+Both       | Welcome to Jekyll¬ 07 Apr 2017 **in** Jekyll / Update **on** Jekyll, Update
 
 ### Adding a new category or tag
 Be default, categories and tags are rendered as plain text. Further steps are necessary if you want them to link to a page that contains a list of all posts that belong to that category or tag.

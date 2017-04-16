@@ -17,7 +17,7 @@
     {% endcapture %}
 
     <p class="post-date heading">
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%m/%d/%y" }}</time>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
       <span>{{ categories_content }} {{ tags_content }}</span>
     </p>
   </header>

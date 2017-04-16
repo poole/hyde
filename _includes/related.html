@@ -7,7 +7,7 @@
   <ul class="related-posts">
     {% if site.use_lsi %}
       {% for post in site.related_posts limit:3 %}
-        {% include post-list-item.html post=post format="%m/%d/%y" %}
+        {% include post-list-item.html post=post %}
       {% endfor %}
     {% elsif post.categories.first %}
       {% assign category_posts = site.categories[post.categories.first] %}
@@ -18,7 +18,7 @@
           {% continue %}
         {% endif %}
         {% if forloop.index < 4 or plusone == true %}
-          {% include post-list-item.html post=post format="%m/%d/%y" %}
+          {% include post-list-item.html post=post %}
         {% endif %}
       {% endfor %}
     {% elsif post.tags.first %}
@@ -30,12 +30,12 @@
           {% continue %}
         {% endif %}
         {% if forloop.index < 4 or plusone == true %}
-          {% include post-list-item.html post=post format="%m/%d/%y" %}
+          {% include post-list-item.html post=post %}
         {% endif %}
       {% endfor %}
     {% else %}
       {% for post in site.related_posts limit:3 %}
-        {% include post-list-item.html post=post format="%m/%d/%y" %}
+        {% include post-list-item.html post=post %}
       {% endfor %}
     {% endif %}
   </ul>
