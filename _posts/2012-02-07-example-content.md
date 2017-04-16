@@ -97,7 +97,7 @@ Quisque consequat sapien eget quam rhoncus, sit amet laoreet diam tempus. Aliqua
 Aenean lacinia bibendum nulla sed consectetur. Lorem ipsum dolor sit amet, consectetur adipiscing elit.
 
 | Name     | Upvotes   | Downvotes |
-|----------|-----------|-----------|
+|:---------|:----------|:----------|
 | Alice    |        10 |        11 |
 | Bob      |         4 |         3 |
 | Charlie  |         7 |         9 |

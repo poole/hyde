@@ -5,7 +5,7 @@ layout: base
 <div class="page">
   <h1 class="page-title">{{ page.title | default:"Home"}}</h1>
   {% capture message %}
-Looks like you are using the `{{ page.layout }}` layout. This layout is not supported by Hydejack. Instead use `blog` or `list`. For more information see the [Hydejack Documentation](https://qwtel.com/hydejack/docs/6.0.0-beta2).
+Looks like you are using the `{{ page.layout }}` layout. This layout is not supported by Hydejack. Instead use `blog` or `list`. For more information see the [Hydejack Documentation](https://qwtel.com/hydejack/docs/6.0.0-beta2/).
   {% endcapture %}
   {% include message.html text=message %}
 
