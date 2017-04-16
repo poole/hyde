@@ -53,7 +53,7 @@
   }
 {% endif %}
 
-{% if site.mark_external %}
+{% unless site.no_mark_external %}
   @media screen {
     a[href*="//"]::after, a.no-push-state::after {
       content: "\00A0\ea7e";
@@ -69,4 +69,4 @@
       -moz-osx-font-smoothing: grayscale;
     }
   }
-{% endif %}
+{% endunless %}

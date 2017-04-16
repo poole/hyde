@@ -15,7 +15,7 @@ baseurl:             /hydejack
 # A very short description  of your page
 tagline:             A pretentious two-column Jekyll theme.
 
-# A longer description of the page, used in the sidebar, and as fallback for the meta description tag.
+# A longer description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
   A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by
@@ -51,8 +51,8 @@ copyright:           '&copy; 2017. All rights reserved.'
 # See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`
 use_lsi:             false
 
-# Set to true if you want to show an icon after every link that points to an external site
-mark_external:       true
+# Set to `true` if you don't want to show an icon after each link that opens to an external site
+no_mark_external:    false
 
 # Format of the permalinks
 permalink:           pretty
