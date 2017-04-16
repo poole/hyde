@@ -2,24 +2,32 @@
 layout: base
 ---
 
-<article class="page" role="article">
-  <h1 class="page-title">{{ page.title }}</h1>
-
-  {% capture warning %}
-Looks like you are using the `default` layout, which is not recommened.
-Use `blog`, `list`, `page` or `post` instead.
-See the Hydejack documentation for more information on available layouts.
+<div class="page">
+  <h1 class="page-title">{{ page.title | default:"Home"}}</h1>
+  {% capture message %}
+Looks like you are using the `{{ page.layout }}` layout. This layout is not supported by Hydejack. Instead use `blog` or `list`. For more information see the [Hydejack Documentation](https://qwtel.com/hydejack/docs/6.0.0-beta2).
   {% endcapture %}
-
-  {% include message.html text=warning %}
+  {% include message.html text=message %}
 
   {{ content }}
 
   <h2>Posts</h2>
-  <hr/>
   <ul class="related-posts">
-  {% for post in site.posts %}
-    {% include post-list-item.html post=post format="%m/%d/%y" %}
-  {% endfor %}
+    {% for post in site.posts %}
+      {% include post-list-item.html post=post format="%m/%d/%y" %}
+    {% endfor %}
   </ul>
-</article>
+
+  <h2>Pages</h2>
+  <ul class="related-posts">
+    {% for page in site.html_pages %}
+      {% if page.layout == 'page' %}
+        <li class="h4">
+          <a href="{{ page.url | relative_url }}" data-flip="title">
+            <span>{{ page.title }}</span>
+          </a>
+        </li>
+      {% endif %}
+    {% endfor %}
+  </ul>
+</div>

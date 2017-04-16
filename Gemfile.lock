@@ -3,17 +3,17 @@ PATH
   specs:
     jekyll-theme-hydejack (6.0.0.pre.beta2)
       jekyll (~> 3.4)
-      jekyll-feed (~> 0.9)
       jekyll-paginate (~> 1.1)
-      jekyll-redirect-from (~> 0.12.1)
-      jekyll-sitemap (~> 1.0)
 
 GEM
   remote: https://rubygems.org/
   specs:
     addressable (2.5.1)
       public_suffix (~> 2.0, >= 2.0.2)
+    classifier-reborn (2.1.0)
+      fast-stemmer (~> 1.0)
     colorator (1.1.0)
+    fast-stemmer (1.0.2)
     ffi (1.9.18)
     forwardable-extended (2.6.0)
     jekyll (3.4.3)
@@ -60,6 +60,10 @@ PLATFORMS
 
 DEPENDENCIES
   bundler (~> 1.12)
+  classifier-reborn
+  jekyll-feed (~> 0.9)
+  jekyll-redirect-from (~> 0.12.1)
+  jekyll-sitemap (~> 1.0)
   jekyll-theme-hydejack!
   rake (~> 10.0)
 
