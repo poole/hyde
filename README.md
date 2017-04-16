@@ -1,7 +1,7 @@
 # Hydejack
 
 
-![Screenshot](https://qwtel.com/assets/img/projects/hydejack-v6@0,5x.jpg)
+![Screenshot](https://qwtel.com/hydejack/assets/img/free-flat-devices@0,5x.jpg)
 
 Hydejack is a complete, interactive, configureable, responsive, reactive, mobile-first, touch-enabled, animated, printable, tab-able, fast[^1], search engine-friendly and robust Jekyll theme that feels like a modern web app, while preserving what is great about *web pages*: Working URLs, hyperlinks, a working back button, a working refresh button and less than 50MB of JavaScript (tongue-in-cheek).
 
