@@ -8,7 +8,11 @@ main > footer {
   font-size: smaller;
   text-align: center;
 
-  a::after {
-    display: none;
+  > p {
+    margin-bottom: 0;
   }
+
+  // a::after {
+  //   display: none;
+  // }
 }
