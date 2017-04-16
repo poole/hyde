@@ -28,7 +28,7 @@ Guides for producing content with Hydejack.
 
 * [Basics]{:.heading data-flip="title"} -- How to add different types of content.
 * [Writing]{:.heading data-flip="title"} -- Producing markdown content for Hydejack.
-* [Build]{:.heading data-flip="title"} -- Building the static files.
+* [Build]{:.heading data-flip="title"} -- How to build the static files for deployment.
 * [Advanced]{:.heading data-flip="title"} -- Guides for more advanced tasks.
 {:.faded}
 

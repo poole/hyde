@@ -6,28 +6,17 @@ order: 7
 ---
 
 ## Hydejack
-{:.sr-only}
-
-~~~
- __  __                __                                     __         
-/\ \/\ \              /\ \             __                    /\ \        
-\ \ \_\ \   __  __    \_\ \      __   /\_\      __       ___ \ \ \/'\    
- \ \  _  \ /\ \/\ \   /'_` \   /'__`\ \/\ \   /'__`\    /'___\\ \ , <    
-  \ \ \ \ \\ \ \_\ \ /\ \L\ \ /\  __/  \ \ \ /\ \L\.\_ /\ \__/ \ \ \\`\  
-   \ \_\ \_\\/`____ \\ \___,_\\ \____\ _\ \ \\ \__/.\_\\ \____\ \ \_\ \_\
-    \/_/\/_/ `/___/> \\/__,_ / \/____//\ \_\ \\/__/\/_/ \/____/  \/_/\/_/
-                /\___/                \ \____/                           
-                \/__/                  \/___/                            
-~~~
-
-Hydejack is a complete, interactive, configureable, responsive, reactive[^r], mobile-first, touch-enabled, animated, jankfree, printable, tab-able, fast[^1], search engine-friendly and robust [Jekyll](http://jekyllrb.com/) theme that feels like a modern web app, while preserving what is great about *web pages*: Working URLs, hyperlinks, a working back button, a working refresh button and less than 50MB of JavaScript (tongue-in-cheek).
+Hydejack is a complete, interactive, configureable, responsive, reactive, mobile-first, touch-enabled, animated, printable, tab-able, fast[^1], search engine-friendly and robust Jekyll theme that feels like a modern web app, while preserving what is great about *web pages*: Working URLs, hyperlinks, a working back button, a working refresh button and less than 50MB of JavaScript (tongue-in-cheek).
 
 It can be hosted on GitHub Pages, where it has support for categories and tags, math blocks via KaTeX,
-opt-in comments via Disqus, multiple authors [enumerate more features] and that's just the free version[^3].
-[TODO]
+comments via Disqus, multiple authors, a sidebar that turns into a drawer menu on mobile, two different blog layouts, a wide array of social media icons and much more. It also looks pretty good.
 
-The site works all the way down to IE10; IE9 if you don't need fancy animations, and IE5 if you don't need fancy anything.
-Rumor has it, you can even view it via [`lynx`](http://lynx.browser.org/).
+The site works all the way down to IE10. It works in IE9 if you don't need fancy animations, and even IE5 if you don't need fancy anything. Rumor has it, you can even view it via [`lynx`](http://lynx.browser.org/).
+
+***
+
+You can download the latest version of Hydejack on [GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.0.0-beta2), or use the [gem-based theme](https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.0.0.pre.beta2).
+For further instructions, check out the [Documentation](/hydejack/docs/6.0.0-beta2/){:.heading data-flip="title"}.
 
 ## Image Credit
 
@@ -37,8 +26,4 @@ Sidebar (default)
 Sidebar (Documentation)
 : [Annie Spratt](https://unsplash.com/search/library?photo=lIWF2uHxs0Q)
 
-
-[^1]: Perceived speed: Latency hidden through complex pre-fetching logic and animations. Load speed: Inlining styles and removing other requests from the critical rendering path.
-[^r]: I felt that using `RxJS` was reason enough to give it the "reactive" label.
-[^3]: The "PRO" version offers what you would need for a professional web presence: A [projects page]({{ site.baseurl }}/projects/) with [detail view]({{ site.baseurl }}/projects/hydejack-v6), a [welcome page]({{ site.baseurl }}/welcome) that highlights your favorite projects and posts, and a [resume]({{ site.baseurl }}/resume).
-[jankfree]: http://jankfree.org/
+[^1]: Hydejack is fast in two different ways. Its *perceived speed* hides latency through a combination of animations and a complex pre-fetching logic. *Load speed* is achieved through inlining critical CSS and removing non-essential requests from the critical rendering path.

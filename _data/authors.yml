@@ -11,6 +11,8 @@ qwtel:
     Hi, I'm Florian or [`@qwtel`](https://www.twitter.com/qwtel){:rel="me"}, which isn't an acronym,
     I just [wanted a short username](https://qwtel.com/how-to-find-a-short-username) and that one happened to be available.
 
+    I'm the the developer and -- to some extent -- designer of Hydejack, the Jekyll theme you are currently looking at.
+
   # This photo will be used in the about section
   picture:
     src:             //qwtel.com/assets/img/me.jpg
