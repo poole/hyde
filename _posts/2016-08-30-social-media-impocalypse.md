@@ -6,6 +6,11 @@ description: >
   This release adds *a lot* of social media icons and introduces a new default layout. It also breaks things, hence a new major release number.
 ---
 
+**This post is outdated and only included for legacy reasons.
+See the [Documentation]({{ site.baseurl }}{% link docs/6.0.0-beta3/index.md %}){:.heading data-flip="title"} for up-to-date instructions.**
+
+***
+
 ## Breaking
 * Structure of `_config.yml` has changed
   * Social media usernames are now located under `author: social: <platform>: <username>`.
