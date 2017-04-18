@@ -13,31 +13,14 @@ body, main {
       -ms-text-size-adjust: 100%;
 }
 
-// @media screen {
-//   main {
-//     min-height: 100vh;
-//     border-left: 0.5rem solid #ddd;
-//   }
-// }
-
-.shadow-main {
-  // position: fixed;
-  top: 0;
-  left: 0.5rem;
-  opacity: 0;
-  will-change: opacity;
-  width: calc(100% - 0.5rem);
-  z-index: 2;
-  // pointer-events: none;
-}
-
-.loading {
-  // display:none;
-  position: fixed;
-  top: 1rem;
-  right: 0;
-  transform-origin: top left;
-  transform: scale(0.33);
+body::before {
+//   content: '';
+//   width: .5rem;
+//   background: $border-color;
+//   position: absolute;
+//   left: 0;
+//   top: 0;
+//   bottom: 0;
 }
 
 @media screen and (min-width: $break-point-1) {
@@ -50,15 +33,6 @@ body, main {
   // html {
   //   font-size: $root-font-size;
   // }
-  //
-  // main {
-  //   border-left: none;
-  // }
-
-  .shadow-main {
-    left: 0;
-    width: 100%;
-  }
 }
 
 @media screen and (min-width: $break-point-4) {

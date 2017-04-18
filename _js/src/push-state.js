@@ -69,9 +69,9 @@ if (hasFeatures(REQUIREMENTS)) {
   const pushState = document.getElementById('_yPushState');
 
   const shadowMain = document.createElement('div');
-  shadowMain.classList.add('shadow-main');
+  shadowMain.classList.add('shadow-main', 'fixed-top');
   shadowMain.innerHTML = `
-    <div class="content container">
+    <div class="content">
       <div class="page"></div>
     </div>`;
   pushState.parentNode.insertBefore(shadowMain, pushState);
@@ -87,7 +87,7 @@ if (hasFeatures(REQUIREMENTS)) {
       <div class="sk-cube3 sk-cube"></div>
     </div>
   `;
-  pushState.parentNode.insertBefore(loading, pushState);
+  document.querySelector('.navbar .content').appendChild(loading);
 
   const start$ = Observable::fromEvent(pushState, 'y-push-state-start')
     ::map(({ detail }) => detail)

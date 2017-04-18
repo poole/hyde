@@ -52,11 +52,11 @@ You can add large text.
 ## Adding large images
 You can make an image span the full width by adding the `lead` class.
 
-![Full-width image](https://placehold.it/864x100){:.lead}
+![Full-width image](https://placehold.it/800x100){:.lead}
 
 Markdown:
 ~~~markdown
-![Full-width image](https://placehold.it/864x100){:.lead}
+![Full-width image](https://placehold.it/800x100){:.lead}
 ~~~
 
 ## Adding large quotes

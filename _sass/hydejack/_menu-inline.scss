@@ -1,35 +1,52 @@
-.menu {
-  display: block;
-  padding: 1.25rem 1.5rem;
-  color: $gray;
-  border-bottom: none;
+.fixed-top {
   position: fixed;
   top: 0;
   left: 0;
+  width: 100%;
   z-index: 1;
+}
+
+.navbar > .content {
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 0;
+  height: 0;
+}
+
+.menu {
+  display: inline-block;
+  padding: 1.75rem 1.5rem;
+  border-bottom: none;
+  margin-left: -1.5rem;
+  color: $gray!important;
 
   @media screen and (min-width: $break-point-2) {
+    padding: 1.25rem 1.5rem;
     position: absolute;
     left: -9999px;
 
     &:focus {
-      left: 19.5rem;
-    }
-  }
-
-  @media screen and (min-width: $break-point-3) {
-    &:focus {
-      left: 21.5rem;
-    }
-  }
-
-  @media screen and (min-width: $break-point-dynamic) {
-    &:focus {
-      left: calc(50% - 24.5rem);
+      position: static;
     }
   }
 
   // @media print {
   //   display: none;
   // }
+}
+
+.shadow-main {
+  // opacity: 0;
+  // will-change: opacity;
+  pointer-events: none;
+}
+
+.loading {
+  display: none;
+  // position: absolute;
+  // top: 0;
+  // right: 0;
+  // padding: 3 * 1.75rem 3 * 1.5rem;
+  // transform-origin: top right;
+  // transform: scale(0.33);
 }

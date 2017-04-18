@@ -1,19 +1,21 @@
 <!-- =============== -->
 <!-- MENU            -->
 <!-- =============== -->
-<span class="sr-only">Jump to:</span>
-
-<a id="_menu" class="menu no-hover" href="#_title">
-  <span>☰</span>
-  <span class="sr-only">Menu</span>
-</a>
+<div class="navbar fixed-top">
+  <div class="content">
+    <span class="sr-only">Jump to:</span>
+    <a id="_menu" class="menu no-hover" href="#_title">
+      <span class="sr-only">Menu</span>
+      <span>☰</span>
+    </a>
+  </div>
+</div>
 
 <!-- =============== -->
 <!-- CONTENT         -->
 <!-- =============== -->
 <div id="_yPushState">
-  <main id="_main" class="content container" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
-
+  <main id="_main" class="content" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
     {{ content }}
 
     {% if site.disqus_shortname and page.comments %}

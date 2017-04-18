@@ -5,14 +5,22 @@
  */
 
 .content {
-  padding-top: 5rem;
-  padding-bottom: 10rem;
+  position: relative;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 5rem 1rem 10rem;
+
+  @media screen {
+    max-width: 38rem;
+    padding: 5rem 1rem 10rem 1.5rem;
+    min-height: 100vh;
+  }
 
   @media screen and (min-width: $break-point-2) {
     max-width: 42rem;
-    padding-top: 4rem;
-    margin-left: 20rem;
-    margin-right: 2rem;
+    padding: 4rem 1rem 10rem;
+    margin-left: 22rem;
+    margin-right: 4rem;
   }
 
   @media screen and (min-width: $break-point-4) {

@@ -21,7 +21,7 @@ Hopefully, you will only need to follow these guides once.
 * [Installation]{:.heading data-flip="title"} -- How to install and run Hydejack.
 * [Configuration]{:.heading data-flip="title"} -- Once Jekyll is running you can start with basic configuration.
 * [Migration]{:.heading data-flip="title"} -- You can skip this if you are staring a new blog.
-{:.faded}
+{:.related-posts.faded}
 
 ## Using Hydejack
 Guides for producing content with Hydejack.
@@ -30,7 +30,7 @@ Guides for producing content with Hydejack.
 * [Writing]{:.heading data-flip="title"} -- Producing markdown content for Hydejack.
 * [Build]{:.heading data-flip="title"} -- How to build the static files for deployment.
 * [Advanced]{:.heading data-flip="title"} -- Guides for more advanced tasks.
-{:.faded}
+{:.related-posts.faded}
 
 [installation]: {{ site.baseurl }}{% link docs/6.0.0-beta3/installation.md %}
 [configuration]: {{ site.baseurl }}{% link docs/6.0.0-beta3/configuration.md %}
