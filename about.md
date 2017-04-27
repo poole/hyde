@@ -21,9 +21,9 @@ For further instructions, check out the [Documentation](/hydejack/docs/6.0.0-bet
 ## Image Credit
 
 Sidebar (default)
-: [Sergey Zolkin](https://unsplash.com/photos/E0Spm6XXn2Y)
+: [Napoleon Crossing the Alps ](https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps#/media/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg)
 
 Sidebar (Documentation)
-: [Annie Spratt](https://unsplash.com/photos/lIWF2uHxs0Q)
+: [Annie Spratt](https://unsplash.com/search/library?photo=lIWF2uHxs0Q)
 
 [^1]: Hydejack is fast in two different ways. Its *perceived speed* hides latency through a combination of animations and a complex pre-fetching logic. *Load speed* is achieved through inlining critical CSS and removing non-essential requests from the critical rendering path.

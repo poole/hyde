@@ -4,7 +4,7 @@ title: Documentation
 menu: true
 order: 5
 image: '/hydejack/assets/img/doc.jpg'
-color: '#967954'
+color: '#8e5c75'
 redirect_from: /docs/latest/
 ---
 

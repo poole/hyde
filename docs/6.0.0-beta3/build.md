@@ -2,8 +2,8 @@
 layout: page
 title: Build
 image: '/hydejack/assets/img/doc.jpg'
-color: '#967954'
-redirect_from: /docs/latest/build/
+color: '#8e5c75'
+redirect_from: /docs/latest/deployment/
 ---
 
 Hydejack supports building locally and on GitHub pages. However, when building on GitHub Pages, providing better related posts via the LSI is not available.

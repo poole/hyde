@@ -2,7 +2,7 @@
 layout: page
 title: Basics
 image: '/hydejack/assets/img/doc.jpg'
-color: '#967954'
+color: '#8e5c75'
 redirect_from: /docs/latest/basics/
 ---
 
