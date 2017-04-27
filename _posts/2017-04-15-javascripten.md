@@ -1,6 +1,6 @@
 ---
 layout: post
-title: '[Beta] v6: JavaScripten'
+title: 'v6: JavaScripten'
 tags: [hydejack]
 description: >
   The last release made the theme fast in the eyes of Google, but not so much in the eyes of its readers.
