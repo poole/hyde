@@ -139,7 +139,7 @@ However, it's only a slight modification of the `page` layout.
 [Demo]({{ site.baseurl }}{% link about.md %}).
 
 The main difference is that it will display an author's `about` text and `picture` above the regular content.
-To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author]({{ site.baseurl }}{% link docs/6.0.0-beta3/configuration.md %}#adding-an-author).
+To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author]({{ site.baseurl }}{% link docs/6.0.0-rc1/configuration.md %}#adding-an-author).
 
 ~~~yml
 ---
@@ -165,7 +165,7 @@ author: qwtel
 ---
 ~~~
 
-**NOTE**: If you would like the welcome page to be at the site's root, you'd  have to name the file `index.md`. Additionally, you should move the blog layout (`index.html`) to a subdirectory like `blog` or `posts`. See [Choosing a blog layout]({{ site.baseurl }}{% link docs/6.0.0-beta3/configuration.md %}#choosing-a-blog-layout)
+**NOTE**: If you would like the welcome page to be at the site's root, you'd  have to name the file `index.md`. Additionally, you should move the blog layout (`index.html`) to a subdirectory like `blog` or `posts`. See [Choosing a blog layout]({{ site.baseurl }}{% link docs/6.0.0-rc1/configuration.md %}#choosing-a-blog-layout)
 {:.message}
 
 Without further configuration, the welcome page will show the two most recent projects and five most recent blog posts.
@@ -285,7 +285,7 @@ title: Resume
 
 ***
 
-Continue with [Writing]({{ site.baseurl }}{% link docs/6.0.0-beta3/writing.md %}){:data-flip="title"} »
+Continue with [Writing]({{ site.baseurl }}{% link docs/6.0.0-rc1/writing.md %}){:data-flip="title"} »
 {:.faded.heading}
 
 [mipmap]: https://en.wikipedia.org/wiki/Mipmap
