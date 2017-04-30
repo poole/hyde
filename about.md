@@ -16,7 +16,7 @@ The site works all the way down to IE10. It works in IE9 if you don't need fancy
 ***
 
 You can download the latest version of Hydejack on [GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.0.0-rc2), or use the [gem-based theme](https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.0.0.pre.rc2).
-For further instructions, check out the [Documentation](/hydejack/docs/6.0.0-rc2/){:.heading data-flip="title"}.
+For further instructions, check out the [Documentation]({{ site.baseurl }}{% link docs/6.0.0-rc2/index.md %}){:.heading data-flip="title"}.
 
 ## Image Credit
 
