@@ -77,7 +77,7 @@ body::before {
 
 a, .a {
   // position: relative;
-  // padding-bottom: 0.15rem;
+  // padding-bottom: .15rem;
   // border-bottom: 1px dotted transparent;
   transition: color 500ms, border-color 250ms;
 
@@ -113,3 +113,7 @@ a, .a {
     object-position: center;
   }
 }
+
+// h2 + hr {
+//   margin-top: .5rem;
+// }

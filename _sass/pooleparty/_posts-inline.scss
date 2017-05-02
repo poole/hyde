@@ -4,7 +4,7 @@
 // page is wrapped in `.page` and is only used on the page layout.
 
 .page, .post {
-  margin-bottom: 8em;
+  margin-bottom: 3em;
 
   li + li {
     margin-top: .25rem;
@@ -24,3 +24,12 @@
   margin-bottom: 1rem;
   color: $gray;
 }
+
+// .dingbat::after {
+//   content: "❖";
+//   display: block;
+//   text-align: center;
+//   margin-top: 3rem;
+//   font-size: 1.5rem;
+//   color: #ddd;
+// }

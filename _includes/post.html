@@ -1,6 +1,6 @@
 {% assign post = include.post %}
 
-<article id="post-{{ post.id | slice: 1,9999 }}" class="post" role="article">
+<article id="post-{{ post.id | slice: 1,9999 }}" class="post{% unless include.link_title %} dingbat{% endunless %}" role="article">
   <header>
     <h1 class="post-title">
       {% if include.link_title %}<a href="{{ post.url | relative_url }}" data-flip="title">{% endif %}
@@ -17,8 +17,9 @@
     {% endcapture %}
 
     <p class="post-date heading">
-      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>
-      <span>{{ categories_content }} {{ tags_content }}</span>
+      <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date: "%d %b %Y" }}</time>{% if post.categories.size > 0 or post.tags.size > 0 %}, {% endif %}
+      {{ categories_content }}
+      {{ tags_content }}
     </p>
   </header>
 

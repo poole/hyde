@@ -10,6 +10,7 @@
 @import "pooleparty/code";
 // @import "pooleparty/footer-inline";
 // @import "pooleparty/posts-inline";
+@import "pooleparty/posts";
 @import "pooleparty/pagination";
 // @import "pooleparty/related-inline";
 // @import "pooleparty/message-inline";
@@ -66,6 +67,7 @@
       font-size: smaller;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
+      opacity: 0.5;
     }
   }
 {% endunless %}
