@@ -11,8 +11,8 @@ The site works all the way down to IE10. It works in IE9 if you don't need fancy
 All that being said, I think it's best to [see it in action](https://qwtel.com/hydejack/).
 
 ## Download
-You can download the latest version of Hydejack on [GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.0.0-rc2), or use the [gem-based theme](https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.0.0.pre.rc2).
-For further instructions, check out the [Documentation](https://qwtel.com/hydejack/docs/6.0.0-rc2/).
+You can download the latest version of Hydejack on [GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.0.0-rc3), or use the [gem-based theme](https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.0.0.pre.rc3).
+For further instructions, check out the [Documentation](https://qwtel.com/hydejack/docs/6.0.0-rc3/).
 
 ## Footnotes
 [^1]: Hydejack is fast in two different ways. Its *perceived speed* hides latency through a combination of animations and a complex pre-fetching logic. *Load speed* is achieved through inlining critical CSS and removing non-essential requests from the critical rendering path.
