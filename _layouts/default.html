@@ -4,10 +4,11 @@ layout: base
 
 <div class="page">
   <h1 class="page-title">{{ page.title | default:"Home"}}</h1>
-  {% capture message %}
+  {% capture text %}
 Looks like you are using the `{{ page.layout }}` layout. This layout is not supported by Hydejack. Instead use `blog` or `list`. For more information see the [Hydejack Documentation](https://qwtel.com/hydejack/docs/6.0.0-rc3/).
   {% endcapture %}
-  {% include message.html text=message %}
+  {% include message.html text=text %}
+  <hr/>
 
   {{ content }}
 
