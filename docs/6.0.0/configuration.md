@@ -41,12 +41,6 @@ The `baseurl` depends on the kind of page you are hosting.
 
 For for information on the types of pages you can host on GitHub, see the [GitHub Help article](https://help.github.com/articles/user-organization-and-project-pages/).
 
-<!-- # The unique resource location of your page.
-# Set to `https://<username>.github.io` when hosting on GitHub pages (and not using custom domains!)
-
-# Set to '' when hosting a blog on GitHub pages, like `//<username>.github.io`
-# Set to '/<reponame>' when using the `gh-pages` branch of a repository-->
-
 ## Changing `color` and `image`
 Hydejack allows you to choose the background image of the sidebar, as well as the accent color (color of the links, selection and focus outline, as well as background color of the sidebar, should no image be provided) on a per-page, per-category, per-tag, per-author and global basis.
 
@@ -224,7 +218,6 @@ Conversely, if you want to disable it, you only have to remove the key and no GA
 
 **Note**: Pasting code snippets provided by 3rd parties into the body will have undesired side effects (and may not work at all), because pages are loaded and swapped via JavaScript.
 {:.message}
-
 
 ***
 
