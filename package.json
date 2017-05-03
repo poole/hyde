@@ -1,6 +1,6 @@
 {
   "name": "hydejack",
-  "version": "6.0.0",
+  "version": "6.1.0",
   "description": "Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).",
   "scripts": {
     "clean": "rm -f assets/js/hydejack.js & rm -f assets/js/hydejack.min.js",
@@ -37,10 +37,10 @@
     "core-js": "2.4.1",
     "elem-dataset": "1.1.1",
     "katex": "0.7.1",
-    "rxjs": "5.3.0",
+    "rxjs": "5.3.1",
     "web-animations-js": "2.2.5",
-    "y-drawer": "^6.0.0",
-    "y-push-state": "^6.0.0"
+    "y-drawer": "6.1.0",
+    "y-push-state": "6.1.0"
   },
   "repository": {
     "type": "git",
