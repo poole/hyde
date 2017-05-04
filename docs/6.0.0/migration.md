@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Migration
-image: '/hydejack/assets/img/doc.jpg'
+image: '//qwtel.com/hydejack/assets/img/doc.jpg'
 color: '#8e5c75'
 redirect_from: /docs/latest/migration/
 ---

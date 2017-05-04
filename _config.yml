@@ -29,7 +29,7 @@ author:
   email:             f.klampfer@gmail.com
 
 # Fallback image and color if not overwritten
-image:               /hydejack/assets/img/nap.jpg
+image:               //qwtel.com/hydejack/assets/img/nap.jpg
 color:               '#A85641'
 
 # Remove to disable Google Fonts
