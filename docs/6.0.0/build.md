@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Build
-image: '//qwtel.com/hydejack/assets/img/doc.jpg'
+image: 'https://qwtel.com/hydejack/assets/img/doc.jpg'
 color: '#8e5c75'
 redirect_from: /docs/latest/deployment/
 ---
