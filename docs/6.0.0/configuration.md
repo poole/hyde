@@ -71,11 +71,11 @@ If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfon
 ## Choosing a blog layout
 Hydejack features two layouts for showing your blog posts.
 
-* The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
-[Demo]({{ site.baseurl }}{% link posts.md %}).
+*   The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
+[Demo](https://qwtel.com/hydejack-pro/posts/).
 
 *   The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
-[Demo]({{ site.baseurl }}{% link index.html %}).
+[Demo](https://qwtel.com/hydejack-pro/).
 
     If you are using the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
 

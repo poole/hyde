@@ -201,11 +201,11 @@ If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfon
 ## Choosing a blog layout
 Hydejack features two layouts for showing your blog posts.
 
-* The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
-[Demo]({{ site.baseurl }}{% link posts.md %}).
+*   The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
+[Demo](https://qwtel.com/hydejack-pro/posts/).
 
 *   The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
-[Demo]({{ site.baseurl }}{% link index.html %}).
+[Demo](https://qwtel.com/hydejack-pro/).
 
     If you are using the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
 
@@ -586,7 +586,7 @@ Can be different from the name of the tag or category, as long as `slug` is iden
 : Must be identical to the key used in the blog's front matter, i.e. if you use `categories: [jekyll]` or `tags:       [jekyll]`, the `slug` must be `jekyll`. Normally the slug is derived from the title, but since it is used to find all posts that belong to a certain tag or category, it is recommended that you set it explicitly.
 
 `description`
-: A medium-length description, used on the tag or category's detail page as meta description and shown in a message box below the title. [Demo]({{ "/tag/hyde" | relative_url }}).
+: A medium-length description, used on the tag or category's detail page as meta description and shown in a message box below the title.
 
 `image`
 : Will be used as fallback for all pages that belong to that category or tag.
@@ -634,7 +634,7 @@ order:  5
 ## Adding an about page
 About pages are such a frequent use case that Hydejack has a special layout for it.
 However, it's only a slight modification of the `page` layout.
-[Demo]({{ site.baseurl }}{% link about.md %}).
+[Demo](https://qwtel.com/hydejack-pro/about/).
 
 The main difference is that it will display an author's `about` text and `picture` above the regular content.
 To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author]({{ site.baseurl }}{% link docs/6.0.0/configuration.md %}#adding-an-author).
@@ -651,7 +651,7 @@ author: qwtel
 If you bought the "PRO" version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
-[Demo]({{ site.baseurl }}{% link welcome.md %}).
+[Demo](https://qwtel.com/hydejack-pro/welcome/).
 
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
@@ -706,8 +706,10 @@ If no ids are provided, the five most recent posts will be used.
 
 ## Adding a project*
 Projects are organized using Jekyll's [Collection feature](https://jekyllrb.com/docs/collections/).
-Each project is represented by a file in the `_projects` directory.
-A projects meta information is defined in the files front matter.
+Each project generates an entry on the projects layout ([Demo](https://qwtel.com/hydejack-pro/projects/)) and its own detail view ([Demo](https://qwtel.com/hydejack-pro/projects/hydejack-v6/)).
+
+A project is represented by a file in the `_projects` directory.
+The project's meta information is defined in the files front matter.
 Additionally, you can add markdown content. A project's front matter may look like:
 
 ~~~yml
@@ -757,9 +759,9 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 `author`
 : Shown below the project, similar to posts.
 
-
 ## Adding a resume*
-Hydejack's "PRO" version features a generalized resume layout. [Demo]({{ site.baseurl }}{% link resume.md %}).
+Hydejack's "PRO" version features a generalized resume layout.
+[Demo](https://qwtel.com/hydejack-pro/resume/).
 
 It generates the resume page from a valid [JSON Resume](https://jsonresume.org/), which is good news if you already have a JSON resume. Otherwise, there are various ways of obtaining one:
 
@@ -797,7 +799,6 @@ Markdown:
 {:toc}
 ~~~
 
-<!-- ## Markdown -->
 ## Adding message boxes
 You can add a message box by adding the `message` class to a paragraph.
 
@@ -857,12 +858,6 @@ Markdown:
 I'm faded, faded, faded.
 {:.faded}
 ~~~
-
-<!-- ### Adding a figure with caption
-<figure>
-  <img src="https://placehold.it/400x200" />
-  <figcaption>My caption</figcaption>
-</figure> -->
 
 ## Adding code blocks
 To add a code block without syntax highlighting, simply indent 4 spaces (regular markdown).
