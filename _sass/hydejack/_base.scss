@@ -13,15 +13,17 @@ body, main {
       -ms-text-size-adjust: 100%;
 }
 
-body::before {
-//   content: '';
-//   width: .5rem;
-//   background: $border-color;
-//   position: absolute;
-//   left: 0;
-//   top: 0;
-//   bottom: 0;
-}
+// @media screen {
+//   body::before {
+//     content: '';
+//     width: .5rem;
+//     background: $border-color;
+//     position: absolute;
+//     left: 0;
+//     top: 0;
+//     bottom: 0;
+//   }
+// }
 
 @media screen and (min-width: $break-point-1) {
   // html {

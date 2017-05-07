@@ -38,6 +38,7 @@
 
 #_yDrawer {
   position: relative;
+  padding: 1rem 0;
 
   @media screen {
     padding: 2rem 1rem;
@@ -58,9 +59,11 @@
     width: $dynamic-width;
   }
 
-  &.loaded {
-    min-height: 0;
-    padding: 0;
+  @media screen {
+    &.loaded {
+      min-height: 0;
+      padding: 0;
+    }
   }
 }
 
