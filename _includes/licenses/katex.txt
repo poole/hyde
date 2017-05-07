@@ -1,11 +1,12 @@
-MIT License
+The MIT License (MIT)
 
-Copyright (c) 2017 Florian Klampfer.
+Copyright (c) 2015 Khan Academy
 
-This software also uses portions of the Hyde project, which is
+This software also uses portions of the underscore.js project, which is
 MIT licensed with the following copyright:
 
-Copyright (c) 2013 Mark Otto.
+Copyright (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative
+Reporters & Editors
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal

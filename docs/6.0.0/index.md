@@ -16,7 +16,7 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 {:.message}
 
 ## Getting started
-Hopefully, you will only need to follow these guides once.
+***
 
 * [Installation]{:.heading data-flip="title"} -- How to install and run Hydejack.
 * [Configuration]{:.heading data-flip="title"} -- Once Jekyll is running you can start with basic configuration.
@@ -24,12 +24,19 @@ Hopefully, you will only need to follow these guides once.
 {:.related-posts.faded}
 
 ## Using Hydejack
-Guides for producing content with Hydejack.
+***
 
 * [Basics]{:.heading data-flip="title"} -- How to add different types of content.
 * [Writing]{:.heading data-flip="title"} -- Producing markdown content for Hydejack.
 * [Build]{:.heading data-flip="title"} -- How to build the static files for deployment.
 * [Advanced]{:.heading data-flip="title"} -- Guides for more advanced tasks.
+{:.related-posts.faded}
+
+## Miscellaneous
+***
+
+* [Versions]{:.heading data-flip="title"} -- Version history of Hydejack.
+* [Licenses]{:.heading data-flip="title"} -- Open Source license texts of libraries used by Hydejack.
 {:.related-posts.faded}
 
 [installation]: {{ site.baseurl }}{% link docs/6.0.0/installation.md %}
@@ -39,3 +46,5 @@ Guides for producing content with Hydejack.
 [migration]: {{ site.baseurl }}{% link docs/6.0.0/migration.md %}
 [build]: {{ site.baseurl }}{% link docs/6.0.0/build.md %}
 [advanced]: {{ site.baseurl }}{% link docs/6.0.0/advanced.md %}
+[versions]: {{ site.baseurl }}{% link docs/6.0.0/versions.md %}
+[licenses]: {{ site.baseurl }}{% link docs/6.0.0/licenses.md %}

@@ -29,7 +29,6 @@ Pages are now loaded and swapped through JavaScript. This has a number of effect
 See the [the migration guide]({{ site.baseurl }}{% link docs/6.0.0/migration.md %}) for instructions on how to upgrade.
 
 ## Minor
-
 * The "accent" font (heading font) is now used for all headings. This gives the theme a "bolder" look and was necessary for the animation: link => heading.
 * Changed default text font from "PT Serif" to "Noto Serif".
 * Added [CSS classes]({{ site.baseurl }}{% link docs/6.0.0/writing.md %}) for styling markdown content.
@@ -47,7 +46,6 @@ See the [the migration guide]({{ site.baseurl }}{% link docs/6.0.0/migration.md 
 * Added dingbat to signal end of post
 
 ## Fixes
-
 * Related posts is no longer blank for posts that do not belong to a category.
 * Footnotes now use the text version of "leftwards arrow with hook" instead of the emoji on iOS.
 * Text is no longer invisible while waiting for Google Fonts to load.
