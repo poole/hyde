@@ -2,4 +2,4 @@ console.log(' __  __                __                                     __   
 console.log('Copyright (c) 2017 Florian Klampfer');
 console.log('Licensed under MIT');
 console.log('Powered by Hydejack (https://qwtel.com/hydejack)');
-console.log(`Version: 6.0.0`);
+console.log(`Version: 6.1.0`);

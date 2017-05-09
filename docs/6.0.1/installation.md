@@ -83,7 +83,7 @@ If you downloaded the zip, the folder structure will look like:
 │   ├── img
 │   └── js
 ├── docs
-│   └── 6.0.0
+│   └── 6.1.0
 ├── _config.yml
 ├── 404.md
 ├── about.md
@@ -120,5 +120,5 @@ If you are starting a new blog you can also fork or clone the repository and use
 
 ***
 
-Continue with [Configuration]({{ site.baseurl }}{% link docs/6.0.0/configuration.md %}){:data-flip="title"} »
+Continue with [Configuration]({{ site.baseurl }}{% link docs/6.1.0/configuration.md %}){:data-flip="title"} »
 {:.faded.heading}
