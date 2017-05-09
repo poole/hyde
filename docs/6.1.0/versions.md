@@ -10,7 +10,18 @@ redirect_from: /docs/latest/versions/
 * this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
+## v6.1.0
+May 9 2017
+{:.heading.post-date}
+
+* Updated JS dependencies
+* Added version history and licenses to documentation
+* Fixed print layout
+
 ## v6.0.0 (JavaScripten)
+May 3 2017
+{:.heading.post-date}
+
 Hydejack has always featured a JavaScript-heavy sidebar, but other than that, JS has been used sparingly. This changes with this release, which adds a ton of (optional) code that changes the feel of the theme dramatically.
 
 ### Major
@@ -55,6 +66,9 @@ See the [the migration guide]({{ site.baseurl }}{% link docs/6.1.0/migration.md 
 * Always show scrollbar to prevent layout "jumps"
 
 ## v5.3.0
+Oct 1 2016
+{:.heading.post-date}
+
 a11y improvements
 - Use HTML5 semantics tags + roles
 - Don't set `maximum-scale=1`
@@ -65,15 +79,24 @@ Math support improvements
 - LaTeX syntax errors logged to console
 
 ## v5.2.0
+Sep 29 2016
+{:.heading.post-date}
+
 Prevent structural FOUC
 
 ## v5.1.0
+Sep 28 2016
+{:.heading.post-date}
+
 Cross-browser compatibility improvements:
 - Added features tests
 - Fixed layout in IE 10 and 11
 - Disabled stylesheets and JS in IE 9 and below.
 
 ## v5.0.0 (The Fast One)
+Sep 16 2016
+{:.heading.post-date}
+
 This major release increases page load speed dramatically. The page now scores roughly 90/100 on [Google's PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F) (up from ~50) and has a high score on similar tools.
 
 Most importantly, the critical rendering path is no longer blocked by loading styles or scripts, meaning the site becomes visible faster.
@@ -96,13 +119,18 @@ In order to minify the CSS and make it more modular it has been rewritten in SCS
 - Social media icons easier tappable with finger
 
 ### Trivia
-
 Not strictly part of the release, but the images have been blurred to increase text readability and help with loading speed as well (burred images get compressed by JPG much better).
 
 ## v4.0.1
+Sep 11 2016
+{:.heading.post-date}
+
 Fix per-page color and image
 
 ## v4.0.0 (Social Media Impocalypse)
+Aug 30 2016
+{:.heading.post-date}
+
 ### Breaking
 - Structure of `_config.yml` has changed
   - Social media usernames are now located under `author: social: <platform>: <username>`.
@@ -126,6 +154,9 @@ Fix per-page color and image
 - Refactoring, preventing code duplications, heavier usage of `includes`.
 
 ## v3.0.0 (Hydejack)
+May 7 2016
+{:.heading.post-date}
+
 Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
 ### Features
@@ -142,5 +173,9 @@ Features include:
 * Math blocks via [KaTeX](https://khan.github.io/KaTeX/).
 
 ## v2.0.0 (Hyde)
+Jan 2 2014
+{:.heading.post-date}
 
 ## v1.0.0 (Hyde)
+Oct 15 2013
+{:.heading.post-date}
