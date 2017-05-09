@@ -29,7 +29,7 @@
     "eslint-plugin-jsx-a11y": "4.0.0",
     "eslint-plugin-react": "6.10.3",
     "json2yaml": "1.1.0",
-    "uglify-js": "2.8.22",
+    "uglify-js": "3.0.1",
     "watchify": "3.9.0"
   },
   "dependencies": {
