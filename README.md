@@ -20,7 +20,7 @@ Hydejack is a cutting-edge Jekyll theme that combines the best of static sites a
 * RSS feed
 * PSD templates for sidebar backgrounds and project screenshots
 * Print layout
-* [Extensive documentation](https://qwtel.com/hydejack/docs/6.1.0/index.md %})
+* [Extensive documentation](https://qwtel.com/hydejack/docs/6.1.0/)
 
 ## Demo
 It's best to just [see it in action](https://qwtel.com/hydejack/).
@@ -38,11 +38,11 @@ Hydejack would not be possible without these assets and libraries:
 * corejs
 * web-animations-js
 
-You can find the full list including copyright notices [here](https://qwtel.com/hydejack/docs/6.1.0/licenses.md %}).
+You can find the full list including copyright notices [here](https://qwtel.com/hydejack/docs/6.1.0/licenses/).
 
 ## Versions
 The current version is 6.1.0, which was released on 15 May 2017.
-You can find the full version history including patch notes [here](https://qwtel.com/hydejack/docs/6.1.0/versions.md %}).
+You can find the full version history including patch notes [here](https://qwtel.com/hydejack/docs/6.1.0/versions/).
 
 ***
 
