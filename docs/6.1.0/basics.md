@@ -182,8 +182,12 @@ selected_posts:
   - /2017/03/17/javascripten
   - /2016/09/17/the-fast-one
   - /2016/08/30/social-media-impocalypse
-more_projects: /projects/
-more_posts: /posts/
+more_projects:
+  title: Projects
+  href: /projects/
+more_posts:
+  title: Posts
+  href: /posts/
 ---
 ~~~
 
@@ -201,10 +205,10 @@ A posts's id is its path with a leading `/` and no file extension at the end.
 If no ids are provided, the five most recent posts will be used.
 
 `more_projects`
-: URL. When provided, a "More Projects" link will be shown below the projects.
+: A title and href pair. When provided, the link will be shown below the projects. `title` must match the title of the page it links to, in order for the animation to work.
 
 `more_posts`
-: URL. When provided, a "More Posts" link will be shown below the posts.
+: A title and href pair. When provided, the link will be shown below the posts. `title` must match the title of the page it links to, in order for the animation to work.
 
 ## Adding a project*
 Projects are organized using Jekyll's [Collection feature](https://jekyllrb.com/docs/collections/).

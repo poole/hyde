@@ -75,29 +75,27 @@ Hydejack features two layouts for showing your blog posts.
 [Demo](https://qwtel.com/hydejack-pro/posts/).
 
 *   The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
-[Demo](https://qwtel.com/hydejack-pro/).
-
-    If you are using the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
-
-    ~~~yml
-    paginate: 5
-    paginate_path: '/page-:num/'
-    ~~~
-
-    For more information see [Pagination](https://jekyllrb.com/docs/pagination/).
+[Demo](https://qwtel.com/hydejack-pro/blog/).
 
 In order to use either layout, open `index.html` in the root folder and change the `layout` property in the front matter, e.g.
 
 ~~~yml
 ---
-layout: blog
+layout: list # or blog
 title:  Home
 ---
 ~~~
 
-**NOTE**: The paginated `blog` layout needs to have the `.html` file extension, while the (non-paginated) `list` layout may have the `.md` or `.markdown` extension. This is due to the `jekyll-paginate` plugin.
-{:.message}
+If you are using the `blog` layout with the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
 
+~~~yml
+paginate: 5
+paginate_path: '/page-:num/'
+~~~
+
+The `blog` layout also needs to have the `.html` file extension and the `paginate_path` needs to match the path to the `index.html` file, i.e. if you want the blog to appear at `/blog/`, put the `index.html` in a `blog` dir and set `paginate_path` to be `/blog/page-:num/`. Jekyll will print additional error messages if you violate this.
+
+For more information see [Pagination](https://jekyllrb.com/docs/pagination/).
 
 ## Adding an author
 At the very least, you should add an `author` key with a `name` and `email` sub-key (used by the [feed plugin](https://github.com/jekyll/jekyll-feed)) to `_config.yml`:

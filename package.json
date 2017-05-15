@@ -39,8 +39,8 @@
     "katex": "0.7.1",
     "rxjs": "5.3.1",
     "web-animations-js": "2.2.5",
-    "y-drawer": "6.1.0",
-    "y-push-state": "6.1.0"
+    "y-drawer": "6.1.1",
+    "y-push-state": "6.1.1"
   },
   "repository": {
     "type": "git",

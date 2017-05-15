@@ -11,7 +11,7 @@ redirect_from: /docs/latest/versions/
 {:toc}
 
 ## v6.1.0
-May 9 2017
+May 15 2017
 {:.heading.post-date}
 
 * Updated JS dependencies
