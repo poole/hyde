@@ -31,6 +31,7 @@ I use Hydejack for [my personal site](https://qwtel.com/), which is why the them
 ## Credits
 Hydejack would not be possible without these assets and libraries:
 
+* Hyde by @mdo
 * IcoMoon Icons Free Version
 * RxJS
 * KaTeX
