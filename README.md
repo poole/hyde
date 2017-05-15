@@ -28,7 +28,7 @@ It's best to just [see it in action](https://qwtel.com/hydejack/).
 ## Skin in the Game
 I use Hydejack for [my personal site](https://qwtel.com/), which is why the theme has features well beyond what you would expect from a normal Jekyll theme and why I have an interest in making it as good as I possibly can.
 
-## Licenses
+## Credits
 Hydejack would not be possible without these assets and libraries:
 
 * IcoMoon Icons Free Version
