@@ -153,7 +153,7 @@ author: qwtel
 If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
-[Demo](https://qwtel.com/hydejack-pro/welcome/).
+[Demo](https://qwtel.com/hydejack-pro/).
 
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 

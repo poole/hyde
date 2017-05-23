@@ -195,7 +195,7 @@ Hydejack features two layouts for showing your blog posts.
 [Demo](https://qwtel.com/hydejack-pro/posts/).
 
 *   The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
-[Demo](https://qwtel.com/hydejack-pro/).
+[Demo](https://qwtel.com/hydejack-pro/blog/).
 
     If you are using the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
 
@@ -641,7 +641,7 @@ author: qwtel
 If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
-[Demo](https://qwtel.com/hydejack-pro/welcome/).
+[Demo](https://qwtel.com/hydejack-pro/).
 
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
