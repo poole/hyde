@@ -19,7 +19,6 @@ You can download the latest version of Hydejack on [GitHub](https://github.com/q
 For further instructions, check out the [Documentation]({{ site.baseurl }}{% link docs/6.1.0/index.md %}){:.heading data-flip="title"}.
 
 ## Image Credit
-
 Sidebar (default)
 : [Napoleon Crossing the Alps ](https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps#/media/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg)
 

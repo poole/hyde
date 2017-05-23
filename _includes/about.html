@@ -2,10 +2,6 @@
 
 {% if author.about %}
   <aside class="author" role="complementary">
-    {% capture heading %}<h2>About</h2>{% endcapture %}
-    {% include about-short.html heading=heading author=author %}
-    <div class="sidebar-social">
-      {% include social.html social=author.social %}
-    </div>
+    {% include author.html author=author heading='About' heading_tag='h2' %}
   </aside>
 {% endif %}

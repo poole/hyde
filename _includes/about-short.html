@@ -1,8 +1,0 @@
-{% if include.author.picture %}
-  {% include srcset-img.html class="me" img=include.author.picture alt=include.author.name %}
-{% endif %}
-
-{{ include.heading }}
-<hr/>
-
-{{ include.author.about | markdownify }}
