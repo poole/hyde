@@ -4,6 +4,7 @@ title: 'v4: Social Media Impocalypse'
 tags: [hydejack]
 description: >
   This release adds *a lot* of social media icons and introduces a new default layout. It also breaks things, hence a new major release number.
+excerpt_separator: <!--more-->
 ---
 
 **This post is outdated and only included for legacy reasons.
@@ -17,6 +18,8 @@ See the [Documentation]({{ site.baseurl }}{% link docs/6.1.0/index.md %}){:.head
   * `disqus` is now a top-level entry (moved from `author`).
   * Now has `font`, `font_accent` and `google_fonts` fields that are mandatory.
 * Now defaults to the `blog` layout, old style is available via `blog-by-tag` layout, see `archive.html`.
+
+<!--more-->
 
 ## New features
 * Added *a lot* of social media icons, configurable via `_config.yml`.

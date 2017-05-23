@@ -4,7 +4,7 @@ title: Introducing Hydejack
 tags: [hydejack]
 description: >
   Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
-
+excerpt_separator: <!--more-->
 ---
 
 **This post is outdated and only included for legacy reasons.
@@ -25,6 +25,8 @@ Features include:
 * Layout for posts grouped by year
 * Wide array of social media icons on sidebar.
 * Math blocks via [KaTeX](https://khan.github.io/KaTeX/).
+
+<!--more-->
 
 ## Download
 Hydejack is developed on and hosted with GitHub. Head to the [GitHub repository](https://github.com/qwtel/hydejack) for downloads, bug reports, and feature requests.

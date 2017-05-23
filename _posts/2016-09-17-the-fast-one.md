@@ -4,6 +4,7 @@ title: 'v5: The Fast One'
 tags: [hydejack]
 description: >
   This release dramatically increases page load speed which matters to Google and visitors with slow connections alike.
+excerpt_separator: <!--more-->
 ---
 
 **This post is outdated and only included for legacy reasons.
@@ -12,6 +13,8 @@ See the [Documentation]({{ site.baseurl }}{% link docs/6.1.0/index.md %}){:.head
 ***
 
 This major release increases page load speed dramatically. The page now scores roughly 90/100 on [Google's PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F) (up from ~50) and has a high score on similar tools.
+
+<!--more-->
 
 Most importantly, the critical rendering path is no longer blocked by loading styles or scripts, meaning the site becomes visible faster.
 
