@@ -13,7 +13,7 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 **NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands.
 {:.message}
 
-**NOTE**: This document was created using Hydejack's print layout. If you prefer to read it the documentation in your browser, you can find it [here](https://qwtel.com/hydejack-pro/docs/6.1.0/).
+**NOTE**: This document was created using Hydejack's print layout. If you prefer to read it the documentation in your browser, you can find it [here](https://qwtel.com/hydejack-pro/docs/6.1.1/).
 {:.message}
 
 ## Table of Contents
@@ -94,7 +94,7 @@ If you downloaded the zip, the folder structure will look like:
 │   ├── img
 │   └── js
 ├── docs
-│   └── 6.1.0
+│   └── 6.1.1
 ├── _config.yml
 ├── 404.md
 ├── about.md
@@ -299,7 +299,7 @@ Should providing a username not produce a correct link for some reason, you can 
       youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
 
 
-**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic]({{ site.baseurl }}{% link docs/6.1.0/advanced.md %}).
+**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic]({{ site.baseurl }}{% link docs/6.1.1/advanced.md %}).
 {:.message}
 
 ### Adding an email or RSS icon
@@ -420,7 +420,7 @@ You can take a look at the [full `authors.yml`](https://github.com/qwtel/hydejac
 
     If you have only one photo, you can just provide the URL directly, e.g. `picture: <url>`.
 
-For more information, see [Adding an author]({{ site.baseurl }}{% link docs/6.1.0/configuration.md %}#adding-an-author).
+For more information, see [Adding an author]({{ site.baseurl }}{% link docs/6.1.1/configuration.md %}#adding-an-author).
 
 ### Restoring the tags
 1.  Delete the `tag` folder.
@@ -627,7 +627,7 @@ However, it's only a slight modification of the `page` layout.
 [Demo](https://qwtel.com/hydejack-pro/about/).
 
 The main difference is that it will display an author's `about` text and `picture` above the regular content.
-To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author]({{ site.baseurl }}{% link docs/6.1.0/configuration.md %}#adding-an-author).
+To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author]({{ site.baseurl }}{% link docs/6.1.1/configuration.md %}#adding-an-author).
 
 ~~~yml
 ---
@@ -653,7 +653,7 @@ author: qwtel
 ---
 ~~~
 
-**NOTE**: If you would like the welcome page to be at the site's root, you'd  have to name the file `index.md`. Additionally, you should move the blog layout (`index.html`) to a subdirectory like `blog` or `posts`. See [Choosing a blog layout]({{ site.baseurl }}{% link docs/6.1.0/configuration.md %}#choosing-a-blog-layout)
+**NOTE**: If you would like the welcome page to be at the site's root, you'd  have to name the file `index.md`. Additionally, you should move the blog layout (`index.html`) to a subdirectory like `blog` or `posts`. See [Choosing a blog layout]({{ site.baseurl }}{% link docs/6.1.1/configuration.md %}#choosing-a-blog-layout)
 {:.message}
 
 Without further configuration, the welcome page will show the two most recent projects and five most recent blog posts.
@@ -985,7 +985,7 @@ Builds on GitHub run in the `production` environment, so no further steps are ne
 
 ***
 
-Continue with [Advanced]({{ site.baseurl }}{% link docs/6.1.0/advanced.md %}){:data-flip="title"} »
+Continue with [Advanced]({{ site.baseurl }}{% link docs/6.1.1/advanced.md %}){:data-flip="title"} »
 {:.faded.heading}
 
 [deploy]: https://jekyllrb.com/docs/deployment-methods/
@@ -1047,6 +1047,13 @@ If you want to actively develop the scripts, it is better to run
 which will build a non-minified, non-transpiled (ES6) version of `hydejack.js` after every filechange.
 
 # Versions
+## v6.1.1
+May 23 2017
+{:.heading.post-date}
+
+* Add support for `lang` in front matter and `_config.yml`.
+* Add support for `keywords` in front matter and `_config.yml`.
+
 ## v6.1.0
 May 9 2017
 {:.heading.post-date}
@@ -1077,12 +1084,12 @@ Pages are now loaded and swapped through JavaScript. This has a number of effect
 * Added `not-found` layout.
 * Added `redirect` layout
 
-See the [the migration guide]({{ site.baseurl }}{% link docs/6.1.0/migration.md %}) for instructions on how to upgrade.
+See the [the migration guide]({{ site.baseurl }}{% link docs/6.1.1/migration.md %}) for instructions on how to upgrade.
 
 ### Minor
 * The "accent" font (heading font) is now used for all headings. This gives the theme a "bolder" look and was necessary for the animation: link => heading.
 * Changed default text font from "PT Serif" to "Noto Serif".
-* Added [CSS classes]({{ site.baseurl }}{% link docs/6.1.0/writing.md %}) for styling markdown content.
+* Added [CSS classes]({{ site.baseurl }}{% link docs/6.1.1/writing.md %}) for styling markdown content.
 * Links have a new style. They now always display an underline to make the choice of the link color less critical (darker colors were hard to distinguish from regular text).
 * Made social media icons larger and easier to tap.
 * Social media icons are now also part of the "about" sections of a post.

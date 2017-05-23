@@ -26,12 +26,12 @@ Pages are now loaded and swapped through JavaScript. This has a number of effect
 * Added `not-found` layout.
 * Added `redirect` layout
 
-See the [the migration guide]({{ site.baseurl }}{% link docs/6.1.0/migration.md %}) for instructions on how to upgrade.
+See the [the migration guide]({{ site.baseurl }}{% link docs/6.1.1/migration.md %}) for instructions on how to upgrade.
 
 ## Minor
 * The "accent" font (heading font) is now used for all headings. This gives the theme a "bolder" look and was necessary for the animation: link => heading.
 * Changed default text font from "PT Serif" to "Noto Serif".
-* Added [CSS classes]({{ site.baseurl }}{% link docs/6.1.0/writing.md %}) for styling markdown content.
+* Added [CSS classes]({{ site.baseurl }}{% link docs/6.1.1/writing.md %}) for styling markdown content.
 * Links have a new style. They now always display an underline to make the choice of the link color less critical (darker colors were hard to distinguish from regular text).
 * Made social media icons larger and easier to tap.
 * Social media icons are now also part of the "about" sections of a post.
@@ -53,6 +53,6 @@ See the [the migration guide]({{ site.baseurl }}{% link docs/6.1.0/migration.md 
 
 ***
 
-[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.1.0)
+[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.1.1)
 
 *[FOUC]: Flash of Unstyled Content
