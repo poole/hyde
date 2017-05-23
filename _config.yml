@@ -1,26 +1,30 @@
-# Dependencies
-markdown:         redcarpet
-highlighter:      pygments
-
 # Permalinks
-permalink:        pretty
-relative_permalinks: true
+#
+# Use of `relative_permalinks` ensures post links from the index work properly.
+permalink:           pretty
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
-baseurl:          /
+title:               Adriel's Dev Blog
+tagline:             'Eat, Sleep, Code, Repeat...'
+description:         'An effort to capture some of the beauty of coding with a collection of words, images, and charts.'
+url:                 http://adrielklein.github.io
+baseurl:             /
+paginate:            1
+repo:            https://github.com/adrielklein/adrielklein.github.io
 
+# About/contact
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
-
-paginate:         5
+  name:              Adriel Klein
+  url:               http://adrielklein.github.io
+  email:             adrielmklein@gmail.com
 
 # Custom vars
-version:          2.1.0
+version:             2.1.0
 
-github:
-  repo:           https://github.com/poole/hyde
+gems: [jekyll-paginate]
+
+
+# Dependencies
+markdown:         redcarpet
+
+# Permalinks
