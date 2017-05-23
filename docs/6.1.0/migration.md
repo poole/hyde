@@ -149,8 +149,8 @@ As mentioned above, don't forget to rename `disqus` to `disqus_shortname` in `_c
 Hydejack now has a dedicated layout for about pages.
 To use it, open `about.md` and change the `layout` in the front matter to `about` and delete `{\% include about-short.html author=site.author %\}`.
 
-## From free to "PRO" version*
-Upgrading form the free version to "PRO" is straightforward. All that is necessary to copy the following folders from "PRO" into your repository.
+## From free to PRO version*
+Upgrading form the free version to PRO is straightforward. All that is necessary to copy the following folders from PRO into your repository.
 
 * `_includes`
 * `_layouts`

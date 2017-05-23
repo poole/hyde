@@ -23,7 +23,7 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 # Installation
 There are multiple ways of installing Hydejack.
 The easiest is [via the Ruby gem](#via-gem).
-If you bought the "PRO" version of Hydejack or downloaded the zip, you'll want to install [via the zip file](#via-zip).
+If you bought the PRO version of Hydejack or downloaded the zip, you'll want to install [via the zip file](#via-zip).
 If you know what you are doing, you can [fork or clone the git repository](#via-git).
 
 ## Via gem
@@ -479,8 +479,8 @@ As mentioned above, don't forget to rename `disqus` to `disqus_shortname` in `_c
 Hydejack now has a dedicated layout for about pages.
 To use it, open `about.md` and change the `layout` in the front matter to `about` and delete `{\% include about-short.html author=site.author %\}`.
 
-## From free to "PRO" version*
-Upgrading form the free version to "PRO" is straightforward. All that is necessary to copy the following folders from "PRO" into your repository.
+## From free to PRO version*
+Upgrading form the free version to PRO is straightforward. All that is necessary to copy the following folders from PRO into your repository.
 
 * `_includes`
 * `_layouts`
@@ -638,7 +638,7 @@ author: qwtel
 ~~~
 
 ## Adding a welcome page*
-If you bought the "PRO" version of Hydejack you have access to the `welcome` layout.
+If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
 [Demo](https://qwtel.com/hydejack-pro/welcome/).
@@ -750,7 +750,7 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 : Shown below the project, similar to posts.
 
 ## Adding a resume*
-Hydejack's "PRO" version features a generalized resume layout.
+Hydejack's PRO version features a generalized resume layout.
 [Demo](https://qwtel.com/hydejack-pro/resume/).
 
 It generates the resume page from a valid [JSON Resume](https://jsonresume.org/), which is good news if you already have a JSON resume. Otherwise, there are various ways of obtaining one:
@@ -972,7 +972,7 @@ Then, you have to run `jekyll build` with the `--lsi` flag:
 This will generate the finished static files in `_site` which can be deployed using the methods outlined in the [Jekyll Documentation][deploy].
 
 ## Building on GitHub Pages
-If you are using the "PRO" version of Hydejack, this method is discouraged because it will publish the source code on GitHub 😢
+If you are using the PRO version of Hydejack, this method is discouraged because it will publish the source code of the theme on GitHub.
 {:.message}
 
 GitHub Pages offers the possibility to upload your site's Jekyll source directly. Then, GitHub will run the build process in the cloud, provided you site only uses [certain plugins](https://pages.github.com/versions/). Hydejack supports GitHub Pages out of the box.

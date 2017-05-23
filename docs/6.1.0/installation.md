@@ -8,7 +8,7 @@ redirect_from: /docs/latest/installation/
 
 There are multiple ways of installing Hydejack.
 The easiest is [via the Ruby gem](#via-gem).
-If you bought the "PRO" version of Hydejack or downloaded the zip, you'll want to install [via the zip file](#via-zip).
+If you bought the PRO version of Hydejack or downloaded the zip, you'll want to install [via the zip file](#via-zip).
 If you know what you are doing, you can [fork or clone the git repository](#via-git).
 
 ## Table of Contents

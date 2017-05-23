@@ -150,7 +150,7 @@ author: qwtel
 ~~~
 
 ## Adding a welcome page*
-If you bought the "PRO" version of Hydejack you have access to the `welcome` layout.
+If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
 [Demo](https://qwtel.com/hydejack-pro/welcome/).
@@ -266,7 +266,7 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 : Shown below the project, similar to posts.
 
 ## Adding a resume*
-Hydejack's "PRO" version features a generalized resume layout.
+Hydejack's PRO version features a generalized resume layout.
 [Demo](https://qwtel.com/hydejack-pro/resume/).
 
 It generates the resume page from a valid [JSON Resume](https://jsonresume.org/), which is good news if you already have a JSON resume. Otherwise, there are various ways of obtaining one:

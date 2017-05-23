@@ -37,7 +37,7 @@ Then, you have to run `jekyll build` with the `--lsi` flag:
 This will generate the finished static files in `_site` which can be deployed using the methods outlined in the [Jekyll Documentation][deploy].
 
 ## Building on GitHub Pages
-If you are using the "PRO" version of Hydejack, this method is discouraged because it will publish the source code on GitHub 😢
+If you are using the PRO version of Hydejack, this method is discouraged because it will publish the source code of the theme on GitHub.
 {:.message}
 
 GitHub Pages offers the possibility to upload your site's Jekyll source directly. Then, GitHub will run the build process in the cloud, provided you site only uses [certain plugins](https://pages.github.com/versions/). Hydejack supports GitHub Pages out of the box.
