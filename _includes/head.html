@@ -32,6 +32,10 @@
 {% endif %}
 <meta name="description" content="{{ description | strip_html | truncatewords:50 }}">
 
+{% if site.keywords or page.keywords %}
+  <meta name="keywords" content="{{ site.keywords | default: page.keywords | join:',' }}">
+{% endif %}
+
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
