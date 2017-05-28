@@ -29,8 +29,8 @@ author:
   email:             f.klampfer@gmail.com
 
 # Fallback image and color if not overwritten
-image:               https://qwtel.com/hydejack/assets/img/nap.jpg
-color:               '#A85641'
+image:               /hydejack/assets/img/nap.jpg
+color:               '#C28235'
 
 # Remove to disable Google Fonts
 google_fonts:        Roboto+Slab:700|Noto+Serif:400,400i,700,700i
