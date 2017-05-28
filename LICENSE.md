@@ -1,11 +1,11 @@
 MIT License
 
-Copyright (c) 2017 Florian Klampfer.
+Copyright (c) 2017 Florian Klampfer
 
 This software also uses portions of the Hyde project, which is
 MIT licensed with the following copyright:
 
-Copyright (c) 2013 Mark Otto.
+Copyright (c) 2013 Mark Otto
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
