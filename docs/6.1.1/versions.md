@@ -1,8 +1,6 @@
 ---
 layout: page
 title: Versions
-image: 'https://qwtel.com/hydejack/assets/img/doc.jpg'
-color: '#8e5c75'
 redirect_from: /docs/latest/versions/
 ---
 
