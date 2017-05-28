@@ -1,8 +1,6 @@
 ---
 layout: page
 title: Documentation
-image: 'https://qwtel.com/hydejack/assets/img/doc.jpg'
-color: '#8e5c75'
 redirect_from: /docs/latest/complete/
 ---
 
@@ -13,7 +11,7 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 **NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands.
 {:.message}
 
-**NOTE**: This document was created using Hydejack's print layout. If you prefer to read it the documentation in your browser, you can find it [here](https://qwtel.com/hydejack-pro/docs/6.1.1/).
+**NOTE**: This document was created using Hydejack's print layout. If you prefer to read it the documentation in your browser, you can find it [here](https://qwtel.com/hydejack/docs/6.1.1/).
 {:.message}
 
 ## Table of Contents
@@ -192,10 +190,10 @@ If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfon
 Hydejack features two layouts for showing your blog posts.
 
 *   The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
-[Demo](https://qwtel.com/hydejack-pro/posts/).
+[Demo](https://qwtel.com/hydejack/posts/).
 
 *   The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
-[Demo](https://qwtel.com/hydejack-pro/blog/).
+[Demo](https://qwtel.com/hydejack/blog/).
 
     If you are using the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
 
@@ -624,7 +622,7 @@ order:  5
 ## Adding an about page
 About pages are such a frequent use case that Hydejack has a special layout for it.
 However, it's only a slight modification of the `page` layout.
-[Demo](https://qwtel.com/hydejack-pro/about/).
+[Demo](https://qwtel.com/hydejack/about/).
 
 The main difference is that it will display an author's `about` text and `picture` above the regular content.
 To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author]({{ site.baseurl }}{% link docs/6.1.1/configuration.md %}#adding-an-author).
@@ -641,7 +639,7 @@ author: qwtel
 If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
-[Demo](https://qwtel.com/hydejack-pro/).
+[Demo](https://qwtel.com/hydejack/).
 
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
@@ -696,7 +694,7 @@ If no ids are provided, the five most recent posts will be used.
 
 ## Adding a project*
 Projects are organized using Jekyll's [Collection feature](https://jekyllrb.com/docs/collections/).
-Each project generates an entry on the projects layout ([Demo](https://qwtel.com/hydejack-pro/projects/)) and its own detail view ([Demo](https://qwtel.com/hydejack-pro/projects/hydejack-v6/)).
+Each project generates an entry on the projects layout ([Demo](https://qwtel.com/hydejack/projects/)) and its own detail view ([Demo](https://qwtel.com/hydejack/projects/hydejack-v6/)).
 
 A project is represented by a file in the `_projects` directory.
 The project's meta information is defined in the files front matter.
@@ -751,7 +749,7 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 
 ## Adding a resume*
 Hydejack's PRO version features a generalized resume layout.
-[Demo](https://qwtel.com/hydejack-pro/resume/).
+[Demo](https://qwtel.com/hydejack/resume/).
 
 It generates the resume page from a valid [JSON Resume](https://jsonresume.org/), which is good news if you already have a JSON resume. Otherwise, there are various ways of obtaining one:
 

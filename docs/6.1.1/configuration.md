@@ -61,7 +61,7 @@ As you can see, `font` and `font_heading` are values you would pass to the `font
 
 The `google_fonts` key is the string necessary to fetch the fonts from Google. You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 
-![Where to find the Google Fonts string]({{ site.baseurl }}/assets/img/google-fonts.png)
+![Where to find the Google Fonts string]({{ site.baseurl }}/assets/img/docs/google-fonts.png)
 
 ### Using safe web fonts
 If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead, all you have to do is remove the `google_fonts` key entirely. In this case, `font` and `font_heading` do not have to contain more than one font.
