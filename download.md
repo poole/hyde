@@ -64,9 +64,9 @@ The PRO Version aims to be the complete package for professionals on the web. It
 [portfolio]: {{ site.baseurl }}{% link projects.md %}
 [resume]: {{ site.baseurl }}{% link resume.md %}
 [welcome]: {{ site.baseurl }}{% link index.md %}
-[pro]: {{ site.baseurl }}{% link docs/6.1.1/pro-license.md %}
-[docs]: {{ site.baseurl }}{% link docs/6.1.1/index.md %}
+[pro]: {{ site.baseurl }}{% link docs/6.2.0/pro-license.md %}
+[docs]: {{ site.baseurl }}{% link docs/6.2.0/index.md %}
 
 [download]: https://github.com/qwtel/hydejack/releases
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.1.1
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE

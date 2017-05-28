@@ -142,4 +142,4 @@ redirect_from: /docs/latest/pro-license/
     relation to this license and to compensate Licensor for any legal fees, cost or attorney fees should any claim
     brought by Licensee against Licensor be denied, in part or in full.
 
-[1]: {{ site.baseurl }}{% link docs/6.1.1/licenses.md %}
+[1]: {{ site.baseurl }}{% link docs/6.2.0/licenses.md %}
