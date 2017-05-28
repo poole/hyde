@@ -98,7 +98,6 @@ exclude:
   - package.json
   - Gemfile
   - Gemfile.lock
-  - jekyll-theme-hydejack.gemspec
 
 kramdown:
   footnote_backlink: '&#x21a9;&#xfe0e;'
