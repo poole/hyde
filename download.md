@@ -41,7 +41,6 @@ Both the PRO *and* free version includes all of the features listed below:
 * Disqus comments
 * RSS feed
 * Print layout
-* [Extensive documentation][docs]
 
 ## Free Version
 The Free Version features the design and tech of Hydejack, but only supports basic blogging.
@@ -67,6 +66,6 @@ The PRO Version aims to be the complete package for professionals on the web. It
 [pro]: {{ site.baseurl }}{% link docs/6.2.0/pro-license.md %}
 [docs]: {{ site.baseurl }}{% link docs/6.2.0/index.md %}
 
-[download]: https://github.com/qwtel/hydejack/releases
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
+[download]: https://github.com/qwtel/hydejack/releases/tag/v6.2.0
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.2.0
 [buy]: https://app.simplegoods.co/i/AQTTVBOE

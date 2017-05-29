@@ -14,7 +14,6 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 {:.message}
 
 ## Getting started
-***
 
 * [Installation]{:.heading data-flip="title"} -- How to install and run Hydejack.
 * [Configuration]{:.heading data-flip="title"} -- Once Jekyll is running you can start with basic configuration.
@@ -22,7 +21,6 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 {:.related-posts.faded}
 
 ## Using Hydejack
-***
 
 * [Basics]{:.heading data-flip="title"} -- How to add different types of content.
 * [Writing]{:.heading data-flip="title"} -- Producing markdown content for Hydejack.
@@ -31,7 +29,6 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 {:.related-posts.faded}
 
 ## Miscellaneous
-***
 
 * [Versions]{:.heading data-flip="title"} -- Version history of Hydejack.
 * [Licenses]{:.heading data-flip="title"} -- Open Source license texts of libraries used by Hydejack.
