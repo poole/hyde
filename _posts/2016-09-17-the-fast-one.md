@@ -8,7 +8,7 @@ excerpt_separator: <!--more-->
 ---
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation]({{ site.baseurl }}{% link docs/6.2.0/index.md %}){:.heading data-flip="title"} for up-to-date instructions.
+See the [Documentation](https://qwtel.com/hydejack/docs/6.2.0/) for up-to-date instructions.
 {:.message}
 
 This major release increases page load speed dramatically. The page now scores roughly 90/100 on [Google's PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F) (up from ~50) and has a high score on similar tools.

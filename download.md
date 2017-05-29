@@ -59,12 +59,12 @@ The PRO Version aims to be the complete package for professionals on the web. It
 [^1]: Applies after the initial page load.  
 [^2]: Actual page load speed depends on your hosting provider as well as discipline regarding resolution of images and usage of 3rd party plugins.
 
-[blog]: {{ site.baseurl }}{% link blog.md %}
-[portfolio]: {{ site.baseurl }}{% link projects.md %}
-[resume]: {{ site.baseurl }}{% link resume.md %}
-[welcome]: {{ site.baseurl }}{% link index.md %}
-[pro]: {{ site.baseurl }}{% link docs/6.2.0/pro-license.md %}
-[docs]: {{ site.baseurl }}{% link docs/6.2.0/index.md %}
+[blog]: https://qwtel.com/hydejack/blog/
+[portfolio]: https://qwtel.com/hydejack/projects/
+[resume]: https://qwtel.com/hydejack/resume/
+[welcome]: https://qwtel.com/hydejack/
+[pro]: https://qwtel.com/hydejack/docs/6.2.0/pro-license/
+[docs]: https://qwtel.com/hydejack/docs/6.2.0/
 
 [download]: https://github.com/qwtel/hydejack/releases/tag/v6.2.0
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.2.0

@@ -8,7 +8,7 @@ excerpt_separator: <!--more-->
 ---
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation]({{ site.baseurl }}{% link docs/6.2.0/index.md %}){:.heading data-flip="title"} for up-to-date instructions.
+See the [Documentation](https://qwtel.com/hydejack/docs/6.2.0/) for up-to-date instructions.
 {:.message}
 
 ## Features
