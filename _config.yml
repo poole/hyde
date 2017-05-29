@@ -45,7 +45,7 @@ google_analytics:    UA-84025722-2
 disqus_shortname:    qwtel
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. All rights reserved.'
+copyright:           © 2017. All rights reserved.<br/>\* Not part of the free version
 
 # Set to true when building locally with the `--lsi` option
 # See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`
