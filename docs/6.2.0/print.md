@@ -12,7 +12,7 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 **NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands.
 {:.message}
 
-**NOTE**: This document was created using Hydejack's print layout. If you prefer to read it the documentation in your browser, you can find it [here](https://qwtel.com/hydejack/docs/6.2.0/).
+**NOTE**: This document was created using Hydejack's print layout. If you prefer to read it the documentation in your browser, you can find it [here]({{ site.baseurl }}{% link docs/6.2.0/index.md %}).
 {:.message}
 
 ## Table of Contents
@@ -182,7 +182,7 @@ As you can see, `font` and `font_heading` are values you would pass to the `font
 
 The `google_fonts` key is the string necessary to fetch the fonts from Google. You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 
-![Where to find the Google Fonts string]({{ site.baseurl }}/assets/img/google-fonts.png)
+![Where to find the Google Fonts string]({{ site.baseurl }}/assets/img/docs/google-fonts.png)
 
 ### Using safe web fonts
 If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead, all you have to do is remove the `google_fonts` key entirely. In this case, `font` and `font_heading` do not have to contain more than one font.
@@ -191,10 +191,10 @@ If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfon
 Hydejack features two layouts for showing your blog posts.
 
 *   The `list` layout only shows the title and groups the posts by year of publication. This layout is recommended for blogs with a smaller number of posts and infrequent updates.
-[Demo](https://qwtel.com/hydejack/posts/).
+[Demo]({{ site.baseurl }}{% link posts.md %}).
 
 *   The `blog` layout is a traditional blog layout that is paginated and shows the title and an excerpt of each post. This layout is recommended for blogs with a large number of posts and frequent updates.
-[Demo](https://qwtel.com/hydejack/blog/).
+[Demo]({{ site.baseurl }}{% link blog.md %}).
 
     If you are using the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
 
@@ -352,7 +352,7 @@ Make sure you merge the folder contents.
 * `_sass`
 * `assets`
 * `404.md`
-* `index.html`
+* `index.html` or `index.md`
 
 1. Delete the `public` folder. If you have placed files in the `public` folder, only delete `public/css`, `public/js` and `public/fonts` instead. Static files are now located in the `assets` folder.
 1. Delete `404.html` (now provided by `404.md` and the `not-found` layout)
@@ -623,7 +623,7 @@ order:  5
 ## Adding an about page
 About pages are such a frequent use case that Hydejack has a special layout for it.
 However, it's only a slight modification of the `page` layout.
-[Demo](https://qwtel.com/hydejack/about/).
+[Demo]({{ site.baseurl }}{% link about.md %}).
 
 The main difference is that it will display an author's `about` text and `picture` above the regular content.
 To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author]({{ site.baseurl }}{% link docs/6.2.0/configuration.md %}#adding-an-author).
@@ -640,7 +640,7 @@ author: qwtel
 If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
-[Demo](https://qwtel.com/hydejack/).
+[Demo]({{ site.baseurl }}{% link index.md %}).
 
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
@@ -696,7 +696,7 @@ The path is relative to the main directory with no leading `./`.
 
 ## Adding a project*
 Projects are organized using Jekyll's [Collection feature](https://jekyllrb.com/docs/collections/).
-Each project generates an entry on the projects layout ([Demo](https://qwtel.com/hydejack/projects/)) and its own detail view ([Demo](https://qwtel.com/hydejack/projects/hydejack-v6/)).
+Each project generates an entry on the projects layout ([Demo]({{ site.baseurl }}{% link projects.md %}) and its own detail view ([Demo]({{ site.baseurl }}{% link _projects/hydejack-v6.md %})).
 
 A project is represented by a file in the `_projects` directory.
 The project's meta information is defined in the files front matter.
@@ -751,7 +751,7 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 
 ## Adding a resume*
 Hydejack's PRO version features a generalized resume layout.
-[Demo](https://qwtel.com/hydejack/resume/).
+[Demo]({{ site.baseurl }}{% link resume.md %}).
 
 It generates the resume page from a valid [JSON Resume](https://jsonresume.org/), which is good news if you already have a JSON resume. Otherwise, there are various ways of obtaining one:
 
@@ -1047,6 +1047,18 @@ If you want to actively develop the scripts, it is better to run
 which will build a non-minified, non-transpiled (ES6) version of `hydejack.js` after every filechange.
 
 # Versions
+## v6.2.0
+May 29 2017
+{:.heading.post-date}
+
+* Changed default color and image
+* Updated demo content
+* Finalized welcome and project page
+* Color is now fading correctly when no background image is provided
+* Added exemplary usage of excerpt separator
+* Removed social media links from `welcome` and `about` page
+* Updated dependencies
+
 ## v6.1.1
 May 23 2017
 {:.heading.post-date}
@@ -1234,15 +1246,14 @@ No modifications were made.
 
 ## Licenses
 ### Hydejack Free Version
-~~~
 MIT License
 
-Copyright (c) 2017 Florian Klampfer.
+Copyright (c) 2017 Florian Klampfer
 
 This software also uses portions of the Hyde project, which is
 MIT licensed with the following copyright:
 
-Copyright (c) 2013 Mark Otto.
+Copyright (c) 2013 Mark Otto
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
 of this software and associated documentation files (the "Software"), to deal
@@ -1261,10 +1272,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-~~~
 
 ### y-drawer
-~~~
 MIT License
 
 Copyright (c) 2017 Florian Klampfer
@@ -1296,10 +1305,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-~~~
 
 ### y-push-state
-~~~
 MIT License
 
 Copyright (c) 2017 Florian Klampfer
@@ -1326,27 +1333,23 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-~~~
 
 ### rxjs
-~~~
  Copyright (c) 2015-2017 Google, Inc., Netflix, Inc., Microsoft Corp. and contributors
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
-     http://www.apache.org/licenses/LICENSE-2.0
+ http://www.apache.org/licenses/LICENSE-2.0
 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
-~~~
 
 ### KaTeX
-~~~
 The MIT License (MIT)
 
 Copyright (c) 2015 Khan Academy
@@ -1374,10 +1377,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-~~~
 
 ### corejs
-~~~
 Copyright (c) 2014-2016 Denis Pushkarev
 
 Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -1397,10 +1398,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
-~~~
 
 ### color
-~~~
 Copyright (c) 2012 Heather Arthur
 
 Permission is hereby granted, free of charge, to any person obtaining
@@ -1421,10 +1420,8 @@ NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE
 LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
 OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION
 WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
-~~~
 
 ### elem-dataset
-~~~
 The MIT License (MIT)
 
 Copyright (c) Alex Cross (alexcross.io)
@@ -1446,27 +1443,23 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-~~~
 
 ### web-animations-js
-~~~
  Copyright 2014 Google Inc. All rights reserved.
 
  Licensed under the Apache License, Version 2.0 (the "License");
  you may not use this file except in compliance with the License.
  You may obtain a copy of the License at
 
-     http://www.apache.org/licenses/LICENSE-2.0
+ http://www.apache.org/licenses/LICENSE-2.0
 
  Unless required by applicable law or agreed to in writing, software
  distributed under the License is distributed on an "AS IS" BASIS,
  WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
  See the License for the specific language governing permissions and
  limitations under the License.
-~~~
 
 ### Modernizr
-~~~
 The MIT License (MIT)
 
 Copyright (c) 2009-2017
@@ -1488,10 +1481,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-~~~
 
 ### compress
-~~~
 The MIT License (MIT)
 
 Copyright (c) 2014 Anatol Broder
@@ -1513,10 +1504,8 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-~~~
 
 ### loadCSS
-~~~
 The MIT License (MIT)
 
 Copyright (c) @scottjehl, 2016 Filament Group
@@ -1538,7 +1527,6 @@ AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
 LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
-~~~
 
 *[FLIP]: First Last Invert Play
 *[LSI]: Latent Semantic Indexer

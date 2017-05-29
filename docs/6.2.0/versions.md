@@ -8,6 +8,18 @@ redirect_from: /docs/latest/versions/
 * this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
+## v6.2.0
+May 29 2017
+{:.heading.post-date}
+
+* Changed default color and image
+* Updated demo content
+* Finalized welcome and project page
+* Color is now fading correctly when no background image is provided
+* Added exemplary usage of excerpt separator
+* Removed social media links from `welcome` and `about` page
+* Updated dependencies
+
 ## v6.1.1
 May 23 2017
 {:.heading.post-date}

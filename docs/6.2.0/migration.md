@@ -21,7 +21,7 @@ Make sure you merge the folder contents.
 * `_sass`
 * `assets`
 * `404.md`
-* `index.html`
+* `index.html` or `index.md`
 
 1. Delete the `public` folder. If you have placed files in the `public` folder, only delete `public/css`, `public/js` and `public/fonts` instead. Static files are now located in the `assets` folder.
 1. Delete `404.html` (now provided by `404.md` and the `not-found` layout)
