@@ -37,24 +37,28 @@ function updateStyle({ color = '#00f' } = {}) {
 
 export default class CrossFader {
   constructor({ duration }) {
-    this.sidebar = document.getElementById('_sidebar');
-    this.duration = duration;
-
+    const main = document.getElementById('_main');
     const pageStyle = document.getElementById('_pageStyle');
     const styleSheet = document.styleSheets::find(ss => ss.ownerNode === pageStyle);
+
+    this.sidebar = document.getElementById('_sidebar');
+
+    this.duration = duration;
     this.rules = styleSheet.cssRules || styleSheet.rules;
-    this.lastImage = document.getElementById('_main').getAttribute('data-image');
+    this.prevImage = main.getAttribute('data-image');
+    this.prevColor = main.getAttribute('data-color');
   }
 
   fetchImage(dataset) {
     const { color, image } = dataset;
 
-    if (image === this.lastImage) {
+    if (image === this.prevImage && color === this.prevColor) {
       return Observable::empty();
     }
 
     let res$;
-    if (image === '') {
+
+    if (image === '' || image === this.prevImage) {
       res$ = Observable::timer(this.duration);
     } else {
       const imgObj = new Image();
@@ -69,7 +73,8 @@ export default class CrossFader {
     return res$
       ::effect(() => {
         this::updateStyle(dataset);
-        this.lastImage = image;
+        this.prevImage = image;
+        this.prevColor = color;
       })
       ::map(() => {
         const div = document.createElement('div');
