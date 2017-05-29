@@ -174,18 +174,13 @@ However, the welcome layout supports selecting specific projects and posts in th
 layout: welcome
 title: Welcome
 selected_projects:
-  - /projects/hydejack-v5
-  - /projects/hyde-v2
+  - _projects/hydejack-v6.md
+  - _projects/hyde-v2.md
 selected_posts:
-  - /2017/03/17/javascripten
-  - /2016/09/17/the-fast-one
-  - /2016/08/30/social-media-impocalypse
-more_projects:
-  title: Projects
-  href: /projects/
-more_posts:
-  title: Posts
-  href: /posts/
+  - _posts/2017-05-03-javascripten.md
+  - _posts/2012-02-07-example-content.md
+more_projects: projects.md
+more_posts: posts.md
 ---
 ~~~
 
@@ -193,20 +188,22 @@ more_posts:
 : Must be `welcome`.
 
 `selected_projects`
-: A list of project ids that are displayed below the author's about text and the content of the page.
-A project's id is its path with a leading `/` and no file extension at the end.
-If no ids are provided, the two most recent projects will be used.
+: A list of paths to project files that should be displayed below the main content of the page.
+The paths are relative to the main directory with no leading `./`.
+If no paths are provided, the two most recent projects will be used.
 
 `selected_projects`
-: A list of blog post ids that are featured on the welcome page.
-A posts's id is its path with a leading `/` and no file extension at the end.
-If no ids are provided, the five most recent posts will be used.
+: A list of paths to blog posts that should be featured on the welcome page.
+The paths are relative to the main directory with no leading `./`.
+If no paths are provided, the five most recent posts will be used.
 
 `more_projects`
-: A title and href pair. When provided, the link will be shown below the projects. `title` must match the title of the page it links to, in order for the animation to work.
+: The path to the main projects page.
+The path is relative to the main directory with no leading `./`.
 
 `more_posts`
-: A title and href pair. When provided, the link will be shown below the posts. `title` must match the title of the page it links to, in order for the animation to work.
+: The path to the main posts page.
+The path is relative to the main directory with no leading `./`.
 
 ## Adding a project*
 Projects are organized using Jekyll's [Collection feature](https://jekyllrb.com/docs/collections/).
@@ -219,21 +216,24 @@ Additionally, you can add markdown content. A project's front matter may look li
 ~~~yml
 ---
 layout: project
-title: 'Hyde v2'
+title: Hyde v2*
 date: 2 Jan 2014
 screenshot:
-  src: '/hydejack/assets/img/projects/hyde-v2@0,25x.png'
+  src: /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
   srcset:
-    2870w: '/hydejack/assets/img/projects/hyde-v2.png'
-    1435w: '/hydejack/assets/img/projects/hyde-v2@0,5x.png'
-    718w:  '/hydejack/assets/img/projects/hyde-v2@0,25x.png'
-link: http://hyde.getpoole.com
-source: https://github.com/poole/hyde
+    1920w: /hydejack/assets/img/projects/hyde-v2.jpg
+    960w: /hydejack/assets/img/projects/hyde-v2@0,5x.jpg
+    480w: /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
 caption: Hyde is a brazen two-column Jekyll theme.
 description: >
-  Hyde is a brazen two-column Jekyll](http://jekyllrb.com) theme
-  that pairs a prominent sidebar with uncomplicated content.
-  It's based on [Poole](http://getpoole.com), the Jekyll butler.
+  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+links:
+  -
+    title: Demo
+    url: http://hyde.getpoole.com
+  -
+    title: Source
+    url: https://github.com/poole/hyde
 author: mdo
 ---
 ~~~
@@ -248,17 +248,14 @@ author: mdo
 : A 16:9 screenshot of the project. You can pass a URL to an image, but it is recommended that you provide an entire `srcset` (see above). Hydejack will show the screenshot in various sizes, depending on the screen width, so that no specific size will fit all. Instead it is recommended that you use a [mipmap]-like approach, providing the image in multiple sizes, each image half the width of the previous one. The `src` key is a fallback image for browsers that don't support the `srcset` attribute. The keys of the `srcset` hash will be used as descriptors.
 For more information on `srcset`, see the [documentation at MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset), or [this article from CSS-Tricks](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/).
 
-`link`
-: A URL pointing to a live version of the project.
-
-`source`
-: For open source projects, an URL pointing to a repository.
-
 `caption`
 : A short description, shown as part of each "project card" in the `projects` layout.
 
 `description`
 : A medium-length description, used on the project's detail page as meta description and shown as message box below he screenshot.
+
+`links`
+: A list of `title`-`url` pairs that that link to external resources related to this project.
 
 `author`
 : Shown below the project, similar to posts.
