@@ -35,7 +35,6 @@ import upgradeMathBlocks from './katex';
 
 import Flip from './flip/flip';
 import './flip/title';
-import './flip/project';
 
 const REQUIREMENTS = [
   'eventlistener',
