@@ -21,7 +21,7 @@ It aims to be the complete package for professionals on the web. It features a b
 It's best to just [see it in action](https://qwtel.com/hydejack/).
 
 ## Download
-There are two versions of Hydejack: The Free Version includes basic blogging functionality, as did previous versions of the theme. The new PRO Version includes additional features for professionals: A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
+There are two versions of Hydejack: The Free Version includes basic blogging functionality, as did previous versions of the theme. The PRO Version includes additional features for professionals: A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
 
 This table details what is and isn't included in each respective version.
 
