@@ -69,13 +69,9 @@ body, main {
   // border: 0;
 }
 
-.sixteen-nine {
-  @include aspect-ratio(16, 9);
+.clearfix {
+  @include clearfix();
 }
-
-// .faded {
-//   color: $gray;
-// }
 
 a, .a {
   position: relative;
@@ -114,6 +110,10 @@ a, .a {
     // object-fit: cover;
     // object-position: center;
   }
+}
+
+.sixteen-nine {
+  @include aspect-ratio(16, 9);
 }
 
 h1, h2, h3, h4, h5, h6 {

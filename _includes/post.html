@@ -31,7 +31,7 @@
   {% else %}
     {{ post.excerpt }}
     <hr/>
-    <span class="heading faded">Continue reading <a href="{{ post.url | relative_url }}" data-flip="title">{{ post.title }}</a> »</span>
+    <p class="read-more">Continue reading <a href="{{ post.url | relative_url }}" data-flip="title">{{ post.title }}</a> →</p>
   {% endunless %}
 
 </article>

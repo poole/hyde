@@ -96,3 +96,13 @@ blockquote {
     margin-bottom: 0;
   }
 }
+
+.faded {
+  color: $gray;
+}
+
+.read-more {
+  @extend .heading;
+  @extend .faded;
+  text-align: right;
+}
