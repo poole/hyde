@@ -77,7 +77,7 @@
   {{ include_to_scssify | scssify }}
 </style>
 
-{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.2.0{% endcapture %}
+{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.3.0{% endcapture %}
 <link rel="preload" href="{{ style_url | relative_url }}" as="style" onload="this.rel='stylesheet'">
 
 {% include page-style.html %}

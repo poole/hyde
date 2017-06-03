@@ -69,10 +69,10 @@ Hydejack is documented extensively. You can read it [here][docs] or in the [repo
 [portfolio]: https://qwtel.com/hydejack/projects/
 [resume]: https://qwtel.com/hydejack/resume/
 [welcome]: https://qwtel.com/hydejack/
-[pro]: https://qwtel.com/hydejack/docs/6.2.0/pro-license/
-[docs]: https://qwtel.com/hydejack/docs/6.2.0/
+[pro]: https://qwtel.com/hydejack/docs/6.3.0/pro-license/
+[docs]: https://qwtel.com/hydejack/docs/6.3.0/
 
-[download]: https://github.com/qwtel/hydejack/releases/tag/v6.2.0
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.2.0
+[download]: https://github.com/qwtel/hydejack/releases/tag/v6.3.0
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.3.0
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 [wiki]: https://github.com/qwtel/hydejack/wiki
