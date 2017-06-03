@@ -7,7 +7,7 @@ permalink:           pretty
 title:               Adriel's Dev Blog
 tagline:             'Eat, Sleep, Code, Repeat...'
 description:         'An effort to capture some of the beauty of coding with a collection of words, images, and charts.'
-url:                 http://adrielklein.github.io
+url:                 http://adrielklein.github.io/hyde
 baseurl:             /
 paginate:            1
 repo:            https://github.com/adrielklein/adrielklein.github.io
