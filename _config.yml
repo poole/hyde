@@ -11,6 +11,7 @@ url:                 http://adrielklein.github.io/
 baseurl:             /
 paginate:            1
 repo:            https://github.com/adrielklein/adrielklein.github.io
+default_img: https://adrielklein.github.io/assets/usain.jpg
 
 # About/contact
 author:
