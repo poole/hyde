@@ -23,8 +23,4 @@ version:             2.1.0
 
 gems: [jekyll-paginate]
 
-
-# Dependencies
-markdown:         redcarpet
-
 # Permalinks
