@@ -43,7 +43,7 @@ function addEventListeners(drawer) {
   document.getElementById('_menu').addEventListener('click', menuClickClallback);
 }
 
-if (hasFeatures(REQUIREMENTS)) {
+if (!window.disableDrawer && hasFeatures(REQUIREMENTS)) {
   window.isDesktop = window.matchMedia(MEDIA_QUERY).matches;
   const drawer = document.getElementById('_yDrawer');
 

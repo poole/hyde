@@ -47,13 +47,6 @@ disqus_shortname:    qwtel
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           © 2017. All rights reserved.
 
-# Set to true when building locally with the `--lsi` option
-# See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`
-use_lsi:             false
-
-# Set to `true` if you don't want to show an icon after each link that opens to an external site
-no_mark_external:    false
-
 # Format of the permalinks
 permalink:           pretty
 
@@ -65,6 +58,19 @@ paginate_path:       '/page-:num/'
 # so that existing subscribers to your feed continue to receive updates.
 # feed:
 #   path:              atom.xml
+
+# Set to true when building locally with the `--lsi` option
+# See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`
+# use_lsi:             true
+
+# Set to `true` if you don't want to show an icon after each link that opens to an external site
+# no_mark_external:    true
+
+# Uncomment this line if 3rd party plugins fail to work with dynimically loaded pages
+# disable_push_state:  true
+
+# Uncomment this line if want to disable the touch drawer on mobile
+# disable_drawer: true
 
 # -----------------------------------------------------------------------------
 #  Collections

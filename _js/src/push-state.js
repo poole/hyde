@@ -59,7 +59,7 @@ function makeUnstoppable() {
   });
 }
 
-if (hasFeatures(REQUIREMENTS)) {
+if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
   const ua = navigator.userAgent.toLowerCase();
   const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
 

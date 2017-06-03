@@ -125,3 +125,15 @@ h1, h2, h3, h4, h5, h6 {
 // .author {
 //   margin-bottom: 3rem;
 // }
+
+.fade-in {
+  animation-duration: 500ms;
+  animation-name: fade-in;
+  animation-fill-mode: forwards;
+}
+
+@keyframes fade-in {
+  from { transform: translateY(-2rem); opacity: 0; }
+  50%  { transform: translateY(-2rem); opacity: 0; }
+  to   { transform: translateY(0);     opacity: 1; }
+}

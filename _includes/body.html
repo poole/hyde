@@ -15,15 +15,17 @@
 <!-- CONTENT         -->
 <!-- =============== -->
 <div id="_yPushState">
-  <main id="_main" class="content" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
-    {{ content }}
+  <div class="fade-in">
+    <main id="_main" class="content" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
+      {{ content }}
 
-    {% if site.disqus_shortname and page.comments %}
-      {% include comments.html %}
-    {% endif %}
+      {% if site.disqus_shortname and page.comments %}
+        {% include comments.html %}
+      {% endif %}
 
-    {% include footer.html %}
-  </main>
+      {% include footer.html %}
+    </main>
+  </div>
   {% include sidebar.html %}
 </div>
 
