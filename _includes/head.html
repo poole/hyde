@@ -6,6 +6,7 @@
   <meta property="og:url" content="{{ page.url | prepend: site.baseurl | prepend: site.url }}">
   <meta property="og:site_name" content="{{ site.title }}">
   <meta property="og:description" content="{% if page.layout == 'default' %}{{ site.description }}{% else %}{{ page.content | strip_html | |truncatewords: 30 }}{% endif %}">
+  <meta property="og:image" content="{% if page.image %}{{ page.image }}{% else %}{{ site.default_img }}{% endif %}">
   <meta property="og:type" content="blog">
 
   <!-- Enable responsiveness on mobile devices-->
