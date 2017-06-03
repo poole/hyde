@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "First Month of Work Complete"
-date:   2016-05-08 22:01:43 +0530
+date:   2015-02-15
 author: "Adriel"
 ---
 Today marks just about my one month anniversary as a software developer at HedgeServ. This picture summarizes how I've felt about my day to day work so far:

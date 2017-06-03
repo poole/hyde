@@ -8,7 +8,7 @@ title: Posts
     {% for node in posts_list %}
       {% if node.title != null %}
         {% if node.layout == "post" %}
-          <li><a href="{{ node.url }}">{{ node.title }}</a> ({{ node.date }})</li>
+          <li><a href="{{ node.url }}">{{ node.title }}</a> ({{ node.date | date_to_string }})</li>
         {% endif %}
       {% endif %}
     {% endfor %}
