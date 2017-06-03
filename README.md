@@ -34,7 +34,7 @@ This table details what is and isn't included in each respective version.
 | [Welcome] | | ✔️ |
 | Briefcase full of $100 bills | | |
 | License | MIT | [PRO] |
-| Price | Free | $21 |
+| Price | Free | $29 |
 | | [**Download on GitHub**][download]<br/> – or – <br/>[**Use the RubyGem**][gem] | [**Buy on Simple Goods**][buy] |
 
 ## Features
