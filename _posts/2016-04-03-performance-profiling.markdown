@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "The Best Part of Coding"
-date:   2016-04-03
 author: "Adriel"
 ---
 <img src="{{ site.url }}/assets/usain.jpg" width="100%">

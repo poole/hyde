@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Making Progress"
-date:   2015-05-09
 author: "Adriel"
 ---
 Wow, just came bag to update this blog and can't believe it's already been 5 months.

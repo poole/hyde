@@ -1,7 +1,6 @@
 ---
 layout: post
 title:  "Biggest Takeaways After Year 1"
-date:   2015-12-13
 author: "Adriel"
 ---
 
