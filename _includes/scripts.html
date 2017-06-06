@@ -1,10 +1,19 @@
+{% if site.google_analytics %}
+<script>
+  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+  ga('create', '{{ site.google_analytics }}', 'auto');
+  ga('send', 'pageview');
+  loadJSDeferred('https://www.google-analytics.com/analytics.js');
+</script>
+{% endif %}
+
 {% assign google_fonts = site.google_fonts %}
 {% unless site.font and site.font_heading and google_fonts %}
   {% assign google_fonts = "Roboto+Slab:700|Noto+Serif:400,400i,700,700i" %}
 {% endunless %}
 
-<!--[if gt IE 8]><!---->
 {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
+<!--[if gt IE 8]><!---->
 <script>
   WebFontConfig = {
     {% if google_fonts %}
@@ -20,22 +29,17 @@
   };
   loadJSDeferred('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
 </script>
+<!--<![endif]-->
 
 {% unless page.redirect %}
 
 <!--[if gt IE 9]><!---->
 {% capture js_url %}{% link assets/js/hydejack.js %}?v=6.3.0{% endcapture %}
 <script>loadJSDeferred('{{ js_url | relative_url }}');</script>
-<!--<![endif]-->
 
-{% if site.google_analytics %}
-<script>
-  window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-  ga('create', '{{ site.google_analytics }}', 'auto');
-  ga('send', 'pageview');
-  loadJSDeferred('https://www.google-analytics.com/analytics.js');
-</script>
-{% endif %}
-<!--<![endif]-->
+{% comment %}
+  {% include my-scripts.html %}
+{% endcomment %}
 
+<!--<![endif]-->
 {% endunless %}
