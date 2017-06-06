@@ -100,9 +100,12 @@ h4, h5, h6, .h4, .h5, .h6 {
 // .faded {
 //   color: $gray;
 // }
-// 
+//
 // .read-more {
 //   @extend .heading;
 //   @extend .faded;
-//   text-align: right;
+//
+//   &::after {
+//     content: " →"
+//   }
 // }

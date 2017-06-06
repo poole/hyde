@@ -104,5 +104,8 @@ blockquote {
 .read-more {
   @extend .heading;
   @extend .faded;
-  text-align: right;
+
+  &::after {
+    content: " →"
+  }
 }
