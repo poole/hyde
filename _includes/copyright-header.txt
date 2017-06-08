@@ -8,5 +8,5 @@
  *                 /\___/                \ \____/
  *                 \/__/                  \/___/
  *
- * Powered by Hydejack v6.3.0 (https://qwtel.com/hydejack/) 
+ * Powered by Hydejack v6.4.0 (https://qwtel.com/hydejack/) 
  */

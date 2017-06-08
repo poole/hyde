@@ -17,7 +17,7 @@ excerpt_separator: <!--more-->
 <!--more-->
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation](https://qwtel.com/hydejack/docs/6.3.0/) for up-to-date instructions.
+See the [Documentation](https://qwtel.com/hydejack/docs/6.4.0/) for up-to-date instructions.
 {:.message}
 
 ## New features

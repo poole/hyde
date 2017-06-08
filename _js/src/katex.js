@@ -60,6 +60,7 @@ export default function upgradeMathBlocks() {
 }
 
 if (hasFeatures(REQUIREMENTS)) {
+  // TODO: load on demand?
   const ref = document.getElementsByTagName('style')[0];
   const style = loadCSS('https://unpkg.com/katex@0.6.0/dist/katex.min.css', ref);
   style.addEventListener('load', upgradeMathBlocks);

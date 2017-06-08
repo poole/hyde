@@ -9,7 +9,7 @@ description: >
 This major release increases page load speed dramatically. The page now scores roughly 90/100 on [Google's PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F) (up from ~50) and has a high score on similar tools.
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation](https://qwtel.com/hydejack/docs/6.3.0/) for up-to-date instructions.
+See the [Documentation](https://qwtel.com/hydejack/docs/6.4.0/) for up-to-date instructions.
 {:.message}
 
 Most importantly, the critical rendering path is no longer blocked by loading styles or scripts, meaning the site becomes visible faster.
