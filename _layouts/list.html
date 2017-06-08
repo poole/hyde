@@ -15,17 +15,18 @@ layout: base
 {% endif %}
 
 {% if page.title.size > 0 %}
-  <h1 class="page-title">{{ page.title }}</h1>
-  {% include message.html text=page.description %}
-  <hr/>
+  <header>
+    <h1 class="page-title">{{ page.title }}</h1>
+    {% include message.html text=page.description %}
+  </header>
+  <hr class="sr-only"/>
 {% endif %}
 
 {% for post in posts %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
     {% unless forloop.first %}</ul>{% endunless %}
-    <h2 id="y{{post.date | date: "%Y"}}">{{ currentdate }}</h2>
-    <hr/>
+    <h2 id="y{{post.date | date: "%Y"}}" class="hr">{{ currentdate }}</h2>
     <ul class="related-posts">
     {% assign date = currentdate %}
   {% endif %}

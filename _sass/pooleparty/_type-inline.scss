@@ -50,7 +50,12 @@ hr {
   margin: 1.5rem 0;
   border: 0;
   border-top: 1px solid #eee;
-  border-bottom: 1px solid #fff;
+}
+
+.hr {
+  padding-bottom: .5rem;
+  border-bottom: 1px solid #eee;
+  margin-bottom: 1.5rem;
 }
 
 h4, h5, h6, .h4, .h5, .h6 {
@@ -103,6 +108,8 @@ h4, h5, h6, .h4, .h5, .h6 {
 //
 // .read-more {
 //   @extend .faded;
+//   text-align: right;
+//   margin-top: 2rem;
 //
 //   &::after {
 //     content: " →"

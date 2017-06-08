@@ -7,10 +7,6 @@ description: >
 excerpt_separator: <!--more-->
 ---
 
-**NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation](https://qwtel.com/hydejack/docs/6.3.0/) for up-to-date instructions.
-{:.message}
-
 ## Features
 Unlike Hyde, it's very opinionated about how you are going to use it.
 
@@ -26,6 +22,10 @@ Features include:
 * Math blocks via [KaTeX](https://khan.github.io/KaTeX/).
 
 <!--more-->
+
+**NOTE**: This post is outdated and only included for legacy reasons.
+See the [Documentation](https://qwtel.com/hydejack/docs/6.3.0/) for up-to-date instructions.
+{:.message}
 
 ## Download
 Hydejack is developed on and hosted with GitHub. Head to the [GitHub repository](https://github.com/qwtel/hydejack) for downloads, bug reports, and feature requests.

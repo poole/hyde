@@ -7,10 +7,6 @@ description: >
 excerpt_separator: <!--more-->
 ---
 
-**NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation](https://qwtel.com/hydejack/docs/6.3.0/) for up-to-date instructions.
-{:.message}
-
 ## Breaking
 * Structure of `_config.yml` has changed
   * Social media usernames are now located under `author: social: <platform>: <username>`.
@@ -19,6 +15,10 @@ See the [Documentation](https://qwtel.com/hydejack/docs/6.3.0/) for up-to-date i
 * Now defaults to the `blog` layout, old style is available via `blog-by-tag` layout, see `archive.html`.
 
 <!--more-->
+
+**NOTE**: This post is outdated and only included for legacy reasons.
+See the [Documentation](https://qwtel.com/hydejack/docs/6.3.0/) for up-to-date instructions.
+{:.message}
 
 ## New features
 * Added *a lot* of social media icons, configurable via `_config.yml`.

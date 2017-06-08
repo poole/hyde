@@ -24,7 +24,11 @@
   // color: $gray;
 }
 
-.dingbat::after {
+hr.dingbat {
+  border: 0;
+}
+
+hr.dingbat::after {
   content: "❖";
   display: block;
   text-align: center;
