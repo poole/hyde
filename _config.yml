@@ -102,6 +102,7 @@ exclude:
   - LICENSE.md
   - node_modules
   - package.json
+  - package-lock.json
   - Gemfile
   - Gemfile.lock
 
