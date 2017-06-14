@@ -58,6 +58,8 @@ Both the PRO *and* free version includes all of the features listed below:
 * RSS feed
 * Print layout
 
+Questions? Send a mail to [mail@qwtel.com](mailto:mail@qwtel.com), or tweet [`@qwtel`](https://www.twitter.com/qwtel).
+
 ## [Documentation][docs]
 Hydejack is documented extensively. You can read it [here][docs] or in the [repository's wiki][wiki], or [download the PDF][download].
 

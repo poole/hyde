@@ -26,7 +26,7 @@ description:         >
 # This should be the same author as first in `_data/authors.yml`
 author:
   name:              Florian Klampfer
-  email:             f.klampfer@gmail.com
+  email:             mail@qwtel.com
 
 # Fallback image and color if not overwritten
 image:               /hydejack/assets/img/nap.jpg
