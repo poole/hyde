@@ -2,7 +2,7 @@
 ---
   email:
     name: Email
-    icon: icon-envelop
+    icon: icon-mail
   amazon:
     name: Amazon
     icon: icon-amazon
@@ -54,7 +54,7 @@
     icon: icon-sina-weibo
   rss:
     name: RSS
-    icon: icon-rss
+    icon: icon-rss2
   youtube:
     name: YouTube
     icon: icon-youtube

@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?86zxld');
-  src:  url('fonts/icomoon.eot?86zxld#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?86zxld') format('truetype'),
-    url('fonts/icomoon.woff?86zxld') format('woff'),
-    url('fonts/icomoon.svg?86zxld#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?y8wps5');
+  src:  url('fonts/icomoon.eot?y8wps5#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?y8wps5') format('truetype'),
+    url('fonts/icomoon.woff?y8wps5') format('woff'),
+    url('fonts/icomoon.svg?y8wps5#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
 }
@@ -24,17 +24,11 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
-.icon-droplet:before {
-  content: "\e90b";
-}
 .icon-book:before {
   content: "\e91f";
 }
 .icon-library:before {
   content: "\e921";
-}
-.icon-barcode:before {
-  content: "\e937";
 }
 .icon-phone:before {
   content: "\e942";
@@ -240,4 +234,9 @@
 .icon-paypal:before {
   content: "\ead8";
 }
-
+.icon-mail:before {
+  content: "\ea83";
+}
+.icon-rss2:before {
+  content: "\ea9c";
+}
