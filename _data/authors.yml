@@ -3,7 +3,7 @@
 # Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
 qwtel:
   name:              Florian Klampfer
-  email:             f.klampfer@gmail.com
+  email:             hello@qwtel.com
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -60,7 +60,7 @@ qwtel:
     # delicious:       _username_
     # stumbleupon:     _username_
     # paypal:          _username_
-    # email:           mailto:f.klampfer@gmail.com
+    # email:           mailto:mail@qwtel.com
     # rss:             //qwtel.com/feed.xml
 
 # Another author
@@ -69,7 +69,7 @@ mdo:
   about:             |
     Mark Otto is the designer of the original [Hyde Jekyll theme](http://hyde.getpoole.com) and author of this blog post.
     The post is included here as filler content and to showcase Hydejacks's multi-author feature.
-    Note that this is NOT an endorsement of this product on his part.
+    This is NOT an endorsement of this product on his part.
   picture:           https://pbs.twimg.com/profile_images/630796572691804161/kYW5TxUR.jpg
   social:
     github:          mdo
