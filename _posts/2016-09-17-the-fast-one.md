@@ -6,18 +6,22 @@ description: >
   This release dramatically increases page load speed which matters to Google and visitors with slow connections alike.
 ---
 
-This major release increases page load speed dramatically. The page now scores roughly 90/100 on [Google's PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F) (up from ~50) and has a high score on similar tools.
+This major release increases page load speed dramatically.
+The page now scores roughly 90/100 on [Google's PageSpeed Insights][gpsi] (up from ~50) and
+has a high score on similar tools.
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation](https://qwtel.com/hydejack/docs/6.4.0/) for up-to-date instructions.
+See the [Documentation](https://qwtel.com/hydejack/docs/) for up-to-date instructions.
 {:.message}
 
-Most importantly, the critical rendering path is no longer blocked by loading styles or scripts, meaning the site becomes visible faster.
+Most importantly, the critical rendering path is no longer blocked by loading styles or scripts,
+meaning the site becomes visible faster.
 
 Page load speed matters to Google, but is also *very* apparent to visitors with slow internet connections.
 
-However, as a side effect of these optimizations, the site now has a visible [FOUC](https://en.wikipedia.org/wiki/Flash_of_unstyled_content).
-Future versions might address this, but it is the currency in which loading speed is being payed for and can not be fully avoided.
+However, as a side effect of these optimizations, the site now has a visible FOUC.
+Future versions might address this,
+but it is the currency in which loading speed is being payed for and can not be fully avoided.
 
 ## Major
 
@@ -36,8 +40,13 @@ In order to minify the CSS and make it more modular it has been rewritten in SCS
 
 ## Trivia
 
-Not strictly part of the release, but the images have been blurred to increase text readability and help with loading speed as well (burred images get compressed by JPG much better).
+Not strictly part of the release, but the images have been blurred to increase text readability and
+help with loading speed as well (burred images get compressed by JPG much better).
 
 ***
 
 [Get *The Fast One* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v5.0.0)
+
+[gpsi]: https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F
+
+*[FOUC]: Flash Of Unstyled Content
