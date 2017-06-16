@@ -5,7 +5,7 @@
 title:               Hydejack
 
 # The unique resource location of your page.
-# Set to `https://<username>.github.io` when hosting on GitHub Pages (and not using custom domains!)
+# Set to `https://<username>.github.io` when hosting on GitHub Pages
 url:                 https://qwtel.com
 
 # Set to '' when hosting a blog on GitHub Pages, ie on `//<username>.github.io`
