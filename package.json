@@ -9,7 +9,7 @@
     "watch": "watchify -d _js/src/index.js -g babelify -o assets/js/hydejack.js",
     "lint": "eslint _js/src",
     "dev": "npm run watch",
-    "prepublish": "npm run lint && npm run test && npm run clean && npm run build",
+    "prepare": "npm run lint && npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml"
   },
   "author": "Florian Klampfer <f.klampfer@gmail.com> (https://qwtel.com)",
@@ -22,14 +22,14 @@
     "babel-preset-es2016": "6.24.1",
     "babelify": "7.3.0",
     "browserify": "14.4.0",
-    "cross-env": "5.0.0",
+    "cross-env": "5.0.1",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "15.0.1",
     "eslint-plugin-import": "2.3.0",
     "eslint-plugin-jsx-a11y": "5.0.3",
-    "eslint-plugin-react": "7.0.1",
+    "eslint-plugin-react": "7.1.0",
     "json2yaml": "1.1.0",
-    "uglify-js": "3.0.15",
+    "uglify-js": "3.0.17",
     "watchify": "3.9.0"
   },
   "dependencies": {
@@ -37,7 +37,7 @@
     "core-js": "2.4.1",
     "elem-dataset": "1.1.1",
     "katex": "0.7.1",
-    "rxjs": "5.4.0",
+    "rxjs": "5.4.1",
     "web-animations-js": "2.2.5",
     "y-drawer": "6.1.1",
     "y-push-state": "6.2.0"
