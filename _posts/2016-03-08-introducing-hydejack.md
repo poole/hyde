@@ -23,6 +23,8 @@ Features include:
 * Wide array of social media icons on sidebar.
 * Math blocks via [KaTeX](https://khan.github.io/KaTeX/).
 
+<!--more-->
+
 **NOTE**: This post is outdated and only included for legacy reasons.
 See the [Documentation](https://qwtel.com/hydejack/docs/) for up-to-date instructions.
 {:.message}
