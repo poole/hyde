@@ -18,15 +18,13 @@ tagline:             A pretentious two-column Jekyll theme.
 # A longer description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, however don't use more than one paragraph (enforced by `>`)
 description:         >
-  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by
-  [`@qwtel`{:rel="me"}](https://twitter.com/qwtel) from
-  [Hyde](http://hyde.getpoole.com).
-  You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
+  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+  Open `_config.yml` to edit this text.
 
 # This should be the same author as first in `_data/authors.yml`
 author:
-  name:              Florian Klampfer
-  email:             mail@qwtel.com
+  name:              <firstname> <lastname>
+  email:             <youremailaddress>
 
 # Fallback image and color if not overwritten
 image:               /hydejack/assets/img/nap.jpg
@@ -38,11 +36,11 @@ font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
 font:                "'Noto Serif', Georgia, serif"
 
 # Remove to disable Google Anaylics
-google_analytics:    UA-84025722-2
+# google_analytics:    UA-XXXXXXXX-X
 
 # Setting a disqus shortname will enable the comment section on pages
 # that have `comments: true` in the front matter
-disqus_shortname:    qwtel
+# disqus_shortname:    <disqus_shortname>
 
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           © 2017. All rights reserved.
