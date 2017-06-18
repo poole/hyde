@@ -24,26 +24,6 @@ a showcase for projects and a resume that fits with the rest of the design.
 ## [Demo](https://qwtel.com/hydejack/)
 It's best to just [see it in action](https://qwtel.com/hydejack/).
 
-## Download
-There are two versions of Hydejack: The Free Version includes basic blogging functionality,
-as did previous versions of the theme.
-The new PRO Version includes additional features for professionals:
-A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
-
-This table details what is and isn't included in each respective version.
-
-| | Free Version | PRO Version |
-|:-|:-:|:-:|
-| Blog | ✔️ | ✔️ |
-| Features (see below) | ✔️ | ✔️ |
-| [Portfolio] | | ✔️ |
-| [Resume] | | ✔️ |
-| [Welcome] | | ✔️ |
-| Briefcase full of $100 bills | | |
-| License | MIT | [PRO] |
-| Price | Free | $29 |
-| | [**Download on GitHub**][download]<br/> – or – <br/>[**Use the RubyGem**][gem] | [**Buy on Simple Goods**][buy] [^1]  |
-
 ## Features
 Both the PRO *and* free version includes all of the features listed below:
 
@@ -70,6 +50,26 @@ Questions? Send a mail to [mail@qwtel.com](mailto:mail@qwtel.com), or tweet [`@q
 ## [Documentation][docs]
 Hydejack is documented extensively.
 You can read it [here][docs] or in the [repository's wiki][wiki], or [download the PDF][download].
+
+## Download
+There are two versions of Hydejack: The Free Version includes basic blogging functionality,
+as did previous versions of the theme.
+The new PRO Version includes additional features for professionals:
+A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
+
+This table details what is and isn't included in each respective version.
+
+| | Free Version | PRO Version |
+|:-|:-:|:-:|
+| Blog | ✔️ | ✔️ |
+| Features (see above) | ✔️ | ✔️ |
+| [Portfolio] | | ✔️ |
+| [Resume] | | ✔️ |
+| [Welcome] | | ✔️ |
+| Briefcase full of $100 bills | | |
+| License | MIT | [PRO] |
+| Price | Free | $29 |
+| | [**Download on GitHub**][download]<br/> – or – <br/>[**Use the RubyGem**][gem] | [**Buy on Simple Goods**][buy] [^1]  |
 
 
 [^1]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  

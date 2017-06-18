@@ -38,6 +38,12 @@ Both the PRO *and* free version includes all of the features listed below:
 
 Open `about.md` to edit this text.
 
+### [Documentation][docs]
+Hydejack is documented extensively.
+You can read it [here][docs], or in the [repository's wiki][wiki], or [download the PDF][download].
+
+Open `about.md` to edit this text.
+
 ### Download
 There are two versions of Hydejack: The Free Version includes basic blogging functionality, as did previous versions of the theme. The PRO Version includes additional features for professionals: A [portfolio], a [resume] layout and a [welcome] page to feature your favorite projects and posts.
 
@@ -65,9 +71,10 @@ Open `about.md` to edit this text.
 [portfolio]: https://qwtel.com/hydejack/projects/
 [resume]: https://qwtel.com/hydejack/resume/
 [welcome]: https://qwtel.com/hydejack/
-[pro]: https://qwtel.com/hydejack/docs/6.3.0/pro-license/
-[docs]: https://qwtel.com/hydejack/docs/6.3.0/
+[pro]: https://qwtel.com/hydejack/docs/6.4.0/pro-license/
+[docs]: https://qwtel.com/hydejack/docs/6.4.0/
+[wiki]: https://github.com/qwtel/hydejack/wiki
 
-[download]: https://github.com/qwtel/hydejack/releases/tag/v6.3.0
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.3.0
+[download]: https://github.com/qwtel/hydejack/releases/tag/v6.4.0
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.4.0
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
