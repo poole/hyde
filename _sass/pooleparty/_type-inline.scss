@@ -116,10 +116,9 @@ h4, h5, h6, .h4, .h5, .h6 {
 //
 // .read-more {
 //   @extend .faded;
-//   text-align: right;
 //   margin-top: 2rem;
 //
 //   &::after {
-//     content: " →"
+//     content: "\2192"; // →
 //   }
 // }

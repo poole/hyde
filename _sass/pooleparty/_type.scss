@@ -119,6 +119,6 @@ blockquote {
   margin-top: 2rem;
 
   &::after {
-    content: " →"
+    content: " \2192"; // →
   }
 }
