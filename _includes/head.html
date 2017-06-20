@@ -39,7 +39,7 @@
 <!-- =============== -->
 <!-- LINKS           -->
 <!-- =============== -->
-<link rel="canonical" href="{{ page.url | absolute_url }}" />
+<link rel="canonical" href="{{ page.url | absolute_url }}">
 
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ site.feed.path | default:'feed.xml' | absolute_url }}">
 
@@ -51,8 +51,8 @@
   <link rel="next" href="{{ page.next.url | absolute_url }}">
 {% endif %}
 
-<link rel="apple-touch-icon" href="apple-touch-icon.png">
-<!-- Place favicon.ico in the root directory -->
+<link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | absolute_url }}">
+<link rel="shortcut icon" href="{{ 'favicon.ico' | absolute_url }}" />
 
 <!-- =============== -->
 <!-- SCRIPTS         -->
