@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Introducing Hydejack
+title: Introducing Hydejack (v3)
 tags: [hydejack]
 description: >
   Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme,

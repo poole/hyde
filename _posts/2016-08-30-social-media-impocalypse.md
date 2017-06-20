@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'v4: Social Media Impocalypse'
+title: 'Social Media Impocalypse (v4)'
 tags: [hydejack]
 description: >
   This release adds *a lot* of social media icons and introduces a new default layout.
