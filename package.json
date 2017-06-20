@@ -29,7 +29,7 @@
     "eslint-plugin-jsx-a11y": "5.0.3",
     "eslint-plugin-react": "7.1.0",
     "json2yaml": "1.1.0",
-    "uglify-js": "3.0.17",
+    "uglify-js": "3.0.18",
     "watchify": "3.9.0"
   },
   "dependencies": {
@@ -40,7 +40,7 @@
     "rxjs": "5.4.1",
     "web-animations-js": "2.2.5",
     "y-drawer": "6.1.1",
-    "y-push-state": "6.2.0"
+    "y-push-state": "6.3.0"
   },
   "repository": {
     "type": "git",

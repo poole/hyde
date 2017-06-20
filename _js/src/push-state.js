@@ -227,6 +227,7 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
   new PushState(pushState, {
     replaceIds: ['_main'],
     linkSelector: 'a[href^="/"]',
+    scriptSelector: 'script:not([type^="math/tex"])',
     duration: DURATION,
     noPopDuration: isSafari,
     scrollRestoration: !isSafari,
