@@ -1,5 +1,5 @@
 {% if include.img.src or include.img.srcset %}
-  {% assign srcset = '' %}
+  {% assign srcset = null %}
 
   {% if include.img.srcset %}
     {% capture srcset %}
@@ -8,16 +8,16 @@
   {% endif %}
 
   <img
-    class="{{ include.class }}"
-    alt="{{ include.alt }}"
     src="{{ include.img.src }}"
-    srcset="{{ srcset | strip }}"
-    sizes="{{ include.sizes }}"
+    {% if include.class %}class="{{ include.class }}"{% endif %}
+    {% if include.alt %}alt="{{ include.alt }}"{% endif %}
+    {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
+    {% if include.sizes %}sizes="{{ include.sizes }}"{% endif %}
   />
 {% else %}
   <img
-    class="{{ include.class }}"
-    alt="{{ include.alt }}"
     src="{{ include.img }}"
+    {% if include.class %}class="{{ include.class }}"{% endif %}
+    {% if include.alt %}alt="{{ include.alt }}"{% endif %}
   />
 {% endif %}
