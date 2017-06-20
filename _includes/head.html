@@ -2,8 +2,9 @@
 <!-- META            -->
 <!-- =============== -->
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, maximum-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
 
 {% capture title %}
   {% if page.url == "/" %}
@@ -49,6 +50,9 @@
 {% if page.next %}
   <link rel="next" href="{{ page.next.url | absolute_url }}">
 {% endif %}
+
+<link rel="apple-touch-icon" href="apple-touch-icon.png">
+<!-- Place favicon.ico in the root directory -->
 
 <!-- =============== -->
 <!-- SCRIPTS         -->
