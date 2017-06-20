@@ -16,15 +16,15 @@ export default class Flip {
       new Flip(...args);
   }
 
-  constructor({ shadowMain, duration }) {
-    this.shadowMain = shadowMain;
+  constructor({ animationMain, duration }) {
+    this.animationMain = animationMain;
     this.duration = duration;
   }
 
   start() {
     // HACK: use proper cleanup instead
-    this.shadowMain.style.opacity = 0;
-    this.shadowMain.style.willChange = '';
+    this.animationMain.style.opacity = 0;
+    this.animationMain.style.willChange = '';
 
     return Observable::empty();
   }

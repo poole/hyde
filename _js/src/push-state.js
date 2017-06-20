@@ -67,13 +67,14 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
 
   const pushState = document.getElementById('_yPushState');
 
-  const shadowMain = document.createElement('div');
-  shadowMain.classList.add('shadow-main', 'fixed-top');
-  shadowMain.innerHTML = `
+  const animationMain = document.createElement('div');
+  animationMain.classList.add('animation-main');
+  animationMain.classList.add('fixed-top');
+  animationMain.innerHTML = `
     <div class="content">
       <div class="page"></div>
     </div>`;
-  pushState.parentNode.insertBefore(shadowMain, pushState);
+  pushState.parentNode.insertBefore(animationMain, pushState);
 
   const loading = document.createElement('div');
   loading.classList.add('loading');
@@ -130,7 +131,7 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
       const flip = Flip.create(
         currentTarget.getAttribute &&
         currentTarget.getAttribute('data-flip'), {
-          shadowMain,
+          animationMain,
           currentTarget,
           duration: DURATION,
         });

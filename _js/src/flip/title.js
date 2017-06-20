@@ -29,10 +29,10 @@ class TitleFlip extends Flip {
     title.textContent = currentTarget.textContent;
     title.style.transformOrigin = 'left top';
 
-    this.shadowMain.querySelector('.page').innerHTML = '';
-    this.shadowMain.querySelector('.page').appendChild(title);
-    this.shadowMain.style.position = 'fixed';
-    this.shadowMain.style.opacity = 1;
+    this.animationMain.querySelector('.page').innerHTML = '';
+    this.animationMain.querySelector('.page').appendChild(title);
+    this.animationMain.style.position = 'fixed';
+    this.animationMain.style.opacity = 1;
 
     const first = currentTarget.getBoundingClientRect();
     const firstFontSize = parseInt(getComputedStyle(currentTarget).fontSize, 10);
@@ -53,11 +53,11 @@ class TitleFlip extends Flip {
       // easing: 'ease',
       easing: 'cubic-bezier(0,0,0.32,1)',
     })
-      ::effect(() => { this.shadowMain.style.position = 'absolute'; });
+      ::effect(() => { this.animationMain.style.position = 'absolute'; });
   }
 
   ready(main) {
-    this.shadowMain.style.willChange = 'opacity';
+    this.animationMain.style.willChange = 'opacity';
 
     const title = main.querySelector(TITLE_SELECTOR);
 
@@ -75,8 +75,8 @@ class TitleFlip extends Flip {
         }
       })
       ::cleanup(() => {
-        this.shadowMain.style.opacity = 0;
-        this.shadowMain.style.willChange = '';
+        this.animationMain.style.opacity = 0;
+        this.animationMain.style.willChange = '';
       });
   }
 }
