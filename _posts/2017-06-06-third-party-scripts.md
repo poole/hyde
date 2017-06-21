@@ -68,4 +68,4 @@ Maybe you won't even notice the difference.
 ### Fixes
 * Fix default color in gem-based theme
 
-[scripts]: {{ site.baseurl }}{% link docs/6.4.0/scripts.md %}
+[scripts]: https://qwtel.com/hydejack/docs/scripts/

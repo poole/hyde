@@ -87,4 +87,4 @@ There's many more minor changes and fixes that you can read below.
 * Fixed bug that caused the project animation to "jump" when using long project titles.
 * No more empty attributes on `img` tags.
 
-[writing]: {{ site.baseurl }}{% link docs/6.4.0/writing.md %}
+[writing]: https://qwtel.com/hydejack/docs/writing/
