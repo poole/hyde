@@ -35,19 +35,14 @@
 // @import "syntax";
 // @import "spinner";
 
-{% assign font = site.font %}
-{% assign font_heading = site.font_heading %}
-{% assign google_fonts = site.google_fonts %}
-{% unless font or font_heading or google_fonts %}
-  {% assign font = "'Noto Serif', Georgia, serif" %}
-  {% assign font_heading = "'Roboto Slab', Helvetica, Arial, sans-serif" %}
-  {% assign google_fonts = "Roboto+Slab:700|Noto+Serif:400,400i,700,700i" %}
-{% endunless %}
+{% assign font = site.font | default:"'Noto Serif', Georgia, serif" %}
+{% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
+{% assign google_fonts = site.google_fonts | default:"Roboto+Slab:700|Noto+Serif:400,400i,700,700i" %}
 
-{% if google_fonts %}
+{% unless site.no_google_fonts %}
   {% assign font = font | split:',' | shift | join:',' %}
   {% assign font_heading = font_heading | split:',' | shift | join:',' %}
-{% endif %}
+{% endunless %}
 
 html { font-family: {{ font | default:"serif" }}; }
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading | default:"serif" }}; }
