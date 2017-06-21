@@ -51,7 +51,7 @@ google_analytics:    <UA-XXXXXXXX-X>
 disqus_shortname:    <username>
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           © 2017. All rights reserved.
+copyright:           '&copy; 2017. All rights reserved.'
 
 # Format of the permalinks
 permalink:           pretty
