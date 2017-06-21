@@ -27,10 +27,10 @@ It's best to just [see it in action](https://qwtel.com/hydejack/).
 ## Features
 Both the PRO *and* free version includes all of the features listed below:
 
-* Full in-app page loading — no Flash of White, no Flash of Unstyled Content[^2]
+* Full in-app page loading — no Flash of White, no Flash of Unstyled Content[^1]
 * Advanced animations, inspired by Material Design
 * A customizable sidebar that turns into a touch-enabled app drawer on mobile
-* Near-perfect [Google PageSpeed Score][gpss][^3]
+* Near-perfect [Google PageSpeed Score][gpss][^2]
 * Even higher *perceived speed* thanks to pre-fetching and latency-hiding
 * Support for categories and tags — even when hosting on GitHub Pages
 * Built-in collection of social media icons
@@ -69,13 +69,13 @@ This table details what is and isn't included in each respective version.
 | Briefcase full of $100 bills | | |
 | License | MIT | [PRO] |
 | Price | Free | $29 |
-| | [**Download on GitHub**][download]<br/> – or – <br/>[**Use the RubyGem**][gem] | [**Buy on Simple Goods**][buy] [^1]  |
+| | [**Download on GitHub**][download]<br/> – or – <br/>[**Use the RubyGem**][gem] | [**Buy on Simple Goods**][buy] [^3] |
 
 
-[^1]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
-[^2]: Applies after the initial page load.  
-[^3]: Actual page load speed depends on your hosting provider as well as discipline regarding resolution of images and
+[^1]: Applies after the initial page load.  
+[^2]: Actual page load speed depends on your hosting provider as well as discipline regarding resolution of images and
 usage of 3rd party plugins.  
+[^3]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
 
 [blog]: https://qwtel.com/hydejack/blog/
 [portfolio]: https://qwtel.com/hydejack/projects/
