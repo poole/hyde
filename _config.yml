@@ -12,35 +12,43 @@ url:                 https://qwtel.com
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             /hydejack
 
-# A very short description  of your page
+# A very short description of your page
 tagline:             A pretentious two-column Jekyll theme.
 
-# A longer description of the page, used in the sidebar and as fallback for the meta description tag.
-# Markdown enabled, however don't use more than one paragraph (enforced by `>`)
+# A short description of the page, used in the sidebar and as fallback for the meta description tag.
+# Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
   Lorem ipsum dolor sit amet, consectetur adipiscing elit.
   Open `_config.yml` to edit this text.
 
-# This should be the same author as first in `_data/authors.yml`
+# This should be the same author as first entry in `_data/authors.yml`
 author:
   name:              <firstname> <lastname>
-  email:             <youremailaddress>
+  email:             <mail@domain.tld>
 
-# Fallback image and color if not overwritten
+# Fallback image and color
 image:               /hydejack/assets/img/nap.jpg
 color:               '#4f86aa'
 
-# Remove to disable Google Fonts
-google_fonts:        Roboto+Slab:700|Noto+Serif:400,400i,700,700i
+# The font used for headings. Expects a string that is a valid CSS font-family value.
 font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
+
+# The text font. Expects a string that is a valid CSS font-family value.
 font:                "'Noto Serif', Georgia, serif"
 
-# Remove to disable Google Anaylics
-# google_analytics:    UA-XXXXXXXX-X
+# The string encoding what fonts to fetch from Google Fonts.
+# See: https://qwtel.com/hydejack/docs/configuration/
+google_fonts:        Roboto+Slab:700|Noto+Serif:400,400i,700,700i
 
-# Setting a disqus shortname will enable the comment section on pages
-# that have `comments: true` in the front matter
-# disqus_shortname:    <disqus_shortname>
+# If you do not use a Google Fonts, uncomment the line below
+# no_google_fonts:     true
+
+# Set your Google Analytics id to receive `pageview` events.
+# To remove Google Anaylics from your page, remove the line below.
+google_analytics:    <UA-XXXXXXXX-X>
+
+# Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
+disqus_shortname:    <username>
 
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           © 2017. All rights reserved.
@@ -52,13 +60,13 @@ permalink:           pretty
 paginate:            5
 paginate_path:       '/page-:num/'
 
-# If you are updating form a previous verison of Hydejack, uncomment the two lines below,
-# so that existing subscribers to your feed continue to receive updates.
+# If you are upgrading form a v5 verison of Hydejack, uncomment the two lines below,
+# so that the location of the feed XML stays the same.
 # feed:
 #   path:              atom.xml
 
-# Set to true when building locally with the `--lsi` option
-# See: https://jekyllrb.com/docs/variables/#site-variables, `site.related_posts`
+# Set to true when building with the `--lsi` option
+# See: https://jekyllrb.com/docs/variables/#site-variables
 # use_lsi:             true
 
 # Set to `true` if you don't want to show an icon after each link that opens to an external site

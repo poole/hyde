@@ -3,7 +3,7 @@
 # Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
 qwtel:
   name:              <firstname> <lastname>
-  email:             <youremailaddress>
+  email:             <mail@domain.tld>
 
   # Used at the bottom of each page and at the top of the `about` layout
   # Markdown enabled, can use multiple paragraphs (enabled by `|`)
@@ -61,12 +61,13 @@ qwtel:
     # delicious:       <username>
     # stumbleupon:     <username>
     # paypal:          <username>
-    email:           mailto:<youremailaddress>
+    email:           mailto:<mail@domain.tld>
     rss:             https://<url>/feed.xml
 
 # Another author
 mdo:
   name:              <firtname> <lastname>
+  email:             <mail@domain.tld>
   about:             |
     Lorem ipsum dolor sit amet, consectetur adipiscing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
