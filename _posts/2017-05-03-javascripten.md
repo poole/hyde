@@ -60,6 +60,6 @@ See the [the migration guide](https://qwtel.com/hydejack/docs/migration/) for in
 
 ***
 
-[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.4.0)
+[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.4.1)
 
 *[FOUC]: Flash of Unstyled Content

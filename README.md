@@ -81,10 +81,10 @@ usage of 3rd party plugins.
 [portfolio]: https://qwtel.com/hydejack/projects/
 [resume]: https://qwtel.com/hydejack/resume/
 [welcome]: https://qwtel.com/hydejack/
-[pro]: https://qwtel.com/hydejack/docs/6.4.0/pro-license/
-[docs]: https://qwtel.com/hydejack/docs/6.4.0/
-[download]: https://github.com/qwtel/hydejack/releases/tag/v6.4.0
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.4.0
+[pro]: https://qwtel.com/hydejack/docs/6.4.1/pro-license/
+[docs]: https://qwtel.com/hydejack/docs/6.4.1/
+[download]: https://github.com/qwtel/hydejack/releases/tag/v6.4.1
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.4.1
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 [wiki]: https://github.com/qwtel/hydejack/wiki
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
