@@ -1,6 +1,6 @@
-<!-- =============== -->
-<!-- META            -->
-<!-- =============== -->
+{% comment %}---------------------------
+              META
+------------------------{% endcomment %}
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <meta name="format-detection" content="telephone=no">
@@ -36,9 +36,9 @@
   <meta name="keywords" content="{{ site.keywords | default: page.keywords | join:',' }}">
 {% endif %}
 
-<!-- =============== -->
-<!-- LINKS           -->
-<!-- =============== -->
+{% comment %}---------------------------
+              LINKS
+------------------------{% endcomment %}
 <link rel="canonical" href="{{ page.url | absolute_url }}">
 
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ site.feed.path | default:'feed.xml' | absolute_url }}">
@@ -54,9 +54,9 @@
 <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | absolute_url }}">
 <!-- Place favicon.ico in the root directory -->
 
-<!-- =============== -->
-<!-- SCRIPTS         -->
-<!-- =============== -->
+{% comment %}---------------------------
+              SCRIPTS
+------------------------{% endcomment %}
 <script>
   {% include scripts/load-js-deferred.min.js %}
   {% include scripts/loadCSS.min.js %}
@@ -69,9 +69,9 @@
 <script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
 <![endif]-->
 
-<!-- =============== -->
-<!-- STYLES          -->
-<!-- =============== -->
+{% comment %}---------------------------
+              STYLES
+------------------------{% endcomment %}
 <!--[if gt IE 8]><!---->
 <style>
   {% capture include_to_scssify %}
