@@ -22,7 +22,7 @@ import 'core-js/fn/object/keys';
 import 'core-js/fn/array/reduce';
 import 'web-animations-js';
 
-import '../lib/modernizr';
+import '../lib/modernizr-custom';
 import '../lib/version';
 
 import './katex';
