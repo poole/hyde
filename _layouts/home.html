@@ -1,3 +1,39 @@
 ---
-layout: default
+layout: base
 ---
+
+<article class="page" role="article">
+  <header>
+    <h1 class="page-title">{{ page.title | default:"Home"}}</h1>
+    {% include message.html text=page.description %}
+  </header>
+
+  {{ content }}
+
+  <hr class="dingbat"/>
+
+  {% if site.posts.size > 0 %}
+    <h2 class="hr">Posts</h2>
+    <ul class="related-posts">
+      {% for post in site.posts limit:5 %}
+        {% include post-list-item.html post=post %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% assign pages = site.html_pages | where:"layout","page" %}
+  {% if pages.size > 0 %}
+    <h2 class="hr">Pages</h2>
+    <ul class="related-posts">
+      {% for page in pages limit:5 %}
+        {% if page.layout == 'page' %}
+          <li class="h4">
+            <a href="{{ page.url | relative_url }}" data-flip="title">
+              <span>{{ page.title }}</span>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>

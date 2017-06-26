@@ -2,33 +2,38 @@
 layout: base
 ---
 
-<div class="page">
-  <h1 class="page-title">{{ page.title | default:"Home"}}</h1>
-  {% capture text %}
-Looks like you are using the `{{ page.layout }}` layout. This layout is not supported by Hydejack. Instead use `blog` or `list`. For more information see the [Hydejack Documentation](https://qwtel.com/hydejack/docs/latest/).
-  {% endcapture %}
-  {% include message.html text=text %}
-  <hr/>
+<article class="page" role="article">
+  <header>
+    <h1 class="page-title">{{ page.title | default:"Home"}}</h1>
+    {% include message.html text=page.description %}
+  </header>
 
   {{ content }}
 
-  <h2>Posts</h2>
-  <ul class="related-posts">
-    {% for post in site.posts %}
-      {% include post-list-item.html post=post %}
-    {% endfor %}
-  </ul>
+  <hr class="dingbat"/>
 
-  <h2>Pages</h2>
-  <ul class="related-posts">
-    {% for page in site.html_pages %}
-      {% if page.layout == 'page' %}
-        <li class="h4">
-          <a href="{{ page.url | relative_url }}" data-flip="title">
-            <span>{{ page.title }}</span>
-          </a>
-        </li>
-      {% endif %}
-    {% endfor %}
-  </ul>
-</div>
+  {% if site.posts.size > 0 %}
+    <h2 class="hr">Posts</h2>
+    <ul class="related-posts">
+      {% for post in site.posts limit:5 %}
+        {% include post-list-item.html post=post %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+
+  {% assign pages = site.html_pages | where:"layout","page" %}
+  {% if pages.size > 0 %}
+    <h2 class="hr">Pages</h2>
+    <ul class="related-posts">
+      {% for page in pages limit:5 %}
+        {% if page.layout == 'page' %}
+          <li class="h4">
+            <a href="{{ page.url | relative_url }}" data-flip="title">
+              <span>{{ page.title }}</span>
+            </a>
+          </li>
+        {% endif %}
+      {% endfor %}
+    </ul>
+  {% endif %}
+</article>

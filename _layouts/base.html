@@ -4,8 +4,10 @@ layout: compress
 
 {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] %}
 
+{% assign default_image = '/assets/img/nap.jpg' | relative_url %}
+
+{% assign image = site.image | default:default_image %}
 {% assign color = site.color | default:'#4f86aa' %}
-{% assign image = site.image | default:'/assets/img/nap.jpg' %}
 
 {% if page.categories.size > 0 %}
   {% assign category_name = page.categories.first %}
