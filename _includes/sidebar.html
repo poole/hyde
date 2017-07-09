@@ -11,8 +11,9 @@
         {% include nav.html %}
       </nav>
 
-      {% assign author = site.data.authors.first[1] %}
-      {% if author.social %}
+      {% assign author = site.data.authors.first[1] | default:site.author %}
+
+      {% if author.social or site.github_username or site.twitter_username %}
         <div class="sidebar-social">
           {% include social.html social=author.social %}
         </div>

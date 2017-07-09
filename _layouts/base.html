@@ -2,7 +2,7 @@
 layout: compress
 ---
 
-{% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] %}
+{% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
 
 {% assign default_image = '/assets/img/nap.jpg' | relative_url %}
 

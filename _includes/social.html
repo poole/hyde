@@ -3,4 +3,12 @@
   {% for link in include.social %}
     {% include social-list-item.html platform=link.first username=link.last %}
   {% endfor %}
+
+  {% if site.twitter_username and include.social.twitter == null %}
+    {% include social-list-item.html platform="twitter" username=site.twitter_username %}
+  {% endif %}
+
+  {% if site.github_username and include.social.github == null %}
+    {% include social-list-item.html platform="github" username=site.github_username %}
+  {% endif %}
 </ul>
