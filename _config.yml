@@ -98,14 +98,16 @@ collections:
 # -----------------------------------------------------------------------------
 
 gems:
+  - jekyll-relative-links
   - jekyll-feed
   - jekyll-sitemap
   - jekyll-paginate
   - jekyll-redirect-from
+  - jekyll-optional-front-matter
+  - jekyll-default-layout
 
 exclude:
   - README.md
-  - LICENSE.md
   - node_modules
   - package.json
   - package-lock.json
