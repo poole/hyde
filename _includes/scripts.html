@@ -7,27 +7,6 @@
 </script>
 {% endif %}
 
-{% assign google_fonts = site.google_fonts | default:"Roboto+Slab:700|Noto+Serif:400,400i,700,700i" %}
-
-{% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
-<!--[if gt IE 8]><!---->
-<script>
-  WebFontConfig = {
-    {% unless site.no_google_fonts %}
-    google: {
-      families: '{{ google_fonts }}'.split('|')
-    },
-    {% endunless %}
-
-    custom: {
-      families: ['icomoon'],
-      urls: ['{{ icons_url | relative_url }}']
-    }
-  };
-  loadJSDeferred('https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js');
-</script>
-<!--<![endif]-->
-
 {% unless page.redirect %}
   <!--[if gt IE 9]><!---->
   {% capture js_url %}{% link assets/js/hydejack.js %}?v=6.4.1{% endcapture %}

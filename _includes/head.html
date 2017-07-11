@@ -57,6 +57,26 @@
 {% comment %}---------------------------
               SCRIPTS
 ------------------------{% endcomment %}
+<!--[if gt IE 8]><!---->
+{% assign google_fonts = site.google_fonts | default:"Roboto+Slab:700|Noto+Serif:400,400i,700,700i" %}
+{% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
+<script>
+  WebFontConfig = {
+    {% unless site.no_google_fonts %}
+    google: {
+      families: '{{ google_fonts }}'.split('|')
+    },
+    {% endunless %}
+
+    custom: {
+      families: ['icomoon'],
+      urls: ['{{ icons_url | relative_url }}']
+    }
+  };
+</script>
+<script async src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
+<!--<![endif]-->
+
 <script>
   {% include scripts/load-js-deferred.min.js %}
   {% include scripts/loadCSS.min.js %}
