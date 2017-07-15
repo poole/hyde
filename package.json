@@ -5,7 +5,7 @@
   "scripts": {
     "clean": "rm -f assets/js/hydejack.js & rm -f assets/js/hydejack.min.js",
     "test": "echo \"Warning: no test specified\" && exit 0",
-    "build": "cat _includes/copyright-header.txt > assets/js/hydejack.js; cross-env NODE_ENV=production browserify _js/src/index.js -g babelify | uglifyjs -c -m >> assets/js/hydejack.js",
+    "build": "cat _includes/header.txt > assets/js/hydejack.js; cross-env NODE_ENV=production browserify _js/src/index.js -g babelify | uglifyjs -c -m >> assets/js/hydejack.js",
     "watch": "watchify -d _js/src/index.js -g babelify -o assets/js/hydejack.js",
     "lint": "eslint _js/src",
     "dev": "npm run watch",
