@@ -77,7 +77,8 @@
     position: absolute;
     right:  2rem;
     bottom: 1rem;
-    left:   2rem;
+    left: auto;
+    max-width: 14rem;
   }
 }
 
