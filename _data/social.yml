@@ -199,3 +199,6 @@
     name: PayPal
     icon: icon-paypal
     prepend: "https://www.paypal.me/"
+  download:
+    name: Download
+    icon: icon-box-add
