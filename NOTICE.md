@@ -6,20 +6,8 @@ redirect_from:
   - /docs/versions/
 ---
 
-Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
-
-This program is free software: you can redistribute it and/or modify
-it under the terms of the GNU General Public License as published by
-the Free Software Foundation, either version 3 of the License, or
-(at your option) any later version.
-
-This program is distributed in the hope that it will be useful,
-but WITHOUT ANY WARRANTY; without even the implied warranty of
-MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-GNU General Public License for more details.
-
-You should have received a copy of the GNU General Public License
-along with this program.  If not, see <http://www.gnu.org/licenses/>.
+Copyright (c) 2017 Florian Klampfer.
+Licensed under MIT.
 
 ## Attributions
 Appropriate credit as per Creative Commons licenses.
@@ -43,20 +31,20 @@ as part of this distribution.
 
 ### y-drawer
 This software also uses portions of the y-drawer project, which is
-GPL-3.0 licensed with the following copyright:
+MIT licensed with the following copyright:
 
-> Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+> Copyright (c) 2017 Florian Klampfer
 
 No substantial changes to the software were made.
 
-Find a copy of the [GNU GENERAL PUBLIC LICENSE](licenses/GPL-3.0.md)
+Find a copy of the [MIT license](licenses/MIT.md)
 as part of this distribution.
 
 ### y-push-state
-This software also uses portions of the y-push-state project, which is
-GPL-3.0 licensed with the following copyright:
+This software also uses portions of the y-drawer project, which is
+MIT licensed with the following copyright:
 
-> Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+> Copyright (c) 2017 Florian Klampfer
 
 No substantial changes to the software were made.
 
@@ -215,25 +203,7 @@ as part of this distribution.
 This software also uses portions of the y-component project,
 which is MIT licensed with the following copyright
 
-> Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
-
-Find a copy of the [MIT license](licenses/MIT.md)
-as part of this distribution.
-
-### camelcase
-This software also uses portions of the camelcase project,
-which is MIT licensed with the following copyright
-
-> Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
-
-Find a copy of the [MIT license](licenses/MIT.md)
-as part of this distribution.
-
-### decamelize
-This software also uses portions of the decamelize project,
-which is MIT licensed with the following copyright
-
-> Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+> Copyright (c) 2017 Florian Klampfer
 
 Find a copy of the [MIT license](licenses/MIT.md)
 as part of this distribution.
