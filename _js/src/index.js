@@ -8,9 +8,9 @@
 //                 /\___/                \ \____/
 //                 \/__/                  \/___/
 //
+// Powered by Hydejack (https://qwtel.com/hydejack)
 // Copyright (c) 2017 Florian Klampfer
 // Licensed under MIT
-// Powered by Hydejack (https://qwtel.com/hydejack)
 
 import 'core-js/fn/array/for-each';
 import 'core-js/fn/array/find';

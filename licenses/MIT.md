@@ -1,4 +1,6 @@
-# MIT License
+---
+title: MIT License
+---
 
 Copyright \<YEAR\> \<COPYRIGHT HOLDER\>
 

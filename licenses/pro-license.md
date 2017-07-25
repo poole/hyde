@@ -11,7 +11,7 @@ redirect_from:
 * Commercial use allowed
 * Can modify source code
 * Can sell license to one client
-* Parts of software are provided under [separate licenses](../NOTICE.md)
+* Parts of software are provided under [separate licenses](../NOTICE.md#licenses)
 
 ## Terms and Conditions
 1.  **Preamble:** This Agreement governs the relationship between you (hereinafter: Licensee) and

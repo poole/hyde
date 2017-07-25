@@ -59,17 +59,16 @@ A [portfolio], a [resume] layout and a [welcome] page to feature your favorite p
 
 This table details what is and isn't included in each respective version.
 
-| | Free Version | PRO Version |
-|:-|:-:|:-:|
-| Blog | ✔️ | ✔️ |
-| Features (see above) | ✔️ | ✔️ |
-| [Portfolio] | | ✔️ |
-| [Resume] | | ✔️ |
-| [Welcome] | | ✔️ |
-| Briefcase full of $100 bills | | |
-| License | MIT | [PRO] |
-| Price | Free | $29 |
-| | [**Download on GitHub**][download]<br/> – or – <br/>[**Use the RubyGem**][gem] | [**Buy on Simple Goods**][buy] [^3] |
+| Version                          | Free               | PRO                |
+|:---------------------------------|:------------------:|:------------------:|
+| Blog                             | &#x2714;           | &#x2714;           |
+| Features (see below)             | &#x2714;           | &#x2714;           |
+| [Portfolio] Layout               |                    | &#x2714;           |
+| [Resume] Layout                  |                    | &#x2714;           |
+| [Welcome] Layout                 |                    | &#x2714;           |
+| License                          | [MIT][license]     | [PRO]              |
+| Price                            | Free               | $29                |
+| | [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $29][buy] [^3] |
 
 
 [^1]: Applies after the initial page load.  
@@ -81,8 +80,11 @@ usage of 3rd party plugins.
 [portfolio]: https://qwtel.com/hydejack/projects/
 [resume]: https://qwtel.com/hydejack/resume/
 [welcome]: https://qwtel.com/hydejack/
-[pro]: https://qwtel.com/hydejack/docs/6.4.1/pro-license/
-[docs]: https://qwtel.com/hydejack/docs/6.4.1/
+
+[license]: LICENSE.md
+[pro]: licenses/PRO-license.md
+[docs]: docs/6.4.1/index.md
+
 [download]: https://github.com/qwtel/hydejack/releases/tag/v6.4.1
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.4.1
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
