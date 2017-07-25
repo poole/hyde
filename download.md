@@ -104,13 +104,13 @@ a.simple-goods-btn{text-decoration:none !important}.simple-goods-btn{-moz-box-si
 [welcome]: index.md
 [license]: LICENSE.md
 [pro]: licenses/PRO-license.md
-[docs]: docs/6.4.1/index.md
+[docs]: docs/6.5.0/index.md
 
 [y-drawer]: https://qwtel.com/y-drawer/
 [y-push-state]: https://qwtel.com/y-push-state/
 
-[download]: https://github.com/qwtel/hydejack/releases/tag/v6.4.1
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.4.1
+[download]: https://github.com/qwtel/hydejack/releases/tag/v6.5.0
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.5.0
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
