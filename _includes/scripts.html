@@ -12,8 +12,6 @@
   {% capture js_url %}{% link assets/js/hydejack.js %}?v=6.5.0{% endcapture %}
   <script>loadJSDeferred('{{ js_url | relative_url }}');</script>
 
-  {% comment %}
-    {% include my-scripts.html %}
-  {% endcomment %}
+  {% include my-scripts.html %}
   <!--<![endif]-->
 {% endunless %}
