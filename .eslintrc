@@ -2,10 +2,14 @@
   "parser": "babel-eslint",
   "extends": "eslint-config-airbnb",
   "env": {
-    "browser": true
+    "browser": true,
   },
   "globals": {
     "loadCSS": true,
-    "loadJSDeferred": true
-  }
+    "loadJSDeferred": true,
+  },
+  "rules": {
+    "no-param-reassign": "off",
+    "class-methods-use-this": "off",
+  },
 }

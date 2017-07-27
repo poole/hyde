@@ -1,20 +1,12 @@
 // Copyright (c) 2017 Florian Klampfer
 // Licensed under MIT
 
-/*
-eslint-disable
-no-param-reassign,
-import/no-extraneous-dependencies,
-import/no-unresolved,
-import/extensions,
-class-methods-use-this,
-*/
+import Color from 'color';
 
 import { Observable } from 'rxjs/Observable';
 import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { timer } from 'rxjs/observable/timer';
-import Color from 'color';
 
 import { _do as effect } from 'rxjs/operator/do';
 import { _finally as cleanup } from 'rxjs/operator/finally';

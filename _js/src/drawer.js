@@ -1,8 +1,6 @@
 // Copyright (c) 2017 Florian Klampfer
 // Licensed under MIT
 
-/* eslint-disable import/no-extraneous-dependencies, import/no-unresolved, import/extensions */
-
 import YDrawer from 'y-drawer/src/vanilla';
 
 import { hasFeatures } from './common';

@@ -1,14 +1,6 @@
 // Copyright (c) 2017 Florian Klampfer
 // Licensed under MIT
 
-/*
-eslint-disable
-no-param-reassign,
-import/no-extraneous-dependencies,
-import/no-unresolved,
-import/extensions
-*/
-
 import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 
