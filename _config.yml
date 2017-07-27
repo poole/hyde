@@ -97,7 +97,7 @@ collections:
 #  Advanced configuration
 # -----------------------------------------------------------------------------
 
-plugins:
+gems:
   - jekyll-default-layout
   - jekyll-feed
   - jekyll-optional-front-matter

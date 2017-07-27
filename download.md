@@ -12,20 +12,16 @@ A [portfolio], a [resume] layout and a [welcome] page to feature your favorite p
 
 This table details what is and isn't included in each respective version.
 
-
-| Version                          | Free               | PRO                |
+|                                  | Free               | PRO                |
 |:---------------------------------|:------------------:|:------------------:|
 | Blog                             | &#x2714;           | &#x2714;           |
 | Features (see below)             | &#x2714;           | &#x2714;           |
 | [Portfolio] Layout               |                    | &#x2714;           |
 | [Resume] Layout                  |                    | &#x2714;           |
 | [Welcome] Layout                 |                    | &#x2714;           |
-|----------------------------------|--------------------|--------------------|
 | License                          | [MIT][license]     | [PRO]              |
-| Price                            | Free               | $29                |
-|==================================|====================|====================|
-| | [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $29][buy]{:.simple-goods-btn style="background-color:#4f86aa!important"} [^3] |
-{:.scroll-table-small}
+| Price                            | Free               | $34                |
+| | [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $34][buy]{:.simple-goods-btn} [^3] |
 
 
 {% comment %}
@@ -42,7 +38,7 @@ This table details what is and isn't included in each respective version.
 | [GPL-3.0]-licensed | [PRO License][pro] | [DEV License][dev] |
 | Free | $34 | $99 |
 |====
-| [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $34][buy]{:.simple-goods-btn style="background-color:#4f86aa!important"} [^3] | [Buy Now – $99][buy]{:.simple-goods-btn style="background-color:#4f86aa!important"} [^3] |
+| [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $34][buy]{:.simple-goods-btn} [^3] | [Buy Now – $99][buy]{:.simple-goods-btn} [^3] |
 {:style="table-layout:fixed"}
 {% endcomment %}
 
@@ -77,7 +73,7 @@ The PRO Version aims to be the complete package for professionals on the web.
 It includes layouts for your [portfolio], your [resume] (with support for [JSON Resume](https://jsonresume.org/)) and
 a [welcome] page to introduce yourself to visitors.
 
-[Buy Now - $34][buy]{:.simple-goods-btn style="background-color:#4f86aa!important"} [^3]
+[Buy Now - $34][buy]{:.simple-goods-btn} [^3]
 
 {% comment %}
 ## DEV Version
@@ -85,13 +81,13 @@ Buy this version if you are a developer yourself and intend to use the drawer me
 You can obtain licenses for these production independently.
 
 
-[Buy Now - $99][buy]{:.simple-goods-btn style="background-color:#4f86aa!important"} [^3]
+[Buy Now - $99][buy]{:.simple-goods-btn} [^3]
 {% endcomment %}
 
 {% include author.html author=site.data.authors.qwtel heading="Contact" %}
 
 <style>
-a.simple-goods-btn{text-decoration:none !important}.simple-goods-btn{-moz-box-sizing:border-box !important;-moz-transition:all 0.2s ease !important;-moz-transition:all 0.2s ease !important;-ms-transition:all 0.2s ease !important;-ms-transition:all 0.2s ease !important;-o-transition:all 0.2s ease !important;-o-transition:all 0.2s ease !important;-webkit-box-sizing:border-box !important;-webkit-font-smoothing:subpixel-antialiased !important;-webkit-transition:all 0.2s ease !important;-webkit-transition:all 0.2s ease !important;background-color:#2a90ee !important;border-radius:3px 3px 3px 3px !important;box-sizing:border-box !important;color:#fff !important;cursor:pointer !important;display:inline-block !important;font-size:16px !important;font-weight:400 !important;margin:0 !important;padding:12px 34px 12px !important;position:relative !important;text-align:center !important;top:0 !important;transition:all 0.2s ease !important;font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;font-weight:bold !important}.simple-goods-btn:hover{-webkit-transition:all 0.2s ease !important;transition:all 0.2s ease !important;background-color:#429cf0 !important}.simple-goods-btn:active{background-color:#2680d4 !important;outline:0 !important}
+a.simple-goods-btn{text-decoration:none !important}.simple-goods-btn{-moz-box-sizing:border-box !important;-moz-transition:all 0.2s ease !important;-moz-transition:all 0.2s ease !important;-ms-transition:all 0.2s ease !important;-ms-transition:all 0.2s ease !important;-o-transition:all 0.2s ease !important;-o-transition:all 0.2s ease !important;-webkit-box-sizing:border-box !important;-webkit-font-smoothing:subpixel-antialiased !important;-webkit-transition:all 0.2s ease !important;-webkit-transition:all 0.2s ease !important;background-color:#4f86aa !important;border-radius:3px 3px 3px 3px !important;box-sizing:border-box !important;color:#fff !important;cursor:pointer !important;display:inline-block !important;font-size:16px !important;font-weight:400 !important;margin:0 !important;padding:12px 34px 12px !important;position:relative !important;text-align:center !important;top:0 !important;transition:all 0.2s ease !important;font-family:"HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif !important;font-weight:bold !important}
 </style>
 
 [^1]: Applies after the initial page load.  

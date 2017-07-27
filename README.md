@@ -15,7 +15,7 @@ Hydejack is a cutting-edge Jekyll theme that combines the best of static sites a
 It features a suite of JavaScript that makes the page feel like an app, without sacrificing backwards-compatibility,
 page-load speed or SEO.
 
-> The complete package for professionals: A [blog], a [portfolio] and a [resume].
+> Your presence on the web — A [blog], a [portfolio] and a [resume].
 
 It aims to be the complete package for professionals on the web.
 It features a blog suitable for both prose and technical documentation,
@@ -45,11 +45,9 @@ Both the PRO *and* free version includes all of the features listed below:
 * RSS feed
 * Print layout
 
-Questions? Send a mail to [mail@qwtel.com](mailto:mail@qwtel.com), or tweet [`@qwtel`](https://www.twitter.com/qwtel).
-
 ## [Documentation][docs]
 Hydejack is documented extensively.
-You can read it [here][docs] or in the [repository's wiki][wiki], or [download the PDF][download].
+You can read it [on this site][docs], in the [repository's wiki][wiki], or [download the PDF][download].
 
 ## Download
 There are two versions of Hydejack: The Free Version includes basic blogging functionality,
@@ -67,8 +65,8 @@ This table details what is and isn't included in each respective version.
 | [Resume] Layout                  |                    | &#x2714;           |
 | [Welcome] Layout                 |                    | &#x2714;           |
 | License                          | [MIT][license]     | [PRO]              |
-| Price                            | Free               | $29                |
-| | [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $29][buy] [^3] |
+| Price                            | Free               | $34                |
+| | [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $34][buy] [^3] |
 
 
 [^1]: Applies after the initial page load.  
