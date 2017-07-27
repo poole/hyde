@@ -46,9 +46,7 @@ MIT licensed with the following copyright:
 
 > Copyright (c) 2017 Florian Klampfer
 
-No substantial changes to the software were made.
-
-Find a copy of the [GNU GENERAL PUBLIC LICENSE](licenses/GPL-3.0.md)
+Find a copy of the [MIT license](licenses/MIT.md)
 as part of this distribution.
 
 ### IcoMoon Icons Free Version
