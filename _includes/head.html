@@ -8,7 +8,7 @@
 
 {% capture title %}
   {% if page.url == "/" %}
-    {{ site.title }} &middot; {{ site.tagline }}
+    {{ site.title }}{% if site.tageline %} &middot; {{ site.tagline }}{% endif %}
   {% elsif page.title.size > 0 %}
     {{ page.title }} &middot; {{ site.title }}
   {% else %}
