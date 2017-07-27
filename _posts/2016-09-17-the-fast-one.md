@@ -11,7 +11,7 @@ The page now scores roughly 90/100 on [Google's PageSpeed Insights][gpsi] (up fr
 has a high score on similar tools.
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation](https://qwtel.com/hydejack/docs/) for up-to-date instructions.
+See the [Documentation][docs] for up-to-date instructions.
 {:.message}
 
 Most importantly, the critical rendering path is no longer blocked by loading styles or scripts,
@@ -45,8 +45,9 @@ help with loading speed as well (burred images get compressed by JPG much better
 
 ***
 
-[Get *The Fast One* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v5.0.0)
+[Get *The Fast One* on GitHub](https://github.com/qwtel/hydejack/releases)
 
 [gpsi]: https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F
+[docs]: https://qwtel.com/hydejack/docs/
 
 *[FOUC]: Flash Of Unstyled Content

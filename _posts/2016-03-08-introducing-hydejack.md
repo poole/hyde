@@ -26,7 +26,7 @@ Features include:
 <!--more-->
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation](https://qwtel.com/hydejack/docs/) for up-to-date instructions.
+See the [Documentation][docs] for up-to-date instructions.
 {:.message}
 
 ## Download
@@ -106,3 +106,4 @@ as each tag requires some setup work. I tend to think of it as categories that c
    ~~~
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
+[docs]: https://qwtel.com/hydejack/docs/

@@ -67,11 +67,11 @@ Open `about.md` to edit this text.
 [^1]: Applies after the initial page load.  
 [^2]: Actual page load speed depends on your hosting provider as well as discipline regarding resolution of images and usage of 3rd party plugins.
 
-[blog]: https://qwtel.com/hydejack/blog/
-[portfolio]: https://qwtel.com/hydejack/projects/
-[resume]: https://qwtel.com/hydejack/resume/
-[welcome]: https://qwtel.com/hydejack/
-[docs]: https://qwtel.com/hydejack/docs/6.5.0/
+[blog]: blog.md
+[portfolio]: projects.md
+[resume]: resume.md
+[welcome]: index.md
+[docs]: docs/6.5.0/index.md
 
 [wiki]: https://github.com/qwtel/hydejack/wiki
-[download]: https://github.com/qwtel/hydejack/releases/tag/v6.5.0
+[download]: https://github.com/qwtel/hydejack/releases

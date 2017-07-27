@@ -30,13 +30,13 @@ At the same time, the FOUC introduced in the last release will no longer occur (
 * Added `not-found` layout.
 * Added `redirect` layout
 
-See the [the migration guide](https://qwtel.com/hydejack/docs/migration/) for instructions on how to upgrade.
+See the [the migration guide][migration] for instructions on how to upgrade.
 
 ## Minor
 * The "accent" font (heading font) is now used for all headings.
   This gives the theme a "bolder" look and was necessary for the animation: link => heading.
 * Changed default text font from "PT Serif" to "Noto Serif".
-* Added [CSS classes](https://qwtel.com/hydejack/docs/writing/) for styling markdown content.
+* Added [CSS classes][writing] for styling markdown content.
 * Links have a new style.
   They now always display an underline to make the choice of the link color less critical (darker colors were hard to
   distinguish from regular text).
@@ -60,6 +60,9 @@ See the [the migration guide](https://qwtel.com/hydejack/docs/migration/) for in
 
 ***
 
-[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v6.5.0)
+[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases)
+
+[migration]: https://qwtel.com/hydejack/docs/migration/
+[writing]: https://qwtel.com/hydejack/docs/writing/
 
 *[FOUC]: Flash of Unstyled Content
