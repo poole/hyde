@@ -98,13 +98,13 @@ collections:
 # -----------------------------------------------------------------------------
 
 gems:
-  - jekyll-relative-links
+  - jekyll-default-layout
   - jekyll-feed
-  - jekyll-sitemap
+  - jekyll-optional-front-matter
   - jekyll-paginate
   - jekyll-redirect-from
-  - jekyll-optional-front-matter
-  - jekyll-default-layout
+  - jekyll-relative-links
+  - jekyll-sitemap
 
 exclude:
   - README.md
