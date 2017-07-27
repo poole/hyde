@@ -12,7 +12,7 @@
     "prepare": "npm run lint && npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml"
   },
-  "author": "Florian Klampfer <f.klampfer@gmail.com> (https://qwtel.com)",
+  "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com)",
   "license": "MIT",
   "devDependencies": {
     "babel-eslint": "7.2.3",
@@ -24,21 +24,21 @@
     "browserify": "14.4.0",
     "cross-env": "5.0.1",
     "eslint": "3.19.0",
-    "eslint-config-airbnb": "15.0.1",
-    "eslint-plugin-import": "2.3.0",
-    "eslint-plugin-jsx-a11y": "5.0.3",
+    "eslint-config-airbnb": "15.1.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
     "eslint-plugin-react": "7.1.0",
     "json2yaml": "1.1.0",
-    "uglify-js": "3.0.18",
+    "uglify-js": "3.0.26",
     "watchify": "3.9.0"
   },
   "dependencies": {
-    "color": "1.0.3",
+    "color": "2.0.0",
     "core-js": "2.4.1",
     "elem-dataset": "1.1.1",
     "katex": "0.7.1",
-    "rxjs": "5.4.1",
-    "web-animations-js": "2.2.5",
+    "rxjs": "5.4.2",
+    "web-animations-js": "2.3.1",
     "y-drawer": "6.1.1",
     "y-push-state": "6.3.0"
   },
