@@ -117,6 +117,7 @@ blockquote {
 .read-more {
   @extend .faded;
   margin-top: 2rem;
+  margin-bottom: 3rem;
 
   &::after {
     content: " \2192"; // →
