@@ -66,7 +66,7 @@ This table details what is and isn't included in each respective version.
 | [Welcome] Layout                 |                    | &#x2714;           |
 | License                          | [MIT][license]     | [PRO]              |
 | Price                            | Free               | $34                |
-| | [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [**Buy Now – $34**][buy] [^3] |
+| | [**Download on GitHub**][download]<br/> – or – <br/>[**Use the RubyGem**][gem] | [**Buy Now – $34**][buy] [^3] |
 
 
 [^1]: Applies after the initial page load.  
