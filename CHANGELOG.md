@@ -6,6 +6,48 @@ redirect_from:
   - /docs/versions/
 ---
 
+## v6.7.0
+??? 2017
+{:.heading.post-date}
+
+???
+
+### Added
+* Added "big projects". You can make projects span the entire available width (instead of half),
+  by setting `big_project` to `true`.
+  You can do this for an entire `projects` or `welcome` page, by setting `big_projects` in the front matter.
+
+* The welcome layout now has a `content_separator` option,
+  that allows content to move below the "Selected/Latest Projects" and "Selected/Latest Posts" section.
+  Usage:
+
+  ~~~md
+  ---
+  layout: welcome
+  ...
+  content_separator: <!-- more -->
+  ---
+
+  Content above
+
+  <!-- more -->
+
+  Content below
+  ~~~
+
+* Added `_includes/my-head.html`, to make it easier to add things to the `<head/>` without modifying the source.
+  This is especially useful when using the gem-based version of the theme.
+
+### Changed
+### Removed
+### Design
+* Code blocks now are the same font size as code in regular text.
+  To undo this change, open (or create) `_sass/my-inline.scss` and add the following:
+
+  ~~~css
+  pre code { font-size: .75em; }
+  ~~~
+
 ## v6.6.1
 Aug 10 2017
 {:.heading.post-date}

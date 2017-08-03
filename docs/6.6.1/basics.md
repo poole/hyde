@@ -140,6 +140,14 @@ It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
 [Demo][welcome].
 
+For reference, the layout/order of content on the welcome page looks like:
+* Title
+* Author's about text
+* Content (before `content_separator`)
+* Latest/Selected Projects
+* Latest/Selected Posts
+* Content after `content_separator` (if any)
+
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
 ~~~yml
@@ -151,7 +159,7 @@ author: qwtel
 ~~~
 
 Without further configuration, the welcome page will show the two most recent projects and five most recent blog posts.
-However, the welcome layout supports selecting specific projects and posts, by adding to the front matter:
+However, the welcome layout supports selecting specific projects and posts, by adding to the front matter, e.g.:
 
 ~~~yml
 ---
@@ -165,6 +173,8 @@ selected_posts:
   - _posts/2012-02-07-example-content.md
 more_projects: projects.md
 more_posts: posts.md
+big_project: true
+content_separator: <!-- more -->
 ---
 ~~~
 
@@ -173,21 +183,71 @@ more_posts: posts.md
 
 `selected_projects`
 : A list of paths to project files that should be displayed below the main content of the page.
-The paths are relative to the main directory with no leading `./`.
-If no paths are provided, the two most recent projects will be used.
+  The paths are relative to the main directory with no leading `./`.
+  If no paths are provided, the two most recent projects will be used.
 
 `selected_projects`
 : A list of paths to blog posts that should be featured on the welcome page.
-The paths are relative to the main directory with no leading `./`.
-If no paths are provided, the five most recent posts will be used.
+  The paths are relative to the main directory with no leading `./`.
+  If no paths are provided, the five most recent posts will be used.
 
 `more_projects`
 : The path to the main projects page.
-The path is relative to the main directory with no leading `./`.
+  The path is relative to the main directory with no leading `./`.
 
 `more_posts`
 : The path to the main posts page.
-The path is relative to the main directory with no leading `./`.
+  The path is relative to the main directory with no leading `./`.
+
+`big_project`
+: Optional. When `true`, project thumbnails will span the full width, instead of only half.
+  This setting takes precedence over the `big_project` value of individual projects,
+  i.e. it will apply to the entire page.
+
+`content_separator`
+: Optional. Defines a marker that will be used to split the content in two parts.
+  The first part will go before the "Selected/Latest Projects" and "Selected/Latest Posts" section,
+  the second part will go below it.
+
+## Adding a projects page*
+The projects page will show all projects in a particular collection.
+First, you need to make sure that you have the `projects` collection defined in `_config.yml`:
+
+~~~yml
+collections:
+  projects:
+    permalink:       /projects/:path/
+    output:          true
+~~~
+
+Next, add a `projects.md` to in the root (you can adjust the name/location to match the the `permalink` of the
+collection).
+This file has the `projects` layout (mind the "s" at the end) and should have a `show_collection` key,
+with the name of the collection as a value, e.g.:
+
+~~~yml
+---
+layout: projects
+title: Projects*
+show_collection: projects
+big_project: true
+---
+~~~
+
+`layout`
+: Must be `projects`.
+
+`title`
+: The title of the page. Note that this name is reused as part of each individual project page
+  (for the link that directs back to the projects page).
+
+`show_collection`
+: The name of the collection you want display on this page. Defaults to `projects`.
+
+`big_project`
+: Optional. When `true`, project thumbnails will span the full width, instead of only half.
+  This setting takes precedence over the `big_project` value of individual projects,
+  i.e. it will apply to the entire page.
 
 ## Adding a project*
 Projects are organized using [Jekyll Collections](https://jekyllrb.com/docs/collections/).
@@ -211,13 +271,12 @@ caption: Hyde is a brazen two-column Jekyll theme.
 description: >
   Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 links:
-  -
-    title: Demo
+  - title: Demo
     url: http://hyde.getpoole.com
-  -
-    title: Source
+  - title: Source
     url: https://github.com/poole/hyde
 author: mdo
+big_project: true
 ---
 ~~~
 
@@ -238,10 +297,13 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 : A medium-length description, used on the project's detail page as meta description and shown as message box below he screenshot.
 
 `links`
-: A list of `title`-`url` pairs that that link to external resources related to this project.
+: A list of `title`-`url` pairs that link to external resources related to this project.
 
 `author`
 : Shown below the project, similar to posts.
+
+`big_project`
+: Optional. When `true`, the project preview will span the full content width. You can use this for projects that you want to direct additional attention to. You can set/override this for an entire page, by setting `big_project` in the front matter (applies to the `projects` and `welcome` layout).
 
 ## Adding a resume*
 Hydejack's PRO version features a generalized resume layout.
