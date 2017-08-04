@@ -20,18 +20,20 @@ const { find } = Array.prototype;
 const BORDER_COLOR_FADE = 0.8;
 
 function updateStyle({ color = '#00f' } = {}) {
-  this.rules[0].style.color = color; // .content a
-  this.rules[0].style.borderColor = Color(color).fade(BORDER_COLOR_FADE).string();
-  this.rules[1].style.borderColor = color;
-  this.rules[2].style.outlineColor = color; // :focus
-  this.rules[3].style.backgroundColor = color; // ::selection
+  if (this.rules) {
+    this.rules[0].style.color = color; // .content a
+    this.rules[0].style.borderColor = Color(color).fade(BORDER_COLOR_FADE).string();
+    this.rules[1].style.borderColor = color;
+    this.rules[2].style.outlineColor = color; // :focus
+    this.rules[3].style.backgroundColor = color; // ::selection
+  }
 }
 
 export default class CrossFader {
   constructor({ duration }) {
     const main = document.getElementById('_main');
     const pageStyle = document.getElementById('_pageStyle');
-    const styleSheet = document.styleSheets::find(ss => ss.ownerNode === pageStyle);
+    const styleSheet = document.styleSheets::find(ss => ss.ownerNode === pageStyle) || {};
 
     this.sidebar = document.getElementById('_sidebar');
 
