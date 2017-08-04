@@ -51,9 +51,9 @@
 
 {% unless site.no_mark_external %}
   @media screen {
-    a[href*="//"]::after, a.no-push-state::after {
+    a[href*="//"]:not(.no-mark-external)::after, a.no-push-state:not(.no-mark-external)::after {
       content: "\00A0\ea7e";
-      font-family: 'icomoon' !important;
+      font-family: 'icomoon'!important;
       speak: none;
       font-style: normal;
       font-weight: normal;

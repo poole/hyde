@@ -5,10 +5,6 @@
  */
 
 body, main {
-  /* Prevent side-scrolling on mobile */
-  // position: relative;
-  // overflow-x: hidden;
-
   -webkit-text-size-adjust: 100%;
       -ms-text-size-adjust: 100%;
 }
@@ -23,6 +19,12 @@ body, main {
 //     top: 0;
 //     bottom: 0;
 //   }
+// }
+//
+// body, #_yPushState {
+//   /* Prevent side-scrolling on mobile */
+//   position: relative;
+//   overflow-x: hidden;
 // }
 
 @media screen and (min-width: $break-point-1) {
@@ -137,7 +139,7 @@ a, .a {
 //   50%  { transform: translateY(-2rem); opacity: 0; }
 //   to   { transform: translateY(0);     opacity: 1; }
 // }
-// 
+//
 // .mb6 {
 //   margin-bottom: 6rem;
 // }
