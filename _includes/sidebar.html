@@ -1,6 +1,6 @@
 <div id="_yDrawer">
   <div id="_sidebar" class="sidebar">
-    <div class="sidebar-bg" style="background-color:{{ color }};background-image:url({{ image }})"></div>
+    <div class="sidebar-bg{% if image %} sidebar-overlay{% endif %}" style="background-color:{{ color }};background-image:url({{ image }})"></div>
     <header class="sidebar-sticky" role="banner">
       <div class="sidebar-about">
         <h1><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>

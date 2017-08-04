@@ -71,6 +71,7 @@ export default class CrossFader {
       ::map(() => {
         const div = document.createElement('div');
         div.classList.add('sidebar-bg');
+        if (image !== '') div.classList.add('sidebar-overlay');
         div.style.backgroundColor = color;
         if (image !== '') div.style.backgroundImage = `url(${image})`;
         return div;
