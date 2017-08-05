@@ -17,6 +17,11 @@ remainder of the terms see [Licenses](#licenses).
 * [IcoMoon Icons Free Version](https://icomoon.io/#icons-icomoon)
 by [Keyamoon](http://keyamoon.com/).
 
+Credit for works that do not require it as per license:
+
+* [Photo](https://unsplash.com/photos/AtvuPUenaeI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
+  by [Caleb George](http://www.caleb-morris.com/)
+
 ## Licenses
 Parts of this software are provided under separate licenses.
 
