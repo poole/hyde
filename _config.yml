@@ -49,7 +49,7 @@ paginate_path:       '/page-:num/'
 
 # Fallback image and color
 image:               /hydejack/assets/img/sidebar-bg.jpg
-# color:               '#2792aa'
+# color:               '#4fb1ba'
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
 # font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
