@@ -54,6 +54,13 @@
 <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | relative_url }}">
 <!-- Place favicon.ico in the root directory -->
 
+{% comment %}
+The links below are only here because we want to use the `href` property in JS (see `_js/src/katex.js`).
+We want to avoid building the URL dynamically in JS, because it depends on your `baseurl` and CDN optimizers can't find and modify it there.
+{% endcomment %}
+<link id="_katexJS"  rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'  | relative_url }}">
+<link id="_katexCSS" rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css' | relative_url }}">
+
 {% comment %}---------------------------
               SCRIPTS
 ------------------------{% endcomment %}
@@ -74,7 +81,6 @@
     }
   };
 </script>
-<script async src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js"></script>
 <!--<![endif]-->
 
 <script>
@@ -86,7 +92,7 @@
 </script>
 
 <!--[if lt IE 9]>
-<script src="https://unpkg.com/html5shiv/dist/html5shiv.min.js"></script>
+<script src="{{ '/assets/bower_components/html5shiv/dist/html5shiv.min.js' | relative_url }}"></script>
 <![endif]-->
 
 {% comment %}---------------------------
@@ -126,4 +132,12 @@
 </noscript>
 <!--<![endif]-->
 
+{% comment %}---------------------------
+              CUSTOMIZATION
+------------------------{% endcomment %}
+
 {% include my-head.html %}
+
+<!--[if gt IE 8]><!---->
+<script async src="{{ '/assets/bower_components/webfontloader/webfontloader.js' | relative_url }}"></script>
+<!--<![endif]-->

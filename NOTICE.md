@@ -149,6 +149,15 @@ MIT licensed with the following copyright:
 Find a copy of the [MIT license](licenses/MIT.md)
 as part of this distribution.
 
+### html5shiv
+This software also uses portions of the html5shiv project,
+which is MIT licensed with the following copyright
+
+> Copyright (c) 2014 Alexander Farkas (aFarkas).
+
+Find a copy of the [MIT license](licenses/MIT.md)
+as part of this distribution.
+
 ### loadCSS
 This software also uses portions of the loadCSS project, which is
 MIT licensed with the following copyright:
