@@ -19,7 +19,7 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/6.5.0/index.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/6.6.0/index.md %}).
 {:.message}
 
 ## Table of Contents
@@ -38,7 +38,7 @@ The easiest is [via the Ruby gem](#via-gem).
 If you downloaded the zip, you'll want to install [via the zip file](#via-zip).
 If you know what you are doing, you can [fork or clone the git repository](#via-git).
 
-Buyers of the PRO version should [follow these steps](#pro-buyers).
+Buyers of the PRO version should [follow these steps](#pro-version).
 
 **NOTE**: If you've used any version of Hydejack before,
 also check out the [Migration]{:.heading data-flip="title"} guide.
@@ -137,14 +137,14 @@ You can now continue with [running locally](#running-locally).
 If you bought the PRO version, you've received a zip archive with the following contents:
 
 ~~~
-├── hydejack-docs-6.5.0.pdf
+├── hydejack-docs-6.6.0.pdf
 ├── install
 ├── upgrade
 ├── favicons.psd
 └── sidebar-bg.psd
 ~~~
 
-`hydejack-docs-6.5.0.pdf`
+`hydejack-docs-6.6.0.pdf`
 : This documentation in PDF form.
 
 `install`
@@ -163,7 +163,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-6.5.0/install/
+$ cd ~/Downloads/hydejack-pro-6.6.0/install/
 ~~~
 
 You can now continue with [running locally](#running-locally).
@@ -190,7 +190,7 @@ Now you can run Jekyll on your local machine:
 $ bundle exec jekyll serve
 ~~~
 
-You can now point your browser to [http://localhost:4000](http://localhost:4000) and see Hydejack in action.
+You can now point your browser to <http://localhost:4000> and see Hydejack in action.
 
 
 
@@ -1224,8 +1224,6 @@ If you have scripts that should be loaded on every page you can add them globall
 Hydejack's own script is loaded from `_includes/scripts.html`, but I'd recommend creating your own file called `my-scripts.html` (inside `_includes`).
 
 You can put arbitrary HTML into `my-scripts.html`, but generally you'd want to add script tags. The [same rules](#async-vs-defer-vs-loadjsdeferred) apply.
-
-Lastly, you have to open `_includes/scripts.html` and remove the lines `{\% comment %\}` and `{\% endcomment %\}` around `{\% include my-scripts.html %\}`.
 
 **NOTE**: Upgrading to a new version of Hydejack will overwrite `scripts.html`, so you have to go in and uncomment the line again. This is due to how Jekyll includes work.
 {:.message}

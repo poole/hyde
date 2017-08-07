@@ -106,7 +106,7 @@ We want to avoid building the URL dynamically in JS, because it depends on your 
   {{ include_to_scssify | scssify }}
 </style>
 
-{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.5.0{% endcapture %}
+{% capture style_url %}{% link assets/css/hydejack.css %}?v=6.6.0{% endcapture %}
 <link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">
 <script>document.getElementById('_stylePreload').onload=function(){this.rel='stylesheet'}</script>
 

@@ -6,11 +6,11 @@ redirect_from:
   - /docs/versions/
 ---
 
-## v6.5.1
+## v6.6.0
 Aug 7 2017
 {:.heading.post-date}
 
-* Dependencies on external domains have been removed
+* Dependencies from external domains have been removed
   (with the exception of those that are explicitly defined and optional: Google Analytics, Google Fonts and Disqus).
   Instead, they are now located in the assets folder and managed via Bower.
 * KaTeX is no longer loaded on pages that do not contain math blocks.
@@ -370,6 +370,6 @@ Oct 15 2013
 {:.heading.post-date}
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
-[migration]: docs/6.5.0/migration.md
-[writing]: docs/6.5.0/writing.md
-[scripts]: docs/6.5.0/scripts.md
+[migration]: docs/6.6.0/migration.md
+[writing]: docs/6.6.0/writing.md
+[scripts]: docs/6.6.0/scripts.md

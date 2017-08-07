@@ -81,10 +81,10 @@ usage of 3rd party plugins.
 
 [license]: LICENSE.md
 [pro]: licenses/PRO-license.md
-[docs]: docs/6.5.0/index.md
+[docs]: docs/6.6.0/index.md
 
-[download]: https://github.com/qwtel/hydejack/releases/tag/v6.5.0
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.5.0
+[download]: https://github.com/qwtel/hydejack/releases
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 [wiki]: https://github.com/qwtel/hydejack/wiki
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F

@@ -105,5 +105,5 @@ as each tag requires some setup work. I tend to think of it as categories that c
    sidebar_tags: [mytag, othertag]
    ~~~
 
-[tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
 [docs]: https://qwtel.com/hydejack/docs/
+[tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/

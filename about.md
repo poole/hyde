@@ -74,12 +74,12 @@ Open `about.md` to edit this text.
 [resume]: https://qwtel.com/hydejack/resume/
 [welcome]: https://qwtel.com/hydejack/
 
-[docs]: docs/6.5.0/index.md
+[docs]: docs/6.6.0/index.md
 [license]: LICENSE.md
 [pro]: licenses/PRO-license.md
 
-[download]: https://github.com/qwtel/hydejack/releases/tag/v6.5.0
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.5.0
+[download]: https://github.com/qwtel/hydejack/releases/tag/v6.6.0
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.6.0
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [wiki]: https://github.com/qwtel/hydejack/wiki
