@@ -208,7 +208,7 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
     ::debounceTime(2 * DURATION)
     ::effect(() => {
       // Send google analytics pageview
-      if (window.ga) window.ga('send', 'pageview');
+      if (window.ga) window.ga('send', 'pageview', location.pathname);
 
       // Upgrade math blocks
       upgradeMathBlocks();
