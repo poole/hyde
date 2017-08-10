@@ -10,10 +10,10 @@ redirect_from:
 Aug 10 2017
 {:.heading.post-date}
 
-### Critical
 * Fixed sending incorrect paths to Google Analytics.
   In previous versions, Hydejack would always send the URL of the initial page for all subsequent page views.
   Thanks [`@dannydwarren`](https://twitter.com/dannydwarren) for pointing this out.
+* Fixed `tagline` not showing up in the title.
 
 ## v6.6.0
 Aug 7 2017
