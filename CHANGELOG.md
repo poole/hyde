@@ -6,6 +6,15 @@ redirect_from:
   - /docs/versions/
 ---
 
+## v6.6.1
+Aug 10 2017
+{:.heading.post-date}
+
+### Critical
+* Fixed sending incorrect paths to Google Analytics.
+  In previous versions, Hydejack would always send the URL of the initial page for all subsequent page views.
+  Thanks [`@dannydwarren`](https://twitter.com/dannydwarren) for pointing this out.
+
 ## v6.6.0
 Aug 7 2017
 {:.heading.post-date}
