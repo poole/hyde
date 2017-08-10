@@ -1,42 +1,45 @@
 @import "variables";
 @import "mixins";
 
-// @import "pooleparty/base-inline";
 @import "pooleparty/base";
-// @import "pooleparty/type-inline";
 @import "pooleparty/type";
-// @import "pooleparty/table-inline";
 @import "pooleparty/table";
 @import "pooleparty/footnotes";
 @import "pooleparty/code";
-// @import "pooleparty/footer-inline";
-// @import "pooleparty/posts-inline";
 @import "pooleparty/posts";
 @import "pooleparty/pagination";
-// @import "pooleparty/related-inline";
-// @import "pooleparty/message-inline";
 
-// @import "hydejack/base-inline";
 @import "hydejack/base";
-// @import "hydejack/sidebar-inline";
 @import "hydejack/sidebar";
-// @import "hydejack/drawer-inline";
-@import "hydejack/drawer";
-// @import "hydejack/social-inline";
 @import "hydejack/social";
-// @import "hydejack/menu-inline";
-// @import "hydejack/menu";
-// @import "hydejack/content-inline";
-// @import "hydejack/me-inline";
 @import "hydejack/katex";
-// @import "hydejack/footer-inline";
 @import "hydejack/toc";
 
 @import "syntax";
 @import "spinner";
 
-// @import "my-inline";
 @import "my-style";
+
+{% if jekyll.environment == 'development' %}
+@import "pooleparty/base-inline";
+@import "pooleparty/type-inline";
+@import "pooleparty/table-inline";
+@import "pooleparty/footer-inline";
+@import "pooleparty/posts-inline";
+@import "pooleparty/related-inline";
+@import "pooleparty/message-inline";
+
+@import "hydejack/base-inline";
+@import "hydejack/sidebar-inline";
+@import "hydejack/social-inline";
+@import "hydejack/menu-inline";
+@import "hydejack/menu";
+@import "hydejack/content-inline";
+@import "hydejack/me-inline";
+@import "hydejack/footer-inline";
+
+@import "my-inline";
+{% endif %}
 
 {% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
 {% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}

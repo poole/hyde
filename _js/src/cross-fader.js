@@ -30,14 +30,14 @@ function updateStyle({ color = '#00f' } = {}) {
 }
 
 export default class CrossFader {
-  constructor({ duration }) {
+  constructor({ duration, fadeDuration }) {
     const main = document.getElementById('_main');
     const pageStyle = document.getElementById('_pageStyle');
     const styleSheet = document.styleSheets::find(ss => ss.ownerNode === pageStyle) || {};
 
     this.sidebar = document.getElementById('_sidebar');
-
     this.duration = duration;
+    this.fadeDuration = fadeDuration;
     this.rules = styleSheet.cssRules || styleSheet.rules;
     this.prevImage = main.getAttribute('data-image');
     this.prevColor = main.getAttribute('data-color');
@@ -87,7 +87,7 @@ export default class CrossFader {
       { opacity: 0 },
       { opacity: 1 },
     ], {
-      duration: this.duration,
+      duration: this.fadeDuration,
       // easing: 'cubic-bezier(0,0,0.32,1)',
     })
     ::cleanup(() => prevDiv.parentNode.removeChild(prevDiv));

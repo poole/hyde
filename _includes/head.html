@@ -99,16 +99,20 @@ We want to avoid building the URL dynamically in JS, because it depends on your 
               STYLES
 ------------------------{% endcomment %}
 <!--[if gt IE 8]><!---->
-<style>
-  {% capture include_to_scssify %}
-  {% include styles/inline.scss %}
-  {% endcapture %}
-  {{ include_to_scssify | scssify }}
-</style>
-
 {% capture style_url %}{% link assets/css/hydejack.css %}?v=6.6.1{% endcapture %}
-<link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">
-<script>document.getElementById('_stylePreload').onload=function(){this.rel='stylesheet'}</script>
+
+{% if jekyll.environment == 'development' %}
+  <link rel="stylesheet" href="{{ style_url | relative_url }}">
+{% else %}
+  <style>
+    {% capture include_to_scssify %}
+    {% include styles/inline.scss %}
+    {% endcapture %}
+    {{ include_to_scssify | scssify }}
+  </style>
+  <link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">
+  <script>document.getElementById('_stylePreload').onload=function(){this.rel='stylesheet'}</script>
+{% endif %}
 
 {% include page-style.html %}
 

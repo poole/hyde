@@ -40,7 +40,7 @@ const REQUIREMENTS = [
 ];
 
 const DURATION = 250;
-const FADE_DURATION = 500;
+const FADE_DURATION = 600;
 
 // whenever the source observable encounters an error,
 // we log it to the console, but continue as if it never happend
@@ -55,7 +55,7 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
   const ua = navigator.userAgent.toLowerCase();
   const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
 
-  const crossFader = new CrossFader({ duration: FADE_DURATION });
+  const crossFader = new CrossFader({ duration: DURATION, fadeDuration: FADE_DURATION });
 
   const pushState = document.getElementById('_yPushState');
 
