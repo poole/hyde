@@ -18,23 +18,25 @@ tagline:             A pretentious two-column Jekyll theme.
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-  Open `_config.yml` to edit this text.
+  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by
+  [`@qwtel`{:rel="me"}](https://twitter.com/qwtel) from
+  [Hyde](http://hyde.getpoole.com).
+  You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
 # This should be the same author as first entry in `_data/authors.yml`
 author:
-  name:              <firstname> <lastname>
-  email:             <mail@domain.tld>
+  name:              Florian Klampfer
+  email:             mail@qwtel.com
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:    <UA-XXXXXXXX-X>
+google_analytics:    UA-XXXXXXXX-X
 
 # Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    <username>
+disqus_shortname:    qwtel
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           '&copy; 2017. All rights reserved.'
+copyright:           \* Layout not included in free version
 
 # Format of the permalinks
 permalink:           pretty
