@@ -19,7 +19,7 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/6.6.0/index.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/6.6.1/index.md %}).
 {:.message}
 
 ## Table of Contents
@@ -137,14 +137,14 @@ You can now continue with [running locally](#running-locally).
 If you bought the PRO version, you've received a zip archive with the following contents:
 
 ~~~
-├── hydejack-docs-6.6.0.pdf
+├── hydejack-docs-6.6.1.pdf
 ├── install
 ├── upgrade
 ├── favicons.psd
 └── sidebar-bg.psd
 ~~~
 
-`hydejack-docs-6.6.0.pdf`
+`hydejack-docs-6.6.1.pdf`
 : This documentation in PDF form.
 
 `install`
@@ -163,7 +163,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-6.6.0/install/
+$ cd ~/Downloads/hydejack-pro-6.6.1/install/
 ~~~
 
 You can now continue with [running locally](#running-locally).

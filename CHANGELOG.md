@@ -370,6 +370,6 @@ Oct 15 2013
 {:.heading.post-date}
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
-[migration]: docs/6.6.0/migration.md
-[writing]: docs/6.6.0/writing.md
-[scripts]: docs/6.6.0/scripts.md
+[migration]: docs/6.6.1/migration.md
+[writing]: docs/6.6.1/writing.md
+[scripts]: docs/6.6.1/scripts.md

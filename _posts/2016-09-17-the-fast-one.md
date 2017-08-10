@@ -47,7 +47,7 @@ help with loading speed as well (burred images get compressed by JPG much better
 
 [Get *The Fast One* on GitHub](https://github.com/qwtel/hydejack/releases)
 
-[gpsi]: https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F
 [docs]: https://qwtel.com/hydejack/docs/
+[gpsi]: https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F
 
 *[FOUC]: Flash Of Unstyled Content

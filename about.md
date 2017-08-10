@@ -78,8 +78,8 @@ Open `about.md` to edit this text.
 [license]: LICENSE.md
 [pro]: licenses/PRO-license.md
 
-[download]: https://github.com/qwtel/hydejack/releases/tag/v6.6.0
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack/versions/6.6.0
+[download]: https://github.com/qwtel/hydejack/releases
+[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [wiki]: https://github.com/qwtel/hydejack/wiki

@@ -111,14 +111,14 @@ You can now continue with [running locally](#running-locally).
 If you bought the PRO version, you've received a zip archive with the following contents:
 
 ~~~
-├── hydejack-docs-6.6.0.pdf
+├── hydejack-docs-6.6.1.pdf
 ├── install
 ├── upgrade
 ├── favicons.psd
 └── sidebar-bg.psd
 ~~~
 
-`hydejack-docs-6.6.0.pdf`
+`hydejack-docs-6.6.1.pdf`
 : This documentation in PDF form.
 
 `install`
@@ -137,7 +137,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-6.6.0/install/
+$ cd ~/Downloads/hydejack-pro-6.6.1/install/
 ~~~
 
 You can now continue with [running locally](#running-locally).
