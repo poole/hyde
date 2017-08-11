@@ -30,6 +30,7 @@
       z-index: 3;
       width: 18rem;
       left: -17.5rem;
+      box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
 
     // &.loaded {
@@ -38,14 +39,18 @@
     // }
   }
 
-  // @media screen and (min-width: $break-point-2) {
-  //   position: fixed;
-  //   top: 0;
-  //   left: 0;
-  //   bottom: 0;
-  //   width: 18rem;
-  //   margin-left: 0;
-  // }
+  @media screen and (min-width: $break-point-2) {
+    // position: fixed;
+    // top: 0;
+    // left: 0;
+    // bottom: 0;
+    // width: 18rem;
+    // margin-left: 0;
+
+    > .y-drawer-content {
+      box-shadow: none;
+    }
+  }
 
   @media screen and (min-width: $break-point-dynamic) {
     // width: $dynamic-width;
