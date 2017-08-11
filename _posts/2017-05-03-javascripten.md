@@ -65,4 +65,7 @@ See the [the migration guide][migration] for instructions on how to upgrade.
 [migration]: https://qwtel.com/hydejack/docs/migration/
 [writing]: https://qwtel.com/hydejack/docs/writing/
 
+[migration]: {{ site.baseurl }}{% link docs/6.6.1/migration.md %}
+[writing]: {{ site.baseurl }}{% link docs/6.6.1/writing.md %}
+
 *[FOUC]: Flash of Unstyled Content
