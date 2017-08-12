@@ -4,26 +4,26 @@ layout: compress
 
 {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
 
-{% assign image = site.image %}
+{% assign image = site.sidebar_image | default:site.image %}
 {% assign color = site.color | default:'#4fb1ba' %}
 
 {% if page.categories.size > 0 %}
   {% assign category_name = page.categories.first %}
   {% assign category = site.featured_categories | where: "slug", category_name | first %}
   {% if category.color %}{% assign color = category.color %}{% endif %}
-  {% if category.image %}{% assign image = category.image %}{% endif %}
+  {% if category.sidebar_image or category.image %}{% assign image = category.sidebar_image | default:category.image %}{% endif %}
 {% elsif page.tags.size > 0 %}
   {% assign tag_name = page.tags.first %}
   {% assign tag = site.featured_tags | where: "slug", tag_name | first %}
   {% if tag.color %}{% assign color = tag.color %}{% endif %}
-  {% if tag.image %}{% assign image = tag.image %}{% endif %}
+  {% if tag.sidebar_image or tag.image %}{% assign image = tag.sidebar_image | default:tag.image %}{% endif %}
 {% elsif author %}
   {% if author.color %}{% assign color = author.color %}{% endif %}
-  {% if author.image %}{% assign image = author.image %}{% endif %}
+  {% if author.sidebar_image or author.image %}{% assign image = author.sidebar_image | default:author.image %}{% endif %}
 {% endif %}
 
 {% if page.color %}{% assign color = page.color %}{% endif %}
-{% if page.image %}{% assign image = page.image %}{% endif %}
+{% if page.sidebar_image or page.image %}{% assign image = page.sidebar_image | default:page.image %}{% endif %}
 
 <head>
   {% include head.html %}

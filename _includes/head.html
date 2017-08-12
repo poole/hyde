@@ -6,50 +6,21 @@
 <meta name="format-detection" content="telephone=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-{% capture title %}
-  {% if page.url == "/" %}
-    {{ site.title }}{% if site.tagline %} &middot; {{ site.tagline }}{% endif %}
-  {% elsif page.title.size > 0 %}
-    {{ page.title }} &middot; {{ site.title }}
-  {% else %}
-    {{ site.title }}
-  {% endif %}
-{% endcapture %}
-
 {% unless page.redirect %}
-  <title>{{ title | strip }}</title>
+  {% seo %}
+
+  {% if site.keywords or page.keywords %}
+    <meta name="keywords" content="{{ site.keywords | default: page.keywords | join:',' }}">
+  {% endif %}
 {% else %}
   <meta http-equiv="refresh" content="0; url={{ page.redirect.to }}">
   <title>Redirecting...</title>
 {% endunless %}
 
-{% if page.description.size > 0 %}
-  {% assign description = page.description | markdownify %}
-{% elsif page.excerpt.size > 0 %}
-  {% assign description = page.excerpt %}
-{% else %}
-  {% assign description = site.description | markdownify %}
-{% endif %}
-<meta name="description" content="{{ description | strip_html | truncatewords:50 }}">
-
-{% if site.keywords or page.keywords %}
-  <meta name="keywords" content="{{ site.keywords | default: page.keywords | join:',' }}">
-{% endif %}
-
 {% comment %}---------------------------
               LINKS
 ------------------------{% endcomment %}
-<link rel="canonical" href="{{ page.url | absolute_url }}">
-
 <link rel="alternate" type="application/atom+xml" title="{{ site.title }} Feed" href="{{ site.feed.path | default:'feed.xml' | absolute_url }}">
-
-{% if page.previous %}
-  <link rel="prev" href="{{ page.previous.url | absolute_url }}">
-{% endif %}
-
-{% if page.next %}
-  <link rel="next" href="{{ page.next.url | absolute_url }}">
-{% endif %}
 
 <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | relative_url }}">
 <!-- Place favicon.ico in the root directory -->

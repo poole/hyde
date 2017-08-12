@@ -12,9 +12,6 @@ url:                 https://qwtel.com
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
 baseurl:             /hydejack
 
-# A very short description of your page
-tagline:             A pretentious two-column Jekyll theme.
-
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
@@ -50,7 +47,7 @@ paginate_path:       '/page-:num/'
 # -----------------------------------------------------------------------------
 
 # Fallback image and color
-image:               /hydejack/assets/img/sidebar-bg.jpg
+sidebar_image:       /hydejack/assets/img/sidebar-bg.jpg
 # color:               '#4fb1ba'
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
@@ -110,6 +107,7 @@ gems:
   - jekyll-paginate
   - jekyll-redirect-from
   - jekyll-relative-links
+  - jekyll-seo-tag
   - jekyll-sitemap
 
 exclude:

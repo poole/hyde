@@ -8,6 +8,7 @@ gem "jekyll-optional-front-matter", "~> 0.2"
 gem "jekyll-paginate", "~> 1.1"
 gem "jekyll-redirect-from", "~> 0.12"
 gem "jekyll-relative-links", "~> 0.4"
+gem "jekyll-seo-tag", "~> 2.2"
 gem "jekyll-sitemap", "~> 1.0"
 
 gem "classifier-reborn", "~> 2.1"

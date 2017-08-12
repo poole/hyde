@@ -63,6 +63,7 @@ qwtel:
     # paypal:          <username>
     email:           mailto:<mail@domain.tld>
     rss:             https://<url>/feed.xml
+    # download:        https://github.com/qwtel/hydejack/archive/v6.6.1.zip
 
 # Another author
 mdo:

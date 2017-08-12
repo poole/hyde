@@ -41,12 +41,12 @@ The `baseurl` depends on the kind of page you are hosting.
 
 For for information on the types of pages you can host on GitHub, see the [GitHub Help article](https://help.github.com/articles/user-organization-and-project-pages/).
 
-## Changing `color` and `image`
+## Changing `color` and `sidebar_image`
 Hydejack allows you to choose the background image of the sidebar, as well as the accent color (color of the links, selection and focus outline, as well as background color of the sidebar, should no image be provided) on a per-page, per-category, per-tag, per-author and global basis.
 
 It is recommended that you provide fallback values in `_config.yml`, should no other rule apply:
 
-    image: /hydejack/assets/img/nap.jpg
+    sidebar_image: /hydejack/assets/img/nap.jpg
     color: '#A85641'
 
 **NOTE**: It is recommended that you use a blurred image in order for the text to remain readable. If you save a blurred image as JPG, it will also drastically reduce its file size.
