@@ -4,10 +4,10 @@
  * Update the foundational and global aspects of the page.
  */
 
-body, main {
-  // -webkit-text-size-adjust: 100%;
-  //     -ms-text-size-adjust: 100%;
-}
+// body, main {
+//   -webkit-text-size-adjust: 100%;
+//       -ms-text-size-adjust: 100%;
+// }
 
 @media screen {
   body::before {
@@ -21,11 +21,11 @@ body, main {
   }
 }
 
-body, #_yPushState {
-  /* Prevent side-scrolling on mobile */
-  position: relative;
-  overflow-x: hidden;
-}
+// body, #_yPushState {
+//   /* Prevent side-scrolling on mobile */
+//   position: relative;
+//   overflow-x: hidden;
+// }
 
 @media screen and (min-width: $break-point-1) {
   html {
@@ -140,6 +140,11 @@ h1, h2, h3, h4, h5, h6 {
   to   { transform: translateY(0);     opacity: 1; }
 }
 
-.mb6 {
-  margin-bottom: 6rem;
-}
+.fl { float: left; }
+.fr { float: right; }
+
+.mb05 { margin-bottom: .5rem }
+.mb6 { margin-bottom: 6rem }
+.mt0 { margin-top: 0 }
+.mt3 { margin-top: 3rem }
+.pb0 { padding-bottom: 0 }

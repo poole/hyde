@@ -61,9 +61,14 @@ hr {
 }
 
 .hr {
-  padding-bottom: .5rem;
   border-bottom: 1px solid #eee;
+  padding-bottom: .5rem;
   margin-bottom: 1.5rem;
+
+  &.page-title {
+    padding-bottom: 1rem;
+    margin-bottom: 2rem;
+  }
 }
 
 h4, h5, h6, .h4, .h5, .h6 {
