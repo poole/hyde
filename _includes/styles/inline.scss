@@ -1,45 +1,30 @@
 @import "variables";
 @import "mixins";
 
-// @import "pooleparty/base";
-// @import "pooleparty/type";
-// @import "pooleparty/table";
-// @import "pooleparty/footnotes";
-// @import "pooleparty/code";
-// @import "pooleparty/posts";
-// @import "pooleparty/pagination";
-//
-// @import "hydejack/base";
-// @import "hydejack/sidebar";
-// @import "hydejack/social";
-// @import "hydejack/katex";
-// @import "hydejack/toc";
-//
-// @import "syntax";
-// @import "spinner";
-//
-// @import "my-style";
+
+@import "pooleparty/__inline/base";
+@import "pooleparty/__inline/type";
+@import "pooleparty/__inline/table";
+@import "pooleparty/__inline/footer";
+@import "pooleparty/__inline/footnotes";
+@import "pooleparty/__inline/code";
+@import "pooleparty/__inline/posts";
+@import "pooleparty/__inline/related";
+@import "pooleparty/__inline/message";
+@import "pooleparty/__inline/pagination";
+
+@import "hydejack/__inline/base";
+@import "hydejack/__inline/sidebar";
+@import "hydejack/__inline/social";
+@import "hydejack/__inline/menu";
+@import "hydejack/__inline/content";
+@import "hydejack/__inline/me";
+@import "hydejack/__inline/katex";
+@import "hydejack/__inline/footer";
 
 
-@import "pooleparty/base-inline";
-@import "pooleparty/type-inline";
-@import "pooleparty/table-inline";
-@import "pooleparty/footer-inline";
-@import "pooleparty/posts-inline";
-@import "pooleparty/related-inline";
-@import "pooleparty/message-inline";
-
-@import "hydejack/base-inline";
-@import "hydejack/sidebar-inline";
-@import "hydejack/social-inline";
-@import "hydejack/menu-inline";
-@import "hydejack/menu";
-@import "hydejack/content-inline";
-@import "hydejack/me-inline";
-@import "hydejack/footer-inline";
 
 @import "my-inline";
-
 
 {% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
 {% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}

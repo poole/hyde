@@ -76,10 +76,13 @@ sidebar_image:       /hydejack/assets/img/sidebar-bg.jpg
 # no_mark_external:    true
 
 # Uncomment this line if third party plugins fail to work with dynimically loaded pages
-# disable_push_state:  true
+# no_push_state:       true
 
 # Uncomment this line if want to disable the touch drawer on mobile
-# disable_drawer: true
+# no_drawer:           true
+
+# Uncomment this line if you do not want parts of the css included in <head/>
+# no_inline_css:       true
 
 # -----------------------------------------------------------------------------
 #  Collections

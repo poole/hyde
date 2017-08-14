@@ -72,7 +72,7 @@ We want to avoid building the URL dynamically in JS, because it depends on your 
 <!--[if gt IE 8]><!---->
 {% capture style_url %}{% link assets/css/hydejack.css %}?v=6.6.1{% endcapture %}
 
-{% if jekyll.environment == 'development' %}
+{% if site.no_inline_css or jekyll.environment == 'development' %}
   <link rel="stylesheet" href="{{ style_url | relative_url }}">
 {% else %}
   <style>

@@ -1,56 +1,60 @@
-// .fixed-top {
-//   position: fixed;
-//   top: 0;
-//   left: 0;
-//   width: 100%;
-//   z-index: 1;
-// }
-//
-// .navbar > .content {
-//   padding-top: 0;
-//   padding-bottom: 0;
-//   min-height: 0;
-//   height: 0;
-// }
+// <<<<< INLINE
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1;
+}
+
+.navbar > .content {
+  padding-top: 0;
+  padding-bottom: 0;
+  min-height: 0;
+  height: 0;
+}
+// >>>>>
 
 .menu {
-  // display: inline-block;
-  // padding: 1.75rem 1.5rem;
-  // border-bottom: none;
-  // margin-left: -1.5rem;
-  // color: $gray!important;
-  //
-  // &::after {
-  //   content: "\2630"; // ☰
-  // }
-  //
-  // @media screen and (min-width: $break-point-2) {
-  //   padding: 1.25rem 1.5rem;
-  //   position: absolute;
-  //   left: -9999px;
-  //
-  //   &:focus {
-  //     position: static;
-  //   }
-  // }
+  // <<< inline
+  display: inline-block;
+  padding: 1.75rem 1.5rem;
+  border-bottom: none;
+  margin-left: -1.5rem;
+  color: $gray!important;
 
-  @media print {
-    display: none;
+  &::after {
+    content: "\2630"; // ☰
   }
+
+  @media screen and (min-width: $break-point-2) {
+    padding: 1.25rem 1.5rem;
+    position: absolute;
+    left: -9999px;
+
+    &:focus {
+      position: static;
+    }
+  }
+  // >>>
+
+  @media print { display: none; } // link
 }
 
 .animation-main {
-  opacity: 0;
-  will-change: opacity;
-  // pointer-events: none;
+  opacity: 0; // inline
+  will-change: opacity; // inline
+  pointer-events: none; // link
 }
 
 .loading {
-  // display: none;
+  display: none; // inline
+  // <<< link
   position: absolute;
   top: 0;
   right: 0;
   padding: 3 * 1.75rem 3 * 1.5rem;
   transform-origin: top right;
   transform: scale(0.33);
+  // >>>
 }
