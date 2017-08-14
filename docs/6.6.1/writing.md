@@ -17,6 +17,20 @@ so that your posts remain compatible with other Jekyll themes.
 * this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
+## A word on building speeds
+If building speeds are a problem, try using the `--incremental` flag, e.g.
+
+    bundle exec jekyll serve --incremental
+
+From the [Jekyll docs](https://jekyllrb.com/docs/configuration/#build-command-options) (emphasis mine):
+
+> Enable the experimental incremental build feature. Incremental build only re-builds posts and pages that have changed, resulting in significant performance improvements for large sites, *but may also break site generation in certain cases*.
+
+The breakage occurs when you create new files or change filenames.
+Also, changing the title, category, tags, etc. of a page or post will not be reflected in pages
+other then the page or post itself.
+This makes it ideal for writing new posts and previewing changes, but not setting up new content.
+
 ## Adding a table of contents
 You can add a generated table of contents to any page by adding `{:toc}` below a list.
 

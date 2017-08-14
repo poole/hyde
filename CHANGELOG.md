@@ -6,14 +6,14 @@ redirect_from:
   - /docs/versions/
 ---
 
-## v6.7.0
+## v7.0.0
 ??? 2017
 {:.heading.post-date}
 
 ???
 
 ### Added
-* Added "big projects". You can make projects span the entire available width (instead of half),
+* Added "big projects". You can make a project span the entire available width (instead of half),
   by setting `big_project` to `true`.
   You can do this for an entire `projects` or `welcome` page, by setting `big_projects` in the front matter.
 
@@ -24,7 +24,6 @@ redirect_from:
   ~~~md
   ---
   layout: welcome
-  ...
   content_separator: <!-- more -->
   ---
 
@@ -38,15 +37,42 @@ redirect_from:
 * Added `_includes/my-head.html`, to make it easier to add things to the `<head/>` without modifying the source.
   This is especially useful when using the gem-based version of the theme.
 
-### Changed
-### Removed
-### Design
-* Code blocks now are the same font size as code in regular text.
-  To undo this change, open (or create) `_sass/my-inline.scss` and add the following:
+* The screenshot on the project detail page now links to the the first entry in the `srcset`,
+  which is presumed to be the largest version of the screenshot.
 
-  ~~~css
-  pre code { font-size: .75em; }
-  ~~~
+* Added `dns-prefetch` links for Google Fonts and Google Analytics domains to further boost page load speed.
+  These are only added when using these features.
+
+* Added `no_inline_css` option to `_config.yml`.
+  When set to `true`, core styles will not be inlined into the `<head/>` of the page.
+  Instead, all styles will be put into a single `.css` file and requested as a `<link/>` tag.
+  This option may be useful when using HTTP/2.
+
+### Changes
+* This theme now uses the `jekyll-seo-tag` plugin for better share-ability on social media.
+  Note that this plugin uses the `image` key in the front-matter of a page
+  for the thumbnail image when previewing a link.
+  However, Hydejack already uses the same name to defined the background image of the sidebar.
+  While it may not be undesirable to use the same image for both the sidebar and social media links,
+  the new preferred way to set sidebar images is by using the `sidebar_image` key.
+  In any case, using `image` will continue to work, but will set both the sidebar image, and the social media image.
+
+* Changed how CSS code is organized.
+  Previously there were two versions of each CSS file,
+  one containing core styles to be inlined into the page, the other containing the rest to be `<link/>`ed.
+  Now there is only one file, with the parts to be inlined/linked marked with comments.
+  A script has been added to "split" the CSS into the inline/link parts.
+
+### Performance
+* Drastically increased building speed during development.
+  Roughly 50% of the time was spent rebuilding the inline CSS, which is now built once and included via `<link/>` tags.
+  The production build still inlines CSS, so its building speed remains unchanged.
+  For more on how to improve building speeds, [see here](docs/6.6.1/writing.md#a-word-on-building-speeds).
+  For more on why inlining CSS can be a good idea, [see this](https://varvy.com/pagespeed/inline-small-css.html).
+
+### Design
+* The sidebar now has a subtle shadow on mobile, to indicate that it can be drawn from the side.
+* Footnotes now have a `smaller` font size to distinguish them from the rest of the content.
 
 ## v6.6.1
 Aug 10 2017
@@ -67,6 +93,11 @@ Aug 7 2017
 * KaTeX is no longer loaded on pages that do not contain math blocks.
 * `preload` link tags no longer use `onload`. Instead callbacks are registered within a script tag.
 * Code in code blocks is no longer smaller sized than inline code.
+  To undo this change, open (or create) `_sass/my-inline.scss` and add the following:
+
+  ~~~css
+  pre code { font-size: .75em; }
+  ~~~
 
 ## v6.5.0
 Jul 27 2017
