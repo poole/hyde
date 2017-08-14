@@ -25,6 +25,14 @@
 <link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | relative_url }}">
 <!-- Place favicon.ico in the root directory -->
 
+{% unless site.no_google_fonts %}
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+{% endunless %}
+{% if site.google_analytics %}
+  <link rel="dns-prefetch" href="https://www.google-analytics.com">
+{% endif %}
+
 {% comment %}
 The links below are only here because we want to use the `href` property in JS (see `_js/src/katex.js`).
 We want to avoid building the URL dynamically in JS, because it depends on your `baseurl` and CDN optimizers can't find and modify it there.
