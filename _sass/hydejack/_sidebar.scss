@@ -15,7 +15,7 @@
   }
 }
 
-#_yDrawer {
+#_hyDrawer {
   position: relative; // inline
   padding: 1rem 0; // inline
 
@@ -25,11 +25,7 @@
     min-height: 100vh; // inline
 
     // <<< link
-    > .y-drawer-scrim {
-      z-index: 2;
-    }
-
-    > .y-drawer-content {
+    > .hy-drawer-content {
       z-index: 3;
       width: 18rem;
       left: -17.5rem;
@@ -53,16 +49,13 @@
     width: 18rem;
     margin-left: 0;
     // >>>
-    // <<< link
-    > .y-drawer-content {
-      box-shadow: none;
-    }
-    // >>>
+
+    > .hy-drawer-content { box-shadow: none; } // link
   }
 
   @media screen and (min-width: $break-point-dynamic) {
     width: $dynamic-width; // inline
-    > .y-drawer-content { width: $dynamic-width; } // link
+    > .hy-drawer-content { width: $dynamic-width; } // link
   }
 }
 

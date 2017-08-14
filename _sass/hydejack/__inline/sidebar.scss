@@ -20,7 +20,7 @@
   }
 }
 
-#_yDrawer {
+#_hyDrawer {
   position: relative; 
   padding: 1rem 0; 
   @media screen {
@@ -45,12 +45,13 @@
     width: 18rem;
     margin-left: 0;
     
-    
+
+//     > .hy-drawer-content { box-shadow: none; } 
   }
 
   @media screen and (min-width: $break-point-dynamic) {
     width: $dynamic-width; 
-//     > .y-drawer-content { width: $dynamic-width; } 
+//     > .hy-drawer-content { width: $dynamic-width; } 
   }
 }
 

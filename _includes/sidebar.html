@@ -1,10 +1,10 @@
-<div id="_yDrawer">
+<div id="_hyDrawer">
   <div id="_sidebar" class="sidebar">
     <div class="sidebar-bg{% if image and image != 'none' %} sidebar-overlay{% endif %}"
       style="background-color:{{ color }};{% if image and image != 'none' %}background-image:url({{ image }}){% endif %}"></div>
     <header class="sidebar-sticky" role="banner">
       <div class="sidebar-about">
-        <h1><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h1>
+        <h2 class="h1"><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
         {{ site.description | truncatewords:50 | markdownify }}
       </div>
 

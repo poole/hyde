@@ -1,7 +1,19 @@
-// Copyright (c) 2017 Florian Klampfer
-// Licensed under MIT
+// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import YDrawer from 'y-drawer/src/vanilla';
+import { Drawer } from 'hy-drawer/src/vanilla';
 
 import { hasFeatures } from './common';
 
@@ -20,36 +32,38 @@ const REQUIREMENTS = [
 const MEDIA_QUERY = '(min-width: 54em)';
 
 function resizeCallback() {
-  const hasChanged = window.isDesktop !== window.matchMedia(MEDIA_QUERY).matches;
+  const hasChanged = window._isDesktop !== window.matchMedia(MEDIA_QUERY).matches;
   if (hasChanged) {
-    window.isDesktop = !window.isDesktop;
-    window.drawer.persistent = window.isDesktop;
-    window.drawer.jumpTo(window.isDesktop);
+    window._isDesktop = !window._isDesktop;
+    window._drawer.persistent = window._isDesktop;
+    window._drawer.jumpTo(window._isDesktop);
   }
 }
 
 function menuClickClallback(e) {
-  if (!window.isDesktop) {
+  if (!window._isDesktop) {
     e.preventDefault();
-    window.drawer.toggle();
+    window._drawer.toggle();
   }
 }
 
-function addEventListeners(drawer) {
-  window.drawer = drawer;
-  window.addEventListener('resize', resizeCallback);
-  document.getElementById('_menu').addEventListener('click', menuClickClallback);
-}
+if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
+  const ua = navigator.userAgent.toLowerCase();
+  const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
 
-if (!window.disableDrawer && hasFeatures(REQUIREMENTS)) {
-  window.isDesktop = window.matchMedia(MEDIA_QUERY).matches;
-  const drawer = document.getElementById('_yDrawer');
+  const drawerEl = document.getElementById('_hyDrawer');
+  const menuEl = document.getElementById('_menu');
 
-  addEventListeners(new YDrawer(drawer, {
-    opened: window.isDesktop,
-    persistent: window.isDesktop,
+  window._isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+
+  window._drawer = new Drawer(drawerEl, {
+    opened: window._isDesktop,
+    persistent: window._isDesktop,
     transitionDuration: 150,
-  }));
+  });
 
-  drawer.classList.add('loaded');
+  window.addEventListener('resize', resizeCallback);
+  menuEl.addEventListener('click', menuClickClallback);
+
+  drawerEl.classList.add('loaded');
 }

@@ -1,5 +1,19 @@
-// Copyright (c) 2017 Florian Klampfer
-// Licensed under MIT
+// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+import { PushState } from 'hy-push-state/src/vanilla';
 
 import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
@@ -18,7 +32,6 @@ import { switchMap } from 'rxjs/operator/switchMap';
 import { takeUntil } from 'rxjs/operator/takeUntil';
 import { zipProto as zipWith } from 'rxjs/operator/zip';
 
-import PushState from 'y-push-state/src/vanilla';
 import elemDataset from 'elem-dataset';
 
 import { hasFeatures, animate } from './common';
@@ -51,13 +64,13 @@ function makeUnstoppable() {
   });
 }
 
-if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
+if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   const ua = navigator.userAgent.toLowerCase();
   const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
 
   const crossFader = new CrossFader({ duration: DURATION, fadeDuration: FADE_DURATION });
 
-  const pushState = document.getElementById('_yPushState');
+  const pushStateEl = document.getElementById('_hyPushState');
 
   const animationMain = document.createElement('div');
   animationMain.classList.add('animation-main');
@@ -66,7 +79,7 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
     <div class="content">
       <div class="page"></div>
     </div>`;
-  pushState.parentNode.insertBefore(animationMain, pushState);
+  pushStateEl.parentNode.insertBefore(animationMain, pushStateEl);
 
   const loading = document.createElement('div');
   loading.classList.add('loading');
@@ -81,30 +94,30 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
   `;
   document.querySelector('.navbar .content').appendChild(loading);
 
-  const start$ = Observable::fromEvent(pushState, 'y-push-state-start')
+  const start$ = Observable::fromEvent(pushStateEl, 'hy-push-state-start')
     ::map(({ detail }) => detail)
     ::map(detail => [detail, document.getElementById('_main')])
     ::effect(() => {
       // If a link on the drawer has been clicked, close it
-      if (!window.isDesktop && window.drawer.opened) {
-        window.drawer.close();
+      if (!window._isDesktop && window._drawer.opened) {
+        window._drawer.close();
       }
     })
     ::share();
 
-  const ready$ = Observable::fromEvent(pushState, 'y-push-state-ready')
+  const ready$ = Observable::fromEvent(pushStateEl, 'hy-push-state-ready')
     ::map(({ detail }) => detail)
     ::share();
 
-  const progress$ = Observable::fromEvent(pushState, 'y-push-state-progress')
+  const progress$ = Observable::fromEvent(pushStateEl, 'hy-push-state-progress')
     ::map(({ detail }) => detail);
     // ::share();
 
-  const after$ = Observable::fromEvent(pushState, 'y-push-state-after')
+  const after$ = Observable::fromEvent(pushStateEl, 'hy-push-state-after')
     ::map(({ detail }) => detail)
     ::share();
 
-  // const error$ = Observable.fromEvent(pushState, 'y-push-state-error');
+  // const error$ = Observable.fromEvent(pushStateEl, 'hy-push-state-error');
 
   // HACK
   if (isSafari) {
@@ -216,12 +229,12 @@ if (!window.disablePushState && hasFeatures(REQUIREMENTS)) {
     ::makeUnstoppable()
     .subscribe();
 
-  new PushState(pushState, {
+  window._pushState = new PushState(pushStateEl, {
     replaceIds: ['_main'],
     linkSelector: 'a[href^="/"]',
     scriptSelector: 'script:not([type^="math/tex"])',
     duration: DURATION,
     noPopDuration: isSafari,
     scrollRestoration: !isSafari,
-  }).startHistory();
+  });
 }
