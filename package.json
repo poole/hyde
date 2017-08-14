@@ -6,17 +6,21 @@
     "clean": "rm -f assets/js/hydejack.js & rm -f _sass/**/__*/* & wait",
     "test": "echo \"Warning: no test specified\" && exit 0",
     "build": "npm run build:js & npm run build:css & wait",
-    "build:js": "cat _includes/header.txt > assets/js/hydejack.js; cross-env NODE_ENV=production browserify _js/src/index.js -g babelify | uglifyjs -c -m >> assets/js/hydejack.js",
+    "build:js": "cat _includes/header.txt > assets/js/hydejack.js; cross-env NODE_ENV=production browserify _js/src/index.js -g browserify-css -g babelify | uglifyjs -c -m >> assets/js/hydejack.js",
     "build:css": "./.scripts/build-css.sh",
     "watch": "npm run watch:js & npm run watch:css",
-    "watch:js": "watchify -d _js/src/index.js -g babelify -o assets/js/hydejack.js",
+    "watch:js": "watchify -d _js/src/index.js -g browserify-css -g babelify -o assets/js/hydejack.js",
     "watch:css": "npm run build:css && onchange '_sass/**/*.scss' -e '_sass/**/__*/*' -- npm run build:css '{{changed}}'",
+    "serve": "bundle exec jekyll serve --port=$npm_package_config_port --host=0.0.0.0",
     "lint": "eslint _js/src",
-    "dev": "npm run watch",
+    "dev": "npm run watch & npm run serve",
     "prepare": "npm run lint && npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml"
   },
-  "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com)",
+  "config": {
+    "port": 4000
+  },
+  "author": "Florian Klampfer <mail@qwtel.com> (https://qwtel.com/)",
   "license": "MIT",
   "private": true,
   "devDependencies": {
@@ -27,6 +31,7 @@
     "babel-preset-es2016": "6.24.1",
     "babelify": "7.3.0",
     "browserify": "14.4.0",
+    "browserify-css": "^0.11.1",
     "cross-env": "5.0.1",
     "eslint": "3.19.0",
     "eslint-config-airbnb": "15.1.0",
