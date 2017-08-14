@@ -12,10 +12,10 @@ const writeFile = promisify(fs.writeFile);
 
 const ENC = 'utf-8';
 
-const INLINE_REGEX = /(.*)\s*\/\/\s*inline\s*$/igm
-const DEFER_REGEX =  /(.*)\s*\/\/\s*link\s*$/igm
-const INLINE_BLOCK_REGEX = /\/\/\s*>*\s*<{3,}\s*inline([\s\S]*?)\/\/\s*>{3,}.*/igm
-const DEFER_BLOCK_REGEX =  /\/\/\s*>*\s*<{3,}\s*link([\s\S]*?)\/\/\s*>{3,}.*/igm
+const INLINE_REGEX = /(.*)\s*\/\/\s*inline\s*$/uigm
+const DEFER_REGEX =  /(.*)\s*\/\/\s*link\s*$/uigm
+const INLINE_BLOCK_REGEX = /\/\/\s*>*\s*<{3,}\s*inline([\s\S]*?)\/\/\s*>{3,}.*/uigm
+const DEFER_BLOCK_REGEX =  /\/\/\s*>*\s*<{3,}\s*link([\s\S]*?)\/\/\s*>{3,}.*/uigm
 
 function genHeader(filename) {
   return `/*
