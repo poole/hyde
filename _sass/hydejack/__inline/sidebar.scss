@@ -92,14 +92,18 @@
 
   @media screen {
     position: absolute;
-    right:  2rem;
+    right: 1.5rem;
+    left: 1.5rem;
     bottom: 1rem;
+  }
+
+  @media screen and (min-width: $break-point-dynamic) {
     left: auto;
-    max-width: 14rem;
+    max-width: 15rem;
   }
 
   @media print {
-    padding: 0 2rem;
+    padding: 0 1.5rem;
   }
 }
 

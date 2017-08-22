@@ -9,20 +9,17 @@
   > ul {
     list-style: none;
     padding-left: 0;
-    margin: 0 -.25rem;
 
     > li {
       float: left;
-      margin: 0 .25rem;
 
       > a {
         display: inline-block;
         text-align: center;
-        font-size: 1.6rem;
-        line-height: 3rem;
-        width: 3.1249rem;
-        height: 4rem;
-        padding: .5rem 0;
+        font-size: 1.5rem;
+        width: 3rem;
+        height: 3.5rem;
+        padding: 0;
       }
     }
 
