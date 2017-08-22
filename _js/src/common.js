@@ -62,3 +62,21 @@ export function animate(el, keyframes, options) {
     };
   });
 }
+
+export function isSafari() {
+  if (!isSafari.hasResult) {
+    const ua = navigator.userAgent.toLowerCase();
+    isSafari.result = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
+    isSafari.hasResult = true;
+  }
+  return isSafari.result;
+}
+
+export function isMobileSafari() {
+  if (!isMobileSafari.hasResult) {
+    const ua = navigator.userAgent.toLowerCase();
+    isMobileSafari.result = isSafari() && ua.indexOf('mobile') > 0;
+    isMobileSafari.hasResult = true;
+  }
+  return isMobileSafari.result;
+}

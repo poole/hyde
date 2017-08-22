@@ -34,7 +34,7 @@ import { zipProto as zipWith } from 'rxjs/operator/zip';
 
 import elemDataset from 'elem-dataset';
 
-import { hasFeatures, animate } from './common';
+import { animate, hasFeatures, isSafari } from './common';
 import CrossFader from './cross-fader';
 import upgradeMathBlocks from './katex';
 
@@ -65,9 +65,6 @@ function makeUnstoppable() {
 }
 
 if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
-  const ua = navigator.userAgent.toLowerCase();
-  const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
-
   const crossFader = new CrossFader({ duration: DURATION, fadeDuration: FADE_DURATION });
 
   const pushStateEl = document.getElementById('_hyPushState');
@@ -120,13 +117,13 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // const error$ = Observable.fromEvent(pushStateEl, 'hy-push-state-error');
 
   // HACK
-  if (isSafari) {
-    Observable::fromEvent(window, 'popstate')
-      .subscribe(() => { document.body.style.minHeight = '999999px'; });
-
-    after$
-      .subscribe(() => { document.body.style.minHeight = ''; });
-  }
+  // if (isSafari()) {
+  //   Observable::fromEvent(window, 'popstate')
+  //     .subscribe(() => { document.body.style.minHeight = '999999px'; });
+  //
+  //   after$
+  //     .subscribe(() => { document.body.style.minHeight = ''; });
+  // }
 
   // FLIP animation (when applicable)
   start$
@@ -154,7 +151,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // Fade main content out
   start$
     ::effect(([, main]) => { main.style.opacity = 0; })
-    ::filter(([{ type }]) => type === 'push' || !isSafari)
+    ::filter(([{ type }]) => type === 'push' || !isSafari())
     ::exhaustMap(([{ type }, main]) =>
       animate(main, [
         { opacity: 1 },
@@ -186,7 +183,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // Prepare showing the new content
   ready$
     ::effect(() => { loading.style.display = 'none'; })
-    ::filter(({ type }) => type === 'push' || !isSafari)
+    ::filter(({ type }) => type === 'push' || !isSafari())
     ::switchMap(({ flip, content: [main] }) => flip.ready(main)::takeUntil(start$))
     ::makeUnstoppable()
     .subscribe();
@@ -202,7 +199,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
 
   // Animate the new content
   after$
-    ::filter(({ type }) => type === 'push' || !isSafari)
+    ::filter(({ type }) => type === 'push' || !isSafari())
     ::map(kind => [kind, document.querySelector('main')])
     ::switchMap(([, main]) =>
       animate(main, [
@@ -234,7 +231,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     linkSelector: 'a[href^="/"]',
     scriptSelector: 'script:not([type^="math/tex"])',
     duration: DURATION,
-    noPopDuration: isSafari,
-    scrollRestoration: !isSafari,
+    noPopDuration: isSafari(),
+    scrollRestoration: !isSafari(),
   });
 }

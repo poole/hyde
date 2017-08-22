@@ -15,7 +15,7 @@
 
 import { Drawer } from 'hy-drawer/src/vanilla';
 
-import { hasFeatures } from './common';
+import { hasFeatures, isSafari, isMobileSafari } from './common';
 
 const REQUIREMENTS = [
   'eventlistener',
@@ -48,18 +48,20 @@ function menuClickClallback(e) {
 }
 
 if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
-  const ua = navigator.userAgent.toLowerCase();
-  const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
-
   const drawerEl = document.getElementById('_hyDrawer');
   const menuEl = document.getElementById('_menu');
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
   window._isDesktop = window.matchMedia(MEDIA_QUERY).matches;
 
   window._drawer = new Drawer(drawerEl, {
     opened: window._isDesktop,
     persistent: window._isDesktop,
-    transitionDuration: 150,
+    range: isMobileSafari() ? [35, 150] : [0, 50],
+    // backButton: !isSafari(),
+    slideThreshold: isSafari() ? 0 : 10,
+    preventDefault: true,
+    peekOverEdge: 0.5 * rem,
   });
 
   window.addEventListener('resize', resizeCallback);
