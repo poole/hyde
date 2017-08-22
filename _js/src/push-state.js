@@ -231,7 +231,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     linkSelector: 'a[href^="/"]',
     scriptSelector: 'script:not([type^="math/tex"])',
     duration: DURATION,
-    noPopDuration: isSafari(),
+    instantPop: isSafari(),
     scrollRestoration: !isSafari(),
   });
 }

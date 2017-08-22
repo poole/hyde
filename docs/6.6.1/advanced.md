@@ -68,8 +68,65 @@ Subsequent builds are administered via
 
 If you want to actively develop the scripts, it is better to run
 
-    $ npm run dev
+    $ npm run watch:js
 
 which will build a non-minified, non-transpiled (ES2016) version of `hydejack.js` after each filechange.
+
+## How CSS works in Hydejack
+Hydejack takes a quite unique, and admittedly weird, approach to CSS.
+The goal is to inline essential rules in a `style` tag in the `<head/>` of the page,
+(to increase the loading speed of the page) while serving the rest in a separate file.
+
+~~~
+├── hydejack
+│   ├── __inline
+│   ├── __link
+│   ├── _base.scss
+│   ├── ...
+│   └── _social.scss
+├── pooleparty
+│   ├── __inline
+│   ├── __link
+│   ├── _base.scss
+│   ├── ...
+│   └── _type.scss
+├── mixins.scss
+├── my-inline.scss
+├── my-style.scss
+├── syntax.scss
+└── variables.scss
+~~~
+
+The styles are written in SCSS and are located in the `_sass` folder.
+They are organized alongside components (or rather, topics) like "sidebar" and "footer".
+Further, there are two separate frameworks, "pooleparty" and "hydejack",
+which grew out of the original [Poole](http://getpoole.com/) and Hyde styles.
+Poole(-party) contains more general style rules, while Hyde(-jack) contains those that are specific to the theme.
+However, this separation has become more blurry over time.
+
+### Splitting the CSS
+Further, you will notice `__inline` and `__link` folders.
+The unfriendly names are chosen intentionally, because the contents are generated and shouldn't be modified directly.
+They are marked up with special comments like `// inline` and `// link`
+which tell a simple script to how to "split" the source file into.
+
+TODO
+
+To split the CSS once, run
+
+~~~
+npm run build:css
+~~~
+
+To rebuild on file changes, use
+
+~~~
+npm run watch:css
+~~~
+
+**NOTE**: You can use `npm run dev` to start an entire development environment,
+which will run `jekyll` at port 4000 and watch for CSS and JS changes.
+{:.message}
+
 
 *[FLIP]: First Last Invert Play
