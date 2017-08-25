@@ -47,14 +47,10 @@ redirect_from:
     including Licensee’s license in the case where Licensee:
 
     1.  became insolvent or otherwise entered into any liquidation process; or
-
     2.  exported The Software to any jurisdiction where licensor may not enforce his rights under this agreements in; or
-
     3.  Licensee was in breach of any of this license's terms and conditions and such breach was not cured, immediately
         upon notification; or
-
     4.  Licensee in breach of any of the terms of clause 2 to this license; or
-
     5.  Licensee otherwise entered into any arrangement which caused Licensor to be unable to enforce his rights under
         this License.
 
@@ -94,14 +90,11 @@ redirect_from:
     2.  **Feature Request:** Licensee may request additional features in Software, provided, however, that:
 
         1.  Licensee shall waive any claim or right in such feature should feature be developed by Licensor;
-
         2.  Licensee shall be prohibited from developing the feature, or disclose such feature request, or feature, to
             any 3rd party directly competing with Licensor or any 3rd party which may be, following the development of
             such feature, in direct competition with Licensor;
-
         3.  Licensee warrants that feature does not infringe any 3rd party patent, trademark, trade-secret or any other
             intellectual property right; and
-
         4.  Licensee developed, envisioned or created the feature solely by himself.
 
 7.  **Liability:** To the extent permitted under Law, The Software is provided under an AS-IS basis. Licensor shall
