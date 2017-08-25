@@ -5,7 +5,8 @@
     <header class="sidebar-sticky" role="banner">
       <div class="sidebar-about">
         <h2 class="h1"><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
-        {{ site.description | truncatewords:50 | markdownify }}
+        {% capture description %}{{ site.description }}{% if site.description.size > 60 %}{:style="font-size:smaller"}{% endif %}{% endcapture %}
+        {{ description | markdownify }}
       </div>
 
       <nav class="sidebar-nav heading" role="navigation">

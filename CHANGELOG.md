@@ -73,6 +73,8 @@ redirect_from:
 ### Design
 * The sidebar now has a subtle shadow on mobile, to indicate that it can be drawn from the side.
 * Footnotes now have a `smaller` font size to distinguish them from the rest of the content.
+* The `description` in the sidebar now has a `smaller` font size when it is longer than 60 characters.
+* Changed the `line-height` from `1.75` to a more reasonable `1.65`.
 
 ## v6.6.1
 Aug 10 2017
