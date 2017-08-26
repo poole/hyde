@@ -22,6 +22,10 @@
   @import "hydejack/katex";
   @import "hydejack/footer";
 
+  {% unless site.no_mark_external %}
+    @import "hydejack/mark-external";
+  {% endunless %}
+
   @import "syntax";
   @import "spinner";
   @import "my-inline";
@@ -47,6 +51,10 @@
   @import "hydejack/__link/katex";
   @import "hydejack/__link/footer";
 
+  {% unless site.no_mark_external %}
+    @import "hydejack/__link/mark-external";
+  {% endunless %}
+
   @import "syntax";
   @import "spinner";
   @import "my-style";
@@ -59,24 +67,5 @@
   .wf-active {
     font-family: {{ font | default:"serif" }};
     h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading | default:"serif" }}; }
-  }
-{% endunless %}
-
-{% unless site.no_mark_external %}
-  @media screen {
-    a[href*="//"]:not(.no-mark-external)::after, a.no-push-state:not(.no-mark-external)::after {
-      content: "\00A0\ea7e";
-      font-family: 'icomoon'!important;
-      speak: none;
-      font-style: normal;
-      font-weight: normal;
-      font-variant: normal;
-      text-transform: none;
-      line-height: 1;
-      font-size: smaller;
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
-      opacity: 0.5;
-    }
   }
 {% endunless %}

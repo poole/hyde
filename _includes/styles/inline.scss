@@ -27,6 +27,10 @@
 
 
 
+
+
+
+
 @import "pooleparty/__inline/base";
 @import "pooleparty/__inline/type";
 @import "pooleparty/__inline/table";
@@ -47,7 +51,14 @@
 @import "hydejack/__inline/katex";
 @import "hydejack/__inline/footer";
 
+{% unless site.no_mark_external %}
+  @import "hydejack/__inline/mark-external";
+{% endunless %}
+
 @import "my-inline";
+
+
+
 
 {% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
 {% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
