@@ -12,6 +12,9 @@ redirect_from:
 
 ???
 
+### License
+The free version of Hydejack is now [GPL-3.0] licensed.
+
 ### Added
 * Added "big projects". You can make a project span the entire available width (instead of half),
   by setting `big_project` to `true`.
@@ -63,6 +66,10 @@ redirect_from:
   Now there is only one file, with the parts to be inlined/linked marked with comments.
   A script has been added to "split" the CSS into the inline/link parts.
 
+* The `y-drawer` component (MIT) has been replaced with the `hy-drawer` component (GPL-3.0).
+
+* The `y-push-state` component (MIT) has been replaced with the `hy-push-state` component (GPL-3.0).
+
 ### Performance
 * Drastically increased building speed during development.
   Roughly 50% of the time was spent rebuilding the inline CSS, which is now built once and included via `<link/>` tags.
@@ -72,9 +79,13 @@ redirect_from:
 
 ### Design
 * The sidebar now has a subtle shadow on mobile, to indicate that it can be drawn from the side.
+* The sidebar now has less margin.
+* The sidebar now fits 5 social media icons, up from 4.
 * Footnotes now have a `smaller` font size to distinguish them from the rest of the content.
 * The `description` in the sidebar now has a `smaller` font size when it is longer than 60 characters.
-* Changed the `line-height` from `1.75` to a more reasonable `1.65`.
+* Changed the `line-height` of regular text from `1.75` to `1.65`.
+* `h1`, `h2` and `h3` headings now have different `line-height`s to improve readability when they span multiple lines.
+* Marks on external links are now less opaque, but animate `opacity` on `hover`.
 
 ## v6.6.1
 Aug 10 2017
@@ -457,3 +468,5 @@ Oct 15 2013
 [migration]: docs/6.6.1/migration.md
 [writing]: docs/6.6.1/writing.md
 [scripts]: docs/6.6.1/scripts.md
+
+[GPL-3.0]: licenses/GPL-3.0.md
