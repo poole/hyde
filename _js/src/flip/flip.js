@@ -23,7 +23,8 @@ export default class Flip {
       new Flip(...args);
   }
 
-  constructor({ animationMain, duration }) {
+  constructor({ anchor, animationMain, duration }) {
+    this.anchor = anchor;
     this.animationMain = animationMain;
     this.duration = duration;
   }

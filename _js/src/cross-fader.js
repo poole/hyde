@@ -18,12 +18,11 @@ import Color from 'color';
 import { Observable } from 'rxjs/Observable';
 import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
-import { timer } from 'rxjs/observable/timer';
+import { of } from 'rxjs/observable/of';
 
 import { _do as effect } from 'rxjs/operator/do';
 import { _finally as cleanup } from 'rxjs/operator/finally';
 import { map } from 'rxjs/operator/map';
-import { zipProto as zipWith } from 'rxjs/operator/zip';
 
 import { animate } from './common';
 
@@ -42,13 +41,12 @@ function updateStyle({ color = '#00f' } = {}) {
 }
 
 export default class CrossFader {
-  constructor({ duration, fadeDuration }) {
+  constructor(fadeDuration) {
     const main = document.getElementById('_main');
     const pageStyle = document.getElementById('_pageStyle');
     const styleSheet = document.styleSheets::find(ss => ss.ownerNode === pageStyle) || {};
 
     this.sidebar = document.getElementById('_sidebar');
-    this.duration = duration;
     this.fadeDuration = fadeDuration;
     this.rules = styleSheet.cssRules || styleSheet.rules;
     this.prevImage = main.getAttribute('data-image');
@@ -65,12 +63,11 @@ export default class CrossFader {
     let res$;
 
     if (image === '' || image === 'none' || image === this.prevImage) {
-      res$ = Observable::timer(this.duration * 2);
+      res$ = Observable::of({});
     } else {
       const imgObj = new Image();
 
       res$ = Observable::fromEvent(imgObj, 'load')
-        ::zipWith(Observable::timer(this.duration * 2), x => x)
         ::cleanup(() => { imgObj.src = ''; });
 
       imgObj.src = image;
@@ -92,7 +89,7 @@ export default class CrossFader {
       });
   }
 
-  crossFade([prevDiv, div]) {
+  fade([prevDiv, div]) {
     prevDiv.parentNode.insertBefore(div, prevDiv.nextElementSibling);
 
     return animate(div, [
