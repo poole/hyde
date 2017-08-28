@@ -41,10 +41,10 @@ function resizeCallback() {
 }
 
 function menuClickClallback(e) {
-  if (!window._isDesktop) {
-    e.preventDefault();
-    window._drawer.toggle();
-  }
+  // if (!window._isDesktop) {
+  e.preventDefault();
+  /* if (!isSafari()) */ window._drawer.toggle();
+  // }
 }
 
 if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {

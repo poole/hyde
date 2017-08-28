@@ -55,7 +55,7 @@
 
   @media screen and (min-width: $break-point-dynamic) {
     width: $dynamic-width; // inline
-    > .hy-drawer-content { width: $dynamic-width; } // link
+    > .hy-drawer-content { width: $dynamic-width; left: calc(-50% + 28.5rem); } // link
   }
 }
 

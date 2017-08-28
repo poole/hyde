@@ -27,15 +27,15 @@
     content: "\2630"; // ☰
   }
 
-  @media screen and (min-width: $break-point-2) {
-    padding: 1.25rem 1.5rem;
-    position: absolute;
-    left: -9999px;
-
-    &:focus {
-      position: static;
-    }
-  }
+  // @media screen and (min-width: $break-point-2) {
+  //   padding: 1.25rem 1.5rem;
+  //   position: absolute;
+  //   left: -9999px;
+  // 
+  //   &:focus {
+  //     position: static;
+  //   }
+  // }
   // >>>
 
   @media print { display: none; } // link
