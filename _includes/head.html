@@ -84,9 +84,7 @@ We want to avoid building the URL dynamically in JS, because it depends on your 
   <link rel="stylesheet" href="{{ style_url | relative_url }}">
 {% else %}
   <style>
-    {% capture include_to_scssify %}
-    {% include styles/inline.scss %}
-    {% endcapture %}
+    {% capture include_to_scssify %}{% include styles/inline.scss %}{% endcapture %}
     {{ include_to_scssify | scssify }}
   </style>
   <link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">

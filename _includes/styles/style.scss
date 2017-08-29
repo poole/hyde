@@ -22,6 +22,9 @@
   @import "hydejack/katex";
   @import "hydejack/footer";
 
+  @import "pro/projects";
+  @import "pro/resume";
+
   {% unless site.no_mark_external %}
     @import "hydejack/mark-external";
   {% endunless %}
@@ -50,6 +53,9 @@
   @import "hydejack/__link/me";
   @import "hydejack/__link/katex";
   @import "hydejack/__link/footer";
+
+  @import "pro/projects";
+  @import "pro/resume";
 
   {% unless site.no_mark_external %}
     @import "hydejack/__link/mark-external";

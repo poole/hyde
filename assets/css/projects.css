@@ -1,5 +1,0 @@
----
-# This file is for development only. CSS will be inlined in production.
----
-{% capture include_to_scssify %}{% include pro/styles/projects.scss %}{% endcapture %}
-{{ include_to_scssify | scssify }}
