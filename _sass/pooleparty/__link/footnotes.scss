@@ -20,16 +20,27 @@ a[href^="#fn:"],
 a[href^="#fnref:"] {
   margin-left: .1rem;
   font-weight: bold;
+
+  @media screen and (max-width: 1144px - 16px) {
+    font-weight: normal;
+  }
 }
 
 sup {
   line-height: 1;
+
+  @media screen and (max-width: 1144px - 16px) {
+    vertical-align: baseline;
+    font-size: inherit;
+
+    > a::before { content: "["; }
+    > a::after  { content: "]"; }
+  }
 }
 
 // List of footnotes
 .footnotes {
   margin-top: 5rem;
-  font-size: smaller;
 
   > ol {
     color: #7a7a7a;
