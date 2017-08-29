@@ -3,9 +3,11 @@
     {% include srcset-img.html class="me" img=include.author.picture alt=include.author.name %}
   {% endif %}
 
-  <{{ include.heading_tag | default:'h2' }} class="page-title hr">
+  {% assign heading_tag = include.heading_tag | default:'h2' %}
+  {% assign heading_id = include.heading_id %}
+  <{{ heading_tag }} {% if heading_id %}id="{{ heading_id }}"{% endif %} class="page-title hr">
     {{ include.heading | default:include.author.name }}
-  </{{ include.heading_tag | default:'h2' }}>
+  </{{ heading_tag }}>
 
   {{ include.author.about | markdownify }}
 
