@@ -35,7 +35,9 @@
       width: 18rem;
       left: -17.5rem;
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
+      z-index: 3;
     }
+    > .hy-drawer-scrim { z-index: 2 }
     
     
   }

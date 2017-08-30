@@ -81,7 +81,7 @@ The free version of Hydejack is now [GPL-3.0] licensed.
 * The sidebar now has a subtle shadow on mobile, to indicate that it can be drawn from the side.
 * The sidebar now has less margin.
 * The sidebar now fits 5 social media icons, up from 4.
-* Footnotes now have a `smaller` font size to distinguish them from the rest of the content.
+<!-- * Footnotes now have a `smaller` font size to distinguish them from the rest of the content. -->
 * The `description` in the sidebar now has a `smaller` font size when it is longer than 60 characters.
 * Changed the `line-height` of regular text from `1.75` to `1.65`.
 * `h1`, `h2` and `h3` headings now have different `line-height`s to improve readability when they span multiple lines.
