@@ -22,6 +22,8 @@ layout: base
   <hr class="sr-only"/>
 {% endif %}
 
+{{ content }}
+
 {% for post in posts %}
   {% assign currentdate = post.date | date: "%Y" %}
   {% if currentdate != date %}
