@@ -73,8 +73,7 @@ Open `about.md` to edit this text.
 [portfolio]: https://qwtel.com/hydejack/projects/
 [resume]: https://qwtel.com/hydejack/resume/
 [welcome]: https://qwtel.com/hydejack/
-
-[docs]: docs/6.6.0/index.md
+[docs]: docs/7.0.0/index.md
 [license]: LICENSE.md
 [pro]: licenses/PRO-license.md
 

@@ -78,7 +78,7 @@ The free version of Hydejack is now [GPL-3.0] licensed.
 * Drastically increased building speed during development.
   Roughly 50% of the time was spent rebuilding the inline CSS, which is now built once and included via `<link/>` tags.
   The production build still inlines CSS, so its building speed remains unchanged.
-  For more on how to improve building speeds, [see here](docs/6.6.1/writing.md#a-word-on-building-speeds).
+  For more on how to improve building speeds, [see here](docs/7.0.0/writing.md#a-word-on-building-speeds).
   For more on why inlining CSS can be a good idea, [see this](https://varvy.com/pagespeed/inline-small-css.html).
 
 ### Design
@@ -473,8 +473,8 @@ Oct 15 2013
 {:.heading.post-date}
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
-[migration]: docs/6.6.1/migration.md
-[writing]: docs/6.6.1/writing.md
-[scripts]: docs/6.6.1/scripts.md
+[migration]: docs/7.0.0/migration.md
+[writing]: docs/7.0.0/writing.md
+[scripts]: docs/7.0.0/scripts.md
 
 [GPL-3.0]: licenses/GPL-3.0.md

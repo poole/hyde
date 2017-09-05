@@ -15,11 +15,14 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 **NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands.
 {:.message}
 
+Buyers of the PRO version can jump straight to [installation for pro buyers](#pro-buyers),)
+or [upgrades for pro buyers](#pro-buyers).)
+
 
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/6.6.1/index.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/7.0.0/index.md %}).
 {:.message}
 
 ## Table of Contents
@@ -137,14 +140,14 @@ You can now continue with [running locally](#running-locally).
 If you bought the PRO version, you've received a zip archive with the following contents:
 
 ~~~
-├── hydejack-docs-6.6.1.pdf
+├── hydejack-docs-7.0.0.pdf
 ├── install
 ├── upgrade
 ├── favicons.psd
 └── sidebar-bg.psd
 ~~~
 
-`hydejack-docs-6.6.1.pdf`
+`hydejack-docs-7.0.0.pdf`
 : This documentation in PDF form.
 
 `install`
@@ -163,7 +166,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-6.6.1/install/
+$ cd ~/Downloads/hydejack-pro-7.0.0/install/
 ~~~
 
 You can now continue with [running locally](#running-locally).
@@ -415,12 +418,12 @@ The `baseurl` depends on the kind of page you are hosting.
 
 For for information on the types of pages you can host on GitHub, see the [GitHub Help article](https://help.github.com/articles/user-organization-and-project-pages/).
 
-### Changing `color` and `image`
+### Changing `color` and `sidebar_image`
 Hydejack allows you to choose the background image of the sidebar, as well as the accent color (color of the links, selection and focus outline, as well as background color of the sidebar, should no image be provided) on a per-page, per-category, per-tag, per-author and global basis.
 
 It is recommended that you provide fallback values in `_config.yml`, should no other rule apply:
 
-    image: /hydejack/assets/img/nap.jpg
+    sidebar_image: /hydejack/assets/img/nap.jpg
     color: '#A85641'
 
 **NOTE**: It is recommended that you use a blurred image in order for the text to remain readable. If you save a blurred image as JPG, it will also drastically reduce its file size.
@@ -738,6 +741,14 @@ It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
 [Demo][welcome].
 
+For reference, the layout/order of content on the welcome page looks like:
+* Title
+* Author's about text
+* Content (before `content_separator`)
+* Latest/Selected Projects
+* Latest/Selected Posts
+* Content after `content_separator` (if any)
+
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
 ~~~yml
@@ -749,7 +760,7 @@ author: qwtel
 ~~~
 
 Without further configuration, the welcome page will show the two most recent projects and five most recent blog posts.
-However, the welcome layout supports selecting specific projects and posts, by adding to the front matter:
+However, the welcome layout supports selecting specific projects and posts, by adding to the front matter, e.g.:
 
 ~~~yml
 ---
@@ -763,6 +774,8 @@ selected_posts:
   - _posts/2012-02-07-example-content.md
 more_projects: projects.md
 more_posts: posts.md
+big_project: true
+content_separator: <!-- more -->
 ---
 ~~~
 
@@ -771,21 +784,71 @@ more_posts: posts.md
 
 `selected_projects`
 : A list of paths to project files that should be displayed below the main content of the page.
-The paths are relative to the main directory with no leading `./`.
-If no paths are provided, the two most recent projects will be used.
+  The paths are relative to the main directory with no leading `./`.
+  If no paths are provided, the two most recent projects will be used.
 
 `selected_projects`
 : A list of paths to blog posts that should be featured on the welcome page.
-The paths are relative to the main directory with no leading `./`.
-If no paths are provided, the five most recent posts will be used.
+  The paths are relative to the main directory with no leading `./`.
+  If no paths are provided, the five most recent posts will be used.
 
 `more_projects`
 : The path to the main projects page.
-The path is relative to the main directory with no leading `./`.
+  The path is relative to the main directory with no leading `./`.
 
 `more_posts`
 : The path to the main posts page.
-The path is relative to the main directory with no leading `./`.
+  The path is relative to the main directory with no leading `./`.
+
+`big_project`
+: Optional. When `true`, project thumbnails will span the full width, instead of only half.
+  This setting takes precedence over the `big_project` value of individual projects,
+  i.e. it will apply to the entire page.
+
+`content_separator`
+: Optional. Defines a marker that will be used to split the content in two parts.
+  The first part will go before the "Selected/Latest Projects" and "Selected/Latest Posts" section,
+  the second part will go below it.
+
+### Adding a projects page*
+The projects page will show all projects in a particular collection.
+First, you need to make sure that you have the `projects` collection defined in `_config.yml`:
+
+~~~yml
+collections:
+  projects:
+    permalink:       /projects/:path/
+    output:          true
+~~~
+
+Next, add a `projects.md` to in the root (you can adjust the name/location to match the the `permalink` of the
+collection).
+This file has the `projects` layout (mind the "s" at the end) and should have a `show_collection` key,
+with the name of the collection as a value, e.g.:
+
+~~~yml
+---
+layout: projects
+title: Projects*
+show_collection: projects
+big_project: true
+---
+~~~
+
+`layout`
+: Must be `projects`.
+
+`title`
+: The title of the page. Note that this name is reused as part of each individual project page
+  (for the link that directs back to the projects page).
+
+`show_collection`
+: The name of the collection you want display on this page. Defaults to `projects`.
+
+`big_project`
+: Optional. When `true`, project thumbnails will span the full width, instead of only half.
+  This setting takes precedence over the `big_project` value of individual projects,
+  i.e. it will apply to the entire page.
 
 ### Adding a project*
 Projects are organized using [Jekyll Collections](https://jekyllrb.com/docs/collections/).
@@ -809,13 +872,12 @@ caption: Hyde is a brazen two-column Jekyll theme.
 description: >
   Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
 links:
-  -
-    title: Demo
+  - title: Demo
     url: http://hyde.getpoole.com
-  -
-    title: Source
+  - title: Source
     url: https://github.com/poole/hyde
 author: mdo
+big_project: true
 ---
 ~~~
 
@@ -836,10 +898,13 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 : A medium-length description, used on the project's detail page as meta description and shown as message box below he screenshot.
 
 `links`
-: A list of `title`-`url` pairs that that link to external resources related to this project.
+: A list of `title`-`url` pairs that link to external resources related to this project.
 
 `author`
 : Shown below the project, similar to posts.
+
+`big_project`
+: Optional. When `true`, the project preview will span the full content width. You can use this for projects that you want to direct additional attention to. You can set/override this for an entire page, by setting `big_project` in the front matter (applies to the `projects` and `welcome` layout).
 
 ### Adding a resume*
 Hydejack's PRO version features a generalized resume layout.
@@ -895,6 +960,20 @@ so that your posts remain compatible with other Jekyll themes.
 
 
 
+
+### A word on building speeds
+If building speeds are a problem, try using the `--incremental` flag, e.g.
+
+    bundle exec jekyll serve --incremental
+
+From the [Jekyll docs](https://jekyllrb.com/docs/configuration/#build-command-options) (emphasis mine):
+
+> Enable the experimental incremental build feature. Incremental build only re-builds posts and pages that have changed, resulting in significant performance improvements for large sites, *but may also break site generation in certain cases*.
+
+The breakage occurs when you create new files or change filenames.
+Also, changing the title, category, tags, etc. of a page or post will not be reflected in pages
+other then the page or post itself.
+This makes it ideal for writing new posts and previewing changes, but not setting up new content.
 
 ### Adding a table of contents
 You can add a generated table of contents to any page by adding `{:toc}` below a list.
@@ -1204,7 +1283,14 @@ Adding [global scripts](#global-scripts) is for scripts that should be loaded on
 
 ```html
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The next version of Hydejack (v6.3.0) will allow embedding 3rd party scripts, like the one that comes with this tweet for example.</p>&mdash; Florian Klampfer (@qwtel) <a href="https://twitter.com/qwtel/status/871098943505039362">June 3, 2017</a></blockquote>
+<blockquote class="twitter-tweet" data-lang="en">
+  <p lang="en" dir="ltr">
+    The next version of Hydejack (v6.3.0) will allow embedding 3rd party scripts,
+    like the one that comes with this tweet for example.
+  </p>
+  &mdash; Florian Klampfer (@qwtel)
+  <a href="https://twitter.com/qwtel/status/871098943505039362">June 3, 2017</a>
+</blockquote>
 ```
 
 <script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
@@ -1460,8 +1546,65 @@ Subsequent builds are administered via
 
 If you want to actively develop the scripts, it is better to run
 
-    $ npm run dev
+    $ npm run watch:js
 
 which will build a non-minified, non-transpiled (ES2016) version of `hydejack.js` after each filechange.
+
+### How CSS works in Hydejack
+Hydejack takes a quite unique, and admittedly weird, approach to CSS.
+The goal is to inline essential rules in a `style` tag in the `<head/>` of the page,
+(to increase the loading speed of the page) while serving the rest in a separate file.
+
+~~~
+├── hydejack
+│   ├── __inline
+│   ├── __link
+│   ├── _base.scss
+│   ├── ...
+│   └── _social.scss
+├── pooleparty
+│   ├── __inline
+│   ├── __link
+│   ├── _base.scss
+│   ├── ...
+│   └── _type.scss
+├── mixins.scss
+├── my-inline.scss
+├── my-style.scss
+├── syntax.scss
+└── variables.scss
+~~~
+
+The styles are written in SCSS and are located in the `_sass` folder.
+They are organized alongside components (or rather, topics) like "sidebar" and "footer".
+Further, there are two separate frameworks, "pooleparty" and "hydejack",
+which grew out of the original [Poole](http://getpoole.com/) and Hyde styles.
+Poole(-party) contains more general style rules, while Hyde(-jack) contains those that are specific to the theme.
+However, this separation has become more blurry over time.
+
+#### Splitting the CSS
+Further, you will notice `__inline` and `__link` folders.
+The unfriendly names are chosen intentionally, because the contents are generated and shouldn't be modified directly.
+They are marked up with special comments like `// inline` and `// link`
+which tell a simple script to how to "split" the source file into.
+
+TODO
+
+To split the CSS once, run
+
+~~~
+npm run build:css
+~~~
+
+To rebuild on file changes, use
+
+~~~
+npm run watch:css
+~~~
+
+**NOTE**: You can use `npm run dev` to start an entire development environment,
+which will run `jekyll` at port 4000 and watch for CSS and JS changes.
+{:.message}
+
 
 *[FLIP]: First Last Invert Play
