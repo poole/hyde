@@ -152,6 +152,7 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
     @media screen and (min-width: $break-point-2) {
       float: none;
       position: absolute;
+      top: 0;
       left: -1.5rem;
     }
 
