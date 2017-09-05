@@ -21,15 +21,16 @@ code, pre {
 
 code {
   padding: .25em .5em;
-  font-size: .85em;
   background-color: rgba(0, 0, 0, 0.03);
+  font-size: .85em;
 }
 
 pre {
   margin-top: 0;
   margin-bottom: 1rem;
   display: block;
-  line-height: 1.1;
+  line-height: 1.4;
+  font-size: .85em;
 
   /* Prevent code linebreaks and allow side-scrolling (much better readability on mobile) */
   overflow-x: auto;
@@ -41,54 +42,33 @@ pre {
   backface-visibility: hidden;
 }
 
-pre code {
+pre > code {
   padding: 0;
   color: inherit;
   background-color: transparent;
+  font-size: 1em;
 }
 
-figure, .figure {
-  margin-left: 0;
-  margin-right: 0;
-
-  > *:first-child {
-    padding: 1rem;
-    background-color: rgba(0, 0, 0, 0.05);
-  }
-
-  > figcaption, > .figcaption {
-    font-size: smaller;
-    color: $gray;
-    text-align: center;
-    font-style: italic;
-    margin-top: 0.5rem;
-    padding: 0 1rem;
-  }
-}
+// figure, .figure {
+//   margin-left: 0;
+//   margin-right: 0;
+//
+//   > *:first-child {
+//     padding: 1rem;
+//     background-color: rgba(0, 0, 0, 0.05);
+//   }
+//
+//   > figcaption, > .figcaption {
+//     font-size: smaller;
+//     color: $gray;
+//     text-align: center;
+//     font-style: italic;
+//     margin-top: 0.5rem;
+//     padding: 0 1rem;
+//   }
+// }
 
 .highlight {
   margin-bottom: 1rem;
 }
-
-// Gist via GitHub Pages
-// .gist .gist-file {
-//   font-family: Menlo, Monaco, "Courier New", monospace !important;
-// }
-// .gist .markdown-body {
-//   padding: 15px;
-// }
-// .gist pre {
-//   padding: 0;
-//   background-color: transparent;
-// }
-// .gist .gist-file .gist-data {
-//   font-size: .8rem !important;
-//   line-height: 1.4;
-// }
-// .gist code {
-//   padding: 0;
-//   color: inherit;
-//   background-color: transparent;
-//   border-radius: 0;
-// }
 

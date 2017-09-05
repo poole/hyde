@@ -16,6 +16,8 @@ Gem::Specification.new do |spec|
 
   spec.add_runtime_dependency "jekyll-default-layout", "~> 0.1"
   spec.add_runtime_dependency "jekyll-feed", "~> 0.9"
+  spec.add_runtime_dependency "jekyll-gist", "~> 1.4.1"
+  spec.add_runtime_dependency "jekyll-mentions", "~> 1.2"
   spec.add_runtime_dependency "jekyll-optional-front-matter", "~> 0.2"
   spec.add_runtime_dependency "jekyll-paginate", "~> 1.1"
   spec.add_runtime_dependency "jekyll-redirect-from", "~> 0.12"
