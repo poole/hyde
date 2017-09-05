@@ -97,7 +97,6 @@ export default class CrossFader {
       { opacity: 1 },
     ], {
       duration: this.fadeDuration,
-      // easing: 'cubic-bezier(0,0,0.32,1)',
     })
     ::cleanup(() => prevDiv.parentNode.removeChild(prevDiv));
   }

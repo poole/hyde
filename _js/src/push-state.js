@@ -16,19 +16,27 @@
 import { PushState } from 'hy-push-state/src/vanilla';
 
 import { Observable } from 'rxjs/Observable';
+
 import { fromEvent } from 'rxjs/observable/fromEvent';
+import { merge } from 'rxjs/observable/merge';
+import { never } from 'rxjs/observable/never';
 import { timer } from 'rxjs/observable/timer';
 
+// import { Subject } from 'rxjs/Subject';
+
 // import { animationFrame } from 'rxjs/scheduler/animationFrame';
+import { asap } from 'rxjs/scheduler/asap';
 
 import { _catch as recover } from 'rxjs/operator/catch';
 import { _do as effect } from 'rxjs/operator/do';
 import { debounceTime } from 'rxjs/operator/debounceTime';
-import { exhaustMap } from 'rxjs/operator/exhaustMap';
+// import { delay } from 'rxjs/operator/delay';
+// import { exhaustMap } from 'rxjs/operator/exhaustMap';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
+import { mapTo } from 'rxjs/operator/mapTo';
 import { mergeMap } from 'rxjs/operator/mergeMap';
-// import { observeOn } from 'rxjs/operator/observeOn';
+import { observeOn } from 'rxjs/operator/observeOn';
 import { pairwise } from 'rxjs/operator/pairwise';
 import { share } from 'rxjs/operator/share';
 import { startWith } from 'rxjs/operator/startWith';
@@ -43,8 +51,10 @@ import { animate, hasFeatures, isSafari } from './common';
 import CrossFader from './cross-fader';
 import upgradeMathBlocks from './katex';
 
-import Flip from './flip/flip';
-import './flip/title';
+// import Flip from './flip/flip';
+// import './flip/title';
+// import './flip/project';
+import { flip } from './flip';
 
 const { forEach } = Array.prototype;
 
@@ -68,7 +78,7 @@ const FADE_OUT = [
 ];
 
 const FADE_IN = [
-  { opacity: 0, transform: 'translateY(-2rem)' },
+  { opacity: 0, transform: 'translateY(-3rem)' },
   { opacity: 1, transform: 'translateY(0)' },
 ];
 
@@ -92,11 +102,21 @@ function upgradeHeadings(h) {
   h.appendChild(a);
 }
 
+// We log errors to the console, but continue as if it never happend
+function subscribe(ne, er, co) {
+  return this
+    ::effect({ error: ::console.error })
+    ::recover((e, c) => c)
+    .subscribe(ne, er, co);
+}
 
-//
-// we log it to the console, but continue as if it never happend
-function unstoppable() {
-  return this::effect({ error: ::console.error })::recover((e, c) => c);
+function pauseWith(pauser$) {
+  if (process.env.DEBUG && !pauser$) throw Error();
+  return pauser$::switchMap(paused => (paused ? Observable::never() : this));
+}
+
+function waitUntil(observable) {
+  return this::zipWith(observable, x => x);
 }
 
 function setupAnimationMain(pushStateEl) {
@@ -143,7 +163,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   const loading = setupLoading(document.querySelector('.navbar .content'));
 
   const start$ = Observable::fromEvent(pushStateEl, 'hy-push-state-start')
-    ::map(({ detail }) => [detail, document.getElementById('_main')])
+    ::map(({ detail }) => Object.assign(detail, { flipType: getFlipType(detail.anchor) }))
     ::effect(() => {
       // If a link on the drawer has been clicked, close it
       if (!window._isDesktop && window._drawer.opened) {
@@ -153,145 +173,124 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     ::share();
 
   const ready$ = Observable::fromEvent(pushStateEl, 'hy-push-state-ready')
-    ::map(({ detail }) => detail)
+    ::map(({ detail }) => Object.assign(detail, { flipType: getFlipType(detail.anchor) }))
     ::share();
-
-  const progress$ = Observable::fromEvent(pushStateEl, 'hy-push-state-progress')
-    ::map(({ detail }) => [detail, document.getElementById('_main')]);
-    // ::share();
 
   const after$ = Observable::fromEvent(pushStateEl, 'hy-push-state-after')
     ::map(({ detail }) => detail)
     ::share();
 
-  // const error$ = Observable.fromEvent(pushStateEl, 'hy-push-state-error');
-
-  // HACK
+  /* HACK */
   if (isSafari()) {
     Observable::fromEvent(window, 'popstate')
-      ::filter(() => history.state && history.state.id === '_hyPushState')
-      .subscribe(() => { document.body.style.minHeight = '999999px'; });
+      ::filter(() => history.state && history.state._hyPushState)
+      ::subscribe(() => { document.body.style.minHeight = '999999px'; });
 
     after$
-      .subscribe(() => { document.body.style.minHeight = ''; });
+      ::subscribe(() => { document.body.style.minHeight = ''; });
   }
 
-  // FLIP animation (when applicable)
-  start$
-    ::switchMap(([detail]) => {
-      const { anchor } = detail;
-
-      const flip = Flip.create(getFlipType(anchor), {
-        anchor,
-        animationMain,
-        duration: DURATION,
-      });
-
-      // HACK: This assumes knowledge of the internal rx pipeline.
-      // Could possibly be replaced with `withLatestFrom` shinanigans,
-      // but it's more convenient like that.
-      detail.flip = flip;
-
-      return flip.start();
-    })
-    ::unstoppable()
-    .subscribe();
+  // We use this to prevent starting new "fade out animations".
+  // ie when the content starts fading out,
+  // we want it to stay that way until new content has come in.
+  const pauser$ = Observable::merge(
+    start$::observeOn(asap)::mapTo(true),
+    after$::observeOn(asap)::mapTo(false),
+  )
+    ::startWith(false);
 
   // Fade main content out
-  start$
-    ::filter(([{ type }]) => type === 'push' || !isSafari())
-    ::effect(([, main]) => {
+  const fadeOut$ = start$
+    ::filter(({ type }) => type === 'push' || !isSafari())
+    ::pauseWith(pauser$)
+    ::effect(() => {
+      const main = document.getElementById('_main');
       main.style.pointerEvents = 'none';
       main.style.opacity = 0;
     })
-    ::exhaustMap(([, main]) =>
-      animate(main, FADE_OUT, SETTINGS)
-        // ::effect({
-        //   next: () => {
-        //     window._pushState._ready1();
-        //   },
-        // })
-        ::zipWith(after$))
-    ::unstoppable()
-    .subscribe();
+    ::switchMap(() => animate(document.getElementById('_main'), FADE_OUT, SETTINGS));
 
   // Show loading bar when taking longer than expected
-  progress$
-    ::effect(([, main]) => {
+  Observable::fromEvent(pushStateEl, 'hy-push-state-progress')
+    ::effect(() => {
+      const main = document.getElementById('_main');
       main.innerHTML = '';
       loading.style.display = 'block';
     })
-    ::unstoppable()
-    .subscribe();
-
-  // TODO: error message!?
-  // error$
-  //   // .delay(DURATION) // HACK
-  //   .do(() => {
-  //     loading.style.display = 'none';
-  //   })
-  //   .subscribe();
+    ::subscribe();
 
   // Prepare showing the new content
   ready$
     ::effect(({ content: [main] }) => {
-      main
-        .querySelectorAll(HEADING_SELECTOR)
-        ::forEach(upgradeHeadings);
-      /*
-      main.style.opacity = 0;
-      main.style.willChange = 'opacity';
-      main.style.pointerEvents = 'none';
-      */
       loading.style.display = 'none';
+      main.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeadings);
+      main.style.pointerEvents = 'none';
     })
     ::filter(({ type }) => type === 'push' || !isSafari())
-    ::switchMap(({ flip, content: [main] }) =>
-      flip.ready(main)::takeUntil(start$))
-    ::unstoppable()
-    .subscribe();
+    ::subscribe();
+
+  // Animate the new content
+  const fadeIn$ = after$
+    ::filter(({ type }) => type === 'push' || !isSafari())
+    ::switchMap(({ content: [main], flipType }) =>
+      animate(main, FADE_IN, SETTINGS)
+        ::effect(() => { main.style.pointerEvents = ''; })
+        ::mapTo({ flipType }))
+    ::share();
+
+  const flip$ = flip(start$, ready$, fadeIn$, {
+    animationMain,
+    duration: DURATION,
+  });
+
+  // TODO: wat
+  const anim$ = start$
+    ::switchMap(() => Observable::timer(DURATION))
+    ::zipWith(flip$, fadeOut$)
+    ::share();
+
+  anim$::subscribe();
+
+  // TODO: wat
+  after$
+    ::filter(({ type }) => type === 'pop' && isSafari())
+    ::effect(({ content: [main] }) => { main.style.pointerEvents = ''; })
+    ::subscribe();
 
   // Swap out the sidebar image (if applicable)
-  ready$
+  after$
     ::switchMap(({ content: [main] }) =>
       crossFader.fetchImage(elemDataset(main))
-        ::zipWith(Observable::timer(DURATION * 2), x => x)
+        ::waitUntil(fadeIn$)
         ::takeUntil(start$))
     ::startWith(document.querySelector('.sidebar-bg'))
     ::pairwise()
     ::mergeMap(::crossFader.fade)
-    ::unstoppable()
-    .subscribe();
+    ::subscribe();
 
-  // Animate the new content
-  after$
-    ::filter(({ type }) => type === 'push' || !isSafari())
-    ::map(kind => [kind, document.querySelector('main')])
-    ::effect(([, main]) => { main.pointerEvents = 'none'; })
-    ::switchMap(([, main]) =>
-      animate(main, FADE_IN, SETTINGS)
-        ::effect({
-          complete: () => {
-            // main.style.opacity = 1;
-            // main.style.willChange = '';
-            main.style.pointerEvents = '';
-            // window._pushState._ready2();
-          },
-        }))
-    // Send google analytics pageview and upgrade math blocks.
-    // Don't send a pageview when the user blasts through the history..
+  // Send google analytics pageview and upgrade math blocks.
+  // Don't send a pageview when the user blasts through the history..
+  fadeIn$
     ::debounceTime(DURATION)
     ::effect(() => {
       if (window.ga) window.ga('send', 'pageview', location.pathname);
       upgradeMathBlocks();
     })
-    ::unstoppable()
-    .subscribe();
+    ::subscribe();
 
+  // TODO: error message!?
+  // Observable::fromEvent(pushStateEl, 'hy-push-state-error')
+  //   .do(() => {
+  //     loading.style.display = 'none';
+  //   })
+  //   .subscribe();
+
+  // Upgrade headlines to include "permalinks"
   document.getElementById('_main')
     .querySelectorAll(HEADING_SELECTOR)
     ::forEach(upgradeHeadings);
 
+  // Create the component
   window._pushState = new PushState(pushStateEl, {
     replaceIds: ['_main'],
     linkSelector: 'a[href]',
@@ -299,5 +298,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     duration: DURATION,
     instantPop: isSafari(),
     scrollRestoration: !isSafari(),
+    repeatDelay: DURATION,
+    scriptHack: true,
   });
+
+  // TODO: better API... (promise-based?)
+  window._pushState.animation$ = anim$;
 }

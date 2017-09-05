@@ -13,73 +13,87 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Observable } from 'rxjs/Observable';
-import { timer } from 'rxjs/observable/timer';
+// import { Observable } from 'rxjs/Observable';
+// import { timer } from 'rxjs/observable/timer';
 
 import { _do as effect } from 'rxjs/operator/do';
-// import { _finally as cleanup } from 'rxjs/operator/finally';
+import { filter } from 'rxjs/operator/filter';
+import { map } from 'rxjs/operator/map';
+import { switchMap } from 'rxjs/operator/switchMap';
+import { _finally as cleanup } from 'rxjs/operator/finally';
+import { zipProto as zipWith } from 'rxjs/operator/zip';
 
 import { animate } from '../common';
-import Flip from './flip';
 
 const TITLE_SELECTOR = '.page-title, .post-title';
 
-class TitleFlip extends Flip {
-  start() {
-    const { anchor } = this;
-    const title = document.createElement('h1');
+export function flipTitle(start$, ready$, fadeIn$, { animationMain, duration }) {
+  const flip$ = start$
+    ::filter(({ flipType }) => flipType === 'title')
+    ::switchMap(({ anchor }) => {
+      console.log('title start');
+      const title = document.createElement('h1');
 
-    title.classList.add('page-title');
-    title.textContent = anchor.textContent;
-    title.style.transformOrigin = 'left top';
+      title.classList.add('page-title');
+      title.textContent = anchor.textContent;
+      title.style.transformOrigin = 'left top';
 
-    this.animationMain.querySelector('.page').innerHTML = '';
-    this.animationMain.querySelector('.page').appendChild(title);
-    this.animationMain.style.position = 'fixed';
-    this.animationMain.style.opacity = 1;
+      animationMain.querySelector('.page').innerHTML = '';
+      animationMain.querySelector('.page').appendChild(title);
+      animationMain.style.position = 'fixed';
+      animationMain.style.opacity = 1;
 
-    const first = anchor.getBoundingClientRect();
-    const firstFontSize = parseInt(getComputedStyle(anchor).fontSize, 10);
-    const last = title.getBoundingClientRect();
-    const lastFontSize = parseInt(getComputedStyle(title).fontSize, 10);
+      const first = anchor.getBoundingClientRect();
+      const firstFontSize = parseInt(getComputedStyle(anchor).fontSize, 10);
+      const last = title.getBoundingClientRect();
+      const lastFontSize = parseInt(getComputedStyle(title).fontSize, 10);
 
-    const invertX = first.left - last.left;
-    const invertY = first.top - last.top;
-    const invertScale = firstFontSize / lastFontSize;
+      const invertX = first.left - last.left;
+      const invertY = first.top - last.top;
+      const invertScale = firstFontSize / lastFontSize;
 
-    anchor.style.opacity = 0;
+      anchor.style.opacity = 0;
 
-    return animate(title, [
-      { transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})` },
-      { transform: 'translate3d(0, 0, 0) scale(1)' },
-    ], {
-      duration: this.duration,
-      easing: 'cubic-bezier(0,0,0.32,1)',
-    })
-      ::effect(() => { this.animationMain.style.position = 'absolute'; });
-  }
+      return animate(title, [
+        { transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})` },
+        { transform: 'translate3d(0, 0, 0) scale(1)' },
+      ], {
+        duration,
+        easing: 'cubic-bezier(0,0,0.32,1)',
+      })
+        ::effect(() => { animationMain.style.position = 'absolute'; });
+    });
 
-  ready(main) {
-    this.animationMain.style.willChange = 'opacity';
+  start$::switchMap(() =>
+    ready$
+      ::filter(({ flipType }) => flipType === 'title')
+      ::map(({ content: [main] }) => {
+        console.log('title ready');
+        animationMain.style.willChange = 'opacity';
 
-    const title = main.querySelector(TITLE_SELECTOR);
+        const title = main.querySelector(TITLE_SELECTOR);
 
-    if (title != null) {
-      title.style.opacity = 0;
-      title.style.willChange = 'opacity';
-    }
+        if (title != null) {
+          title.style.opacity = 0;
+          title.style.willChange = 'opacity';
+        }
 
-    /* HACK: add some extra time to prevent hiccups */
-    return Observable::timer(this.duration + 100)
-      ::effect(() => {
+        return title;
+      })
+      ::zipWith(fadeIn$)
+      ::effect(([title]) => {
         if (title != null) {
           title.style.opacity = 1;
           title.style.willChange = '';
         }
-        this.animationMain.style.opacity = 0;
-        this.animationMain.style.willChange = '';
-      });
-  }
-}
+        animationMain.style.opacity = 0;
+        animationMain.style.willChange = '';
+      }))
+      // ::cleanup(() => {
+      //   animationMain.style.opacity = 0;
+      //   animationMain.style.willChange = '';
+      // }))
+    .subscribe();
 
-Flip.types.title = TitleFlip;
+  return flip$;
+}

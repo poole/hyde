@@ -12,5 +12,7 @@
     "no-param-reassign": "off",
     "class-methods-use-this": "off",
     "no-underscore-dangle": "off",
+    "no-console": "off",
+    "import/prefer-default-export": "off",
   },
 }

@@ -54,11 +54,11 @@ export function animate(el, keyframes, options) {
 
     anim.addEventListener('finish', (e) => {
       observer.next(e);
-      observer.complete();
+      requestAnimationFrame(::observer.complete);
     });
 
     return () => {
-      // if (anim.playState !== 'finished') anim.cancel();
+      if (anim.playState !== 'finished') anim.cancel();
     };
   });
 }
