@@ -99,7 +99,21 @@ collections:
     output:          true
 
 # -----------------------------------------------------------------------------
-#  Advanced configuration
+# File inclusion/exclusion
+# -----------------------------------------------------------------------------
+
+exclude:
+  - README.md
+  - node_modules
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+include:
+  - LICENSE.md
+
+# -----------------------------------------------------------------------------
+#  Plugin configuration
 # -----------------------------------------------------------------------------
 
 gems:
@@ -114,13 +128,14 @@ gems:
   - jekyll-seo-tag
   - jekyll-sitemap
 
-exclude:
-  - README.md
-  - node_modules
-  - package.json
-  - package-lock.json
-  - Gemfile
-  - Gemfile.lock
+relative_links:
+  collections:       true
+
+optional_front_matter:
+  remove_originals:  true
+
+jekyll-mentions:
+  base_url:          https://twitter.com
 
 kramdown:
   footnote_backlink: '&#x21a9;&#xfe0e;'
