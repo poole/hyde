@@ -12,6 +12,7 @@
   padding-bottom: 0;
   min-height: 0;
   height: 0;
+  color: $gray;
 }
 // >>>>>
 
@@ -21,10 +22,10 @@
   padding: 1.75rem 1.5rem;
   border-bottom: none;
   margin-left: -1.5rem;
-  color: $gray!important;
 
   &::after {
     content: "\2630"; // ☰
+    color: $gray!important;
   }
 
   @media screen and (min-width: $break-point-2) {
@@ -49,8 +50,6 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 3 * 1.75rem 3 * 1.5rem;
-  transform-origin: top right;
-  transform: scale(0.33);
+  padding: 1.75rem 1.5rem;
   // >>>
 }
