@@ -6,7 +6,7 @@ PATH
       jekyll (~> 3.5)
       jekyll-default-layout (~> 0.1)
       jekyll-feed (~> 0.9)
-      jekyll-gist (= 1.4.1)
+      jekyll-gist (~> 1.4.1)
       jekyll-mentions (~> 1.2)
       jekyll-optional-front-matter (~> 0.2)
       jekyll-paginate (~> 1.1)

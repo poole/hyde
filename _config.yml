@@ -62,11 +62,6 @@ sidebar_image:       /hydejack/assets/img/sidebar-bg.jpg
 # If you do not use a Google Fonts, uncomment the line below
 # no_google_fonts:     true
 
-# If you are upgrading form a v5 verison of Hydejack, uncomment the two lines below,
-# so that the location of the feed XML stays the same.
-# feed:
-#   path:              atom.xml
-
 # Set to true when building with the `--lsi` option
 # See: https://jekyllrb.com/docs/variables/#site-variables
 # use_lsi:             true
@@ -153,3 +148,8 @@ compress_html:
 
 sass:
   style:             compressed
+
+# If you are upgrading form a v5 verison of Hydejack, uncomment the two lines below,
+# so that the location of the feed XML stays the same.
+# feed:
+#   path:              atom.xml
