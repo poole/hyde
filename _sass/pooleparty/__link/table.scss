@@ -26,16 +26,19 @@
 @mixin flip-table() {
   display: flex;
   overflow: hidden;
-  background: none;
   border: none;
   border-top: 1px solid $border-color;
   border-bottom: 1px solid $border-color;
+
+  thead + tbody,
+  tbody + tbody {
+    border-top: none;
+  }
 
   thead {
     display: flex;
     flex-shrink: 0;
     min-width: min-content;
-    margin-right: 1px;
 
     th {
       padding-left: 1rem;
@@ -47,8 +50,8 @@
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
+    padding-left: 1px;
     -webkit-overflow-scrolling: touch;
-    border-top: none;
   }
 
   tr {

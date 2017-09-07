@@ -18,6 +18,7 @@ table:not(.highlight) {
   border: 1px solid $border-color;
   border-collapse: collapse;
   border-spacing: 0;
+  background-color: rgba(0, 0, 0, 0.015);
 
   td, th {
     padding: .25rem .5rem;
@@ -32,9 +33,14 @@ table:not(.highlight) {
     }
   }
 
+  thead {
+    background-color: $body-bg;
+  }
+
   thead + tbody,
   tbody + tbody,
   tfoot {
+    background-color: $body-bg;
     border-top: 3px double $border-color;
   }
 
