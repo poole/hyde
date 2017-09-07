@@ -13,11 +13,13 @@
     {% if include.alt %}alt="{{ include.alt }}"{% endif %}
     {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
     {% if include.sizes %}sizes="{{ include.sizes }}"{% endif %}
+    {% if include.property %}property="{{ include.property }}"{% endif %}
   />
 {% else %}
   <img
     src="{{ include.img }}"
     {% if include.class %}class="{{ include.class }}"{% endif %}
     {% if include.alt %}alt="{{ include.alt }}"{% endif %}
+    {% if include.property %}property="{{ include.property }}"{% endif %}
   />
 {% endif %}
