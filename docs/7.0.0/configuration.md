@@ -21,18 +21,24 @@ The first order of business should be to set the correct `url` and `baseurl` val
 
 The `url` is the domain of your site, including the protocol (`http` or `https`). For this site, it is
 
-    url: https://qwtel.com
+~~~yml
+url: https://qwtel.com
+~~~
 
 If your entire Jekyll blog is hosted in a subdirectory of your page, provide the path in `baseurl` with a leading `/`, but no trailing `/`, e.g.
 
-    baseurl: /hydejack
+~~~yml
+baseurl: /hydejack
+~~~
 
 Otherwise, provide the empty string `''`
 
 ### GitHub Pages
 When hosting on [GitHub Pages](https://pages.github.com/) (unless you are using a custom domain), the `url` is
 
-    url: https://<username>.github.io
+~~~yml
+url: https://<username>.github.io
+~~~
 
 The `baseurl` depends on the kind of page you are hosting.
 
@@ -46,8 +52,10 @@ Hydejack allows you to choose the background image of the sidebar, as well as th
 
 It is recommended that you provide fallback values in `_config.yml`, should no other rule apply:
 
-    sidebar_image: /hydejack/assets/img/nap.jpg
-    color: '#A85641'
+~~~yml
+sidebar_image: /hydejack/assets/img/nap.jpg
+color:         '#A85641'
+~~~
 
 **NOTE**: It is recommended that you use a blurred image in order for the text to remain readable. If you save a blurred image as JPG, it will also drastically reduce its file size.
 {:.message}
@@ -55,9 +63,11 @@ It is recommended that you provide fallback values in `_config.yml`, should no o
 ## Changing `font` and `font_heading`
 Hydejack lets you configure the fonts of regular text and headings. It has built-in support for Google Fonts, which are loaded lazily and swapped without FOIT. There are three keys in `_config.yml` associated with it: `font`, `font_heading` and `google_fonts`. The defaults are:
 
-    font_heading: "'Roboto Slab', Helvetica, Arial, sans-serif"
-    font:         "'Noto Serif', Georgia, serif"
-    google_fonts: "Roboto+Slab:700|Noto+Serif:400,400i,700,700i"
+~~~yml
+font_heading: "'Roboto Slab', Helvetica, Arial, sans-serif"
+font:         "'Noto Serif', Georgia, serif"
+google_fonts: "Roboto+Slab:700|Noto+Serif:400,400i,700,700i"
+~~~
 
 As you can see, `font` and `font_heading` are values you would pass to the `font-family` CSS property (without the `;`). When using a Google Font, it should consist of at least 2 fonts, where everything except the first entry will be used as a fallback until the desired font is fetched from Google.
 
@@ -92,7 +102,7 @@ title:  Home
 If you want to use the `blog` layout with the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
 
 ~~~yml
-paginate: 5
+paginate:      5
 paginate_path: '/page-:num/'
 ~~~
 
@@ -103,20 +113,23 @@ For more information see [Pagination](https://jekyllrb.com/docs/pagination/).
 ## Adding an author
 At the very least, you should add an `author` key with a `name` and `email` sub-key (used by the [feed plugin](https://github.com/jekyll/jekyll-feed)) to `_config.yml`:
 
-    author:
-      name:  Florian Klampfer
-      email: mail@qwtel.com
+~~~yml
+author:
+  name:  Florian Klampfer
+  email: mail@qwtel.com
+~~~
 
 If you would like the author information to be displayed in the about section of a post or project\*, as well as on the about and welcome\* page, you have to provide additional information in `_data/authors.yml`. If you've installed Hydejack via zip, this file already exists. Otherwise you have to create it (and possibly the `_data` directory as well). You can find the default file [here](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml).
 
 The `authors.yml` consists of key-value pairs, where the key is a shorthand for the author (e.g. the GitHub or Twitter handle) and the value is a hash containing the author's information.
 
-    qwtel:
-      name:  Florian Klampfer
-      email: mail@qwtel.com
-
-      about: |
-        Hi, I'm Florian or `@qwtel`...
+~~~yml
+qwtel:
+  name:  Florian Klampfer
+  email: mail@qwtel.com
+  about: |
+    Hi, I'm Florian or `@qwtel`...
+~~~
 
 If an author's `about` value isn't empty, the text will appear (markdownifyed) at the bottom of each blog post and project*, as well as at the top of pages using the `about` and `welcome`\* layout.
 
@@ -127,7 +140,7 @@ However, if a blog post, project\*, about or welcome\* page doesn't belong to th
 ~~~yml
 ---
 layout: post
-title: Hello World
+title:  Hello World
 author: qwtel
 ---
 ~~~
@@ -135,15 +148,19 @@ author: qwtel
 ## Adding an author's picture
 If you'd like for the author's picture to appear in addition the the about text (see previous chapter), you have to provide an URL to the `picture` key in `_data/authors.yml`.
 
-    picture:  /assets/img/me.jpg
+~~~yml
+picture:  /assets/img/me.jpg
+~~~
 
 If you'd like to provide multiple versions of the picture for screens with different pixel densities, you can provide `src` and `srcset` keys instead.
 
-    picture:
-      src:    /assets/img/me.jpg
-      srcset:
-        1x:   /assets/img/me.jpg
-        2x:   /assets/img/me@2x.jpg
+~~~yml
+picture:
+  src:    /assets/img/me.jpg
+  srcset:
+    1x:   /assets/img/me.jpg
+    2x:   /assets/img/me@2x.jpg
+~~~
 
 The `src` key is a fallback image for browsers that don't support the `srcset` attribute.
 
@@ -162,22 +179,28 @@ Links to social networks are shown as icons in the sidebar, as well as wherever 
 You can add a link to a social network by adding an entry to the `social` key in [`authors.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml). It consists of the
 (slugifyed) name of the social network as key and your username within that network as value, e.g.
 
-    social:
-      twitter: qwtel
-      github:  qwtel
+~~~yml
+social:
+  twitter: qwtel
+  github:  qwtel
+~~~
 
 You can change the order in which the icons appear by moving lines up or down, e.g.
 
-    social:
-      github:  qwtel # github appears first
-      twitter: qwtel # twitter second
+~~~yml
+social:
+  github:  qwtel # github appears first
+  twitter: qwtel # twitter second
+~~~
 
 To get an overview of which networks are available and how a typical username in that network looks like, see the exemplary [`authors.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml).
 
 Should providing a username not produce a correct link for some reason, you can provide a complete URL instead, e.g.
 
-    social:
-      youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
+~~~yml
+social:
+  youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
+~~~
 
 
 **NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic](advanced.md).
@@ -186,9 +209,11 @@ Should providing a username not produce a correct link for some reason, you can 
 ### Adding an email or RSS icon
 If you'd like to add email <span class="icon-mail"></span> or RSS <span class="icon-rss2"></span> to the list, add the `email` and `rss` keys, e.g.:
 
-    social:
-      email: mailto:mail@gmail.com
-      rss:   https://qwtel.com/hydejack/feed.xml
+~~~yml
+social:
+  email: mailto:mail@gmail.com
+  rss:   https://qwtel.com/hydejack/feed.xml
+~~~
 
 ## Enabling comments
 Hydejack supports comments via [Disqus](https://disqus.com/). Before you can add comments to a post or project*, you need to register and add your Hydejack site to Disqus' admin console. Once you have your "Disqus shortname", you must add it to `_config.yml`:
@@ -199,8 +224,8 @@ Now comments can be enabled for posts and projects* by adding `comments: true` t
 
 ~~~yml
 ---
-layout: post
-title: Hello World
+layout:   post
+title:    Hello World
 comments: true
 ---
 ~~~
@@ -211,7 +236,9 @@ comments: true
 ## Enabling Google Analytics
 Enabling Google Analytics is as simple as setting the `google_analytics` key in `_config.yml` .
 
-    google_analytics: UA-84025722-2
+~~~yml
+google_analytics: UA-84025722-2
+~~~
 
 Conversely, if you want to disable it, you only have to remove the key and no GA code will be part of the generated pages.
 

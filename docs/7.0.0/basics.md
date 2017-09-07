@@ -153,7 +153,7 @@ You can create a welcome page by creating a new markdown file and setting the la
 ~~~yml
 ---
 layout: welcome
-title: Welcome
+title:  Welcome
 author: qwtel
 ---
 ~~~
@@ -163,17 +163,17 @@ However, the welcome layout supports selecting specific projects and posts, by a
 
 ~~~yml
 ---
-layout: welcome
-title: Welcome
+layout:            welcome
+title:             Welcome
 selected_projects:
   - _projects/hydejack-v6.md
   - _projects/hyde-v2.md
 selected_posts:
   - _posts/2017-05-03-javascripten.md
   - _posts/2012-02-07-example-content.md
-more_projects: projects.md
-more_posts: posts.md
-big_project: true
+more_projects:     projects.md
+more_posts:        posts.md
+big_project:       true
 content_separator: <!-- more -->
 ---
 ~~~
@@ -216,8 +216,8 @@ First, you need to make sure that you have the `projects` collection defined in 
 ~~~yml
 collections:
   projects:
-    permalink:       /projects/:path/
-    output:          true
+    permalink: /projects/:path/
+    output:    true
 ~~~
 
 Next, add a `projects.md` to in the root (you can adjust the name/location to match the the `permalink` of the
@@ -227,10 +227,10 @@ with the name of the collection as a value, e.g.:
 
 ~~~yml
 ---
-layout: projects
-title: Projects*
+layout:          projects
+title:           Projects*
 show_collection: projects
-big_project: true
+big_project:     true
 ---
 ~~~
 
@@ -258,24 +258,25 @@ The project's meta information is defined in the file's front matter. You can al
 
 ~~~yml
 ---
-layout: project
-title: Hyde v2*
-date: 2 Jan 2014
+layout:      project
+title:       Hyde v2*
+date:        2 Jan 2014
 screenshot:
-  src: /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
+  src:       /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
   srcset:
-    1920w: /hydejack/assets/img/projects/hyde-v2.jpg
-    960w: /hydejack/assets/img/projects/hyde-v2@0,5x.jpg
-    480w: /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
-caption: Hyde is a brazen two-column Jekyll theme.
+    1920w:   /hydejack/assets/img/projects/hyde-v2.jpg
+    960w:    /hydejack/assets/img/projects/hyde-v2@0,5x.jpg
+    480w:    /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
+caption:     Hyde is a brazen two-column Jekyll theme.
 description: >
-  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content.
+  It's based on [Poole](http://getpoole.com), the Jekyll butler.
 links:
-  - title: Demo
-    url: http://hyde.getpoole.com
-  - title: Source
-    url: https://github.com/poole/hyde
-author: mdo
+  - title:   Demo
+    url:     http://hyde.getpoole.com
+  - title:   Source
+    url:     https://github.com/poole/hyde
+author:      mdo
 big_project: true
 ---
 ~~~
@@ -325,7 +326,7 @@ To render the resume page, create a new markdown file and set the layout to `res
 ~~~yml
 ---
 layout: resume
-title: Resume
+title:  Resume
 ---
 ~~~
 

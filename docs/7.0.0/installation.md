@@ -53,7 +53,7 @@ gem "jekyll-theme-hydejack"
 Now you want to edit the `_config.yml` of your Jekyll site and set Hydejack as the theme.
 Look for the `theme` key (or add it when missing) and set its value to `jekyll-theme-hydejack`.
 
-~~~
+~~~yml
 theme: jekyll-theme-hydejack
 ~~~
 

@@ -16,7 +16,7 @@
 import 'core-js/fn/array/for-each';
 import 'core-js/fn/object/assign';
 
-import { PushState, PUSH } from 'hy-push-state/src/vanilla';
+import { PushState } from 'hy-push-state/src/vanilla';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -159,7 +159,7 @@ function getFlipType(t = {}) {
 }
 
 function shouldAnimate({ type }) {
-  return type === PUSH || !isSafari();
+  return type === 'push' || !isSafari();
 }
 
 if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
@@ -181,7 +181,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     ::share();
 
   const ready$ = Observable::fromEvent(pushStateEl, 'hy-push-state-ready')
-    ::map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) }))
+    ::map(({ detail }) => detail)
     ::share();
 
   const after$ = Observable::fromEvent(pushStateEl, 'hy-push-state-after')

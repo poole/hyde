@@ -26,27 +26,23 @@ export function hasFeatures(features) {
   return acc;
 }
 
-// export function show(el) {
-//   el.style.display = 'block';
-//   el.style.visibility = 'visible';
-// }
-//
-// export function hide(el) {
-//   el.style.display = 'none';
-//   el.style.visibility = 'hidden';
-// }
-//
-// export function unshow(el) {
-//   el.style.display = '';
-//   el.style.visibility = '';
-// }
-//
-// export const unhide = unshow;
-//
-// export function matches(el, selector) {
-//   return (el.matches || el.matchesSelector || el.msMatchesSelector || el.mozMatchesSelector ||
-//     el.webkitMatchesSelector || el.oMatchesSelector).call(el, selector);
-// }
+export function show() {
+  this.style.display = 'block';
+  this.style.visibility = 'visible';
+}
+
+export function hide() {
+  this.style.display = 'none';
+  this.style.visibility = 'hidden';
+}
+
+export function unshow() {
+  this.style.display = '';
+  this.style.visibility = '';
+}
+
+export const unhide = unshow;
+
 export const matches =
   Element.prototype.matches ||
   Element.prototype.matchesSelector ||

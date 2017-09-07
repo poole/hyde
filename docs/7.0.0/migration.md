@@ -35,7 +35,9 @@ When upgrading from the gem-based version to any zip version (free *or* PRO) cop
 
 Also make sure to remove the following line from `_config.yml`, as all necessary files are now located in the directory itself:
 
-    theme: jekyll-theme-hydejack
+~~~yml
+theme: jekyll-theme-hydejack
+~~~
 
 ## From Hydejack v5
 Unfortunately, upgrading form v5 is not straightforward. A lot of patterns and names have changed, motivated by a variety of reasons, including better integration with the rest of the Jekyll ecosystem and simplified workflows enabled by Jekyll Collections.

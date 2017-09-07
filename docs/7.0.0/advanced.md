@@ -27,11 +27,13 @@ Once you've created and downloaded the icon font form IconMoon, replace the `ico
 For the second step it is necessary to add the network's metadata to `_data/social.yml`.
 An entry looks like:
 
-    deviantart:
-      name: DeviantArt
-      icon: icon-deviantart
-      prepend: "https://"
-      append: ".deviantart.com"
+~~~yml
+deviantart:
+  name: DeviantArt
+  icon: icon-deviantart
+  prepend: "https://"
+  append: ".deviantart.com"
+~~~
 
 `name`
 : The name of the network. Used for for the title attribute and screen readers.
@@ -58,17 +60,23 @@ Before you start, make sure you've copied the following files:
 
 When building for the first time (and after each update of Hydejack) you have to run
 
-    $ npm install
+~~~bash
+$ npm install
+~~~
 
 This will fetch all dependencies (and put them in a local folder called `node_modules`), lint the code and write the bundled and minified script into `assets/js/hydejack.js`.
 
 Subsequent builds are administered via
 
-    $ npm run build
+~~~bash
+$ npm run build
+~~~
 
 If you want to actively develop the scripts, it is better to run
 
-    $ npm run watch:js
+~~~bash
+$ npm run watch:js
+~~~
 
 which will build a non-minified, non-transpiled (ES2016) version of `hydejack.js` after each filechange.
 
@@ -114,14 +122,14 @@ TODO
 
 To split the CSS once, run
 
-~~~
-npm run build:css
+~~~bash
+$ npm run build:css
 ~~~
 
 To rebuild on file changes, use
 
-~~~
-npm run watch:css
+~~~bash
+$ npm run watch:css
 ~~~
 
 **NOTE**: You can use `npm run dev` to start an entire development environment,

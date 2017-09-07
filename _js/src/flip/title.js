@@ -66,7 +66,6 @@ export function flipTitle(start$, ready$, fadeIn$, { animationMain, settings }) 
     ready$
       ::filter(() => flipType === 'title')
       ::map(({ content: [main] }) => {
-        // console.log('title ready');
         animationMain.style.willChange = 'opacity';
 
         const title = main.querySelector(TITLE_SELECTOR);
@@ -87,10 +86,6 @@ export function flipTitle(start$, ready$, fadeIn$, { animationMain, settings }) 
         animationMain.style.opacity = 0;
         animationMain.style.willChange = '';
       }))
-      // ::cleanup(() => {
-      //   animationMain.style.opacity = 0;
-      //   animationMain.style.willChange = '';
-      // }))
     .subscribe();
 
   return flip$;

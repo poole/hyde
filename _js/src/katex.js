@@ -38,7 +38,7 @@ function renderKatex(el, tex) {
   try {
     const prev = el.previousElementSibling;
     replaceMathBlock(el, tex);
-    if (prev && prev::matches('.MathJax_Preview')) hide(prev);
+    if (prev && prev::matches('.MathJax_Preview')) prev::hide();
   } catch (e) {
     // TODO: remove in production builds?
     console.error(e); // eslint-disable-line no-console
