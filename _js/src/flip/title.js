@@ -20,32 +20,33 @@ import { _do as effect } from 'rxjs/operator/do';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { switchMap } from 'rxjs/operator/switchMap';
-import { _finally as cleanup } from 'rxjs/operator/finally';
+// import { _finally as cleanup } from 'rxjs/operator/finally';
 import { zipProto as zipWith } from 'rxjs/operator/zip';
 
-import { animate } from '../common';
+import { animate, empty } from '../common';
 
 const TITLE_SELECTOR = '.page-title, .post-title';
 
-export function flipTitle(start$, ready$, fadeIn$, { animationMain, duration }) {
+export function flipTitle(start$, ready$, fadeIn$, { animationMain, settings }) {
   const flip$ = start$
     ::filter(({ flipType }) => flipType === 'title')
     ::switchMap(({ anchor }) => {
-      console.log('title start');
+      // console.log('title start');
       const title = document.createElement('h1');
 
       title.classList.add('page-title');
       title.textContent = anchor.textContent;
       title.style.transformOrigin = 'left top';
 
-      animationMain.querySelector('.page').innerHTML = '';
-      animationMain.querySelector('.page').appendChild(title);
+      const page = animationMain.querySelector('.page');
+      page::empty();
+      page.appendChild(title);
       animationMain.style.position = 'fixed';
       animationMain.style.opacity = 1;
 
       const first = anchor.getBoundingClientRect();
-      const firstFontSize = parseInt(getComputedStyle(anchor).fontSize, 10);
       const last = title.getBoundingClientRect();
+      const firstFontSize = parseInt(getComputedStyle(anchor).fontSize, 10);
       const lastFontSize = parseInt(getComputedStyle(title).fontSize, 10);
 
       const invertX = first.left - last.left;
@@ -57,18 +58,15 @@ export function flipTitle(start$, ready$, fadeIn$, { animationMain, duration }) 
       return animate(title, [
         { transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})` },
         { transform: 'translate3d(0, 0, 0) scale(1)' },
-      ], {
-        duration,
-        easing: 'cubic-bezier(0,0,0.32,1)',
-      })
+      ], settings)
         ::effect(() => { animationMain.style.position = 'absolute'; });
     });
 
-  start$::switchMap(() =>
+  start$::switchMap(({ flipType }) =>
     ready$
-      ::filter(({ flipType }) => flipType === 'title')
+      ::filter(() => flipType === 'title')
       ::map(({ content: [main] }) => {
-        console.log('title ready');
+        // console.log('title ready');
         animationMain.style.willChange = 'opacity';
 
         const title = main.querySelector(TITLE_SELECTOR);

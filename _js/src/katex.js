@@ -13,7 +13,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'core-js/fn/array/for-each';
+
 import { hasFeatures, hide, matches } from './common';
+
+const { forEach } = Array.prototype;
 
 const REQUIREMENTS = [
   'eventlistener',
@@ -34,7 +38,7 @@ function renderKatex(el, tex) {
   try {
     const prev = el.previousElementSibling;
     replaceMathBlock(el, tex);
-    if (prev && matches(prev, '.MathJax_Preview')) hide(prev);
+    if (prev && prev::matches('.MathJax_Preview')) hide(prev);
   } catch (e) {
     // TODO: remove in production builds?
     console.error(e); // eslint-disable-line no-console
@@ -49,7 +53,7 @@ function readTexSource(el) {
 
 function changeContent(mathBlocks) {
   // kramdown generates script tags with type "math/tex"
-  Array.prototype.forEach.call(mathBlocks, (script) => {
+  mathBlocks::forEach((script) => {
     const tex = readTexSource(script);
     renderKatex(script, tex);
   });

@@ -17,7 +17,7 @@ redirect_from:
 ## Terms and Conditions
 ### 1. Preamble
 This Agreement governs the relationship between you (hereinafter: Licensee) and
-Florian Klampfer / qwtel.com (hereinafter: Licensor).
+Florian Klampfer qwtel.com (hereinafter: Licensor).
 This Agreement sets the terms, rights, restrictions and obligations on using
 Hydejack PRO (hereinafter: The Software)
 created and owned by Licensor, as detailed herein
