@@ -16,7 +16,7 @@ qwtel:
 
   # This photo will be used in the about section
   picture:
-    src:             https://placehold.it/128x128
+    path:            https://placehold.it/128x128
     # srcset is optional, but can be used to provide higher res versions for retina displays
     srcset:
       1x:            https://placehold.it/128x128
