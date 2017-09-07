@@ -28,7 +28,7 @@ layout: base
       {% for page in pages limit:5 %}
         {% if page.layout == 'page' %}
           <li class="h4">
-            <a href="{{ page.url | relative_url }}" data-flip="title">
+            <a href="{{ page.url | relative_url }}" class="flip-title">
               <span>{{ page.title }}</span>
             </a>
           </li>

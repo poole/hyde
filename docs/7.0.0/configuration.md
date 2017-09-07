@@ -218,7 +218,7 @@ Conversely, if you want to disable it, you only have to remove the key and no GA
 **NOTE**: Pasting code snippets provided by 3rd parties into the body will have undesired side effects (and may not work at all), because pages are loaded and swapped via JavaScript.
 {:.message}
 
-Continue with [Basics](basics.md){:.heading data-flip="title"}
+Continue with [Basics](basics.md){:.heading.flip-title}
 {:.read-more}
 
 [blog]: https://qwtel.com/hydejack/blog/

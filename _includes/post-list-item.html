@@ -2,7 +2,7 @@
 {% assign format = include.format | default:"%d %b %Y" %}
 
 <li class="h4">
-  <a href="{{ post.url | relative_url }}" data-flip="title">
+  <a href="{{ post.url | relative_url }}" class="flip-title">
     <span>{{ post.title }}</span>
   </a>
   <small><time datetime="{{ post.date | date_to_xmlschema }}">

@@ -315,7 +315,7 @@ $$
 $$
 ~~~
 
-Continue with [Scripts](scripts.md){:.heading data-flip="title"}
+Continue with [Scripts](scripts.md){:.heading.flip-title}
 {:.read-more}
 
 

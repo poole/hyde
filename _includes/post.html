@@ -3,7 +3,7 @@
 <article id="post{{ post.id | replace:'/','-' }}" class="page post{% if include.link_title %} mb6{% endif %}" role="article">
   <header>
     <h1 class="post-title">
-      {% if include.link_title %}<a href="{{ post.url | relative_url }}" data-flip="title">{% endif %}
+      {% if include.link_title %}<a href="{{ post.url | relative_url }}" class="flip-title">{% endif %}
         {{ post.title }}
       {% if include.link_title %}</a>{% endif %}
     </h1>
@@ -21,7 +21,7 @@
     {{ post.content }}
   {% else %}
     {{ post.excerpt }}
-    <p class="read-more">Continue reading <a class="heading" href="{{ post.url | relative_url }}" data-flip="title">{{ post.title }}</a></p>
+    <p class="read-more">Continue reading <a class="heading flip-title" href="{{ post.url | relative_url }}">{{ post.title }}</a></p>
   {% endunless %}
 
 </article>

@@ -18,7 +18,7 @@ excerpt_separator: <!--more-->
 <!--more-->
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation][docs] for up-to-date instructions.
+See the [Documentation][docs]{:.heading.flip-title} for up-to-date instructions.
 {:.message}
 
 ## New features

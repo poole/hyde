@@ -86,7 +86,7 @@ $ cd ..
 More on [user, organization, and project pages](https://help.github.com/articles/user-organization-and-project-pages/).
 
 
-Continue with [Advanced](advanced.md){:.heading data-flip="title"}
+Continue with [Advanced](advanced.md){:.heading.flip-title}
 {:.read-more}
 
 [deploy]: https://jekyllrb.com/docs/deployment-methods/

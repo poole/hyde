@@ -11,7 +11,7 @@ The page now scores roughly 90/100 on [Google's PageSpeed Insights][gpsi] (up fr
 has a high score on similar tools.
 
 **NOTE**: This post is outdated and only included for legacy reasons.
-See the [Documentation][docs] for up-to-date instructions.
+See the [Documentation][docs]{:.heading.flip-title} for up-to-date instructions.
 {:.message}
 
 Most importantly, the critical rendering path is no longer blocked by loading styles or scripts,

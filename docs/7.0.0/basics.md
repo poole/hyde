@@ -332,7 +332,7 @@ title: Resume
 **NOTE**: You can download the final `resume.json` (minified) from the assets folder. When running locally, you can find it at `_site/assets/resume.json`.
 {:.message}
 
-Continue with [Writing](writing.md){:.heading data-flip="title"}
+Continue with [Writing](writing.md){:.heading.flip-title}
 {:.read-more}
 
 [about]: https://qwtel.com/hydejack/about/

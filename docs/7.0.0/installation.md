@@ -14,7 +14,7 @@ If you know what you are doing, you can [fork or clone the git repository](#via-
 Buyers of the PRO version should [follow these steps](#pro-version).
 
 **NOTE**: If you've used any version of Hydejack before,
-also check out the [Migration]{:.heading data-flip="title"} guide.
+also check out the [Migration]{:.heading.flip-title} guide.
 {:.message}
 
 ## Table of Contents
@@ -167,7 +167,7 @@ $ bundle exec jekyll serve
 You can now point your browser to <http://localhost:4000> and see Hydejack in action.
 
 
-Continue with [Configuration](configuration.md){:.heading data-flip="title"}
+Continue with [Configuration](configuration.md){:.heading.flip-title}
 {:.read-more}
 
 
