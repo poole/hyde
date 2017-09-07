@@ -199,7 +199,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   /* HACK */
   if (isSafari()) {
     Observable::fromEvent(window, 'popstate')
-      ::filter(() => history.state && history.state._hyPushState)
+      ::filter(() => history.state && history.state._hyPushState && !history.state.hash)
       ::subscribe(() => { document.body.style.minHeight = '999999px'; });
 
     after$
