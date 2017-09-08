@@ -65,6 +65,9 @@ qwtel:
     # paypal:          <username>
     # download:        https://github.com/qwtel/hydejack/archive/v6.6.1.zip
 
+  # Used by `jekyll-seo-tag`:
+  twitter:           qwtel
+
 # Another author
 mdo:
   name:              <firtname> <lastname>
@@ -76,8 +79,7 @@ mdo:
 
     Open `_data/authors.yml` to edit this text.
   picture:           https://placehold.it/128x128
-  social:
-    github:          <username>
-    twitter:         <username>
+  twitter:           <username>
+  github:            <username>
   accent_image:      'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' # http://jsfiddle.net/LPxrT/
   accent_color:      '#268bd2'
