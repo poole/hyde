@@ -9,8 +9,8 @@
  * to continuosly rebuild this file.
  */
 
-
 table:not(.highlight) {
+  
   margin-bottom: 1rem;
   width: 100%;
   width: calc(100% + 2rem);
@@ -32,23 +32,8 @@ table:not(.highlight) {
       padding-right: 1rem;
     }
   }
-
-  thead {
-    background-color: $body-bg;
-  }
-
-  thead + tbody,
-  tbody + tbody,
-  tfoot {
-    background-color: $body-bg;
-    border-top: 3px double $border-color;
-  }
-
-  tbody tr:nth-child(odd) td,
-  tbody tr:nth-child(odd) th {
-    background-color: $gray-bg;
-  }
+  
+  
 }
-
 
 

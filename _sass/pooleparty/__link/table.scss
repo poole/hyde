@@ -9,10 +9,33 @@
  * to continuosly rebuild this file.
  */
 
+table:not(.highlight) {
+  
+  
+  thead {
+    background-color: $body-bg;
+  }
+
+  thead + tbody,
+  tbody + tbody,
+  tfoot {
+    border-top: 3px double $border-color;
+  }
+
+  tbody tr:nth-child(even) td,
+  tbody tr:nth-child(even) th {
+    background-color: $body-bg;
+  }
+
+  tbody tr:nth-child(odd) td,
+  tbody tr:nth-child(odd) th {
+    background-color: $gray-bg;
+  }
+  
+}
 
 
-
-@media print { 
+@media print {
   table:not(.highlight) {
     width: 100%!important;
   }

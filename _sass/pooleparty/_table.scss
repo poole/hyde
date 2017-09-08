@@ -1,5 +1,5 @@
-// <<<<< INLINE
 table:not(.highlight) {
+  // <<< inline
   margin-bottom: 1rem;
   width: 100%;
   width: calc(100% + 2rem);
@@ -21,7 +21,8 @@ table:not(.highlight) {
       padding-right: 1rem;
     }
   }
-
+  // >>>
+  // <<< link
   thead {
     background-color: $body-bg;
   }
@@ -29,19 +30,23 @@ table:not(.highlight) {
   thead + tbody,
   tbody + tbody,
   tfoot {
-    background-color: $body-bg;
     border-top: 3px double $border-color;
+  }
+
+  tbody tr:nth-child(even) td,
+  tbody tr:nth-child(even) th {
+    background-color: $body-bg;
   }
 
   tbody tr:nth-child(odd) td,
   tbody tr:nth-child(odd) th {
     background-color: $gray-bg;
   }
+  // >>>
 }
-// >>>>>
 
 // <<<<< LINK
-@media print { 
+@media print {
   table:not(.highlight) {
     width: 100%!important;
   }
