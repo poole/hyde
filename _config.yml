@@ -1,75 +1,87 @@
-# -----------------------------------------------------------------------------
-#  User configuration
-# -----------------------------------------------------------------------------
+# Basic Configuration
+# ========================================================================================
 
-title:               Hydejack
+title:                 Hydejack
+
 # Language of your content in 2-letter code, e.g.: `en`, `de`
 # You may also provide a target location, e.g.: `en-US`, `de-AT`
 lang:                  en
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
-url:                 https://qwtel.com
+url:                   https://qwtel.com
 
 # Set to '' when hosting a blog on GitHub Pages, ie on `//<username>.github.io`
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository
-baseurl:             /hydejack
+baseurl:               /hydejack
 
-# A short description of the page, used in the sidebar and as fallback for the meta description tag.
+# A short description of the page, used in the sidebar and as fallback for the meta
+# description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
-description:         >
-  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [@qwtel](https://twitter.com/qwtel)
-  from [Hyde](http://hyde.getpoole.com).
-  You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
+description:           >
+  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme,
+  stolen by [@qwtel](https://twitter.com/qwtel)
+  from [Hyde](http://hyde.getpoole.com). You could say it was..
+  [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
-# This should be the same author as first entry in `_data/authors.yml`
+# A list of keywords for your blog, will be used as fallback
+# for pages that don't have `keywords` in their front matter.
+keywords:              [jekyll, theme, hyde, sidebar, resume, markdown, code, math, portfolio, personal]
+
+# TODO
+logo:                  /hydejack/apple-touch-icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 # Duplication is necessary due to the jekyll-feed plugin.
 author:
-  name:              Florian Klampfer
-  email:             mail@qwtel.com
+  name:                Florian Klampfer
+  email:               mail@qwtel.com
 
 # This text will appear in the footer of every page. Markdown enabled.
-copyright:           \* Layout not included in free version
+copyright:             \* Layout not included in free version
 
 # Format of the permalinks
-permalink:           pretty
+permalink:             pretty
 
 # Pagination configuration (used by the `blog` layout)
-paginate:            5
-paginate_path:       '/page-:num/'
+paginate:              5
+paginate_path:         '/page-:num/'
 
-# Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    qwtel
+# Setting a disqus shortname will enable the comment section on
+# pages with `comments: true` in the front matter.
+disqus_shortname:      qwtel
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:    UA-XXXXXXXX-X
+google_analytics:      UA-XXXXXXXX-X
 
 # The string encoding what fonts to fetch from Google Fonts.
 # See: https://qwtel.com/hydejack/docs/configuration/
-# google_fonts:        Roboto+Slab:700|Noto+Sans:400,400i,700,700i
+# google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
+
+# Customizaton
+# ========================================================================================
 
 # The text font. Expects a string that is a valid CSS font-family value.
-# font:                "'Noto Sans', Helvetica, Arial, sans-serif"
+# font:                  "'Noto Sans', Helvetica, Arial, sans-serif"
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
-# font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
+# font_heading:          "'Roboto Slab', Helvetica, Arial, sans-serif"
 
 # Fallback image and color
-accent_image:                /hydejack/assets/img/sidebar-bg.jpg
-# accent_color:               '#4fb1ba'
+accent_image:          /hydejack/assets/img/sidebar-bg.jpg
+# accent_color:          '#4fb1ba'
 
-# -----------------------------------------------------------------------------
-#  Hydejack Switches
-# -----------------------------------------------------------------------------
+
+# Hydejack Switches
+# ----------------------------------------------------------------------------------------
 
 hydejack:
   # If you do not use a Google Fonts, uncomment the line below
   no_google_fonts:     false
 
-  # Set to `true` if you don't want to show an icon after each link that opens to an external site
+  # Set to `true` if you don't want to show an icon after each link that
+  # opens to an external site.
   no_mark_external:    false
 
   # Set to true if third party plugins fail to work with dynimically loaded pages
@@ -90,24 +102,24 @@ hydejack:
   # See: https://jekyllrb.com/docs/variables/#site-variables
   use_lsi:             false
 
-# -----------------------------------------------------------------------------
-#  Collections
-# -----------------------------------------------------------------------------
+
+# Collections
+# ========================================================================================
 
 collections:
   featured_categories:
-    permalink:       /category/:name/
-    output:          true
+    permalink:         /category/:name/
+    output:            true
   featured_tags:
-    permalink:       /tag/:name/
-    output:          true
+    permalink:         /tag/:name/
+    output:            true
   projects:
-    permalink:       /projects/:path/
-    output:          true
+    permalink:         /projects/:path/
+    output:            true
 
-# -----------------------------------------------------------------------------
+
 # File inclusion/exclusion
-# -----------------------------------------------------------------------------
+# ========================================================================================
 
 exclude:
   - README.md
@@ -119,9 +131,9 @@ exclude:
 include:
   - LICENSE.md
 
-# -----------------------------------------------------------------------------
-#  Plugin configuration
-# -----------------------------------------------------------------------------
+
+# Plugins
+# ========================================================================================
 
 gems:
   - jekyll-default-layout
@@ -129,38 +141,79 @@ gems:
   - jekyll-gist
   - jekyll-optional-front-matter
   - jekyll-paginate
+  # - jekyll-readme-index
   - jekyll-redirect-from
   - jekyll-relative-links
   - jekyll-seo-tag
   - jekyll-sitemap
+  # - jekyll-titles-from-headings
 
-relative_links:
-  collections:       true
+
+# SEO Tag
+# ---------------------------------------------------------------------------------------
+
+# Where you proof that you own this site (used by jekyll-seo-tag)
+webmaster_verifications:
+  google:              xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
+#   bing:                <verification-id>
+#   alexa:               <verification-id>
+#   yandex:              <verification-id>
+
+# Used for twitter cards
+twitter:
+  username:            qwtel
+
+# Used for facebook open graph
+# facebook:
+#   app_id:              <id>
+#   publisher:           <id>
+#   admins:              <id>
+
+# Used on index and about sites
+# social:
+#   name:                Florian Klampfer
+#   links:
+#     - https://twitter.com/qwtel
+#     - https://github.com/qwtel
+
+
+# Other plugins
+# ---------------------------------------------------------------------------------------
 
 optional_front_matter:
-  remove_originals:  true
+  remove_originals:    true
+
+readme_index:
+  collections:         true
+
+relative_links:
+  collections:         true
+
+titles_from_headings:
+  strip_title:         true
+  collections:         true
 
 jekyll-mentions:
-  base_url:          https://twitter.com
+  base_url:            https://twitter.com
 
 kramdown:
-  footnote_backlink: '&#x21a9;&#xfe0e;'
-  math_engine:       mathjax
+  footnote_backlink:   '&#x21a9;&#xfe0e;'
+  math_engine:         mathjax
   math_engine_opts:
-    preview:         true
-    preview_as_code: true
+    preview:           true
+    preview_as_code:   true
 
 compress_html:
-  comments:          ["<!-- ", " -->"]
-  clippings:         all
-  endings:           all
+  comments:            ["<!-- ", " -->"]
+  clippings:           all
+  endings:             all
   ignore:
-    envs:            [development]
+    envs:              [development]
 
 sass:
-  style:             compressed
+  style:               compressed
 
 # If you are upgrading form a v5 verison of Hydejack, uncomment the two lines below,
 # so that the location of the feed XML stays the same.
 # feed:
-#   path:              atom.xml
+#   path:                atom.xml
