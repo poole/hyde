@@ -1,5 +1,5 @@
 {% if include.href.size > 0 %}
-  <a href="{{ include.href }}" {% if include.property %}property="{{ include.property }}"{% endif %}>{{ include.title }}</a>
+  <a class="{{ include.class }}" href="{{ include.href }}" {% if include.property %}property="{{ include.property }}"{% endif %}>{{ include.title }}</a>
 {% else %}
-  <span>{{ include.title }}</span>
+  <span class="{{ include.class }}">{{ include.title }}</span>
 {% endif %}
