@@ -15,8 +15,8 @@ baseurl:             /hydejack
 # A short description of the page, used in the sidebar and as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:         >
-  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by @qwtel from
-  [Hyde](http://hyde.getpoole.com).
+  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme, stolen by [@qwtel](https://twitter.com/qwtel)
+  from [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
 # This should be the same author as first entry in `_data/authors.yml`
@@ -121,7 +121,6 @@ gems:
   - jekyll-default-layout
   - jekyll-feed
   - jekyll-gist
-  - jekyll-mentions
   - jekyll-optional-front-matter
   - jekyll-paginate
   - jekyll-redirect-from
