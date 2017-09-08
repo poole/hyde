@@ -16,6 +16,7 @@
 import 'core-js/fn/array/for-each';
 
 import { hasFeatures, hide, matches } from './common';
+import upgradeBlocks from './blocks';
 
 const { forEach } = Array.prototype;
 
@@ -57,6 +58,10 @@ function changeContent(mathBlocks) {
     const tex = readTexSource(script);
     renderKatex(script, tex);
   });
+
+  if (!window._noBreakLayout) {
+    upgradeBlocks(document.querySelectorAll('.katex-display'));
+  }
 }
 
 export default function upgradeMathBlocks() {

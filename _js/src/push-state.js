@@ -51,21 +51,22 @@ import elemDataset from 'elem-dataset';
 import { animate, empty, hasFeatures, isSafari } from './common';
 import CrossFader from './cross-fader';
 import upgradeMathBlocks from './katex';
+import upgradeBlocks from './blocks';
 
-import { flip } from './flip';
+import flip from './flip';
 
 const { forEach } = Array.prototype;
 const assign = ::Object.assign;
 
 const REQUIREMENTS = [
-  'eventlistener',
-  'queryselector',
-  'requestanimationframe',
   'classlist',
+  'cssanimations',
   'documentfragment',
+  'eventlistener',
   'history',
   'opacity',
-  'cssanimations',
+  'queryselector',
+  'requestanimationframe',
 ];
 
 const DURATION = 250;
@@ -88,6 +89,7 @@ const SETTINGS = {
 };
 
 const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
+const BREAK_LAYOUT_SELECTOR = 'pre, table:not(.highlight)';
 
 function upgradeHeading(h) {
   const hash = `#${h.id}`;
@@ -283,6 +285,11 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     ::mergeMap(::crossFader.fade)
     ::subscribe();
 
+  if (!window._noBreakLayout) {
+    after$::subscribe(({ content: [main] }) =>
+      upgradeBlocks(main.querySelectorAll(BREAK_LAYOUT_SELECTOR)));
+  }
+
   // Send google analytics pageview and upgrade math blocks.
   // Add some delay to avoid intermediate vales to be sent.
   fadeIn$
@@ -324,4 +331,12 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   });
 
   window._pushState._animation$ = anim$;
+}
+
+if (!window._noBreakLayout && hasFeatures(['eventlistener', 'queryselector'])) {
+  Observable::fromEvent(window, 'resize')
+    ::debounceTime(100)
+    ::startWith(true)
+    ::subscribe(() =>
+      upgradeBlocks(document.getElementById('_main').querySelectorAll(BREAK_LAYOUT_SELECTOR)));
 }

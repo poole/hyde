@@ -13,24 +13,29 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Observable } from 'rxjs/Observable';
-// import { empty } from 'rxjs/observable/empty';
-import { merge } from 'rxjs/observable/merge';
+import 'core-js/fn/array/filter';
+import 'core-js/fn/array/for-each';
+import 'core-js/fn/array/map';
 
-import { filter } from 'rxjs/operator/filter';
-// import { partition } from 'rxjs/operator/partition';
+import { hasFeatures } from './common';
 
-import flipTitle from './title';
-import flipProject from './project';
+const { filter, map, forEach } = Array.prototype;
 
-const FLIP_TYPES = ['title', 'projects'];
+const REQUIREMENTS = [
+  'classlist',
+  // 'eventlistener',
+  // 'queryselector',
+];
 
-export default function flip(start$, ready$, fadeIn$, options) {
-  const other$ = start$::filter(({ flipType }) => !FLIP_TYPES.includes(flipType));
+const featuresOk = !window._noBreakLayout && hasFeatures(REQUIREMENTS);
 
-  return Observable::merge(
-    flipTitle(start$, ready$, fadeIn$, options),
-    flipProject(start$, ready$, fadeIn$, options),
-    other$,
-  );
+export default function upgradeBlocks(blocks) {
+  if (featuresOk) {
+    const innerWidth = window.innerWidth;
+
+    blocks
+      ::filter(block => !block.classList.contains('no-break-layout'))
+      ::map(block => [block, innerWidth - block.getBoundingClientRect().left])
+      ::forEach(([block, width]) => { block.style.width = `${width}px`; });
+  }
 }

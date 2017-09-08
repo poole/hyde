@@ -27,7 +27,7 @@ import { animate, empty } from '../common';
 
 const TITLE_SELECTOR = '.page-title, .post-title';
 
-export function flipTitle(start$, ready$, fadeIn$, { animationMain, settings }) {
+export default function flipTitle(start$, ready$, fadeIn$, { animationMain, settings }) {
   const flip$ = start$
     ::filter(({ flipType }) => flipType === 'title')
     ::switchMap(({ anchor }) => {
