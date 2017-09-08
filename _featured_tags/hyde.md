@@ -10,6 +10,6 @@ description: >
   Open `_featured_tags/hyde.md` to edit this text.
 
 # http://jsfiddle.net/LPxrT/
-sidebar_image: 'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
-color: '#268bd2'
+accent_image: 'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
+accent_color: '#268bd2'
 ---

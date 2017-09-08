@@ -47,8 +47,9 @@ We want to avoid building the URL dynamically in JS, because it depends on your 
   {% include scripts/load-js-deferred.min.js %}
   {% include scripts/loadCSS.min.js %}
   {% include scripts/cssrelpreload.min.js %}
-  window._noPushState = {{ site.no_push_state | default:site.disable_push_state | default:false }};
-  window._noDrawer = {{ site.no_drawer | default:site.disable_drawer | default:false }};
+  window._noPushState = {{ site.hydejack.no_push_state | default:site.disable_push_state | default:false }};
+  window._noDrawer = {{ site.hydejack.no_drawer | default:site.disable_drawer | default:false }};
+  window._noBreakLayout = {{ site.hydejack.no_break_layout | default:false }};
 </script>
 
 <!--[if gt IE 8]><!---->
@@ -56,7 +57,7 @@ We want to avoid building the URL dynamically in JS, because it depends on your 
 {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
 <script>
   WebFontConfig = {
-    {% unless site.no_google_fonts %}
+    {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
     google: {
       families: '{{ google_fonts }}'.split('|')
     },
@@ -80,7 +81,7 @@ We want to avoid building the URL dynamically in JS, because it depends on your 
 <!--[if gt IE 8]><!---->
 {% capture style_url %}{% link assets/css/hydejack.css %}?v=7.0.0{% endcapture %}
 
-{% if site.no_inline_css or jekyll.environment == 'development' %}
+{% if site.hydejack.no_inline_css or jekyll.environment == 'development' %}
   <link rel="stylesheet" href="{{ style_url | relative_url }}">
 {% else %}
   <style>
@@ -97,7 +98,7 @@ We want to avoid building the URL dynamically in JS, because it depends on your 
   {% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
   {% assign font         = site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
 
-  {% unless site.no_google_fonts %}
+  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ google_fonts }}">
     <style>
       html { font-family: {{ font }} }

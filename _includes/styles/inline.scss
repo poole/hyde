@@ -54,7 +54,7 @@
 @import "hydejack/__inline/katex";
 @import "hydejack/__inline/footer";
 
-{% unless site.no_mark_external %}
+{% unless site.hydejack.no_mark_external or site.no_mark_external %}
   @import "hydejack/__inline/mark-external";
 {% endunless %}
 
@@ -66,7 +66,7 @@
 {% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
 {% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
 
-{% unless site.no_google_fonts %}
+{% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
   {% assign font = font | split:',' | shift | join:',' %}
   {% assign font_heading = font_heading | split:',' | shift | join:',' %}
 {% endunless %}

@@ -52,12 +52,14 @@ The free version of Hydejack is now [GPL-3.0] licensed.
 
 ### Changes
 * This theme now uses the `jekyll-seo-tag` plugin for better share-ability on social media.
-  Note that this plugin uses the `image` key in the front-matter of a page
-  for the thumbnail image when previewing a link.
-  However, Hydejack already uses the same name to defined the background image of the sidebar.
-  While it may not be undesirable to use the same image for both the sidebar and social media links,
-  the new preferred way to set sidebar images is by using the `sidebar_image` key.
-  In any case, using `image` will continue to work, but will set both the sidebar image, and the social media image.
+  This plugin uses the `image` key in the front-matter of a page to set the thumbnail image when previewing a link.
+  However, Hydejack already uses the same name to define the background image of the sidebar.
+  While it *may* be desirable to use the same image for both the sidebar and thumbnails,
+  the new preferred way to set sidebar image is by using the `accent_image` key.
+  In any case, using `image` will continue to work, but will set both the sidebar image, and the social media image,
+  when applied to a page.
+
+* The `color` key for setting link colors has been renamed to `accent_color`. The old key still works.
 
 * Changed how CSS code is organized.
   Previously there were two versions of each CSS file,

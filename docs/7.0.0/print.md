@@ -82,7 +82,7 @@ gem "jekyll-theme-hydejack"
 Now you want to edit the `_config.yml` of your Jekyll site and set Hydejack as the theme.
 Look for the `theme` key (or add it when missing) and set its value to `jekyll-theme-hydejack`.
 
-~~~
+~~~yml
 theme: jekyll-theme-hydejack
 ~~~
 
@@ -236,7 +236,9 @@ When upgrading from the gem-based version to any zip version (free *or* PRO) cop
 
 Also make sure to remove the following line from `_config.yml`, as all necessary files are now located in the directory itself:
 
-    theme: jekyll-theme-hydejack
+~~~yml
+theme: jekyll-theme-hydejack
+~~~
 
 ### From Hydejack v5
 Unfortunately, upgrading form v5 is not straightforward. A lot of patterns and names have changed, motivated by a variety of reasons, including better integration with the rest of the Jekyll ecosystem and simplified workflows enabled by Jekyll Collections.
@@ -398,18 +400,24 @@ The first order of business should be to set the correct `url` and `baseurl` val
 
 The `url` is the domain of your site, including the protocol (`http` or `https`). For this site, it is
 
-    url: https://qwtel.com
+~~~yml
+url: https://qwtel.com
+~~~
 
 If your entire Jekyll blog is hosted in a subdirectory of your page, provide the path in `baseurl` with a leading `/`, but no trailing `/`, e.g.
 
-    baseurl: /hydejack
+~~~yml
+baseurl: /hydejack
+~~~
 
 Otherwise, provide the empty string `''`
 
 #### GitHub Pages
 When hosting on [GitHub Pages](https://pages.github.com/) (unless you are using a custom domain), the `url` is
 
-    url: https://<username>.github.io
+~~~yml
+url: https://<username>.github.io
+~~~
 
 The `baseurl` depends on the kind of page you are hosting.
 
@@ -418,25 +426,29 @@ The `baseurl` depends on the kind of page you are hosting.
 
 For for information on the types of pages you can host on GitHub, see the [GitHub Help article](https://help.github.com/articles/user-organization-and-project-pages/).
 
-### Changing `color` and `sidebar_image`
+### Changing accent colors and sidebar images
 Hydejack allows you to choose the background image of the sidebar, as well as the accent color (color of the links, selection and focus outline, as well as background color of the sidebar, should no image be provided) on a per-page, per-category, per-tag, per-author and global basis.
 
 It is recommended that you provide fallback values in `_config.yml`, should no other rule apply:
 
-    sidebar_image: /hydejack/assets/img/nap.jpg
-    color: '#A85641'
+~~~yml
+accent_image: /hydejack/assets/img/nap.jpg
+accent_color: '#A85641'
+~~~
 
 **NOTE**: It is recommended that you use a blurred image in order for the text to remain readable. If you save a blurred image as JPG, it will also drastically reduce its file size.
 {:.message}
 
-### Changing `font` and `font_heading`
+### Changing fonts
 Hydejack lets you configure the fonts of regular text and headings. It has built-in support for Google Fonts, which are loaded lazily and swapped without FOIT. There are three keys in `_config.yml` associated with it: `font`, `font_heading` and `google_fonts`. The defaults are:
 
-    font_heading: "'Roboto Slab', Helvetica, Arial, sans-serif"
-    font:         "'Noto Serif', Georgia, serif"
-    google_fonts: "Roboto+Slab:700|Noto+Serif:400,400i,700,700i"
+~~~yml
+font:         "'Noto Serif', Georgia, serif"
+font_heading: "'Roboto Slab', Helvetica, Arial, sans-serif"
+google_fonts: "Roboto+Slab:700|Noto+Serif:400,400i,700,700i"
+~~~
 
-As you can see, `font` and `font_heading` are values you would pass to the `font-family` CSS property (without the `;`). When using a Google Font, it should consist of at least 2 fonts, where everything except the first entry will be used as a fallback until the desired font is fetched from Google.
+As you can see, `font` and `font_heading` are values you would pass to the `font-family` CSS property. When using a Google Font, it should consist of at least 2 fonts, because everything except the first entry will be used as a fallback until the desired font is fetched from Google.
 
 The `google_fonts` key is the string necessary to fetch the fonts from Google. You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 
@@ -469,7 +481,7 @@ title:  Home
 If you want to use the `blog` layout with the gem-based theme, you need to add the following to your `_config.yml` to use this layout:
 
 ~~~yml
-paginate: 5
+paginate:      5
 paginate_path: '/page-:num/'
 ~~~
 
@@ -480,20 +492,23 @@ For more information see [Pagination](https://jekyllrb.com/docs/pagination/).
 ### Adding an author
 At the very least, you should add an `author` key with a `name` and `email` sub-key (used by the [feed plugin](https://github.com/jekyll/jekyll-feed)) to `_config.yml`:
 
-    author:
-      name:  Florian Klampfer
-      email: mail@qwtel.com
+~~~yml
+author:
+  name:  Florian Klampfer
+  email: mail@qwtel.com
+~~~
 
 If you would like the author information to be displayed in the about section of a post or project\*, as well as on the about and welcome\* page, you have to provide additional information in `_data/authors.yml`. If you've installed Hydejack via zip, this file already exists. Otherwise you have to create it (and possibly the `_data` directory as well). You can find the default file [here](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml).
 
 The `authors.yml` consists of key-value pairs, where the key is a shorthand for the author (e.g. the GitHub or Twitter handle) and the value is a hash containing the author's information.
 
-    qwtel:
-      name:  Florian Klampfer
-      email: mail@qwtel.com
-
-      about: |
-        Hi, I'm Florian or `@qwtel`...
+~~~yml
+qwtel:
+  name:  Florian Klampfer
+  email: mail@qwtel.com
+  about: |
+    Hi, I'm Florian or `@qwtel`...
+~~~
 
 If an author's `about` value isn't empty, the text will appear (markdownifyed) at the bottom of each blog post and project*, as well as at the top of pages using the `about` and `welcome`\* layout.
 
@@ -504,7 +519,7 @@ However, if a blog post, project\*, about or welcome\* page doesn't belong to th
 ~~~yml
 ---
 layout: post
-title: Hello World
+title:  Hello World
 author: qwtel
 ---
 ~~~
@@ -512,15 +527,19 @@ author: qwtel
 ### Adding an author's picture
 If you'd like for the author's picture to appear in addition the the about text (see previous chapter), you have to provide an URL to the `picture` key in `_data/authors.yml`.
 
-    picture:  /assets/img/me.jpg
+~~~yml
+picture:  /assets/img/me.jpg
+~~~
 
 If you'd like to provide multiple versions of the picture for screens with different pixel densities, you can provide `src` and `srcset` keys instead.
 
-    picture:
-      src:    /assets/img/me.jpg
-      srcset:
-        1x:   /assets/img/me.jpg
-        2x:   /assets/img/me@2x.jpg
+~~~yml
+picture:
+  src:    /assets/img/me.jpg
+  srcset:
+    1x:   /assets/img/me.jpg
+    2x:   /assets/img/me@2x.jpg
+~~~
 
 The `src` key is a fallback image for browsers that don't support the `srcset` attribute.
 
@@ -539,22 +558,28 @@ Links to social networks are shown as icons in the sidebar, as well as wherever 
 You can add a link to a social network by adding an entry to the `social` key in [`authors.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml). It consists of the
 (slugifyed) name of the social network as key and your username within that network as value, e.g.
 
-    social:
-      twitter: qwtel
-      github:  qwtel
+~~~yml
+social:
+  twitter: qwtel
+  github:  qwtel
+~~~
 
 You can change the order in which the icons appear by moving lines up or down, e.g.
 
-    social:
-      github:  qwtel # github appears first
-      twitter: qwtel # twitter second
+~~~yml
+social:
+  github:  qwtel # github appears first
+  twitter: qwtel # twitter second
+~~~
 
 To get an overview of which networks are available and how a typical username in that network looks like, see the exemplary [`authors.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/authors.yml).
 
 Should providing a username not produce a correct link for some reason, you can provide a complete URL instead, e.g.
 
-    social:
-      youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
+~~~yml
+social:
+  youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
+~~~
 
 
 **NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic](#advanced).
@@ -563,9 +588,11 @@ Should providing a username not produce a correct link for some reason, you can 
 #### Adding an email or RSS icon
 If you'd like to add email <span class="icon-mail"></span> or RSS <span class="icon-rss2"></span> to the list, add the `email` and `rss` keys, e.g.:
 
-    social:
-      email: mailto:mail@gmail.com
-      rss:   https://qwtel.com/hydejack/feed.xml
+~~~yml
+social:
+  email: mailto:mail@gmail.com
+  rss:   https://qwtel.com/hydejack/feed.xml
+~~~
 
 ### Enabling comments
 Hydejack supports comments via [Disqus](https://disqus.com/). Before you can add comments to a post or project*, you need to register and add your Hydejack site to Disqus' admin console. Once you have your "Disqus shortname", you must add it to `_config.yml`:
@@ -576,8 +603,8 @@ Now comments can be enabled for posts and projects* by adding `comments: true` t
 
 ~~~yml
 ---
-layout: post
-title: Hello World
+layout:   post
+title:    Hello World
 comments: true
 ---
 ~~~
@@ -588,7 +615,9 @@ comments: true
 ### Enabling Google Analytics
 Enabling Google Analytics is as simple as setting the `google_analytics` key in `_config.yml` .
 
-    google_analytics: UA-84025722-2
+~~~yml
+google_analytics: UA-84025722-2
+~~~
 
 Conversely, if you want to disable it, you only have to remove the key and no GA code will be part of the generated pages.
 
@@ -754,7 +783,7 @@ You can create a welcome page by creating a new markdown file and setting the la
 ~~~yml
 ---
 layout: welcome
-title: Welcome
+title:  Welcome
 author: qwtel
 ---
 ~~~
@@ -764,17 +793,17 @@ However, the welcome layout supports selecting specific projects and posts, by a
 
 ~~~yml
 ---
-layout: welcome
-title: Welcome
+layout:            welcome
+title:             Welcome
 selected_projects:
   - _projects/hydejack-v6.md
   - _projects/hyde-v2.md
 selected_posts:
   - _posts/2017-05-03-javascripten.md
   - _posts/2012-02-07-example-content.md
-more_projects: projects.md
-more_posts: posts.md
-big_project: true
+more_projects:     projects.md
+more_posts:        posts.md
+big_project:       true
 content_separator: <!-- more -->
 ---
 ~~~
@@ -817,8 +846,8 @@ First, you need to make sure that you have the `projects` collection defined in 
 ~~~yml
 collections:
   projects:
-    permalink:       /projects/:path/
-    output:          true
+    permalink: /projects/:path/
+    output:    true
 ~~~
 
 Next, add a `projects.md` to in the root (you can adjust the name/location to match the the `permalink` of the
@@ -828,10 +857,10 @@ with the name of the collection as a value, e.g.:
 
 ~~~yml
 ---
-layout: projects
-title: Projects*
+layout:          projects
+title:           Projects*
 show_collection: projects
-big_project: true
+big_project:     true
 ---
 ~~~
 
@@ -859,24 +888,25 @@ The project's meta information is defined in the file's front matter. You can al
 
 ~~~yml
 ---
-layout: project
-title: Hyde v2*
-date: 2 Jan 2014
+layout:      project
+title:       Hyde v2*
+date:        2 Jan 2014
 screenshot:
-  src: /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
+  src:       /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
   srcset:
-    1920w: /hydejack/assets/img/projects/hyde-v2.jpg
-    960w: /hydejack/assets/img/projects/hyde-v2@0,5x.jpg
-    480w: /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
-caption: Hyde is a brazen two-column Jekyll theme.
+    1920w:   /hydejack/assets/img/projects/hyde-v2.jpg
+    960w:    /hydejack/assets/img/projects/hyde-v2@0,5x.jpg
+    480w:    /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
+caption:     Hyde is a brazen two-column Jekyll theme.
 description: >
-  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content. It's based on [Poole](http://getpoole.com), the Jekyll butler.
+  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content.
+  It's based on [Poole](http://getpoole.com), the Jekyll butler.
 links:
-  - title: Demo
-    url: http://hyde.getpoole.com
-  - title: Source
-    url: https://github.com/poole/hyde
-author: mdo
+  - title:   Demo
+    url:     http://hyde.getpoole.com
+  - title:   Source
+    url:     https://github.com/poole/hyde
+author:      mdo
 big_project: true
 ---
 ~~~
@@ -926,7 +956,7 @@ To render the resume page, create a new markdown file and set the layout to `res
 ~~~yml
 ---
 layout: resume
-title: Resume
+title:  Resume
 ---
 ~~~
 
@@ -1435,9 +1465,13 @@ However, the results are still pretty "unrelated".
 To provide better results, Jekyll supports [latent semantic analysis][lsa] via [`classifier-reborn`][crb]'s
 [Latent Semantic Indexer][lsi]
 
-To use the LSI, you first have to disable Hydejack's default behaviour, by setting `use_lsi: true` in `_config.yml`
+To use the LSI, you first have to disable Hydejack's default behaviour,
+by setting `use_lsi: true` under the `hydejack` key in your config file.
 
-    use_lsi: true
+~~~yml
+hydejack:
+  use_lsi: true
+~~~
 
 Then, you have to run `jekyll build` with the `--lsi` flag:
 
@@ -1505,11 +1539,13 @@ Once you've created and downloaded the icon font form IconMoon, replace the `ico
 For the second step it is necessary to add the network's metadata to `_data/social.yml`.
 An entry looks like:
 
-    deviantart:
-      name: DeviantArt
-      icon: icon-deviantart
-      prepend: "https://"
-      append: ".deviantart.com"
+~~~yml
+deviantart:
+  name: DeviantArt
+  icon: icon-deviantart
+  prepend: "https://"
+  append: ".deviantart.com"
+~~~
 
 `name`
 : The name of the network. Used for for the title attribute and screen readers.
@@ -1536,17 +1572,23 @@ Before you start, make sure you've copied the following files:
 
 When building for the first time (and after each update of Hydejack) you have to run
 
-    $ npm install
+~~~bash
+$ npm install
+~~~
 
 This will fetch all dependencies (and put them in a local folder called `node_modules`), lint the code and write the bundled and minified script into `assets/js/hydejack.js`.
 
 Subsequent builds are administered via
 
-    $ npm run build
+~~~bash
+$ npm run build
+~~~
 
 If you want to actively develop the scripts, it is better to run
 
-    $ npm run watch:js
+~~~bash
+$ npm run watch:js
+~~~
 
 which will build a non-minified, non-transpiled (ES2016) version of `hydejack.js` after each filechange.
 
@@ -1592,14 +1634,14 @@ TODO
 
 To split the CSS once, run
 
-~~~
-npm run build:css
+~~~bash
+$ npm run build:css
 ~~~
 
 To rebuild on file changes, use
 
-~~~
-npm run watch:css
+~~~bash
+$ npm run watch:css
 ~~~
 
 **NOTE**: You can use `npm run dev` to start an entire development environment,

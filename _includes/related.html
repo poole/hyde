@@ -4,7 +4,7 @@
   <h2 class="hr">Related Posts</h2>
 
   <ul class="related-posts">
-    {% if site.use_lsi %}
+    {% if site.hydejack.use_lsi or site.use_lsi %}
       {% for post in site.related_posts limit:3 %}
         {% include post-list-item.html post=post %}
       {% endfor %}

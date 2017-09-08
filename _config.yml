@@ -20,16 +20,12 @@ description:         >
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
 # This should be the same author as first entry in `_data/authors.yml`
+
+# This should be the same author as first entry in `_data/authors.yml`.
+# Duplication is necessary due to the jekyll-feed plugin.
 author:
   name:              Florian Klampfer
   email:             mail@qwtel.com
-
-# Set your Google Analytics id to receive `pageview` events.
-# To remove Google Anaylics from your page, remove the line below.
-google_analytics:    UA-XXXXXXXX-X
-
-# Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
-disqus_shortname:    qwtel
 
 # This text will appear in the footer of every page. Markdown enabled.
 copyright:           \* Layout not included in free version
@@ -41,42 +37,52 @@ permalink:           pretty
 paginate:            5
 paginate_path:       '/page-:num/'
 
-# -----------------------------------------------------------------------------
-#  Customization
-# -----------------------------------------------------------------------------
+# Setting a disqus shortname will enable the comment section on pages with `comments: true` in the front matter
+disqus_shortname:    qwtel
 
-# Fallback image and color
-sidebar_image:       /hydejack/assets/img/sidebar-bg.jpg
-# color:               '#4fb1ba'
-
-# The font used for headings. Expects a string that is a valid CSS font-family value.
-# font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
-
-# The text font. Expects a string that is a valid CSS font-family value.
-# font:                "'Noto Sans', Helvetica, Arial, sans-serif"
+# Set your Google Analytics id to receive `pageview` events.
+# To remove Google Anaylics from your page, remove the line below.
+google_analytics:    UA-XXXXXXXX-X
 
 # The string encoding what fonts to fetch from Google Fonts.
 # See: https://qwtel.com/hydejack/docs/configuration/
 # google_fonts:        Roboto+Slab:700|Noto+Sans:400,400i,700,700i
 
-# If you do not use a Google Fonts, uncomment the line below
-# no_google_fonts:     true
+# The text font. Expects a string that is a valid CSS font-family value.
+# font:                "'Noto Sans', Helvetica, Arial, sans-serif"
 
-# Set to true when building with the `--lsi` option
-# See: https://jekyllrb.com/docs/variables/#site-variables
-# use_lsi:             true
+# The font used for headings. Expects a string that is a valid CSS font-family value.
+# font_heading:        "'Roboto Slab', Helvetica, Arial, sans-serif"
 
-# Set to `true` if you don't want to show an icon after each link that opens to an external site
-# no_mark_external:    true
+# Fallback image and color
+accent_image:                /hydejack/assets/img/sidebar-bg.jpg
+# accent_color:               '#4fb1ba'
 
-# Uncomment this line if third party plugins fail to work with dynimically loaded pages
-# no_push_state:       true
+# -----------------------------------------------------------------------------
+#  Hydejack Switches
+# -----------------------------------------------------------------------------
 
-# Uncomment this line if want to disable the touch drawer on mobile
-# no_drawer:           true
+hydejack:
+  # If you do not use a Google Fonts, uncomment the line below
+  no_google_fonts:     false
 
-# Uncomment this line if you do not want parts of the css included in <head/>
-# no_inline_css:       true
+  # Set to `true` if you don't want to show an icon after each link that opens to an external site
+  no_mark_external:    false
+
+  # Set to true if third party plugins fail to work with dynimically loaded pages
+  no_push_state:       false
+
+  # Set to true if you want to disable the touch drawer on mobile
+  no_drawer:           false
+
+  # Set to true if you do not want parts of the css inlined in <head/>
+  # This *may* be benefitial when serving the site over HTTP/2.
+  no_inline_css:       false
+
+
+  # Set to true when building with the `--lsi` option
+  # See: https://jekyllrb.com/docs/variables/#site-variables
+  use_lsi:             false
 
 # -----------------------------------------------------------------------------
 #  Collections

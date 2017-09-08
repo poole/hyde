@@ -47,29 +47,29 @@ The `baseurl` depends on the kind of page you are hosting.
 
 For for information on the types of pages you can host on GitHub, see the [GitHub Help article](https://help.github.com/articles/user-organization-and-project-pages/).
 
-## Changing `color` and `sidebar_image`
+## Changing accent colors and sidebar images
 Hydejack allows you to choose the background image of the sidebar, as well as the accent color (color of the links, selection and focus outline, as well as background color of the sidebar, should no image be provided) on a per-page, per-category, per-tag, per-author and global basis.
 
 It is recommended that you provide fallback values in `_config.yml`, should no other rule apply:
 
 ~~~yml
-sidebar_image: /hydejack/assets/img/nap.jpg
-color:         '#A85641'
+accent_image: /hydejack/assets/img/nap.jpg
+accent_color: '#A85641'
 ~~~
 
 **NOTE**: It is recommended that you use a blurred image in order for the text to remain readable. If you save a blurred image as JPG, it will also drastically reduce its file size.
 {:.message}
 
-## Changing `font` and `font_heading`
+## Changing fonts
 Hydejack lets you configure the fonts of regular text and headings. It has built-in support for Google Fonts, which are loaded lazily and swapped without FOIT. There are three keys in `_config.yml` associated with it: `font`, `font_heading` and `google_fonts`. The defaults are:
 
 ~~~yml
-font_heading: "'Roboto Slab', Helvetica, Arial, sans-serif"
 font:         "'Noto Serif', Georgia, serif"
+font_heading: "'Roboto Slab', Helvetica, Arial, sans-serif"
 google_fonts: "Roboto+Slab:700|Noto+Serif:400,400i,700,700i"
 ~~~
 
-As you can see, `font` and `font_heading` are values you would pass to the `font-family` CSS property (without the `;`). When using a Google Font, it should consist of at least 2 fonts, where everything except the first entry will be used as a fallback until the desired font is fetched from Google.
+As you can see, `font` and `font_heading` are values you would pass to the `font-family` CSS property. When using a Google Font, it should consist of at least 2 fonts, because everything except the first entry will be used as a fallback until the desired font is fetched from Google.
 
 The `google_fonts` key is the string necessary to fetch the fonts from Google. You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 

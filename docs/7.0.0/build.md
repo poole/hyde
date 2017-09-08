@@ -50,9 +50,13 @@ However, the results are still pretty "unrelated".
 To provide better results, Jekyll supports [latent semantic analysis][lsa] via [`classifier-reborn`][crb]'s
 [Latent Semantic Indexer][lsi]
 
-To use the LSI, you first have to disable Hydejack's default behaviour, by setting `use_lsi: true` in `_config.yml`
+To use the LSI, you first have to disable Hydejack's default behaviour,
+by setting `use_lsi: true` under the `hydejack` key in your config file.
 
-    use_lsi: true
+~~~yml
+hydejack:
+  use_lsi: true
+~~~
 
 Then, you have to run `jekyll build` with the `--lsi` flag:
 
