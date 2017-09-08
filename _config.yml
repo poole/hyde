@@ -3,6 +3,9 @@
 # -----------------------------------------------------------------------------
 
 title:               Hydejack
+# Language of your content in 2-letter code, e.g.: `en`, `de`
+# You may also provide a target location, e.g.: `en-US`, `de-AT`
+lang:                  en
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages
