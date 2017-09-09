@@ -18,6 +18,7 @@ also check out the [Migration]{:.heading.flip-title} guide.
 {:.message}
 
 ## Table of Contents
+{:.no_toc}
 * this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
