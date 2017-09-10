@@ -51,7 +51,7 @@ The free version of Hydejack is now [GPL-3.0] licensed.
 * Added support for the `jekyll-gist` plugin.
 
 * Added `_data/strings.yml` to make it easier to change the wording of built-in concepts.
-  This could will also allow you to blog in a different language without modifying the source code. 
+  This could will also allow you to blog in a different language without modifying the source code.
 
 ### Changes
 * This theme now uses the `jekyll-seo-tag` plugin for better share-ability on social media.
@@ -91,6 +91,7 @@ The free version of Hydejack is now [GPL-3.0] licensed.
 * Changed the `line-height` of regular text from `1.75` to `1.65`.
 * `h1`, `h2` and `h3` headings now have different `line-height`s to improve readability when they span multiple lines.
 * Marks on external links are now less opaque, but animate `opacity` on `hover`.
+* More responsible usage of `font_heading` in resume layout.
 
 ### Fixes
 * Fix jumping to `#` links after navigating to a new page.
