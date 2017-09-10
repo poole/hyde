@@ -14,17 +14,15 @@
               CONTENT
 ------------------------{% endcomment %}
 <div id="_hyPushState">
-  <div class="fade-in">
-    <main id="_main" class="content layout-{{ page.layout }}" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
-      {{ content }}
+  <main id="_main" class="content fade-in layout-{{ page.layout }}" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
+    {{ content }}
 
-      {% if site.disqus_shortname and page.comments %}
-        {% include comments.html %}
-      {% endif %}
+    {% if site.disqus_shortname and page.comments %}
+      {% include comments.html %}
+    {% endif %}
 
-      {% include footer.html %}
-    </main>
-  </div>
+    {% include footer.html %}
+  </main>
   {% include sidebar.html %}
 </div>
 

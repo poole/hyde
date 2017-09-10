@@ -101,8 +101,8 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 @keyframes fade-in {
-  from { transform: translateY(-2rem); opacity: 0; }
-  50%  { transform: translateY(-2rem); opacity: 0; }
+  from { transform: translateY(-3rem); opacity: 0; }
+  50%  { transform: translateY(-3rem); opacity: 0; }
   to   { transform: translateY(0);     opacity: 1; }
 }
 

@@ -1,11 +1,12 @@
 {% assign post = include.post %}
+{% assign link_title = include.link_title %}
 
-<article id="post{{ post.id | replace:'/','-' }}" class="page post{% if include.link_title %} mb6{% endif %}" role="article">
+<article id="post{{ post.id | replace:'/','-' }}" class="page post{% if link_title %} mb6{% endif %}" role="article">
   <header>
     <h1 class="post-title">
-      {% if include.link_title %}<a href="{{ post.url | relative_url }}" class="flip-title">{% endif %}
+      {% if link_title %}<a href="{{ post.url | relative_url }}" class="flip-title">{% endif %}
         {{ post.title }}
-      {% if include.link_title %}</a>{% endif %}
+      {% if link_title %}</a>{% endif %}
     </h1>
 
     <p class="post-date heading">
@@ -24,8 +25,11 @@
     <p class="read-more">Continue reading <a class="heading flip-title" href="{{ post.url | relative_url }}">{{ post.title }}</a></p>
   {% endunless %}
 
-</article>
+  {% unless link_title %}
+    <hr class="dingbat" />
 
-{% unless include.link_title %}
-  <hr class="dingbat" />
-{% endunless %}
+    {% include about.html %}
+
+    {% include related.html post=post %}
+  {% endunless %}
+</article>

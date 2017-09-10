@@ -243,6 +243,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   ready$
     ::subscribe(({ type, content: [main] }) => {
       loading.style.display = 'none';
+      main.classList.remove('fade-in');
       main.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeading);
       if (shouldAnimate({ type })) main.style.pointerEvents = 'none';
     });
@@ -316,6 +317,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
 
   // Upgrade headlines to include "permalinks"
   const main = document.getElementById('_main');
+  main.classList.remove('fade-in');
   main.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeading);
 
   // Create the component
