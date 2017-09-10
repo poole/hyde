@@ -50,6 +50,9 @@ The free version of Hydejack is now [GPL-3.0] licensed.
 
 * Added support for the `jekyll-gist` plugin.
 
+* Added `_data/strings.yml` to make it easier to change the wording of built-in concepts.
+  This could will also allow you to blog in a different language without modifying the source code. 
+
 ### Changes
 * This theme now uses the `jekyll-seo-tag` plugin for better share-ability on social media.
   This plugin uses the `image` key in the front-matter of a page to set the thumbnail image when previewing a link.

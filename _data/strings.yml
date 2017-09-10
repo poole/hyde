@@ -1,0 +1,77 @@
+---
+  home:                  Home
+  pages:                 Pages
+  posts:                 Posts
+  about:                 About
+  related_posts:         Related Posts
+  other_projects:        Other Projects
+  comments:              Comments
+  jump_to:               Jump to
+  navigation:            Navigation
+  social:                Social
+  links:                 Links
+  pagination:            Pagination
+  newer:                 Newer
+  older:                 Older
+
+  category_start:        "in "
+  category_spearator:    " / "
+  tag_start:             "on "
+  tag_separator:         ", "
+
+  colon:                 ":"
+  separator:             "|"
+
+  redirecting:           Redirecting…
+
+  date_formats:
+    post:                "%d %b %Y"
+    related_post:        "%d %b %Y"
+    list_group_by:       "%Y"
+    list_entry:          "%d %b"
+    project:             "%Y"
+    projects_group_by:   "%Y"
+    resume:              "%b %Y"
+
+  continue_reading:      |
+    Continue reading <!--post_title-->
+
+  not_found:
+    title:               "404: Page Not Found"
+    message:             |
+      Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
+      <!--home_link--> to try finding it again.
+    home_link:           Head back home
+
+  welcome:
+    selected_projects:   Selected Projects
+    selected_posts:      Selected Posts
+    recent_projects:     Recent Projects
+    recent_posts:        Recent Posts
+    more_projects:       |
+      See <!--projects_title--> for more
+    more_posts:          |
+      See <!--posts_title--> for more
+
+  resume:
+    location:            Location
+    location_separator:  ", "
+    from_to_separator:   "–"
+    from_to_present:     present
+    email:               Email
+    phone:               Phone
+    website:             Website
+    experience:          Experience
+    highlights:          Highlights
+    volunteer:           Volunteer
+    education:           Education
+    courses:             Courses
+    awards:              Awards
+    publications:        Publications
+    references:          References
+    languages:           Languages
+    fluency:             Fluency
+    skills:              Skills
+    level:               Level
+    interests:           Interests
+    keywords:            Keywords

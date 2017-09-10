@@ -2,10 +2,18 @@
 layout: base
 ---
 
+{% assign strings = site.data.strings %}
+
 <div class="page">
-  <h1 class="page-title">{{ page.title | default: "404: Page Not Found" }}</h1>
-  <p class="lead">
-    Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. 
-    <a href="{{ '/' | relative_url }}">Head back home</a> to try finding it again.
-  </p>
+  <h1 class="page-title">{{ page.title | default:strings.not_found.title | default: "404: Page Not Found" }}</h1>
+  {% assign test = page.content | strip_newlines %}
+  {% if test != "" %}
+    {{ content }}
+  {% else %}
+    {% capture home_link %}<a href="{{ '/' | relative_url }}">{{ strings.not_found.home_link | default:"Head back home" }}</a>{% endcapture %}
+    {% capture text %}{{ strings.not_found.message
+      | default:"Sorry, we've misplaced that URL or it's pointing to something that doesn't exist. <!--home_link--> to try finding it again."
+    }}{:.lead}{% endcapture %}
+    {{ text | markdownify | replace:"<!--home_link-->", home_link }}
+  {% endif %}
 </div>

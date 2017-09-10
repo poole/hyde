@@ -1,4 +1,4 @@
-<span class="sr-only">Social:</span>
+<span class="sr-only">{{ site.data.strings.social | default:"Social" }}{{ site.data.strings.colon }}</span>
 <ul>
   {% unless include.author.social.twitter %}
     {% assign twitter_username = author.twitter.username | default: author.twitter | default:site.twitter.username | default:site.twitter | default:site.twitter_username %}

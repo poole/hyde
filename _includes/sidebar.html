@@ -5,8 +5,9 @@
     <header class="sidebar-sticky" role="banner">
       <div class="sidebar-about">
         <h2 class="h1"><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
-        {% capture description %}{{ site.description }}{% if site.description.size > 60 %}{:style="font-size:smaller"}{% endif %}{% endcapture %}
-        {{ description | markdownify }}
+        {% if site.description.size > 60 %}<small>{% endif %}
+        {{ site.description | markdownify }}
+        {% if site.description.size > 60 %}</small>{% endif %}
       </div>
 
       <nav class="sidebar-nav heading" role="navigation">

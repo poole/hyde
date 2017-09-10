@@ -1,7 +1,7 @@
 {% assign post = include.post %}
 
 <aside class="related" role="complementary">
-  <h2 class="hr">Related Posts</h2>
+  <h2 class="hr">{{ site.data.strings.related_posts | default:"Related Posts" }}</h2>
 
   <ul class="related-posts">
     {% if site.hydejack.use_lsi or site.use_lsi %}

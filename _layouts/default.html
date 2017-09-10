@@ -2,9 +2,11 @@
 layout: base
 ---
 
+{% assign strings = site.data.strings %}
+
 <article class="page" role="article">
   <header>
-    <h1 class="page-title">{{ page.title | default:"Home"}}</h1>
+    <h1 class="page-title">{{ page.title | default:strings.home | default:"Home"}}</h1>
     {% include message.html text=page.description %}
   </header>
 
@@ -13,7 +15,7 @@ layout: base
   <hr class="dingbat"/>
 
   {% if site.posts.size > 0 %}
-    <h2 class="hr">Posts</h2>
+    <h2 class="hr">{{ strings.posts | default:"Posts" }}</h2>
     <ul class="related-posts">
       {% for post in site.posts limit:5 %}
         {% include post-list-item.html post=post %}
@@ -23,7 +25,7 @@ layout: base
 
   {% assign pages = site.html_pages | where:"layout","page" %}
   {% if pages.size > 0 %}
-    <h2 class="hr">Pages</h2>
+    <h2 class="hr">{{ strings.pages | default:"Pages" }}</h2>
     <ul class="related-posts">
       {% for page in pages limit:5 %}
         {% if page.layout == 'page' %}

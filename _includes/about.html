@@ -2,6 +2,7 @@
 
 {% if author.about %}
   <aside class="author" role="complementary">
-    {% include author.html author=author heading='About' heading_tag='h2' %}
+    {% assign about_heading = site.data.strings.about | default:"About" %}
+    {% include author.html author=author heading=about_heading heading_tag='h2' %}
   </aside>
 {% endif %}
