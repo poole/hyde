@@ -22,7 +22,7 @@
   // >>>
 }
 
-#_hyDrawer {
+hy-drawer {
   position: relative; // inline
   padding: 1rem 0; // inline
 
@@ -32,7 +32,7 @@
     min-height: 100vh; // inline
 
     // <<< link
-    > .hy-drawer-content {
+    > .hy-drawer-content.hy-drawer-left {
       z-index: 3;
       width: 18rem;
       left: -17.5rem;
@@ -59,12 +59,12 @@
     margin-left: 0;
     // >>>
 
-    > .hy-drawer-content { box-shadow: none; } // link
+    > .hy-drawer-content.hy-drawer-left { box-shadow: none; } // link
   }
 
   @media screen and (min-width: $break-point-dynamic) {
     width: $dynamic-width; // inline
-    > .hy-drawer-content { width: $dynamic-width; left: calc(-50% + 28.5rem); } // link
+    > .hy-drawer-content.hy-drawer-left  { width: $dynamic-width; left: calc(-50% + 28.5rem); } // link
   }
 }
 

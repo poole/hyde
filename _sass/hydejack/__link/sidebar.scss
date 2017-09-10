@@ -30,14 +30,14 @@
   
 }
 
-#_hyDrawer {
+hy-drawer {
 //   position: relative; 
 //   padding: 1rem 0; 
   @media screen {
 //     padding: 2rem 1rem; 
 //     min-height: 640px; 
 //     min-height: 100vh; 
-    > .hy-drawer-content {
+    > .hy-drawer-content.hy-drawer-left {
       z-index: 3;
       width: 18rem;
       left: -17.5rem;
@@ -52,12 +52,12 @@
   @media screen and (min-width: $break-point-2) {
     
 
-    > .hy-drawer-content { box-shadow: none; } 
+    > .hy-drawer-content.hy-drawer-left { box-shadow: none; } 
   }
 
   @media screen and (min-width: $break-point-dynamic) {
 //     width: $dynamic-width; 
-    > .hy-drawer-content { width: $dynamic-width; left: calc(-50% + 28.5rem); } 
+    > .hy-drawer-content.hy-drawer-left  { width: $dynamic-width; left: calc(-50% + 28.5rem); } 
   }
 }
 

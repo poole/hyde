@@ -13,7 +13,7 @@
 {% comment %}---------------------------
               CONTENT
 ------------------------{% endcomment %}
-<div id="_hyPushState">
+<hy-push-state>
   <main id="_main" class="content fade-in layout-{{ page.layout }}" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
     {{ content }}
 
@@ -24,7 +24,7 @@
     {% include footer.html %}
   </main>
   {% include sidebar.html %}
-</div>
+</hy-push-state>
 
 {% comment %}---------------------------
               SCRIPTS

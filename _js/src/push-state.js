@@ -167,7 +167,7 @@ function shouldAnimate({ type }) {
 if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   const crossFader = new CrossFader(FADE_DURATION);
 
-  const pushStateEl = document.getElementById('_hyPushState');
+  const pushStateEl = document.getElementsByTagName('hy-push-state')[0];
 
   const animationMain = setupAnimationMain(pushStateEl);
   const loading = setupLoading(document.querySelector('.navbar .content'));

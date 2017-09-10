@@ -48,7 +48,7 @@ function menuClickClallback(e) {
 }
 
 if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
-  const drawerEl = document.getElementById('_hyDrawer');
+  const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 

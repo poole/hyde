@@ -22,7 +22,7 @@
   
 }
 
-#_hyDrawer {
+hy-drawer {
   position: relative; 
   padding: 1rem 0; 
   @media screen {
@@ -48,12 +48,12 @@
     margin-left: 0;
     
 
-//     > .hy-drawer-content { box-shadow: none; } 
+//     > .hy-drawer-content.hy-drawer-left { box-shadow: none; } 
   }
 
   @media screen and (min-width: $break-point-dynamic) {
     width: $dynamic-width; 
-//     > .hy-drawer-content { width: $dynamic-width; left: calc(-50% + 28.5rem); } 
+//     > .hy-drawer-content.hy-drawer-left  { width: $dynamic-width; left: calc(-50% + 28.5rem); } 
   }
 }
 

@@ -21,7 +21,7 @@ body, main {
       -ms-text-size-adjust: 100%;
 }
 
-body, #_hyPushState {
+body, hy-push-state {
   /* Prevent side-scrolling on mobile */
   position: relative;
   overflow-x: hidden;
