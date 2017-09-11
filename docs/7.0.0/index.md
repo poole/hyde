@@ -15,8 +15,8 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 **NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands.
 {:.message}
 
-Buyers of the PRO version can jump straight to [installation for pro buyers](installation.md#pro-buyers),
-or [upgrades for pro buyers](migration.md#pro-buyers).
+Buyers of the PRO version can jump straight to [installation for pro buyers](installation.md#pro-version),
+or [upgrades for pro buyers](migration.md#pro-version).
 
 ## Getting started
 * [Installation]{:.heading.flip-title} -- How to install and run Hydejack.

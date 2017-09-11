@@ -145,11 +145,6 @@ You can now continue with [running locally](#running-locally).
 
 ## Running locally
 Make sure you've `cd`ed into the directory where `_config.yml` is located.
-
-~~~bash
-$ cd <path/to/hydejack>/
-~~~
-
 Before running for the first time, dependencies need to be fetched from [RubyGems](https://rubygems.org/):
 
 ~~~bash

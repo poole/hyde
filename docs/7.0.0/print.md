@@ -15,8 +15,8 @@ Should you discover a mistake in the docs (or a bug in general) feel free to [op
 **NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable with editing multiple text files and running shell commands.
 {:.message}
 
-Buyers of the PRO version can jump straight to [installation for pro buyers](#pro-buyers),)
-or [upgrades for pro buyers](#pro-buyers).)
+Buyers of the PRO version can jump straight to [installation for pro buyers](#pro-version),)
+or [upgrades for pro buyers](#pro-version).)
 
 
 
@@ -174,11 +174,6 @@ You can now continue with [running locally](#running-locally).
 
 ### Running locally
 Make sure you've `cd`ed into the directory where `_config.yml` is located.
-
-~~~bash
-$ cd <path/to/hydejack>/
-~~~
-
 Before running for the first time, dependencies need to be fetched from [RubyGems](https://rubygems.org/):
 
 ~~~bash

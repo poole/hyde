@@ -10,21 +10,6 @@ There are two ways of adding third party scripts.
 [Embedding](#embedding) is ideal for one-off scripts, e.g. `widgets.js` that is part of embedded tweets (see below).
 Adding [global scripts](#global-scripts) is for scripts that should be loaded on every page.
 
-```html
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<blockquote class="twitter-tweet" data-lang="en">
-  <p lang="en" dir="ltr">
-    The next version of Hydejack (v6.3.0) will allow embedding 3rd party scripts,
-    like the one that comes with this tweet for example.
-  </p>
-  &mdash; Florian Klampfer (@qwtel)
-  <a href="https://twitter.com/qwtel/status/871098943505039362">June 3, 2017</a>
-</blockquote>
-```
-
-<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
-<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The next version of Hydejack (v6.3.0) will allow embedding 3rd party scripts, like the one that comes with this tweet for example.</p>&mdash; Florian Klampfer (@qwtel) <a href="https://twitter.com/qwtel/status/871098943505039362">June 3, 2017</a></blockquote>
-
 ## Table of Contents
 {:.no_toc}
 * this unordered seed list will be replaced by toc as unordered list
@@ -35,6 +20,23 @@ Hydejack supports embedding third party scripts directly inside markdown content
 
 **NOTE**: Adding "raw" script tags will make the page slow, unless they have the `async` or `defer` attribute set. For more see [below](#async-vs-defer-vs-loadjsdeferred).
 {:.message}
+
+Example:
+
+~~~html
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-lang="en">
+  <p lang="en" dir="ltr">
+    The next version of Hydejack (v6.3.0) will allow embedding 3rd party scripts,
+    like the one that comes with this tweet for example.
+  </p>
+  &mdash; Florian Klampfer (@qwtel)
+  <a href="https://twitter.com/qwtel/status/871098943505039362">June 3, 2017</a>
+</blockquote>
+~~~
+
+<script async src="//platform.twitter.com/widgets.js" charset="utf-8"></script>
+<blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The next version of Hydejack (v6.3.0) will allow embedding 3rd party scripts, like the one that comes with this tweet for example.</p>&mdash; Florian Klampfer (@qwtel) <a href="https://twitter.com/qwtel/status/871098943505039362">June 3, 2017</a></blockquote>
 
 ## Global scripts
 If you have scripts that should be loaded on every page you can add them globally.
@@ -57,7 +59,7 @@ Specific to Hydejack is the `loadJSDeferred` function, which is used to load Hyd
 | Execution | asap        | before document `load` | after document `load` |
 | Ordering  | none        | preserves order        | via callback nesting  |
 | Support   | IE8+        | IE9+                   | IE5+ (Hydejack only)  |
-{:.flip-table-small}
+{:.flip-table-small.no-break-layout}
 
 ## Using `loadJSDeferred` (Hydejack only)
 Using `loadJSDeferred` is slightly more work than just adding `defer` to a script tag.

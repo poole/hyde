@@ -3,8 +3,8 @@
 
 title:                 Hydejack
 
-# Language of your content in 2-letter code, e.g.: `en`, `de`
-# You may also provide a target location, e.g.: `en-US`, `de-AT`
+# Language of your content in 2-letter code, e.g.: en, de
+# You may also provide a target location, e.g.: en-us, de_AT
 lang:                  en
 
 # The unique resource location of your page.
@@ -37,8 +37,8 @@ author:
   name:                Florian Klampfer
   email:               mail@qwtel.com
 
-# This text will appear in the footer of every page. Markdown enabled.
-copyright:             \* Layout not included in free version
+# This text will appear in the footer of every page.
+copyright:             © 2017 Florian Klampfer
 
 # Format of the permalinks
 permalink:             pretty
@@ -84,7 +84,7 @@ hydejack:
   # opens to an external site.
   no_mark_external:    false
 
-  # Set to true if third party plugins fail to work with dynimically loaded pages
+  # Set to true if third party plugins fail to work with dynamically loaded pages
   no_push_state:       false
 
   # Set to true if you want to disable the touch drawer on mobile
@@ -153,11 +153,13 @@ gems:
 # ---------------------------------------------------------------------------------------
 
 # Where you proof that you own this site (used by jekyll-seo-tag)
+# google_site_verification: xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
+# -- or --
 webmaster_verifications:
   google:              xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
-#   bing:                <verification-id>
-#   alexa:               <verification-id>
-#   yandex:              <verification-id>
+  # bing:                <verification-id>
+  # alexa:               <verification-id>
+  # yandex:              <verification-id>
 
 # Used for twitter cards
 twitter:
@@ -192,9 +194,6 @@ relative_links:
 titles_from_headings:
   strip_title:         true
   collections:         true
-
-jekyll-mentions:
-  base_url:            https://twitter.com
 
 kramdown:
   footnote_backlink:   '&#x21a9;&#xfe0e;'

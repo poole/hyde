@@ -43,11 +43,6 @@ The free version of Hydejack is now [GPL-3.0] licensed.
 * Added `dns-prefetch` links for Google Fonts and Google Analytics domains to further boost page load speed.
   These are only added when using these features.
 
-* Added `no_inline_css` option to `_config.yml`.
-  When set to `true`, core styles will not be inlined into the `<head/>` of the page.
-  Instead, all styles will be put into a single `.css` file and requested as a `<link/>` tag.
-  This option may be useful when using HTTP/2.
-
 * Added support for the `jekyll-gist` plugin.
 
 * Added `_data/strings.yml` to make it easier to change the wording of built-in concepts.
@@ -64,11 +59,19 @@ The free version of Hydejack is now [GPL-3.0] licensed.
 
 * The `color` key for setting link colors has been renamed to `accent_color`. The old key still works.
 
+* Various options that do not make sense in the context of other themes (like `no_push_state`, `no_drawer`)
+  are not located under a common `hydejack` key. The old options will continue to work.
+
 * Changed how CSS code is organized.
-  Previously there were two versions of each CSS file,
-  one containing core styles to be inlined into the page, the other containing the rest to be `<link/>`ed.
+  Previously there were two versions of each CSS file, one containing core styles to be inlined into the page,
+  the other containing the rest to be fetched asynchronously via link tag.
   Now there is only one file, with the parts to be inlined/linked marked with comments.
   A script has been added to "split" the CSS into the inline/link parts.
+
+  If you do not like this behavior, you can set the new `no_inline_css` option to `_config.yml`.
+  When set to `true`, core styles will not be inlined into the `<head/>` of the page,
+  instead all styles will be put into a single `.css` file and fetched (synchronously) via `<link/>` tag.
+  This option may be useful when using HTTP/2.
 
 * The `y-drawer` component (MIT) has been replaced with the `hy-drawer` component (GPL-3.0).
 
@@ -84,10 +87,18 @@ The free version of Hydejack is now [GPL-3.0] licensed.
   For more on why inlining CSS can be a good idea, [see this](https://varvy.com/pagespeed/inline-small-css.html).
 
 ### Design
+* Code blocks, math block and tables now span the full available width.
+  This is useful when including code snippets with line lengths above 80,
+  (data-) tables with many columns as well as long math formulas and/or derivations.
+
+  If you do not like this behavior, you can set the new `no_break_layout` option to `true` in your config file.
+  You can also disable it on a per block basis, by adding the `no-break-layout` CSS class.
+
 * The sidebar now has a subtle shadow on mobile, to indicate that it can be drawn from the side.
-* The sidebar now has less margin.
+* The sidebar now has less margin on the sides.
 * The sidebar now fits 5 social media icons, up from 4.
 * The `description` in the sidebar now has a `smaller` font size when it is longer than 60 characters.
+  This is to encourage writing a longer `description`s for search engines (~160 characters).
 * Changed the `line-height` of regular text from `1.75` to `1.65`.
 * `h1`, `h2` and `h3` headings now have different `line-height`s to improve readability when they span multiple lines.
 * Marks on external links are now less opaque, but animate `opacity` on `hover`.

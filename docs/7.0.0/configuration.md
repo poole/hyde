@@ -129,7 +129,7 @@ qwtel:
   name:  Florian Klampfer
   email: mail@qwtel.com
   about: |
-    Hi, I'm Florian or `@qwtel`...
+    Hi, I'm Florian or @qwtel...
 ~~~
 
 If an author's `about` value isn't empty, the text will appear (markdownifyed) at the bottom of each blog post and project*, as well as at the top of pages using the `about` and `welcome`\* layout.
@@ -212,7 +212,7 @@ If you'd like to add email <span class="icon-mail"></span> or RSS <span class="i
 
 ~~~yml
 social:
-  email: mailto:mail@gmail.com
+  email: mailto:mail@qwtel.com
   rss:   https://qwtel.com/hydejack/feed.xml
 ~~~
 
@@ -238,7 +238,7 @@ comments: true
 Enabling Google Analytics is as simple as setting the `google_analytics` key in `_config.yml` .
 
 ~~~yml
-google_analytics: UA-84025722-2
+google_analytics: UA-XXXXXXXX-X
 ~~~
 
 Conversely, if you want to disable it, you only have to remove the key and no GA code will be part of the generated pages.
