@@ -90,7 +90,7 @@ const SETTINGS = {
 };
 
 const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
-const BREAK_LAYOUT_SELECTOR = 'pre, table:not(.highlight)';
+const BREAK_LAYOUT_SELECTOR = 'pre, .break-layout, .katex-display';
 
 function upgradeHeading(h) {
   const hash = `#${h.id}`;
