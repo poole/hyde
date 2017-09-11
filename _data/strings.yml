@@ -22,6 +22,7 @@
   colon:                 ":"
   separator:             "|"
 
+  loading:               Loading…
   redirecting:           Redirecting…
 
   date_formats:
@@ -42,6 +43,11 @@
       Sorry, we've misplaced that URL or it's pointing to something that doesn't exist.
       <!--home_link--> to try finding it again.
     home_link:           Head back home
+
+  error:
+    title:               "Error"
+    message:             |
+      Sorry, an error occurred while loading: <!--link-->.
 
   welcome:
     selected_projects:   Selected Projects

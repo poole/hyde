@@ -67,6 +67,7 @@ const REQUIREMENTS = [
   'opacity',
   'queryselector',
   'requestanimationframe',
+  'template',
 ];
 
 const DURATION = 250;
@@ -121,37 +122,29 @@ function waitUntil(observable) {
 }
 
 function setupAnimationMain(pushStateEl) {
-  const animationMain = document.createElement('div');
-  animationMain.classList.add('animation-main');
-  animationMain.classList.add('fixed-top');
-  animationMain.innerHTML = `
-    <div class="content">
-      <div class="page"></div>
-    </div>`;
+  const template = document.getElementById('_animation-main-template');
+  const animationMain = document.importNode(template.content, true);
   pushStateEl.parentNode.insertBefore(animationMain, pushStateEl);
-  return animationMain;
+  return pushStateEl.previousElementSibling;
 }
 
 function setupLoading(navbarEl) {
-  const loading = document.createElement('div');
-  loading.classList.add('loading');
-  loading.innerHTML = `
-    <span class="sr-only">Loading...</span>
-    <span class="icon-spinner4"></span>
-  `;
+  const template = document.getElementById('_loading-template');
+  const loading = document.importNode(template.content, true);
   navbarEl.appendChild(loading);
-  return loading;
+  return navbarEl.lastElementChild;
 }
 
-function setupErrorPage(main, url) {
-  const error = document.createElement('div');
-  error.classList.add('page');
-  error.innerHTML = `
-    <h1 class="page-title">Error</h1>
-    <p>Error loading <a href="${url.pathname}">${url.pathname}</a>...</p>
-  `;
+function setupErrorPage(main, { pathname }) {
+  const template = document.getElementById('_error-template');
+  const error = document.importNode(template.content, true);
+  const anchor = error.querySelector('.this-link');
+  if (anchor) {
+    anchor.href = pathname;
+    anchor.textContent = pathname;
+  }
   main.appendChild(error);
-  return main;
+  return main.lastElementChild;
 }
 
 function getFlipType(t = {}) {

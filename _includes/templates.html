@@ -1,0 +1,23 @@
+<template id="_animation-main-template">
+  <div class="animation-main fixed-top">
+    <div class="content">
+      <div class="page"></div>
+    </div>
+  </div>
+</template>
+
+<template id="_loading-template">
+  <div class="loading">
+    <span class="sr-only">{{ site.data.strings.loading | default:"Loading…" }}</span>
+    <span class="icon-cog"></span>
+  </div>
+</template>
+
+<template id="_error-template">
+  <div class="page">
+    <h1 class="page-title">Error</h1>
+    {% capture link %}<a class="this-link" href=""></a>{% endcapture %}
+    {% capture text %}{{ site.data.strings.error.message | default:"Sorry, an error occurred while loading: <!--link-->." }}{:.lead}{% endcapture %}
+    {{ text | markdownify | replace:"<!--link-->",link }}
+  </div>
+</template>
