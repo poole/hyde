@@ -63,7 +63,7 @@
     location:            Location
     location_separator:  ", "
     from_to_separator:   "–"
-    from_to_present:     present
+    present:             present
     email:               Email
     phone:               Phone
     website:             Website

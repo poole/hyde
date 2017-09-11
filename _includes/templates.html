@@ -1,3 +1,4 @@
+<h2 class="sr-only">Templates</h2>
 <template id="_animation-main-template">
   <div class="animation-main fixed-top">
     <div class="content">
@@ -15,9 +16,11 @@
 
 <template id="_error-template">
   <div class="page">
-    <h1 class="page-title">Error</h1>
+    <h1 class="page-title">{{ site.data.strings.error.title | default:"Error" }}</h1>
     {% capture link %}<a class="this-link" href=""></a>{% endcapture %}
-    {% capture text %}{{ site.data.strings.error.message | default:"Sorry, an error occurred while loading: <!--link-->." }}{:.lead}{% endcapture %}
-    {{ text | markdownify | replace:"<!--link-->",link }}
+    {% assign text = site.data.strings.error.message | default:"Sorry, an error occurred while loading: <!--link-->." %}
+    <p class="lead">
+      {{ text | replace:"<!--link-->",link }}
+    </p>
   </div>
 </template>
