@@ -39,3 +39,36 @@
     {% endif %}
   </ul>
 </aside>
+
+{% if site.hydejack.__random_posts %}
+<aside class="related" role="complementary">
+  <h2 class="hr">{{ site.data.strings.random_posts | default:"Random Posts" }}</h2>
+
+  <ul class="related-posts">
+    {% assign s = site.time | date:"%5N" %}
+    {% assign d = page.date | date:"%-d" %}
+    {% assign m = page.date | date:"%-m" %}
+    {% assign y = page.date | date:"%Y" %}
+    {% assign i = s | plus:d | plus:m | plus:y %}
+
+    {% assign j = i | times:7 | modulo:101 %}
+    {% assign index_1 = j | modulo:site.posts.size %}
+
+    {% assign i = j %}
+    {% assign j = i | times:7 | modulo:101 %}
+    {% assign index_2 = j | modulo:site.posts.size %}
+
+    {% assign i = j %}
+    {% assign j = i | times:7 | modulo:101 %}
+    {% assign index_3 = j | modulo:site.posts.size %}
+
+    {% assign post_1 = site.posts[index_1] %}
+    {% assign post_2 = site.posts[index_2] %}
+    {% assign post_3 = site.posts[index_3] %}
+
+    {% include post-list-item.html post=post_1 %}
+    {% include post-list-item.html post=post_2 %}
+    {% include post-list-item.html post=post_3 %}
+  </ul>
+</aside>
+{% endif %}
