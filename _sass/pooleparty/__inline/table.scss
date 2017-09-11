@@ -18,7 +18,8 @@ table:not(.highlight) {
   border: 1px solid $border-color;
   border-collapse: collapse;
   border-spacing: 0;
-  background-color: rgba(0, 0, 0, 0.015);
+  background-color: $code-bg;
+;
 
   td, th {
     padding: .25rem .5rem;
