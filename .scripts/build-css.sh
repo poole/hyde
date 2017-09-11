@@ -49,7 +49,7 @@ async function getFiles(dir) {
       await getFiles('_sass');
 
     await Promise.all(files
-      .filter(f => basename(f).startsWith('_') && f.endsWith('.scss'))
+      .filter(f => basename(f).startsWith('^') && f.endsWith('.scss'))
       .map(async (file) => {
         const content = await readFile(file, ENC);
         const filename = basename(file, '.scss').substr(1);

@@ -2,31 +2,31 @@
 @import "mixins";
 
 {% if site.hydejack.no_inline_css or jekyll.environment == 'development' %}
-  @import "pooleparty/base";
-  @import "pooleparty/type";
-  @import "pooleparty/table";
-  @import "pooleparty/footer";
-  @import "pooleparty/footnotes";
-  @import "pooleparty/code";
-  @import "pooleparty/posts";
-  @import "pooleparty/related";
-  @import "pooleparty/message";
-  @import "pooleparty/pagination";
+  @import "pooleparty/^base.scss";
+  @import "pooleparty/^type.scss";
+  @import "pooleparty/^table.scss";
+  @import "pooleparty/^footer.scss";
+  @import "pooleparty/^footnotes.scss";
+  @import "pooleparty/^code.scss";
+  @import "pooleparty/^posts.scss";
+  @import "pooleparty/^related.scss";
+  @import "pooleparty/^message.scss";
+  @import "pooleparty/^pagination.scss";
 
-  @import "hydejack/base";
-  @import "hydejack/sidebar";
-  @import "hydejack/social";
-  @import "hydejack/menu";
-  @import "hydejack/content";
-  @import "hydejack/me";
-  @import "hydejack/katex";
-  @import "hydejack/footer";
+  @import "hydejack/^base.scss";
+  @import "hydejack/^sidebar.scss";
+  @import "hydejack/^social.scss";
+  @import "hydejack/^menu.scss";
+  @import "hydejack/^content.scss";
+  @import "hydejack/^me.scss";
+  @import "hydejack/^katex.scss";
+  @import "hydejack/^footer.scss";
 
   @import "pro/projects";
   @import "pro/resume";
 
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
-    @import "hydejack/mark-external";
+    @import "hydejack/^mark-external.scss";
   {% endunless %}
 
   @import "syntax";
