@@ -135,7 +135,7 @@ include:
 # Plugins
 # ========================================================================================
 
-gems:
+plugins:
   - jekyll-default-layout
   - jekyll-feed
   - jekyll-gist

@@ -12,8 +12,8 @@
     <p class="post-date heading">
       {% assign post_format = site.data.strings.date_formats.post | default:"%d %b %Y" %}
       <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:post_format }}</time>
-      {% assign category_start     = site.data.strings.category_start     | default:"in"  %}
-      {% assign tag_start          = site.data.strings.tag_start          | default:"on"  %}
+      {% assign category_start     = site.data.strings.category_start     | default:"in " %}
+      {% assign tag_start          = site.data.strings.tag_start          | default:"on " %}
       {% assign category_separator = site.data.strings.category_separator | default:" / " %}
       {% assign tag_separator      = site.data.strings.tag_separator      | default:", "  %}
       {% include tag-list.html tags=post.categories meta=site.featured_categories start_with=category_start separator=category_separator %}
@@ -36,6 +36,7 @@
     <hr class="dingbat" />
 
     {% include about.html %}
+    {% include newsletter.html %}
 
     {% include related.html post=post %}
   {% endunless %}
