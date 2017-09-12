@@ -73,7 +73,7 @@
     volunteer:           Volunteer
     volunteer_title:     <!--position--> at <!--organization-->
     education:           Education
-    education_title:     <!--study_type--> in <!--area--> at <!--institution--> with GPA of <!--gpa-->
+    education_title:     <!--study_type--> in <!--area--> from <!--institution--> with GPA of <!--gpa-->
     courses:             Courses
     awards:              Awards
     awards_title:        <!--title--> from <!--awarder-->
