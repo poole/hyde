@@ -7,7 +7,7 @@
     "test": "echo \"Warning: no test specified\" && exit 0",
     "build": "npm run build:js & npm run build:css & wait",
     "build:js": "cat _includes/header.txt > assets/js/hydejack.js; cross-env NODE_ENV=production browserify _js/src/index.js -g browserify-css -g babelify | uglifyjs -c -m >> assets/js/hydejack.js",
-    "build:css": "./.scripts/build-css.sh",
+    "build:css": "_scripts/build-css.sh",
     "watch": "npm run watch:js & npm run watch:css",
     "watch:js": "watchify -d _js/src/index.js -g browserify-css -g babelify -o assets/js/hydejack.js",
     "watch:css": "npm run build:css && onchange '_sass/**/*.scss' -e '_sass/**/__*/*' -- npm run build:css '{{changed}}'",
@@ -15,7 +15,8 @@
     "lint": "eslint _js/src",
     "dev": "npm run watch & npm run serve",
     "prepare": "npm run lint && npm run test && npm run clean && npm run build",
-    "resume": "json2yaml _data/resume.json > _data/resume.yml"
+    "resume": "json2yaml _data/resume.json > _data/resume.yml",
+    "version": "_scripts/version.sh"
   },
   "config": {
     "port": 4000
