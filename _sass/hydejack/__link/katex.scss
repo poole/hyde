@@ -17,7 +17,7 @@ article {
     -webkit-overflow-scrolling: touch;
     text-align: left;
 
-    @include pre();
+    @include pre(2rem);
 
     backface-visibility: hidden;
   }

@@ -29,7 +29,7 @@ const REQUIREMENTS = [
   'cssremunit',
 ];
 
-const MEDIA_QUERY = '(min-width: 54em)';
+const MEDIA_QUERY = '(min-width: 64em)';
 
 function resizeCallback() {
   const hasChanged = window._isDesktop !== window.matchMedia(MEDIA_QUERY).matches;

@@ -10,7 +10,7 @@ a[href^="#fnref:"] {
   margin-left: .1rem;
   font-weight: bold;
 
-  @media screen and (max-width: 1144px - 16px) {
+  @media screen and (max-width: 73.5em) {
     font-weight: normal;
   }
 }
@@ -18,7 +18,7 @@ a[href^="#fnref:"] {
 sup {
   line-height: 1;
 
-  @media screen and (max-width: 1144px - 16px) {
+  @media screen and (max-width: 73.5em) {
     vertical-align: baseline;
     font-size: inherit;
 

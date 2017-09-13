@@ -6,21 +6,19 @@
   padding: 5rem 1rem 12rem;
 
   @media screen {
-    max-width: 38rem;
     padding-left: 1.5rem;
+    max-width: 38rem;
     min-height: 100vh;
   }
 
   @media screen and (min-width: $break-point-2) {
     max-width: 42rem;
-    padding-left: 1rem;
-    margin-left: 22rem;
-    margin-right: 4rem;
   }
 
-  @media screen and (min-width: $break-point-4) {
+  @media screen and (min-width: $break-point-3) {
     margin-left: 22rem;
     margin-right: 4rem;
+    padding-left: 1rem;
   }
 
   @media screen and (min-width: $break-point-5) {

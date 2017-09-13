@@ -1,37 +1,6 @@
 @import "variables";
 @import "mixins";
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+// @import "reboot-mod";
 
 
 @import "pooleparty/__inline/base";
@@ -54,11 +23,14 @@
 @import "hydejack/__inline/katex";
 @import "hydejack/__inline/footer";
 
-{% unless site.hydejack.no_mark_external or site.no_mark_external %}
-  @import "hydejack/__inline/mark-external";
-{% endunless %}
+// {% unless site.hydejack.no_mark_external or site.no_mark_external %}
+//   @import "hydejack/__inline/mark-external";
+// {% endunless %}
 
+// @import "syntax";
+// @import "spinner";
 @import "my-inline";
+// @import "my-style";
 
 
 

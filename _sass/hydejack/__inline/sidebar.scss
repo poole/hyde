@@ -38,7 +38,7 @@ hy-drawer {
     
   }
 
-  @media screen and (min-width: $break-point-2) {
+  @media screen and (min-width: $break-point-3) {
     
     position: fixed;
     top: 0;
@@ -101,7 +101,7 @@ hy-drawer {
 
   @media screen and (min-width: $break-point-dynamic) {
     left: auto;
-    max-width: 15rem;
+    width: 15rem;
   }
 
   @media print {

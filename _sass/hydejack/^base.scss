@@ -5,17 +5,13 @@
  */
 
 // <<<<< LINK
-body, main {
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-}
-
 body, hy-push-state {
   /* Prevent side-scrolling on mobile */
   position: relative;
   overflow-x: hidden;
 }
 // >>>>>
+
 // <<<<< INLINE
 @media screen {
   body::before {
@@ -29,30 +25,17 @@ body, hy-push-state {
   }
 }
 
-@media screen and (min-width: $break-point-1) {
-  html {
+html {
+  @media screen and (min-width: $break-point-1) {
     font-size: $root-font-size-medium;
   }
-}
 
-@media screen and (min-width: $break-point-2) {
-  html {
-    font-size: $root-font-size;
-  }
-}
-
-@media screen and (min-width: $break-point-4) {
-  html {
-    font-size: $root-font-size-medium;
-  }
-}
-
-@media screen and (min-width: $break-point-font-large) {
-  html {
+  @media screen and (min-width: $break-point-font-large) {
     font-size: $root-font-size-large;
   }
 }
 // >>>>>
+
 // <<<<< LINK
 @media print {
   html {
@@ -124,10 +107,6 @@ a, .a {
 .author { margin-top: 3rem; } // link
 
 // <<<<< INLINE
-.sixteen-nine {
-  @include aspect-ratio(16, 9);
-}
-
 h1, h2, h3, h4, h5, h6 {
   & + hr {
     margin-top: 0;

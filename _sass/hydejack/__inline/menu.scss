@@ -39,7 +39,7 @@
     color: $gray!important;
   }
 
-  @media screen and (min-width: $break-point-2) {
+  @media screen and (min-width: $break-point-3) {
     position: absolute;
     left: -9999px;
     &:focus { position: static; }

@@ -3,13 +3,13 @@
 // Headings, body text, lists, and other misc typographic elements.
 
 // <<<<< INLINE
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: bold;
-  text-rendering: optimizeLegibility;
+  margin: 3rem 0 1rem;
 }
 
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  margin: 3rem 0 1rem;
+.heading {
+  font-weight: bold;
 }
 
 h1, .h1 {
@@ -26,17 +26,7 @@ h3, .h3 {
   font-size: 1.17em;
   line-height: 1.5;
 }
-// >>>>> INLINE
-// <<<<< LINK
-h1 + h2, .h1 + .h2, h1 + .h2, .h1 + h2,
-h2 + h3, .h2 + .h3, h2 + .h3, .h2 + h3,
-h3 + h4, .h3 + .h4, h3 + .h4, .h3 + h4,
-h4 + h5, .h4 + .h5, h4 + .h5, .h4 + h5,
-h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
-  margin-top: 0;
-}
-// >>>>> LINK
-// <<<<< INLINE
+
 p {
   margin-top: 0;
   margin-bottom: 1rem;
@@ -80,7 +70,20 @@ h4, h5, h6, .h4, .h5, .h6 {
   font-size: 1rem;
 }
 // >>>>>
+
 // <<<<< LINK
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
+  text-rendering: optimizeLegibility; // link
+}
+
+h1 + h2, .h1 + .h2, h1 + .h2, .h1 + h2,
+h2 + h3, .h2 + .h3, h2 + .h3, .h2 + h3,
+h3 + h4, .h3 + .h4, h3 + .h4, .h3 + h4,
+h4 + h5, .h4 + .h5, h4 + .h5, .h4 + h5,
+h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
+  margin-top: 0;
+}
+
 dt {
   font-weight: bold;
 }
@@ -149,7 +152,7 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
       will-change: opacity;
     }
 
-    @media screen and (min-width: $break-point-2) {
+    @media screen and (min-width: $break-point-1 + 2em) {
       float: none;
       position: absolute;
       top: 0;

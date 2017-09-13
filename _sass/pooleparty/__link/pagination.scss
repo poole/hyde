@@ -15,3 +15,65 @@
 // there are no more previous or next posts to show.
 
 
+.pagination {
+  margin: 0 -1.5rem 1rem;
+  color: #ccc;
+  text-align: center;
+  margin-left: -1rem;
+  margin-right: -1rem;
+
+  > ul {
+    list-style: none;
+    padding: 0;
+  }
+}
+
+// Pagination items can be `span`s or `a`s
+.pagination-item {
+  > * {
+    display: block;
+    padding: .25rem 1rem;
+    border: solid #eee;
+    border-width: 1px 0;
+  }
+
+  > a, > a:hover, > a:focus {
+    border-color: #eee!important;
+  }
+
+  &:first-child > * {
+    margin-bottom: -1px;
+  }
+
+  // Only provide a hover state for linked pagination items
+  > a:hover, a:focus {
+    background-color: #f5f5f5;
+    border-bottom: 1px solid #eee;
+  }
+}
+
+@media (min-width: 23.5em) {
+  .pagination {
+    margin: 3rem 0;
+  }
+
+  .pagination-item {
+    > * {
+      float: left;
+      width: 50%;
+      border-width: 1px;
+    }
+
+    &:first-child > * {
+      margin-bottom: 0;
+      border-top-left-radius: 0.25rem;
+      border-bottom-left-radius: 0.25rem;
+    }
+    &:last-child > * {
+      margin-left: -1px;
+      border-top-right-radius: 0.25rem;
+      border-bottom-right-radius: 0.25rem;
+    }
+  }
+}
+

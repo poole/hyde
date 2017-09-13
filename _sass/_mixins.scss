@@ -1,7 +1,7 @@
-@mixin pre() {
+@mixin pre($padding: 1rem) {
   margin-left: -1rem;
   margin-right: -1rem;
-  padding: 1rem;
+  padding: $padding;
   background-color: $code-bg;
 
   @media print {

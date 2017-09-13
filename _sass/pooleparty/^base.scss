@@ -1,15 +1,5 @@
-// Body resets
-//
-// Update the foundational and global aspects of the page.
-
-article,aside,dialog,figcaption,figure,footer,header,hgroup,main,nav,section{display:block} // inline
-mark{background:#FF0;color:#000} // inline
-
 * {
-  -webkit-box-sizing: border-box; // link
-     -moz-box-sizing: border-box; // link
-          box-sizing: border-box; // inline
-
+  box-sizing: border-box; // inline
   // -webkit-tap-highlight-color: transparent; // link
 }
 
@@ -53,6 +43,7 @@ img, .img {
   }
 }
 // >>>>> INLINE
+
 // <<<<< LINK
 @media print {
   a::after {

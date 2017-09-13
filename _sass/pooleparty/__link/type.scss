@@ -15,6 +15,11 @@
 
 
 
+
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
+  text-rendering: optimizeLegibility; 
+}
+
 h1 + h2, .h1 + .h2, h1 + .h2, .h1 + h2,
 h2 + h3, .h2 + .h3, h2 + .h3, .h2 + h3,
 h3 + h4, .h3 + .h4, h3 + .h4, .h3 + h4,
@@ -22,8 +27,6 @@ h4 + h5, .h4 + .h5, h4 + .h5, .h4 + h5,
 h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
   margin-top: 0;
 }
-
-
 
 dt {
   font-weight: bold;
@@ -93,7 +96,7 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
       will-change: opacity;
     }
 
-    @media screen and (min-width: $break-point-2) {
+    @media screen and (min-width: $break-point-1 + 2em) {
       float: none;
       position: absolute;
       top: 0;

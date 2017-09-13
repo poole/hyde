@@ -17,12 +17,12 @@ $code-font-family: Menlo, Monaco, Consolas, monospace;
 $code-color: inherit;
 $code-bg: rgba(0,0,0,.02);
 
-$break-point-1: 40em;
-$break-point-2: 54em;
-$break-point-3: 60em;
-$break-point-4: 72em;
-$break-point-5: 92em;
-$break-point-dynamic: 98.5em;
-$break-point-font-large: 125em;
+$break-point-1: 42em;           //  640px
+$break-point-2: 54em;           //  864px
+$break-point-3: 64em;           // 1024px
+$break-point-4: 72em;           // 1152px
+$break-point-5: 90em;           // 1440px
+$break-point-dynamic: 98.5em;   // 1576px
+$break-point-font-large: 125em; // 2000px
 
 $dynamic-width: calc(50% - 28rem);

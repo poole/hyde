@@ -16,16 +16,13 @@
  */
 
 
-body, main {
-  -webkit-text-size-adjust: 100%;
-      -ms-text-size-adjust: 100%;
-}
-
 body, hy-push-state {
   /* Prevent side-scrolling on mobile */
   position: relative;
   overflow-x: hidden;
 }
+
+
 
 
 
