@@ -34,11 +34,42 @@ const BORDER_COLOR_FADE = 0.8;
 
 function updateStyle({ color = '#00f' } = {}) {
   if (this.rules) {
-    this.rules[0].style.color = color; // .content a
-    this.rules[0].style.borderColor = Color(color).fade(BORDER_COLOR_FADE).string();
-    this.rules[1].style.borderColor = color;
-    this.rules[2].style.outlineColor = color; // :focus
-    this.rules[3].style.backgroundColor = color; // ::selection
+    try {
+      const c = Color(color);
+      const active = c.darken(0.1);
+
+      // .content a
+      this.rules[0].style.color = color;
+      this.rules[0].style.borderColor = c.fade(BORDER_COLOR_FADE).string();
+
+      // .content a:hover
+      this.rules[1].style.borderColor = color;
+
+      // :focus
+      this.rules[2].style.outlineColor = color;
+
+       // .btn-primary
+      this.rules[3].style.backgroundColor = color;
+      this.rules[3].style.borderColor = color;
+
+       // .btn-primary:focus
+      this.rules[4].style.boxShadow = `0 0 0 3px ${c.fade(0.5)}`;
+
+      // .btn-primary:hover
+      this.rules[5].style.backgroundColor = active;
+      this.rules[5].style.borderColor = active;
+
+      // .btn-primary:disabled
+      this.rules[6].style.backgroundColor = color;
+      this.rules[6].style.borderColor = color;
+
+       // .btn-primary:active
+      this.rules[7].style.backgroundColor = active;
+      this.rules[7].style.borderColor = active;
+
+      // ::selection or ::-moz-selection (assuming it is last in the list)
+      this.rules[this.rules.length - 1].style.backgroundColor = color;
+    } catch (e) { console.error(e); }
   }
 }
 
