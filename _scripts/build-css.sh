@@ -1,21 +1,20 @@
 #!/usr/bin/env node
 
 const { promisify } = require('util');
-const { basename, dirname, relative, resolve } = require('path');
+const { basename, dirname, format, relative, resolve } = require('path');
 const fs = require('fs');
 
 const readdir = promisify(fs.readdir);
-const rename = promisify(fs.rename);
 const stat = promisify(fs.stat);
 const readFile = promisify(fs.readFile);
 const writeFile = promisify(fs.writeFile);
 
 const ENC = 'utf-8';
 
-const INLINE_REGEX = /(.*)\s*\/\/\s*inline\s*$/uigm
-const DEFER_REGEX =  /(.*)\s*\/\/\s*link\s*$/uigm
-const INLINE_BLOCK_REGEX = /\/\/\s*>*\s*<{3,}\s*inline([\s\S]*?)\/\/\s*>{3,}.*/uigm
-const DEFER_BLOCK_REGEX =  /\/\/\s*>*\s*<{3,}\s*link([\s\S]*?)\/\/\s*>{3,}.*/uigm
+const INLINE_REGEX = /(.*)\s*\/\/\s*inline\s*$/uigm;
+const DEFER_REGEX = /(.*)\s*\/\/\s*link\s*$/uigm;
+const INLINE_BLOCK_REGEX = /\/\/\s*>*\s*<{3,}\s*inline([\s\S]*?)\/\/\s*>{3,}.*/uigm;
+const DEFER_BLOCK_REGEX = /\/\/\s*>*\s*<{3,}\s*link([\s\S]*?)\/\/\s*>{3,}.*/uigm;
 
 function genHeader(filename) {
   return `/*
@@ -49,10 +48,11 @@ async function getFiles(dir) {
       await getFiles('_sass');
 
     await Promise.all(files
-      .filter(f => basename(f).startsWith('^') && f.endsWith('.scss'))
+      .filter(f => f.endsWith('.pre.scss'))
       .map(async (file) => {
         const content = await readFile(file, ENC);
-        const filename = basename(file, '.scss').substr(1);
+        const name = basename(file, '.pre.scss');
+        const filename = format({ name, ext: '.scss' });
         const dir = dirname(file);
 
         const inline = content
@@ -71,8 +71,8 @@ async function getFiles(dir) {
         const header = genHeader([path, basename(file)].join('/'));
 
         return Promise.all([
-          writeFile(resolve(dir, '__inline', filename + '.scss'), header + inline, ENC),
-          writeFile(resolve(dir, '__link', filename + '.scss'), header + defer, ENC),
+          writeFile(resolve(dir, '__inline', filename), header + inline, ENC),
+          writeFile(resolve(dir, '__link', filename), header + defer, ENC),
         ]);
       }));
     process.exit(0);

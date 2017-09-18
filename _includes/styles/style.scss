@@ -37,31 +37,31 @@
   // @import "my-inline";
   @import "my-style";
 {% else %}
-  @import "pooleparty/^base.scss";
-  @import "pooleparty/^type.scss";
-  @import "pooleparty/^table.scss";
-  @import "pooleparty/^footer.scss";
-  @import "pooleparty/^footnotes.scss";
-  @import "pooleparty/^code.scss";
-  @import "pooleparty/^posts.scss";
-  @import "pooleparty/^related.scss";
-  @import "pooleparty/^message.scss";
-  @import "pooleparty/^pagination.scss";
+  @import "pooleparty/_base.pre.scss";
+  @import "pooleparty/_type.pre.scss";
+  @import "pooleparty/_table.pre.scss";
+  @import "pooleparty/_footer.pre.scss";
+  @import "pooleparty/_footnotes.pre.scss";
+  @import "pooleparty/_code.pre.scss";
+  @import "pooleparty/_posts.pre.scss";
+  @import "pooleparty/_related.pre.scss";
+  @import "pooleparty/_message.pre.scss";
+  @import "pooleparty/_pagination.pre.scss";
 
-  @import "hydejack/^base.scss";
-  @import "hydejack/^sidebar.scss";
-  @import "hydejack/^social.scss";
-  @import "hydejack/^menu.scss";
-  @import "hydejack/^content.scss";
-  @import "hydejack/^me.scss";
-  @import "hydejack/^katex.scss";
-  @import "hydejack/^footer.scss";
+  @import "hydejack/_base.pre.scss";
+  @import "hydejack/_sidebar.pre.scss";
+  @import "hydejack/_social.pre.scss";
+  @import "hydejack/_menu.pre.scss";
+  @import "hydejack/_content.pre.scss";
+  @import "hydejack/_me.pre.scss";
+  @import "hydejack/_katex.pre.scss";
+  @import "hydejack/_footer.pre.scss";
 
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
-    @import "hydejack/^mark-external.scss";
+    @import "hydejack/_mark-external.pre.scss";
   {% endunless %}
   {% unless site.hydejack.no_break_layout %}
-    @import "hydejack/^break-layout.scss";
+    @import "hydejack/_break-layout.pre.scss";
   {% endunless %}
 
   @import "syntax";
