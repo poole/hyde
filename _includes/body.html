@@ -16,11 +16,7 @@
 <hy-push-state>
   <main id="_main" class="content fade-in layout-{{ page.layout }}" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
     {{ content }}
-
-    {% if site.disqus_shortname and page.comments %}
-      {% include comments.html %}
-    {% endif %}
-
+    {% include comments.html %}
     {% include footer.html %}
   </main>
   {% include sidebar.html %}

@@ -49,7 +49,7 @@ paginate_path:         '/page-:num/'
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-disqus_shortname:      qwtel
+disqus:                qwtel
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 tinyletter:            qwtel
