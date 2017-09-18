@@ -27,7 +27,7 @@ you can find it [here]({{ site.baseurl }}{% link docs/7.0.0/index.md %}).
 
 ## Table of Contents
 {:.no_toc}
-* this unordered seed list will be replaced by toc as unordered list
+0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
 
