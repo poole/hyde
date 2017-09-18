@@ -5,11 +5,10 @@
 
 // <<<<< LINK
 .pagination {
+  width: 100%;
   margin: 0 -1.5rem 1rem;
   color: $gray;
   text-align: center;
-  margin-left: -1rem;
-  margin-right: -1rem;
 
   > ul {
     list-style: none;
