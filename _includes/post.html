@@ -33,13 +33,4 @@
       {{ text | replace:"<!--post_title-->", post_title }}
     </p>
   {% endunless %}
-
-  {% unless link_title %}
-    <hr class="dingbat" />
-
-    {% include about.html %}
-    {% include newsletter.html %}
-
-    {% include related.html post=post %}
-  {% endunless %}
 </article>

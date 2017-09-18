@@ -3,3 +3,18 @@ layout: base
 ---
 
 {% include post.html post=page link_title=false %}
+
+<hr class="dingbat related" />
+
+{% assign asides = site.hydejack.__asides %}
+{% unless asides %}{% assign asides = "about,newsletter,related" | split:',' %}{% endunless %}
+
+{% for aside in asides %}
+  {% case aside %}
+  {% when 'about' %}
+     {% include about.html %}
+  {% when 'related' %}
+    {% include related-posts.html post=post %}
+  {% else %}
+  {% endcase %}
+{% endfor %}
