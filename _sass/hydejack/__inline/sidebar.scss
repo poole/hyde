@@ -127,6 +127,12 @@ a.sidebar-nav-item {
   line-height: 1.75;
   padding: .25rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+
+  &::after {
+    position: absolute;
+    right: 0;
+    top: .75rem;
+  }
 }
 
 
