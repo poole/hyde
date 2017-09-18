@@ -104,7 +104,7 @@ This way, CDN optimizers or other tools can modify the URL and we avoid hard-cod
   {% assign font         = site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
 
   {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ google_fonts }}">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family={{ google_fonts | uri_escape }}">
     <style>
       html { font-family: {{ font }} }
       h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading }} }
