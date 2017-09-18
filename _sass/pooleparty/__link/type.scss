@@ -55,16 +55,22 @@ blockquote {
   border-left: .25rem solid $border-color;
 
   &.lead {
-    font-size: 1.25rem;
-    font-weight: 300;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     border-left-width: 0.4rem;
   }
 
-  p:last-child {
+  > p:last-child {
     margin-bottom: 0;
   }
+}
+
+.lead {
+  font-size: larger;
+}
+
+.fine {
+  font-size: smaller;
 }
 
 .faded {
