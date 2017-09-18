@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+
 // @import "reboot-mod";
 
 
@@ -24,16 +25,17 @@
 @import "hydejack/__inline/footer";
 
 // {% unless site.hydejack.no_mark_external or site.no_mark_external %}
-//   @import "hydejack/__inline/mark-external";
+//   @import "hydejack/__link/mark-external";
+// {% endunless %}
+// {% unless site.hydejack.no_break_layout %}
+//   @import "hydejack/__link/break-layout";
 // {% endunless %}
 
 // @import "syntax";
 // @import "spinner";
+
 @import "my-inline";
 // @import "my-style";
-
-
-
 
 {% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
 {% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}

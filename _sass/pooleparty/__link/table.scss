@@ -11,6 +11,16 @@
 
 table:not(.highlight) {
   
+
+  
+  display: block;
+  vertical-align: top;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+  
+
+  
+
   
   thead {
     background-color: $body-bg;
@@ -45,28 +55,27 @@ table:not(.highlight) {
 // http://dbushell.com/2016/03/04/css-only-responsive-tables/
 // by David Bushell
 @mixin scroll-table() {
-  display: block;
-  vertical-align: top;
-  overflow-x: auto;
+  // background-color: $code-bg;
   white-space: nowrap; // optional - looks better for small cell values
-  border: none;
-  -webkit-overflow-scrolling: touch;
 }
 
 @mixin flip-table() {
+  // background-color: $code-bg;
   display: flex;
   overflow: hidden;
-  border: none;
-  border-top: 1px solid $border-color;
-  border-bottom: 1px solid $border-color;
 
+  thead,
   thead + tbody,
   tbody + tbody {
-    border-top: none;
+    border-top: 1px solid $border-color;
+    border-bottom: 1px solid $border-color;
+  }
+
+  thead, tbody {
+    display: flex;
   }
 
   thead {
-    display: flex;
     flex-shrink: 0;
     min-width: min-content;
 
@@ -76,7 +85,6 @@ table:not(.highlight) {
   }
 
   tbody {
-    display: flex;
     position: relative;
     overflow-x: auto;
     overflow-y: hidden;
@@ -121,6 +129,12 @@ table:not(.highlight) {
       padding-right: .5rem;
     }
   }
+}
+
+table.small-table {
+  display: table;
+  width: 100% !important;
+  width: calc(100% + 2rem) !important;
 }
 
 table.scroll-table {

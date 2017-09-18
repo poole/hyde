@@ -13,12 +13,12 @@ table:not(.highlight) {
   
   border-collapse: collapse;
   margin-bottom: 1rem;
-  width: 100%;
-  width: calc(100% + 2rem);
   margin-left: -1rem;
-  background-color: $code-bg;
-;
+  
 
+  
+
+  
   td, th {
     padding: .25rem .5rem;
     border: 1px solid $border-color;
@@ -32,6 +32,7 @@ table:not(.highlight) {
     }
   }
   
+
   
 }
 

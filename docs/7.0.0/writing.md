@@ -132,6 +132,13 @@ Typically, even smaller tables will be cut off when viewed on a mobile device.
 When it comes to displaying large tables on mobile, there is no one-size-fits-all solution.
 There are however [two straight-forward, CSS-only solutions][rtable] that are included in Hydejack.
 
+TODO
+
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+{:.small-table}
+
 ### Scroll Table
 Adding either `scroll-table` or `scroll-table-small` to the CSS classes of a table will enable horizontal scrolling.
 The `-small` version will only enable scrolling on "small" screens (< 1080px wide).
@@ -144,10 +151,8 @@ Example:
 | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    |
 | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            |
 | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            |
-|-----------------+------------+-----------------+----------------|-----------------+------------+-----------------+----------------|-----------------+------------+-----------------+----------------|-----------------+------------+-----------------+----------------|
 | Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                |
 | 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                |
-|=================+============+=================+================|=================+============+=================+================|=================+============+=================+================|=================+============+=================+================|
 | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                |
 {:.scroll-table.break-layout}
 
@@ -158,10 +163,8 @@ Markdown:
 | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    |
 | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            |
 | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            |
-|-----------------+------------+-----------------+----------------|-----------------+------------+-----------------+----------------|-----------------+------------+-----------------+----------------|-----------------+------------+-----------------+----------------|
 | Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                |
 | 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                |
-|=================+============+=================+================|=================+============+=================+================|=================+============+=================+================|=================+============+=================+================|
 | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                |
 {:.scroll-table.break-layout}
 ~~~

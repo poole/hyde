@@ -1,5 +1,6 @@
 @import "variables";
 @import "mixins";
+
 @import "reboot-mod";
 
 {% unless site.hydejack.no_inline_css or jekyll.environment == 'development' %}
@@ -26,9 +27,13 @@
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
     @import "hydejack/__link/mark-external";
   {% endunless %}
+  {% unless site.hydejack.no_break_layout %}
+    @import "hydejack/__link/break-layout";
+  {% endunless %}
 
   @import "syntax";
   @import "spinner";
+
   // @import "my-inline";
   @import "my-style";
 {% else %}
@@ -55,9 +60,13 @@
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
     @import "hydejack/^mark-external.scss";
   {% endunless %}
+  {% unless site.hydejack.no_break_layout %}
+    @import "hydejack/^break-layout.scss";
+  {% endunless %}
 
   @import "syntax";
   @import "spinner";
+
   @import "my-inline";
   @import "my-style";
 {% endunless %}
