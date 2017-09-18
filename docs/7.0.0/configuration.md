@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Configuration
+description: >
+  Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`.
 redirect_from:
   - /docs/latest/configuration/
   - /docs/configuration/

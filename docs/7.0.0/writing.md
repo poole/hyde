@@ -1,6 +1,10 @@
 ---
 layout: page
 title: Writing
+description: >
+  Hydejack offers a few additional features to markup your markdown.
+  Don't worry, these are merely CSS classes added via the standard `{:.my-class}` syntax,
+  so that your posts remain compatible with other Jekyll themes.
 redirect_from:
   - /docs/latest/writing/
   - /docs/writing/

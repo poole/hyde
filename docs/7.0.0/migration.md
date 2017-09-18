@@ -4,6 +4,8 @@ title: Migration
 redirect_from:
   - /docs/latest/migration/
   - /docs/migration/
+description: >
+  This documents shows how to upgrade Hydejack from previous versions in a step-by-step manner.
 ---
 
 ## Table of Contents

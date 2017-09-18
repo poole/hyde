@@ -1,9 +1,9 @@
 ---
 layout: post
 title: 'The Fast One (v5)'
-tags: [hydejack]
 description: >
-  This release dramatically increases page load speed which matters to Google and visitors with slow connections alike.
+  Hydejack v5 dramatically increases page load speed which matters to Google and visitors with slow connections alike.
+tags: [hydejack]
 ---
 
 This major release increases page load speed dramatically.

@@ -1,6 +1,8 @@
 ---
 layout: page
 title: Advanced
+description: >
+  Under the hood, Hydejack is a surprisingly (maybe shockingly) complex beast. Some of the more advanced concepts are explained here.
 redirect_from:
   - /docs/latest/advanced/
   - /docs/advanced/

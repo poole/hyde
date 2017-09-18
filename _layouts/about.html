@@ -13,5 +13,9 @@ layout: base
 
   {{ author.about | markdownify }}
 
+  {% unless page.no_description %}
+    {% include message.html text=page.description %}
+  {% endunless %}
+
   {{ content }}
 </article>

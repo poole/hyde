@@ -1,6 +1,9 @@
 ---
 layout: page
 title: Scripts
+description: >
+  There are two ways of adding third party scripts.
+  'Embedding' is ideal for one-off scripts, while 'global scripts' loaded on every page.
 redirect_from:
   - /docs/latest/scripts/
   - /docs/scripts/

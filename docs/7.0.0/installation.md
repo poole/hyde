@@ -4,6 +4,11 @@ title: Installation
 redirect_from:
   - /docs/latest/installation/
   - /docs/installation/
+description: >
+  There are multiple ways of installing Hydejack. The easiest is via the Ruby gem.
+  If you downloaded the zip, you'll want to install via the zip file.
+  If you know what you are doing, you can fork or clone the git repository.
+
 ---
 
 There are multiple ways of installing Hydejack.

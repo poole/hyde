@@ -1,10 +1,9 @@
 ---
 layout: post
 title: 'JavaScripten (v6)'
-tags: [hydejack]
 description: >
-  The last release made the theme fast in the eyes of Google, but not so much in the eyes of its readers.
-  This release addresses this by adding a layer of JavaScript, effectively turning the whole site into a single page app.
+  Hydejack v6 adds a layer of JavaScript, effectively turning the whole site into a single page app.
+tags: [hydejack]
 redirect_from: /2017/04/15/javascripten-beta/
 ---
 

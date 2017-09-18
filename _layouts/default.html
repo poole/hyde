@@ -7,7 +7,7 @@ layout: base
 <article class="page" role="article">
   <header>
     <h1 class="page-title">{{ page.title | default:strings.home | default:"Home"}}</h1>
-    {% include message.html text=page.description %}
+    {% include message.html text=page.description hide=page.no_description %}
   </header>
 
   {{ content }}
