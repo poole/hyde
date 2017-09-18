@@ -1,0 +1,19 @@
+<!-- <meta charset="utf-8"> will be inserted by SEO tag -->
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="format-detection" content="telephone=no">
+<meta http-equiv="x-ua-compatible" content="ie=edge">
+
+{% unless page.redirect %}
+  {% seo %}
+
+  {% if site.keywords or page.keywords %}
+    <meta name="keywords" content="{{ page.keywords | default:site.keywords | join:',' }}">
+  {% endif %}
+
+  {% if site.copyright or page.copyright %}
+    <meta name="copyright" content="{{ page.copyright | default:site.copyright }}" />
+  {% endif %}
+{% else %}
+  <meta http-equiv="refresh" content="0; url={{ page.redirect.to }}">
+  <title>{{ site.data.strings.redirecting | default:"Redirecting..." }}</title>
+{% endunless %}
