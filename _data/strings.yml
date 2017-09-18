@@ -37,6 +37,21 @@
   continue_reading:      |
     Continue reading <!--post_title-->
 
+  tinyletter:
+    title:               Commercial break...
+    label:               Email
+    placeholder:         Enter your email address
+    button:              Subscribe
+    message:             |
+      Pay the *iron price* for this theme by adding yourself to the mailing list.
+      Receive development updates, advanced tutorials,
+      and anything else I can come up with as it relates to **Hydejack**.
+
+      <!--form-->
+
+      No 3rd party products, no spam. Emails handled by [Tinyletter](https://tinyletter.com/)
+      {:.faded}
+
   not_found:
     title:               "404: Page Not Found"
     message:             |

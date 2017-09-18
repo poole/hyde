@@ -51,6 +51,9 @@ paginate_path:         '/page-:num/'
 # pages with `comments: true` in the front matter.
 disqus_shortname:      qwtel
 
+# Setting a tinyletter username will enable the newsletter subscription box.
+tinyletter:            qwtel
+
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
 google_analytics:      UA-XXXXXXXX-X
