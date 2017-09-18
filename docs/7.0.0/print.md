@@ -1,11 +1,11 @@
 ---
 layout: page
 title: Documentation
-sitemap: false
 redirect_from:
   - /docs/latest/complete/
   - /docs/latest/print/
   - /docs/print/
+sitemap: false
 ---
 
 Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
