@@ -1,7 +1,9 @@
 // <<<<< LINK
 pre, table:not(.highlight), .katex-display, .break-layout, .message  {
-  position: relative;
-  width: calc(100vw - .5rem);
+  @media screen {
+    position: relative;
+    width: calc(100vw - .5rem);
+  }
 
   @media screen and (min-width: 38rem) {
     width: calc(100% + 50vw - (38rem / 2) + 2rem);
