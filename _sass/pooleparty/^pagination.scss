@@ -6,7 +6,7 @@
 // <<<<< LINK
 .pagination {
   margin: 0 -1.5rem 1rem;
-  color: #ccc;
+  color: $gray;
   text-align: center;
   margin-left: -1rem;
   margin-right: -1rem;
@@ -22,12 +22,12 @@
   > * {
     display: block;
     padding: .25rem 1rem;
-    border: solid #eee;
+    border: solid $border-color;
     border-width: 1px 0;
   }
 
   > a, > a:hover, > a:focus {
-    border-color: #eee!important;
+    border-color: $border-color!important;
   }
 
   &:first-child > * {
@@ -37,7 +37,7 @@
   // Only provide a hover state for linked pagination items
   > a:hover, a:focus {
     background-color: #f5f5f5;
-    border-bottom: 1px solid #eee;
+    border-bottom: 1px solid $border-color;
   }
 }
 

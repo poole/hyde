@@ -1,6 +1,6 @@
-$gray: #9a9a9a;
-$gray-bg: #f8f8f8;
-$gray-text: #787878;
+$gray: #888;
+$gray-bg: rgba(0,0,0,.025);
+$gray-text: #666;
 
 $root-font-size: 16px;
 $root-font-size-medium: 17px;
@@ -10,19 +10,18 @@ $root-line-height: 1.65;
 $body-color: #333;
 $body-bg: #fff;
 
-$border-color: #e5e5e5;
-$border-color-light: #eee;
+$border-color: #eee;
 
 $code-font-family: Menlo, Monaco, Consolas, monospace;
 $code-color: inherit;
-$code-bg: rgba(0,0,0,.02);
+$code-bg: $gray-bg;
 
-$break-point-1: 42em;           //  640px
-$break-point-2: 54em;           //  864px
-$break-point-3: 64em;           // 1024px
-$break-point-4: 72em;           // 1152px
-$break-point-5: 90em;           // 1440px
-$break-point-dynamic: 98.5em;   // 1576px
-$break-point-font-large: 125em; // 2000px
+$break-point-1: 42em;
+$break-point-2: 54em;
+$break-point-3: 64em;
+$break-point-4: 72em;
+$break-point-5: 90em;
+$break-point-dynamic: 98.5em;
+$break-point-font-large: 125em;
 
 $dynamic-width: calc(50% - 28rem);
