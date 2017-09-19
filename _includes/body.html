@@ -1,7 +1,15 @@
 {% include body/menu.html %}
 
 <hy-push-state>
-  <main id="_main" class="content fade-in layout-{{ page.layout }}" role="main" data-color="{{ color | escape }}" data-image="{{ image | escape }}">
+  <main
+    id="_main"
+    class="content fade-in layout-{{ page.layout }}"
+    role="main"
+    data-color="{{ color | escape }}"
+    {% if image.background %}data-background="{{ image.background | escape }}"
+    {% else %}data-image="{{ image | escape }}"{% endif %}
+    {% unless image.overlay == false %}data-overlay{% endunless %}
+    >
     {{ content }}
     {% include comments.html %}
     {% include footer.html %}

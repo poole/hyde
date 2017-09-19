@@ -66,7 +66,7 @@ qwtel:
     # download:        https://github.com/qwtel/hydejack/archive/v6.6.1.zip
 
   # Used by `jekyll-seo-tag`:
-  twitter:           qwtel
+  twitter:           <username>
 
 # Another author
 mdo:
@@ -81,5 +81,7 @@ mdo:
   picture:           https://placehold.it/128x128
   twitter:           <username>
   github:            <username>
-  accent_image:      'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw==' # http://jsfiddle.net/LPxrT/
   accent_color:      '#268bd2'
+  accent_image:
+    background:      '#202020'
+    overlay:         false

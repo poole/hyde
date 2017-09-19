@@ -1,7 +1,12 @@
 <hy-drawer>
   <div id="_sidebar" class="sidebar">
-    <div class="sidebar-bg{% if image and image != 'none' %} sidebar-overlay{% endif %}"
-      style="background-color:{{ color }};{% if image and image != 'none' %}background-image:url({{ image }}){% endif %}"></div>
+    {% capture bg_class %}sidebar-bg{% unless image == 'none' or image.overlay == false %} sidebar-overlay{% endunless %}{% endcapture %}
+    {% if image.background %}
+      {% capture bg_style %}background:{{ image.background }}{% endcapture %}
+    {% else %}
+      {% capture bg_style %}background-color:{{ color }};{% if image != 'none' %}background-image:url({{ image }}){% endif %}{% endcapture %}
+    {% endif %}
+    <div class="{{ bg_class }}" style="{{ bg_style }}"></div>
     <header class="sidebar-sticky" role="banner">
       <div class="sidebar-about">
         <h2 class="h1"><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
