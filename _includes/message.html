@@ -1,7 +1,11 @@
-{% unless include.text.size == 0 or include.hide %}
-{% capture desc %}{{ include.text | strip_newlines }}
+{% if include.text %}
+  {% unless include.hide %}
+    {% capture desc %}{{ include.text | strip_newlines }}
 {:.message {% if include.property %}property="{{ include.property }}"{% endif %}}{% endcapture %}
-{{ desc | markdownify }}
+    {{ desc | markdownify }}
+  {% else %}
+    <div class="hr pb0"></div>
+  {% endunless %}
 {% else %}
   <div class="hr pb0"></div>
-{% endunless %}
+{% endif %}
