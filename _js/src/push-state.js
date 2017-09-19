@@ -187,14 +187,27 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     ::map(({ detail }) => detail)
     ::share();
 
-  /* HACK */
+  // Safari doesn't support manual scroll restoration and it immediately jumps to the old scroll
+  // position after the `popstate` event handler completes.
+  // To make sure Safari can scroll to that position, the body needs to have sufficient height,
+  // otherwise it will simply scroll to the bottom.
   if (isSafari()) {
     Observable::fromEvent(window, 'popstate')
-      ::filter(() => history.state && history.state._hyPushState && !history.state.hash)
-      ::subscribe(() => { document.body.style.minHeight = '999999px'; });
+      // Make sure this the previous entry was pushed by us and isn't a jump to a `#`:
+      ::filter(() => history.state && history.state['hy-push-state'] && !history.state.hash)
+      // Empty the content immediately to prevent flickering and
+      // set the old `scrollHeigt` as the body's `minHeight`.
+      ::subscribe(() => {
+        document.getElementById('_main')::empty();
+        document.body.style.minHeight = `${history.state.scrollHeight}px`;
+      });
 
-    after$
-      ::subscribe(() => { document.body.style.minHeight = ''; });
+    // Restore `minHeight` once the content has been replaced (or an error occurred, etc):
+    Observable::merge(after$, progress$, error$)
+      ::observeOn(animationFrame)
+      ::subscribe(() => {
+        document.body.style.minHeight = '';
+      });
   }
 
   // We use this to prevent starting new "fade out animations".
