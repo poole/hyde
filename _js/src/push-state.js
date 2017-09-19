@@ -46,8 +46,6 @@ import { switchMap } from 'rxjs/operator/switchMap';
 import { takeUntil } from 'rxjs/operator/takeUntil';
 import { zipProto as zipWith } from 'rxjs/operator/zip';
 
-import elemDataset from 'elem-dataset';
-
 import { animate, empty, hasFeatures, isSafari } from './common';
 import CrossFader from './cross-fader';
 import upgradeMathBlocks from './katex';
@@ -269,10 +267,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // Swap out the sidebar image (if applicable)
   after$
     ::switchMap(({ content: [main] }) =>
-      crossFader.fetchImage(elemDataset(main))
-        ::waitUntil(fadeIn$)
+      crossFader.fetchImage(main)
+        ::zipWith(fadeIn$, x => x)
         ::takeUntil(start$))
-    ::startWith(document.querySelector('.sidebar-bg'))
+    ::startWith([document.querySelector('.sidebar-bg')])
     ::pairwise()
     ::mergeMap(::crossFader.fade)
     ::subscribe();

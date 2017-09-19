@@ -22,9 +22,10 @@ import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { of } from 'rxjs/observable/of';
 
-import { _do as effect } from 'rxjs/operator/do';
 import { _finally as cleanup } from 'rxjs/operator/finally';
 import { map } from 'rxjs/operator/map';
+
+import elemDataset from 'elem-dataset';
 
 import { animate } from './common';
 
@@ -73,6 +74,10 @@ function updateStyle({ color = '#00f' } = {}) {
   }
 }
 
+function pseudoHash({ color, image, background, overlay }) {
+  return `${color}${image || background}${overlay ? 'overlay' : ''}`;
+}
+
 export default class CrossFader {
   constructor(fadeDuration) {
     const main = document.getElementById('_main');
@@ -82,48 +87,46 @@ export default class CrossFader {
     this.sidebar = document.getElementById('_sidebar');
     this.fadeDuration = fadeDuration;
     this.rules = styleSheet.cssRules || styleSheet.rules;
-    this.prevImage = main.getAttribute('data-image');
-    this.prevColor = main.getAttribute('data-color');
+    this.prevHash = pseudoHash(elemDataset(main));
   }
 
-  fetchImage(dataset) {
-    const { color, image } = dataset;
-
-    if (image === this.prevImage && color === this.prevColor) {
-      return Observable::empty();
+  get$({ image }) {
+    if (!image || image === '' || image === 'none' || image === this.prevImage) {
+      return Observable::of({});
     }
 
-    let res$;
+    const imgObj = new Image();
+    const res$ = Observable::fromEvent(imgObj, 'load')::cleanup(() => { imgObj.src = ''; });
+    imgObj.src = image;
+    return res$;
+  }
 
-    if (image === '' || image === 'none' || image === this.prevImage) {
-      res$ = Observable::of({});
-    } else {
-      const imgObj = new Image();
+  fetchImage(main) {
+    const dataset = elemDataset(main);
+    const { color, image, background, overlay } = dataset;
 
-      res$ = Observable::fromEvent(imgObj, 'load')
-        ::cleanup(() => { imgObj.src = ''; });
+    dataset.hash = pseudoHash(dataset);
+    if (dataset.hash === this.prevHash) return Observable::empty();
 
-      imgObj.src = image;
-    }
-
-    return res$
-      ::effect(() => {
-        this::updateStyle(dataset);
-        this.prevImage = image;
-        this.prevColor = color;
-      })
+    return this.get$(dataset)
       ::map(() => {
         const div = document.createElement('div');
         div.classList.add('sidebar-bg');
-        if (image !== '' && image !== 'none') div.classList.add('sidebar-overlay');
+        if (image !== 'none' && overlay === '') div.classList.add('sidebar-overlay');
         div.style.backgroundColor = color;
-        if (image !== '' && image !== 'none') div.style.backgroundImage = `url(${image})`;
-        return div;
+        if (background) div.style.background = background;
+        else if (image !== '' && image !== 'none') div.style.backgroundImage = `url(${image})`;
+        return [div, dataset];
       });
   }
 
-  fade([prevDiv, div]) {
+  fade([[prevDiv], [div, dataset]]) {
     prevDiv.parentNode.insertBefore(div, prevDiv.nextElementSibling);
+
+    this::updateStyle(dataset);
+
+    // Only update the prev hash after we're actually in the fade stage
+    this.prevHash = dataset.hash;
 
     return animate(div, [
       { opacity: 0 },
