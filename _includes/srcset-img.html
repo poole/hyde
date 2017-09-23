@@ -1,4 +1,4 @@
-{% if include.img.path or include.img.src %}
+{% if include.img.src or include.img.path %}
   {% assign srcset = null %}
 
   {% if include.img.srcset %}
@@ -6,7 +6,7 @@
   {% endif %}
 
   <img
-    src="{{ include.img.path | default:include.img.src }}"
+    src="{{ include.img.src | default:include.img.path }}"
     {% if include.class %}class="{{ include.class }}"{% endif %}
     {% if include.alt %}alt="{{ include.alt }}"{% endif %}
     {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
