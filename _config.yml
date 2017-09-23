@@ -109,6 +109,12 @@ hydejack:
   # See: https://jekyllrb.com/docs/variables/#site-variables
   use_lsi:             false
 
+  # Configure the order of complementary content on blog posts
+  post_aside_order:    [about, newsletter, related]
+
+  # Configure the order of complementary content on project pages
+  project_aside_order: [about, newsletter, other]
+
 
 # Collections
 # ========================================================================================

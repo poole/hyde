@@ -6,8 +6,8 @@ layout: base
 
 <hr class="dingbat related" />
 
-{% assign asides = site.hydejack.__asides %}
-{% unless asides %}{% assign asides = "about,newsletter,related" | split:',' %}{% endunless %}
+{% assign asides = site.hydejack.post_aside_order %}
+{% unless asides %}{% assign asides = "about,newsletter,related,random" | split:',' %}{% endunless %}
 
 {% for aside in asides %}
   {% case aside %}
