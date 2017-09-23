@@ -47,6 +47,14 @@ function menuClickClallback(e) {
   }
 }
 
+function getRange() {
+  if (isMobileSafari()) {
+    if (window.navigator.standalone) return [0, 150];
+    return [35, 150];
+  }
+  return [0, 50];
+}
+
 if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
@@ -57,7 +65,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
   window._drawer = new Drawer(drawerEl, {
     opened: window._isDesktop,
     persistent: window._isDesktop,
-    range: isMobileSafari() ? [35, 150] : [0, 50],
+    range: getRange(),
     // backButton: !isSafari(),
     slideThreshold: isSafari() ? 0 : 10,
     preventDefault: true,
