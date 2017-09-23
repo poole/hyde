@@ -1,18 +1,20 @@
 <hy-drawer>
-  <div id="_sidebar" class="sidebar">
-    {% capture bg_class %}sidebar-bg{% unless image == 'none' or image.overlay == false %} sidebar-overlay{% endunless %}{% endcapture %}
+  <aside id="_sidebar" class="sidebar">
     {% if image.background %}
       {% capture bg_style %}background:{{ image.background }}{% endcapture %}
+      {% capture bg_class %}sidebar-bg {% if image.overlay %}sidebar-overlay{% endif %}{% endcapture %}
     {% else %}
       {% capture bg_style %}background-color:{{ color }};{% if image != 'none' %}background-image:url({{ image }}){% endif %}{% endcapture %}
+      {% capture bg_class %}sidebar-bg {% if image != 'none' %}sidebar-overlay{% endif %}{% endcapture %}
     {% endif %}
     <div class="{{ bg_class }}" style="{{ bg_style }}"></div>
-    <header class="sidebar-sticky" role="banner">
-      <div class="sidebar-about">
+    <div class="sidebar-sticky">
+      <header class="sidebar-about">
         <h2 class="h1"><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
-        {% capture desc %}{{ site.description | markdownify }}{% if site.description.size > 60 %}{:.fine}{% endif %}{% endcapture %}
-        {{ desc | markdownify }}
-      </div>
+        <p class="{% if site.description.size > 100 %}fine{% endif %}">
+          {{ site.description | markdownify | replace:'<p>','' | replace:'</p>','' }}
+        </p>
+      </header>
 
       <nav class="sidebar-nav heading" role="navigation">
         {% include nav.html %}
@@ -23,6 +25,6 @@
       <div class="sidebar-social">
         {% include social.html author=author %}
       </div>
-    </header>
-  </div>
+    </div>
+  </aside>
 </hy-drawer>

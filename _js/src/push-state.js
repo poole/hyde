@@ -279,8 +279,8 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
 
   // Swap out the sidebar image (if applicable)
   after$
-    ::switchMap(({ content: [main] }) =>
-      crossFader.fetchImage(main)
+    ::switchMap(snowball =>
+      crossFader.fetchImage(snowball)
         ::zipWith(fadeIn$, x => x)
         ::takeUntil(start$))
     ::startWith([document.querySelector('.sidebar-bg')])

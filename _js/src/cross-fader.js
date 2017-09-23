@@ -23,6 +23,7 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 import { of } from 'rxjs/observable/of';
 
 import { _finally as cleanup } from 'rxjs/operator/finally';
+import { take } from 'rxjs/operator/take';
 import { map } from 'rxjs/operator/map';
 
 import elemDataset from 'elem-dataset';
@@ -78,6 +79,22 @@ function pseudoHash({ color, image, background, overlay }) {
   return `${color}${image || background}${overlay ? 'overlay' : ''}`;
 }
 
+function getImage$({ image }) {
+  if (!image || image === '' || image === 'none' || image === this.prevImage) {
+    return Observable::of({});
+  }
+
+  const imgObj = new Image();
+
+  const image$ = Observable::fromEvent(imgObj, 'load')
+    ::take(1)
+    ::cleanup(() => { imgObj.src = ''; });
+
+  imgObj.src = image;
+
+  return image$;
+}
+
 export default class CrossFader {
   constructor(fadeDuration) {
     const main = document.getElementById('_main');
@@ -90,25 +107,16 @@ export default class CrossFader {
     this.prevHash = pseudoHash(elemDataset(main));
   }
 
-  get$({ image }) {
-    if (!image || image === '' || image === 'none' || image === this.prevImage) {
-      return Observable::of({});
-    }
-
-    const imgObj = new Image();
-    const res$ = Observable::fromEvent(imgObj, 'load')::cleanup(() => { imgObj.src = ''; });
-    imgObj.src = image;
-    return res$;
-  }
-
-  fetchImage(main) {
+  fetchImage({ content: [main] }) {
     const dataset = elemDataset(main);
     const { color, image, background, overlay } = dataset;
 
-    dataset.hash = pseudoHash(dataset);
-    if (dataset.hash === this.prevHash) return Observable::empty();
+    // HACK: Using `dataset` here to store some intermediate data
+    const hash = pseudoHash(dataset);
+    if (hash === this.prevHash) return Observable::empty();
+    // dataset.instant = type === 'pop' && isSafari();
 
-    return this.get$(dataset)
+    return this::getImage$(dataset)
       ::map(() => {
         const div = document.createElement('div');
         div.classList.add('sidebar-bg');
@@ -116,17 +124,17 @@ export default class CrossFader {
         div.style.backgroundColor = color;
         if (background) div.style.background = background;
         else if (image !== '' && image !== 'none') div.style.backgroundImage = `url(${image})`;
-        return [div, dataset];
+        return [div, dataset, hash];
       });
   }
 
-  fade([[prevDiv], [div, dataset]]) {
+  fade([[prevDiv], [div, dataset, hash]]) {
     prevDiv.parentNode.insertBefore(div, prevDiv.nextElementSibling);
 
     this::updateStyle(dataset);
 
     // Only update the prev hash after we're actually in the fade stage
-    this.prevHash = dataset.hash;
+    this.prevHash = hash;
 
     return animate(div, [
       { opacity: 0 },

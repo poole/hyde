@@ -115,6 +115,10 @@ hydejack:
   # Configure the order of complementary content on project pages
   project_aside_order: [about, newsletter, other]
 
+  # Setting to `true` will cause `page.image` to be used for the sidebar image.
+  # The preferred way is to set it via `accent_image`.
+  image_bcompat: true
+
 
 # Collections
 # ========================================================================================
