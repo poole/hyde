@@ -101,6 +101,10 @@ hydejack:
   # Set this to true if you want them to be the same width as other content.
   no_break_layout:     false
 
+  # Set to true if you do not want to expose your resume and projects
+  # in machine-readable formats.
+  no_structured_data:  false
+
   # Set to true when building with the `--lsi` option
   # See: https://jekyllrb.com/docs/variables/#site-variables
   use_lsi:             false
