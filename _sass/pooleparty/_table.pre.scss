@@ -61,12 +61,10 @@ table:not(.highlight) {
 // http://dbushell.com/2016/03/04/css-only-responsive-tables/
 // by David Bushell
 @mixin scroll-table() {
-  // background-color: $code-bg;
   white-space: nowrap; // optional - looks better for small cell values
 }
 
 @mixin flip-table() {
-  // background-color: $code-bg;
   display: flex;
   overflow: hidden;
 
@@ -137,7 +135,7 @@ table:not(.highlight) {
   }
 }
 
-table.small-table {
+table.stretch-table {
   display: table;
   width: 100% !important;
   width: calc(100% + 2rem) !important;
