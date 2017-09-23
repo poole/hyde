@@ -26,17 +26,19 @@
   color: $gray;
 }
 
+.nav-btn {
+  display: inline-block;
+  padding: 1.75rem .875rem;
+  border-bottom: none;
+  color: $gray!important;
+}
+
 
 .menu {
   
-  display: inline-block;
-  padding: 1.75rem 1.5rem;
-  border-bottom: none;
-  margin-left: -1.5rem;
-
+  margin-left: -.875rem;
   &::after {
     content: "\2630"; // ☰
-    color: $gray!important;
   }
 
   @media screen and (min-width: $break-point-3) {
