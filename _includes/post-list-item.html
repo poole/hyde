@@ -5,7 +5,5 @@
   <a href="{{ post.url | relative_url }}" class="h4 flip-title">
     <span>{{ post.title }}</span>
   </a>
-  <small class="heading">
-    <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:format }}</time>
-  </small>
+  <time class="heading faded fine" datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:format }}</time>
 </li>

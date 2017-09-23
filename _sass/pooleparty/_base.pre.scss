@@ -48,7 +48,7 @@ img, .img {
 @media print {
   a::after {
     content: " (" attr(href) ") ";
-    font-size: smaller;
+    font-size: 0.83em;
   }
 }
 // >>>>> LINK

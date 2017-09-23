@@ -6,13 +6,9 @@
   list-style: none;
   margin-bottom: 2rem;
 
-  > li, > li + li {
+  > li,
+  > li + li {
     margin-top: 1rem;
-
-    > small {
-      font-size: 75%;
-      color: $gray;
-    }
   }
 }
 // >>>>>
