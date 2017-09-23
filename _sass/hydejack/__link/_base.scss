@@ -55,7 +55,7 @@ a, .a {
 //   border-bottom: 1px solid; 
   transition: color 500ms, border-color 250ms; 
   
-  &:hover, &:focus {
+  &:hover {
     text-decoration: none;
     transition: color 500ms, border-color 50ms;
   }
@@ -65,7 +65,7 @@ a, .a {
     padding-bottom: none;
     transition: none;
 
-    &:hover, &:focus {
+    &:hover {
       transition: none;
     }
   }

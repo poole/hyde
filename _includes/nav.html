@@ -8,7 +8,7 @@
       <li>
         <a
           href="{{ node.url | relative_url }}"
-          class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}"
+          class="sidebar-nav-item{% if page.url contains node.url %} active{% endif %}"
           {% if path.rel %}rel="{{ node.rel }}"{% endif %}
           >
           {{ node.title }}

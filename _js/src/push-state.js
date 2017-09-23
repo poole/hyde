@@ -163,12 +163,6 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
 
   const start$ = Observable::fromEvent(pushStateEl, 'hy-push-state-start')
     ::map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) }))
-    ::effect(() => {
-      // If a link on the drawer has been clicked, close it
-      if (!window._isDesktop && window._drawer.opened) {
-        window._drawer.close();
-      }
-    })
     ::share();
 
   const ready$ = Observable::fromEvent(pushStateEl, 'hy-push-state-ready')
@@ -229,6 +223,12 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
       const main = document.getElementById('_main');
       main.style.pointerEvents = 'none';
       main.style.opacity = 0;
+      if (!window._isDesktop && window._drawer.opened) window._drawer.close();
+      document.querySelectorAll('.sidebar-nav-item')
+        ::forEach((item) => {
+          if (window.location.href.includes(item.href)) item.classList.add('active');
+          else item.classList.remove('active');
+        });
     })
     ::switchMap(() => animate(document.getElementById('_main'), FADE_OUT, SETTINGS));
 

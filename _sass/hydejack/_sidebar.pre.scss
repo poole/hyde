@@ -8,7 +8,7 @@
     border-bottom-color: rgba(255, 255, 255, 0.2); // inline
 
     // <<< link
-    &:hover, &:focus {
+    &:hover {
       border-bottom-color: #fff;
     }
     // >>>
@@ -138,15 +138,43 @@ a.sidebar-nav-item {
   line-height: 1.75;
   padding: .25rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
 
-  &::after {
+// >>>>>
+// <<<<< LINK
+a.sidebar-nav-item {
+  &::before, &::after {
     position: absolute;
     right: 0;
     top: .75rem;
   }
+
+  // &::before {
+  //   content: "\2666";
+  //   font-family: 'icomoon'!important;
+  //   speak: none;
+  //   font-style: normal;
+  //   font-weight: normal;
+  //   font-variant: normal;
+  //   text-transform: none;
+  //   line-height: 1;
+  //   font-size: smaller;
+  //   -webkit-font-smoothing: antialiased;
+  //   -moz-osx-font-smoothing: grayscale;
+  //   opacity: 0;
+  //   transition: opacity 500ms;
+  // }
+  //
+  // &.active::before {
+  //   opacity: 0.33;
+  // }
+  //
+  // &.active:hover::before {
+  //   opacity: 1;
+  //   transition: opacity 100ms;
+  // }
 }
-// >>>>>
-// <<<<< LINK
+
 @media print {
   .sidebar {
     page-break-inside: avoid;

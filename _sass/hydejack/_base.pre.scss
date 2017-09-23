@@ -69,7 +69,7 @@ a, .a {
   transition: color 500ms, border-color 250ms; // link
 
   // <<< link
-  &:hover, &:focus {
+  &:hover {
     text-decoration: none;
     transition: color 500ms, border-color 50ms;
   }
@@ -79,7 +79,7 @@ a, .a {
     padding-bottom: none;
     transition: none;
 
-    &:hover, &:focus {
+    &:hover {
       transition: none;
     }
   }
