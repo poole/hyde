@@ -44,4 +44,4 @@ Hyde is developed on and hosted with GitHub. Head to the [GitHub repository](htt
 
 Thanks!
 
-[docs]: https://qwtel.com/hydejack/docs/
+[docs]: ../docs/7.0.0/index.md

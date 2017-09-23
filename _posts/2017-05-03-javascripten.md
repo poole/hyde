@@ -29,7 +29,7 @@ At the same time, the FOUC introduced in the last release will no longer occur (
 * Added `not-found` layout.
 * Added `redirect` layout
 
-See the [the migration guide][migration] for instructions on how to upgrade.
+See the [the migration guide][upgrade] for instructions on how to upgrade.
 
 ## Minor
 * The "accent" font (heading font) is now used for all headings.
@@ -61,7 +61,7 @@ See the [the migration guide][migration] for instructions on how to upgrade.
 
 [Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases)
 
-[migration]: https://qwtel.com/hydejack/docs/migration/
-[writing]: https://qwtel.com/hydejack/docs/writing/
+[upgrade]: ../docs/7.0.0/upgrade.md
+[writing]: ../docs/7.0.0/writing.md
 
 *[FOUC]: Flash of Unstyled Content
