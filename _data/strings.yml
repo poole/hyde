@@ -34,7 +34,7 @@
     projects_group_by:   "%Y"
     resume:              "%b %Y"
 
-  continue_reading:      |
+  continue_reading:      >
     Continue reading <!--post_title-->
 
   tinyletter:
@@ -62,17 +62,15 @@
   error:
     title:               "Error"
     message:             |
-      Sorry, an error occurred while loading: <!--link-->.
+      Sorry, an error occurred while loading <!--link-->.
 
   welcome:
     selected_projects:   Selected Projects
     selected_posts:      Selected Posts
     recent_projects:     Recent Projects
     recent_posts:        Recent Posts
-    more_projects:       |
-      See <!--projects_title--> for more
-    more_posts:          |
-      See <!--posts_title--> for more
+    more_projects:       See <!--projects_title--> for more
+    more_posts:          See <!--posts_title--> for more
 
   resume:
     location:            Location

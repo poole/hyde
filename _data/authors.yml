@@ -24,7 +24,7 @@ qwtel:
 
   # Social media icons in sidebar
   # Comment/uncommet to show/hide
-  # Icons appear in order, can be rearranged:
+  # Rearrange to change the order in which they appear
   social:
     twitter:         <username>
     github:          <username>

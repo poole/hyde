@@ -1,28 +1,25 @@
-# Basic Configuration
+# Config
 # ========================================================================================
 
 title:                 Hydejack
 
-# Language of your content in 2-letter code, e.g.: en, de
-# You may also provide a target location, e.g.: en-us, de_AT
+# Language of your content in 2-letter code, eg: en, de.
+# You may also provide a location, eg: en-us, de_AT.
 lang:                  en
 
 # The unique resource location of your page.
-# Set to `https://<username>.github.io` when hosting on GitHub Pages
+# Set to `https://<username>.github.io` when hosting on GitHub Pages.
 url:                   https://qwtel.com
 
-# Set to '' when hosting a blog on GitHub Pages, ie on `//<username>.github.io`
-# Set to '/<reponame>' when using the `gh-pages` branch of a repository
+# Set to '' when hosting on GitHub Pages, like `//<username>.github.io`.
+# Set to '/<reponame>' when using the `gh-pages` branch of a repository.
 baseurl:               /hydejack
 
-# A short description of the page, used in the sidebar and as fallback for the meta
-# description tag.
+# A short description of the page, used in the sidebar and
+# as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:           >
-  A pretentious two-column [Jekyll](http://jekyllrb.com/) theme,
-  stolen by [@qwtel](https://twitter.com/qwtel)
-  from [Hyde](http://hyde.getpoole.com). You could say it was..
-  [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
+  A Jekyll Theme with JavaScript Powers. "Best Theme by a Mile". Reactive, responsive, fun.
 
 # A list of keywords for your blog, will be used as fallback
 # for pages that don't have `keywords` in their front matter.
@@ -37,7 +34,7 @@ author:
   name:                Florian Klampfer
   email:               mail@qwtel.com
 
-# This text will appear in the footer of every page.
+# This text will appear in a `<small>` tag in the footer of every page.
 copyright:             © 2017 Florian Klampfer
 
 # Format of the permalinks
@@ -46,6 +43,9 @@ permalink:             pretty
 # Pagination configuration (used by the `blog` layout)
 paginate:              5
 paginate_path:         '/page-:num/'
+
+# Customizaton
+# ========================================================================================
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
@@ -58,12 +58,9 @@ tinyletter:            qwtel
 # To remove Google Anaylics from your page, remove the line below.
 google_analytics:      UA-XXXXXXXX-X
 
-# The string encoding what fonts to fetch from Google Fonts.
-# See: https://qwtel.com/hydejack/docs/configuration/
+# The string encoding which fonts to fetch from Google Fonts.
+# See: <https://qwtel.com/hydejack/docs/configuration/>
 # google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
-
-# Customizaton
-# ========================================================================================
 
 # The text font. Expects a string that is a valid CSS font-family value.
 # font:                  "'Noto Sans', Helvetica, Arial, sans-serif"
@@ -76,21 +73,20 @@ accent_image:          /hydejack/assets/img/sidebar-bg.jpg
 # accent_color:          '#4fb1ba'
 
 
-# Hydejack Switches
+# Hydejack Flags
 # ----------------------------------------------------------------------------------------
 
 hydejack:
   # If you do not use a Google Fonts, uncomment the line below
   no_google_fonts:     false
 
-  # Set to `true` if you don't want to show an icon after each link that
-  # opens to an external site.
+  # Set to `true` if you don't want to show an icon indicating external links
   no_mark_external:    false
 
   # Set to true if third party plugins fail to work with dynamically loaded pages
   no_push_state:       false
 
-  # Set to true if you want to disable the touch drawer on mobile
+  # Set to true if you want to disable the drawer
   no_drawer:           false
 
   # Set to true if you do not want parts of the css inlined in <head/>
@@ -106,7 +102,7 @@ hydejack:
   no_structured_data:  false
 
   # Set to true when building with the `--lsi` option
-  # See: https://jekyllrb.com/docs/variables/#site-variables
+  # See: <https://jekyllrb.com/docs/variables/#site-variables>
   use_lsi:             false
 
   # Configure the order of complementary content on blog posts
@@ -127,9 +123,11 @@ collections:
   featured_categories:
     permalink:         /category/:name/
     output:            true
+
   featured_tags:
     permalink:         /tag/:name/
     output:            true
+
   projects:
     permalink:         /projects/:path/
     output:            true
@@ -170,13 +168,13 @@ plugins:
 # ---------------------------------------------------------------------------------------
 
 # Where you proof that you own this site (used by jekyll-seo-tag)
-# google_site_verification: xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
+google_site_verification: xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
 # -- or --
-webmaster_verifications:
-  google:              xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
-  # bing:                <verification-id>
-  # alexa:               <verification-id>
-  # yandex:              <verification-id>
+# webmaster_verifications:
+#   google:              xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
+#   bing:                <verification-id>
+#   alexa:               <verification-id>
+#   yandex:              <verification-id>
 
 # Used for twitter cards
 twitter:
@@ -229,7 +227,7 @@ compress_html:
 sass:
   style:               compressed
 
-# If you are upgrading form a v5 verison of Hydejack, uncomment the two lines below,
+# If you are upgrading form v5 (or earlier), uncomment the two lines below,
 # so that the location of the feed XML stays the same.
 # feed:
 #   path:                atom.xml
