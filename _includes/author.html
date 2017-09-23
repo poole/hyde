@@ -1,6 +1,6 @@
 <div class="author">
   {% if include.author.picture %}
-    {% include srcset-img.html class="me" img=include.author.picture alt=include.author.name %}
+    {% include srcset-img.html class="avatar" img=include.author.picture alt=include.author.name %}
   {% endif %}
 
   {% assign heading_tag = include.heading_tag | default:'h2' %}
