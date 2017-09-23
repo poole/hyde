@@ -17,6 +17,18 @@ redirect_from:
 ## Adding a category or tag
 Hydejack allows you to use the `list` layout to show all posts of a particular tag or category.
 
+Before you start, make sure your config files contains the `featured_tags` and `features_categories` collections:
+
+~~~yml
+collections:
+  featured_categories:
+    permalink:         /category/:name/
+    output:            true
+  featured_tags:
+    permalink:         /tag/:name/
+    output:            true
+~~~
+
 ### Recap: Tags and categories in Jekyll
 Posts in Jekyll can belong to one or more categories, as well as one or more tags. They are defined in a post's front matter:
 
@@ -39,7 +51,7 @@ Posts can also be assigned to a category based on their position within the fold
 ~~~
 
 would place "Welcome to Jekyll" in the categories `jekyll` and `update`.
-Whether you use this method or not, categories will always be part of a posts URL, while tags will not, e.g.
+Whether you use this method or not, categories will always be part of a posts URL, while tags will not.
 
 Categories | `/jekyll/update/2017/04/07/welcome-to-jekyll/`
 Tags       | `/2017/04/07/welcome-to-jekyll/`
@@ -72,9 +84,6 @@ description: >
   Hyde is a brazen two-column Jekyll](http://jekyllrb.com) theme
   that pairs a prominent sidebar with uncomplicated content.
   It's based on [Poole](http://getpoole.com), the Jekyll butler.
-image:  'data:image/gif;base64,R0lGODlhAQABAPAAACAgIP///yH5BAAAAAAALAAAAAABAAEAAAICRAEAOw=='
-color:  '#268bd2'
-menu:   true
 ---
 ~~~
 
@@ -83,25 +92,26 @@ menu:   true
 
 `title`
 : Used as title of the page, as well as name of the category or tag as part of the line below a blog post's title.
-Can be different from the name of the tag or category, as long as `slug` is identical to the name.
+  Can be different from the name of the tag or category, as long as `slug` is identical to the name.
 
 `slug`
-: Must be identical to the key used in the blog's front matter, i.e. if you use `categories: [jekyll]` or `tags:       [jekyll]`, the `slug` must be `jekyll`. Normally the slug is derived from the title, but it is recommended that you set it explicitly.
+: Must be identical to the key used in the blog's front matter, i.e. if you use `categories: [jekyll]` or `tags: [jekyll]`
+  the `slug` must be `jekyll`. Normally the slug is derived from the title, but it is recommended that you set it explicitly.
 
 `description`
 : A medium-length description, used on the tag or category's detail page as meta description and shown in a message box below the title.
 
-`image`
-: Will be used as fallback for all pages that belong to that category or tag.
+`accent_image`
+: URL. Will be used as fallback for all pages that belong to that category or tag.
 
-`color`
-: Will be used as fallback for all pages that belong to that category or tag.
+`accent_color`
+: Color code. Will be used as fallback for all pages that belong to that category or tag.
 
 `menu`
-: Set to to `true` if you want the category or tag to be linked in the sidebar. For more information, see
-[Adding an entry to the sidebar](#adding-an-entry-to-the-sidebar).
+: Set to to `true` if you want the category or tag to appear in the sidebar. For more information, see
+  [Adding an entry to the sidebar](#adding-an-entry-to-the-sidebar).
 
-Once the file is created, the page can be found at `/category/<categoryname>` or `/tag/<tagname>`.
+Once the file is created, the page can be found at `/category/<categoryname>/` or `/tag/<tagname>/`.
 
 ## Adding a page
 You can add generic pages that support markdown content but aren't blog posts.
@@ -128,7 +138,7 @@ About pages are a frequent use case, so Hydejack has a special layout for it, wh
 [Demo][about].
 The main difference is that it will display an author's `about` text and `picture` above the regular content.
 
-To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author](configuration.md#adding-an-author).
+To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author](config.md#adding-an-author).
 
 ~~~yml
 ---
@@ -177,7 +187,7 @@ selected_posts:
   - _posts/2012-02-07-example-content.md
 more_projects:     projects.md
 more_posts:        posts.md
-big_project:       true
+big_project:       false
 content_separator: <!-- more -->
 ---
 ~~~
@@ -204,7 +214,7 @@ content_separator: <!-- more -->
   The path is relative to the main directory with no leading `./`.
 
 `big_project`
-: Optional. When `true`, project thumbnails will span the full width, instead of only half.
+: Optional. When `true`, project thumbnails will span the full width instead of half.
   This setting takes precedence over the `big_project` value of individual projects,
   i.e. it will apply to the entire page.
 

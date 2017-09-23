@@ -42,19 +42,24 @@ Example:
 <blockquote class="twitter-tweet" data-lang="en"><p lang="en" dir="ltr">The next version of Hydejack (v6.3.0) will allow embedding 3rd party scripts, like the one that comes with this tweet for example.</p>&mdash; Florian Klampfer (@qwtel) <a href="https://twitter.com/qwtel/status/871098943505039362">June 3, 2017</a></blockquote>
 
 ## Global scripts
-If you have scripts that should be loaded on every page you can add them globally.
-Hydejack's own script is loaded from `_includes/scripts.html`, but I'd recommend creating your own file called `my-scripts.html` (inside `_includes`).
+If you have scripts that should be included on every page you can add them globally by
+opening (or creating) `_includes/my-scripts.html` and adding them like you normally would:
 
-You can put arbitrary HTML into `my-scripts.html`, but generally you'd want to add script tags. The [same rules](#async-vs-defer-vs-loadjsdeferred) apply.
+```html
+<script
+  src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+  integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+  crossorigin="anonymous"></script>
+```
 
-**NOTE**: Upgrading to a new version of Hydejack will overwrite `scripts.html`, so you have to go in and uncomment the line again. This is due to how Jekyll includes work.
-{:.message}
+`my-scripts.html` will be included at the end of the `body` tag.
 
 ## `async` vs. `defer` vs. `loadJSDeferred`
-I highly recommended setting the `async` or `defer` attribute on your external scripts (i.e. the ones that have a `src` attribute).
-Otherwise the entire page can't finish loading until a separate HTTP request is completed, which can take a long time (this applies to the web in general, not just Hydejack).
+I highly recommended setting the `async` or `defer` attribute on your external scripts,
+otherwise the entire page can't finish loading until a separate HTTP request is completed, which can take a long time (this applies to the web in general, not just Hydejack).
 
-Specific to Hydejack is the `loadJSDeferred` function, which is used to load Hydejack's own scripts. It has various advantages which are detailed in the table below.
+Specific to Hydejack is the `loadJSDeferred` function, which is used to load Hydejack's own scripts.
+It has various advantages which are detailed in the table below.
 
 |           | `async`     | `defer`                | `loadJSDeferred`      |
 |:----------|:------------|:-----------------------|:----------------------|
@@ -62,9 +67,9 @@ Specific to Hydejack is the `loadJSDeferred` function, which is used to load Hyd
 | Execution | asap        | before document `load` | after document `load` |
 | Ordering  | none        | preserves order        | via callback nesting  |
 | Support   | IE8+        | IE9+                   | IE5+ (Hydejack only)  |
-{:.flip-table-small.no-break-layout}
+{:.flip-table-small}
 
-## Using `loadJSDeferred` (Hydejack only)
+### Using `loadJSDeferred`
 Using `loadJSDeferred` is slightly more work than just adding `defer` to a script tag.
 
 ```html
@@ -96,7 +101,7 @@ When embedding scripts globally you might want to run some init code after each 
 
 ```html
 <script>
-  document.getElementById('_yPushState').addEventListener('y-push-state-load', function() {
+  document.getElementsByTagName('hy-push-state')[0].addEventListener('hy-push-state-load', function() {
     // <your init code>
   });
 </script>
@@ -104,25 +109,31 @@ When embedding scripts globally you might want to run some init code after each 
 
 Note that the above code must only run once, so include it in your `my-scripts.html`.
 
-Other events you can register on `_yPushState` include
+`hy-push-state-start`
+: Occurs after clicking a link.
 
-`y-push-state-start`
-: Occurs when clicking a link
-
-`y-push-state-ready`
+`hy-push-state-ready`
 : Animation fished and response has been parsed, ready to swap out the content.
 
-`y-push-state-after`
+`hy-push-state-after`
 : The old content has been replaced with the new content.
 
-`y-push-state-animationend`
-: The animation has finished playing.
+`hy-push-state-progress`
+: Special case when animation is finished, but no response from server has arrived yet.
+  This is when the loading spinner will appear.
 
-`y-push-state-progress`
-: Special case when animation is finished, but no response from server has arrived yet. This is also when the spinner will appear.
-
-`y-push-state-load`
+`hy-push-state-load`
 : All embedded script tags have been inserted into the document and have finished loading.
+
+## Escape hatch
+If you can't make an external script work with Hydejack's push state approach to page loading,
+you can disable push state by adding to your config file:
+
+```yml
+hydejack:
+  no_push_state: true
+```
+
 
 Continue with [Build](build.md){:.heading.flip-title}
 {:.read-more}

@@ -119,45 +119,22 @@ I'm faded, faded, faded.
 ~~~
 
 ## Adding tables
-Adding tables is straightforward and works just as described in the [kramdown docs][ksyntab].
-
-However, as you'll discover, this only works for small tables like the one below.
-Larger (data-) tables will be cut off on the right.
-Typically, even smaller tables will be cut off when viewed on a mobile device.
+Adding tables is straightforward and works just as described in the [kramdown docs][ksyntab], e.g.
 
 | Default aligned |Left aligned| Center aligned  | Right aligned  |
 |-----------------|:-----------|:---------------:|---------------:|
 | First body part |Second cell | Third cell      | fourth cell    |
-
-When it comes to displaying large tables on mobile, there is no one-size-fits-all solution.
-There are however [two straight-forward, CSS-only solutions][rtable] that are included in Hydejack.
-
-TODO
-
-| Default aligned |Left aligned| Center aligned  | Right aligned  |
-|-----------------|:-----------|:---------------:|---------------:|
-| First body part |Second cell | Third cell      | fourth cell    |
-{:.small-table}
-
-### Scroll Table
-Adding either `scroll-table` or `scroll-table-small` to the CSS classes of a table will enable horizontal scrolling.
-The `-small` version will only enable scrolling on "small" screens (< 1080px wide).
-This is useful when the table displays correctly on desktop, but not mobile.
-
-Example:
-
-| Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  |
-|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|
-| First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    |
-| Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            |
-| Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            |
-| Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                |
-| 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                |
-| Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                |
-{:.scroll-table.break-layout}
 
 Markdown:
 ~~~md
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+~~~
+
+However, it gets tricker when adding large tables.
+In this case, Hydejack will break the layout and grant the table the entire available screen width to the right:
+
 | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  |
 |-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|
 | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    |
@@ -166,15 +143,28 @@ Markdown:
 | Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                |
 | 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                |
 | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                |
-{:.scroll-table.break-layout}
-~~~
 
-### Flip Table
+### Scroll table
+If the extra space still isn't enough, the table will receive a scrollbar.
+It is browser default behavior to break the lines inside table cells to fit the content on the screen.
+By adding the `scroll-table` class on a table, the behavior is changed to never break lines inside cells, e.g:
+
+| Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    |
+| Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            |
+| Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            |
+| Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                | Second body     |            |                 |                |
+| 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                | 2 line          |            |                 |                |
+| Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                |
+{:.scroll-table}
+
+### Flip table
 Alternatively, you can "flip" (transpose) the table.
 Unlike the other approach, this will keep the table head (now the first column) fixed in place.
 
 You can enable this behavior by adding `flip-table` or `flip-table-small` to the CSS classes of the table.
-Again, the `-small` version will only enable scrolling on "small" screens (< 1080px wide).
+The `-small` version will only enable scrolling on "small" screens (< 1080px wide).
 
 **NOTE**: This approach only works on simple tables that have a single `tbody` and an optional `thead`.
 {:.message}
@@ -193,37 +183,21 @@ Example:
 | 8th line        |quux        | baz             | bar            | 8th line        |quux        | baz             | bar            | 8th line        |quux        | baz             | bar            | 8th line        |quux        | baz             | bar            |
 | 9th line        |quux        | baz             | bar            | 9th line        |quux        | baz             | bar            | 9th line        |quux        | baz             | bar            | 9th line        |quux        | baz             | bar            |
 | 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            |
-{:.flip-table.break-layout}
+{:.flip-table}
 
-Markdown:
-~~~md
-| Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  | Default aligned |Left aligned| Center aligned  | Right aligned  |
-|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|-----------------|:-----------|:---------------:|---------------:|
-| First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    | First body part |Second cell | Third cell      | fourth cell    |
-| Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            | Second line     |foo         | **strong**      | baz            |
-| Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            | Third line      |quux        | baz             | bar            |
-| 4th line        |quux        | baz             | bar            | 4th line        |quux        | baz             | bar            | 4th line        |quux        | baz             | bar            | 4th line        |quux        | baz             | bar            |
-| 5th line        |quux        | baz             | bar            | 5th line        |quux        | baz             | bar            | 5th line        |quux        | baz             | bar            | 5th line        |quux        | baz             | bar            |
-| 6th line        |quux        | baz             | bar            | 6th line        |quux        | baz             | bar            | 6th line        |quux        | baz             | bar            | 6th line        |quux        | baz             | bar            |
-| 7th line        |quux        | baz             | bar            | 7th line        |quux        | baz             | bar            | 7th line        |quux        | baz             | bar            | 7th line        |quux        | baz             | bar            |
-| 8th line        |quux        | baz             | bar            | 8th line        |quux        | baz             | bar            | 8th line        |quux        | baz             | bar            | 8th line        |quux        | baz             | bar            |
-| 9th line        |quux        | baz             | bar            | 9th line        |quux        | baz             | bar            | 9th line        |quux        | baz             | bar            | 9th line        |quux        | baz             | bar            |
-| 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            |
-{:.flip-table.break-layout}
-~~~
+### Small tables
+If a table is small enough to fit the screen even on small screens, you can add the `stretch-table` class
+to force a table to use the entire available content width. Note that stretched tables can no longer be scrolled.
 
-Two things to keep in mind when using `scroll-table`, `flip-table`, `scroll-table-small`, or `flip-table-small`:
-* Smaller tables will no longer be stretched to span the full width.
-* The layout engine will not attempt to add line-breaks within cells, making columns that contain text unusually large.
-
-**NOTE**: When using tables in HTML format (i.e. something that looks like `<table>...</table>`),
-add the CSS class by setting the `class` attribute on `table`, e.g. `<table class="scroll-table">...</table>`.
-{:.message}
+| Default aligned |Left aligned| Center aligned  | Right aligned  |
+|-----------------|:-----------|:---------------:|---------------:|
+| First body part |Second cell | Third cell      | fourth cell    |
+{:.stretch-table}
 
 ## Adding code blocks
 To add a code block without syntax highlighting, simply indent 4 spaces (regular markdown).
 For code blocks with code highlighting, use `~~~<language>`. This syntax is also supported by GitHub.
-For more information and a list of supported languages, see [{ Rouge }](http://rouge.jneen.net/).
+For more information and a list of supported languages, see [Rouge](http://rouge.jneen.net/).
 
 Example:
 
@@ -253,9 +227,11 @@ Markdown:
     // > 8
     ~~~
 
-**NOTE**: I advice against using Jekyll's `{ % highlight % } ... { % endhighlight % }` syntax,
-especially when using it together with the `linenos` option,
-as the generated output will break the page during minification (i.e. during a production build).
+**NOTE**: DO NOT use Jekyll's `{ % highlight % } ... { % endhighlight % }` syntax, especially together with the `linenos` option.
+The generated `table` to render the line numbers does not have a CSS class or any other way of differentiating it from regular tables,
+so that the styles above apply, resulting in a broken page.
+What's more, the output from `highlight` tags isn't even valid HTML, nesting `pre` tags inside `pre` tags,
+which will in break the site during minification.
 You can read more about it [here](https://github.com/penibelst/jekyll-compress-html/issues/71) and
 [here](https://github.com/jekyll/jekyll/issues/4432).
 {:.message}
@@ -263,12 +239,18 @@ You can read more about it [here](https://github.com/penibelst/jekyll-compress-h
 ## Adding math
 Hydejack supports [math blocks][ksynmath] via [KaTeX][katex].
 
-Why KaTeX instead of MathJax? KaTeX is faster and more lightweight at the cost of having less features, which,
-for the purpose of writing blog posts, should be a favorable tradeoff.
+Why KaTeX instead of MathJax? KaTeX is faster and more lightweight at the cost of having less features, but
+for the purpose of writing blog posts, this should be a favorable tradeoff.
 
-**NOTE**: KaTeX does not support the `align` and `align*` environments.
-Instead, `aligned` should be used, e.g. `\begin{aligned} ... \end{aligned}`.
-{:.message}
+Before you add math content, make sure you have the following in your config file:
+
+```yml
+kramdown:
+  math_engine:         mathjax # this is not a typo
+  math_engine_opts:
+    preview:           true
+    preview_as_code:   true
+```
 
 ### Inline
 Example:
@@ -322,6 +304,10 @@ $$
 \end{aligned}
 $$
 ~~~
+
+**NOTE**: KaTeX does not support the `align` and `align*` environments.
+Instead, `aligned` should be used, e.g. `\begin{aligned} ... \end{aligned}`.
+{:.message}
 
 Continue with [Scripts](scripts.md){:.heading.flip-title}
 {:.read-more}
