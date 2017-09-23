@@ -101,3 +101,17 @@
     level:               Level
     interests:           Interests
     keywords:            Keywords
+    icons:
+      location:          icon-location
+      email:             icon-envelop
+      phone:             icon-phone
+      website:           icon-link
+      work:              icon-briefcase
+      volunteer:         icon-earth
+      education:         icon-library
+      awards:            icon-trophy
+      publications:      icon-book
+      references:        icon-quotes-right
+      languages:         icon-bubbles
+      skills:            icon-wrench
+      interests:         icon-heart
