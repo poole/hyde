@@ -181,6 +181,15 @@ which is MIT licensed with the following copyright
 
 A copy of the [MIT] license is provided as part of this distribution.
 
+### Bootstrap
+This software also uses portions of the Bootstrap project,
+which is MIT licensed with the following copyright
+
+> Copyright (c) 2011-2017 Twitter, Inc.  
+> Copyright (c) 2011-2017 The Bootstrap Authors
+
+A copy of the [MIT] license is provided as part of this distribution.
+
 ### underscore.js
 This software also uses portions of the underscore.js project, which is
 MIT licensed with the following copyright:
