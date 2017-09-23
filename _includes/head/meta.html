@@ -1,6 +1,5 @@
-<!-- <meta charset="utf-8"> will be inserted by SEO tag -->
+<meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="format-detection" content="telephone=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 {% unless page.redirect %}
@@ -13,3 +12,14 @@
   <meta http-equiv="refresh" content="0; url={{ page.redirect.to }}">
   <title>{{ site.data.strings.redirecting | default:"Redirecting..." }}</title>
 {% endunless %}
+
+<meta name="apple-mobile-web-app-title" content="{{ site.title }}">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+
+<meta name="theme-color" content="{{ site.accent_color | default:'#4fb1ba' }}"/>
+
+<meta name="application-name" content="{{ site.title }}">
+<meta name="msapplication-config" content="{{ '/assets/ieconfig.xml' | relative_url }}">
+
+<meta name="generator" content="Hydejack v7.0.0" />

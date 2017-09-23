@@ -4,8 +4,13 @@
 {% assign lang = page.lang | default:site.lang | default:'en' %}
 <link rel="alternate" href="{{ page.url | absolute_url }}" hreflang="{{ lang | downcase | replace:'_','-' }}">
 
-<link rel="apple-touch-icon" href="{{ 'apple-touch-icon.png' | relative_url }}">
-<!-- Place favicon.ico in the root directory -->
+<link rel="manifest" href="{{ '/assets/manifest.json' | relative_url }}">
+<link rel="apple-touch-icon" href="{{ '/assets/icons/apple-touch-icon.png' | relative_url }}">
+
+<!-- It's best practice to not link a favicon explicitly,
+instead place `favicon.ico` in the root directory of your webserver where browsers will find it themselves
+However, you can uncomment the line below if you want to link explicitly: -->
+<link rel="shortcut icon" href="{{ 'favicon.ico' | relative_url }}">
 
 {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
