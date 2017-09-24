@@ -144,6 +144,18 @@ function setupErrorPage(main, { pathname }) {
   return main.lastElementChild;
 }
 
+function setupStandaloneUI(navbarEl) {
+  const template = document.getElementById('_standalone-template');
+  const standalone = document.importNode(template.content, true);
+
+  standalone.querySelector('.reload').addEventListener('click', () => location.reload());
+  standalone.querySelector('.back').addEventListener('click', () => history.back());
+  standalone.querySelector('.forward').addEventListener('click', () => history.forward());
+
+  navbarEl.appendChild(standalone);
+  return navbarEl.lastElementChild;
+}
+
 function getFlipType(t = {}) {
   if (t.classList && t.classList.contains('flip-title')) return 'title';
   if (t.classList && t.classList.contains('flip-project')) return 'project';
@@ -183,9 +195,14 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   const crossFader = new CrossFader(FADE_DURATION);
 
   const pushStateEl = document.getElementsByTagName('hy-push-state')[0];
+  const navbarEl = document.querySelector('.navbar .content');
 
   const animationMain = setupAnimationMain(pushStateEl);
-  const loading = setupLoading(document.querySelector('.navbar .content'));
+  const loading = setupLoading(navbarEl);
+
+  if (navigator.standalone) {
+    setupStandaloneUI(navbarEl);
+  }
 
   const start$ = Observable::fromEvent(pushStateEl, 'hy-push-state-start')
     ::map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) }))
