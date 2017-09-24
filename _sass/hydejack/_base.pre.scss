@@ -5,15 +5,21 @@
  */
 
 // <<<<< LINK
-body, hy-push-state {
+body {
   /* Prevent side-scrolling on mobile */
   display: block;
   position: relative;
   overflow-x: hidden;
 }
+
+hy-push-state, hy-drawer {
+  display: block;
+  overflow: hidden;
+}
 // >>>>>
 
 // <<<<< INLINE
+
 @media screen {
   body::before {
     content: '';
