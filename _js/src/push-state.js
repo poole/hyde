@@ -17,6 +17,7 @@ import 'core-js/fn/array/for-each';
 import 'core-js/fn/object/assign';
 
 import { PushState } from 'hy-push-state/src/vanilla';
+import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
 
 import { Observable } from 'rxjs/Observable';
 
@@ -151,6 +152,31 @@ function getFlipType(t = {}) {
 
 function shouldAnimate({ type }) {
   return type === 'push' || !isSafari();
+}
+
+function setupWebComponent(pushStateEl) {
+  pushStateEl.setAttribute('replace-ids', '_main');
+  pushStateEl.setAttribute('link-selector', 'a[href]');
+  if (!isSafari()) pushStateEl.setAttribute('scroll-restoration', '');
+  pushStateEl.setAttribute('duration', DURATION);
+  pushStateEl.setAttribute('blacklist', '.no-push-state');
+  if (isSafari()) pushStateEl.setAttribute('_instant-pop', '');
+  pushStateEl.setAttribute('_script-selector', 'script:not([type^="math/tex"])');
+
+  customElements.define('hy-push-state', HTMLPushStateElement);
+  return pushStateEl;
+}
+
+function setupVanilla(pushStateEl) {
+  return new PushState(pushStateEl, {
+    replaceIds: ['_main'],
+    linkSelector: 'a[href]',
+    scrollRestoration: !isSafari(),
+    duration: DURATION,
+    blacklist: '.no-push-state',
+    _instantPop: isSafari(),
+    _scriptSelector: 'script:not([type^="math/tex"])',
+  });
 }
 
 if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
@@ -318,16 +344,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   main.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeading);
 
   // Create the component
-  window._pushState = new PushState(pushStateEl, {
-    replaceIds: ['_main'],
-    linkSelector: 'a[href]',
-    scriptSelector: 'script:not([type^="math/tex"])',
-    duration: DURATION,
-    instantPop: isSafari(),
-    scrollRestoration: !isSafari(),
-    repeatDelay: DURATION,
-    scriptHack: true,
-  });
+  window._pushState = 'customElements' in window ?
+    setupWebComponent(pushStateEl) :
+    setupVanilla(pushStateEl);
 
   window._pushState._animation$ = anim$;
 }

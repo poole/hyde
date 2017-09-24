@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { Drawer } from 'hy-drawer/src/vanilla';
+import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 
 import { hasFeatures, isSafari, isMobileSafari } from './common';
 
@@ -55,25 +56,46 @@ function getRange() {
   return [0, 50];
 }
 
-if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
-  const drawerEl = document.getElementsByTagName('hy-drawer')[0];
-  const menuEl = document.getElementById('_menu');
+function setupWebComponent(drawerEl) {
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
-  window._isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+  if (window._isDesktop) drawerEl.setAttribute('opened', '');
+  if (window._isDesktop) drawerEl.setAttribute('persistent', '');
+  drawerEl.setAttribute('range', getRange().join(','));
+  drawerEl.setAttribute('slide-threshold', isSafari() ? 0 : 10);
+  drawerEl.setAttribute('prevent-default', '');
+  drawerEl.setAttribute('peek-over-edge', 0.5 * rem);
+  // if (!isSafari()) drawerEl.setAttribte('back-button', '');
 
-  window._drawer = new Drawer(drawerEl, {
+  customElements.define('hy-drawer', HTMLDrawerElement);
+  return drawerEl;
+}
+
+function setupVanilla(drawerEl) {
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+
+  return new Drawer(drawerEl, {
     opened: window._isDesktop,
     persistent: window._isDesktop,
     range: getRange(),
-    // backButton: !isSafari(),
     slideThreshold: isSafari() ? 0 : 10,
     preventDefault: true,
     peekOverEdge: 0.5 * rem,
+    // backButton: !isSafari(),
   });
+}
 
-  window.addEventListener('resize', resizeCallback);
-  menuEl.addEventListener('click', menuClickClallback);
+if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
+  const drawerEl = document.getElementsByTagName('hy-drawer')[0];
+  const menuEl = document.getElementById('_menu');
+
+  window._isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+
+  window._drawer = 'customElements' in window && 'attachShadow' in Element.prototype ?
+    setupWebComponent(drawerEl) :
+    setupVanilla(drawerEl);
 
   drawerEl.classList.add('loaded');
+  window.addEventListener('resize', resizeCallback);
+  menuEl.addEventListener('click', menuClickClallback);
 }
