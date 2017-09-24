@@ -168,7 +168,7 @@ $ bundle exec jekyll serve
 and point your browser to <http://localhost:4000> to see Hydejack in action.
 
 
-Continue with [Configuration](config.md){:.heading.flip-title}
+Continue with [Config](config.md){:.heading.flip-title}
 {:.read-more}
 
 

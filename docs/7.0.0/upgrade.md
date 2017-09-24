@@ -205,5 +205,5 @@ Hydejack now has a dedicated layout for about pages.
 To use it, open `about.md` and change the `layout` in the front matter to `about`
 and delete `{\% include about-short.html author=site.author %\}`.
 
-Continue with [Configuration](config.md){:.heading.flip-title}
+Continue with [Config](config.md){:.heading.flip-title}
 {:.read-more}
