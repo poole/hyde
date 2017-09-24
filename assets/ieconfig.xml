@@ -10,6 +10,7 @@
       <wide310x150logo src="{{ '/assets/icons/tile-wide.png' | relative_url }}"/>
       <square310x310logo src="{{ '/assets/icons/tile-large.png' | relative_url }}"/>
       <TileColor>{{ site.accent_color | default:'#4fb1ba' }}</TileColor>
+      <TileImage>{{ '/assets/icons/tile-medium.png' | relative_url }}</TileImage>
     </tile>
   </msapplication>
 </browserconfig>
