@@ -4,9 +4,6 @@ title: Basics
 description: >
   Where it is explained how to add basic content types to your Hydejack blog: Blog posts, categories and tags,
   as well as 'special' layouts included in Hydejack PRO.
-redirect_from:
-  - /docs/latest/basics/
-  - /docs/basics/
 ---
 
 ## Table of Contents

@@ -4,7 +4,6 @@ title: 'JavaScripten (v6)'
 description: >
   Hydejack v6 adds a layer of JavaScript, effectively turning the whole site into a single page app.
 tags: [hydejack]
-redirect_from: /2017/04/15/javascripten-beta/
 ---
 
 Hydejack has always featured a JavaScript-heavy sidebar, but other than that, JS has been used sparingly.

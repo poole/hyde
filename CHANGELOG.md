@@ -1,9 +1,6 @@
 ---
 layout: page
 title: CHANGELOG
-redirect_from:
-  - /docs/latest/versions/
-  - /docs/versions/
 ---
 
 ## v7.0.0
