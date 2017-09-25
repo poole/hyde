@@ -9,7 +9,7 @@ lang:                  en
 
 # The unique resource location of your page.
 # Set to `https://<username>.github.io` when hosting on GitHub Pages.
-url:                   https://qwtel.com
+url:                   (http|https)://<domain.tld>
 
 # Set to '' when hosting on GitHub Pages, like `//<username>.github.io`.
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository.
@@ -23,7 +23,7 @@ description:           >
 
 # A list of keywords for your blog, will be used as fallback
 # for pages that don't have `keywords` in their front matter.
-keywords:              [jekyll, theme, hyde, sidebar, resume, markdown, code, math, portfolio, personal]
+keywords:              []
 
 # TODO
 logo:                  /hydejack/apple-touch-icon.png
@@ -31,11 +31,11 @@ logo:                  /hydejack/apple-touch-icon.png
 # This should be the same author as first entry in `_data/authors.yml`.
 # Duplication is necessary due to the jekyll-feed plugin.
 author:
-  name:                Florian Klampfer
-  email:               mail@qwtel.com
+  name:                <firstname> <lastname>
+  email:               <mail@domain.tld>
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2017 Florian Klampfer
+copyright:             © 20XX Firstname Lastname
 
 # Format of the permalinks
 permalink:             pretty
@@ -49,10 +49,10 @@ paginate_path:         '/page-:num/'
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-disqus:                qwtel
+disqus:                <disqus_shortname>
 
 # Setting a tinyletter username will enable the newsletter subscription box.
-tinyletter:            qwtel
+tinyletter:            <tinyletter_username>
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
@@ -106,7 +106,7 @@ hydejack:
   use_lsi:             false
 
   # Configure the order of complementary content on blog posts
-  post_aside_order:    [about, newsletter, related]
+  post_aside_order:    [about, newsletter, related, random]
 
   # Configure the order of complementary content on project pages
   project_aside_order: [about, newsletter, other]
@@ -162,19 +162,19 @@ plugins:
 # ---------------------------------------------------------------------------------------
 
 # Where you proof that you own this site (used by jekyll-seo-tag)
-google_site_verification: xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
+# google_site_verification: <verification-id>
 # -- or --
 # webmaster_verifications:
-#   google:              xlwWRCmc8tMoEuhrBFFj3r-r75zd0zVlHvQYBwGcCQU
+#   google:              <verification-id>
 #   bing:                <verification-id>
 #   alexa:               <verification-id>
 #   yandex:              <verification-id>
 
-# Used for twitter cards
-twitter:
-  username:            qwtel
+# Used for Twitter cards
+# twitter:
+#   username:            <shortname>
 
-# Used for facebook open graph
+# Used for Facebook open graph
 # facebook:
 #   app_id:              <id>
 #   publisher:           <id>
@@ -182,10 +182,10 @@ twitter:
 
 # Used on index and about sites
 # social:
-#   name:                Florian Klampfer
+#   name:                <firstname> <lastname>
 #   links:
-#     - https://twitter.com/qwtel
-#     - https://github.com/qwtel
+#     - https://twitter.com/<username>
+#     - https://github.com/<username>
 
 
 # Other plugins

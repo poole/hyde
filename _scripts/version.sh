@@ -28,7 +28,6 @@ const FILES = [
   resolve('./download.md'),
   resolve('./index.md'),
   resolve('./README.md'),
-  resolve('./thank-you.md'),
 ];
 
 // <https://stackoverflow.com/a/45130990/870615>
