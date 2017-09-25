@@ -126,7 +126,14 @@ A copy of the [Apache-2.0] license is provided as part of this distribution.
 This software also uses portions of the Modernizr project, which is
 MIT licensed with the following copyright:
 
-> Copyright (c) 2009-2017
+> Copyright (c)  
+>  Faruk Ates  
+>  Paul Irish  
+>  Alex Sexton  
+>  Ryan Seddon  
+>  Patrick Kettner  
+>  Stu Cox  
+>  Richard Herrera  
 
 A copy of the [MIT] license is provided as part of this distribution.
 
