@@ -24,11 +24,6 @@ const FILES = [
   resolve('./_js/lib/version.js'),
   resolve('./_layouts/compress.html'),
   resolve('./assets/version.json'),
-  resolve('./about.md'),
-  resolve('./CHANGELOG.md'),
-  resolve('./download.md'),
-  resolve('./index.md'),
-  resolve('./README.md'),
 ];
 
 // <https://stackoverflow.com/a/45130990/870615>
@@ -46,37 +41,16 @@ async function getFiles(dir) {
     const prev = vPrev.replace(/\./g, '\\.');
     const prevRegExp = new RegExp(prev, 'g');
 
-    const [...args] = await Promise.all([
-      FILES,
-      getFiles('./_posts'),
-      getFiles('./_projects'),
-      getFiles('./docs'),
-    ]);
-
-    const files = Array.prototype.concat.call(...args);
-
-    await Promise.all(files
-      .filter(([f]) => !f.startsWith('.'))
+    await Promise.all(FILES
       .map(f => [f, readFile(f, ENC)])
       .map(async ([f, p]) => {
         const content = await p;
-
-        if (f.includes('CHANGELOG')) {
-          const pattern = new RegExp(`([^v])${prev}`, 'g');
-          return [f, content.replace(pattern, `$1${vNext}`)];
-        }
-
         return [f, content.replace(prevRegExp, vNext)];
       })
       .map(async (p) => {
         const [f, content] = await p;
         return writeFile(f, content, ENC);
       }));
-
-    await rename(
-      resolve(`./docs/${vPrev}`),
-      resolve(`./docs/${vNext}`),
-    );
 
     process.exit(0);
   } catch (e) {
