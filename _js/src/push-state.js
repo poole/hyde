@@ -15,21 +15,19 @@
 
 import 'core-js/fn/array/for-each';
 import 'core-js/fn/object/assign';
+import 'core-js/fn/string/includes';
 
 import { PushState } from 'hy-push-state/src/vanilla';
 import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
 
 import { Observable } from 'rxjs/Observable';
 
+import { animationFrame } from 'rxjs/scheduler/animationFrame';
+
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { merge } from 'rxjs/observable/merge';
-import { never } from 'rxjs/observable/never';
 import { timer } from 'rxjs/observable/timer';
-
-// import { Subject } from 'rxjs/Subject';
-
-// import { animationFrame } from 'rxjs/scheduler/animationFrame';
-import { asap } from 'rxjs/scheduler/asap';
+import { of } from 'rxjs/observable/of';
 
 import { _catch as recover } from 'rxjs/operator/catch';
 import { _do as effect } from 'rxjs/operator/do';
@@ -40,9 +38,9 @@ import { mapTo } from 'rxjs/operator/mapTo';
 import { mergeMap } from 'rxjs/operator/mergeMap';
 import { observeOn } from 'rxjs/operator/observeOn';
 import { pairwise } from 'rxjs/operator/pairwise';
-import { partition } from 'rxjs/operator/partition';
 import { share } from 'rxjs/operator/share';
 import { startWith } from 'rxjs/operator/startWith';
+import { exhaustMap } from 'rxjs/operator/exhaustMap';
 import { switchMap } from 'rxjs/operator/switchMap';
 import { takeUntil } from 'rxjs/operator/takeUntil';
 import { zipProto as zipWith } from 'rxjs/operator/zip';
@@ -109,14 +107,11 @@ function subscribe(ne, er, co) {
     .subscribe(ne, er, co);
 }
 
-function pauseWith(pauser$) {
-  if (process.env.DEBUG && !pauser$) throw Error();
-  return pauser$::switchMap(paused => (paused ? Observable::never() : this));
-}
-
-function waitUntil(observable) {
-  return this::zipWith(observable, x => x);
-}
+// `filterWith` is like `filter`,
+// but takes an observable of booleans instead of a predicate function.
+// function filterWith(p$) {
+//   return this::withLatestFrom(p$)::filter(([, p]) => p)::map(([x]) => x);
+// }
 
 function setupAnimationMain(pushStateEl) {
   const template = document.getElementById('_animation-main-template');
@@ -168,10 +163,9 @@ function shouldAnimate({ type }) {
 
 function setupWebComponent(pushStateEl) {
   pushStateEl.setAttribute('replace-ids', '_main');
-  pushStateEl.setAttribute('link-selector', 'a[href]');
+  pushStateEl.setAttribute('link-selector', 'a[href^="/"]:not(.no-push-state)');
   if (!isSafari()) pushStateEl.setAttribute('scroll-restoration', '');
   pushStateEl.setAttribute('duration', DURATION);
-  pushStateEl.setAttribute('blacklist', '.no-push-state');
   if (isSafari()) pushStateEl.setAttribute('_instant-pop', '');
   pushStateEl.setAttribute('_script-selector', 'script:not([type^="math/tex"])');
 
@@ -182,10 +176,9 @@ function setupWebComponent(pushStateEl) {
 function setupVanilla(pushStateEl) {
   return new PushState(pushStateEl, {
     replaceIds: ['_main'],
-    linkSelector: 'a[href]',
+    linkSelector: 'a[href^="/"]:not(.no-push-state)',
     scrollRestoration: !isSafari(),
     duration: DURATION,
-    blacklist: '.no-push-state',
     _instantPop: isSafari(),
     _scriptSelector: 'script:not([type^="math/tex"])',
   });
@@ -247,25 +240,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
       });
   }
 
-  // We use this to prevent starting new "fade out animations".
-  // ie when the content starts fading out,
-  // we want it to stay that way until new content has come in.
-  const pauser$ = Observable::merge(
-    start$::observeOn(asap)::mapTo(true),
-    after$::observeOn(asap)::mapTo(false),
-    progress$::observeOn(asap)::mapTo(false),
-    error$::observeOn(asap)::mapTo(false),
-  )
-    ::startWith(false);
-
   // Fade main content out
   const fadeOut$ = start$
-    ::filter(shouldAnimate)
-    ::pauseWith(pauser$)
     ::effect(() => {
-      const main = document.getElementById('_main');
-      main.style.pointerEvents = 'none';
-      main.style.opacity = 0;
       if (!window._isDesktop && window._drawer.opened) window._drawer.close();
       document.querySelectorAll('.sidebar-nav-item')
         ::forEach((item) => {
@@ -273,52 +250,54 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
           else item.classList.remove('active');
         });
     })
-    ::switchMap(() => animate(document.getElementById('_main'), FADE_OUT, SETTINGS));
-
-  // Show loading bar when taking longer than expected
-  progress$
-    ::effect(() => {
-      loading.style.display = 'block';
-      const main = document.getElementById('_main');
-      main::empty();
+    ::map(({ type }) => ({ type, main: document.getElementById('_main') }))
+    ::effect(({ type, main }) => {
+      if (shouldAnimate({ type })) {
+        main.style.pointerEvents = 'none';
+        main.style.opacity = 0;
+      }
     })
-    ::subscribe();
-
-  // Prepare showing the new content
-  ready$
-    ::subscribe(({ type, content: [main] }) => {
-      loading.style.display = 'none';
-      main.classList.remove('fade-in');
-      main.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeading);
-      if (shouldAnimate({ type })) main.style.pointerEvents = 'none';
+    ::exhaustMap(({ type, main }) => (shouldAnimate({ type }) ?
+      animate(main, FADE_OUT, SETTINGS)::mapTo(main) :
+      Observable::of(main)))
+    ::effect((main) => {
+      main::empty();
+      window.scroll(window.pageXOffset, 0);
     });
 
-  // Animate the new content
-  const [afterAnimated$, afterInstant$] = after$::partition(shouldAnimate);
+  // Show loading bar when taking longer than expected
+  progress$::subscribe(() => { loading.style.display = 'block'; });
 
-  const fadeIn$ = afterAnimated$
-    ::switchMap(({ content: [main], flipType }) =>
-      animate(main, FADE_IN, SETTINGS)
-        ::effect(() => { main.style.pointerEvents = ''; })
-        ::mapTo({ flipType }))
+  // Prepare showing the new content
+  ready$::subscribe(({ type, content: [main] }) => {
+    loading.style.display = 'none';
+    main.classList.remove('fade-in');
+    main.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeading);
+    if (shouldAnimate({ type })) main.style.pointerEvents = 'none';
+  });
+
+  // Fade the new content in
+  const fadeIn$ = after$
+    ::switchMap(({ type, content: [main], flipType }) => {
+      if (shouldAnimate({ type })) {
+        return animate(main, FADE_IN, SETTINGS)
+          ::effect(() => { main.style.pointerEvents = ''; })
+          ::mapTo({ flipType });
+      }
+      return Observable::of({});
+    })
     ::share();
 
-  // afterInstant$
-  //   ::effect(({ content: [main] }) => { main.style.pointerEvents = ''; })
-  //   ::subscribe();
-
-  const flip$ = flip(start$, ready$, Observable::merge(fadeIn$, afterInstant$, error$), {
+  const flip$ = flip(start$, ready$, Observable::merge(fadeIn$, error$), {
     animationMain,
     settings: SETTINGS,
   });
 
   // Every click starts a timer that lasts as long
   // as it takes for the flip and fade out animations to complete.
-  const anim$ = start$
-    ::switchMap(() => Observable::timer(DURATION))
+  const anim$ = start$::switchMap(() => Observable::timer(DURATION))
     ::zipWith(flip$, fadeOut$)
     ::share();
-  anim$::subscribe();
 
   // Swap out the sidebar image (if applicable)
   after$
@@ -335,25 +314,23 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // Add some delay to avoid intermediate vales to be sent.
   fadeIn$
     ::debounceTime(DURATION)
-    ::effect(() => {
+    ::subscribe(() => {
       if (window.ga) window.ga('send', 'pageview', location.pathname);
       upgradeMathBlocks();
-    })
-    ::subscribe();
+    });
 
   // Show error page
-  error$
-    ::subscribe(({ url }) => {
-      const main = document.getElementById('_main');
-      loading.style.display = 'none';
-      animationMain.querySelector('.page')::empty();
-      main::empty();
+  error$::subscribe(({ url }) => {
+    const main = document.getElementById('_main');
+    loading.style.display = 'none';
+    animationMain.querySelector('.page')::empty();
+    main::empty();
 
-      main.style.pointerEvents = '';
-      main.style.opacity = '';
+    main.style.pointerEvents = '';
+    main.style.opacity = '';
 
-      setupErrorPage(main, url);
-    });
+    setupErrorPage(main, url);
+  });
 
   // Upgrade headlines to include "permalinks"
   const main = document.getElementById('_main');
@@ -365,8 +342,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     setupWebComponent(pushStateEl) :
     setupVanilla(pushStateEl);
 
+  // Provide the animation observable to the component.
+  // This API will most likely change!
   window._pushState._animation$ = anim$;
-}
 
+  // Make sure we stay subscribed to the animation observable.
   anim$::subscribe();
 }

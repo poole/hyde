@@ -51,8 +51,8 @@
     "color": "^2.0.0",
     "core-js": "^2.4.1",
     "elem-dataset": "^1.1.1",
-    "hy-drawer": "^1.0.0",
-    "hy-push-state": "^1.0.0",
+    "hy-drawer": "^1.0.0-hydejack",
+    "hy-push-state": "^1.0.0-hydejack",
     "rxjs": "^5.4.2",
     "web-animations-js": "^2.3.1"
   },

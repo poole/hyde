@@ -61,11 +61,11 @@ function setupWebComponent(drawerEl) {
 
   if (window._isDesktop) drawerEl.setAttribute('opened', '');
   if (window._isDesktop) drawerEl.setAttribute('persistent', '');
-  drawerEl.setAttribute('range', getRange().join(','));
-  drawerEl.setAttribute('slide-threshold', isSafari() ? 0 : 10);
+  drawerEl.setAttribute('align', 'left');
+  drawerEl.setAttribute('draw-range', getRange().join(','));
+  drawerEl.setAttribute('draw-threshold', isSafari() ? 0 : 10);
+  drawerEl.setAttribute('peek', 0.5 * rem);
   drawerEl.setAttribute('prevent-default', '');
-  drawerEl.setAttribute('peek-over-edge', 0.5 * rem);
-  // if (!isSafari()) drawerEl.setAttribte('back-button', '');
 
   customElements.define('hy-drawer', HTMLDrawerElement);
   return drawerEl;
@@ -77,11 +77,11 @@ function setupVanilla(drawerEl) {
   return new Drawer(drawerEl, {
     opened: window._isDesktop,
     persistent: window._isDesktop,
-    range: getRange(),
-    slideThreshold: isSafari() ? 0 : 10,
+    align: 'left',
+    drawRange: getRange(),
+    drawThreshold: isSafari() ? 0 : 10,
+    peek: 0.5 * rem,
     preventDefault: true,
-    peekOverEdge: 0.5 * rem,
-    // backButton: !isSafari(),
   });
 }
 

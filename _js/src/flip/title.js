@@ -13,14 +13,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// import { Observable } from 'rxjs/Observable';
-// import { timer } from 'rxjs/observable/timer';
-
 import { _do as effect } from 'rxjs/operator/do';
+import { _finally as cleanup } from 'rxjs/operator/finally';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { switchMap } from 'rxjs/operator/switchMap';
-// import { _finally as cleanup } from 'rxjs/operator/finally';
 import { zipProto as zipWith } from 'rxjs/operator/zip';
 
 import { animate, empty } from '../common';
@@ -31,7 +28,6 @@ export default function flipTitle(start$, ready$, fadeIn$, { animationMain, sett
   const flip$ = start$
     ::filter(({ flipType }) => flipType === 'title')
     ::switchMap(({ anchor }) => {
-      // console.log('title start');
       const title = document.createElement('h1');
 
       title.classList.add('page-title');
@@ -55,36 +51,30 @@ export default function flipTitle(start$, ready$, fadeIn$, { animationMain, sett
 
       anchor.style.opacity = 0;
 
-      return animate(title, [
+      const transform = [
         { transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})` },
         { transform: 'translate3d(0, 0, 0) scale(1)' },
-      ], settings)
-        ::effect(() => { animationMain.style.position = 'absolute'; });
+      ];
+
+      return animate(title, transform, settings)
+        ::effect({ complete() { animationMain.style.position = 'absolute'; } });
     });
 
   start$::switchMap(({ flipType }) =>
     ready$
       ::filter(() => flipType === 'title')
       ::map(({ content: [main] }) => {
-        animationMain.style.willChange = 'opacity';
-
         const title = main.querySelector(TITLE_SELECTOR);
-
-        if (title != null) {
-          title.style.opacity = 0;
-          title.style.willChange = 'opacity';
-        }
-
+        if (title) title.style.opacity = 0;
         return title;
       })
-      ::zipWith(fadeIn$)
-      ::effect(([title]) => {
-        if (title != null) {
-          title.style.opacity = 1;
-          title.style.willChange = '';
-        }
+      ::zipWith(fadeIn$, x => x)
+      ::effect((title) => {
+        if (title) title.style.opacity = 1;
         animationMain.style.opacity = 0;
-        animationMain.style.willChange = '';
+      })
+      ::cleanup(() => {
+        animationMain.style.opacity = 0;
       }))
     .subscribe();
 
