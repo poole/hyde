@@ -6,7 +6,8 @@ layout: base
 
 <hr class="dingbat related" />
 
-{% assign addons = site.hydejack.post_addons | default:"about,newsletter,related,random" | split:"," %}
+{% assign addons = site.hydejack.post_addons %}
+{% unless addons %}{% assign addons = "about,newsletter,related,random" | split:"," %}{% endunless %}
 {% for addon in addons %}
   {% case addon %}
   {% when 'about' %}
