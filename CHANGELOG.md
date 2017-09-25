@@ -46,11 +46,11 @@ That being said, you should be aware of these breaking changes:
   While it *may* be desirable to use the same image for both the sidebar and the thumbnail,
   the new preferred way to set sidebar images is by using the `accent_image` key.
 
-  To continue using `image`, set `image_bcompat` to `true` in your config file, under the new `hydejack` parent key (see below):
+  To continue using `image` as it were, set `v6_page_image` to `true` in your config file, under the new `hydejack` parent key:
 
   ```yml
   hydejack:
-    image_bcompat: true
+    v6_page_image: true
   ```
 
 * Changed the way tables work, so that they do the right thing more often.

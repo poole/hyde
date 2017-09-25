@@ -24,7 +24,7 @@ layout: compress
 
 {% if page.accent_color or page.color %}{% assign color = page.accent_color | default:page.color %}{% endif %}
 {% if page.accent_image %}{% assign image = page.accent_image %}
-{% elsif page.image and site.hydejack.image_bcompat %}{% assign image = page.image %}
+{% elsif page.image and site.hydejack.v6_page_image %}{% assign image = page.image %}
 {% endif %}
 
 <head>
