@@ -183,8 +183,8 @@ That being said, you should be aware of these breaking changes:
 
   ```yml
   hydejack:
-    post_aside_order:    [about, newsletter, related, random]
-    project_aside_order: [about, newsletter, other]
+    post_addons:    [about, newsletter, related, random]
+    project_addons: [about, newsletter, other]
   ```
 
   To change the order in the output, change to order in the array.
@@ -204,7 +204,7 @@ That being said, you should be aware of these breaking changes:
   ```
 
 * [PRO] Added links to random posts at the bottom of each post. This can be beneficial for search engine rankings and content discovery.
-  You can remove them with the new `post_aside_order` option (see above).
+  You can remove them with the new `post_addons` option (see above).
 
 * Category and tag pages can now have arbitrary content (to be shown *above* the list).
 

@@ -78,10 +78,10 @@ accent_color:          '#4fb1ba'
 
 hydejack:
   # Configure the order of complementary content on blog posts
-  post_aside_order:    [about, newsletter, related]
+  post_addons:         [about, newsletter, related, random]
 
   # Configure the order of complementary content on project pages
-  project_aside_order: [about, newsletter, other]
+  project_addons:      [about, newsletter, other]
 
   # If you do not use a Google Fonts, uncomment the line below
   no_google_fonts:     false
