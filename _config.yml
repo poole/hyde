@@ -77,6 +77,12 @@ accent_image:          /hydejack/assets/img/sidebar-bg.jpg
 # ----------------------------------------------------------------------------------------
 
 hydejack:
+  # Configure the order of complementary content on blog posts
+  post_aside_order:    [about, newsletter, related]
+
+  # Configure the order of complementary content on project pages
+  project_aside_order: [about, newsletter, other]
+
   # If you do not use a Google Fonts, uncomment the line below
   no_google_fonts:     false
 
@@ -102,18 +108,7 @@ hydejack:
   no_structured_data:  false
 
   # Set to true when building with the `--lsi` option
-  # See: <https://jekyllrb.com/docs/variables/#site-variables>
   use_lsi:             false
-
-  # Configure the order of complementary content on blog posts
-  post_aside_order:    [about, newsletter, related, random]
-
-  # Configure the order of complementary content on project pages
-  project_aside_order: [about, newsletter, other]
-
-  # Setting to `true` will cause `page.image` to be used for the sidebar image.
-  # The preferred way is to set it via `accent_image`.
-  image_bcompat: true
 
 
 # Collections
