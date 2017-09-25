@@ -19,7 +19,7 @@ baseurl:               /hydejack
 # as fallback for the meta description tag.
 # Markdown enabled, but don't use more than one paragraph (enforced by `>`)
 description:           >
-  A Jekyll Theme with JavaScript Powers. "Best Theme by a Mile". Reactive, responsive, fun.
+  Open `_config.yml` to edit this text.
 
 # A list of keywords for your blog, will be used as fallback
 # for pages that don't have `keywords` in their front matter.
@@ -35,7 +35,7 @@ author:
   email:               <mail@domain.tld>
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 20XX Firstname Lastname
+copyright:             © 20XX. Open `_config.yml` to edit this text.
 
 # Format of the permalinks
 permalink:             pretty

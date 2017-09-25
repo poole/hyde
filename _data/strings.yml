@@ -44,7 +44,11 @@
     button:              Subscribe
     message:             |
       Subscribe to my newsletter.
+
       <!--form-->
+
+      Open `_data/strings.yml` to edit this text.
+      {:.faded}
 
   not_found:
     title:               "404: Page Not Found"
