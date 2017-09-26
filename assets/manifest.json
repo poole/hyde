@@ -10,7 +10,7 @@
   "theme_color": "{{ site.accent_color | default:'#4fb1ba' }}",
   "background_color": "#fff",
   "orientation": "portrait",
-  "display": "minimal-ui",
+  "display": "standalone",
   "icons": [
     {
       "src": "{{ 'assets/icons/icon@0,25x.png' | relative_url }}",
