@@ -1,13 +1,5 @@
 {
-  "env": {
-    "development": {
-      "presets": ["es2016"],
-      "plugins": ["transform-es2015-modules-commonjs", "transform-function-bind"]
-    },
-    "production": {
-      "presets": ["es2015", "es2016"],
-      "plugins": ["transform-function-bind"]
-    }
-  },
+  "presets": ["es2015", "es2016"],
+  "plugins": ["transform-function-bind"],
   "only": ["_js", "rxjs"]
 }
