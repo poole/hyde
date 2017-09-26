@@ -36,7 +36,7 @@ author:
   # The remainder of the author configuration is located in `_data/authors.yml`...
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 20XX. Open `_config.yml` to edit this text.
+copyright:             © 20XX. Open _config.yml to edit this text.
 
 # Format of the permalinks
 permalink:             pretty
