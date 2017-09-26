@@ -16,11 +16,9 @@
 import 'core-js/fn/array/includes';
 
 import { Observable } from 'rxjs/Observable';
-// import { empty } from 'rxjs/observable/empty';
 import { merge } from 'rxjs/observable/merge';
 
 import { filter } from 'rxjs/operator/filter';
-// import { partition } from 'rxjs/operator/partition';
 
 import flipTitle from './title';
 import flipProject from './project';

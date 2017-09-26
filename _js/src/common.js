@@ -15,6 +15,10 @@
 
 import { Observable } from 'rxjs/Observable';
 
+const ua = navigator.userAgent.toLowerCase();
+export const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
+export const isMobileSafari = isSafari && ua.indexOf('mobile') > 0;
+
 export function hasFeatures(features) {
   let acc = true;
   for (let i = 0; i < features.length; i += 1) {
@@ -68,22 +72,4 @@ export function animate(el, keyframes, options) {
       if (anim.playState !== 'finished') anim.cancel();
     };
   });
-}
-
-export function isSafari() {
-  if (!isSafari.hasResult) {
-    const ua = navigator.userAgent.toLowerCase();
-    isSafari.result = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
-    isSafari.hasResult = true;
-  }
-  return isSafari.result;
-}
-
-export function isMobileSafari() {
-  if (!isMobileSafari.hasResult) {
-    const ua = navigator.userAgent.toLowerCase();
-    isMobileSafari.result = isSafari() && ua.indexOf('mobile') > 0;
-    isMobileSafari.hasResult = true;
-  }
-  return isMobileSafari.result;
 }

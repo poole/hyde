@@ -13,31 +13,28 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Drawer } from 'hy-drawer/src/vanilla';
+import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
 import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 
 import { hasFeatures, isSafari, isMobileSafari } from './common';
 
 const REQUIREMENTS = [
-  'eventlistener',
-  'queryselector',
-  'matchmedia',
-  'requestanimationframe',
-  'classlist',
-  'opacity',
-  'csstransforms',
-  'csspointerevents',
+  ...VANILLA_FEATURE_TESTS,
   'cssremunit',
+  'classlist',
+  'eventlistener',
+  'matchmedia',
 ];
 
+// HACK: hard-coded SCSS value
 const MEDIA_QUERY = '(min-width: 64em)';
 
 function resizeCallback() {
-  const hasChanged = window._isDesktop !== window.matchMedia(MEDIA_QUERY).matches;
-  if (hasChanged) {
-    window._isDesktop = !window._isDesktop;
-    window._drawer.persistent = window._isDesktop;
-    window._drawer.jumpTo(window._isDesktop);
+  const isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+  if (window._isDesktop !== isDesktop) {
+    window._isDesktop = isDesktop;
+    window._drawer.persistent = isDesktop;
+    window._drawer._jumpTo(isDesktop);
   }
 }
 
@@ -49,8 +46,8 @@ function menuClickClallback(e) {
 }
 
 function getRange() {
-  if (isMobileSafari()) {
-    if (window.navigator.standalone) return [0, 150];
+  if (isMobileSafari) {
+    if (navigator.standalone) return [0, 150];
     return [35, 150];
   }
   return [0, 50];
@@ -62,8 +59,8 @@ function setupWebComponent(drawerEl) {
   if (window._isDesktop) drawerEl.setAttribute('opened', '');
   if (window._isDesktop) drawerEl.setAttribute('persistent', '');
   drawerEl.setAttribute('align', 'left');
-  drawerEl.setAttribute('draw-range', getRange().join(','));
-  drawerEl.setAttribute('draw-threshold', isSafari() ? 0 : 10);
+  drawerEl.setAttribute('range', getRange().join(','));
+  drawerEl.setAttribute('threshold', isSafari ? 0 : 10);
   drawerEl.setAttribute('peek', 0.5 * rem);
   drawerEl.setAttribute('prevent-default', '');
 
@@ -78,8 +75,8 @@ function setupVanilla(drawerEl) {
     opened: window._isDesktop,
     persistent: window._isDesktop,
     align: 'left',
-    drawRange: getRange(),
-    drawThreshold: isSafari() ? 0 : 10,
+    range: getRange(),
+    threshold: isSafari ? 0 : 10,
     peek: 0.5 * rem,
     preventDefault: true,
   });

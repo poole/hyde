@@ -17,7 +17,7 @@ import 'core-js/fn/array/for-each';
 import 'core-js/fn/object/assign';
 import 'core-js/fn/string/includes';
 
-import { PushState } from 'hy-push-state/src/vanilla';
+import { PushState, VANILLA_FEATURE_TESTS } from 'hy-push-state/src/vanilla';
 import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
 
 import { Observable } from 'rxjs/Observable';
@@ -55,16 +55,21 @@ const { forEach } = Array.prototype;
 const assign = ::Object.assign;
 
 const REQUIREMENTS = [
+  ...VANILLA_FEATURE_TESTS,
   'classlist',
   'cssanimations',
+  'cssremunit',
   'documentfragment',
   'eventlistener',
   'history',
+  'matchmedia',
   'opacity',
   'queryselector',
   'requestanimationframe',
   'template',
 ];
+
+const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
 const DURATION = 250;
 const FADE_DURATION = 600;
@@ -79,13 +84,11 @@ const FADE_IN = [
   { opacity: 1, transform: 'translateY(0)' },
 ];
 
-// TODO: rename
+// TODO: rename?
 const SETTINGS = {
   duration: DURATION,
   easing: 'cubic-bezier(0,0,0.32,1)',
 };
-
-const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
 function upgradeHeading(h) {
   const hash = `#${h.id}`;
@@ -106,12 +109,6 @@ function subscribe(ne, er, co) {
     ::recover((e, c) => c)
     .subscribe(ne, er, co);
 }
-
-// `filterWith` is like `filter`,
-// but takes an observable of booleans instead of a predicate function.
-// function filterWith(p$) {
-//   return this::withLatestFrom(p$)::filter(([, p]) => p)::map(([x]) => x);
-// }
 
 function setupAnimationMain(pushStateEl) {
   const template = document.getElementById('_animation-main-template');
@@ -147,22 +144,28 @@ function setupStandaloneUI(navbarEl) {
   return navbarEl.lastElementChild;
 }
 
-function getFlipType(t = {}) {
-  if (t.classList && t.classList.contains('flip-title')) return 'title';
-  if (t.classList && t.classList.contains('flip-project')) return 'project';
+function getFlipType(t) {
+  if (!t || !t.classList) return null;
+  if (t.classList.contains('flip-title')) return 'title';
+  if (t.classList.contains('flip-project')) return 'project';
   return t.getAttribute && t.getAttribute('data-flip');
 }
 
 function shouldAnimate({ type }) {
-  return type === 'push' || !isSafari();
+  return type === 'push' || navigator.standalone || !isSafari;
+}
+
+function shouldRestoreScroll() {
+  if (isSafari) { return !!navigator.standalone; }
+  return true;
 }
 
 function setupWebComponent(pushStateEl) {
   pushStateEl.setAttribute('replace-ids', '_main');
   pushStateEl.setAttribute('link-selector', 'a[href^="/"]:not(.no-push-state)');
-  if (!isSafari()) pushStateEl.setAttribute('scroll-restoration', '');
+  if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
   pushStateEl.setAttribute('duration', DURATION);
-  if (isSafari()) pushStateEl.setAttribute('_instant-pop', '');
+  if (isSafari && !navigator.standalone) pushStateEl.setAttribute('_instant-pop', '');
   pushStateEl.setAttribute('_script-selector', 'script:not([type^="math/tex"])');
 
   customElements.define('hy-push-state', HTMLPushStateElement);
@@ -173,25 +176,23 @@ function setupVanilla(pushStateEl) {
   return new PushState(pushStateEl, {
     replaceIds: ['_main'],
     linkSelector: 'a[href^="/"]:not(.no-push-state)',
-    scrollRestoration: !isSafari(),
+    scrollRestoration: shouldRestoreScroll(),
     duration: DURATION,
-    _instantPop: isSafari(),
+    _instantPop: isSafari && !navigator.standalone,
     _scriptSelector: 'script:not([type^="math/tex"])',
   });
 }
 
 if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
-  const crossFader = new CrossFader(FADE_DURATION);
+  const isStandalone =
+    !!navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
   const pushStateEl = document.getElementsByTagName('hy-push-state')[0];
   const navbarEl = document.querySelector('.navbar .content .nav-btn-bar');
 
   const animationMain = setupAnimationMain(pushStateEl);
   const loading = setupLoading(navbarEl);
-
-  if (navigator.standalone) {
-    setupStandaloneUI(navbarEl);
-  }
+  if (isStandalone) setupStandaloneUI(navbarEl);
 
   const start$ = Observable::fromEvent(pushStateEl, 'hy-push-state-start')
     ::map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) }))
@@ -213,41 +214,20 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     ::map(({ detail }) => detail)
     ::share();
 
-  // Safari doesn't support manual scroll restoration and it immediately jumps to the old scroll
-  // position after the `popstate` event handler completes.
-  // To make sure Safari can scroll to that position, the body needs to have sufficient height,
-  // otherwise it will simply scroll to the bottom.
-  if (isSafari()) {
-    Observable::fromEvent(window, 'popstate')
-      // Make sure this the previous entry was pushed by us and isn't a jump to a `#`:
-      ::filter(() => history.state && history.state['hy-push-state'] && !history.state.hash)
-      // Empty the content immediately to prevent flickering and
-      // set the old `scrollHeigt` as the body's `minHeight`.
-      ::subscribe(() => {
-        document.getElementById('_main')::empty();
-        document.body.style.minHeight = `${history.state.scrollHeight}px`;
-      });
-
-    // Restore `minHeight` once the content has been replaced (or an error occurred, etc):
-    Observable::merge(after$, progress$, error$)
-      ::observeOn(animationFrame)
-      ::subscribe(() => {
-        document.body.style.minHeight = '';
-      });
-  }
-
   // Fade main content out
   const fadeOut$ = start$
-    ::effect(() => {
-      if (!window._isDesktop && window._drawer.opened) window._drawer.close();
+    ::map(snowball => assign(snowball, { main: document.getElementById('_main') }))
+    ::effect(({ type, main }) => {
+      if (!window._isDesktop && window._drawer.opened) {
+        window._drawer.close();
+      }
+
       document.querySelectorAll('.sidebar-nav-item')
         ::forEach((item) => {
           if (window.location.href.includes(item.href)) item.classList.add('active');
           else item.classList.remove('active');
         });
-    })
-    ::map(({ type }) => ({ type, main: document.getElementById('_main') }))
-    ::effect(({ type, main }) => {
+
       if (shouldAnimate({ type })) {
         main.style.pointerEvents = 'none';
         main.style.opacity = 0;
@@ -274,14 +254,11 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
 
   // Fade the new content in
   const fadeIn$ = after$
-    ::switchMap(({ type, content: [main], flipType }) => {
-      if (shouldAnimate({ type })) {
-        return animate(main, FADE_IN, SETTINGS)
+    ::switchMap(({ type, content: [main], flipType }) => (shouldAnimate({ type }) ?
+        animate(main, FADE_IN, SETTINGS)
           ::effect(() => { main.style.pointerEvents = ''; })
-          ::mapTo({ flipType });
-      }
-      return Observable::of({});
-    })
+          ::mapTo({ flipType }) :
+        Observable::of({ flipType })))
     ::share();
 
   const flip$ = flip(start$, ready$, Observable::merge(fadeIn$, error$), {
@@ -294,6 +271,8 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   const anim$ = start$::switchMap(() => Observable::timer(DURATION))
     ::zipWith(flip$, fadeOut$)
     ::share();
+
+  const crossFader = new CrossFader(FADE_DURATION);
 
   // Swap out the sidebar image (if applicable)
   after$
@@ -327,6 +306,29 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
 
     setupErrorPage(main, url);
   });
+
+  // Safari doesn't support manual scroll restoration and it immediately jumps to the old scroll
+  // position after the `popstate` event handler completes.
+  // To make sure Safari can scroll to that position, the body needs to have sufficient height,
+  // otherwise it will simply scroll to the bottom.
+  if (isSafari && !navigator.standalone) {
+    Observable::fromEvent(window, 'popstate')
+      // Make sure this the previous entry was pushed by us and isn't a jump to a `#`:
+      ::filter(() => history.state && history.state['hy-push-state'] && !history.state.hash)
+      // Empty the content immediately to prevent flickering and
+      // set the old `scrollHeigt` as the body's `minHeight`.
+      ::subscribe(() => {
+        document.getElementById('_main')::empty();
+        document.body.style.minHeight = `${history.state.scrollHeight}px`;
+      });
+
+    // Restore `minHeight` once the content has been replaced (or an error occurred, etc):
+    Observable::merge(after$, progress$, error$)
+      ::observeOn(animationFrame)
+      ::subscribe(() => {
+        document.body.style.minHeight = '';
+      });
+  }
 
   // Upgrade headlines to include "permalinks"
   const main = document.getElementById('_main');
