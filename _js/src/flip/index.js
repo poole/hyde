@@ -13,6 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'core-js/fn/array/includes';
+
 import { Observable } from 'rxjs/Observable';
 // import { empty } from 'rxjs/observable/empty';
 import { merge } from 'rxjs/observable/merge';

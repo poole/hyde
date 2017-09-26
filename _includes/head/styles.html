@@ -16,12 +16,9 @@
     {% endif %}
   </style>
   <link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">
-  <script>document.getElementById('_stylePreload').onload=function(){this.rel='stylesheet'}</script>
+  <script>window.setRelStylesheet('_stylePreload');</script>
+  <noscript><link rel="stylesheet" href="{{ style_url | relative_url }}"></noscript>
 {% endif %}
-
-<noscript>
-  <link rel="stylesheet" href="{{ style_url | relative_url }}">
-</noscript>
 
 {% include page-style.html %}
 <!--<![endif]-->

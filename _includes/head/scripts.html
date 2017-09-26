@@ -1,14 +1,10 @@
 <script>
-  {% include scripts/load-js-deferred.min.js %}
-  {% include scripts/loadCSS.min.js %}
-  {% include scripts/cssrelpreload.min.js %}
+  {% include scripts/load-js-deferred.min.js %}{% include scripts/loadCSS.min.js %}{% include scripts/cssrelpreload.min.js %}
   window._noPushState = {{ site.hydejack.no_push_state | default:site.disable_push_state | default:false }};
   window._noDrawer = {{ site.hydejack.no_drawer | default:site.disable_drawer | default:false }};
 </script>
 
 <!--[if gt IE 8]><!---->
-<script async src="{{ '/assets/bower_components/webfontloader/webfontloader.js' | relative_url }}"></script>
-
 {% assign google_fonts = site.google_fonts | default:"Roboto+Slab:700|Noto+Sans:400,400i,700,700i" %}
 {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
 <script>
@@ -24,6 +20,11 @@
       urls: ['{{ icons_url | relative_url }}']
     }
   };
+  (function(d) {
+    var wf = d.createElement('script'), s = d.scripts[0];
+    wf.src = "{{ '/assets/bower_components/webfontloader/webfontloader.js' | relative_url }}";
+    s.parentNode.insertBefore(wf, s);
+  }(document));
 </script>
 <!--<![endif]-->
 
@@ -41,7 +42,3 @@
 
   <link rel="stylesheet" href="{{ icons_url | relative_url }}">
 </noscript>
-
-<!--[if lt IE 9]>
-<script src="{{ '/assets/bower_components/html5shiv/dist/html5shiv.min.js' | relative_url }}"></script>
-<![endif]-->
