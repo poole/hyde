@@ -142,11 +142,7 @@ function setupErrorPage(main, { pathname }) {
 function setupStandaloneUI(navbarEl) {
   const template = document.getElementById('_standalone-template');
   const standalone = document.importNode(template.content, true);
-
-  standalone.querySelector('.reload').addEventListener('click', () => location.reload());
-  standalone.querySelector('.back').addEventListener('click', () => history.back());
-  standalone.querySelector('.forward').addEventListener('click', () => history.forward());
-
+  standalone.querySelector('.back').addEventListener('click', () => window.history.back());
   navbarEl.appendChild(standalone);
   return navbarEl.lastElementChild;
 }
