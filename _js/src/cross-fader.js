@@ -34,7 +34,8 @@ const { find } = Array.prototype;
 
 const BORDER_COLOR_FADE = 0.8;
 
-function updateStyle({ color = '#00f' } = {}) {
+function updateStyle({ color = '#4fb1ba' } = {}) {
+  if (this.themeColor) this.themeColor.content = color;
   if (this.rules) {
     try {
       const c = Color(color);
@@ -105,6 +106,8 @@ export default class CrossFader {
     this.fadeDuration = fadeDuration;
     this.rules = styleSheet.cssRules || styleSheet.rules;
     this.prevHash = pseudoHash(elemDataset(main));
+
+    this.themeColor = document.querySelector('meta[name="theme-color"]');
   }
 
   fetchImage({ content: [main] }) {
