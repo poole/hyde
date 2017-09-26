@@ -43,7 +43,7 @@ window.loadJSDeferred = function(src, cb) {
       }
     }
 
-    var ref = document.getElementsByTagName('script')[0];
+    var ref = document.scripts[0];
     ref.parentNode.insertBefore(script, ref);
   }
 
