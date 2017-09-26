@@ -26,6 +26,10 @@
   color: $gray;
 }
 
+.nav-btn-bar {
+  margin-left: -.875rem;
+}
+
 .nav-btn {
   display: inline-block;
   padding: 1.75rem .875rem;
@@ -33,23 +37,6 @@
   color: $gray!important;
 }
 
-
-.menu {
-  
-  margin-left: -.875rem;
-  &::after {
-    content: "\2630"; // ☰
-  }
-
-  @media screen and (min-width: $break-point-3) {
-    position: absolute;
-    left: -9999px;
-    &:focus { position: static; }
-  }
-  
-
-//   @media print { display: none; } 
-}
 
 .animation-main {
   opacity: 0; 
@@ -60,4 +47,15 @@
 .loading {
   display: none; 
   
+}
+
+#_menu {
+  
+  @media screen and (min-width: $break-point-3) {
+    position: absolute;
+    left: -9999px;
+    &:focus { position: static; }
+  }
+  
+//   @media print { display: none; } 
 }

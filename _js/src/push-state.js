@@ -184,7 +184,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   const crossFader = new CrossFader(FADE_DURATION);
 
   const pushStateEl = document.getElementsByTagName('hy-push-state')[0];
-  const navbarEl = document.querySelector('.navbar .content');
+  const navbarEl = document.querySelector('.navbar .content .nav-btn-bar');
 
   const animationMain = setupAnimationMain(pushStateEl);
   const loading = setupLoading(navbarEl);
