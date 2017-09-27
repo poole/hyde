@@ -27,29 +27,27 @@
 }
 // >>>>>
 
+// <<<< LINK
 .animation-main {
-  opacity: 0; // inline
-  will-change: opacity; // inline
-  pointer-events: none; // link
+  opacity: 0;
+  will-change: opacity;
+  pointer-events: none;
 }
 
 .loading {
-  display: none; // inline
-  // <<< link
+  display: none;
   position: absolute;
   top: 0;
   right: 0;
   padding: 1.75rem 1.5rem;
-  // >>>
 }
+// >>>>
 
 #_menu {
-  // <<< inline
   @media screen and (min-width: $break-point-3) {
-    position: absolute;
-    left: -9999px;
-    &:focus { position: static; }
+    position: absolute; // inline
+    left: -9999px; // inline
+    &:focus { position: static; } // link
   }
-  // >>>
   @media print { display: none; } // link
 }

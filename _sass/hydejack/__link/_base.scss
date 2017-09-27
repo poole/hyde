@@ -31,29 +31,8 @@ hy-push-state, hy-drawer {
 
 
 
-
-@media print {
-  html {
-    font-size: $root-font-size;
-  }
-}
-
-
-.sr-only {
-//   display: none; 
-  display: unset;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-  
-}
-
-// .clearfix, .clearafter::after { @include clearfix(); } 
+@media print { html { font-size: $root-font-size; } } 
+// Link styles
 a, .a {
 //   position: relative; 
 //   padding-bottom: .15rem; 
@@ -77,6 +56,7 @@ a, .a {
   
 }
 
+.author { margin-top: 3rem; } 
 .img {
 //   overflow: hidden; 
 //   background-color: $gray-bg; 
@@ -94,5 +74,20 @@ a, .a {
   }
 }
 
-.author { margin-top: 3rem; } 
 
+
+.clearfix, .clearafter::after { @include clearfix(); } // both
+
+.sr-only {
+//   display: none; 
+  display: unset;
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0,0,0,0);
+  border: 0;
+  
+}

@@ -18,7 +18,6 @@
 
 
 
-
 @media screen {
   body::before {
     content: '';
@@ -42,14 +41,8 @@ html {
 }
 
 
-
-
-.sr-only {
-  display: none; 
-  
-}
-
-.clearfix, .clearafter::after { @include clearfix(); } 
+// @media print { html { font-size: $root-font-size; } } 
+// Link styles
 a, .a {
   position: relative; 
   padding-bottom: .15rem; 
@@ -58,6 +51,7 @@ a, .a {
   
 }
 
+// .author { margin-top: 3rem; } 
 .img {
   overflow: hidden; 
   background-color: $gray-bg; 
@@ -72,13 +66,8 @@ a, .a {
   }
 }
 
-// .author { margin-top: 3rem; } 
-h1, h2, h3, h4, h5, h6 {
-  & + hr {
-    margin-top: 0;
-  }
-}
 
+// Fade in animation
 .fade-in {
   animation-duration: 500ms;
   animation-name: fade-in;
@@ -91,12 +80,19 @@ h1, h2, h3, h4, h5, h6 {
   to   { transform: translateY(0);     opacity: 1; }
 }
 
+// Utility classes
 .fl { float: left; }
 .fr { float: right; }
-
 .mb05 { margin-bottom: .5rem }
 .mb6 { margin-bottom: 6rem }
 .mt0 { margin-top: 0 }
 .mt3 { margin-top: 3rem }
 .pb0 { padding-bottom: 0 }
 
+
+.clearfix, .clearafter::after { @include clearfix(); } // both
+
+.sr-only {
+  display: none; 
+  
+}

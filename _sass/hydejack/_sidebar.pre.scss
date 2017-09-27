@@ -2,16 +2,11 @@
   color: rgba(255,255,255,.75); // inline
   text-align: left; // inline
 
-  /* Sidebar links */
+  // Sidebar links
   a {
     color: #fff; // inline
     border-bottom-color: rgba(255, 255, 255, 0.2); // inline
-
-    // <<< link
-    &:hover {
-      border-bottom-color: #fff;
-    }
-    // >>>
+    &:hover { border-bottom-color: #fff; } // link
   }
 
   // <<< link
@@ -28,8 +23,8 @@ hy-drawer {
 
   @media screen {
     padding: 2rem 1rem; // inline
-    min-height: 640px; // inline
-    min-height: 100vh; // inline
+    min-height: 640px; // link
+    min-height: 100vh; // link
 
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
@@ -41,9 +36,7 @@ hy-drawer {
     --hy-drawer-width: 18rem;
     --hy-drawer-slide-width: 17.5rem;
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
-    // >>>
 
-    // <<< inline
     &.loaded {
       min-height: 0;
       padding: 0;
@@ -103,8 +96,8 @@ hy-drawer {
   }
 }
 
-// <<<<< INLINE
 .sidebar-sticky {
+  // <<<<< INLINE
   position: relative;
   z-index: 3;
 
@@ -119,10 +112,9 @@ hy-drawer {
     left: auto;
     width: 15rem;
   }
+  // >>>>>
 
-  @media print {
-    padding: 0 1.5rem;
-  }
+  @media print { padding: 0 1.5rem; } // link
 }
 
 /* About section */

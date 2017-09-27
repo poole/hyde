@@ -1,13 +1,13 @@
 .loading > [class*="icon-"] {
   display: inline-block;
-  -webkit-animation: rotatet 2s infinite linear both;
-          animation: rotatet 2s infinite linear both;
+  -webkit-animation: rotate 2s infinite linear both;
+          animation: rotate 2s infinite linear both;
   -webkit-transform-origin: 50% 50%;
       -ms-transform-origin: 50% 50%;
           transform-origin: 50% 50%;
 }
 
-@-webkit-keyframes rotatet {
+@-webkit-keyframes rotate {
   0% {
     -webkit-transform: rotateZ(0);
             transform: rotateZ(0);
@@ -18,7 +18,7 @@
   }
 }
 
-@keyframes rotatet {
+@keyframes rotate {
   0% {
     -webkit-transform: rotateZ(0);
             transform: rotateZ(0);

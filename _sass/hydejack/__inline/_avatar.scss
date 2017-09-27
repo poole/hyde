@@ -9,20 +9,20 @@
  * to continuosly rebuild this file.
  */
 
-
 .avatar {
+  
   float: right;
   width: 6.5rem;
   height: 6.5rem;
   margin-left: 1rem;
   margin-bottom: .5rem;
   border-radius: 100%;
-  position: relative;
-  z-index: 1;
-
+  
+//   position: relative; 
+//   z-index: 1; 
   @media screen and (min-width: $break-point-1) {
     width: 7rem;
     height: 7rem;
   }
+  
 }
-

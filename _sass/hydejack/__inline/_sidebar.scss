@@ -12,11 +12,11 @@
 .sidebar {
   color: rgba(255,255,255,.75); 
   text-align: left; 
-  /* Sidebar links */
+  // Sidebar links
   a {
     color: #fff; 
     border-bottom-color: rgba(255, 255, 255, 0.2); 
-    
+//     &:hover { border-bottom-color: #fff; } 
   }
 
   
@@ -27,15 +27,8 @@ hy-drawer {
   padding: 1rem 0; 
   @media screen {
     padding: 2rem 1rem; 
-    min-height: 640px; 
-    min-height: 100vh; 
-    
-
-    
-    &.loaded {
-      min-height: 0;
-      padding: 0;
-    }
+//     min-height: 640px; 
+//     min-height: 100vh; 
     
   }
 
@@ -91,8 +84,8 @@ hy-drawer {
   }
 }
 
-
 .sidebar-sticky {
+  
   position: relative;
   z-index: 3;
 
@@ -107,10 +100,9 @@ hy-drawer {
     left: auto;
     width: 15rem;
   }
+  
 
-  @media print {
-    padding: 0 1.5rem;
-  }
+//   @media print { padding: 0 1.5rem; } 
 }
 
 /* About section */
@@ -133,5 +125,5 @@ a.sidebar-nav-item {
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 
-
+// >>>>>
 

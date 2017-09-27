@@ -12,14 +12,11 @@
 .sidebar {
 //   color: rgba(255,255,255,.75); 
 //   text-align: left; 
-  /* Sidebar links */
+  // Sidebar links
   a {
 //     color: #fff; 
 //     border-bottom-color: rgba(255, 255, 255, 0.2); 
-    &:hover {
-      border-bottom-color: #fff;
-    }
-    
+    &:hover { border-bottom-color: #fff; } 
   }
 
   
@@ -35,8 +32,9 @@ hy-drawer {
 //   padding: 1rem 0; 
   @media screen {
 //     padding: 2rem 1rem; 
-//     min-height: 640px; 
-//     min-height: 100vh; 
+    min-height: 640px; 
+    min-height: 100vh; 
+    
     > .hy-drawer-content.hy-drawer-left {
       width: 18rem;
       left: -17.5rem;
@@ -46,8 +44,11 @@ hy-drawer {
     --hy-drawer-width: 18rem;
     --hy-drawer-slide-width: 17.5rem;
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
-    
 
+    &.loaded {
+      min-height: 0;
+      padding: 0;
+    }
     
   }
 
@@ -78,7 +79,33 @@ hy-drawer {
   }
 }
 
+.sidebar-sticky {
+  
 
+  @media print { padding: 0 1.5rem; } 
+}
+
+/* About section */
+.sidebar-about > h1 {
+  color: #fff;
+  font-size: 2rem;
+}
+
+.sidebar-nav > ul {
+  list-style: none;
+  padding-left: 0;
+  margin-bottom: .5rem;
+}
+
+a.sidebar-nav-item {
+  font-weight: bold;
+  display: block;
+  line-height: 1.75;
+  padding: .25rem 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+// >>>>>
 
 a.sidebar-nav-item {
   &::before, &::after {
