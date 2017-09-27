@@ -36,6 +36,7 @@
 
   // @import "my-inline";
   @import "my-style";
+
 {% else %}
   @import "pooleparty/_base.pre.scss";
   @import "pooleparty/_type.pre.scss";
