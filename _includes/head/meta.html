@@ -3,7 +3,8 @@
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
 {% unless page.redirect %}
-  {% seo %}
+  {% if plugins contains 'jekyll-seo-tag' %}{% include head/seo-tag.html %}
+  {% else %}{% include head/seo-fallback.html %}{% endif %}
 
   {% if site.keywords or page.keywords %}
     <meta name="keywords" content="{{ page.keywords | default:site.keywords | join:',' }}">
