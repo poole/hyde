@@ -49,11 +49,6 @@ That being said, you should be aware of these (small) breaking changes:
   To use this gem, make sure you use the latest `Gemfile` and `Gemfile.lock` and run `bundle install`.
   In your config file, add `jekyll-seo-tag` to `plugins` (formerly called `gems`).
 
-  ```yml
-  plugins:
-    - jekyll-seo-tag
-  ```
-
 * `image` has been renamed to `accent_image`, but `image` continues to work unless you add the `jekyll-seo-tag` plugin.
   This change was necessary because `jekyll-seo-tag` uses the `image` keyword to set the thumbnail image of a page.
   While it *may* be desirable to use the same image for both the sidebar and the thumbnail,
@@ -97,6 +92,10 @@ That being said, you should be aware of these (small) breaking changes:
   but it should also make it easier to use Hydejack with other languages.
   Time and date formats can also be configured, using Ruby's
   [format directives](http://ruby-doc.org/core-2.4.1/Time.html#method-i-strftime).
+
+* Added support for [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar).
+  If this plugin is enabled in your config file, it will show the avatar of your github account
+  (`author.social.github`, `author.github.username` `author.github`).
 
 * The `lang` key now accepts values like `en-us` or `de_AT`.
 
