@@ -1,5 +1,5 @@
 <hy-drawer>
-  <aside id="_sidebar" class="sidebar">
+  <header id="_sidebar" class="sidebar" role="banner">
     {% if image.background %}
       {% capture bg_style %}background:{{ image.background }}{% endcapture %}
       {% capture bg_class %}sidebar-bg {% if image.overlay %}sidebar-overlay{% endif %}{% endcapture %}
@@ -8,13 +8,14 @@
       {% capture bg_class %}sidebar-bg {% if image != 'none' %}sidebar-overlay{% endif %}{% endcapture %}
     {% endif %}
     <div class="{{ bg_class }}" style="{{ bg_style }}"></div>
+
     <div class="sidebar-sticky">
-      <header class="sidebar-about">
+      <div class="sidebar-about">
         <h2 class="h1"><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
         <p class="{% if site.description.size > 100 %}fine{% endif %}">
           {{ site.description | markdownify | replace:'<p>','' | replace:'</p>','' }}
         </p>
-      </header>
+      </div>
 
       <nav class="sidebar-nav heading" role="navigation">
         {% include nav.html %}
@@ -26,5 +27,5 @@
         {% include social.html author=author %}
       </div>
     </div>
-  </aside>
+  </header>
 </hy-drawer>
