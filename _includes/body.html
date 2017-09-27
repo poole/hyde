@@ -6,13 +6,13 @@
     class="content fade-in layout-{{ page.layout }}"
     role="main"
     data-color="{{ color | escape }}"
-    {% if image.background %}
-      data-background="{{ image.background | escape }}"
-      {% if image.overlay %}data-overlay{% endif %}
-    {% else %}
+    {% unless image.background %}
       data-image="{{ image | escape }}"
       data-overlay
-    {% endif %}
+    {% else %}
+      data-background="{{ image.background | escape }}"
+      {% if image.overlay %}data-overlay{% endif %}
+    {% endunless %}
     >
     {{ content }}
     {% include comments.html %}
