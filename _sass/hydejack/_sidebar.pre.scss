@@ -28,12 +28,12 @@ hy-drawer {
 
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
-      width: 18rem;
+      width: calc(18rem + 1px);
       left: -17.5rem;
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
 
-    --hy-drawer-width: 18rem;
+    --hy-drawer-width: calc(18rem + 1px);
     --hy-drawer-slide-width: 17.5rem;
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 

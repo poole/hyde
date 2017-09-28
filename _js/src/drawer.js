@@ -61,7 +61,7 @@ function setupWebComponent(drawerEl) {
   drawerEl.setAttribute('align', 'left');
   drawerEl.setAttribute('range', getRange().join(','));
   drawerEl.setAttribute('threshold', isSafari ? 0 : 10);
-  drawerEl.setAttribute('peek', 0.5 * rem);
+  drawerEl.setAttribute('peek', (0.5 * rem) + 1);
   drawerEl.setAttribute('prevent-default', '');
 
   customElements.define('hy-drawer', HTMLDrawerElement);
@@ -77,7 +77,7 @@ function setupVanilla(drawerEl) {
     align: 'left',
     range: getRange(),
     threshold: isSafari ? 0 : 10,
-    peek: 0.5 * rem,
+    peek: (0.5 * rem) + 1,
     preventDefault: true,
   });
 }
