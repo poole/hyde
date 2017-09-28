@@ -1,7 +1,7 @@
 {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
 
 {% if author.about %}
-  <aside class="author related" role="complementary">
+  <aside class="author related mb6" role="complementary">
     {% assign about_heading = site.data.strings.about | default:"About" %}
     {% include author.html author=author heading=about_heading heading_tag='h2' %}
   </aside>
