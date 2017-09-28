@@ -16,6 +16,10 @@
 import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
 import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 
+import { Observable } from 'rxjs/Observable';
+import { fromEvent } from 'rxjs/observable/fromEvent';
+import { throttleTime } from 'rxjs/operator/throttleTime';
+
 import { hasFeatures, isSafari, isMobileSafari } from './common';
 
 const REQUIREMENTS = [
@@ -93,6 +97,10 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
     setupVanilla(drawerEl);
 
   drawerEl.classList.add('loaded');
-  window.addEventListener('resize', resizeCallback);
+
   menuEl.addEventListener('click', menuClickClallback);
+
+  Observable::fromEvent(window, 'resize')
+    ::throttleTime(250)
+    .subscribe(resizeCallback);
 }
