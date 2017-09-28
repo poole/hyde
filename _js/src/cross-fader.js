@@ -77,11 +77,11 @@ function updateStyle({ color = '#4fb1ba' } = {}) {
 }
 
 function pseudoHash({ color, image, background, overlay }) {
-  return `${color}${image || background}${overlay ? 'overlay' : ''}`;
+  return `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
 }
 
-function getImage$({ image }) {
-  if (!image || image === '' || image === 'none' || image === this.prevImage) {
+function getImage$({ background, image }) {
+  if (background || !image || image === '' || image === 'none' || image === this.prevImage) {
     return Observable::of({});
   }
 
@@ -117,16 +117,17 @@ export default class CrossFader {
     // HACK: Using `dataset` here to store some intermediate data
     const hash = pseudoHash(dataset);
     if (hash === this.prevHash) return Observable::empty();
-    // dataset.instant = type === 'pop' && isSafari();
 
     return this::getImage$(dataset)
       ::map(() => {
         const div = document.createElement('div');
         div.classList.add('sidebar-bg');
         if (image !== 'none' && overlay === '') div.classList.add('sidebar-overlay');
-        div.style.backgroundColor = color;
         if (background) div.style.background = background;
-        else if (image !== '' && image !== 'none') div.style.backgroundImage = `url(${image})`;
+        else {
+          div.style.backgroundColor = color;
+          if (image !== '' && image !== 'none') div.style.backgroundImage = `url(${image})`;
+        }
         return [div, dataset, hash];
       });
   }
