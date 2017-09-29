@@ -12,9 +12,12 @@
     <div class="sidebar-sticky">
       <div class="sidebar-about">
         <h2 class="h1"><a id="_title" href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
-        <p class="{% if site.description.size > 100 %}fine{% endif %}">
-          {{ site.description | markdownify | replace:'<p>','' | replace:'</p>','' }}
-        </p>
+        {% assign text = site.tagline | default:site.description %}
+        {% if text %}
+          <p class="{% if text.size > 100 %}fine{% endif %}">
+            {{ text | markdownify | replace:'<p>','' | replace:'</p>','' }}
+          </p>
+        {% endif %}
       </div>
 
       <nav class="sidebar-nav heading" role="navigation">
