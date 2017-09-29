@@ -19,6 +19,7 @@ const FILES = [
   resolve('./_includes/body/scripts.html'),
   resolve('./_includes/footer.html'),
   resolve('./_includes/head/meta.html'),
+  resolve('./_includes/head/links.html'),
   resolve('./_includes/head/styles.html'),
   resolve('./_includes/header.txt'),
   resolve('./_js/lib/version.js'),
