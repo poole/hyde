@@ -13,6 +13,7 @@
   pagination:            Pagination
   newer:                 Newer
   older:                 Older
+  back:                  Back
 
   category_start:        "in "
   category_spearator:    " / "

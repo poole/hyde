@@ -1,4 +1,4 @@
-<template id="_animation-main-template">
+<template id="_animation-template">
   <div class="animation-main fixed-top">
     <div class="content">
       <div class="page"></div>
@@ -24,8 +24,7 @@
   </div>
 </template>
 
-<template id="_standalone-template">
-  <span class="sr-only">{{ site.data.strings.controls | default:"Controls" }}{{ site.data.strings.colon }}</span>
+<template id="_back-template">
   <a id="_back" class="back nav-btn no-hover">
     <span class="sr-only">{{ site.data.strings.back | default:"Back" }}</span>
     <span class="icon-arrow-left2"></span>

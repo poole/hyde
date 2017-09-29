@@ -111,7 +111,7 @@ function subscribe(ne, er, co) {
 }
 
 function setupAnimationMain(pushStateEl) {
-  const template = document.getElementById('_animation-main-template');
+  const template = document.getElementById('_animation-template');
   const animationMain = document.importNode(template.content, true);
   pushStateEl.parentNode.insertBefore(animationMain, pushStateEl);
   return pushStateEl.previousElementSibling;
@@ -136,12 +136,12 @@ function setupErrorPage(main, { pathname }) {
   return main.lastElementChild;
 }
 
-function setupStandaloneUI(navbarEl) {
-  const template = document.getElementById('_standalone-template');
-  const standalone = document.importNode(template.content, true);
-  standalone.querySelector('.back').addEventListener('click', () => window.history.back());
-  navbarEl.appendChild(standalone);
-  return navbarEl.lastElementChild;
+function setupButton(parent, templateId, clickFn) {
+  const template = document.getElementById(templateId);
+  const backButton = document.importNode(template.content, true);
+  backButton.querySelector('.nav-btn').addEventListener('click', clickFn);
+  parent.appendChild(backButton);
+  return parent.lastElementChild;
 }
 
 function getFlipType(t) {
@@ -188,11 +188,15 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     !!navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
   const pushStateEl = document.getElementsByTagName('hy-push-state')[0];
-  const navbarEl = document.querySelector('.navbar .content .nav-btn-bar');
+  const btnBarEl = document.querySelector('.navbar .content .nav-btn-bar');
 
   const animationMain = setupAnimationMain(pushStateEl);
-  const loading = setupLoading(navbarEl);
-  if (isStandalone) setupStandaloneUI(navbarEl);
+  const loading = setupLoading(document.querySelector('.navbar .content'));
+
+  // Show a back button when in standalone mode
+  if (isStandalone) {
+    setupButton(btnBarEl, '_back-template', () => window.history.back());
+  }
 
   const start$ = Observable::fromEvent(pushStateEl, 'hy-push-state-start')
     ::map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) }))
