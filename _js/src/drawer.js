@@ -50,11 +50,10 @@ function menuClickClallback(e) {
 }
 
 function getRange() {
-  if (isMobileSafari) {
-    if (navigator.standalone) return [0, 150];
+  if (isMobileSafari && !navigator.standalone) {
     return [35, 150];
   }
-  return [0, 50];
+  return [0, 150];
 }
 
 function setupWebComponent(drawerEl) {
@@ -66,7 +65,7 @@ function setupWebComponent(drawerEl) {
   drawerEl.setAttribute('range', getRange().join(','));
   drawerEl.setAttribute('threshold', isSafari ? 0 : 10);
   drawerEl.setAttribute('peek', (0.5 * rem) + 1);
-  drawerEl.setAttribute('prevent-default', '');
+  // drawerEl.setAttribute('prevent-default', '');
 
   customElements.define('hy-drawer', HTMLDrawerElement);
   return drawerEl;
@@ -82,7 +81,7 @@ function setupVanilla(drawerEl) {
     range: getRange(),
     threshold: isSafari ? 0 : 10,
     peek: (0.5 * rem) + 1,
-    preventDefault: true,
+    preventDefault: false,
   });
 }
 
