@@ -8,7 +8,7 @@
     data-color="{{ color | escape }}"
     {% unless image.background %}
       data-image="{{ image | escape }}"
-      data-overlay
+      {% if image != 'none' %}data-overlay{% endif %}
     {% else %}
       data-background="{{ image.background | escape }}"
       {% if image.overlay %}data-overlay{% endif %}
