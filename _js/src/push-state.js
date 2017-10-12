@@ -197,6 +197,18 @@ function shouldRestoreScroll() {
   return true;
 }
 
+function animateFadeOut({ type, main }) {
+  return shouldAnimate(type) ?
+    animate(main, FADE_OUT, SETTINGS)::mapTo({ main }) :
+    Observable::of({ main });
+}
+
+function animateFadeIn({ type, replaceEls: [main], flipType }) {
+  return shouldAnimate(type) ?
+    animate(main, FADE_IN, SETTINGS)::mapTo({ main, flipType }) :
+    Observable::of({ main, flipType });
+}
+
 // Before we register the WebComponent with the DOM, we set essential properties,
 // some of which depend on browser, standalone mode, etc...
 function setupWebComponent(pushStateEl) {
@@ -305,11 +317,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
 
     // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
     // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
-    ::exhaustMap(({ type, main }) => (shouldAnimate(type) ?
-        animate(main, FADE_OUT, SETTINGS)::mapTo(main) :
-        Observable::of(main)))
+    ::exhaustMap(animateFadeOut)
+
     // After the animation is complete, we empty the current content and scroll to the top.
-    ::effect((main) => {
+    ::effect(({ main }) => {
       main::empty();
       window.scroll(window.pageXOffset, 0);
     })
@@ -323,21 +334,18 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // The `ready` event occurs when we've received the content from the server
   // and it is parsed as a document fragment, but before we add it to the DOM.
   // This is were we can make some changes to the content without triggering repaints.
-  ready$::subscribe(({ type, replaceEls: [main] }) => {
+  ready$::subscribe(({ replaceEls: [main] }) => {
     loading.style.display = 'none';
     main.classList.remove('fade-in');
     main.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeading);
-    if (shouldAnimate(type)) main.style.pointerEvents = 'none';
+    main.style.pointerEvents = 'none';
   });
 
   // ### Fade new content in
   // `after` new content is added to the DOM, start animating it.
   const fadeIn$ = after$
-    ::switchMap(({ type, replaceEls: [main], flipType }) => (shouldAnimate(type) ?
-        animate(main, FADE_IN, SETTINGS)
-          ::effect(() => { main.style.pointerEvents = ''; })
-          ::mapTo({ flipType }) :
-        Observable::of({ flipType })))
+    ::switchMap(animateFadeIn)
+    ::effect(({ main }) => { main.style.pointerEvents = ''; })
     ::share();
 
   // In addition to fading the main content out,
@@ -402,7 +410,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
     ::debounceTime(GA_DELAY)
     ::subscribe(() => {
-      if (window.ga) window.ga('send', 'pageview', location.pathname);
+      if (window.ga) window.ga('send', 'pageview', window.location.pathname);
     });
 
   // ### Show error page
@@ -429,11 +437,13 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     // Then we empty the content immediately to prevent flickering and
     // set the old `scrollHeigt` as the body's `minHeight`.
     Observable::fromEvent(window, 'popstate')
-      ::filter(() => history.state && history.state['hy-push-state'] && !history.state.hash)
-
+      ::filter(() => window.history.state &&
+        window.history.state['hy-push-state'] &&
+        !window.history.state['hy-push-state'].hash)
       ::subscribe(() => {
+        const { scrollHeight } = window.history.state['hy-push-state'];
         document.getElementById('_main')::empty();
-        document.body.style.minHeight = `${history.state.scrollHeight}px`;
+        document.body.style.minHeight = `${scrollHeight}px`;
       });
 
     // Once the content has been replaced (or an error occurred, etc), restore `minHeight`.

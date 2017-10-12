@@ -79,7 +79,9 @@ function updateStyle({ color = '#4fb1ba' } = {}) {
 }
 
 // Given a dataset, generate some string we can use the check if anything has changed...
-function pseudoHash({ color, image, background, overlay }) {
+function pseudoHash({
+  background, color, image, overlay,
+}) {
   return `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
 }
 
@@ -118,7 +120,9 @@ export default class CrossFader {
 
   fetchImage(main) {
     const dataset = elemDataset(main);
-    const { color, image, background, overlay } = dataset;
+    const {
+      background, color, image, overlay,
+    } = dataset;
 
     // HACK: Using `dataset` here to store some intermediate data
     const hash = pseudoHash(dataset);
