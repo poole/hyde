@@ -1,3 +1,4 @@
+// # src / flip / index.js
 // Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -14,21 +15,22 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import 'core-js/fn/array/includes';
+import 'core-js/fn/function/bind';
 
 import { Observable } from 'rxjs/Observable';
 import { merge } from 'rxjs/observable/merge';
 
 import { filter } from 'rxjs/operator/filter';
 
-import flipTitle from './title';
+import setupFLIPTitle from './title';
 
 const FLIP_TYPES = ['title'];
 
-export default function flip(start$, ready$, fadeIn$, options) {
+export default function setupFLIP(start$, ready$, fadeIn$, options) {
   const other$ = start$::filter(({ flipType }) => !FLIP_TYPES.includes(flipType));
 
   return Observable::merge(
-    flipTitle(start$, ready$, fadeIn$, options),
+    setupFLIPTitle(start$, ready$, fadeIn$, options),
     other$,
   );
 }

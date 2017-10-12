@@ -1,3 +1,4 @@
+// # src / common.js
 // Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -13,23 +14,28 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+// Import what we need.
+import 'core-js/fn/function/bind';
 import { Observable } from 'rxjs/Observable';
 
+// Check the user agent for Safari and iOS Safari, to give them some special treatment...
 const ua = navigator.userAgent.toLowerCase();
 export const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
 export const isMobileSafari = isSafari && ua.indexOf('mobile') > 0;
 
+// Takes an array of Modernizr feature tests and makes sure they all pass.
 export function hasFeatures(features) {
   let acc = true;
   for (let i = 0; i < features.length; i += 1) {
     const feature = features[i];
     const hasFeature = window.Modernizr[feature];
-    // if (!hasFeature) console.warn('Feature "' + feature + '" missing!');
+    if (!hasFeature && process.env.DEBUG) console.warn(`Feature '${feature}' missing!`);
     acc = acc && hasFeature;
   }
   return acc;
 }
 
+// Some functions to hide and show content.
 export function show() {
   this.style.display = 'block';
   this.style.visibility = 'visible';
@@ -47,18 +53,13 @@ export function unshow() {
 
 export const unhide = unshow;
 
-export const matches =
-  Element.prototype.matches ||
-  Element.prototype.matchesSelector ||
-  Element.prototype.msMatchesSelector ||
-  Element.prototype.mozMatchesSelector ||
-  Element.prototype.webkitMatchesSelector ||
-  Element.prototype.oMatchesSelector;
-
+// Same as `el.innerHTML = ''`, but not quite so hacky.
 export function empty() {
   while (this.firstChild) this.removeChild(this.firstChild);
 }
 
+// An observable wrapper for the WebAnimations API.
+// Will return an observable that emits once when the animation finishes.
 export function animate(el, keyframes, options) {
   return Observable.create((observer) => {
     const anim = el.animate(keyframes, options);
@@ -72,4 +73,14 @@ export function animate(el, keyframes, options) {
       if (anim.playState !== 'finished') anim.cancel();
     };
   });
+}
+
+// Returns a promise that can be resolved (rejected) after the fact,
+// by calling its `resolve` (`reject`) function.
+export function getResolvablePromise() {
+  let resolve, reject; // eslint-disable-line one-var, one-var-declaration-per-line
+  const promise = new Promise((res, rej) => { resolve = res; reject = rej; });
+  promise.resolve = resolve;
+  promise.reject = reject;
+  return promise;
 }

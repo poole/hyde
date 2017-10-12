@@ -43,10 +43,7 @@ async function getFiles(dir) {
 
 (async function main() {
   try {
-    const files = process.argv.length > 2 ?
-      [process.argv[2]] :
-      await getFiles('_sass');
-
+    const files = process.argv.length > 2 ? [process.argv[2]] : await getFiles('_sass');
     await Promise.all(files
       .filter(f => f.endsWith('.pre.scss'))
       .map(async (file) => {

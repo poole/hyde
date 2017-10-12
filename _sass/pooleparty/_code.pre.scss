@@ -16,7 +16,6 @@ code {
 
 pre {
   margin-top: 0;
-  margin-bottom: 1rem;
   display: block;
   line-height: 1.4;
   font-size: .85em;
@@ -38,7 +37,7 @@ pre > code {
   font-size: 1em;
 }
 
-.highlight {
-  margin-bottom: 1rem;
+pre, .highlight {
+  margin-bottom: 2rem;
 }
 // >>>>> LINK

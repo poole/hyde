@@ -142,6 +142,7 @@ collections:
 exclude:
   - README.md
   - node_modules
+  - vendor
   - package.json
   - package-lock.json
   - Gemfile

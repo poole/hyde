@@ -1,3 +1,4 @@
+// # src / katex.js
 // Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -15,11 +16,12 @@
 
 import 'core-js/fn/array/for-each';
 
-import { hasFeatures, hide, matches } from './common';
+import { hasFeatures, hide } from './common';
 
 const { forEach } = Array.prototype;
 
 const REQUIREMENTS = [
+  'classlist',
   'eventlistener',
   'queryselector',
 ];
@@ -38,7 +40,9 @@ function renderKatex(el, tex) {
   try {
     const prev = el.previousElementSibling;
     replaceMathBlock(el, tex);
-    if (prev && prev::matches('.MathJax_Preview')) prev::hide();
+    if (prev && prev.classList && prev.classList.contains('MathJax_Preview')) {
+      prev::hide();
+    }
   } catch (e) {
     // TODO: remove in production builds?
     console.error(e); // eslint-disable-line no-console

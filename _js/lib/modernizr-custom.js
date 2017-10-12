@@ -1,6 +1,7 @@
+// NOTE: This file has been modified to include `usePrefixes: false`!
 /*!
  * modernizr v3.5.0
- * Build https://modernizr.com/download?-classlist-cssanimations-csspointerevents-cssremunit-csstransforms-customevent-documentfragment-eventlistener-history-matchmedia-opacity-queryselector-requestanimationframe-template-touchevents-dontmin
+ * Build https://modernizr.com/download?-classlist-cssanimations-csspointerevents-cssremunit-csstransforms-customevent-documentfragment-eventlistener-history-matchmedia-opacity-promises-queryselector-requestanimationframe-template-touchevents-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -44,7 +45,7 @@
       'classPrefix': '',
       'enableClasses': true,
       'enableJSClass': true,
-      'usePrefixes': true
+      'usePrefixes': false,
     },
 
     // Queue of tests
@@ -128,6 +129,26 @@ Detects native support for addEventListener
 
 /*!
 {
+  "name": "QuerySelector",
+  "property": "queryselector",
+  "caniuse": "queryselector",
+  "tags": ["queryselector"],
+  "authors": ["Andrew Betts (@triblondon)"],
+  "notes": [{
+    "name" : "W3C Selectors reference",
+    "href": "https://www.w3.org/TR/selectors-api/#queryselectorall"
+  }],
+  "polyfills": ["css-selector-engine"]
+}
+!*/
+/* DOC
+Detects support for querySelector.
+*/
+
+  Modernizr.addTest('queryselector', 'querySelector' in document && 'querySelectorAll' in document);
+
+/*!
+{
   "name": "History API",
   "property": "history",
   "caniuse": "history",
@@ -174,23 +195,44 @@ Detects support for the History API for manipulating the browser session history
 
 /*!
 {
-  "name": "QuerySelector",
-  "property": "queryselector",
-  "caniuse": "queryselector",
-  "tags": ["queryselector"],
-  "authors": ["Andrew Betts (@triblondon)"],
+  "name": "ES6 Promises",
+  "property": "promises",
+  "caniuse": "promises",
+  "polyfills": ["es6promises"],
+  "authors": ["Krister Kari", "Jake Archibald"],
+  "tags": ["es6"],
   "notes": [{
-    "name" : "W3C Selectors reference",
-    "href": "https://www.w3.org/TR/selectors-api/#queryselectorall"
-  }],
-  "polyfills": ["css-selector-engine"]
+    "name": "The ES6 promises spec",
+    "href": "https://github.com/domenic/promises-unwrapping"
+  },{
+    "name": "Chromium dashboard - ES6 Promises",
+    "href": "https://www.chromestatus.com/features/5681726336532480"
+  },{
+    "name": "JavaScript Promises: There and back again - HTML5 Rocks",
+    "href": "http://www.html5rocks.com/en/tutorials/es6/promises/"
+  }]
 }
 !*/
 /* DOC
-Detects support for querySelector.
+Check if browser implements ECMAScript 6 Promises per specification.
 */
 
-  Modernizr.addTest('queryselector', 'querySelector' in document && 'querySelectorAll' in document);
+  Modernizr.addTest('promises', function() {
+    return 'Promise' in window &&
+    // Some of these methods are missing from
+    // Firefox/Chrome experimental implementations
+    'resolve' in window.Promise &&
+    'reject' in window.Promise &&
+    'all' in window.Promise &&
+    'race' in window.Promise &&
+    // Older version of the spec had a resolver object
+    // as the arg rather than a function
+    (function() {
+      var resolve;
+      new window.Promise(function(r) { resolve = r; });
+      return typeof resolve === 'function';
+    }());
+  });
 
 
   var classes = [];
@@ -429,29 +471,6 @@ Append multiple elements to the DOM within a single insertion.
   ;
 /*!
 {
-  "name": "CSS Opacity",
-  "caniuse": "css-opacity",
-  "property": "opacity",
-  "tags": ["css"]
-}
-!*/
-
-  // Browsers that actually have CSS Opacity implemented have done so
-  // according to spec, which means their return values are within the
-  // range of [0.0,1.0] - including the leading zero.
-
-  Modernizr.addTest('opacity', function() {
-    var style = createElement('a').style;
-    style.cssText = prefixes.join('opacity:.55;');
-
-    // The non-literal . in this regex is intentional:
-    // German Chrome returns this value as 0,55
-    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
-    return (/^0.55$/).test(style.opacity);
-  });
-
-/*!
-{
   "name": "CSS Pointer Events",
   "caniuse": "pointer-events",
   "property": "csspointerevents",
@@ -481,6 +500,29 @@ Append multiple elements to the DOM within a single insertion.
     var style = createElement('a').style;
     style.cssText = 'pointer-events:auto';
     return style.pointerEvents === 'auto';
+  });
+
+/*!
+{
+  "name": "CSS Opacity",
+  "caniuse": "css-opacity",
+  "property": "opacity",
+  "tags": ["css"]
+}
+!*/
+
+  // Browsers that actually have CSS Opacity implemented have done so
+  // according to spec, which means their return values are within the
+  // range of [0.0,1.0] - including the leading zero.
+
+  Modernizr.addTest('opacity', function() {
+    var style = createElement('a').style;
+    style.cssText = prefixes.join('opacity:.55;');
+
+    // The non-literal . in this regex is intentional:
+    // German Chrome returns this value as 0,55
+    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
+    return (/^0.55$/).test(style.opacity);
   });
 
 /*!
