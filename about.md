@@ -50,16 +50,23 @@ A [portfolio], a [resume] layout and a [welcome] page to feature your favorite p
 
 This table details what is and isn't included in each respective version.
 
-|                                  | Free               | PRO                |
-|:---------------------------------|:------------------:|:------------------:|
-| Blog                             | &#x2714;           | &#x2714;           |
-| Features (see below)             | &#x2714;           | &#x2714;           |
-| [Portfolio] Layout               |                    | &#x2714;           |
-| [Resume] Layout                  |                    | &#x2714;           |
-| [Welcome] Layout                 |                    | &#x2714;           |
-| License                          | [MIT][license]     | [PRO]              |
-| Price                            | Free               | $34                |
-| | [**Download on GitHub**][download]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [**Buy Now – $34**][buy][^3] |
+|                                     | Free               | PRO                |
+|:------------------------------------|:------------------:|:------------------:|
+| Blog                                | &#x2714;           | &#x2714;           |
+| Features (see below)                | &#x2714;           | &#x2714;           |
+| [Portfolio] Layout                  |                    | &#x2714;           |
+| [Resume] Layout                     |                    | &#x2714;           |
+| [Welcome] Layout                    |                    | &#x2714;           |
+| Newsletter Subscription Box         |                    | &#x2714;           |
+| Form Element Styles                 |                    | &#x2714;           |
+| Search Functionality                |                    | &#x2714;           |
+| Offline Support[^4]                 |                    | &#x2714;           |
+| Latest issue of "Fishing Quarterly" |                    |                    |
+| Three months supply of cat food     |                    |                    |
+| 10 free scuba diving coupons        |                    |                    |
+| License                             | [GPL-3.0][license] | [PRO]              |
+| Price                               | Free               | $59                |
+|| [**Download on GitHub**][github]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $59][buy] [^3] |
 
 Open `about.md` to edit this text.
 
@@ -75,7 +82,7 @@ Open `about.md` to edit this text.
 [license]: LICENSE.md
 [pro]: licenses/PRO-license.md
 
-[download]: https://github.com/qwtel/hydejack/releases
+[github]: https://github.com/qwtel/hydejack/releases
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 

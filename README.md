@@ -90,7 +90,7 @@ usage of 3rd party plugins.
 [pro]: licenses/PRO-license.md
 [docs]: docs/7.0.0-beta.0/index.md
 
-[download]: https://github.com/qwtel/hydejack/releases
+[github]: https://github.com/qwtel/hydejack/releases
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 [wiki]: https://github.com/qwtel/hydejack/wiki
