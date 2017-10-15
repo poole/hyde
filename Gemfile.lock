@@ -61,5 +61,8 @@ DEPENDENCIES
   jekyll-seo-tag (~> 2.2)
   jekyll-sitemap (~> 1.0)
 
+RUBY VERSION
+   ruby 2.3.3p222
+
 BUNDLED WITH
    1.15.4
