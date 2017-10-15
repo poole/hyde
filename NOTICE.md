@@ -185,21 +185,12 @@ which is MIT licensed with the following copyright
 
 A copy of the [MIT] license is provided as part of this distribution.
 
-### Bootstrap
-This software also uses portions of the Bootstrap project,
+### Bootstrap v4
+This software also uses portions of the Bootstrap v4 project,
 which is MIT licensed with the following copyright
 
 > Copyright (c) 2011-2017 Twitter, Inc.  
 > Copyright (c) 2011-2017 The Bootstrap Authors
-
-A copy of the [MIT] license is provided as part of this distribution.
-
-### underscore.js
-This software also uses portions of the underscore.js project, which is
-MIT licensed with the following copyright:
-
-> Copyright (c) 2009-2015 Jeremy Ashkenas, DocumentCloud and Investigative
-Reporters & Editors
 
 A copy of the [MIT] license is provided as part of this distribution.
 
@@ -224,6 +215,22 @@ This software also uses portions of the decamelize project,
 which is MIT licensed with the following copyright
 
 > Copyright (c) Sindre Sorhus <sindresorhus@gmail.com> (sindresorhus.com)
+
+A copy of the [MIT] license is provided as part of this distribution.
+
+### jQuery
+This software also uses portions of the jQuery project,
+which is MIT licensed with the following copyright
+
+> Copyright JS Foundation and other contributors, https://js.foundation/
+
+A copy of the [MIT] license is provided as part of this distribution.
+
+### Bootstrap
+This software also uses portions of the Bootstrap project,
+which is MIT licensed with the following copyright
+
+> Copyright 2011-2015 Twitter, Inc.
 
 A copy of the [MIT] license is provided as part of this distribution.
 
