@@ -155,11 +155,17 @@ include:
 # ========================================================================================
 
 plugins:
+  - jekyll-avatar
   - jekyll-feed
+  - jekyll-gist
+  - jekyll-optional-front-matter
   - jekyll-paginate
+  - jekyll-readme-index
+  - jekyll-redirect-from
   - jekyll-relative-links
   - jekyll-seo-tag
   - jekyll-sitemap
+  - jekyll-titles-from-headings
 
 
 # SEO Tag
