@@ -83,7 +83,9 @@ const REQUIREMENTS = [
   'template',
 ];
 
-// Duration of a animation:
+const REPLACE_IDS = '_main';
+const LINK_SELECTOR = 'a[href]:not(.external):not(.no-push-state)';
+const SCRIPT_SELECTOR = 'script:not([type^="math/tex"])';
 const DURATION = 250;
 
 // Duration of cross-fading the sidebar background images.
@@ -212,12 +214,11 @@ function animateFadeIn({ type, replaceEls: [main], flipType }) {
 // Before we register the WebComponent with the DOM, we set essential properties,
 // some of which depend on browser, standalone mode, etc...
 function setupWebComponent(pushStateEl) {
-  pushStateEl.setAttribute('replace-ids', '_main');
-  pushStateEl.setAttribute('link-selector', 'a[href]:not(.no-push-state):not(.external)');
-  if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
+  pushStateEl.setAttribute('replace-ids', REPLACE_IDS);
+  pushStateEl.setAttribute('link-selector', LINK_SELECTOR);
   pushStateEl.setAttribute('duration', DURATION);
-  if (isSafari && !navigator.standalone) pushStateEl.setAttribute('_instant-pop', '');
-  pushStateEl.setAttribute('_script-selector', 'script:not([type^="math/tex"])');
+  if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
+  pushStateEl.setAttribute('_script-selector', SCRIPT_SELECTOR);
 
   customElements.define('hy-push-state', HTMLPushStateElement);
   return pushStateEl;
@@ -226,12 +227,11 @@ function setupWebComponent(pushStateEl) {
 // Setting up hy-push-state as vanilla JS class.
 function setupVanilla(pushStateEl) {
   return new PushState(pushStateEl, {
-    replaceIds: ['_main'],
-    linkSelector: 'a[href]:not(.no-push-state)',
-    scrollRestoration: shouldRestoreScroll(),
+    replaceIds: REPLACE_IDS.split(','),
+    linkSelector: LINK_SELECTOR,
     duration: DURATION,
-    _instantPop: isSafari && !navigator.standalone,
-    _scriptSelector: 'script:not([type^="math/tex"])',
+    scrollRestoration: shouldRestoreScroll(),
+    _scriptSelector: SCRIPT_SELECTOR,
   });
 }
 

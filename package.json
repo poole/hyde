@@ -9,7 +9,7 @@
     "build:js": "mkdir -p assets/js && cat _includes/header.txt > assets/js/hydejack.js; cross-env NODE_ENV=production browserify _js/src/index.js -g browserify-css -g stringify -g babelify | uglifyjs -c -m >> assets/js/hydejack.js",
     "build:css": ".scripts/build-css.sh",
     "watch": "npm run watch:js & npm run watch:css",
-    "watch:js": "watchify -d _js/src/index.js -g browserify-css -g stringify -g babelify -o assets/js/hydejack.js",
+    "watch:js": "mkdir -p assets/js && watchify -d _js/src/index.js -g browserify-css -g stringify -g babelify -o assets/js/hydejack.js",
     "watch:css": "npm run build:css && onchange '_sass/**/*.scss' -e '_sass/**/__*/*' -- npm run build:css '{{changed}}'",
     "serve": "bundle exec jekyll serve --port=$npm_package_config_port --host=0.0.0.0",
     "lint": "eslint _js/src",
