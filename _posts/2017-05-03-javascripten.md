@@ -60,7 +60,7 @@ See the [the migration guide][upgrade] for instructions on how to upgrade.
 
 [Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases)
 
-[upgrade]: ../docs/7.0.0-beta.1/upgrade.md
-[writing]: ../docs/7.0.0-beta.1/writing.md
+[upgrade]: ../docs/7.0.0-beta.2/upgrade.md
+[writing]: ../docs/7.0.0-beta.2/writing.md
 
 *[FOUC]: Flash of Unstyled Content
