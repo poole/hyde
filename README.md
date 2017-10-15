@@ -73,7 +73,7 @@ This table details what is and isn't included in each respective version.
 | 10 free scuba diving coupons        |                    |                    |
 | License                             | [GPL-3.0][license] | [PRO]              |
 | Price                               | Free               | $59                |
-|| [**Download on GitHub**][github]<br/> -- or -- <br/>[**Use the RubyGem**][gem] | [Buy Now – $59][buy] [^3] |
+|| [Download on GitHub][github]<br/> -- or -- <br/>[Use the RubyGem][gem] | [**Buy Now – $59**][buy] [^3] |
 
 
 [^1]: Applies after the initial page load.  
@@ -87,7 +87,7 @@ usage of 3rd party plugins.
 [welcome]: https://qwtel.com/hydejack/
 
 [license]: LICENSE.md
-[pro]: licenses/PRO-license.md
+[pro]: licenses/PRO.md
 [docs]: docs/7.0.0-beta.2/index.md
 
 [github]: https://github.com/qwtel/hydejack/releases
