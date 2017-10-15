@@ -16,6 +16,7 @@
 
 // Import what we need.
 import 'core-js/fn/function/bind';
+
 import { Observable } from 'rxjs/Observable';
 
 // Check the user agent for Safari and iOS Safari, to give them some special treatment...
@@ -26,12 +27,13 @@ export const isMobileSafari = isSafari && ua.indexOf('mobile') > 0;
 // Takes an array of Modernizr feature tests and makes sure they all pass.
 export function hasFeatures(features) {
   let acc = true;
-  for (let i = 0; i < features.length; i += 1) {
-    const feature = features[i];
+
+  features.forEach((feature) => {
     const hasFeature = window.Modernizr[feature];
     if (!hasFeature && process.env.DEBUG) console.warn(`Feature '${feature}' missing!`);
     acc = acc && hasFeature;
-  }
+  });
+
   return acc;
 }
 
