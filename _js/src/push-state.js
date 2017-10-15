@@ -213,7 +213,7 @@ function animateFadeIn({ type, replaceEls: [main], flipType }) {
 // some of which depend on browser, standalone mode, etc...
 function setupWebComponent(pushStateEl) {
   pushStateEl.setAttribute('replace-ids', '_main');
-  pushStateEl.setAttribute('link-selector', 'a[href]:not(.no-push-state)');
+  pushStateEl.setAttribute('link-selector', 'a[href]:not(.no-push-state):not(.external)');
   if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
   pushStateEl.setAttribute('duration', DURATION);
   if (isSafari && !navigator.standalone) pushStateEl.setAttribute('_instant-pop', '');
