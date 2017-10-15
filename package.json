@@ -6,7 +6,7 @@
     "clean": "rm -f assets/js/hydejack.js & rm -f _sass/**/__*/* & wait",
     "test": "echo \"Warning: no test specified\" && exit 0",
     "build": "npm run build:js & npm run build:css & wait",
-    "build:js": "cat _includes/header.txt > assets/js/hydejack.js; cross-env NODE_ENV=production browserify _js/src/index.js -g browserify-css -g stringify -g babelify | uglifyjs -c -m >> assets/js/hydejack.js",
+    "build:js": "mkdir -p assets/js && cat _includes/header.txt > assets/js/hydejack.js; cross-env NODE_ENV=production browserify _js/src/index.js -g browserify-css -g stringify -g babelify | uglifyjs -c -m >> assets/js/hydejack.js",
     "build:css": ".scripts/build-css.sh",
     "watch": "npm run watch:js & npm run watch:css",
     "watch:js": "watchify -d _js/src/index.js -g browserify-css -g stringify -g babelify -o assets/js/hydejack.js",
