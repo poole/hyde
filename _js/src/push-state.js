@@ -86,6 +86,7 @@ const REQUIREMENTS = [
 const REPLACE_IDS = '_main';
 const LINK_SELECTOR = 'a[href]:not(.external):not(.no-push-state)';
 const SCRIPT_SELECTOR = 'script:not([type^="math/tex"])';
+const HREF_REGEX = /^((?!(\/assets\/)).)*$/;
 const DURATION = 250;
 
 // Duration of cross-fading the sidebar background images.
@@ -218,6 +219,7 @@ function setupWebComponent(pushStateEl) {
   pushStateEl.setAttribute('link-selector', LINK_SELECTOR);
   pushStateEl.setAttribute('duration', DURATION);
   if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
+  pushStateEl.setAttribute('_href-regex', HREF_REGEX);
   pushStateEl.setAttribute('_script-selector', SCRIPT_SELECTOR);
 
   customElements.define('hy-push-state', HTMLPushStateElement);
@@ -231,6 +233,7 @@ function setupVanilla(pushStateEl) {
     linkSelector: LINK_SELECTOR,
     duration: DURATION,
     scrollRestoration: shouldRestoreScroll(),
+    _hrefRegex: HREF_REGEX,
     _scriptSelector: SCRIPT_SELECTOR,
   });
 }
