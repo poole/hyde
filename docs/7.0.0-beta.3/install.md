@@ -1,11 +1,6 @@
 ---
 layout: page
 title: Install
-redirect_from:
-  - /docs/latest/install/
-  - /docs/install/
-  - /docs/latest/installation/
-  - /docs/installation/
 description: >
 ---
 

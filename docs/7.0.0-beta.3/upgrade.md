@@ -1,11 +1,6 @@
 ---
 layout: page
 title: Upgrade
-redirect_from:
-  - /docs/latest/upgrade/
-  - /docs/upgrade/
-  - /docs/latest/migration/
-  - /docs/migration/
 description: >
   This documents shows how to upgrade Hydejack from previous versions in a step-by-step manner.
 ---
