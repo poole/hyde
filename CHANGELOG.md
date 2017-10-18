@@ -4,7 +4,7 @@ title: CHANGELOG
 ---
 
 ## v7.0.0
-Oct XX 2017
+Oct 20 2017
 {:.heading.post-date}
 
 ### License v7
@@ -59,6 +59,13 @@ That being said, you should be aware of these (small) breaking changes:
     no_push_state: false
     no_drawer: false
   ```
+
+* All plugins (gems) are now optional.
+  The gem-based version of the theme no longer uses any plugins by default,
+  while the download version follow a "batteries-included" approach and enables some by default.
+
+* Links to the `/assets/` folder are no longer intercepted by the push state features,
+  which means clickable images and download links should work fine now.
 
 * Reader views in Firefox and Safari have an easier time recognizing the main content.
 
@@ -249,6 +256,8 @@ That being said, you should be aware of these (small) breaking changes:
   hydejack:
     no_break_layout: true
   ```
+
+* Margin below code blocks, math blocks and tables increased from `1rem` to `2rem`.
 
 * Gray text now has a higher contrast ratio:
   I don't want anybody to ["suffer from design"](https://lostinmobile.com/2016/10/25/im-suffering-from-design/).
