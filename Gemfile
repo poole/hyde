@@ -24,7 +24,7 @@ group :jekyll_plugins do
   gem "jekyll-paginate", "~> 1.1"
   # gem "jekyll-readme-index", "~> 0.1"
   # gem "jekyll-redirect-from", "~> 0.12"
-  gem "jekyll-relative-links", "~> 0.4"
+  gem "jekyll-relative-links", git: "git@github.com:qwtel/jekyll-relative-links.git", branch: "fix"
   gem "jekyll-seo-tag", "~> 2.3"
   gem "jekyll-sitemap", "~> 1.1"
   # gem "jekyll-titles-from-headings", "~> 0.4"
