@@ -5,8 +5,8 @@
 
 // <<<<< LINK
 .pagination {
-  width: 100%;
-  margin: 0 -1.5rem 1rem;
+  width: calc(100% + 2rem);
+  margin: 0 -1rem 1rem;
   color: $gray;
   text-align: center;
 
@@ -42,6 +42,7 @@
 
 @media (min-width: 23.5em) {
   .pagination {
+    width: 100%;
     margin: 3rem 0;
   }
 
