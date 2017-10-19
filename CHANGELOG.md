@@ -7,17 +7,17 @@ title: CHANGELOG
 Oct 20 2017
 {:.heading.post-date}
 
-### License v7
-The **free version** of Hydejack is now [GPL-3.0] licensed, which is a more restrictive license than MIT (but still _Open Source_).
+### License Change
+The *free version* of Hydejack is now [GPL-3.0] licensed, which is a more restrictive license than MIT (but still *Open Source*).
 This was necessary because the two major components that make up Hydejack, [hy-push-state](https://qwtel.com/hy-push-state/) and
-[hy-drawer](https://qwtel.com/hy-drawer/), are now GPL licensed as well.
+[hy-drawer](https://qwtel.com/hy-drawer/), are now GPL licensed in turn.
 
 How will this affect you?
-* You can continue to use your current version of Hydejack according to the MIT license.
+* You can continue to use previous versions of Hydejack according to their license (MIT).
 * If you upgrade, keep the source code in a public repository and make sure you include the new `LICENSE.md` file.
-  DO NOT combine the *new code* with the *old license*.
-* If you upgrade AND make changes to the source codee, you are required to make those changes available to the public
-  under a GPL-3.0 compatible license~~
+  DO NOT publish the *new code* with an *old license*.
+* If you upgrade and make changes to the source code, you are required to make those changes available to the public
+  under a GPL-3.0 compatible license.
 
 The full license text is available [here][GPL-3.0].
 You can read a summary on [tl;drLegel](https://tldrlegal.com/license/gnu-general-public-license-v3-(gpl-3)).
