@@ -4,6 +4,7 @@ title: PRO License
 ---
 
 ## License Summary
+* License concerns use of [Hydejack PRO][1]
 * License does not expire
 * Commercial use allowed
 * Can modify source code
@@ -15,7 +16,7 @@ This Agreement governs the relationship between you (hereinafter: Licensee) and
 Florian Klampfer qwtel.com (hereinafter: Licensor).
 This Agreement sets the terms, rights, restrictions and obligations on using
 Hydejack PRO (hereinafter: The Software)
-created and owned by Licensor, as detailed herein
+created and owned by Licensor, as detailed herein.
 
 ### 2. License Grant
 Licensor hereby grants Licensee a Personal, Perpetual, Commercial, Royalty free,
@@ -105,18 +106,13 @@ shall never be liable for any defect in source code written by Licensee when rel
 Software’s source code.
 
 ### 8. Warranty
-1.  **Intellectual Property:** Licensor hereby warrants that The Software does not violate or infringe any 3rd
-    party claims in regards to intellectual property, patents and/or trademarks and that to the best of its
-    knowledge no legal action has been taken against it for any infringement or violation of any 3rd party
-    intellectual property rights.
-
-2.  **No-Warranty:** The Software is provided without any warranty; Licensor hereby disclaims any warranty that The
+1.  **No-Warranty:** The Software is provided without any warranty; Licensor hereby disclaims any warranty that The
     Software shall be error free, without defects or code which may cause damage to Licensee’s computers or to
     Licensee, and that Software shall be functional. Licensee shall be solely liable to any damage, defect or loss
     incurred as a result of operating software and undertake the risks contained in running The Software on
     License’s Server[s] and Website[s].
 
-3.  **Prior Inspection:** Licensee hereby states that he inspected The Software thoroughly and found it
+2.  **Prior Inspection:** Licensee hereby states that he inspected The Software thoroughly and found it
     satisfactory and adequate to his needs, that it does not interfere with his regular operation and that it does
     meet the standards and scope of his computer systems and architecture. Licensee found that The Software
     interacts with his development, website and server environment and that it does not infringe any of End User
@@ -140,3 +136,5 @@ in relation to such lawsuit or claim.
 Licensee hereby agrees not to initiate class-action lawsuits against Licensor in
 relation to this license and to compensate Licensor for any legal fees, cost or attorney fees should any claim
 brought by Licensee against Licensor be denied, in part or in full.
+
+[1]: https://qwtel.com/hydejack/
