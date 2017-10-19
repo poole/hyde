@@ -6,7 +6,7 @@ layout: base
 
 <article class="page" role="article">
   <header>
-    <h1 class="page-title">{{ page.title | default:strings.home | default:"Home"}}</h1>
+    <h1 class="page-title">{{ page.title | default:strings.home | default:"Home" }}</h1>
     {% include message.html text=page.description hide=page.no_description %}
   </header>
 
@@ -23,7 +23,7 @@ layout: base
     </ul>
   {% endif %}
 
-  {% assign pages = site.html_pages | where:"layout","page" %}
+  {% assign pages = site.html_pages | where:"layout","page" | where_exp:"page","page.sitemap != false" %}
   {% if pages.size > 0 %}
     <h2 class="hr">{{ strings.pages | default:"Pages" }}</h2>
     <ul class="related-posts">
