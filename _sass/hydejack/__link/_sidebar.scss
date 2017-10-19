@@ -18,13 +18,6 @@
 //     border-bottom-color: rgba(255, 255, 255, 0.2); 
     &:hover { border-bottom-color: #fff; } 
   }
-
-  
-  @media print {
-    page-break-inside: avoid;
-    break-inside: avoid-page;
-  }
-  
 }
 
 hy-drawer {
@@ -142,7 +135,8 @@ a.sidebar-nav-item {
 
 @media print {
   .sidebar {
-    page-break-inside: avoid;
+    page-break-before: always;
+    break-before: always;
   }
 
   .sidebar-nav, .sidebar-social {
