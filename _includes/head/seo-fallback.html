@@ -1,9 +1,9 @@
 {% assign strings = site.data.strings %}
 {% capture title %}
   {% if page.url == "/" %}
-    {{ site.title }}{% if site.tagline %} {{ strings.separator }} {{ site.tagline }}{% endif %}
+    {{ site.title }}{% if site.tagline %} {{ strings.separator | default:"|" }} {{ site.tagline }}{% endif %}
   {% elsif page.title.size > 0 %}
-    {{ page.title }} {{ strings.separator }} {{ site.title }}
+    {{ page.title }} {{ strings.separator | default:"|" }} {{ site.title }}
   {% else %}
     {{ site.title }}
   {% endif %}
