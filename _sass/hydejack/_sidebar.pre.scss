@@ -55,7 +55,7 @@ hy-drawer {
     width: calc(50% - 28rem); // inline
     > .hy-drawer-content.hy-drawer-left  { width: calc(50% - 28rem); left: calc(-50% + 28.5rem); } // link
     --hy-drawer-width: calc(50% - 28rem); // link
-    --hy-drawer-slide-width: calc(-50% + 28.5rem); // link
+    --hy-drawer-slide-width: calc(50% - 28.5rem); // link
   }
 }
 
