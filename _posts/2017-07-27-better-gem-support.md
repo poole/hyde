@@ -51,7 +51,7 @@ For the full patch notes, read on.
     social:
       github: https://github.com/qwtel/hydejack
       npm: https://www.npmjs.com/package/hydejack
-      download: https://github.com/qwtel/hydejack/archive/v7.0.0-beta.4.zip
+      download: https://github.com/qwtel/hydejack/archive/v7.0.0-beta.5.zip
 
   data_social:
     github:
