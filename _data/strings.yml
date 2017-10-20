@@ -14,6 +14,7 @@
   newer:                 Newer
   older:                 Older
   back:                  Back
+  templates:             Templates (for web app)
 
   category_start:        "in "
   category_spearator:    " / "
