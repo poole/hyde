@@ -33,7 +33,7 @@ import { debounceTime } from 'rxjs/operator/debounceTime';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 
 // And some of our own helper functions/constants.
-import { hasFeatures, isSafari, isMobileSafari } from './common';
+import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = [
@@ -54,7 +54,7 @@ function resizeCallback() {
   if (window._isDesktop !== isDesktop) {
     window._isDesktop = isDesktop;
     window._drawer.persistent = isDesktop;
-    window._drawer._jumpTo(isDesktop);
+    window._drawer.opened = isDesktop;
   }
 }
 
@@ -105,7 +105,10 @@ function setupVanilla(drawerEl) {
 // ## Main
 // First, we determine if the drawer is enabled,
 // and whether the current user agent meets our requirements.
-if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
+// UC Browser has even more invasive native swipe guestures than iOS Safari,
+// (that ignore `preventDefault` on top of that...),
+// so we disable the component alltogether. UC Mini is fine though.
+if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Now we get a hold of some DOM elements
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
@@ -123,11 +126,28 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS)) {
   // TODO: Check if we still need this. Also, maybe make this part of the component itself?
   drawerEl.classList.add('loaded');
 
+  // You can uncomment the code below to lock document scrolling while sliding.
+  // However, it's not as good as `preventDefault`,
+  // as it won't prevent most mobile browsers from showing/hiding their addressbar,
+  // causing expensive reflows/repaints...
+  // NOTE: iOS Safari ignores this completely.
+  /*
+  if (!isSafari) {
+    drawerEl.addEventListener('hy-drawer-slidestart', () => {
+      document.body.style.overflowY = 'hidden';
+    });
+
+    drawerEl.addEventListener('hy-drawer-slideend', () => {
+      document.body.style.overflowY = '';
+    });
+  }
+  */
+
   // Adding the click callback to the menu button.
   menuEl.addEventListener('click', menuClickClallback);
 
   // Adding the resize callback to the resize event, but with a small delay.
-  Observable::fromEvent(window, 'resize')
-    ::debounceTime(250)
+  Observable::fromEvent(window, 'resize', { passive: true })
+    ::debounceTime(100)
     .subscribe(resizeCallback);
 }
