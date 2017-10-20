@@ -1,6 +1,6 @@
 // <<< link
 @media screen {
-  a[href*="//"]:not(.no-mark-external), a.no-push-state:not(.no-mark-external) {
+  a[href*="//"]:not(.no-mark-external), , a.external:not(.no-mark-external), a.no-push-state:not(.no-mark-external) {
     &::after {
       content: "\00A0\ea7e";
       font-family: 'icomoon'!important;
