@@ -420,7 +420,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // In case of a network error, we don't want to show the browser's default offline page.
   error$::subscribe(({ url }) => {
     loading.style.display = 'none';
-    animationMain.querySelector('.page')::empty(); // say what?
+    animationMain.querySelector('.page')::empty();
 
     const main = document.getElementById('_main');
     main::empty();
@@ -440,12 +440,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     // Then we empty the content immediately to prevent flickering and
     // set the old `scrollHeigt` as the body's `minHeight`.
     Observable::fromEvent(window, 'popstate')
-      ::filter(() => window.history.state &&
-        window.history.state['hy-push-state'] &&
+      ::filter(() => window.history.state && window.history.state['hy-push-state'] &&
         !window.history.state['hy-push-state'].hash)
       ::subscribe(() => {
         const { scrollHeight } = window.history.state['hy-push-state'];
-        document.getElementById('_main')::empty();
         document.body.style.minHeight = `${scrollHeight}px`;
       });
 
