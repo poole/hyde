@@ -26,7 +26,7 @@ description:           >
 keywords:              []
 
 # TODO
-logo:                  /hydejack/apple-touch-icon.png
+logo:                  /hydejack/assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 # Duplication is necessary due to the jekyll-feed plugin.
