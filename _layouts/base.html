@@ -7,6 +7,7 @@ layout: compress
 {% assign plugins = site.plugins | default:site.gems %}
 
 {% assign image = site.accent_image | default:site.image %}
+{% unless image %}{% assign image = '/assets/img/sidebar-bg.jpg' | relative_url %}{% endunless %}
 {% assign color = site.accent_color | default:site.color | default:'#4fb1ba' %}
 
 {% if page.categories.size > 0 %}
