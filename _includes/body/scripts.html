@@ -9,7 +9,7 @@
   {% endif %}
 
   <!--[if gt IE 9]><!---->
-  {% capture js_url %}{% link assets/js/hydejack.js %}?v=7.0.0-beta.7{% endcapture %}
+  {% capture js_url %}{% link assets/js/hydejack.js %}?v=7.0.0{% endcapture %}
   <script>loadJSDeferred('{{ js_url | relative_url }}');</script>
 
   {% include my-scripts.html %}
