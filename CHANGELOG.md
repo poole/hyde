@@ -4,7 +4,7 @@ title: CHANGELOG
 ---
 
 ## v7.0.0
-Oct 20 2017
+Oct 24 2017
 {:.heading.post-date}
 
 ### License Change
