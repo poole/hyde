@@ -21,11 +21,14 @@ baseurl:               /hydejack
 description:           >
   Open `_config.yml` to edit this text.
 
+# A shorter description for the sidebar.
+tagline:               A Jekyll theme with JavaScript Powers.
+
 # A list of keywords for your blog, will be used as fallback
 # for pages that don't have `keywords` in their front matter.
 keywords:              []
 
-# TODO
+# Used by jekyll-seo-tag...
 logo:                  /hydejack/assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
