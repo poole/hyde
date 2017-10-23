@@ -2,6 +2,8 @@
 layout: page
 title: Install
 description: >
+  There are multiple ways of installing Hydejack.
+  The easiest way is via the Ruby gem, but you can also download the zip or fork the git repository.
 ---
 
 There are multiple ways of installing Hydejack.
