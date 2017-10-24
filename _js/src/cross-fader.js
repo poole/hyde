@@ -88,7 +88,7 @@ function pseudoHash({
 // Get an Observable that emits (once) when the `image` has been loaded,
 // or just remite immediately if there is no image, or it hasn't changed.
 // Note that the point is not to *use* the image object, just to make sure the image is in cache.
-function getImage$({ background, image }) {
+function cacheImage$({ background, image }) {
   if (background || !image || image === '' || image === 'none' || image === this.prevImage) {
     return Observable::of({});
   }
@@ -126,7 +126,7 @@ export default class CrossFader {
     const hash = pseudoHash(dataset);
     if (hash === this.prevHash) return Observable::empty();
 
-    return this::getImage$(dataset)
+    return this::cacheImage$(dataset)
       ::map(() => {
         const div = document.createElement('div');
         div.classList.add('sidebar-bg');
