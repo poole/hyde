@@ -9,8 +9,10 @@ Oct 24 2017
 
 ### License Change
 The *free version* of Hydejack is now [GPL-3.0] licensed, which is a more restrictive license than MIT (but still *Open Source*).
-This was necessary because the two major components that make up Hydejack, [hy-push-state](https://qwtel.com/hy-push-state/) and
-[hy-drawer](https://qwtel.com/hy-drawer/), are now GPL licensed in turn.
+This was necessary because the two major components that make up Hydejack,
+[hy-push-state](https://qwtel.com/hy-push-state/){:.external} and
+[hy-drawer](https://qwtel.com/hy-drawer/){:.external},
+are now GPL licensed in turn.
 
 How will this affect you?
 * You can continue to use previous versions of Hydejack according to their license (MIT).
@@ -32,8 +34,7 @@ Some names have changed and are no longer mentioned in the docs, but they are st
 
 That being said, you should be aware of these (small) breaking changes:
 
-* (Fav-)icons are now located in `/assets/img/icons/`. To change the (fav-)icon of the page, edit the images in the folder.
-  Buyers of the PRO version get a .psd file to assist the creation.
+* The favicon is now located in `assets/icons`. To change the favicon of the page, edit `favicon.ico` (png) in the folder.
 
 * Changed the way tables work, so that they do the right thing more often.
   Tables are now scrollable by default, but small tables are no longer stretched to span the full width.

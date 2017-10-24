@@ -11,34 +11,39 @@ Hydejack is a cutting-edge Jekyll theme that combines the best of static sites a
 > Your presence on the web --- A [blog], a [portfolio] and a [resume].
 {:.lead}
 
-It aims to be the complete package for professionals on the web. It features a blog suitable for both prose and technical documentation, a showcase for projects and a resume that fits with the rest of the design.
+**Hydejack** aims to be the complete package for professionals on the web.
+It features a blog suitable for both prose and technical documentation,
+a showcase for your projects, and a resume that fits with the rest of the design.
 
 Open `about.md` to edit this text.
 
-### Features
-Both the PRO *and* free version includes all of the features listed below:
+## Features
+Both versions include *all* of these features:
 
-* Full in-app page loading --- no Flash of White, no Flash of Unstyled Content[^1]
-* Advanced animations, inspired by Material Design
-* A customizable sidebar that turns into a touch-enabled app drawer on mobile
-* Near-perfect [Google PageSpeed Score][gpss][^2]
-* Even higher *perceived speed* thanks to pre-fetching and latency-hiding
-* Support for categories and tags --- even when hosting on GitHub Pages
-* Built-in collection of social media icons
+* Full in-app page loading, powered by [hy-push-state]{:.external}
+* A customizable sidebar that turns into a drawer menu on mobile, powered by [hy-drawer]{:.external}
+* Advanced FLIP animations, inspired by Material Design
+* Good [Google PageSpeed Score][gpss][^2]
+* High *perceived speed* thanks to pre-fetching
+* Support for categories and tags
+* Built-in icons for many social networks
+* Simple and semantic HTML — can be viewed even with text-based browsers
 * Author section below each article and multiple authors
-* Simple and semantic HTML --- can be viewed even with text-based browsers
-* Progressive enhancement --- sacrifice features, not content
+* Progressive enhancement — sacrifice features, not content
 * Google Analytics and Google Fonts support
-* Blog layout with pagination
 * Syntax highlighting
 * Math formulas via LaTeX
 * Disqus comments
-* RSS feed
-* Print layout
+* Print layout. See the [PDF documentation][pdf] for an example.
+* Github avatars via `jekyll-avatar` (optional).
+* Gist support via `jekyll-gist` (optional).
+* Blog layout with pagination via `jekyll-paginate` (optional)
+* SEO meta tags via `jekyll-seo-tag` (optional)
 
-### [Documentation][docs]{:.flip-title}
-Hydejack is documented extensively.
-You can read it [on this site][docs], in the [repository's wiki][wiki], or [download the PDF][github].
+Open `about.md` to edit this text.
+
+### Documentation
+Hydejack is well documented. You can read it [on the Jekyll site][docs], or [on GitHub][wiki], or [download the PDF][pdf].
 
 Open `about.md` to edit this text.
 
@@ -75,6 +80,7 @@ Open `about.md` to edit this text.
 [resume]: https://qwtel.com/hydejack/resume/
 [download]: https://qwtel.com/download/
 [welcome]: https://qwtel.com/hydejack/
+
 [license]: LICENSE.md
 [pro]: licenses/PRO.md
 [docs]: docs/7.0.0/index.md
@@ -84,4 +90,8 @@ Open `about.md` to edit this text.
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
-[wiki]: https://github.com/qwtel/hydejack/wiki
+[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.0.0/index.md
+[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.0.0/Documentation._.Hydejack.pdf
+
+[hy-push-state]: https://qwtel.com/hy-push-state/
+[hy-drawer]: https://qwtel.com/hy-drawer/
