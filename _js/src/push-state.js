@@ -43,8 +43,8 @@ import { merge } from 'rxjs/observable/merge';
 import { of } from 'rxjs/observable/of';
 import { timer } from 'rxjs/observable/timer';
 
-import { _catch as recover } from 'rxjs/operator/catch';
-import { _do as effect } from 'rxjs/operator/do';
+import { _catch as catchError } from 'rxjs/operator/catch';
+import { _do as tap } from 'rxjs/operator/do';
 import { debounceTime } from 'rxjs/operator/debounceTime';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
@@ -57,8 +57,7 @@ import { startWith } from 'rxjs/operator/startWith';
 import { exhaustMap } from 'rxjs/operator/exhaustMap';
 import { switchMap } from 'rxjs/operator/switchMap';
 import { takeUntil } from 'rxjs/operator/takeUntil';
-// import { toPromise } from 'rxjs/operator/toPromise';
-import { zipProto as zipWith } from 'rxjs/operator/zip';
+import { zipProto as zip } from 'rxjs/operator/zip';
 
 // Some of our own helper functions and classes.
 import { animate, empty, getResolvablePromise, hasFeatures, isSafari } from './common';
@@ -137,8 +136,8 @@ function upgradeHeading(h) {
 // Like subscribe, but we log errors to the console, but continue as if it never happend.
 function subscribe(ne, er, co) {
   return this
-    ::effect({ error: ::console.error })
-    ::recover((e, c) => c)
+    ::tap({ error: ::console.error })
+    ::catchError((e, c) => c)
     .subscribe(ne, er, co);
 }
 
@@ -299,7 +298,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     // * Close the drawer if it's open (i.e. when clicking a link in the sidebar)
     // * Add the `active` class to the active entry in the sidebar (currently not in use)
     // * If we are going to animate the content, make some preparations.
-    ::effect(({ type, main }) => {
+    ::tap(({ type, main }) => {
       if (!window._isDesktop && window._drawer.opened) {
         window._drawer.close();
       }
@@ -323,7 +322,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     ::exhaustMap(animateFadeOut)
 
     // After the animation is complete, we empty the current content and scroll to the top.
-    ::effect(({ main }) => {
+    ::tap(({ main }) => {
       main::empty();
       window.scroll(window.pageXOffset, 0);
     })
@@ -348,7 +347,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // `after` new content is added to the DOM, start animating it.
   const fadeIn$ = after$
     ::switchMap(animateFadeIn)
-    ::effect(({ main }) => { main.style.pointerEvents = ''; })
+    ::tap(({ main }) => { main.style.pointerEvents = ''; })
     ::share();
 
   // In addition to fading the main content out,
@@ -369,7 +368,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
     })
     // Every click starts a timer that lasts as long
     // as it takes for the FLIP and fade-out animations to complete.
-    ::switchMap(p => Observable::timer(DURATION)::zipWith(fadeOut$, flip$, () => p))
+    ::switchMap(p => Observable::timer(DURATION)::zip(fadeOut$, flip$, () => p))
     // Once the animation have completed, we resolve the promise so that hy-push-state continues.
     ::subscribe(p => p.resolve());
 
@@ -391,7 +390,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // is using a different background image?
   after$::switchMap(({ replaceEls: [main] }) =>
     crossFader.fetchImage(main)
-      ::zipWith(fadeIn$, x => x)
+      ::zip(fadeIn$, x => x)
       ::takeUntil(start$))
 
     // Once we have both images, we take them `pairwise` and cross-fade.
@@ -408,7 +407,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS)) {
   // This can take a while and will trigger multiple repaints,
   // so we don't want to start until after the animation.
   fadeIn$
-    ::effect(upgradeMathBlocks)
+    ::tap(upgradeMathBlocks)
 
     // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
     ::debounceTime(GA_DELAY)

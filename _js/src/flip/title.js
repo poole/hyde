@@ -20,12 +20,12 @@ import { Observable } from 'rxjs/Observable';
 
 import { of } from 'rxjs/observable/of';
 
-import { _do as effect } from 'rxjs/operator/do';
-import { _finally as cleanup } from 'rxjs/operator/finally';
+import { _do as tap } from 'rxjs/operator/do';
+import { _finally as finalize } from 'rxjs/operator/finally';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { switchMap } from 'rxjs/operator/switchMap';
-import { zipProto as zipWith } from 'rxjs/operator/zip';
+import { zipProto as zip } from 'rxjs/operator/zip';
 
 import { animate, empty } from '../common';
 
@@ -69,7 +69,7 @@ export default function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain,
       ];
 
       return animate(title, transform, settings)
-        ::effect({ complete() { animationMain.style.position = 'absolute'; } });
+        ::tap({ complete() { animationMain.style.position = 'absolute'; } });
     });
 
   start$::switchMap(({ flipType }) =>
@@ -80,12 +80,12 @@ export default function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain,
         if (title) title.style.opacity = 0;
         return title;
       })
-      ::zipWith(fadeIn$, x => x)
-      ::effect((title) => {
+      ::zip(fadeIn$, x => x)
+      ::tap((title) => {
         if (title) title.style.opacity = 1;
         animationMain.style.opacity = 0;
       })
-      ::cleanup(() => {
+      ::finalize(() => {
         animationMain.style.opacity = 0;
       }))
     .subscribe();

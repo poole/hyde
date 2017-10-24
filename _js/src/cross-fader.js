@@ -24,7 +24,7 @@ import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { of } from 'rxjs/observable/of';
 
-import { _finally as cleanup } from 'rxjs/operator/finally';
+import { _finally as finalize } from 'rxjs/operator/finally';
 import { take } from 'rxjs/operator/take';
 import { map } from 'rxjs/operator/map';
 
@@ -94,11 +94,9 @@ function getImage$({ background, image }) {
   }
 
   const imgObj = new Image();
-
   const image$ = Observable::fromEvent(imgObj, 'load')
     ::take(1)
-    ::cleanup(() => { imgObj.src = ''; });
-
+    ::finalize(() => { imgObj.src = ''; });
   imgObj.src = image;
 
   return image$;
@@ -156,6 +154,6 @@ export default class CrossFader {
     ], {
       duration: this.fadeDuration,
     })
-    ::cleanup(() => prevDiv.parentNode.removeChild(prevDiv));
+    ::finalize(() => prevDiv.parentNode.removeChild(prevDiv));
   }
 }
