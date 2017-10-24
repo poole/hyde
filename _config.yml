@@ -15,20 +15,18 @@ url:                   https://domain.tld
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository.
 baseurl:               /hydejack
 
-# A short description of the page, used in the sidebar and
-# as fallback for the meta description tag.
-# Markdown enabled, but don't use more than one paragraph (enforced by `>`)
+# A short description of the page used for the meta description tag.
 description:           >
-  Open `_config.yml` to edit this text.
+  A Jekyll theme with JavaScript Powers. Open `_config.yml` to edit this text.
 
-# A shorter description for the sidebar.
-tagline:               A Jekyll theme with JavaScript Powers.
+# A shorter description for the sidebar (will use `description` above when empty).
+tagline:               A Jekyll theme with JavaScript Powers. Open `_config.yml` to edit this text.
 
 # A list of keywords for your blog, will be used as fallback
 # for pages that don't have `keywords` in their front matter.
 keywords:              []
 
-# Used by jekyll-seo-tag...
+# A (optional) logo for the page. Used by jekyll-seo-tag.
 logo:                  /hydejack/assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
