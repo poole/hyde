@@ -32,6 +32,9 @@ Some names have changed and are no longer mentioned in the docs, but they are st
 
 That being said, you should be aware of these (small) breaking changes:
 
+* (Fav-)icons are now located in `/assets/img/icons/`. To change the (fav-)icon of the page, edit the images in the folder.
+  Buyers of the PRO version get a .psd file to assist the creation.
+
 * Changed the way tables work, so that they do the right thing more often.
   Tables are now scrollable by default, but small tables are no longer stretched to span the full width.
   Setting `scroll-table` on a larger table is sill recommended, as it will set `white-space: nowrap`.
