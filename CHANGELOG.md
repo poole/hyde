@@ -15,6 +15,7 @@ This was necessary because the two major components that make up Hydejack,
 are now GPL licensed in turn.
 
 How will this affect you?
+* If you bought the *PRO version* you are not affected at all.
 * You can continue to use previous versions of Hydejack according to their license (MIT).
 * If you upgrade, keep the source code in a public repository and make sure you include the new `LICENSE.md` file.
   DO NOT publish the *new code* with an *old license*.

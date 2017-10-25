@@ -62,6 +62,12 @@ Make sure you've made a backup before overwriting any files.
 The archive also contains `.patch` files, that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
 Using this method, git will generate merge conflicts when changes in the patch conflict with any of your changes.
 
+### PRO via git (advanced)
+If you've followed the steps [here](install.md#pro-via-github-advanced), all you need to upgrade is:
+
+~~~bash
+$ bundle update jekyll-theme-hydejack-pro
+~~~
 
 ## Legacy
 Unfortunately, upgrading form v5 and earlier is not straightforward. A lot of patterns and names have changed,

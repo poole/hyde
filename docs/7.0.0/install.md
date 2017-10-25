@@ -143,7 +143,48 @@ Unzip the archive somewhere on your machine, then `cd` *into* the `install` fold
 $ cd ~/Downloads/hydejack-pro-7.0.0/install/
 ~~~
 
-You can now continue with:
+You can now continue with [Running locally](#running-locally).
+
+### PRO via GitHub (advanced)
+If you know how to handle SSH keys, you can also install the PRO version via GitHub.
+The advantage of this method is that you avoid cluttering your Jekyll repository with Hydejack's source files.
+
+The downloaded zip contains a read-only key for a private GitHub repository.
+It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
+You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
+
+~~~bash
+$ cp ~/Downloads/hydejack-pro-v7.0.0/.ssh/hydejack_pro_customers ~/.ssh/
+~~~
+
+It is required that your private key files are NOT accessible by others, e.g.:
+
+~~~bash
+$ chmod 600 ~/.ssh/hydejack_pro_customers
+~~~
+
+Then add the following to `.ssh/config`:
+
+~~~
+Host hydejack
+	Hostname github.com
+	User git
+	IdentityFile ~/.ssh/hydejack_pro_customers
+~~~
+
+Next, open `Gemfile` in your Jekyll repository and add:
+
+~~~ruby
+gem "jekyll-theme-hydejack-pro", git: 'git@hydejack:qwtel/hydejack-pro.git', branch: 'gem-pro'
+~~~
+
+In your `_config.yml`, add:
+
+~~~yml
+theme: jekyll-theme-hydejack-pro
+~~~
+
+You can now continue with [Running locally](#running-locally).
 
 ## Running locally
 Make sure you've `cd`ed into the directory where `_config.yml` is located.
