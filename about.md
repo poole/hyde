@@ -83,15 +83,15 @@ Open `about.md` to edit this text.
 
 [license]: LICENSE.md
 [pro]: licenses/PRO.md
-[docs]: docs/7.0.0/index.md
+[docs]: docs/7.0.1/index.md
 
 [github]: https://github.com/qwtel/hydejack/releases
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
-[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.0.0/index.md
-[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.0.0/Documentation._.Hydejack.pdf
+[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.0.1/index.md
+[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.0.1/Documentation._.Hydejack.pdf
 
 [hy-push-state]: https://qwtel.com/hy-push-state/
 [hy-drawer]: https://qwtel.com/hy-drawer/
