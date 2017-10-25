@@ -115,7 +115,7 @@ hydejack:
 
   # You can set this to `true` if you don't want to set the `theme-color` meta tag,
   # This only affects the meta tag, not the color specified in the app manifest.
-  no_theme_color:      true
+  no_theme_color:      false
 
   # Set to `true` when building with the `--lsi` option
   use_lsi:             false
