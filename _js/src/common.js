@@ -24,6 +24,7 @@ const ua = navigator.userAgent.toLowerCase();
 export const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
 export const isMobileSafari = isSafari && ua.indexOf('mobile') > 0;
 export const isUCBrowser = ua.indexOf('ucbrowser') > 0 && ua.indexOf('chrome') > 0;
+export const isFirefoxIOS = ua.indexOf('fxios') > 0 && ua.indexOf('safari') > 0;
 
 // Takes an array of Modernizr feature tests and makes sure they all pass.
 export function hasFeatures(features) {
