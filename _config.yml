@@ -17,10 +17,11 @@ baseurl:               /hydejack
 
 # A short description of the page used for the meta description tag.
 description:           >
-  A Jekyll theme with JavaScript Powers. Open `_config.yml` to edit this text.
+  A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
+  Combines the best of static sites and modern web apps.
 
-# A shorter description for the sidebar (will use `description` above when empty).
-tagline:               A Jekyll theme with JavaScript Powers. Open `_config.yml` to edit this text.
+# A shorter description for the sidebar.
+tagline:               A Jekyll theme with JavaScript powers.
 
 # A list of keywords for your blog, will be used as fallback
 # for pages that don't have `keywords` in their front matter.
