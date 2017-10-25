@@ -208,7 +208,7 @@ optional_front_matter:
   remove_originals:    true
 
 readme_index:
-  collections:         true
+  remove_originals:    true
 
 relative_links:
   collections:         true
