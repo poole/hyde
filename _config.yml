@@ -8,7 +8,7 @@ title:               Adriel's Dev Blog
 tagline:             'Eat, Sleep, Code, Repeat...'
 description:         'A collection of lessons learned and reflections about the world of code.'
 url:                 http://adrielklein.github.io/
-baseurl:             /
+baseurl:             http://adrielklein.github.io/
 paginate:            1
 repo:            https://github.com/adrielklein/adrielklein.github.io
 default_img: https://adrielklein.github.io/assets/usain.jpg
