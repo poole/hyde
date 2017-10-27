@@ -61,8 +61,8 @@ This table details what is and isn't included in each respective version.
 | Newsletter Subscription Box         |                    | &#x2714;           |
 | Form Element Styles                 |                    | &#x2714;           |
 | License                             | [GPL-3.0][license] | [PRO]              |
-| Price                               | Free               | $39                |
-|| [Download on GitHub][github]<br/> – or – <br/>[Use the RubyGem][gem] | [Buy Now – $39][buy] [^3] |
+| Price                               | Free               | $29                |
+|| [Download on GitHub][github]<br/> – or – <br/>[Use the RubyGem][gem] | [Buy Now – $29][buy] [^3] |
 
 
 [^1]: Applies after the initial page load.  
