@@ -19,9 +19,12 @@ baseurl:               /hydejack
 description:           >
   A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
   Combines the best of static sites and modern web apps.
+  Open `_config.yml` to edit this text.
 
 # A shorter description for the sidebar.
-tagline:               A Jekyll theme with JavaScript powers.
+tagline:               >
+  A Jekyll theme with JavaScript powers.
+  Open `_config.yml` to edit this text.
 
 # A list of keywords for your blog, will be used as fallback
 # for pages that don't have `keywords` in their front matter.
