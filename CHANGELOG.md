@@ -3,6 +3,19 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.0.1
+Oct 27 2017
+{:.heading.post-date}
+
+### Fixes
+* Removed readme files from `assets` that would show up as pages when building on GitHub Pages [#42](https://github.com/qwtel/hydejack/issues/42).
+* Disabled push state on Firefox for iOS
+
+### Other
+* Updated documentation
+* Changed some default settings in `_config.yml`
+* Removed outdated example script in `my-scripts.html`
+
 ## v7.0.0
 Oct 24 2017
 {:.heading.post-date}
