@@ -325,11 +325,11 @@ It generates the resume page from a valid [JSON Resume](https://jsonresume.org/)
 
 * You can use the visual [JSON Resume Editor](http://registry.jsonresume.org/).
 * If you have a LinkedIn profile, you can try [LinkedIn to Json Résumé](https://jmperezperez.com/linkedin-to-json-resume/).
-* You can edit the [example `resume.json`](https://github.com/qwtel/hydejack/blob/v6/_data/resume.json) in the `_data` directly. It contains example entries for each type of entry.
+* You can edit the [example `resume.json`](https://github.com/qwtel/hydejack/blob/master/_data/resume.json) in the `_data` directly. It contains example entries for each type of entry.
 
 Once you have a JSON Resume, place it into `_data`.
 
-If you prefer editing YAML files, there is an [example `_resume.yml`](https://github.com/qwtel/hydejack/blob/v6/_data/_resume.yml) file in `_data`.
+If you prefer editing YAML files, there is an [example `_resume.yml`](https://github.com/qwtel/hydejack/blob/master/_data/_resume.yml) file in `_data`.
 In order to use it, rename it to `resume.yml` and delete `resume.json`.
 
 To render the resume page, create a new markdown file and set the layout to `resume` in the front matter:
