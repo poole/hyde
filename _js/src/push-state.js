@@ -411,9 +411,11 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     ::tap(upgradeMathBlocks)
 
     // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
+    ::filter(() => !!window.ga)
     ::debounceTime(GA_DELAY)
     ::subscribe(() => {
-      if (window.ga) window.ga('send', 'pageview', window.location.pathname);
+      window.ga('set', 'page', window.location.pathname);
+      window.ga('send', 'pageview');
     });
 
   // ### Show error page
