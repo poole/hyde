@@ -156,6 +156,9 @@ By adding the `scroll-table` class on a table, the behavior is changed to never 
 | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                | Footer row      |            |                 |                |
 {:.scroll-table}
 
+You can add the `scroll-table` class to a markdown table by putting `{:.scroll-table}` in line directly below the table.
+To add the class to a HTML table, add the it to the `class` attribute of the `table` tag, e.g. `<table class="scroll-table">`.
+
 ### Flip table
 Alternatively, you can "flip" (transpose) the table.
 Unlike the other approach, this will keep the table head (now the first column) fixed in place.
@@ -182,6 +185,9 @@ Example:
 | 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            | 10th line       |quux        | baz             | bar            |
 {:.flip-table}
 
+You can add the `flip-table` class to a markdown table by putting `{:.flip-table}` in line directly below the table.
+To add the class to a HTML table, add the it to the `class` attribute of the `table` tag, e.g. `<table class="flip-table">`.
+
 ### Small tables
 If a table is small enough to fit the screen even on small screens, you can add the `stretch-table` class
 to force a table to use the entire available content width. Note that stretched tables can no longer be scrolled.
@@ -190,6 +196,9 @@ to force a table to use the entire available content width. Note that stretched 
 |-----------------|:-----------|:---------------:|---------------:|
 | First body part |Second cell | Third cell      | fourth cell    |
 {:.stretch-table}
+
+You can add the `stretch-table` class to a markdown table by putting `{:.stretch-table}` in line directly below the table.
+To add the class to a HTML table, add the it to the `class` attribute of the `table` tag, e.g. `<table class="stretch-table">`.
 
 ## Adding code blocks
 To add a code block without syntax highlighting, simply indent 4 spaces (regular markdown).
