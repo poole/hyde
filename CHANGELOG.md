@@ -8,16 +8,16 @@ Oct 31 2017
 {:.heading.post-date}
 
 ### Changed
-* Upgraded KaTeX to v0.8.3
-* Upgraded `jekyll-relative-links` to v5.0.1
 * When providing images to `image`, `image.path`, `image.src`, `image.srcset` and `accent_image `,
   it is no longer necessary to prepend the url with the `baseurl` of the site,
   e.g. values like `accent_image: /assets/img/sidebar-bg.jpg` are now valid.
+* Upgraded KaTeX to v0.8.3
+* Upgraded `jekyll-relative-links` to v5.0.1
 
 ### Fixes
 * Fixed default values for `image` and `logo` that were referring to non-existing images.
 
-### Documentation
+### Content
 * Updated documentation
 * Updated index, download, about and README pages.
 
@@ -30,7 +30,7 @@ Oct 27 2017
 * Disabled push state on Firefox for iOS
 * Changed some default settings in `_config.yml`
 
-### Documentation
+### Content
 * Updated documentation
 
 ## Removed
