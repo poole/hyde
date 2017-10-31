@@ -41,7 +41,7 @@ Your site's root dir should look something like this
 ~~~
 
 **NOTE**: Hydejack works with Jekyll's default `config.yml`, but it is recommended that you replace it with
-[Hydejack's default config file](https://github.com/qwtel/hydejack/blob/master/_data/_config.yml).
+[Hydejack's default config file](https://github.com/qwtel/hydejack/blob/master/_config.yml).
 It contains the names of all config options known to Hydejack and provides sensible defaults (like minifying HTML and CSS in production builds).
 {:.message}
 

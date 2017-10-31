@@ -128,7 +128,52 @@ Now you can add content as you would in a blog post.
 ## Adding an entry to the sidebar
 Hydejack's sidebar can add links to any page within the site. In order for a page to appear in the sidebar, it needs to have a truthy `menu` value defined in its front matter. The page also needs to have a `title`, otherwise the entry in the sidebar will be blank.
 
-If you want the link to appear at a particular position, you can set a numeric value to the `order` key. However, the page is not guaranteed to appear in the 5th position when you set a value of `5`, since it will only use that number to sort the pages, i.e. the position of a page also depends on the `order` of all other pages in the sidebar.
+If you want the link to appear at a particular position, you can set a numeric value to the `order` key.
+However, the page is not guaranteed to appear in the 5th position when you set a value of `5`,
+since it will only use that number to sort the pages.
+The position of a page also depends on the `order` of all other pages in the sidebar.
+
+If you don't want to spread the sidebar definitions across multiple markdown files,
+you can manage them centrally in your config file using front matter defaults, e.g.:
+
+```yml
+defaults:
+  - scope:
+      path: blog.md
+    values:
+      menu: true
+      order: 1
+  - scope:
+      path: projects.md
+    values:
+      menu: true
+      order: 2
+  - scope:
+      path: resume.md
+    values:
+      menu: true
+      order: 3
+  - scope:
+      path: about.md
+    values:
+      menu: true
+      order: 4
+```
+
+### Adding a link to an external page to the sidebar
+You can add links to external pages to the sidebar by creating a new markdown file for each entry and adding to the front matter:
+
+```yml
+---
+title: External
+redirect_to: https://example.com/
+menu: true
+order: 5
+---
+```
+
+You may combine this with the [`jekyll-redirect-from`](https://github.com/jekyll/jekyll-redirect-from) plugin
+to generate a redirect page at the `permalink` of the file, but this is optional.
 
 ## Adding an about page
 About pages are a frequent use case, so Hydejack has a special layout for it, which is a slight modification of the `page` layout.

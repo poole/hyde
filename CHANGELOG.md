@@ -3,6 +3,15 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.0.2
+Oct 31 2017
+{:.heading.post-date}
+
+### Changed
+* Upgraded KaTeX to v0.8.3
+* Upgraded `jekyll-relative-links` to v5.0.1
+* Updated documentation
+
 ## v7.0.1
 Oct 27 2017
 {:.heading.post-date}
@@ -11,9 +20,11 @@ Oct 27 2017
 * Removed readme files from `assets` that would show up as pages when building on GitHub Pages [#42](https://github.com/qwtel/hydejack/issues/42).
 * Disabled push state on Firefox for iOS
 
-### Other
+### Changed
 * Updated documentation
 * Changed some default settings in `_config.yml`
+
+## Removed
 * Removed outdated example script in `my-scripts.html`
 
 ## v7.0.0

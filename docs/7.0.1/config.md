@@ -6,8 +6,7 @@ description: >
 ---
 
 Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`.
-Besides the documentation here, the [default `_config.yml`](https://github.com/qwtel/hydejack/blob/master/_config.yml)
-is also documented extensively.
+Besides these descriptions, you can also read the [annotated config file](#annotated-config-file) below.
 
 **NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for the changes to take effect.
 {:.message}
@@ -66,17 +65,18 @@ If you save a blurred image as JPG, it will also drastically reduce its file siz
 {:.message}
 
 
-The `accent_image` is optional. If you leave it out, Hydejack will use the `accent_color` as background (slightly darkened).
+The `accent_image` property accepst the special value `none` which will remove the default image.
 You can also provide a single color instead of an image like this:
 
 ~~~yml
 accent_image:
   background: '#202020' # provide a valid CSS background value
+  overlay:    false     # set to true if you want a dark overlay
 ~~~
 
 ## Changing fonts
-Hydejack lets you configure the font of regular text and headlines and it has built-in support for Google Fonts.
-There are three keys in `_config.yml` associated with it: `font`, `font_heading` and `google_fonts`.
+Hydejack lets you configure the font of regular text and headlines, and it has built-in support for Google Fonts.
+There are three keys in `_config.yml` associated with this: `font`, `font_heading` and `google_fonts`.
 The defaults are:
 
 ~~~yml
@@ -233,13 +233,15 @@ Supplying your own icons is an [advanced topic](advanced.md).
 {:.message}
 
 
-### Adding an email or RSS icon
-If you'd like to add email <span class="icon-mail"></span> or RSS <span class="icon-rss2"></span> to the list, add the `email` and `rss` keys, e.g.:
+### Adding an email, RSS icon or download icon
+If you'd like to add an email <span class="icon-mail"></span>, RSS <span class="icon-rss2"></span>, or download <span class="icon-box-add"></span> icon to the list,
+add the `email`, `rss`, or `download` key, e.g.:
 
 ~~~yml
 social:
-  email: mailto:mail@qwtel.com
-  rss:   {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
+  email:    mailto:mail@qwtel.com
+  rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
+  download: https://github.com/qwtel/hydejack/archive/v7.0.1.zip
 ~~~
 
 ## Enabling comments
@@ -248,7 +250,7 @@ Before you can add comments to a page you need to register and add your site to 
 Once you have obtained your "Disqus shortname", you include it in your config file:
 
 ~~~yml
-disqus: <Disqus shortname>
+disqus: <disqus shortname>
 ~~~
 
 Now comments can be enabled by adding `comments: true` to the front matter.
@@ -272,7 +274,6 @@ defaults:
     values:
       comments: true
 ~~~
-
 
 ## Enabling Google Analytics
 Enabling Google Analytics is as simple as setting the `google_analytics` key.
@@ -304,11 +305,280 @@ You may also change the strings used for formatting dates and times (look out fo
 but be aware that the values you provide need to be valid
 Ruby [format directives](http://ruby-doc.org/core-2.4.1/Time.html#method-i-strftime).
 
+## Enabling newsletter boxes*
+To enable showing newsletter subscription boxes below each post and project,
+provide your [Tinyletter] username to the `tinyletter` key in the config file.
+
+```yml
+tinyletter:  <tinyletter username>
+```
+
+To edit the content of the newsletter box, open `_data/strings.yml`, and change the entries under the `tinyletter` key.
+
+If want to use a different mailing provider, like MailChimp, you can build your own form,
+and inserting it into `_includes/my-newsletter.html`.
+There you will also find an example form for MailChimp, where you need to fill in `site.mailchimp.action` and `site.mailchimp.hidden_input`
+(you can get these from MailChimp).
+
+To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/).
+Note that only form, grid and utility classes are available.
+Check out [Forms by Example](forms-by-example.md){:.heading.flip-title} to see what's available.
+
+## Annotated config file
+Below you find the the complete default `_config.yml` file. You may want to copy it when using the gem-based version of the theme.
+
+```yml
+# Config
+# ========================================================================================
+
+title:                 Hydejack
+
+# Language of your content in 2-letter code, eg: en, de.
+# You may also provide a location, eg: en-us, de_AT.
+lang:                  en
+
+# The unique resource location of your page.
+# Set to `https://<username>.github.io` when hosting on GitHub Pages.
+url:                   https://domain.tld
+
+# Set to '' when hosting on GitHub Pages, like `//<username>.github.io`.
+# Set to '/<reponame>' when using the `gh-pages` branch of a repository.
+baseurl:               /hydejack
+
+# A short description of the page used for the meta description tag.
+description:           >
+  A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
+  Combines the best of static sites and modern web apps.
+  Open `_config.yml` to edit this text.
+
+# A shorter description for the sidebar.
+tagline:               >
+  A Jekyll theme with JavaScript powers.
+  Open `_config.yml` to edit this text.
+
+# A list of keywords for your blog, will be used as fallback
+# for pages that don't have `keywords` in their front matter.
+keywords:              []
+
+# A (optional) logo for the page. Used by jekyll-seo-tag.
+logo:                  /hydejack/assets/icons/icon.png
+
+# This should be the same author as first entry in `_data/authors.yml`.
+# Duplication is necessary due to the jekyll-feed plugin.
+author:
+  name:                <firstname> <lastname>
+  email:               <mail@domain.tld>
+  # The remainder of the author configuration is located in `_data/authors.yml`...
+
+# This text will appear in a `<small>` tag in the footer of every page.
+copyright:             © 20XX. Open _config.yml to edit this text.
+
+# Format of the permalinks
+permalink:             pretty
+
+# Pagination configuration (used by the `blog` layout)
+paginate:              5
+paginate_path:         '/blog/page-:num/'
+
+# Customizaton
+# ========================================================================================
+
+# The string encoding which fonts to fetch from Google Fonts.
+# See: <https://qwtel.com/hydejack/docs/configuration/>
+google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
+
+# The text font. Expects a string that is a valid CSS font-family value.
+font:                  "'Noto Sans', Helvetica, Arial, sans-serif"
+
+# The font used for headings. Expects a string that is a valid CSS font-family value.
+font_heading:          "'Roboto Slab', Helvetica, Arial, sans-serif"
+
+# Fallback image and color
+accent_image:          /hydejack/assets/img/sidebar-bg.jpg
+accent_color:          '#4fb1ba'
+
+# 3rd Party Integrations
+# ----------------------------------------------------------------------------------------
+
+# Setting a disqus shortname will enable the comment section on
+# pages with `comments: true` in the front matter.
+disqus:                <disqus_shortname>
+
+# Setting a tinyletter username will enable the newsletter subscription box.
+tinyletter:            <tinyletter_username>
+
+# Set your Google Analytics id to receive `pageview` events.
+# To remove Google Anaylics from your page, remove the line below.
+google_analytics:      UA-XXXXXXXX-X
+
+
+# Hydejack Flags
+# ----------------------------------------------------------------------------------------
+
+hydejack:
+  # Configure the order of complementary content on blog posts
+  post_addons:         [about, newsletter, related, random]
+
+  # Configure the order of complementary content on project pages
+  project_addons:      [about, newsletter, other]
+
+  # If you do not use Google Fonts, set to `true`.
+  no_google_fonts:     false
+
+  # Set to `true` if you don't want to show an icon indicating external links
+  no_mark_external:    false
+
+  # Set to `true` if third party plugins fail to work with dynamically loaded pages
+  no_push_state:       false
+
+  # Set to `true` if you want to disable the drawer
+  no_drawer:           false
+
+  # Set to `true` if you do not want parts of the css inlined in <head/>
+  # This *may* be benefitial when serving the site over HTTP/2.
+  no_inline_css:       false
+
+  # Code blocks and tables "break" the layout by spanning the full available width.
+  # Set this to true if you want them to be the same width as other content.
+  no_break_layout:     false
+
+  # Set to `true` if you do not want to expose your resume and projects
+  # in machine-readable formats.
+  no_structured_data:  false
+
+  # You can set this to `true` if you don't want to set the `theme-color` meta tag,
+  # This only affects the meta tag, not the color specified in the app manifest.
+  no_theme_color:      false
+
+  # Set to `true` when building with the `--lsi` option
+  use_lsi:             false
+
+
+# Collections
+# ========================================================================================
+
+collections:
+  featured_categories:
+    permalink:         /category/:name/
+    output:            true
+
+  featured_tags:
+    permalink:         /tag/:name/
+    output:            true
+
+  projects:
+    permalink:         /projects/:path/
+    output:            true
+
+
+# File inclusion/exclusion
+# ========================================================================================
+
+exclude:
+  - README.md
+  - node_modules
+  - vendor
+  - package.json
+  - package-lock.json
+  - Gemfile
+  - Gemfile.lock
+include:
+  - LICENSE.md
+
+
+# Plugins and Plugin Configuration
+# ========================================================================================
+
+plugins:
+  # - jekyll-avatar
+  # - jekyll-default-layout
+  - jekyll-feed
+  # - jekyll-gist
+  # - jekyll-optional-front-matter
+  - jekyll-paginate
+  # - jekyll-readme-index
+  # - jekyll-redirect-from
+  - jekyll-relative-links
+  - jekyll-seo-tag
+  - jekyll-sitemap
+  # - jekyll-titles-from-headings
+
+
+# SEO Tag
+# ---------------------------------------------------------------------------------------
+
+# Where you proof that you own this site (used by jekyll-seo-tag)
+# google_site_verification: <verification-id>
+# -- or --
+# webmaster_verifications:
+#   google:              <verification-id>
+#   bing:                <verification-id>
+#   alexa:               <verification-id>
+#   yandex:              <verification-id>
+
+# Used for Twitter cards
+# twitter:
+#   username:            <shortname>
+
+# Used for Facebook open graph
+# facebook:
+#   app_id:              <id>
+#   publisher:           <id>
+#   admins:              <id>
+
+# Used on index and about sites
+# social:
+#   name:                <firstname> <lastname>
+#   links:
+#     - https://twitter.com/<username>
+#     - https://github.com/<username>
+
+
+# Other Plugins
+# ---------------------------------------------------------------------------------------
+
+optional_front_matter:
+  remove_originals:    true
+
+readme_index:
+  remove_originals:    true
+
+relative_links:
+  collections:         true
+
+titles_from_headings:
+  strip_title:         true
+  collections:         true
+
+kramdown:
+  footnote_backlink:   '&#x21a9;&#xfe0e;'
+  math_engine:         mathjax
+  math_engine_opts:
+    preview:           true
+    preview_as_code:   true
+
+compress_html:
+  comments:            ["<!-- ", " -->"]
+  clippings:           all
+  endings:             all
+  ignore:
+    envs:              [development]
+
+sass:
+  style:               compressed
+
+# If you are upgrading form v5 (or earlier), uncomment the lines below,
+# so that the location of the feed XML stays the same.
+# feed:
+#   path:                atom.xml
+```
+
 Continue with [Basics](basics.md){:.heading.flip-title}
 {:.read-more}
 
 [blog]: https://qwtel.com/hydejack/blog/
 [posts]: https://qwtel.com/hydejack/posts/
+[tinyletter]: https://tinyletter.com/
 
 *[FOIT]: Flash of Invisible Text
 *[GA]: Google Analytics
