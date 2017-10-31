@@ -11,105 +11,6 @@ description: >
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
-## Adding a category or tag
-Hydejack allows you to use the `list` layout to show all posts of a particular tag or category.
-
-Before you start, make sure your config files contains the `featured_tags` and `features_categories` collections:
-
-~~~yml
-collections:
-  featured_categories:
-    permalink:         /category/:name/
-    output:            true
-  featured_tags:
-    permalink:         /tag/:name/
-    output:            true
-~~~
-
-### Recap: Tags and categories in Jekyll
-Posts in Jekyll can belong to one or more categories, as well as one or more tags. They are defined in a post's front matter:
-
-~~~yml
----
-layout:     post
-title:      Welcome to Jekyll
-categories: [jekyll, update]
-tags:       [jekyll, update]
----
-~~~
-
-Posts can also be assigned to a category based on their position within the folder structure, e.g.
-
-~~~
-├── jekyll
-│   └── update
-│       └── _posts
-│           └── 2017-04-07-welcome-to-jekyll.markdown
-~~~
-
-would place "Welcome to Jekyll" in the categories `jekyll` and `update`.
-Whether you use this method or not, categories will always be part of a posts URL, while tags will not.
-
-Categories | `/jekyll/update/2017/04/07/welcome-to-jekyll/`
-Tags       | `/2017/04/07/welcome-to-jekyll/`
-{:.scroll-table-small}
-
-As far as Jekyll is concerned, these are the only differences.
-
-### Tags and categories in Hydejack
-Categories and tags are displayed by Hydejack below the title, after the date. Categories are displayed with the preposition "in", while tags are displayed with the preposition "on", e.g.
-
-Categories | Welcome to Jekyll¬ 07 Apr 2017 **in** Jekyll / Update
-Tags       | Welcome to Jekyll¬ 07 Apr 2017 **on** Jekyll, Update
-Both       | Welcome to Jekyll¬ 07 Apr 2017 **in** Jekyll / Update **on** Jekyll, Update
-{:.scroll-table-small}
-
-### Adding a new category or tag
-Be default, categories and tags are rendered as plain text. Further steps are necessary if you want them to link to a page that contains a list of all posts that belong to that category or tag.
-
-For each "featured" category or tag, a file called `<categoryname>.md` or `<tagname>.md` has to be created in `_featured_tags` or `_featured_categories`, respectively.
-Each file in these folders is part of a [Jekyll Collection](https://jekyllrb.com/docs/collections/).
-
-The the data of a category or tag is set in the files front matter, e.g.
-
-~~~yml
----
-layout: list
-title:  Hyde
-slug:   hyde
-description: >
-  Hyde is a brazen two-column Jekyll](http://jekyllrb.com) theme
-  that pairs a prominent sidebar with uncomplicated content.
-  It's based on [Poole](http://getpoole.com), the Jekyll butler.
----
-~~~
-
-`layout`
-: Must be `list`
-
-`title`
-: Used as title of the page, as well as name of the category or tag as part of the line below a blog post's title.
-  Can be different from the name of the tag or category, as long as `slug` is identical to the name.
-
-`slug`
-: Must be identical to the key used in the blog's front matter, i.e. if you use `categories: [jekyll]` or `tags: [jekyll]`
-  the `slug` must be `jekyll`. Normally the slug is derived from the title, but it is recommended that you set it explicitly.
-
-`description`
-: A medium-length description, used on the tag or category's detail page as meta description and shown in a message box below the title.
-
-`accent_image`
-: URL. Will be used as fallback for all pages that belong to that category or tag.
-
-`accent_color`
-: Color code. Will be used as fallback for all pages that belong to that category or tag.
-
-`menu`
-: Set to to `true` if you want the category or tag to appear in the sidebar. For more information, see
-  [Adding an entry to the sidebar](#adding-an-entry-to-the-sidebar).
-
-Once the file is created, the page can be found at `/category/<categoryname>/` or `/tag/<tagname>/`.
-
 ## Adding a page
 You can add generic pages that support markdown content but aren't blog posts.
 For example, this documentation is written in markdown, consisting of several generic pages.
@@ -137,6 +38,7 @@ If you don't want to spread the sidebar definitions across multiple markdown fil
 you can manage them centrally in your config file using front matter defaults, e.g.:
 
 ```yml
+# file: _config.yml
 defaults:
   - scope:
       path: blog.md
@@ -175,6 +77,111 @@ order: 5
 You may combine this with the [`jekyll-redirect-from`](https://github.com/jekyll/jekyll-redirect-from) plugin
 to generate a redirect page at the `permalink` of the file, but this is optional.
 
+## Adding a category or tag
+Hydejack allows you to use the `list` layout to show all posts of a particular tag or category.
+
+Before you start, make sure your config files contains the `featured_tags` and `features_categories` collections:
+
+~~~yml
+# file: _config.yml
+collections:
+  featured_categories:
+    permalink:         /category/:name/
+    output:            true
+  featured_tags:
+    permalink:         /tag/:name/
+    output:            true
+~~~
+
+### Recap: Tags and categories in Jekyll
+Posts in Jekyll can belong to one or more categories, as well as one or more tags. They are defined in a post's front matter:
+
+~~~yml
+---
+layout:     post
+title:      Welcome to Jekyll
+categories: [jekyll, update]
+tags:       [jekyll, update]
+---
+~~~
+
+Posts can also be assigned to a category based on their position within the folder structure, e.g.
+
+~~~
+├── jekyll
+│   └── update
+│       └── _posts
+│           └── 2017-04-07-welcome-to-jekyll.markdown
+~~~
+
+would place "Welcome to Jekyll" in the categories `jekyll` and `update`.
+Whether you use this method or not, categories will always be part of a posts URL, while tags will not.
+
+Type       | URL
+-----------|----
+Categories | `/jekyll/update/2017/04/07/welcome-to-jekyll/`
+Tags       | `/2017/04/07/welcome-to-jekyll/`
+{:.scroll-table-small}
+
+As far as Jekyll is concerned, these are the only differences.
+
+### Tags and categories in Hydejack
+Categories and tags are displayed by Hydejack below the title, after the date. Categories are displayed with the preposition "in", while tags are displayed with the preposition "on", e.g.
+
+Type       | Title
+-----------|------
+Categories | Welcome to Jekyll¬ 07 Apr 2017 **in** Jekyll / Update
+Tags       | Welcome to Jekyll¬ 07 Apr 2017 **on** Jekyll, Update
+Both       | Welcome to Jekyll¬ 07 Apr 2017 **in** Jekyll / Update **on** Jekyll, Update
+{:.scroll-table-small}
+
+### Creating a new category or tag
+Be default, categories and tags are rendered as plain text. Further steps are necessary if you want them to link to a page that contains a list of all posts that belong to that category or tag.
+
+For each "featured" category or tag, a file called `<categoryname>.md` or `<tagname>.md` has to be created in `_featured_tags` or `_featured_categories`, respectively.
+Each file in these folders is part of a [Jekyll Collection](https://jekyllrb.com/docs/collections/).
+
+The the data of a category or tag is set in the files front matter, e.g.
+
+~~~yml
+# file: _featured_tags/hyde.md
+---
+layout: list
+title:  Hyde
+slug:   hyde
+description: >
+  Hyde is a brazen two-column Jekyll](http://jekyllrb.com) theme
+  that pairs a prominent sidebar with uncomplicated content.
+  It's based on [Poole](http://getpoole.com), the Jekyll butler.
+---
+~~~
+
+`layout`
+: Must be `list`
+
+`title`
+: Used as title of the page, as well as name of the category or tag as part of the line below a blog post's title.
+  Can be different from the name of the tag or category, as long as `slug` is identical to the name.
+
+`slug`
+: Must be identical to the key used in the blog's front matter, i.e. if you use `categories: [jekyll]` or `tags: [jekyll]`
+  the `slug` must be `jekyll`. Normally the slug is derived from the title, but it is recommended that you set it explicitly.
+
+`description`
+: A medium-length description, used on the tag or category's detail page as meta description and shown in a message box below the title.
+
+`accent_image`
+: URL. Will be used as fallback for all pages that belong to that category or tag.
+
+`accent_color`
+: Color code. Will be used as fallback for all pages that belong to that category or tag.
+
+`menu`
+: Set to to `true` if you want the category or tag to appear in the sidebar. For more information, see
+  [Adding an entry to the sidebar](#adding-an-entry-to-the-sidebar).
+
+Once the file is created, the page can be found at `/category/<categoryname>/` or `/tag/<tagname>/`.
+
 ## Adding an about page
 About pages are a frequent use case, so Hydejack has a special layout for it, which is a slight modification of the `page` layout.
 [Demo][about].
@@ -183,6 +190,7 @@ The main difference is that it will display an author's `about` text and `pictur
 To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author](config.md#adding-an-author).
 
 ~~~yml
+# file: about.md
 ---
 layout: about
 title:  About
@@ -207,6 +215,7 @@ For reference, the layout/order of content on the welcome page looks like:
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
 ~~~yml
+# file: index.md
 ---
 layout: welcome
 title:  Welcome
@@ -218,6 +227,7 @@ Without further configuration, the welcome page will show the two most recent pr
 However, the welcome layout supports selecting specific projects and posts, by adding to the front matter, e.g.:
 
 ~~~yml
+# file: index.md
 ---
 layout:            welcome
 title:             Welcome
@@ -230,7 +240,7 @@ selected_posts:
 more_projects:     projects.md
 more_posts:        posts.md
 big_project:       false
-content_separator: <!-- more -->
+content_separator: <!--more-->
 ---
 ~~~
 
@@ -270,6 +280,7 @@ The projects page will show all projects in a particular collection.
 First, you need to make sure that you have the `projects` collection defined in `_config.yml`:
 
 ~~~yml
+# file: _config.yml
 collections:
   projects:
     permalink: /projects/:path/
@@ -282,6 +293,7 @@ This file has the `projects` layout (mind the "s" at the end) and should have a 
 with the name of the collection as a value, e.g.:
 
 ~~~yml
+# file: projects.md
 ---
 layout:          projects
 title:           Projects*
@@ -310,19 +322,21 @@ Projects are organized using [Jekyll Collections](https://jekyllrb.com/docs/coll
 Each project generates an entry on the projects layout ([Demo][projects]) as well as its own detail page ([Demo][project]).
 
 Each project is defined by a file in the `_projects` directory.
-The project's meta information is defined in the file's front matter. You can also add markdown content. A project's front matter may look like:
+The project's meta information is defined in the file's front matter. You can also add markdown content.
+A project's front matter may look like:
 
 ~~~yml
+# file: _projects/hyde-v2.md
 ---
 layout:      project
 title:       Hyde v2*
 date:        2 Jan 2014
 screenshot:
-  src:       /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
+  src:       /assets/img/projects/hyde-v2@0,25x.jpg
   srcset:
-    1920w:   /hydejack/assets/img/projects/hyde-v2.jpg
-    960w:    /hydejack/assets/img/projects/hyde-v2@0,5x.jpg
-    480w:    /hydejack/assets/img/projects/hyde-v2@0,25x.jpg
+    1920w:   /assets/img/projects/hyde-v2.jpg
+    960w:    /assets/img/projects/hyde-v2@0,5x.jpg
+    480w:    /assets/img/projects/hyde-v2@0,25x.jpg
 caption:     Hyde is a brazen two-column Jekyll theme.
 description: >
   Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content.
@@ -357,7 +371,7 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 : A list of `title`-`url` pairs that link to external resources related to this project.
 
 `author`
-: Shown below the project, similar to posts.
+: Optional. Shown below the project, similar to posts.
 
 `big_project`
 : Optional. When `true`, the project preview will span the full content width. You can use this for projects that you want to direct additional attention to. You can set/override this for an entire page, by setting `big_project` in the front matter (applies to the `projects` and `welcome` layout).
@@ -380,9 +394,12 @@ In order to use it, rename it to `resume.yml` and delete `resume.json`.
 To render the resume page, create a new markdown file and set the layout to `resume` in the front matter:
 
 ~~~yml
+# file: resume.md
 ---
 layout: resume
 title:  Resume
+description: >
+  A short description of the page for search engines (~150 characters long).
 ---
 ~~~
 
