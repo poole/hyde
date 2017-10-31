@@ -4,7 +4,7 @@
       {% capture bg_style %}background:{{ image.background }}{% endcapture %}
       {% capture bg_class %}sidebar-bg {% if image.overlay %}sidebar-overlay{% endif %}{% endcapture %}
     {% else %}
-      {% capture bg_style %}background-color:{{ color }};{% if image != 'none' %}background-image:url({{ image }}){% endif %}{% endcapture %}
+      {% capture bg_style %}background-color:{{ color }};{% if image != 'none' %}background-image:url({% include smart-url url=image %}){% endif %}{% endcapture %}
       {% capture bg_class %}sidebar-bg {% if image != 'none' %}sidebar-overlay{% endif %}{% endcapture %}
     {% endif %}
     <div class="{{ bg_class }}" style="{{ bg_style }}"></div>
