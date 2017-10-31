@@ -157,8 +157,6 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 
 [Buy Now - $29][buy] [^1]
 
-{% include author.html author=site.data.authors.qwtel heading="Contact" heading_id="contact" %}
-
 [^1]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
 [^2]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
 
