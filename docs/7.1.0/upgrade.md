@@ -11,7 +11,7 @@ description: >
 {:toc}
 
 **NOTE**: Before upgrading from v6 to v7, make sure you've read the [CHANGELOG](../../CHANGELOG.md){:.heading.flip-title},
-especially the part about the [license change](../../CHANGELOG.md#license-v7).
+especially the part about the [license change](../../CHANGELOG.md#license-change).
 {:.message}
 
 ## Via gem
