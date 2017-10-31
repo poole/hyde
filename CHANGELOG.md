@@ -3,14 +3,23 @@ layout: page
 title: CHANGELOG
 ---
 
-## v7.0.2
+## v7.1.0
 Oct 31 2017
 {:.heading.post-date}
 
 ### Changed
 * Upgraded KaTeX to v0.8.3
 * Upgraded `jekyll-relative-links` to v5.0.1
+* When providing images to `image`, `image.path`, `image.src`, `image.srcset` and `accent_image `,
+  it is no longer necessary to prepend the url with the `baseurl` of the site,
+  e.g. values like `accent_image: /assets/img/sidebar-bg.jpg` are now valid.
+
+### Fixes
+* Fixed default values for `image` and `logo` that were referring to non-existing images.
+
+### Documentation
 * Updated documentation
+* Updated index, download, about and README pages.
 
 ## v7.0.1
 Oct 27 2017
@@ -19,10 +28,10 @@ Oct 27 2017
 ### Fixes
 * Removed readme files from `assets` that would show up as pages when building on GitHub Pages [#42](https://github.com/qwtel/hydejack/issues/42).
 * Disabled push state on Firefox for iOS
-
-### Changed
-* Updated documentation
 * Changed some default settings in `_config.yml`
+
+### Documentation
+* Updated documentation
 
 ## Removed
 * Removed outdated example script in `my-scripts.html`
