@@ -19,10 +19,10 @@ It's best to just [see it in action](https://qwtel.com/hydejack/).
 ## Features
 Both versions include *all* of these features:
 
-* Full in-app page loading, powered by [hy-push-state]{:.external}
-* A customizable sidebar that turns into a drawer menu on mobile, powered by [hy-drawer]{:.external}
+* Full in-app page loading, powered by [hy-push-state]
+* A customizable sidebar that turns into a drawer menu on mobile, powered by [hy-drawer]
 * Advanced FLIP animations, inspired by Material Design
-* Good [Google PageSpeed Score][gpss][^2]
+* Good [Google PageSpeed Score][gpss][^1]
 * Higher *perceived speed* thanks to content pre-fetching
 * [Syntax highlighting](#syntax-highlighting), powered by [Rouge]
 * [LaTeX math blocks](#latex-math-blocks), powered by [KaTeX]
@@ -62,12 +62,11 @@ This table details what is and isn't included in each respective version.
 | [Custom Forms][forms]               |                    | &#x2714;           |
 | License                             | [GPL-3.0][license] | [PRO]              |
 | Price                               | Free               | $29                |
-|| [Download on GitHub][github]<br/> – or – <br/>[Use the RubyGem][gem] | [Buy Now – $29][buy]{:.btn.btn-primary} [^3] |
+|| [Download on GitHub][github]<br/> – or – <br/>[Use the RubyGem][gem] | [Buy Now – $29][buy]{:.btn.btn-primary} [^2] |
 
 
-[^1]: Applies after the initial page load.  
-[^2]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
-[^3]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
+[^1]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
+[^2]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
 
 ~~~
  __  __                __                                     __
