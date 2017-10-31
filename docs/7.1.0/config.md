@@ -56,7 +56,7 @@ Set the fallback values in `_config.yml`, which are used should no other rule (p
 
 ~~~yml
 # file: _config.yml
-accent_image: {{ site.baseurl }}/assets/img/sidebar-bg.jpg
+accent_image: /assets/img/sidebar-bg.jpg
 accent_color: '#A85641'
 ~~~
 
