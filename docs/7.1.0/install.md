@@ -106,7 +106,7 @@ You can now continue with [running locally](#running-locally).
 If you bought the PRO version, you've received a zip archive with the following contents:
 
 ~~~
-├── hydejack-docs-7.0.1.pdf
+├── hydejack-docs-7.1.0.pdf
 ├── install
 ├── upgrade
 ├── favicons.psd
@@ -116,7 +116,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 The following list describes what each of those are
 
 
-`hydejack-docs-7.0.1.pdf`
+`hydejack-docs-7.1.0.pdf`
 : This documentation in PDF form.
 
 `install`
@@ -140,7 +140,7 @@ For new installations only the `install` folder is interesting.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-7.0.1/install/
+$ cd ~/Downloads/hydejack-pro-7.1.0/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -154,7 +154,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v7.0.1/.ssh/hydejack_pro_customers ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-v7.1.0/.ssh/hydejack_pro_customers ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
