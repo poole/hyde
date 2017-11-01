@@ -27,15 +27,15 @@ This table details what is and isn't included in each respective version.
 |                                     | Free               | PRO                |
 |:------------------------------------|:------------------:|:------------------:|
 | Blog                                | &#x2714;           | &#x2714;           |
-| [Features](#features)               | &#x2714;           | &#x2714;           |
+| [Features][feat]                    | &#x2714;           | &#x2714;           |
 | [Portfolio] Layout                  |                    | &#x2714;           |
 | [Resume] Layout                     |                    | &#x2714;           |
 | [Welcome] Layout                    |                    | &#x2714;           |
-| [Newsletter Box][nsb]               |                    | &#x2714;           |
+| [Newsletter Box][news]              |                    | &#x2714;           |
 | [Custom Forms][forms]               |                    | &#x2714;           |
 | License                             | [GPL-3.0][license] | [PRO]              |
 | Price                               | Free               | $29                |
-|| [Download on GitHub][github]<br/> – or – <br/>[Use the RubyGem][gem] | [Buy Now – $29][buy] [^1] |
+|| [Download on GitHub][github]<br/> – or – <br/>[Use the RubyGem][gem] | [Buy Now][buy] [^3] |
 {:.stretch-table}
 
 ## Features
@@ -56,11 +56,11 @@ Both versions include *all* of these features:
 * Progressive enhancement — sacrifice features, not content
 * Google Analytics and Google Fonts support
 * Disqus comments
-* Print layout. Used to render Hydejack's [PDF documentation][pdf]
+* Print layout — Used to render Hydejack's [PDF documentation][pdf]
+* Blog layout via `jekyll-paginate` (optional)
+* SEO meta tags via `jekyll-seo-tag` (optional)
 * Github avatars via `jekyll-avatar` (optional)
 * Gist support via `jekyll-gist` (optional)
-* Blog Pagination via `jekyll-paginate` (optional)
-* SEO meta tags via `jekyll-seo-tag` (optional)
 
 ### Syntax Highlighting
 Syntax highlighting powered by [Rouge].
@@ -165,6 +165,12 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [resume]: https://qwtel.com/hydejack/resume/
 [download]: https://qwtel.com/download/
 [welcome]: https://qwtel.com/hydejack/
+[forms]: https://qwtel.com/hydejack/docs/7.1.0/forms-by-example/
+
+[feat]: https://qwtel.com/hydejack/#features
+[news]: https://qwtel.com/hydejack/#newsletter-subscription-box
+[syntax]: https://qwtel.com/hydejack/#syntax-highlighting
+[latex]: https://qwtel.com/hydejack/#latex-math-blocks
 
 [license]: LICENSE.md
 [pro]: licenses/PRO.md
@@ -177,10 +183,6 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
 [wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.1.0/index.md
 [pdf]: https://github.com/qwtel/hydejack/releases/download/v7.1.0/Documentation._.Hydejack.pdf
-
-[nsb]: https://qwtel.com/hydejack/#newsletter-subscription-box
-[forms]: https://qwtel.com/hydejack/docs/7.1.0/forms-by-example.md
-
 [hy-push-state]: https://qwtel.com/hy-push-state/
 [hy-drawer]: https://qwtel.com/hy-drawer/
 [rouge]: http://rouge.jneen.net
