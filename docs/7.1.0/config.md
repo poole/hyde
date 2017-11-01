@@ -461,15 +461,14 @@ tagline:               >
 # for pages that don't have `keywords` in their front matter.
 keywords:              []
 
-# A (optional) logo for the page. Used by jekyll-seo-tag.
+# Used by jekyll-seo-tag...
 logo:                  /assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
 # Duplication is necessary due to the jekyll-feed plugin.
 author:
-  name:                <firstname> <lastname>
-  email:               <mail@domain.tld>
-  # The remainder of the author configuration is located in `_data/authors.yml`...
+  # name:                <firstname> <lastname>
+  # email:               <mail@domain.tld>
 
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:             © 20XX. Open _config.yml to edit this text.
@@ -479,7 +478,7 @@ permalink:             pretty
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              5
-paginate_path:         '/blog/page-:num/'
+paginate_path:         /blog/page-:num/
 
 # Customizaton
 # ========================================================================================
@@ -503,14 +502,14 @@ accent_color:          '#4fb1ba'
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
-disqus:                <disqus_shortname>
+# disqus:                <disqus_shortname>
 
 # Setting a tinyletter username will enable the newsletter subscription box.
-tinyletter:            <tinyletter_username>
+# tinyletter:            <tinyletter_username>
 
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
-google_analytics:      UA-XXXXXXXX-X
+# google_analytics:      UA-XXXXXXXX-X
 
 
 # Hydejack Flags
