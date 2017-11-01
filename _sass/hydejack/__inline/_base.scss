@@ -43,7 +43,7 @@ html {
 
 // @media print { html { font-size: $root-font-size; } } 
 // Link styles
-a, .a {
+hy-push-state a, .a {
   position: relative; 
   padding-bottom: .15rem; 
   border-bottom: 1px solid; 
@@ -51,7 +51,7 @@ a, .a {
   
 }
 
-.img {
+.content .img {
   overflow: hidden; 
   background-color: $gray-bg; 
   

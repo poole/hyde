@@ -45,7 +45,7 @@ html {
 @media print { html { font-size: $root-font-size; } } // link
 
 // Link styles
-a, .a {
+hy-push-state a, .a {
   position: relative; // inline
   padding-bottom: .15rem; // inline
   border-bottom: 1px solid; // inline
@@ -69,7 +69,7 @@ a, .a {
   // >>>
 }
 
-.img {
+.content .img {
   overflow: hidden; // inline
   background-color: $gray-bg; // inline
 

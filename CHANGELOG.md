@@ -13,6 +13,7 @@ Nov 1 2017
   e.g. values like `accent_image: /assets/img/sidebar-bg.jpg` are now valid.
 * Upgraded KaTeX to v0.8.3
 * Upgraded `jekyll-relative-links` to v5.0.1
+* Limited scope of default `a` and `img` styles to Hydejack content areas.
 
 ### Fixes
 * Fixed default values for `image` and `logo` that were referring to non-existing images.
