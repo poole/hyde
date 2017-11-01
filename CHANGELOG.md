@@ -4,7 +4,7 @@ title: CHANGELOG
 ---
 
 ## v7.1.0
-Oct 31 2017
+Nov 1 2017
 {:.heading.post-date}
 
 ### Changed
