@@ -1,7 +1,7 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
 # Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
-qwtel:
+author1:
   name:              <firstname> <lastname>
   email:             <mail@domain.tld>
 
@@ -69,7 +69,7 @@ qwtel:
   twitter:           <username>
 
 # Another author
-mdo:
+author2:
   name:              <firtname> <lastname>
   email:             <mail@domain.tld>
   about:             |

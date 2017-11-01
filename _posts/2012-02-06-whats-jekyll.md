@@ -4,7 +4,7 @@ title: What's Jekyll?
 description: >
   Jekyll is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes.
 tags: [hyde]
-author: mdo
+author: author2
 ---
 
 [Jekyll](https://jekyllrb.com) is a static site generator, an open-source tool for creating simple yet powerful websites of all shapes and sizes. From [the project's readme](https://github.com/mojombo/jekyll/blob/master/README.markdown):
