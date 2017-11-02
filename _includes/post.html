@@ -20,7 +20,7 @@
       {% include tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
     </p>
 
-    {% include message.html text=post.description hide=page.no_description %}
+    {% include message.html text=post.description hide=page.hide_description %}
   </header>
 
   {% unless include.excerpt %}

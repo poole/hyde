@@ -17,7 +17,7 @@ layout: base
 {% if page.title.size > 0 %}
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
-    {% include message.html text=page.description hide=page.no_description %}
+    {% include message.html text=page.description hide=page.hide_description %}
   </header>
   <hr class="sr-only"/>
 {% endif %}
