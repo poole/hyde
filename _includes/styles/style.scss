@@ -1,3 +1,6 @@
+{% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
+{% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
+
 @import "variables";
 @import "mixins";
 
@@ -37,6 +40,15 @@
   // @import "my-inline";
   @import "my-style";
 
+  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+    .wf-active {
+      font-family: {{ font | default:"serif" }};
+
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
+        font-family: {{ font_heading | default:"serif" }};
+      }
+    }
+  {% endunless %}
 {% else %}
   @import "pooleparty/_base.pre.scss";
   @import "pooleparty/_type.pre.scss";
@@ -70,14 +82,12 @@
 
   @import "my-inline";
   @import "my-style";
-{% endunless %}
 
-{% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
-{% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
-
-{% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-  .wf-active {
+  html {
     font-family: {{ font | default:"serif" }};
-    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading | default:"serif" }}; }
+  }
+
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { 
+    font-family: {{ font_heading | default:"serif" }};
   }
 {% endunless %}

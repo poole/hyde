@@ -1,3 +1,6 @@
+{% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
+{% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
+
 @import "variables";
 @import "mixins";
 
@@ -36,9 +39,6 @@
 
 @import "my-inline";
 // @import "my-style";
-
-{% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
-{% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
 
 {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
   {% assign font = font | split:',' | shift | join:',' %}
