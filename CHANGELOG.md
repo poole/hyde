@@ -3,13 +3,20 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.1.1
+Nov 2 2017
+{:.heading.post-date}
+
+### Fixes
+* Fix IE11 feature detection
+
 ## v7.1.0
 Nov 2 2017
 {:.heading.post-date}
 
 ### Changed
 * Renamed `no_description` to `hide_description`.
-  Since this feature isn't yet documented outside of the change log, the old name *will not* continue to work. 
+  Since this feature isn't yet documented outside of the change log, the old name *will not* continue to work.
 * When providing images to `image`, `image.path`, `image.src`, `image.srcset` and `accent_image `,
   it is no longer necessary to prepend the url with the `baseurl` of the site,
   e.g. values like `accent_image: /assets/img/sidebar-bg.jpg` are now valid.

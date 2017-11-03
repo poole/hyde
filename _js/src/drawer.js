@@ -24,6 +24,7 @@ import 'core-js/fn/function/bind';
 // We include our main component, hy-drawer,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
+import { Set } from 'hy-drawer/src/common';
 import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
 import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 
@@ -36,13 +37,13 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
 
 // A list of Modernizr tests that are required for the drawer to work.
-const REQUIREMENTS = [
+const REQUIREMENTS = new Set([
   ...VANILLA_FEATURE_TESTS,
   'cssremunit',
   'classlist',
   'eventlistener',
   'matchmedia',
-];
+]);
 
 // HACK: hard-coded SCSS break-point.
 const MEDIA_QUERY = '(min-width: 64em)';
