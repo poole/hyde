@@ -30,8 +30,12 @@
 // SOFTWARE.
 
 .sidebar {
-//   color: rgba(255,255,255,.75); 
-//   text-align: left; 
+//   color: rgba(255, 255, 255, .75); 
+//   text-align: center; 
+//   display: flex; 
+//   justify-content: center;  
+//   align-items: center; 
+//   height: 100%; 
   a {
 //     color: #fff; 
 //     border-bottom-color: rgba(255, 255, 255, 0.2); 
@@ -48,13 +52,12 @@ hy-drawer {
     min-height: 100vh; 
     
     > .hy-drawer-content.hy-drawer-left {
-      width: calc(18rem + 1px);
-      left: -17.5rem;
+      width: 100vw;
+      left: calc(-100vw + .5rem);
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
-
-    --hy-drawer-width: calc(18rem + 1px);
-    --hy-drawer-slide-width: 17.5rem;
+    --hy-drawer-width: 100vw;
+    --hy-drawer-slide-width: calc(100vw - .5rem);
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 
     &.loaded {
@@ -67,55 +70,31 @@ hy-drawer {
   @media screen and (min-width: $break-point-3) {
     
 
-    > .hy-drawer-content.hy-drawer-left { box-shadow: none; } 
-    --hy-drawer-box-shadow: none; 
+    
+    > .hy-drawer-content.hy-drawer-left {
+      width: 20rem;
+      left: -19.5rem;
+    }
+    --hy-drawer-width: 20rem;
+    --hy-drawer-slide-width: 19.5rem;
+    
   }
 
   @media screen and (min-width: $break-point-dynamic) {
 //     width: calc(50% - 28rem); 
-    > .hy-drawer-content.hy-drawer-left  { width: calc(50% - 28rem); left: calc(-50% + 28.5rem); } 
-    --hy-drawer-width: calc(50% - 28rem); 
-    --hy-drawer-slide-width: calc(50% - 28.5rem); 
+    > .hy-drawer-content.hy-drawer-left  {
+      width: calc(50% - 28rem);
+      left: calc(-50% + 28.5rem);
+    }
+    --hy-drawer-width: calc(50% - 28rem);
+    --hy-drawer-slide-width: calc(50% - 28.5rem);
+    // >> link
   }
 }
 
 .sidebar-bg {
   
 
-  &.sidebar-overlay::after {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#202020+0,202020+100&0+0,0.5+100 */
-    background: -moz-linear-gradient(top, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 100%); 
-    background: -webkit-linear-gradient(top, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 100%); 
-    background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00202020', endColorstr='#80202020',GradientType=0 ); 
-  }
-}
-
-.sidebar-sticky {
-  
-}
-
-/* About section */
-.sidebar-about > h1 {
-  color: #fff;
-  font-size: 2rem;
-}
-
-.sidebar-nav > ul {
-  list-style: none;
-  padding-left: 0;
-  margin-bottom: .5rem;
-}
-
-a.sidebar-nav-item {
-  display: block;
-  font-weight: $font-weight-heading;
-  line-height: 1.75;
-  padding: .25rem 0;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
-}
-
-// >>>>>
 
 a.sidebar-nav-item {
   &::before, &::after {

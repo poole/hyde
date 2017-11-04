@@ -31,15 +31,15 @@
 
 
 .sidebar-social {
-  margin-bottom: .5rem;
-
   &::after {
     @extend .clearfix
   }
 
   > ul {
+    display: inline-block;
     list-style: none;
     padding-left: 0;
+    margin-bottom: 0;
 
     > li {
       float: left;

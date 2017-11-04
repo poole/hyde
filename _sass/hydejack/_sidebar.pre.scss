@@ -19,8 +19,12 @@
 // SOFTWARE.
 
 .sidebar {
-  color: rgba(255,255,255,.75); // inline
-  text-align: left; // inline
+  color: rgba(255, 255, 255, .75); // inline
+  text-align: center; // inline
+  display: flex; // inline
+  justify-content: center;  // inline
+  align-items: center; // inline
+  height: 100%; // inline
 
   a {
     color: #fff; // inline
@@ -40,13 +44,12 @@ hy-drawer {
 
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
-      width: calc(18rem + 1px);
-      left: -17.5rem;
+      width: 100vw;
+      left: calc(-100vw + .5rem);
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
-
-    --hy-drawer-width: calc(18rem + 1px);
-    --hy-drawer-slide-width: 17.5rem;
+    --hy-drawer-width: 100vw;
+    --hy-drawer-slide-width: calc(100vw - .5rem);
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
 
     &.loaded {
@@ -62,19 +65,31 @@ hy-drawer {
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
+    width: 20rem;
     margin-left: 0;
     // >>>
 
-    > .hy-drawer-content.hy-drawer-left { box-shadow: none; } // link
-    --hy-drawer-box-shadow: none; // link
+    // <<< link
+    > .hy-drawer-content.hy-drawer-left {
+      width: 20rem;
+      left: -19.5rem;
+    }
+    --hy-drawer-width: 20rem;
+    --hy-drawer-slide-width: 19.5rem;
+    // >>> link
   }
 
   @media screen and (min-width: $break-point-dynamic) {
     width: calc(50% - 28rem); // inline
-    > .hy-drawer-content.hy-drawer-left  { width: calc(50% - 28rem); left: calc(-50% + 28.5rem); } // link
-    --hy-drawer-width: calc(50% - 28rem); // link
-    --hy-drawer-slide-width: calc(50% - 28.5rem); // link
+
+    // <<< link
+    > .hy-drawer-content.hy-drawer-left  {
+      width: calc(50% - 28rem);
+      left: calc(-50% + 28.5rem);
+    }
+    --hy-drawer-width: calc(50% - 28rem);
+    --hy-drawer-slide-width: calc(50% - 28.5rem);
+    // >> link
   }
 }
 
@@ -101,10 +116,9 @@ hy-drawer {
 
   &.sidebar-overlay::after {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#202020+0,202020+100&0+0,0.5+100 */
-    background: -moz-linear-gradient(top, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 100%); // link
-    background: -webkit-linear-gradient(top, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 100%); // link
-    background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 100%);
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#00202020', endColorstr='#80202020',GradientType=0 ); // link
+    background: -moz-linear-gradient(top, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%); // link
+    background: -webkit-linear-gradient(top, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%); // link
+    background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%);
   }
 }
 
@@ -112,42 +126,42 @@ hy-drawer {
   // <<<<< INLINE
   position: relative;
   z-index: 3;
-
-  @media screen {
-    position: absolute;
-    right: 1.5rem;
-    left: 1.5rem;
-    bottom: 1rem;
-  }
-
-  @media screen and (min-width: $break-point-dynamic) {
-    left: auto;
-    width: 15rem;
-  }
-  // >>>>>
+  max-width: 26rem;
+  padding: 1.5rem;
 }
 
 /* About section */
-.sidebar-about > h1 {
-  color: #fff;
-  font-size: 2rem;
+.sidebar-about {
+  .avatar {
+    float: none;
+    margin: 0;
+    border: 2px solid rgba(255,255,255,0.25);
+    margin-bottom: 1rem
+  }
+
+  > h2 {
+    margin-top: 0;
+    > a {
+      padding-bottom: .5rem;
+    }
+  }
 }
 
 .sidebar-nav > ul {
   list-style: none;
   padding-left: 0;
-  margin-bottom: .5rem;
+  margin-bottom: 1.5rem;
 }
 
 a.sidebar-nav-item {
-  display: block;
+  display: inline-block;
   font-weight: $font-weight-heading;
   line-height: 1.75;
   padding: .25rem 0;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
-
 // >>>>>
+
 // <<<<< LINK
 a.sidebar-nav-item {
   &::before, &::after {
