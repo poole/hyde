@@ -4,12 +4,12 @@
 
 // <<<<< INLINE
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-weight: bold;
+  font-weight: $font-weight-heading;
   margin: 4rem 0 1rem;
 }
 
 .heading {
-  font-weight: bold;
+  font-weight: $font-weight-heading;
 }
 
 h1, .h1 {
@@ -52,6 +52,10 @@ hr {
   border-top: 1px solid $border-color;
 }
 
+strong {
+  font-weight: $font-weight-bold;
+}
+
 .hr {
   border-bottom: 1px solid $border-color;
   padding-bottom: .5rem;
@@ -83,7 +87,7 @@ h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
 }
 
 dt {
-  font-weight: bold;
+  font-weight: $font-weight-bold;
 }
 
 dd {
@@ -92,7 +96,7 @@ dd {
 
 abbr {
   font-size: 85%;
-  font-weight: bold;
+  font-weight: $font-weight-bold;
   color: #555;
   text-transform: uppercase;
 

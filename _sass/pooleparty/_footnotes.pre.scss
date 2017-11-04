@@ -8,7 +8,7 @@ a[href^="#fn:"],
 // Back to footnote link
 a[href^="#fnref:"] {
   margin-left: .1rem;
-  font-weight: bold;
+  font-weight: $font-weight-bold;
 
   @media screen and (max-width: 73.5em) {
     font-weight: normal;
