@@ -13,7 +13,7 @@ url:                   https://domain.tld
 
 # Set to '' when hosting on GitHub Pages, like `//<username>.github.io`.
 # Set to '/<reponame>' when using the `gh-pages` branch of a repository.
-baseurl:               /hydejack
+baseurl:               ''
 
 # A short description of the page used for the meta description tag.
 description:           >
