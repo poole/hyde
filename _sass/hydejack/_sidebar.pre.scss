@@ -48,6 +48,7 @@ hy-drawer {
       left: calc(-100vw + .5rem);
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
+
     --hy-drawer-width: 100vw;
     --hy-drawer-slide-width: calc(100vw - .5rem);
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
@@ -76,20 +77,21 @@ hy-drawer {
     }
     --hy-drawer-width: 20rem;
     --hy-drawer-slide-width: 19.5rem;
-    // >>> link
+    // >>>
   }
 
   @media screen and (min-width: $break-point-dynamic) {
     width: calc(50% - 28rem); // inline
 
     // <<< link
-    > .hy-drawer-content.hy-drawer-left  {
+    > .hy-drawer-content.hy-drawer-left {
       width: calc(50% - 28rem);
       left: calc(-50% + 28.5rem);
     }
+
     --hy-drawer-width: calc(50% - 28rem);
     --hy-drawer-slide-width: calc(50% - 28.5rem);
-    // >> link
+    // >>>
   }
 }
 
@@ -112,7 +114,7 @@ hy-drawer {
     right: 0;
     background: rgba(0, 0, 0, 0.05);
   }
-  // >>> inline
+  // >>>
 
   &.sidebar-overlay::after {
     /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#202020+0,202020+100&0+0,0.5+100 */
@@ -122,8 +124,8 @@ hy-drawer {
   }
 }
 
+// <<<<< INLINE
 .sidebar-sticky {
-  // <<<<< INLINE
   position: relative;
   z-index: 3;
   max-width: 26rem;

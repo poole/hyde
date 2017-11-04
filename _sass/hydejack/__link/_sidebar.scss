@@ -56,6 +56,7 @@ hy-drawer {
       left: calc(-100vw + .5rem);
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
+
     --hy-drawer-width: 100vw;
     --hy-drawer-slide-width: calc(100vw - .5rem);
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
@@ -82,18 +83,29 @@ hy-drawer {
 
   @media screen and (min-width: $break-point-dynamic) {
 //     width: calc(50% - 28rem); 
-    > .hy-drawer-content.hy-drawer-left  {
+    > .hy-drawer-content.hy-drawer-left {
       width: calc(50% - 28rem);
       left: calc(-50% + 28.5rem);
     }
+
     --hy-drawer-width: calc(50% - 28rem);
     --hy-drawer-slide-width: calc(50% - 28.5rem);
-    // >> link
+    
   }
 }
 
 .sidebar-bg {
   
+
+  &.sidebar-overlay::after {
+    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#202020+0,202020+100&0+0,0.5+100 */
+    background: -moz-linear-gradient(top, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%); 
+    background: -webkit-linear-gradient(top, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%); 
+    background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%);
+  }
+}
+
+
 
 
 a.sidebar-nav-item {
