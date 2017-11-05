@@ -10,7 +10,7 @@
  */
 
 
-pre, table:not(.highlight), .katex-display, .break-layout, .message  {
+pre, table:not(.highlight), .katex-display, .break-layout  {
   @media screen {
     position: relative;
     width: calc(100vw - .5rem);
@@ -38,32 +38,6 @@ pre, table:not(.highlight), .katex-display, .break-layout, .message  {
 
   @media screen and (min-width: $break-point-dynamic) {
     width: calc(100% + 50vw - (48rem / 2) + 2rem);
-  }
-}
-
-.message  {
-  @media screen and (min-width: 38rem) {
-    padding-right: calc(50vw - (38rem / 2) + 1rem);
-  }
-
-  @media screen and (min-width: $break-point-2) {
-    padding-right: calc(50vw - (42rem / 2) + 1rem);
-  }
-
-  @media screen and (min-width: $break-point-3) {
-    padding-right: 4rem + 1rem;
-  }
-
-  @media screen and (min-width: $break-point-4) {
-    padding-right: calc(100vw - 42rem - 22rem + 1rem);
-  }
-
-  @media screen and (min-width: $break-point-5) {
-    padding-right: calc(100vw - 48rem - 22rem + 1rem);
-  }
-
-  @media screen and (min-width: $break-point-dynamic) {
-    padding-right: calc(50vw - (48rem / 2) + 1rem);
   }
 }
 
