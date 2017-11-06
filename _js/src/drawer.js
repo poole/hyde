@@ -72,7 +72,7 @@ function menuClickClallback(e) {
 // so we ignore the first 35 pixels (roughly the range for the native guesture).
 function getRange() {
   if (isMobileSafari && !navigator.standalone) {
-    return [35, 150];
+    return [35, 135];
   }
   return [0, 150];
 }
