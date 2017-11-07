@@ -18,90 +18,99 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-.sidebar {
-  color: rgba(255, 255, 255, .75); // inline
-  text-align: center; // inline
-  display: flex; // inline
-  justify-content: center;  // inline
-  align-items: center; // inline
-  height: 100%; // inline
-
-  a {
-    color: #fff; // inline
-    border-bottom-color: rgba(255, 255, 255, 0.2); // inline
-    &:hover { border-bottom-color: #fff; } // link
-  }
-}
-
 hy-drawer {
+  width: 100%; // inline
   position: relative; // inline
-  padding: 1rem 0; // inline
+  z-index: 2; // link
 
   @media screen {
-    padding: 2rem 1rem; // inline
-    min-height: 640px; // link
-    min-height: 100vh; // link
-
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
-      width: 100vw;
-      left: calc(-100vw + .5rem);
+      width: 100%;
+      left: calc(-100% + .5rem);
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
 
-    --hy-drawer-width: 100vw;
-    --hy-drawer-slide-width: calc(100vw - .5rem);
+    --hy-drawer-width: 100%;
+    --hy-drawer-slide-width: calc(100% - .5rem);
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
-
-    &.loaded {
-      min-height: 0;
-      padding: 0;
-    }
     // >>>
   }
 
   @media screen and (min-width: $break-point-3) {
     // <<< inline
     position: fixed;
+    width: 20rem;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 20rem;
     margin-left: 0;
+
+    &.cover {
+      position: relative;
+      width: 100%;
+    }
     // >>>
 
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
-      width: 20rem;
-      left: -19.5rem;
+      left: calc(20rem - 100%);
     }
-    --hy-drawer-width: 20rem;
-    --hy-drawer-slide-width: 19.5rem;
+    --hy-drawer-slide-width: calc(100% - 20rem);
     // >>>
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-    width: calc(50% - 28rem); // inline
+    width: calc(50% - 28.5rem);
 
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
-      width: calc(50% - 28rem);
-      left: calc(-50% + 28.5rem);
+      left: calc(-50% - 28.5rem);
     }
-
-    --hy-drawer-width: calc(50% - 28rem);
-    --hy-drawer-slide-width: calc(50% - 28.5rem);
+    --hy-drawer-slide-width: calc(50% + 28.5rem);
     // >>>
   }
+
+  // <<< link
+  @media screen {
+    &.loaded {
+      position: static;
+    }
+  }
+  // >>>
+}
+
+.sidebar {
+  position: relative; // inline
+  display: flex; // inline
+  justify-content: center; // inline
+  align-items: center; // inline
+  color: rgba(255, 255, 255, .75); // inline
+  text-align: center; // inline
+
+  a {
+    color: #fff; // inline
+    border-bottom-color: rgba(255, 255, 255, 0.2); // inline
+    &:hover { border-bottom-color: #fff; } // link
+  }
+
+  @media screen {
+    min-height: 640px; // inline
+    min-height: 100vh; // inline
+  }
+}
+
+@media screen {
+  hy-drawer.loaded .sidebar { min-height: 100%; }
 }
 
 .sidebar-bg {
   // <<< inline
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  height: 100%;
   background: #202020 center / cover;
 
   /* make sidebar slightly darker to increase text readability (when using a background image) */
@@ -128,11 +137,10 @@ hy-drawer {
 .sidebar-sticky {
   position: relative;
   z-index: 3;
-  max-width: 26rem;
+  max-width: 20rem;
   padding: 1.5rem;
 }
 
-/* About section */
 .sidebar-about {
   .avatar {
     margin-bottom: 1.5rem

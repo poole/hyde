@@ -28,9 +28,17 @@ import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
+import { never } from 'rxjs/observable/never';
+
+import { _do as tap } from 'rxjs/operator/do';
+import { map } from 'rxjs/operator/map';
+import { share } from 'rxjs/operator/share';
+import { startWith } from 'rxjs/operator/startWith';
+import { switchMap } from 'rxjs/operator/switchMap';
+import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
 
 // And some of our own helper functions/constants.
-import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
+import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser } from './common';
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = new Set([
@@ -42,26 +50,16 @@ const REQUIREMENTS = new Set([
 ]);
 
 // HACK: hard-coded SCSS break-point.
-const MEDIA_QUERY = '(min-width: 64em)';
+const BREAK_POINT_3 = '(min-width: 64em)';
+const BREAK_POINT_DYNAMIC = '(min-width: 102.5em)';
 
 // ## Functions
-// TODO
-function resizeCallback() {
-  const isDesktop = window.matchMedia(MEDIA_QUERY).matches;
-  if (window._isDesktop !== isDesktop) {
-    window._isDesktop = isDesktop;
-    window._drawer.persistent = isDesktop;
-    window._drawer.opened = isDesktop;
-  }
+function subscribeWhen(p$) {
+  if (process.env.DEBUG && !p$) throw Error();
+  return p$::switchMap(p => (p ? this : Observable::never()));
 }
 
-// Callback for clicking the menu btton. Will toggle the drawer when on mobile.
-function menuClickClallback(e) {
-  if (!window._isDesktop) {
-    e.preventDefault();
-    window._drawer.toggle();
-  }
-}
+const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
 // Determins the range from which to draw the drawer in pixels, counted from the left edge.
 // It depends on the browser, e.g. Safari has a native guesture when sliding form the side,
@@ -75,27 +73,27 @@ function getRange() {
 
 // This function sets y-drawer up as a WebComponent.
 // First it sets the options as HTML attributes, then it `define`s the WebComponent.
-function setupWebComponent(drawerEl) {
-  if (window._isDesktop) drawerEl.setAttribute('opened', '');
-  if (window._isDesktop) drawerEl.setAttribute('persistent', '');
+function setupWebComponent(drawerEl, opened) {
+  if (opened) drawerEl.setAttribute('opened', '');
   drawerEl.setAttribute('align', 'left');
-  drawerEl.setAttribute('range', getRange().join(','));
+  // drawerEl.setAttribute('range', getRange().join(','));
   drawerEl.setAttribute('threshold', isSafari ? 0 : 10);
   drawerEl.setAttribute('prevent-default', '');
+  // drawerEl.setAttribute('mouse-events', '');
 
   customElements.define('hy-drawer', HTMLDrawerElement);
   return drawerEl;
 }
 
 // This function sets y-drawer up as a vanilla JS class.
-function setupVanilla(drawerEl) {
+function setupVanilla(drawerEl, opened) {
   return new Drawer(drawerEl, {
-    opened: window._isDesktop,
-    persistent: window._isDesktop,
+    opened,
     align: 'left',
-    range: getRange(),
+    // range: getRange(),
     threshold: isSafari ? 0 : 10,
     preventDefault: true,
+    // mouseEvents: true,
   });
 }
 
@@ -110,40 +108,80 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
 
-  // We check the media query to determine wheter the drawer is active or not
-  window._isDesktop = window.matchMedia(MEDIA_QUERY).matches;
+  const isDesktop$ = Observable::fromEvent(window, 'resize', { passive: true })
+    ::map(() => window.matchMedia(BREAK_POINT_3).matches)
+    ::share()
+    ::startWith(window.matchMedia(BREAK_POINT_3).matches);
 
-  // Now we create the component.
-  // If we have Custom Elements and ShadowDOM (v1) we use the WebComponent.
-  window._drawer = 'customElements' in window && 'attachShadow' in Element.prototype ?
-    setupWebComponent(drawerEl) :
-    setupVanilla(drawerEl);
+  const drawerWidth$ = isDesktop$
+    ::map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches ?
+      (document.body.clientWidth / 2) - (28 * rem) :
+      20 * rem));
 
-  // Some styles change when the drawer is loaded.
-  // TODO: Check if we still need this. Also, maybe make this part of the component itself?
-  drawerEl.classList.add('loaded');
+  const dist$ = drawerWidth$::map(drawerWidth =>
+    (document.body.clientWidth / 2) - (drawerWidth / 2));
 
-  // You can uncomment the code below to lock document scrolling while sliding.
-  // However, it's not as good as `preventDefault`,
-  // as it won't prevent most mobile browsers from showing/hiding their addressbar,
-  // causing expensive reflows/repaints...
-  // NOTE: iOS Safari ignores this completely.
-  /*
-  if (!isSafari) {
-    drawerEl.addEventListener('hy-drawer-slidestart', () => {
-      document.body.style.overflowY = 'hidden';
-    });
-
-    drawerEl.addEventListener('hy-drawer-slideend', () => {
-      document.body.style.overflowY = '';
-    });
-  }
-  */
+  const range$ = isDesktop$
+    ::withLatestFrom(drawerWidth$)
+    ::map(([isDesktop, drawerWidth]) => (isDesktop ? [0, drawerWidth] : getRange()));
 
   // Adding the click callback to the menu button.
-  menuEl.addEventListener('click', menuClickClallback);
+  menuEl.addEventListener('click', () => { window._drawer.toggle(); });
 
-  // Adding the resize callback to the resize event, but with a small delay.
-  Observable::fromEvent(window, 'resize', { passive: true })
-    .subscribe(resizeCallback);
+  Observable::fromEvent(drawerEl, 'hy-drawer-move')
+    ::subscribeWhen(isDesktop$)
+    ::withLatestFrom(dist$)
+    .subscribe(([{ detail: { opacity } }, dist]) => {
+      const t = 1 - opacity;
+      window._sidebar.style.transform = `translateX(${dist * t}px)`;
+    });
+
+  isDesktop$.subscribe((isDesktop) => {
+    if (!isDesktop) window._sidebar.style.transform = '';
+  });
+
+  const opened$ = Observable::fromEvent(drawerEl, 'hy-drawer-transitioned')
+    ::map(e => e.detail)
+    ::tap((opened) => { window._sidebar.style.willChange = opened ? 'transform' : ''; })
+    ::share();
+
+  // TODO
+  if (!isMobile) {
+    Observable::fromEvent(document, 'scroll', { passive: true })
+      ::subscribeWhen(opened$)
+      .subscribe(() => {
+        if (window._drawer.opened) { // extra check, because scroll can fire multiple times
+          window._drawer.close();
+        }
+      });
+  }
+
+  // Close the drawer on popstate, i.e. the back button.
+  Observable::fromEvent(window, 'popstate', { passive: true })
+    ::subscribeWhen(opened$)
+    .subscribe(() => { window._drawer.close(); });
+
+  const scrollTop = window.pageYOffset || document.body.scrollTop;
+
+  // Start the drawer in `opened` state when the cover class is present,
+  // and the user hasn't started scrolling already.
+  const opened = drawerEl.classList.contains('cover') && scrollTop <= 0;
+
+  // Now we create the component.
+  // If we have Custom Elements and ShadowDOM (v1) we use the web component.
+  window._drawer = 'customElements' in window && 'attachShadow' in Element.prototype ?
+    setupWebComponent(drawerEl, opened) :
+    setupVanilla(drawerEl, opened);
+
+  // Keeping the draw range updated.
+  range$.subscribe((range) => { window._drawer.range = range; });
+
+  // TODO
+  drawerEl.classList.add('loaded');
+
+  // The drawer width was `100vh` before JS gets loaded, now it is set to 0,
+  // so we remove `innerHeight` from the old scroll position to keep the position constant.
+  if (drawerEl.classList.contains('cover')) {
+    window.scrollTo(0, scrollTop - window.innerHeight);
+  }
 }

@@ -47,6 +47,7 @@ import { timer } from 'rxjs/observable/timer';
 import { _catch as catchError } from 'rxjs/operator/catch';
 import { _do as tap } from 'rxjs/operator/do';
 import { debounceTime } from 'rxjs/operator/debounceTime';
+import { exhaustMap } from 'rxjs/operator/exhaustMap';
 import { filter } from 'rxjs/operator/filter';
 import { map } from 'rxjs/operator/map';
 import { mapTo } from 'rxjs/operator/mapTo';
@@ -55,8 +56,8 @@ import { observeOn } from 'rxjs/operator/observeOn';
 import { pairwise } from 'rxjs/operator/pairwise';
 import { share } from 'rxjs/operator/share';
 import { startWith } from 'rxjs/operator/startWith';
-import { exhaustMap } from 'rxjs/operator/exhaustMap';
 import { switchMap } from 'rxjs/operator/switchMap';
+import { take } from 'rxjs/operator/take';
 import { takeUntil } from 'rxjs/operator/takeUntil';
 import { zipProto as zip } from 'rxjs/operator/zip';
 
@@ -197,6 +198,13 @@ function shouldRestoreScroll() {
 }
 
 function animateFadeOut({ type, main }) {
+  if (window._drawer && window._drawer.opened) {
+    window._drawer.close();
+    return Observable::fromEvent(window._drawer.el, 'hy-drawer-transitioned')
+      ::take(1)
+      ::mapTo({ main });
+  }
+
   return shouldAnimate(type) ?
     animate(main, FADE_OUT, SETTINGS)::mapTo({ main }) :
     Observable::of({ main });
@@ -296,15 +304,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // * Add the `active` class to the active entry in the sidebar (currently not in use)
     // * If we are going to animate the content, make some preparations.
     ::tap(({ type, main }) => {
-      if (!window._isDesktop && window._drawer && window._drawer.opened) {
-        window._drawer.close();
-      }
-
       if (shouldAnimate(type)) {
         main.style.pointerEvents = 'none';
         main.style.opacity = 0;
       }
-
       /*
       document.querySelectorAll('.sidebar-nav-item')
         ::forEach((item) => {
@@ -321,7 +324,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // After the animation is complete, we empty the current content and scroll to the top.
     ::tap(({ main }) => {
       main::empty();
-      window.scroll(window.pageXOffset, 0);
+      window.scrollTo(0, 0);
     })
     ::share();
 

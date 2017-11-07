@@ -42,6 +42,14 @@
     top: 0;
     bottom: 0;
   }
+
+  @media (min-width: $break-point-3) {
+    body::before { width: 20rem; }
+  }
+
+  @media (min-width: $break-point-dynamic) {
+    body::before { content: none; }
+  }
 }
 
 html {

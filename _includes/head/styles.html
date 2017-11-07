@@ -7,10 +7,12 @@
   <style>
     {% capture include_to_scssify %}{% include styles/inline.scss %}{% endcapture %}
     {{ include_to_scssify | scssify }}
-    {% if page.layout == "projects" or page.layout == "project" or page.layout == "welcome" %}
+
+    {% assign layout = page.layout %}
+    {% if layout == "projects" or layout == "project" or layout == "welcome" or layout == "cover" %}
       {% capture include_to_scssify %}{% include styles/pro/projects.scss %}{% endcapture %}
       {{ include_to_scssify | scssify }}
-    {% elsif page.layout == "resume" %}
+    {% elsif layout == "resume" %}
       {% capture include_to_scssify %}{% include styles/pro/resume.scss %}{% endcapture %}
       {{ include_to_scssify | scssify }}
     {% endif %}

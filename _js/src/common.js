@@ -22,7 +22,8 @@ import { Observable } from 'rxjs/Observable';
 // Check the user agent for Safari and iOS Safari, to give them some special treatment...
 const ua = navigator.userAgent.toLowerCase();
 export const isSafari = ua.indexOf('safari') > 0 && ua.indexOf('chrome') < 0;
-export const isMobileSafari = isSafari && ua.indexOf('mobile') > 0;
+export const isMobile = ua.indexOf('mobile') > 0;
+export const isMobileSafari = isSafari && isMobile;
 export const isUCBrowser = ua.indexOf('ucbrowser') > 0;
 export const isFirefoxIOS = ua.indexOf('fxios') > 0 && ua.indexOf('safari') > 0;
 

@@ -29,42 +29,21 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-.sidebar {
-//   color: rgba(255, 255, 255, .75); 
-//   text-align: center; 
-//   display: flex; 
-//   justify-content: center;  
-//   align-items: center; 
-//   height: 100%; 
-  a {
-//     color: #fff; 
-//     border-bottom-color: rgba(255, 255, 255, 0.2); 
-    &:hover { border-bottom-color: #fff; } 
-  }
-}
-
 hy-drawer {
+//   width: 100%; 
 //   position: relative; 
-//   padding: 1rem 0; 
+  z-index: 2; 
   @media screen {
-//     padding: 2rem 1rem; 
-    min-height: 640px; 
-    min-height: 100vh; 
     
     > .hy-drawer-content.hy-drawer-left {
-      width: 100vw;
-      left: calc(-100vw + .5rem);
+      width: 100%;
+      left: calc(-100% + .5rem);
       box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     }
 
-    --hy-drawer-width: 100vw;
-    --hy-drawer-slide-width: calc(100vw - .5rem);
+    --hy-drawer-width: 100%;
+    --hy-drawer-slide-width: calc(100% - .5rem);
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
-
-    &.loaded {
-      min-height: 0;
-      padding: 0;
-    }
     
   }
 
@@ -73,25 +52,53 @@ hy-drawer {
 
     
     > .hy-drawer-content.hy-drawer-left {
-      width: 20rem;
-      left: -19.5rem;
+      left: calc(20rem - 100%);
     }
-    --hy-drawer-width: 20rem;
-    --hy-drawer-slide-width: 19.5rem;
+    --hy-drawer-slide-width: calc(100% - 20rem);
     
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-//     width: calc(50% - 28rem); 
-    > .hy-drawer-content.hy-drawer-left {
-      width: calc(50% - 28rem);
-      left: calc(-50% + 28.5rem);
-    }
+    width: calc(50% - 28.5rem);
 
-    --hy-drawer-width: calc(50% - 28rem);
-    --hy-drawer-slide-width: calc(50% - 28.5rem);
+    
+    > .hy-drawer-content.hy-drawer-left {
+      left: calc(-50% - 28.5rem);
+    }
+    --hy-drawer-slide-width: calc(50% + 28.5rem);
     
   }
+
+  
+  @media screen {
+    &.loaded {
+      position: static;
+    }
+  }
+  
+}
+
+.sidebar {
+//   position: relative; 
+//   display: flex; 
+//   justify-content: center; 
+//   align-items: center; 
+//   color: rgba(255, 255, 255, .75); 
+//   text-align: center; 
+  a {
+//     color: #fff; 
+//     border-bottom-color: rgba(255, 255, 255, 0.2); 
+    &:hover { border-bottom-color: #fff; } 
+  }
+
+  @media screen {
+//     min-height: 640px; 
+//     min-height: 100vh; 
+  }
+}
+
+@media screen {
+  hy-drawer.loaded .sidebar { min-height: 100%; }
 }
 
 .sidebar-bg {

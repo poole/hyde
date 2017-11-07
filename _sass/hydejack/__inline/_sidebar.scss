@@ -29,56 +29,71 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-.sidebar {
-  color: rgba(255, 255, 255, .75); 
-  text-align: center; 
-  display: flex; 
-  justify-content: center;  
-  align-items: center; 
-  height: 100%; 
-  a {
-    color: #fff; 
-    border-bottom-color: rgba(255, 255, 255, 0.2); 
-//     &:hover { border-bottom-color: #fff; } 
-  }
-}
-
 hy-drawer {
+  width: 100%; 
   position: relative; 
-  padding: 1rem 0; 
+//   z-index: 2; 
   @media screen {
-    padding: 2rem 1rem; 
-//     min-height: 640px; 
-//     min-height: 100vh; 
     
   }
 
   @media screen and (min-width: $break-point-3) {
     
     position: fixed;
+    width: 20rem;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 20rem;
     margin-left: 0;
+
+    &.cover {
+      position: relative;
+      width: 100%;
+    }
     
 
     
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-    width: calc(50% - 28rem); 
+    width: calc(50% - 28.5rem);
+
     
   }
+
+  
+}
+
+.sidebar {
+  position: relative; 
+  display: flex; 
+  justify-content: center; 
+  align-items: center; 
+  color: rgba(255, 255, 255, .75); 
+  text-align: center; 
+  a {
+    color: #fff; 
+    border-bottom-color: rgba(255, 255, 255, 0.2); 
+//     &:hover { border-bottom-color: #fff; } 
+  }
+
+  @media screen {
+    min-height: 640px; 
+    min-height: 100vh; 
+  }
+}
+
+@media screen {
+  hy-drawer.loaded .sidebar { min-height: 100%; }
 }
 
 .sidebar-bg {
   
   position: absolute;
   top: 0;
-  right: 0;
-  bottom: 0;
-  left: 0;
+  left: calc(50% - 50vw);
+  width: 100vw;
+  height: 100%;
   background: #202020 center / cover;
 
   /* make sidebar slightly darker to increase text readability (when using a background image) */
@@ -105,11 +120,10 @@ hy-drawer {
 .sidebar-sticky {
   position: relative;
   z-index: 3;
-  max-width: 26rem;
+  max-width: 20rem;
   padding: 1.5rem;
 }
 
-/* About section */
 .sidebar-about {
   .avatar {
     margin-bottom: 1.5rem

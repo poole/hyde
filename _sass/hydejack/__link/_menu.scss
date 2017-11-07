@@ -48,11 +48,11 @@
 
 
 #_menu {
-  @media screen and (min-width: $break-point-3) {
-//     position: absolute; 
-//     left: -9999px; 
-    &:focus { position: static; } 
-  }
+  // @media screen and (min-width: $break-point-3) {
+//   //   position: absolute; 
+//   //   left: -9999px; 
+  //   &:focus { position: static; } 
+  // }
   @media print { display: none; } 
 }
 
