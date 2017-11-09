@@ -21,14 +21,12 @@ along with this program.  If not, see <http://www.gnu.org/licenses/>.
 ## Attributions
 Appropriate credit as per Creative Commons licenses.
 
-* [IcoMoon Icons Free Version](https://icomoon.io/#icons-icomoon)
-  by [Keyamoon](http://keyamoon.com/).
-  License: [CC-BY-SA-4.0]. Changes: None;
-
-Credit for works that do not require it as per license:
-
-* [Photo](https://unsplash.com/photos/AtvuPUenaeI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText)
-  by [Caleb George](http://www.caleb-morris.com/)
+| Work                                                   | License        | Changes
+|:-------------------------------------------------------|:---------------|:-
+| [Photo][ph] by [Caleb George][cg]                      | [Unsplash]     | Rearranged objects, Filled in content, blurred
+| [IcoMoon Icons Free Version][11] by [Keyamoon][12]     | [CC-BY-SA-4.0] | None
+| [Napolean Crossing the Alps][21]                       | Public Domain  | Filled in content, blurred on the sides
+| [Section of a Mandelbrot set][31]                      | [CC-BY-SA-3.0] | Blurred on the sides
 
 ## Licenses
 Parts of this software are provided under separate licenses.
@@ -234,7 +232,16 @@ which is MIT licensed with the following copyright
 
 A copy of the [MIT] license is provided as part of this distribution.
 
+[11]: https://icomoon.io/#icons-icomoon
+[12]: http://keyamoon.com/
+[21]: https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps#/media/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg
+[31]: https://en.wikipedia.org/wiki/Benoit_Mandelbrot#/media/File:Mandel_zoom_08_satellite_antenna.jpg
+[ph]: https://unsplash.com/photos/AtvuPUenaeI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
+[cg]: http://www.caleb-morris.com/
+
 [MIT]: licenses/MIT.md
 [GPL-3.0]: licenses/GPL-3.0.md
 [Apache-2.0]: licenses/Apache-2.0.md
 [CC-BY-SA-4.0]: https://creativecommons.org/licenses/by-sa/4.0/
+[CC-BY-SA-3.0]: https://creativecommons.org/licenses/by-sa/3.0/
+[Unsplash]: https://unsplash.com/license
