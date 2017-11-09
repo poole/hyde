@@ -194,8 +194,8 @@ Then add the following to `.ssh/config`:
 
 ~~~
 Host hydejack
-	Hostname github.com
-	User git
+	HostName github.com
+	IdentitiesOnly yes
 	IdentityFile ~/.ssh/hydejack_pro_customers
 ~~~
 
