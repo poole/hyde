@@ -116,7 +116,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const drawerWidth$ = isDesktop$
     ::map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches ?
       (document.body.clientWidth / 2) - (28 * rem) :
-      20 * rem));
+      21 * rem));
 
   const dist$ = drawerWidth$::map(drawerWidth =>
     (document.body.clientWidth / 2) - (drawerWidth / 2));

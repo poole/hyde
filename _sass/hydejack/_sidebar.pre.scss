@@ -40,7 +40,7 @@ hy-drawer {
   @media screen and (min-width: $break-point-3) {
     // <<< inline
     position: fixed;
-    width: 20rem;
+    width: 21rem;
     top: 0;
     left: 0;
     bottom: 0;
@@ -54,9 +54,9 @@ hy-drawer {
 
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
-      left: calc(20rem - 100%);
+      left: calc(21rem - 100%);
     }
-    --hy-drawer-slide-width: calc(100% - 20rem);
+    --hy-drawer-slide-width: calc(100% - 21rem);
     // >>>
   }
 
@@ -137,7 +137,7 @@ hy-drawer {
 .sidebar-sticky {
   position: relative;
   z-index: 3;
-  max-width: 20rem;
+  max-width: 21rem;
   padding: 1.5rem;
 }
 

@@ -36,12 +36,14 @@
   }
 
   @media screen and (min-width: $break-point-3) {
-    margin-left: 23rem;
+    margin-left: 24rem;
     margin-right: 3rem;
     padding-left: 1rem;
   }
 
   @media screen and (min-width: $break-point-5) {
+    margin-left: 25rem;
+    margin-right: 4rem;
     max-width: 48rem;
   }
 
