@@ -140,9 +140,15 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     if (!isDesktop) window._sidebar.style.transform = '';
   });
 
+  drawerEl.addEventListener('hy-drawer-prepare', () => {
+    window._sidebar.style.willChange = 'transform';
+  });
+
   const opened$ = Observable::fromEvent(drawerEl, 'hy-drawer-transitioned')
     ::map(e => e.detail)
-    ::tap((opened) => { window._sidebar.style.willChange = opened ? 'transform' : ''; })
+    ::tap((opened) => {
+      window._sidebar.style.willChange = '';
+    })
     ::share();
 
   // TODO
