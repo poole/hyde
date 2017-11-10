@@ -342,7 +342,7 @@ author:
   social:
     email:    mailto:mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.0.0-alpha.0.zip
+    download: https://github.com/qwtel/hydejack/archive/v7.3.0.zip
 ~~~
 
 ## Enabling comments
@@ -437,70 +437,82 @@ Below you find the the complete default `_config.yml` file. You may want to copy
 # Config
 # ========================================================================================
 
-title:                 Hydejack
-
-# Language of your content in 2-letter code, eg: en, de.
-# You may also provide a location, eg: en-us, de_AT.
-lang:                  en
-
-# The unique resource location of your page.
-# Set to `https://<username>.github.io` when hosting on GitHub Pages.
+# IMPORTANT: Set the URL of your page.
+# Set to https://<username>.github.io when hosting on GitHub Pages
+# (unless you are using a custom domain).
 url:                   https://domain.tld
 
-# Set to '' when hosting on GitHub Pages, like `//<username>.github.io`.
-# Set to '/<reponame>' when using the `gh-pages` branch of a repository.
-baseurl:               /hydejack
+# IMPORTANT: Set The "base URL" of your site.
+#
+# When hosting your site in a subdirectory of a server, set to /<name of directory>
+# (with leading /, but without the < >)
+# Use the empty string '' otherwise.
+#
+# When using GitHub Pages, set to '' when hosting a user- or organization page,
+# i.e. when the name of the repository looks like <username>.github.io.
+# Otherwise, set to /<name of repository> (with leading /, but without the < >).
+baseurl:               ''
 
-# A short description of the page used for the meta description tag.
+# Language of your content in 2-letter code, e.g.: en, de.
+# You may also provide a location, e.g.: en-us, de_AT.
+lang:                  en
+
+# The title of your blog. Used in the sidebar and the browser tab.
+title:                 Hydejack
+
+# A short description (~150 chars) of the page used for the meta description tag.
+# Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
   A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
   Combines the best of static sites and modern web apps.
   Open `_config.yml` to edit this text.
 
-# A shorter description for the sidebar.
+# A shorter description for the sidebar (optional).
 tagline:               >
   A Jekyll theme with JavaScript powers.
   Open `_config.yml` to edit this text.
 
-# A list of keywords for your blog, will be used as fallback
-# for pages that don't have `keywords` in their front matter.
+# A list of keywords for your blog (optional).
 keywords:              []
 
-# Used by jekyll-seo-tag...
+# Used by jekyll-seo-tag (optional).
 logo:                  /assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
-# Duplication is necessary due to the jekyll-feed plugin.
+# Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
 author:
-  # name:                <firstname> <lastname>
-  # email:               <mail@domain.tld>
+  name:                <firstname> <lastname>
+  email:               <mail@domain.tld>
+  # Used by `jekyll-seo-tag`:
+  # twitter:             <username>
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 20XX. Open _config.yml to edit this text.
+copyright:             © 2017. All rights reserved.
 
 # Format of the permalinks
 permalink:             pretty
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              5
-paginate_path:         /blog/page-:num/
+paginate_path:         /page-:num/
+
 
 # Customizaton
 # ========================================================================================
+
+# Sidebar image and theme color of the site.
+accent_image:          /assets/img/sidebar-bg.jpg
+accent_color:          '#4fb1ba'
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://qwtel.com/hydejack/docs/configuration/>
 google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
 
 # The text font. Expects a string that is a valid CSS font-family value.
-font:                  "'Noto Sans', Helvetica, Arial, sans-serif"
+font:                  Noto Sans, Helvetica, Arial, sans-serif
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
-font_heading:          "'Roboto Slab', Helvetica, Arial, sans-serif"
-
-# Fallback image and color
-accent_image:          /assets/img/sidebar-bg.jpg
-accent_color:          '#4fb1ba'
+font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 
 # 3rd Party Integrations
 # ----------------------------------------------------------------------------------------
@@ -509,20 +521,22 @@ accent_color:          '#4fb1ba'
 # pages with `comments: true` in the front matter.
 # disqus:                <disqus_shortname>
 
-# Setting a tinyletter username will enable the newsletter subscription box.
-# tinyletter:            <tinyletter_username>
-
 # Set your Google Analytics id to receive `pageview` events.
 # To remove Google Anaylics from your page, remove the line below.
 # google_analytics:      UA-XXXXXXXX-X
 
+# Setting a tinyletter username will enable the newsletter subscription box.
+# PRO version only!
+# tinyletter:            <tinyletter_username>
 
-# Hydejack Flags
+
+# Hydejack Settings
 # ----------------------------------------------------------------------------------------
+# These settings are specific to Hydejack.
 
 hydejack:
   # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, related, random]
+  post_addons:         [about, newsletter, related]
 
   # Configure the order of complementary content on project pages
   project_addons:      [about, newsletter, other]
@@ -580,15 +594,9 @@ collections:
 # ========================================================================================
 
 exclude:
-  - README.md
-  - node_modules
   - vendor
-  - package.json
-  - package-lock.json
   - Gemfile
   - Gemfile.lock
-include:
-  - LICENSE.md
 
 
 # Plugins and Plugin Configuration
@@ -604,9 +612,16 @@ plugins:
   # - jekyll-readme-index
   # - jekyll-redirect-from
   - jekyll-relative-links
+  # - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
   # - jekyll-titles-from-headings
+
+# Theme
+# ---------------------------------------------------------------------------------------
+
+theme: jekyll-theme-hydejack
+# remote_theme: qwtel/hydejack@gem
 
 
 # SEO Tag
@@ -623,7 +638,7 @@ plugins:
 
 # Used for Twitter cards
 # twitter:
-#   username:            <shortname>
+#   username:            <twitter handle>
 
 # Used for Facebook open graph
 # facebook:
@@ -663,11 +678,9 @@ kramdown:
     preview_as_code:   true
 
 compress_html:
-  comments:            ["<!-- ", " -->"]
+  comments:            ['<!-- ', ' -->']
   clippings:           all
   endings:             all
-  ignore:
-    envs:              [development]
 
 sass:
   style:               compressed
