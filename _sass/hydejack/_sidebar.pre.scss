@@ -202,6 +202,18 @@ a.sidebar-nav-item {
   // }
 }
 
+#_swipe {
+  display: none;
+  position: absolute;
+  opacity: 0.33;
+
+  @media screen and (min-width: $break-point-1) {
+    display: block;
+    top: calc(50% - 48px);
+    right: 10vw;
+  }
+}
+
 @media print {
   .sidebar {
     display: none;

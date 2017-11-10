@@ -57,17 +57,14 @@ hy-push-state a, .a {
     text-decoration: none;
     transition: color 500ms, border-color 50ms;
   }
+  
 
   &.no-hover {
-    border-bottom: none;
-    padding-bottom: none;
-    transition: none;
-
-    &:hover {
-      transition: none;
-    }
+//     border-bottom: none; 
+//     padding-bottom: none; 
+    transition: none; 
+    &:hover { transition: none; } 
   }
-  
 }
 
 .content .img {

@@ -71,6 +71,13 @@ hy-push-state a, .a {
   border-bottom: 1px solid; 
 //   transition: color 500ms, border-color 250ms; 
   
+
+  &.no-hover {
+    border-bottom: none; 
+    padding-bottom: none; 
+//     transition: none; 
+//     &:hover { transition: none; } 
+  }
 }
 
 .content .img {

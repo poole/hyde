@@ -27,6 +27,7 @@ Appropriate credit as per Creative Commons licenses.
 | [IcoMoon Icons Free Version][11] by [Keyamoon][12]     | [CC-BY-SA-4.0] | None
 | [Napolean Crossing the Alps][21]                       | Public Domain  | Filled in content, blurred on the sides
 | [Section of a Mandelbrot set][31]                      | [CC-BY-SA-3.0] | Blurred on the sides
+| [Touch-161562.svg][41]                                 | [CC0-1.0]      | Composition
 
 ## Licenses
 Parts of this software are provided under separate licenses.
@@ -243,8 +244,9 @@ A copy of the [MIT] license is provided as part of this distribution.
 
 [11]: https://icomoon.io/#icons-icomoon
 [12]: http://keyamoon.com/
-[21]: https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps#/media/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg
-[31]: https://en.wikipedia.org/wiki/Benoit_Mandelbrot#/media/File:Mandel_zoom_08_satellite_antenna.jpg
+[21]: https://commons.wikimedia.org/wiki/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg
+[31]: https://commons.wikimedia.org/wiki/File:Mandel_zoom_08_satellite_antenna.jpg
+[41]: https://commons.wikimedia.org/wiki/File:Touch-161562.svg
 [ph]: https://unsplash.com/photos/AtvuPUenaeI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
 [cg]: http://www.caleb-morris.com/
 
@@ -253,4 +255,5 @@ A copy of the [MIT] license is provided as part of this distribution.
 [Apache-2.0]: licenses/Apache-2.0.md
 [CC-BY-SA-4.0]: https://creativecommons.org/licenses/by-sa/4.0/
 [CC-BY-SA-3.0]: https://creativecommons.org/licenses/by-sa/3.0/
+[CC0-1.0]: https://creativecommons.org/publicdomain/zero/1.0/deed.en
 [Unsplash]: https://unsplash.com/license

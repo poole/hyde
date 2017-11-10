@@ -37,6 +37,8 @@ import { startWith } from 'rxjs/operator/startWith';
 import { switchMap } from 'rxjs/operator/switchMap';
 import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
 
+import icon from './swipe.svg';
+
 // And some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser } from './common';
 
@@ -97,6 +99,19 @@ function setupVanilla(drawerEl, opened) {
   });
 }
 
+function setupIcon() {
+  const svg = document.createElement('span');
+  svg.id = '_swipe';
+  svg.addEventListener('click', () => window._drawer.close());
+  svg.innerHTML = icon;
+  window._sidebar.appendChild(svg);
+}
+
+function removeIcon() {
+  const svg = document.getElementById('_swipe');
+  if (svg) svg.parentNode.removeChild(svg);
+}
+
 // ## Main
 // First, we determine if the drawer is enabled,
 // and whether the current user agent meets our requirements.
@@ -126,7 +141,10 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     ::map(([isDesktop, drawerWidth]) => (isDesktop ? [0, drawerWidth] : getRange()));
 
   // Adding the click callback to the menu button.
-  menuEl.addEventListener('click', () => { window._drawer.toggle(); });
+  menuEl.addEventListener('click', (e) => {
+    if (isSafari) e.preventDefault();
+    window._drawer.toggle();
+  });
 
   Observable::fromEvent(drawerEl, 'hy-drawer-move')
     ::subscribeWhen(isDesktop$)
@@ -148,6 +166,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     ::map(e => e.detail)
     ::tap((opened) => {
       window._sidebar.style.willChange = '';
+      if (!opened) removeIcon();
     })
     ::share();
 
@@ -186,12 +205,14 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   drawerEl.classList.add('loaded');
 
   // TODO
+  setupIcon();
+
+  // TODO
   window._sidebar.classList.add('grabbable');
 
   drawerEl.addEventListener('hy-drawer-slidestart', () => {
     window._sidebar.classList.add('active');
   });
-
   drawerEl.addEventListener('hy-drawer-slideend', () => {
     window._sidebar.classList.remove('active');
   });
