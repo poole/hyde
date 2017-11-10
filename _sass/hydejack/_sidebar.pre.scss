@@ -61,13 +61,13 @@ hy-drawer {
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-    width: calc(50% - 28.5rem);
+    width: calc(50% - 28rem);
 
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
-      left: calc(-50% - 28.5rem);
+      left: calc(-50% - 28rem);
     }
-    --hy-drawer-slide-width: calc(50% + 28.5rem);
+    --hy-drawer-slide-width: calc(50% + 28rem);
     // >>>
   }
 

@@ -51,7 +51,7 @@ const REQUIREMENTS = new Set([
 
 // HACK: hard-coded SCSS break-point.
 const BREAK_POINT_3 = '(min-width: 64em)';
-const BREAK_POINT_DYNAMIC = '(min-width: 102.5em)';
+const BREAK_POINT_DYNAMIC = '(min-width: 104.25em)';
 
 // ## Functions
 function subscribeWhen(p$) {

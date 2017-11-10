@@ -7,7 +7,7 @@
       {% capture bg_style %}background-color:{{ color }};{% if image != 'none' %}background-image:url({% include smart-url url=image %}){% endif %}{% endcapture %}
       {% capture bg_class %}sidebar-bg {% if image != 'none' %}sidebar-overlay{% endif %}{% endcapture %}
     {% endif %}
-    <div class="{{ bg_class }}" slot="bg" style="{{ bg_style }}"></div>
+    <div class="{{ bg_class }}" style="{{ bg_style }}"></div>
 
     <div class="sidebar-sticky">
       <div class="sidebar-about">
