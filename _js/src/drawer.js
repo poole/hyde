@@ -79,7 +79,7 @@ function setupWebComponent(drawerEl, opened) {
   // drawerEl.setAttribute('range', getRange().join(','));
   drawerEl.setAttribute('threshold', isSafari ? 0 : 10);
   drawerEl.setAttribute('prevent-default', '');
-  // drawerEl.setAttribute('mouse-events', '');
+  drawerEl.setAttribute('mouse-events', '');
 
   customElements.define('hy-drawer', HTMLDrawerElement);
   return drawerEl;
@@ -93,7 +93,7 @@ function setupVanilla(drawerEl, opened) {
     // range: getRange(),
     threshold: isSafari ? 0 : 10,
     preventDefault: true,
-    // mouseEvents: true,
+    mouseEvents: true,
   });
 }
 
@@ -146,15 +146,15 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     ::share();
 
   // TODO
-  if (!isMobile) {
-    Observable::fromEvent(document, 'scroll', { passive: true })
-      ::subscribeWhen(opened$)
-      .subscribe(() => {
-        if (window._drawer.opened) { // extra check, because scroll can fire multiple times
-          window._drawer.close();
-        }
-      });
-  }
+  // if (!isMobile) {
+  //   Observable::fromEvent(document, 'scroll', { passive: true })
+  //     ::subscribeWhen(opened$)
+  //     .subscribe(() => {
+  //       if (window._drawer.opened) { // extra check, because scroll can fire multiple times
+  //         window._drawer.close();
+  //       }
+  //     });
+  // }
 
   // Close the drawer on popstate, i.e. the back button.
   Observable::fromEvent(window, 'popstate', { passive: true })
@@ -178,6 +178,17 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // TODO
   drawerEl.classList.add('loaded');
+
+  // TODO
+  window._sidebar.classList.add('grabbable');
+
+  drawerEl.addEventListener('hy-drawer-slidestart', () => {
+    window._sidebar.classList.add('active');
+  });
+
+  drawerEl.addEventListener('hy-drawer-slideend', () => {
+    window._sidebar.classList.remove('active');
+  });
 
   // The drawer width was `100vh` before JS gets loaded, now it is set to 0,
   // so we remove `innerHeight` from the old scroll position to keep the position constant.
