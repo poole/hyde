@@ -70,4 +70,4 @@ Maybe you won't even notice the difference.
 ### Fixes
 * Fix default color in gem-based theme
 
-[scripts]: ../docs/8.0.0-alpha.2/scripts.md
+[scripts]: ../docs/8.0.0-alpha.3/scripts.md
