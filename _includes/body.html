@@ -1,13 +1,13 @@
 {% include menu.html %}
 
 <hy-push-state>
-  {% unless page.layout == "cover" %}
-    {% include main.html %}
+  {% if page.cover %}
     {% include sidebar.html %}
+    {% include main.html %}
   {% else %}
-    {% include sidebar.html %}
     {% include main.html %}
-  {% endunless %}
+    {% include sidebar.html %}
+  {% endif %}
 </hy-push-state>
 
 {% include scripts.html %}

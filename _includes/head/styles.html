@@ -9,7 +9,7 @@
     {{ include_to_scssify | scssify }}
 
     {% assign layout = page.layout %}
-    {% if layout == "projects" or layout == "project" or layout == "welcome" or layout == "cover" %}
+    {% if layout == "projects" or layout == "project" or layout == "welcome" %}
       {% capture include_to_scssify %}{% include styles/pro/projects.scss %}{% endcapture %}
       {{ include_to_scssify | scssify }}
     {% elsif layout == "resume" %}
