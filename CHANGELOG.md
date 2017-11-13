@@ -3,6 +3,28 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.2.0
+Nov 13 2017
+{:.heading.post-date}
+
+### Added
+* Added `_sass/my-variables.scss` file, which you can use to selectively override SCSS variables.
+* Font weights can now be configured via SCSS variables:
+  * `$font-weight` for normal font.
+  * `$font-weight-bold` for `strong` tags and similar.
+  * `$font-weight-heading` for headings.
+
+### Design
+* Message boxes will no longer span the full width, even with the break layout feature enabled.
+* Increased space between project card rows, so they look less like a brick wall.
+
+### Fixes
+* Reduced the draw range of the drawer on iOS, so that a larger portion of the screen is available for zooming (a11y).
+* Default images are now optimized, so they are no longer flagged by Google PageSpeed Insights and similar tools.
+* Query parameters are no longer used for cache busting.
+  Instead, the version number is no part of the file name for the CSS and JS resources.
+
+
 ## v7.1.1
 Nov 3 2017
 {:.heading.post-date}
