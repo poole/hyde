@@ -33,7 +33,7 @@
 
 
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
-  text-rendering: optimizeLegibility; 
+  text-rendering: optimizeLegibility;
 }
 
 h1 + h2, .h1 + .h2, h1 + .h2, .h1 + h2,
@@ -91,26 +91,6 @@ blockquote {
 
 .faded {
   color: $gray;
-}
-
-.read-more {
-  @extend .faded;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-
-  &::after {
-    content: " \2192"; // →
-    font-family: 'icomoon'!important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    font-size: smaller;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
 }
 
 h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {

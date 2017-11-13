@@ -21,6 +21,7 @@
 hy-drawer {
   width: 100%; // inline
   position: relative; // inline
+  overflow: hidden; // inline
   z-index: 2; // link
 
   @media screen {
@@ -202,6 +203,12 @@ a.sidebar-nav-item {
   // }
 }
 
+@media print {
+  .sidebar {
+    display: none;
+  }
+}
+
 #_swipe {
   display: none;
   position: absolute;
@@ -212,15 +219,5 @@ a.sidebar-nav-item {
     top: calc(50% - 48px);
     right: 10vw;
   }
-}
-
-@media print {
-  .sidebar {
-    display: none;
-  }
-}
-
-header, body::before {
-  backface-visibility: hidden;
 }
 // >>>>>

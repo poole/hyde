@@ -36,7 +36,7 @@
   body::before {
     content: '';
     width: .5rem;
-    background: $border-color;
+    background: $gray-bg;
     position: absolute;
     left: 0;
     top: 0;
@@ -48,7 +48,7 @@
   }
 
   @media (min-width: $break-point-dynamic) {
-    body::before { content: none; }
+    body::before { width: calc(50% - 28rem); }
   }
 }
 
@@ -64,38 +64,6 @@ html {
 
 
 // @media print { html { font-size: $root-font-size-print; } } 
-// Link styles
-hy-push-state a, .a {
-  position: relative; 
-  padding-bottom: .15rem; 
-  border-bottom: 1px solid; 
-//   transition: color 500ms, border-color 250ms; 
-  
-
-  &.no-hover {
-    border-bottom: none; 
-    padding-bottom: none; 
-//     transition: none; 
-//     &:hover { transition: none; } 
-  }
-}
-
-.content .img {
-  overflow: hidden; 
-  background-color: $gray-bg; 
-  
-
-  img {
-    margin: 0; 
-    width: 100%; 
-    height: 100%; 
-//     object-fit: cover; 
-//     object-position: center; 
-  }
-}
-
-
-// Fade in animation
 .fade-in {
   animation-duration: 500ms;
   animation-name: fade-in;
@@ -108,19 +76,3 @@ hy-push-state a, .a {
   to   { transform: translateY(0);     opacity: 1; }
 }
 
-// Utility classes
-.fl { float: left; }
-.fr { float: right; }
-.mb4 { margin-bottom: 4rem }
-.mb6 { margin-bottom: 6rem }
-.mt0 { margin-top: 0 }
-.mt4 { margin-top: 4rem }
-.pb0 { padding-bottom: 0 }
-
-
-.clearfix, .clearafter::after { @include clearfix(); } // both
-
-.sr-only {
-  display: none; 
-  
-}

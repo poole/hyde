@@ -37,7 +37,7 @@ hy-push-state, hy-drawer {
   body::before {
     content: '';
     width: .5rem;
-    background: $border-color;
+    background: $gray-bg;
     position: absolute;
     left: 0;
     top: 0;
@@ -49,7 +49,7 @@ hy-push-state, hy-drawer {
   }
 
   @media (min-width: $break-point-dynamic) {
-    body::before { content: none; }
+    body::before { width: calc(50% - 28rem); }
   }
 }
 
@@ -66,49 +66,7 @@ html {
 
 @media print { html { font-size: $root-font-size-print; } } // link
 
-// Link styles
-hy-push-state a, .a {
-  position: relative; // inline
-  padding-bottom: .15rem; // inline
-  border-bottom: 1px solid; // inline
-  transition: color 500ms, border-color 250ms; // link
-
-  // <<< link
-  &:hover {
-    text-decoration: none;
-    transition: color 500ms, border-color 50ms;
-  }
-  // >>>
-
-  &.no-hover {
-    border-bottom: none; // inline
-    padding-bottom: none; // inline
-    transition: none; // link
-    &:hover { transition: none; } // link
-  }
-}
-
-.content .img {
-  overflow: hidden; // inline
-  background-color: $gray-bg; // inline
-
-  // <<< link
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjkwIiB2aWV3Qm94PSIwIDAgMTYwIDkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuMDQ4ODI4LCAwLCAwLCAwLjA0Nzk5MSwgNTQuOTk5OTczLCAyMC40MjgxNDgpIj4KICAgIDxwYXRoIGQ9Ik05NTkuODg0IDEyOGMwLjA0MCAwLjAzNCAwLjA4MiAwLjA3NiAwLjExNiAwLjExNnY3NjcuNzdjLTAuMDM0IDAuMDQwLTAuMDc2IDAuMDgyLTAuMTE2IDAuMTE2aC04OTUuNzdjLTAuMDQwLTAuMDM0LTAuMDgyLTAuMDc2LTAuMTE0LTAuMTE2di03NjcuNzcyYzAuMDM0LTAuMDQwIDAuMDc2LTAuMDgyIDAuMTE0LTAuMTE0aDg5NS43N3pNOTYwIDY0aC04OTZjLTM1LjIgMC02NCAyOC44LTY0IDY0djc2OGMwIDM1LjIgMjguOCA2NCA2NCA2NGg4OTZjMzUuMiAwIDY0LTI4LjggNjQtNjR2LTc2OGMwLTM1LjItMjguOC02NC02NC02NHYweiIgc3R5bGU9ImZpbGw6IHJnYigyMjEsIDIyMSwgMjIxKTsiLz4KICAgIDxwYXRoIGQ9Ik04MzIgMjg4YzAgNTMuMDIwLTQyLjk4IDk2LTk2IDk2cy05Ni00Mi45OC05Ni05NiA0Mi45OC05NiA5Ni05NiA5NiA0Mi45OCA5NiA5NnoiIHN0eWxlPSJmaWxsOiByZ2IoMjIxLCAyMjEsIDIyMSk7Ii8+CiAgICA8cGF0aCBkPSJNODk2IDgzMmgtNzY4di0xMjhsMjI0LTM4NCAyNTYgMzIwaDY0bDIyNC0xOTJ6IiBzdHlsZT0iZmlsbDogcmdiKDIyMSwgMjIxLCAyMjEpOyIvPgogIDwvZz4KPC9zdmc+');
-  // >>>
-
-  img {
-    margin: 0; // inline
-    width: 100%; // inline
-    height: 100%; // inline
-    object-fit: cover; // link
-    object-position: center; // link
-  }
-}
-
 // <<<<< INLINE
-// Fade in animation
 .fade-in {
   animation-duration: 500ms;
   animation-name: fade-in;
@@ -120,30 +78,4 @@ hy-push-state a, .a {
   50%  { transform: translateY(-3rem); opacity: 0; }
   to   { transform: translateY(0);     opacity: 1; }
 }
-
-// Utility classes
-.fl { float: left; }
-.fr { float: right; }
-.mb4 { margin-bottom: 4rem }
-.mb6 { margin-bottom: 6rem }
-.mt0 { margin-top: 0 }
-.mt4 { margin-top: 4rem }
-.pb0 { padding-bottom: 0 }
-// >>>>> INLINE
-
-.clearfix, .clearafter::after { @include clearfix(); } // both
-
-.sr-only {
-  display: none; // inline
-  // <<< link
-  display: unset;
-  position: absolute;
-  width: 1px;
-  height: 1px;
-  padding: 0;
-  margin: -1px;
-  overflow: hidden;
-  clip: rect(0,0,0,0);
-  border: 0;
-  // >>>
-}
+// >>>>>
