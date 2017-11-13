@@ -116,7 +116,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 ├── PRO–hy-push-state License _ Hydejack.pdf
 ├── icon.psd
 ├── sidebar-bg.psd
-├── *-to-v7.1.1.diff
+├── *-to-v7.2.0.diff
 └── .ssh
 ~~~
 
@@ -151,7 +151,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 `sidebar-bg.psd`
 : A Photoshop template for blurred sidebar backgrounds.
 
-`*-to-v7.1.1.diff`
+`*-to-v7.2.0.diff`
 : There will be multiple fo these files, where `*` is a previous version.
   They are git patches that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
   Use these if you are using git and you are worried about accidentally overwriting changes you've made to Hydejack PRO.
@@ -167,7 +167,7 @@ For new installations only the `install` folder is interesting.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-7.1.1/install/
+$ cd ~/Downloads/hydejack-pro-7.2.0/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -181,7 +181,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v7.1.1/.ssh/hydejack_pro_customers ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-v7.2.0/.ssh/hydejack_pro_customers ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:

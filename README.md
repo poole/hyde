@@ -85,7 +85,7 @@ This table details what is and isn't included in each respective version.
 [resume]: https://qwtel.com/hydejack/resume/
 [download]: https://qwtel.com/download/
 [welcome]: https://qwtel.com/hydejack/
-[forms]: https://qwtel.com/hydejack/docs/7.1.1/forms-by-example/
+[forms]: https://qwtel.com/hydejack/docs/7.2.0/forms-by-example/
 
 [feat]: https://qwtel.com/hydejack/#features
 [news]: https://qwtel.com/hydejack/#newsletter-subscription-box
@@ -94,15 +94,15 @@ This table details what is and isn't included in each respective version.
 
 [license]: LICENSE.md
 [pro]: licenses/PRO.md
-[docs]: docs/7.1.1/index.md
+[docs]: docs/7.2.0/index.md
 
 [github]: https://github.com/qwtel/hydejack/releases
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
-[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.1.1/index.md
-[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.1.1/Documentation._.Hydejack.pdf
+[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.2.0/index.md
+[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.2.0/Documentation._.Hydejack.pdf
 [hy-push-state]: https://qwtel.com/hy-push-state/
 [hy-drawer]: https://qwtel.com/hy-drawer/
 [rouge]: http://rouge.jneen.net

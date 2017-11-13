@@ -337,7 +337,7 @@ author:
   social:
     email:    mailto:mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v7.1.1.zip
+    download: https://github.com/qwtel/hydejack/archive/v7.2.0.zip
 ~~~
 
 ## Enabling comments
