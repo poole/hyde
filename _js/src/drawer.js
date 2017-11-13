@@ -40,7 +40,7 @@ import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
 import icon from './swipe.svg';
 
 // And some of our own helper functions/constants.
-import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser } from './common';
+import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = new Set([
