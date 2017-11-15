@@ -65,9 +65,6 @@ author1:
     # paypal:          <username>
     # download:        https://github.com/qwtel/hydejack/archive/v6.6.1.zip
 
-  # Used by `jekyll-seo-tag`:
-  twitter:           <username>
-
 # Another author
 author2:
   name:              <firtname> <lastname>
