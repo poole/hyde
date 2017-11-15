@@ -50,7 +50,7 @@ const REQUIREMENTS = new Set([
   'matchmedia',
 ]);
 
-// HACK: hard-coded SCSS break-point.
+// NOTE: Duplicated values from `_sass_/variables.scss`.
 const BREAK_POINT_3 = '(min-width: 64em)';
 const BREAK_POINT_DYNAMIC = '(min-width: 104.25em)';
 
