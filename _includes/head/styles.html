@@ -17,9 +17,19 @@
       {{ include_to_scssify | scssify }}
     {% endif %}
   </style>
+
   <link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">
   <script>window.setRelStylesheet('_stylePreload');</script>
-  <noscript><link rel="stylesheet" href="{{ style_url | relative_url }}"></noscript>
+
+  <noscript>
+    {% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
+    {% assign font         = site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
+    <link rel="stylesheet" href="{{ style_url | relative_url }}">
+    <style>
+      html { font-family: {{ font }} }
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading }} }
+    </style>
+  </noscript>
 {% endif %}
 
 {% include page-style.html %}
