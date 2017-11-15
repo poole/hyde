@@ -15,10 +15,11 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // ## Overview
-// This file sets up the hy-push-state component, which is responsible for dynimically changing
-// the content when users click on internal links.
+// This file sets up the hy-push-state component,
+// which is responsible for dynimically changing the content when users click on links.
 // However, the component only handles changing the content.
-// Animating it, responding to errors and showing loading spinners is still up to us.
+// Animating it, responding to errors and showing loading spinners is still up to us,
+// which is the purpose of this file.
 
 // ## Includes
 // First, we patch the environment with some ES6+ functions we intend to use.
@@ -85,6 +86,7 @@ const REQUIREMENTS = new Set([
   'requestanimationframe',
 ]);
 
+// The options of the hy-push-state component.
 const REPLACE_IDS = '_main';
 const LINK_SELECTOR = 'a[href]:not(.external):not(.no-push-state)';
 const SCRIPT_SELECTOR = 'script:not([type^="math/tex"])';
@@ -372,7 +374,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // Once the animation have completed, we resolve the promise so that hy-push-state continues.
     ::subscribe(p => p.resolve());
 
-  // TODO: meh, keeping permanent subscription? turn into hot observable?
+  // FIXME: Keeping permanent subscription? turn into hot observable?
   fadeOut$::subscribe();
   flip$::subscribe();
 
@@ -460,7 +462,6 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // ### Create the component
   // If we have Custom Elements, use the WebComponent (it doesn't use ShadowDOM, so we are fine),
   // otherwise use the vanilla JS version.
-  // TODO: there is weird flickering on iOS with the webcomp version. maybe use vanilla?
   window._pushState = 'customElements' in window ?
     setupWebComponent(pushStateEl) :
     setupVanilla(pushStateEl);

@@ -37,8 +37,7 @@ import { startWith } from 'rxjs/operator/startWith';
 import { switchMap } from 'rxjs/operator/switchMap';
 import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
 
-
-// And some of our own helper functions/constants.
+// Some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
 
 // A list of Modernizr tests that are required for the drawer to work.
@@ -54,13 +53,21 @@ const REQUIREMENTS = new Set([
 const BREAK_POINT_3 = '(min-width: 64em)';
 const BREAK_POINT_DYNAMIC = '(min-width: 104.25em)';
 
+function calcDrawerWidth() {
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  return 21 * rem;
+}
+
+function calcDrawerWidthDynamic() {
+  const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
+  return (document.body.clientWidth / 2) - (28 * rem);
+}
+
 // ## Functions
 function subscribeWhen(p$) {
   if (process.env.DEBUG && !p$) throw Error();
   return p$::switchMap(p => (p ? this : Observable::never()));
 }
-
-const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
 
 // Determins the range from which to draw the drawer in pixels, counted from the left edge.
 // It depends on the browser, e.g. Safari has a native guesture when sliding form the side,
@@ -98,7 +105,8 @@ function setupVanilla(drawerEl, opened) {
   });
 }
 
-// TODO: doc
+// The functions below add an svg graphic to the sidebar
+// that incidate that the sidebar can be drawn using touch gestures.
 function setupIcon() {
   const img = document.getElementById('_swipeSVG');
   if (img) {
@@ -106,7 +114,6 @@ function setupIcon() {
     svg.id = '_swipe';
     svg.src = img.href;
     svg.addEventListener('click', () => window._drawer.close());
-    // svg.innerHTML = icon;
     window._sidebar.appendChild(svg);
   }
 }
@@ -119,37 +126,39 @@ function removeIcon() {
 // ## Main
 // First, we determine if the drawer is enabled,
 // and whether the current user agent meets our requirements.
-// UC Browser has even more invasive native swipe guestures than iOS Safari,
-// (that ignore `preventDefault` on top of that...),
-// so we disable the component alltogether. UC Mini is fine though.
+//
+// Note that the UC Browser has even more invasive native swipe gestures than iOS Safari,
+// so we disable the component alltogether.
 if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
-  // Now we get a hold of some DOM elements
+  // First we get hold of some DOM elements.
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
 
+  // An observable keeping track of whether the window size is greater than `BREAK_POINT_3`.
   const isDesktop$ = Observable::fromEvent(window, 'resize', { passive: true })
     ::map(() => window.matchMedia(BREAK_POINT_3).matches)
     ::share()
     ::startWith(window.matchMedia(BREAK_POINT_3).matches);
 
+  // An observable keeping track of the drawer width.
   const drawerWidth$ = isDesktop$
     ::map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches ?
-      (document.body.clientWidth / 2) - (28 * rem) :
-      21 * rem));
+      calcDrawerWidthDynamic() :
+      calcDrawerWidth()));
 
+  // An observable keeping track of the distance between
+  // the middle point of the screen and the middle point of the drawer.
   const dist$ = drawerWidth$::map(drawerWidth =>
     (document.body.clientWidth / 2) - (drawerWidth / 2));
 
+  // An observable that keeps track of the range from where the drawer can be drawn.
+  // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
   const range$ = isDesktop$
     ::withLatestFrom(drawerWidth$)
     ::map(([isDesktop, drawerWidth]) => (isDesktop ? [0, drawerWidth] : getRange()));
 
-  // Adding the click callback to the menu button.
-  menuEl.addEventListener('click', (e) => {
-    if (isSafari) e.preventDefault();
-    window._drawer.toggle();
-  });
-
+  // Sliding the drawer's content between the middle point of the screen,
+  // and the middle point of the drawer when closed.
   Observable::fromEvent(drawerEl, 'hy-drawer-move')
     ::subscribeWhen(isDesktop$)
     ::withLatestFrom(dist$)
@@ -158,38 +167,50 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       window._sidebar.style.transform = `translateX(${dist * t}px)`;
     });
 
-  isDesktop$.subscribe((isDesktop) => {
-    if (!isDesktop) window._sidebar.style.transform = '';
-  });
-
+  // Setting `will-change` at the beginning of an interaction, and remove at the end.
   drawerEl.addEventListener('hy-drawer-prepare', () => {
     window._sidebar.style.willChange = 'transform';
   });
 
+  drawerEl.addEventListener('hy-drawer-transitioned', () => {
+    window._sidebar.style.willChange = '';
+  });
+
+  // Adding the click callback to the menu button.
+  // Calling `preventDefault` in iOS Safari, because otherwise it's causing the navbar to appear,
+  // which ruins the animation.
+  menuEl.addEventListener('click', (e) => {
+    if (isMobileSafari) e.preventDefault();
+    window._drawer.toggle();
+  });
+
+  // Keeping track of the opened state.
   const opened$ = Observable::fromEvent(drawerEl, 'hy-drawer-transitioned')
     ::map(e => e.detail)
-    ::tap((opened) => {
-      window._sidebar.style.willChange = '';
-      if (!opened) removeIcon();
-    })
+    ::tap((opened) => { if (!opened) removeIcon(); })
     ::share();
 
-  // TODO
-  // if (!isMobile) {
-  //   Observable::fromEvent(document, 'scroll', { passive: true })
-  //     ::subscribeWhen(opened$)
-  //     .subscribe(() => {
-  //       if (window._drawer.opened) { // extra check, because scroll can fire multiple times
-  //         window._drawer.close();
-  //       }
-  //     });
-  // }
+  // TODO: Close the drawer when scrolling down?
+  /*
+  if (!isMobile) {
+    Observable::fromEvent(document, 'scroll')
+      ::subscribeWhen(opened$)
+      .subscribe((e) => {
+        console.log('asdf');
+        e.preventDefault();
+        if (window._drawer.opened) { // extra check, because scroll can fire multiple times
+          window._drawer.close();
+        }
+      });
+  }
+  */
 
   // Close the drawer on popstate, i.e. the back button.
   Observable::fromEvent(window, 'popstate', { passive: true })
     ::subscribeWhen(opened$)
     .subscribe(() => { window._drawer.close(); });
 
+  // Save scroll position before the drawer gets initialized.
   const scrollTop = window.pageYOffset || document.body.scrollTop;
 
   // Start the drawer in `opened` state when the cover class is present,
@@ -205,24 +226,14 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Keeping the draw range updated.
   range$.subscribe((range) => { window._drawer.range = range; });
 
-  // TODO
-  drawerEl.classList.add('loaded');
-
-  // TODO
+  // Show the icon indicating that the drawer can be drawn using touch gestures.
   setupIcon();
 
-  // TODO
-  window._sidebar.classList.add('grabbable');
+  // Add a class to incidate that the drawer has been initialized.
+  drawerEl.classList.add('loaded');
 
-  drawerEl.addEventListener('hy-drawer-slidestart', () => {
-    window._sidebar.classList.add('active');
-  });
-  drawerEl.addEventListener('hy-drawer-slideend', () => {
-    window._sidebar.classList.remove('active');
-  });
-
-  // The drawer width was `100vh` before JS gets loaded, now it is set to 0,
-  // so we remove `innerHeight` from the old scroll position to keep the position constant.
+  // The drawer height is `100vh` before the drawer is initialized and is now set to 0.
+  // We remove `innerHeight` from the old scroll position to prevent the content form "jumping".
   if (drawerEl.classList.contains('cover')) {
     window.scrollTo(0, scrollTop - window.innerHeight);
   }
