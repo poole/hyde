@@ -37,7 +37,6 @@ import { startWith } from 'rxjs/operator/startWith';
 import { switchMap } from 'rxjs/operator/switchMap';
 import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
 
-import icon from './swipe.svg';
 
 // And some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
@@ -99,12 +98,17 @@ function setupVanilla(drawerEl, opened) {
   });
 }
 
+// TODO: doc
 function setupIcon() {
-  const svg = document.createElement('span');
-  svg.id = '_swipe';
-  svg.addEventListener('click', () => window._drawer.close());
-  svg.innerHTML = icon;
-  window._sidebar.appendChild(svg);
+  const img = document.getElementById('_swipeSVG');
+  if (img) {
+    const svg = document.createElement('img');
+    svg.id = '_swipe';
+    svg.src = img.href;
+    svg.addEventListener('click', () => window._drawer.close());
+    // svg.innerHTML = icon;
+    window._sidebar.appendChild(svg);
+  }
 }
 
 function removeIcon() {

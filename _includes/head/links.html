@@ -22,8 +22,9 @@
 {% endif %}
 
 {% comment %}<!--
-The links below are here so that we can use their `href` in JS (see `_js/src/katex.js`).
-This way, CDN optimizers or other tools can modify the URL and we avoid hard-coding it in JavaScript.
+The links below are here so that we can use their `href` in JS (see `_js/src/katex.js`, `_js/src/drawer.js`).
+This way tools can modify the URL, and we avoid hard-coding it in JavaScript.
 -->{% endcomment %}
-<link id="_katexJS"  rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'  | relative_url }}">
-<link id="_katexCSS" rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css' | relative_url }}">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'  | relative_url }}" id="_katexJS">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css' | relative_url }}" id="_katexCSS">
+<link rel="dns-prefetch" href="{{ '/assets/img/swipe.svg'                             | relative_url }}" id="_swipeSVG">
