@@ -206,7 +206,6 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     Observable::fromEvent(document, 'scroll')
       ::subscribeWhen(opened$)
       .subscribe((e) => {
-        console.log('asdf');
         e.preventDefault();
         if (window._drawer.opened) { // extra check, because scroll can fire multiple times
           window._drawer.close();
@@ -239,7 +238,6 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   });
 
   isDesktop$.subscribe((isDesktop) => {
-    console.log(isDesktop);
     window._drawer.mouseEvents = isDesktop;
   });
 
