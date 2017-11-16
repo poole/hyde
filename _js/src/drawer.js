@@ -31,6 +31,8 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 import { never } from 'rxjs/observable/never';
 
 import { _do as tap } from 'rxjs/operator/do';
+import { _finally as finalize } from 'rxjs/operator/finally';
+import { distinctUntilChanged } from 'rxjs/operator/distinctUntilChanged';
 import { map } from 'rxjs/operator/map';
 import { share } from 'rxjs/operator/share';
 import { startWith } from 'rxjs/operator/startWith';
@@ -86,7 +88,6 @@ function getRange() {
 function setupWebComponent(drawerEl, opened) {
   if (opened) drawerEl.setAttribute('opened', '');
   drawerEl.setAttribute('align', 'left');
-  // drawerEl.setAttribute('range', getRange().join(','));
   drawerEl.setAttribute('threshold', isSafari ? 0 : THRESHOLD);
   drawerEl.setAttribute('prevent-default', '');
   drawerEl.setAttribute('mouse-events', '');
@@ -100,7 +101,6 @@ function setupVanilla(drawerEl, opened) {
   return new Drawer(drawerEl, {
     opened,
     align: 'left',
-    // range: getRange(),
     threshold: isSafari ? 0 : THRESHOLD,
     preventDefault: true,
     mouseEvents: true,
@@ -136,14 +136,18 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
 
+  const resize$ = Observable::fromEvent(window, 'resize', { passive: true })::share();
+
   // An observable keeping track of whether the window size is greater than `BREAK_POINT_3`.
-  const isDesktop$ = Observable::fromEvent(window, 'resize', { passive: true })
+  const isDesktop$ = resize$
     ::map(() => window.matchMedia(BREAK_POINT_3).matches)
+    ::distinctUntilChanged()
     ::share()
     ::startWith(window.matchMedia(BREAK_POINT_3).matches);
 
   // An observable keeping track of the drawer width.
-  const drawerWidth$ = isDesktop$
+  const drawerWidth$ = resize$
+    ::startWith({})
     ::map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches ?
       calcDrawerWidthDynamic() :
       calcDrawerWidth()));
@@ -155,13 +159,16 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // An observable that keeps track of the range from where the drawer can be drawn.
   // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
-  const range$ = isDesktop$
-    ::withLatestFrom(drawerWidth$)
-    ::map(([isDesktop, drawerWidth]) => (isDesktop ? [0, drawerWidth] : getRange()));
+  const range$ = drawerWidth$
+    ::withLatestFrom(isDesktop$)
+    ::map(([drawerWidth, isDesktop]) => (isDesktop ? [0, drawerWidth] : getRange()));
 
   // Sliding the drawer's content between the middle point of the screen,
   // and the middle point of the drawer when closed.
   Observable::fromEvent(drawerEl, 'hy-drawer-move')
+    ::finalize(() => {
+      window._sidebar.style.transform = '';
+    })
     ::subscribeWhen(isDesktop$)
     ::withLatestFrom(dist$)
     .subscribe(([{ detail: { opacity } }, dist]) => {
@@ -189,8 +196,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Keeping track of the opened state.
   const opened$ = Observable::fromEvent(drawerEl, 'hy-drawer-transitioned')
     ::map(e => e.detail)
-    ::tap((opened) => { if (!opened) removeIcon(); })
-    ::share();
+    ::distinctUntilChanged()
+    ::tap((opened) => { if (!opened) removeIcon(); });
+    // ::share();
 
   // TODO: Close the drawer when scrolling down?
   /*
@@ -225,8 +233,15 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     setupWebComponent(drawerEl, opened) :
     setupVanilla(drawerEl, opened);
 
-  // Keeping the draw range updated.
-  range$.subscribe((range) => { window._drawer.range = range; });
+  // Keeping the drawer updated.
+  range$.subscribe((range) => {
+    window._drawer.range = range;
+  });
+
+  isDesktop$.subscribe((isDesktop) => {
+    console.log(isDesktop);
+    window._drawer.mouseEvents = isDesktop;
+  });
 
   // Show the icon indicating that the drawer can be drawn using touch gestures.
   setupIcon();
