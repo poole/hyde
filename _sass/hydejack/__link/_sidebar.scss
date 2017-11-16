@@ -53,20 +53,22 @@ hy-drawer {
 
     
     > .hy-drawer-content.hy-drawer-left {
-      left: calc(21rem - 100%);
+      left: calc(#{$sidebar-width} - 100%);
     }
-    --hy-drawer-slide-width: calc(100% - 21rem);
+    --hy-drawer-slide-width: calc(100% - #{$sidebar-width});
     
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-    width: calc(50% - 28rem);
+    $r28: ($content-width-5 / 2) + $content-margin-5;
+
+    width: calc(50% - #{$r28});
 
     
     > .hy-drawer-content.hy-drawer-left {
-      left: calc(-50% - 28rem);
+      left: calc(-50% - #{$r28});
     }
-    --hy-drawer-slide-width: calc(50% + 28rem);
+    --hy-drawer-slide-width: calc(50% + #{$r28});
     
   }
 

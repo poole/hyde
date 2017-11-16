@@ -51,11 +51,16 @@ const REQUIREMENTS = new Set([
   'matchmedia',
 ]);
 
+// Threshold before we recognize a touch move.
 const THRESHOLD = 10;
 
 // NOTE: Duplicated values from `_sass_/variables.scss`.
+const CONTENT_WIDTH_5 = 48;
+const CONTENT_MARGIN_5 = 4;
 const BREAK_POINT_3 = '(min-width: 64em)';
-const BREAK_POINT_DYNAMIC = '(min-width: 104.25em)';
+const BREAK_POINT_DYNAMIC = '(min-width: 1666px)';
+
+const r28 = (CONTENT_WIDTH_5 / 2) + CONTENT_MARGIN_5;
 
 function calcDrawerWidth() {
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -64,7 +69,7 @@ function calcDrawerWidth() {
 
 function calcDrawerWidthDynamic() {
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-  return (document.body.clientWidth / 2) - (28 * rem);
+  return (document.body.clientWidth / 2) - (r28 * rem);
 }
 
 // ## Functions

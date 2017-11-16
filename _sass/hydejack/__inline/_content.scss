@@ -34,28 +34,28 @@
   position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding: 5rem 1rem 12rem;
+  padding: 5rem $content-padding 12rem;
 
   @media screen {
-    padding-left: 1.5rem;
-    max-width: 38rem;
+    padding-left: $content-padding + .5rem;
+    max-width: $content-width;
     min-height: 100vh;
   }
 
   @media screen and (min-width: $break-point-2) {
-    max-width: 42rem;
+    max-width: $content-width-2;
   }
 
   @media screen and (min-width: $break-point-3) {
-    margin-left: 24rem;
-    margin-right: 3rem;
-    padding-left: 1rem;
+    padding-left: $content-padding;
+    margin-left: $sidebar-width + $content-margin-3;
+    margin-right: $content-margin-3;
   }
 
   @media screen and (min-width: $break-point-5) {
-    margin-left: 25rem;
-    margin-right: 4rem;
-    max-width: 48rem;
+    margin-left: $sidebar-width + $content-margin-5;
+    margin-right: $content-margin-5;
+    max-width: $content-width-5;
   }
 
   @media screen and (min-width: $break-point-dynamic) {

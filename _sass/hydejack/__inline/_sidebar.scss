@@ -41,7 +41,7 @@ hy-drawer {
   @media screen and (min-width: $break-point-3) {
     
     position: fixed;
-    width: 21rem;
+    width: $sidebar-width;
     top: 0;
     left: 0;
     bottom: 0;
@@ -57,7 +57,9 @@ hy-drawer {
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-    width: calc(50% - 28rem);
+    $r28: ($content-width-5 / 2) + $content-margin-5;
+
+    width: calc(50% - #{$r28});
 
     
   }
@@ -121,7 +123,7 @@ hy-drawer {
 .sidebar-sticky {
   position: relative;
   z-index: 3;
-  max-width: 21rem;
+  max-width: $sidebar-width;
   padding: 1.5rem;
 }
 

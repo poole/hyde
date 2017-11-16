@@ -31,33 +31,41 @@
 
 
 pre, table:not(.highlight), .katex-display, .break-layout  {
+  $pad: $content-padding * 2;
+
   @media screen {
     position: relative;
-    width: calc(100vw - .5rem);
+    width: calc(100% + $pad);
   }
 
-  @media screen and (min-width: 38rem) {
-    width: calc(100% + 50vw - (38rem / 2) + 2rem);
+  @media screen and (min-width: $content-width) {
+    $x: ($content-width / 2) - $pad;
+    width: calc(100% + 50vw - #{$x});
   }
 
   @media screen and (min-width: $break-point-2) {
-    width: calc(100% + 50vw - (42rem / 2) + 2rem);
+    $x: ($content-width-2 / 2) - $pad;
+    width: calc(100% + 50vw - #{$x});
   }
 
   @media screen and (min-width: $break-point-3) {
-    width: calc(100vw - 22rem);
+    $x: $sidebar-width + $content-margin-3;
+    width: calc(100vw - #{$x});
   }
 
   @media screen and (min-width: $break-point-4) {
-    width: calc(100% + 100vw - 42rem - 22rem + 2rem);
+    $x: $content-width-2 + $sidebar-width + $content-margin-3 - $pad;
+    width: calc(100% + 100vw - #{$x});
   }
 
   @media screen and (min-width: $break-point-5) {
-    width: calc(100% + 100vw - 48rem - 22rem + 2rem);
+    $x: $content-width-5 + $sidebar-width + $content-margin-5 - $pad;
+    width: calc(100% + 100vw - #{$x});
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-    width: calc(100% + 50vw - (48rem / 2) + 2rem);
+    $x: ($content-width-5 / 2) - $pad;
+    width: calc(100% + 50vw - #{$x});
   }
 }
 
