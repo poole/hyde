@@ -49,6 +49,8 @@ const REQUIREMENTS = new Set([
   'matchmedia',
 ]);
 
+const THRESHOLD = 10;
+
 // NOTE: Duplicated values from `_sass_/variables.scss`.
 const BREAK_POINT_3 = '(min-width: 64em)';
 const BREAK_POINT_DYNAMIC = '(min-width: 104.25em)';
@@ -85,7 +87,7 @@ function setupWebComponent(drawerEl, opened) {
   if (opened) drawerEl.setAttribute('opened', '');
   drawerEl.setAttribute('align', 'left');
   // drawerEl.setAttribute('range', getRange().join(','));
-  drawerEl.setAttribute('threshold', isSafari ? 0 : 10);
+  drawerEl.setAttribute('threshold', isSafari ? 0 : THRESHOLD);
   drawerEl.setAttribute('prevent-default', '');
   drawerEl.setAttribute('mouse-events', '');
 
@@ -99,7 +101,7 @@ function setupVanilla(drawerEl, opened) {
     opened,
     align: 'left',
     // range: getRange(),
-    threshold: isSafari ? 0 : 10,
+    threshold: isSafari ? 0 : THRESHOLD,
     preventDefault: true,
     mouseEvents: true,
   });
