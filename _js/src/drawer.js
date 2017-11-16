@@ -176,8 +176,8 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     })
     ::subscribeWhen(isDesktop$)
     ::withLatestFrom(dist$)
-    .subscribe(([{ detail: { opacity } }, dist]) => {
-      const t = 1 - opacity;
+    .subscribe(([{ detail }, dist]) => {
+      const t = 1 - detail;
       window._sidebar.style.transform = `translateX(${dist * t}px)`;
     });
 
