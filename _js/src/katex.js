@@ -30,37 +30,23 @@ const featuresOk = hasFeatures(REQUIREMENTS);
 let katexJSLoaded = false;
 let katexCSSLoaded = false;
 
-function replaceMathBlock(el, tex) {
-  el.outerHTML = window.katex.renderToString(tex, {
-    displayMode: el.type === 'math/tex; mode=display',
-  });
-}
-
-function renderKatex(el, tex) {
+function renderKatex(el) {
   try {
-    const prev = el.previousElementSibling;
-    replaceMathBlock(el, tex);
-    if (prev && prev.classList && prev.classList.contains('MathJax_Preview')) {
-      prev::hide();
-    }
+    let prev = el.previousElementSibling;
+    while (prev && !prev.classList.contains('MathJax_Preview')) prev = prev.previousElementSibling;
+
+    const tex = el.textContent
+      .replace('% <![CDATA[', '')
+      .replace('%]]>', '');
+
+    el.outerHTML = window.katex.renderToString(tex, {
+      displayMode: el.type === 'math/tex; mode=display',
+    });
+
+    if (prev) prev::hide();
   } catch (e) {
-    // TODO: remove in production builds?
-    console.error(e); // eslint-disable-line no-console
-  } finally {
-    el.style.willChange = '';
+    if (process.env.DEBUG) console.error(e);
   }
-}
-
-function readTexSource(el) {
-  return el.textContent.replace('% <![CDATA[', '').replace('%]]>', '');
-}
-
-function changeContent(mathBlocks) {
-  // kramdown generates script tags with type "math/tex"
-  mathBlocks::forEach((script) => {
-    const tex = readTexSource(script);
-    renderKatex(script, tex);
-  });
 }
 
 export default function upgradeMathBlocks() {
@@ -68,7 +54,7 @@ export default function upgradeMathBlocks() {
     const mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
     if (mathBlocks.length) {
       if (katexJSLoaded && katexCSSLoaded) {
-        changeContent(mathBlocks);
+        mathBlocks::forEach(renderKatex);
       } else {
         window.loadJSDeferred(document.getElementById('_katexJS').href, () => {
           katexJSLoaded = true;
