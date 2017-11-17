@@ -22,13 +22,15 @@
       {% include tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
     </p>
 
+    {% assign alt = false %}
     {% unless hide_image %}{% if post.image %}
       <div class="img lead sixteen-nine">
         {% include srcset-img.html img=post.image %}
       </div>
+      {% assign alt = '' %}
     {% endif %}{% endunless %}
 
-    {% include message.html text=post.description hide=page.hide_description %}
+    {% include message.html text=post.description hide=page.hide_description alt=alt %}
   </header>
 
   {% if no_excerpt %}
