@@ -161,7 +161,7 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [^2]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
 
 [blog]: https://qwtel.com/hydejack/blog/
-[portfolio]: https://qwtel.com/hydejack/projects/
+[portfolio]: https://qwtel.com/hydejack/variations/
 [resume]: https://qwtel.com/hydejack/resume/
 [download]: https://qwtel.com/download/
 [welcome]: https://qwtel.com/hydejack/
