@@ -4,6 +4,7 @@ title: Hydejack's New Design
 description: >
   This post introduces Hydejack's now background image, color palette and logo. Then there's a few jokes I wrote about it [sic].
 image: /assets/img/caleb-george.jpg
+hide_image: true
 tags: [hydejack]
 ---
 
@@ -13,7 +14,7 @@ The old image was a blurred version of Napoleon Bonaparte, which was just... wei
 but I'd rather show you the new and improved background image.
 
 ## New background image
-Yes, it's an areal shot of a beach ([so hot right now](https://duckduckgo.com/?q=apple+ios11+background&t=ffab&iax=images&ia=images)).
+Yes, it's an aerial shot of a beach ([so hot right now](https://duckduckgo.com/?q=ios+11+background&t=ffab&iax=images&ia=images)).
 
 ![Hydejack's background image]({{ site.baseurl }}/assets/img/caleb-george.jpg){:.lead}
 
@@ -21,8 +22,8 @@ Q: What has this picture to do with Hydejack?
 Nothing really, I just like how it looks.
 However: Boat → Pirates → Hijacking → Hydejack (illuminati confirmed)
 
-Even though it is a free image from [Unsplash](https://unsplash.com/) (...),
-I've modified it quite a bit so it looks better inside the sidebar.
+Even though it is a free image from [Unsplash](https://unsplash.com/) (...), it's unique in the sense that
+I've modified it so it looks better inside the sidebar.
 Specifically, I've straightened out the beach and rotated the boat so that it sits at a nice 90 degree angle.
 
 For comparison, here is the non-euclidean mess the [original photo](https://unsplash.com/photos/AtvuPUenaeI) was. Pretty OCD, I know.
