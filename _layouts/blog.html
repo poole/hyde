@@ -23,12 +23,15 @@ layout: base
 ---
 
 {% assign plugins = site.plugins | default:site.gems %}
+
 {% if plugins contains 'jekyll-paginate' %}
-  {% include blog.html %}
+  {% for post in paginator.posts %}
+    {% include post.html post=post no_link_title=page.no_link_title no_excerpt=page.no_excerpt hide_image=page.hide_image %}
+  {% endfor %}
+
+  {% include pagination.html %}
 {% else %}
-  {% capture text %}To use this layout,
-include the `jekyll-paginate` plugin in your `Gemfile` and in your `_config.yml` under `plugins`.
-For more, see [Jekyll Pagination](https://jekyllrb.com/docs/pagination/).
-  {% endcapture %}
+  {% capture text %}To use this layout, include the `jekyll-paginate` plugin in your `Gemfile` and your `_config.yml` under `plugins`.
+For more, see [Jekyll Pagination](https://jekyllrb.com/docs/pagination/).{% endcapture %}
   {% include message.html text=text %}
 {% endif %}

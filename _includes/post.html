@@ -1,12 +1,14 @@
-{% assign post = include.post %}
-{% assign link_title = include.link_title %}
+{% assign post          = include.post          %}
+{% assign no_link_title = include.no_link_title %}
+{% assign no_excerpt    = include.no_excerpt    %}
+{% assign hide_image    = include.hide_image    %}
 
-<article id="post{{ post.id | replace:'/','-' }}" class="page post{% if link_title %} mb6{% endif %}" role="article">
+<article id="post{{ post.id | replace:'/','-' }}" class="page post mb6" role="article">
   <header>
     <h1 class="post-title">
-      {% if link_title %}<a href="{{ post.url | relative_url }}" class="flip-title">{% endif %}
+      {% unless no_link_title %}<a href="{{ post.url | relative_url }}" class="flip-title">{% endunless %}
         {{ post.title }}
-      {% if link_title %}</a>{% endif %}
+      {% unless no_link_title %}</a>{% endunless %}
     </h1>
 
     <p class="post-date heading">
@@ -20,13 +22,20 @@
       {% include tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
     </p>
 
+    {% unless hide_image %}{% if post.image %}
+      <div class="img lead sixteen-nine">
+        {% include srcset-img.html img=post.image %}
+      </div>
+    {% endif %}{% endunless %}
+
     {% include message.html text=post.description hide=page.hide_description %}
   </header>
 
-  {% unless include.excerpt %}
+  {% if no_excerpt %}
     {{ post.content }}
   {% else %}
     {{ post.excerpt }}
+
     {% capture post_title %}<a class="heading flip-title" href="{{ post.url | relative_url }}">{{ post.title }}</a>{% endcapture %}
     {% assign text = site.data.strings.continue_reading | default:"Continue reading <!--post_title-->" %}
     <footer>
@@ -34,5 +43,5 @@
         {{ text | replace:"<!--post_title-->", post_title }}
       </p>
     </footer>
-  {% endunless %}
+  {% endif %}
 </article>
