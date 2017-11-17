@@ -9,9 +9,9 @@ menu: true
 order: 4
 ---
 
-**Hydejack** aims to be the complete package for professionals on the web.
+**Hydejack** is the complete package for professionals on the web.
 It features a blog suitable for both prose and technical documentation,
-a showcase for your projects, and a resume that fits with the rest of the design.
+a showcase for your projects, and a resume that is well-integrated with the design.
 
 > Your presence on the web --- A [blog], a [portfolio] and a [resume].
 {:.lead}
