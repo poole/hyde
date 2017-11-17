@@ -3,6 +3,20 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.3.0
+Nov 17 2017
+{:.heading.post-date}
+
+### Added
+* Allow markdown content on `projects` layout.
+* Renamed `big_project` option on projects to `featured` (`big_project` still works)
+
+### Fixed
+* Fixed default font weights
+* Fixed hard-coded `/projects/` URL in project layout
+* Link to feed.xml is only generated when using the `jekyll-feed` plugin
+
+
 ## v7.2.0
 Nov 13 2017
 {:.heading.post-date}
