@@ -42,7 +42,7 @@ author:
   # twitter:             <username>
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 20XX. Open _config.yml to edit this text.
+copyright:             © 20XX. All rights reserved. Open _config.yml to edit this text.
 
 # Format of the permalinks
 permalink:             pretty
