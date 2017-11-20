@@ -68,27 +68,25 @@ hy-drawer {
 }
 
 .sidebar {
-  position: relative; 
-  display: flex; 
-  justify-content: center; 
-  align-items: center; 
-  color: rgba(255, 255, 255, .75); 
-  text-align: center; 
+  
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: rgba(255, 255, 255, .75);
+  text-align: center;
+  z-index: 2;
+  min-height: 100vh;
+  
+
   a {
     color: #fff; 
     border-bottom-color: rgba(255, 255, 255, 0.2); 
 //     &:hover { border-bottom-color: #fff; } 
   }
-
-  @media screen {
-    min-height: 640px; 
-    min-height: 100vh; 
-  }
 }
 
-@media screen {
-  hy-drawer.loaded .sidebar { min-height: 100%; }
-}
+
 
 .sidebar-bg {
   
@@ -99,7 +97,6 @@ hy-drawer {
   height: 100%;
   background: #202020 center / cover;
 
-  /* make sidebar slightly darker to increase text readability (when using a background image) */
   &::after {
     content: "";
     position: absolute;
@@ -112,7 +109,6 @@ hy-drawer {
   
 
   &.sidebar-overlay::after {
-    /* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#202020+0,202020+100&0+0,0.5+100 */
 //     background: -moz-linear-gradient(top, rgba(32,32,32,0) 0%, rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%); 
 //     background: -webkit-linear-gradient(top, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%); 
     background: linear-gradient(to bottom, rgba(32,32,32,0) 0%,rgba(32,32,32,0.5) 50%, rgba(32,32,32,0) 100%);
@@ -135,7 +131,7 @@ hy-drawer {
   > h2 {
     margin-top: 0;
     > a {
-      padding-bottom: .5rem;
+      padding: 0 .5rem .5rem;
     }
   }
 }
@@ -149,7 +145,7 @@ a.sidebar-nav-item {
   display: inline-block;
   font-weight: $font-weight-heading;
   line-height: 1.75;
-  padding: .25rem 0;
+  padding: .25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 

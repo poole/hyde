@@ -63,12 +63,7 @@
 }
 // >>>>
 
-#_menu {
-  // @media screen and (min-width: $break-point-3) {
-  //   position: absolute; // inline
-  //   left: -9999px; // inline
-  //   &:focus { position: static; } // link
-  // }
+.navbar {
   @media print { display: none; } // link
 }
 
