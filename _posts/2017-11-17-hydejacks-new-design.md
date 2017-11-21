@@ -17,7 +17,7 @@ but I'd rather show you the new and improved background image.
 ## New background image
 Yes, it's an aerial shot of a beach ([so hot right now](https://duckduckgo.com/?q=ios+11+background&t=ffab&iax=images&ia=images)).
 
-![Hydejack's background image]({{ site.baseurl }}/assets/img/caleb-george.jpg)
+![Hydejack's background image]({{ site.baseurl }}/assets/img/caleb-george.jpg){:.lead}
 
 Q: What has this picture to do with Hydejack?
 Nothing really, I just like how it looks.
@@ -29,7 +29,7 @@ Specifically, I've straightened out the beach and rotated the boat so that it si
 
 For comparison, here is the non-euclidean mess the [original photo](https://unsplash.com/photos/AtvuPUenaeI) was. Pretty OCD, I know.
 
-![Original photo]({{ site.baseurl }}/assets/img/caleb-george-old.jpg)
+![Original photo]({{ site.baseurl }}/assets/img/caleb-george-old.jpg){:.lead}
 
 ## New color palette
 I've extracted the major colors from the background image, which now form Hydejack's color palette:
