@@ -54,12 +54,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  jekyll (~> 3.6)
-  jekyll-feed (~> 0.9)
-  jekyll-paginate (~> 1.1)
-  jekyll-relative-links (~> 0.5)
-  jekyll-seo-tag (~> 2.3)
-  jekyll-sitemap (~> 1.1)
+  jekyll
+  jekyll-feed
+  jekyll-paginate
+  jekyll-relative-links
+  jekyll-seo-tag
+  jekyll-sitemap
   tzinfo-data
 
 BUNDLED WITH

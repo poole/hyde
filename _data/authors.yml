@@ -1,6 +1,6 @@
 # The primary author of this blog.
 # Must be the same as `author` in `_config.yml`.
-# Change `qwtel` to your shortname (used in the front matter to set a page's author, e.g. `author: qwtel`).
+# Change `author1` to your shortname.
 author1:
   name:              <firstname> <lastname>
   email:             <mail@domain.tld>
@@ -65,7 +65,7 @@ author1:
     # paypal:          <username>
     # download:        https://github.com/qwtel/hydejack/archive/v6.6.1.zip
 
-# Another author
+# Another author (optional)
 author2:
   name:              <firtname> <lastname>
   email:             <mail@domain.tld>
