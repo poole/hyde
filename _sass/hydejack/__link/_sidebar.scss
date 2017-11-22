@@ -151,10 +151,11 @@ a.sidebar-nav-item {
 
 #_swipe {
   position: absolute;
+  z-index: 4;
   opacity: 0.33;
   top: 5vw;
   right: 5vw;
-  transform: scale(0.75);
+  transform: scale(0.67);
 
   @media screen and (min-width: $break-point-1) {
     top: calc(50% - 48px);
