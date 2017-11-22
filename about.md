@@ -140,7 +140,7 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 
 [license]: LICENSE.md
 [pro]: licenses/PRO.md
-[docs]: docs/8.0.0-alpha.4/index.md
+[docs]: docs/8.0.0-alpha.8/index.md
 
 [kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v7.5.0.zip
 [src]: https://github.com/qwtel/hydejack
@@ -148,8 +148,8 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
-[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/8.0.0-alpha.4/index.md
-[pdf]: https://github.com/qwtel/hydejack/releases/download/v8.0.0-alpha.4/Documentation._.Hydejack.pdf
+[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/8.0.0-alpha.8/index.md
+[pdf]: https://github.com/qwtel/hydejack/releases/download/v8.0.0-alpha.8/Documentation._.Hydejack.pdf
 [hy-push-state]: https://qwtel.com/hy-push-state/
 [hy-drawer]: https://qwtel.com/hy-drawer/
 [rouge]: http://rouge.jneen.net
