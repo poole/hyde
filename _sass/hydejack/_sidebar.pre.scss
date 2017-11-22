@@ -142,6 +142,7 @@ hy-drawer.loaded .sidebar {
   max-width: $sidebar-width;
   padding: 1.5rem;
   margin-top: -2rem;
+  contain: content;
 }
 
 .sidebar-about {

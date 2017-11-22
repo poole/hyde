@@ -24,7 +24,7 @@ pre, table:not(.highlight), .katex-display, .break-layout  {
 
   @media screen {
     position: relative;
-    width: calc(100% + $pad);
+    width: calc(100% + #{$pad});
   }
 
   @media screen and (min-width: $content-width) {

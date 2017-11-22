@@ -44,7 +44,7 @@ h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
   margin-top: 0;
 }
 
-dt {
+dt, strong {
   font-weight: $font-weight-bold;
 }
 
@@ -71,6 +71,7 @@ blockquote {
   border-left: .25rem solid $border-color;
 
   &.lead {
+    font-size: 1.2em;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     border-left-width: 0.4rem;
@@ -81,8 +82,8 @@ blockquote {
   }
 }
 
-.lead {
-  font-size: 1.2em;
+.heading {
+  font-weight: $font-weight-heading;
 }
 
 .fine {
