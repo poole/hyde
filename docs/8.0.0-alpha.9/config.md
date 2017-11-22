@@ -502,7 +502,7 @@ paginate_path:         /page-:num/
 
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/sidebar-bg.jpg
-accent_color:          '#4fb1ba'
+accent_color:          rgb(79, 177, 186)
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://qwtel.com/hydejack/docs/configuration/>
@@ -612,7 +612,7 @@ plugins:
   # - jekyll-readme-index
   # - jekyll-redirect-from
   - jekyll-relative-links
-  # - jekyll-remote-theme
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
   # - jekyll-titles-from-headings
@@ -620,9 +620,8 @@ plugins:
 # Theme
 # ---------------------------------------------------------------------------------------
 
-theme: jekyll-theme-hydejack
-# remote_theme: qwtel/hydejack@gem
-
+# theme: jekyll-theme-hydejack
+remote_theme: qwtel/hydejack@gem
 
 # SEO Tag
 # ---------------------------------------------------------------------------------------
