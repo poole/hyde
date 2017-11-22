@@ -1,21 +1,31 @@
 # Config
 # ========================================================================================
 
-title:                 Hydejack
-
-# Language of your content in 2-letter code, eg: en, de.
-# You may also provide a location, eg: en-us, de_AT.
-lang:                  en
-
-# The unique resource location of your page.
-# Set to `https://<username>.github.io` when hosting on GitHub Pages.
+# IMPORTANT: Set the URL of your site.
+# Set to https://<username>.github.io when hosting on GitHub Pages
+# (unless you are using a custom domain).
 url:                   https://domain.tld
 
-# Set to '' when hosting on GitHub Pages, like `//<username>.github.io`.
-# Set to '/<reponame>' when using the `gh-pages` branch of a repository.
+# IMPORTANT: Set The "base URL" of your site.
+#
+# When hosting your site in a subdirectory of a server, set to /<name of the subdirectory>
+# (with leading /, but without the < >)
+# Use the empty string '' otherwise.
+#
+# When using GitHub Pages, set to '' when hosting a user- or organization page,
+# i.e. when the name of the repository looks like <username>.github.io.
+# Otherwise, set to /<name of repository> (with leading /, but without the < >).
 baseurl:               ''
 
-# A short description of the page used for the meta description tag.
+# Language of your content in 2-letter code, e.g.: en, de.
+# You may also provide a location, e.g.: en-us, de_AT.
+lang:                  en
+
+# The title of your blog. Used in the sidebar and the browser tab.
+title:                 Hydejack
+
+# A short description (~150 chars) of the page used for the meta description tag.
+# Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
   A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
   Combines the best of static sites and modern web apps.
@@ -26,8 +36,7 @@ tagline:               >
   A Jekyll theme with JavaScript powers.
   Open `_config.yml` to edit this text.
 
-# A list of keywords for your blog, will be used as fallback
-# for pages that don't have `keywords` in their front matter.
+# A list of keywords for your blog
 keywords:              []
 
 # Used by jekyll-seo-tag...
@@ -59,12 +68,12 @@ paginate_path:         /page-:num/
 google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
 
 # The text font. Expects a string that is a valid CSS font-family value.
-font:                  "'Noto Sans', Helvetica, Arial, sans-serif"
+font:                  Noto Sans, Helvetica, Arial, sans-serif
 
 # The font used for headings. Expects a string that is a valid CSS font-family value.
-font_heading:          "'Roboto Slab', Helvetica, Arial, sans-serif"
+font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 
-# Fallback image and color
+# Sidebar image and theme color of the site.
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          '#4fb1ba'
 
