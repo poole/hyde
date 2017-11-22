@@ -202,7 +202,11 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const opened$ = Observable::fromEvent(drawerEl, 'hy-drawer-transitioned')
     ::map(e => e.detail)
     ::distinctUntilChanged()
-    ::tap((opened) => { if (!opened) removeIcon(); });
+    ::tap((opened) => {
+      if (!opened) {
+        removeIcon();
+      }
+    });
     // ::share();
 
   // TODO: Close the drawer when scrolling down?
@@ -254,7 +258,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // The drawer height is `100vh` before the drawer is initialized and is now set to 0.
   // We remove `innerHeight` from the old scroll position to prevent the content form "jumping".
-  if (drawerEl.classList.contains('cover')) {
+  if (!opened) {
     window.scrollTo(0, scrollTop - window.innerHeight);
   }
 }
