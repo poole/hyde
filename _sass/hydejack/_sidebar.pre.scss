@@ -141,7 +141,7 @@ hy-drawer.loaded .sidebar {
   z-index: 3;
   max-width: $sidebar-width;
   padding: 1.5rem;
-  margin-top: -2rem;
+  margin-top: -1.5rem;
   contain: content;
 }
 
@@ -213,14 +213,17 @@ a.sidebar-nav-item {
 }
 
 #_swipe {
-  display: none;
   position: absolute;
+  z-index: 4;
   opacity: 0.33;
+  top: 5vw;
+  right: 5vw;
+  transform: scale(0.67);
 
   @media screen and (min-width: $break-point-1) {
-    display: block;
     top: calc(50% - 48px);
     right: 10vw;
+    transform: scale(1);
   }
 }
 // >>>>>
