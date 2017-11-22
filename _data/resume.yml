@@ -1,4 +1,4 @@
-# If you have a `resume.json` file, copy it into `_data` and delete this YAML file.
+# If you have a `resume.json` file, copy it into `_data` and delete this file.
 # If you don't have a JSON Resume you can just edit this YAML file instead.
 # See also: <https://jsonresume.org/>.
 basics:
