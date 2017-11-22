@@ -36,7 +36,7 @@
   body::before {
     content: '';
     width: .5rem;
-    background: $gray-bg;
+    background: $border-color;
     position: absolute;
     left: 0;
     top: 0;
@@ -44,11 +44,12 @@
   }
 
   @media (min-width: $break-point-3) {
-    body::before { width: 20rem; }
+    body::before { width: $sidebar-width; }
   }
 
   @media (min-width: $break-point-dynamic) {
-    body::before { width: calc(50% - 28rem); }
+    $r28: ($content-width-5 / 2) + $content-margin-5;
+    body::before { width: calc(50% - #{$r28}); }
   }
 }
 
