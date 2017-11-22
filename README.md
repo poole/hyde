@@ -60,6 +60,7 @@ This table details what is and isn't included in each respective version.
 | [Welcome] Layout                    |                    | &#x2714;           |
 | [Newsletter Box][news]              |                    | &#x2714;           |
 | [Custom Forms][forms]               |                    | &#x2714;           |
+| No Hydejack branding                |                    | &#x2714;           |
 | License                             | [GPL-3.0][license] | [PRO]              |
 | Price                               | Free               | $29                |
 || [Download on GitHub][github]<br/> – or – <br/>[Use the RubyGem][gem] | [Buy Now][buy] [^2] |
