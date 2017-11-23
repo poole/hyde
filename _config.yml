@@ -8,7 +8,7 @@ url:                   https://domain.tld
 
 # IMPORTANT: Set The "base URL" of your site.
 #
-# When hosting your site in a subdirectory of a server, set to /<name of the subdirectory>
+# When hosting your site in a subdirectory of a server, set to /<name of directory>
 # (with leading /, but without the < >)
 # Use the empty string '' otherwise.
 #
@@ -60,8 +60,13 @@ permalink:             pretty
 paginate:              5
 paginate_path:         /page-:num/
 
+
 # Customizaton
 # ========================================================================================
+
+# Sidebar image and theme color of the site.
+accent_image:          /assets/img/sidebar-bg.jpg
+accent_color:          '#4fb1ba'
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://qwtel.com/hydejack/docs/configuration/>
@@ -73,12 +78,12 @@ font:                  Noto Sans, Helvetica, Arial, sans-serif
 # The font used for headings. Expects a string that is a valid CSS font-family value.
 font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 
-# Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg.jpg
-accent_color:          '#4fb1ba'
-
 # 3rd Party Integrations
 # ----------------------------------------------------------------------------------------
+
+# Set your Google Analytics id to receive `pageview` events.
+# To remove Google Anaylics from your page, remove the line below.
+# google_analytics:      UA-XXXXXXXX-X
 
 # Setting a disqus shortname will enable the comment section on
 # pages with `comments: true` in the front matter.
@@ -87,13 +92,9 @@ accent_color:          '#4fb1ba'
 # Setting a tinyletter username will enable the newsletter subscription box.
 # tinyletter:            <tinyletter_username>
 
-# Set your Google Analytics id to receive `pageview` events.
-# To remove Google Anaylics from your page, remove the line below.
-# google_analytics:      UA-XXXXXXXX-X
-
-
-# Hydejack Flags
+# Hydejack Settings
 # ----------------------------------------------------------------------------------------
+# These settings are specific to Hydejack.
 
 hydejack:
   # Configure the order of complementary content on blog posts
