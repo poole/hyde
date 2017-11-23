@@ -177,7 +177,7 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [pro]: licenses/PRO.md
 [docs]: docs/7.3.0/index.md
 
-[github]: https://github.com/qwtel/hydejack/releases
+[github]: https://github.com/qwtel/hydejack-starter-kit
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 

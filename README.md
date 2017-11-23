@@ -97,7 +97,7 @@ This table details what is and isn't included in each respective version.
 [pro]: licenses/PRO.md
 [docs]: docs/7.3.0/index.md
 
-[github]: https://github.com/qwtel/hydejack/releases
+[github]: https://github.com/qwtel/hydejack-starter-kit
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
