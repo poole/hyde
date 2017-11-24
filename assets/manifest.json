@@ -7,7 +7,7 @@
   "short_name": "{{ site.title }}",
   "description": "{{ site.description | markdownify | strip_html | strip_newlines }}",
   "start_url": "{{ '/' | relative_url }}?utm_source=homescreen",
-  "theme_color": "{{ site.accent_color | default:'#4fb1ba' }}",
+  "theme_color": "{{ site.theme_color | default:site.accent_color | default:'#4fb1ba' }}",
   "background_color": "#fff",
   "orientation": "portrait",
   "display": "standalone",

@@ -24,7 +24,7 @@
 <meta name="msapplication-config" content="{{ '/assets/ieconfig.xml' | relative_url }}">
 
 {% unless site.hydejack.no_theme_color %}
-<meta name="theme-color" content="{{ color | default:'#4fb1ba' }}">
+<meta name="theme-color" content="{{ page.theme_color | default:color | default:'#4fb1ba' }}">
 {% endunless %}
 
 <meta name="generator" content="Hydejack v7.3.0" />
