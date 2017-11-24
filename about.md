@@ -24,19 +24,19 @@ A [portfolio], a [resume] layout and a [welcome] page to feature your favorite p
 
 This table details what is and isn't included in each respective version.
 
-|                                     | Free               | PRO                |
-|:------------------------------------|:------------------:|:------------------:|
-| Blog                                | &#x2714;           | &#x2714;           |
-| [Features][feat]                    | &#x2714;           | &#x2714;           |
-| [Portfolio] Layout                  |                    | &#x2714;           |
-| [Resume] Layout                     |                    | &#x2714;           |
-| [Welcome] Layout                    |                    | &#x2714;           |
-| [Newsletter Box][news]              |                    | &#x2714;           |
-| [Custom Forms][forms]               |                    | &#x2714;           |
-| No Hydejack branding                |                    | &#x2714;           |
-| License                             | [GPL-3.0][license] | [PRO]              |
-| Price                               | Free               | $29                |
-|| [Download on GitHub][github]<br/> – or – <br/>[Use the RubyGem][gem] | [Buy Now][buy] [^1] |
+|                                     | Free                                   | PRO                                    |
+|:------------------------------------|:--------------------------------------:|:--------------------------------------:|
+| Blog                                | &#x2714;                               | &#x2714;                               |
+| [Features][feat]                    | &#x2714;                               | &#x2714;                               |
+| [Portfolio] Layout                  |                                        | &#x2714;                               |
+| [Resume] Layout                     |                                        | &#x2714;                               |
+| [Welcome] Layout                    |                                        | &#x2714;                               |
+| [Newsletter Box][news]              |                                        | &#x2714;                               |
+| [Custom Forms][forms]               |                                        | &#x2714;                               |
+| No Hydejack Branding                |                                        | &#x2714;                               |
+| License                             | [GPL-3.0][license]                     | [PRO]                                  |
+| Price                               | Free                                   | $29                                    |
+|                                     | [**Download**][kit] or [**Fork**][git] | [Buy Now][buy]{:.btn.btn-primary} [^3] |
 {:.stretch-table}
 
 ## Features
@@ -66,16 +66,11 @@ Both versions include *all* of these features:
 ### Syntax Highlighting
 Syntax highlighting powered by [Rouge].
 
-~~~js
-// Example can be run directly in your JavaScript console
-
-// Create a function that takes two arguments and returns the sum of those
-// arguments
-var adder = new Function("a", "b", "return a + b");
-
-// Call the function
-adder(2, 6);
-// > 8
+~~~ruby
+# Ruby code with syntax highlighting
+GitHubPages::Dependencies.gems.each do |gem, version|
+  s.add_dependency(gem, "= #{version}")
+end
 ~~~
 
 ### LaTeX Math Blocks
@@ -99,55 +94,19 @@ $$
 \end{aligned}
 $$
 
-### Customizable
-**Hydejack** can be customized in a variety of ways, using only the `_config.yml` file.
+### Newsletter Subscription Box*
+The *PRO version* has built-in support for [Tinyletter] subscription boxes.
 
-```yml
-# The string encoding which fonts to fetch from Google Fonts.
-# See <https://qwtel.com/hydejack/docs/configuration/>
-google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
+If you are using a different newsletter service, like MailChimp,
+you can build a custom newsletter subscription box using [custom forms][forms].
 
-# The text font. Expects a string that is a valid CSS font-family value.
-font:                  "'Noto Sans', Helvetica, Arial, sans-serif"
-
-# The font used for headings. Expects a string that is a valid CSS font-family value.
-font_heading:          "'Roboto Slab', Helvetica, Arial, sans-serif"
-
-# Fallback image and color
-accent_image:          /hydejack/assets/img/sidebar-bg.jpg
-accent_color:          '#4fb1ba'
-```
-
-Check out the [full annotated `_config.yml` file](https://github.com/qwtel/hydejack/blob/master/_config.yml) for more.
-
-You can change the wording of all built-in strings and labels by editing `strings.yml`.
-
-```yml
----
-  home:                Home
-  pages:               Pages
-  posts:               Posts
-  about:               About
-  related_posts:       Related Posts
-  other_projects:      Other Projects
-  comments:            Comments
-  jump_to:             Jump to
-  navigation:          Navigation
-  social:              Social
-  links:               Links
-  pagination:          Pagination
-  newer:               Newer
-  older:               Older
-  back:                Back
-```
-
-Check out the [full `strings.yml` file](https://github.com/qwtel/hydejack/blob/master/_data/strings.yml) for more.
+{% include pro/newsletter.html %}
 
 ## Versions
 ### Free Version
 The *free version* features the design and tech of **Hydejack**, but only supports basic blogging.
 
-[Download on GitHub][github] – or – [Use the RubyGem][gem]
+[Download the Starter Kit][kit] or [Fork the Starter Kit on GitHub][git]
 
 ### PRO Version
 The *PRO version* aims to be the complete package for professionals on the web.
@@ -177,7 +136,8 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [pro]: licenses/PRO.md
 [docs]: docs/7.3.0/index.md
 
-[github]: https://github.com/qwtel/hydejack-starter-kit
+[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/master.zip
+[git]: https://github.com/qwtel/hydejack-starter-kit
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 

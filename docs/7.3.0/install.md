@@ -2,14 +2,15 @@
 layout: page
 title: Install
 description: >
-  There are multiple ways of installing Hydejack.
-  The easiest way is via the Ruby gem, but you can also download the zip or fork the git repository.
+  There are multiple ways of installing Hydejack and this document lays them out for you.
+  The easiest way is with the Hydejack Starter Kit.
 ---
 
 There are multiple ways of installing Hydejack.
-The easiest and recommended way is [via the Ruby gem](#via-gem).
-If you've downloaded the zip, you'll want to install [via the zip file](#via-zip).
-If you know what you are doing, you can [fork the git repository](#via-git).
+The easiest and cleanest way is [via the Starter Kit](#via-starter-kit).
+Alternatively, you can use the [Ruby gem](#via-gem).
+If you don't mind a cluttered source directory, you can use [the zip file](#via-zip).
+Finally, If you know what you are doing, you can [fork the git repository](#via-git).
 
 Buyers of the PRO version should [follow these steps](#pro-version).
 
@@ -18,9 +19,21 @@ Buyers of the PRO version should [follow these steps](#pro-version).
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
+## Via Starter Kit
+Using the Starter Kit has the advantage of not cluttering your blog repository.
+Additionally, it allows you to publish your site on GitHub Pages with a single `push`.
+
+If you have a GitHub account, fork the [hydejack-starter-kit](https://github.com/qwtel/hydejack-starter-kit) repository.
+Otherwise [download the source files](https://github.com/qwtel/hydejack-starter-kit/archive/master.zip)
+and unzip them somewhere on your machine.
+
+**NOTE**: In addition to the docs here, you can follow the quick start guide in the starter kit.
+{:.message}
+
+`cd` into the directory where `_config.yml` is located and follow the steps in [Running locally](#running-locally).
+
 ## Via gem
-Using the gem-based theme has the advantage of not cluttering your blog repository.
-It's also easier to upgrade, so it is especially recommended for beginners.
+Jekyll has [built-in support](https://jekyllrb.com/docs/themes/) for using themes that are hosted on RubyGems.  
 
 If you haven't already, create a new Jekyll site first:
 
@@ -54,7 +67,7 @@ gem "jekyll-theme-hydejack"
 (You can also remove the old theme `jekyll-theme-minima` from the Gemfile)
 
 Now you want to edit the `_config.yml` of your Jekyll site and set Hydejack as the theme.
-Look for the `theme` key (or add it when missing) and set its value to `jekyll-theme-hydejack`.
+Look for the `theme` key and set its value to `jekyll-theme-hydejack`.
 
 ~~~yml
 theme: jekyll-theme-hydejack
@@ -65,7 +78,8 @@ For more information on gem-based themes, see the [Jekyll Documentation](http://
 You can now continue with [running locally](#running-locally).
 
 ## Via zip
-If you downloaded the zip, extract the contents somewhere on your machine.
+If you downloaded the [extended zip](https://github.com/qwtel/hydejack/releases),
+extract the contents somewhere on your machine.
 The high-level folder structure will look something like.
 
 ~~~

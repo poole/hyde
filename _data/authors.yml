@@ -28,7 +28,7 @@ author1:
   social:
     twitter:         <username>
     github:          <username>
-    email:           mailto:<mail@domain.tld>
+    # email:           mailto:<mail@domain.tld>
     # rss:             https://<url>/feed.xml
     # facebook:        <username>
     # google:          <number>
