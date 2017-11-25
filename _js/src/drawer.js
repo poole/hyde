@@ -30,7 +30,6 @@ import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { Observable } from 'rxjs/Observable';
-import { debounceTime } from 'rxjs/operator/debounceTime';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 
 // And some of our own helper functions/constants.
@@ -149,6 +148,5 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // Adding the resize callback to the resize event, but with a small delay.
   Observable::fromEvent(window, 'resize', { passive: true })
-    ::debounceTime(100)
     .subscribe(resizeCallback);
 }
