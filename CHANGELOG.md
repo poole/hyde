@@ -3,6 +3,42 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.4.0
+Nov 25 2017
+{:.heading.post-date}
+
+### Added
+* Allow markdown in copyright string
+* New `theme_color` property (takes precedence over `accent_color` for the theme color meta tag)
+* Added `cookies_banner` settings:
+
+  ~~~yml
+  # file: _config.yml
+  hydejack:
+    cookies_banner: true
+  ~~~
+
+  Enabling this setting will show a notice at the top of the page to new visitors.
+  You can change the wording of the notice in `_data/strings.yml`
+  with the `cookies_banner.text` and `cookies_banner.okay` keys:
+
+  ~~~yml
+  # file: _data/strings.yml
+  cookies_banner:
+    text: This site uses cookies.
+    okay: Okay
+  ~~~
+
+### Fixed
+* Drawer no longer resizes/repaints in iOS Safari and Chrome for Android when the address bar autohides.
+* Fixed a bug that caused the drawer flicker/open unexpectedly when scrolling in mobile browsers.
+* Fixed how `image` works when using the `jekyll-seo-tag` plugin.
+
+### Other
+* Updated docs
+* Updated posts
+
+
 ## v7.3.0
 Nov 17 2017
 {:.heading.post-date}

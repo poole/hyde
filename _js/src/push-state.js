@@ -81,7 +81,6 @@ const REQUIREMENTS = new Set([
   'opacity',
   'queryselector',
   'requestanimationframe',
-  'template',
 ]);
 
 const REPLACE_IDS = '_main';
@@ -143,7 +142,7 @@ function subscribe(ne, er, co) {
     .subscribe(ne, er, co);
 }
 
-// Set up the DOM node used for animations.
+// Set up the DOM elements:
 function setupAnimationMain(pushStateEl) {
   const template = document.getElementById('_animation-template');
   const animationMain = document.importNode(template.content, true);
@@ -151,7 +150,6 @@ function setupAnimationMain(pushStateEl) {
   return pushStateEl.previousElementSibling;
 }
 
-// Some more helper functions:
 function setupLoading(navbarEl) {
   const template = document.getElementById('_loading-template');
   const loading = document.importNode(template.content, true);

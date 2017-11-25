@@ -33,6 +33,11 @@ redirecting:           Redirecting…
 continue_reading:      >
   Continue reading <!--post_title-->
 
+cookies_banner:
+  text:                >
+    This site uses cookies. [Cookies Policy](/hydejack/cookies-policy/).
+  okay:                Okay
+
 not_found:
   title:               '404: Page Not Found'
   message:             |

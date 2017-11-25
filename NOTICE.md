@@ -232,6 +232,15 @@ which is MIT licensed with the following copyright
 
 A copy of the [MIT] license is provided as part of this distribution.
 
+### template-polyfill
+This software also uses portions of the template-polyfill project,
+which is MIT licensed with the following copyright
+
+> Copyright (c) 2016 Jeff Carpenter
+
+A copy of the [MIT] license is provided as part of this distribution.
+
+
 [11]: https://icomoon.io/#icons-icomoon
 [12]: http://keyamoon.com/
 [21]: https://en.wikipedia.org/wiki/Napoleon_Crossing_the_Alps#/media/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg

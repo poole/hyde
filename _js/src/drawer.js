@@ -14,9 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// ## Overview
-// TODO
-
 // ## Includes
 // First, we patch the environment with some ES6+ functions we intend to use.
 import 'core-js/fn/function/bind';

@@ -1,4 +1,4 @@
-// # src / index.js
+// # src / cookies-banner.js
 // Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -14,13 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'web-animations-js';
+if (!navigator.CookiesOK && !(localStorage && localStorage.getItem('cookies-ok'))) {
+  const template = document.getElementById('_cookies-banner-template');
+  if (template) {
+    document.getElementsByTagName('hy-push-state')[0]
+      .appendChild(document.importNode(template.content, true));
 
-import '../lib/modernizr-custom';
-import '../lib/version';
-import '../lib/template-polyfill';
-
-import './cookies-banner';
-import './katex';
-import './drawer';
-import './push-state';
+    document.getElementById('_cookies-ok').addEventListener('click', (e) => {
+      e.preventDefault();
+      if (localStorage) localStorage.setItem('cookies-ok', true);
+      const cookiesBanner = document.getElementById('_cookies-banner');
+      cookiesBanner.parentNode.removeChild(cookiesBanner);
+    }, { once: true });
+  }
+}

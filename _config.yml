@@ -134,6 +134,10 @@ hydejack:
   # Set to `true` when building with the `--lsi` option
   use_lsi:             false
 
+  # Set to `true` if you want to display a cookie notice banner.
+  # You can change the text of the banner in `_data/strings.yml`.
+  cookies_banner:      false
+
 
 # Collections
 # ========================================================================================

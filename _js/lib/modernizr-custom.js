@@ -1,7 +1,8 @@
-// NOTE: This file has been modified to include `usePrefixes: false`!
+// NOTE: This file has been modified to set `usePrefixes: false`!
+
 /*!
  * modernizr v3.5.0
- * Build https://modernizr.com/download?-classlist-cssanimations-csspointerevents-cssremunit-csstransforms-customevent-documentfragment-eventlistener-history-matchmedia-opacity-promises-queryselector-requestanimationframe-template-touchevents-dontmin
+ * Build https://modernizr.com/download?-classlist-cssanimations-csspointerevents-cssremunit-csstransforms-customevent-documentfragment-eventlistener-history-matchmedia-opacity-promises-queryselector-requestanimationframe-touchevents-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -45,7 +46,7 @@
       'classPrefix': '',
       'enableClasses': true,
       'enableJSClass': true,
-      'usePrefixes': false,
+      'usePrefixes': false
     },
 
     // Queue of tests
@@ -129,26 +130,6 @@ Detects native support for addEventListener
 
 /*!
 {
-  "name": "QuerySelector",
-  "property": "queryselector",
-  "caniuse": "queryselector",
-  "tags": ["queryselector"],
-  "authors": ["Andrew Betts (@triblondon)"],
-  "notes": [{
-    "name" : "W3C Selectors reference",
-    "href": "https://www.w3.org/TR/selectors-api/#queryselectorall"
-  }],
-  "polyfills": ["css-selector-engine"]
-}
-!*/
-/* DOC
-Detects support for querySelector.
-*/
-
-  Modernizr.addTest('queryselector', 'querySelector' in document && 'querySelectorAll' in document);
-
-/*!
-{
   "name": "History API",
   "property": "history",
   "caniuse": "history",
@@ -192,6 +173,26 @@ Detects support for the History API for manipulating the browser session history
     // Return the regular check
     return (window.history && 'pushState' in window.history);
   });
+
+/*!
+{
+  "name": "QuerySelector",
+  "property": "queryselector",
+  "caniuse": "queryselector",
+  "tags": ["queryselector"],
+  "authors": ["Andrew Betts (@triblondon)"],
+  "notes": [{
+    "name" : "W3C Selectors reference",
+    "href": "https://www.w3.org/TR/selectors-api/#queryselectorall"
+  }],
+  "polyfills": ["css-selector-engine"]
+}
+!*/
+/* DOC
+Detects support for querySelector.
+*/
+
+  Modernizr.addTest('queryselector', 'querySelector' in document && 'querySelectorAll' in document);
 
 /*!
 {
@@ -471,6 +472,29 @@ Append multiple elements to the DOM within a single insertion.
   ;
 /*!
 {
+  "name": "CSS Opacity",
+  "caniuse": "css-opacity",
+  "property": "opacity",
+  "tags": ["css"]
+}
+!*/
+
+  // Browsers that actually have CSS Opacity implemented have done so
+  // according to spec, which means their return values are within the
+  // range of [0.0,1.0] - including the leading zero.
+
+  Modernizr.addTest('opacity', function() {
+    var style = createElement('a').style;
+    style.cssText = prefixes.join('opacity:.55;');
+
+    // The non-literal . in this regex is intentional:
+    // German Chrome returns this value as 0,55
+    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
+    return (/^0.55$/).test(style.opacity);
+  });
+
+/*!
+{
   "name": "CSS Pointer Events",
   "caniuse": "pointer-events",
   "property": "csspointerevents",
@@ -504,29 +528,6 @@ Append multiple elements to the DOM within a single insertion.
 
 /*!
 {
-  "name": "CSS Opacity",
-  "caniuse": "css-opacity",
-  "property": "opacity",
-  "tags": ["css"]
-}
-!*/
-
-  // Browsers that actually have CSS Opacity implemented have done so
-  // according to spec, which means their return values are within the
-  // range of [0.0,1.0] - including the leading zero.
-
-  Modernizr.addTest('opacity', function() {
-    var style = createElement('a').style;
-    style.cssText = prefixes.join('opacity:.55;');
-
-    // The non-literal . in this regex is intentional:
-    // German Chrome returns this value as 0,55
-    // github.com/Modernizr/Modernizr/issues/#issue/59/comment/516632
-    return (/^0.55$/).test(style.opacity);
-  });
-
-/*!
-{
   "name": "CSS Font rem Units",
   "caniuse": "rem",
   "authors": ["nsfmc"],
@@ -555,23 +556,6 @@ Append multiple elements to the DOM within a single insertion.
     catch (e) {}
     return (/rem/).test(style.fontSize);
   });
-
-/*!
-{
-  "name": "Template Tag",
-  "property": "template",
-  "tags": ["elem"],
-  "notes": [{
-    "name": "HTML5Rocks Article",
-    "href": "http://www.html5rocks.com/en/tutorials/webcomponents/template/"
-  },{
-    "name": "W3 Spec",
-    "href": "https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html"
-  }]
-}
-!*/
-
-  Modernizr.addTest('template', 'content' in createElement('template'));
 
 
   /**
