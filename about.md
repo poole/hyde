@@ -94,14 +94,6 @@ $$
 \end{aligned}
 $$
 
-### Newsletter Subscription Box*
-The *PRO version* has built-in support for [Tinyletter] subscription boxes.
-
-If you are using a different newsletter service, like MailChimp,
-you can build a custom newsletter subscription box using [custom forms][forms].
-
-{% include pro/newsletter.html %}
-
 ## Versions
 ### Free Version
 The *free version* features the design and tech of **Hydejack**, but only supports basic blogging.
@@ -125,7 +117,7 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [resume]: https://qwtel.com/hydejack/resume/
 [download]: https://qwtel.com/download/
 [welcome]: https://qwtel.com/hydejack/
-[forms]: https://qwtel.com/hydejack/docs/7.3.0/forms-by-example/
+[forms]: https://qwtel.com/hydejack/docs/7.4.0/forms-by-example/
 
 [feat]: https://qwtel.com/hydejack/#features
 [news]: https://qwtel.com/hydejack/#newsletter-subscription-box
