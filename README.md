@@ -98,6 +98,7 @@ This table details what is and isn't included in each respective version.
 [docs]: docs/7.4.0/index.md
 
 [kit]: https://github.com/qwtel/hydejack-starter-kit/archive/master.zip
+[git]: https://github.com/qwtel/hydejack-starter-kit
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
