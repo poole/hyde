@@ -9,8 +9,11 @@ Nov 25 2017
 
 ### Added
 * Allow markdown in copyright string
-* New `theme_color` property (takes precedence over `accent_color` for the theme color meta tag)
-* Added `cookies_banner` settings:
+* Added `theme_color` front-matter property to micro-manage the value of the the `theme-color` meta tag.
+  When not set, will use `accent_color`.
+* Added `theme_color` site setting, to set the value of `themeColor` in the app manifest.
+  When not set, will use `accent_color`.
+* Added `cookies_banner` setting:
 
   ~~~yml
   # file: _config.yml
@@ -30,7 +33,7 @@ Nov 25 2017
   ~~~
 
 ### Fixed
-* Drawer no longer resizes/repaints in iOS Safari and Chrome for Android when the address bar autohides.
+* Drawer no longer resizes/repaints in iOS Safari (iPhone) and Chrome for Android when the address bar autohides.
 * Fixed a bug that caused the drawer flicker/open unexpectedly when scrolling in mobile browsers.
 * Fixed how `image` works when using the `jekyll-seo-tag` plugin.
 
