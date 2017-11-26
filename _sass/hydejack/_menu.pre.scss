@@ -54,7 +54,7 @@
   position: absolute;
   top: 0;
   right: 0;
-  padding: 1.75rem 1.5rem;
+  padding: 1.75rem 1rem;
 }
 // >>>>
 
@@ -66,3 +66,16 @@
   }
   @media print { display: none; } // link
 }
+
+// <<<< LINK
+#_cookies-banner  {
+  .nav-btn { padding: 1.75rem 0 }
+  .nav-btn-bar {
+    margin: 0 2rem;
+    @media screen and (min-width: $break-point-3) {
+      margin: 0 2rem 0 0;
+    }
+  }
+  @media print { display: none; }
+}
+// >>>>

@@ -134,8 +134,8 @@ hydejack:
   # Set to `true` when building with the `--lsi` option
   use_lsi:             false
 
-  # Set to `true` if you want to display a cookie notice banner.
-  # You can change the text of the banner in `_data/strings.yml`.
+  # When using Google Analytics, set to `true` to display a cookie notice banner.
+  # When enabled, no user-related data will be stored until the user gives consent.
   cookies_banner:      false
 
 

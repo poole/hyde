@@ -3,6 +3,20 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.4.1
+Nov 27 2017
+{:.heading.post-date}
+
+### Fixed
+* Fixed storing user-related data before accepting cookies.
+* Fixed tab order of cookie banner, so keyboard users can access it more easily.
+* Accepting cookies no longer causes a page reload in some browsers.
+* Fixed appearance of the okay button in the free version.
+* Menu icon now useable while the cookies banner is active.
+* Loading icon is now visible while the cookies banner is active.
+* Removed cookies banner from print layout.
+* Removed inline styles from cookie banner.
+
 ## v7.4.0
 Nov 25 2017
 {:.heading.post-date}

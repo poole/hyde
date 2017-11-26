@@ -93,7 +93,7 @@ const DURATION = 250;
 const FADE_DURATION = 600;
 
 // Time a user has to stay on the site before we send word to Google Analytics.
-const GA_DELAY = 1000;
+const GA_DELAY = 500;
 
 // Details of the fade-out animation.
 const FADE_OUT = [

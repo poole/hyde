@@ -14,17 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-if (!navigator.CookiesOK && !(localStorage && localStorage.getItem('cookies-ok'))) {
+if (window.ga && !navigator.CookiesOK && !(localStorage && localStorage.getItem('hy:cookiesOK'))) {
   const template = document.getElementById('_cookies-banner-template');
   if (template) {
-    document.getElementsByTagName('hy-push-state')[0]
-      .appendChild(document.importNode(template.content, true));
+    const parent = document.getElementsByTagName('hy-push-state')[0];
+    parent.insertBefore(document.importNode(template.content, true), parent.firstChild);
 
-    document.getElementById('_cookies-ok').addEventListener('click', (e) => {
-      e.preventDefault();
-      if (localStorage) localStorage.setItem('cookies-ok', true);
-      const cookiesBanner = document.getElementById('_cookies-banner');
-      cookiesBanner.parentNode.removeChild(cookiesBanner);
+    document.getElementById('_cookies-ok').addEventListener('click', () => {
+      if (localStorage) localStorage.setItem('hy:cookiesOK', true);
+
+      const banner = document.getElementById('_cookies-banner');
+      banner.parentNode.removeChild(banner);
+
+      window.ga((tracker) => {
+        window.ga('set', 'anonymizeIp', undefined);
+        if (localStorage) localStorage.setItem('ga:clientId', tracker.get('clientId'));
+      });
     }, { once: true });
   }
 }
