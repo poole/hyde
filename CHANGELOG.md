@@ -37,6 +37,10 @@ Nov 25 2017
 * Fixed a bug that caused the drawer flicker/open unexpectedly when scrolling in mobile browsers.
 * Fixed how `image` works when using the `jekyll-seo-tag` plugin.
 
+### Design
+* Changed how line breaks work in resume layout
+* Changed margins of horizontals lines
+
 ### Other
 * Updated docs
 * Updated posts
