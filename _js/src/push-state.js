@@ -299,7 +299,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // * Add the `active` class to the active entry in the sidebar (currently not in use)
     // * If we are going to animate the content, make some preparations.
     ::tap(({ type, main }) => {
-      if (!window._isDesktop && window._drawer.opened) {
+      if (!window._isDesktop && window._drawer && window._drawer.opened) {
         window._drawer.close();
       }
 
