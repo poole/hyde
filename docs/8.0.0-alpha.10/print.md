@@ -22,7 +22,7 @@ or [upgrades for pro buyers](#pro-version).)
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-alpha.9/index.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-alpha.10/index.md %}).
 {:.message}
 
 ## Table of Contents
@@ -38,18 +38,31 @@ you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-alpha.9/index.md %})
 
 ## Install
 There are multiple ways of installing Hydejack.
-The easiest and recommended way is [via the Ruby gem](#via-gem).
-If you've downloaded the zip, you'll want to install [via the zip file](#via-zip).
-If you know what you are doing, you can [fork the git repository](#via-git).
+The easiest and cleanest way is [via the Starter Kit](#via-starter-kit).
+Alternatively, you can use the [Ruby gem](#via-gem).
+If you don't mind a cluttered source directory, you can use [the zip file](#via-zip).
+Finally, If you know what you are doing, you can [fork the git repository](#via-git).
 
 Buyers of the PRO version should [follow these steps](#pro-version).
 
 
 
 
+### Via Starter Kit
+Using the Starter Kit has the advantage of not cluttering your blog repository.
+Additionally, it allows you to publish your site on GitHub Pages with a single `push`.
+
+If you have a GitHub account, fork the [hydejack-starter-kit](https://github.com/qwtel/hydejack-starter-kit) repository.
+Otherwise [download the source files](https://github.com/qwtel/hydejack-starter-kit/archive/master.zip)
+and unzip them somewhere on your machine.
+
+**NOTE**: In addition to the docs here, you can follow the quick start guide in the starter kit.
+{:.message}
+
+`cd` into the directory where `_config.yml` is located and follow the steps in [Running locally](#running-locally).
+
 ### Via gem
-Using the gem-based theme has the advantage of not cluttering your blog repository.
-It's also easier to upgrade, so it is especially recommended for beginners.
+Jekyll has [built-in support](https://jekyllrb.com/docs/themes/) for using themes that are hosted on RubyGems.  
 
 If you haven't already, create a new Jekyll site first:
 
@@ -83,7 +96,7 @@ gem "jekyll-theme-hydejack"
 (You can also remove the old theme `jekyll-theme-minima` from the Gemfile)
 
 Now you want to edit the `_config.yml` of your Jekyll site and set Hydejack as the theme.
-Look for the `theme` key (or add it when missing) and set its value to `jekyll-theme-hydejack`.
+Look for the `theme` key and set its value to `jekyll-theme-hydejack`.
 
 ~~~yml
 theme: jekyll-theme-hydejack
@@ -94,7 +107,8 @@ For more information on gem-based themes, see the [Jekyll Documentation](http://
 You can now continue with [running locally](#running-locally).
 
 ### Via zip
-If you downloaded the zip, extract the contents somewhere on your machine.
+If you downloaded the [extended zip](https://github.com/qwtel/hydejack/releases),
+extract the contents somewhere on your machine.
 The high-level folder structure will look something like.
 
 ~~~
@@ -145,7 +159,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 ├── PRO–hy-push-state License _ Hydejack.pdf
 ├── icon.psd
 ├── sidebar-bg.psd
-├── *-to-v8.0.0-alpha.9.diff
+├── *-to-v8.0.0-alpha.10.diff
 └── .ssh
 ~~~
 
@@ -180,7 +194,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 `sidebar-bg.psd`
 : A Photoshop template for blurred sidebar backgrounds.
 
-`*-to-v8.0.0-alpha.9.diff`
+`*-to-v8.0.0-alpha.10.diff`
 : There will be multiple fo these files, where `*` is a previous version.
   They are git patches that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
   Use these if you are using git and you are worried about accidentally overwriting changes you've made to Hydejack PRO.
@@ -196,7 +210,7 @@ For new installations only the `install` folder is interesting.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.0.0-alpha.9/install/
+$ cd ~/Downloads/hydejack-pro-8.0.0-alpha.10/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -210,7 +224,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v8.0.0-alpha.9/.ssh/hydejack_pro_customers ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-v8.0.0-alpha.10/.ssh/hydejack_pro_customers ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
@@ -277,8 +291,8 @@ and point your browser to <http://localhost:4000> to see Hydejack in action.
 ----------------------------------------------------------------{% endcomment %}
 
 ## Upgrade
-**NOTE**: Before upgrading from v6 to v7, make sure you've read the [CHANGELOG](../../CHANGELOG.md){:.heading.flip-title},
-especially the part about the [license change](../../CHANGELOG.md#license-change).
+**NOTE**: Before upgrading to v7+, make sure you've read the [CHANGELOG](../../CHANGELOG.md){:.heading.flip-title},
+especially the part about the [license change](../../CHANGELOG.md#license-change)!
 {:.message}
 
 ### Via gem
@@ -329,149 +343,12 @@ Make sure you've made a backup before overwriting any files.
 The archive also contains `.patch` files, that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
 Using this method, git will generate merge conflicts when changes in the patch conflict with any of your changes.
 
-#### PRO via git (advanced)
+#### PRO via GitHub (advanced)
 If you've followed the steps [here](#pro-via-github-advanced), all you need to upgrade is:)
 
 ~~~bash
 $ bundle update jekyll-theme-hydejack-pro
 ~~~
-
-### Legacy
-Unfortunately, upgrading form v5 and earlier is not straightforward. A lot of patterns and names have changed,
-motivated by a variety of reasons, including better integration with the rest of the Jekyll ecosystem and
-simplified workflows enabled by Jekyll Collections.
-
-##### Updating the folder structure
-Copy the the following folders and files from Hydejack v6 into your existing repository.
-Make sure you merge the folder contents.
-
-* `_data/`
-* `_includes/`
-* `_layouts/`
-* `_sass/`
-* `assets/`
-* `index.html` (`index.md`\*)
-* `Gemfile`
-* `Gemfile.lock`
-
-Note that the `public` folder has been renamed to `assets`.
-You'll want to move your static assets there.
-
-##### Updating the configuration
-`_config.yml` has changed considerably. Open it and make the following changes.
-
-1.  Rename the following keys
-
-    * `font_accent` => `font_heading`
-    * `load_google_fonts` => `google_fonts`
-    * `google_analytics_id` => `google_analytics`
-
-2.  Enable Jekyll Collections for categories and tags by adding
-
-    ~~~yml
-    collections:
-      featured_categories:
-        permalink: /category/:name/
-        output:    true
-      featured_tags:
-        permalink: /tag/:name/
-        output:    true
-    ~~~
-
-3.  Delete `photo` and `photo2x` form the author key and add a `picture` hash instead that looks like
-
-    ~~~yml
-    picture:
-      path: <photo>
-      srcset:
-        1x: <photo>
-        2x: <photo2x>
-    ~~~
-
-    If you have only one photo, you can just provide the URL directly, e.g. `picture: <url>`.
-
-    For more information, see [Adding an author](#adding-an-author).)
-
-4.  Rename `gems` to `plugins` and make sure the list contains `jekyll-seo-tag`.
-
-    ~~~yml
-    plugins:
-      - jekyll-seo-tag
-    ~~~
-
-
-**NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for the changes to take effect.
-{:.message}
-
-
-##### Restoring the tags
-1.  Delete the `tag` folder.
-2.  Create a top-level folder called `_featured_tags`.
-3.  For each entry in `_data/tags.yml`, create a markdown file in `_features_tags` with the name of the tag as filename,
-    e.g. `hyde.md` for tag "hyde".
-4.  For each tag, copy its contents from `_data/tags.yml` into the new file's front matter, e.g.
-
-    ~~~yml
-    ---
-    layout: list
-    name: Hyde
-    description: >
-      Hyde is a brazen two-column Jekyll theme...
-    accent_image: /hydejack/public/img/hyde.jpg
-    accent_color: '#949667'
-    ---
-    ~~~
-
-    Be aware that `image` has been renamed to `accent_image` and `color` has been renamed to `accent_color`.
-
-5. Add `layout: list` to the front matter.
-6. Once you've copied all tags into their own files, delete `_data/tags.yml`.
-
-##### Restoring the sidebar entries
-Hydejack can now link to any kind of page in the sidebar.
-
-1. Delete `sidebar_tags` in `_config.yml`.
-2. Open a file who's page you would like to add to the sidebar. If you want to add a tag, open `_featured_tags/<tagname>.md`.
-3. Add `menu: true` to its front matter.
-4. (Optional) Set `order: <number>`, where `<number>` is the number at which you would like the link to appear.
-
-##### Restoring the RSS feed
-The feed is now provided by the `jekyll-feed` plugin instead of a custom solution.
-
-1.  Delete `atom.xml`
-2.  Add `- jekyll-feed` to `gems` in `_config.yml`, e.g.
-
-    ~~~yml
-    gems:
-      - jekyll-seo-tag
-      - jekyll-feed
-    ~~~
-
-3.  (Optional) Add the following to `_config.yml` to make the feed appear at the same URL as the old `atom.xml`.
-
-    ~~~yml
-    feed:
-      path: atom.xml
-    ~~~
-
-##### Restoring the comments
-The way comments are enabled has changed slightly.
-You now have to enable them per page by adding `comments: true` to the front matter
-(this is what the [Disqus integration guide](https://disqus.com/admin/install/platforms/jekyll/) suggests).
-To enable them for all posts, add to the config file
-
-```yml
-defaults:
-  - scope:
-      type: posts
-    values:
-      comments: true
-```
-
-##### Restoring the about page
-Hydejack now has a dedicated layout for about pages.
-To use it, open `about.md` and change the `layout` in the front matter to `about`
-and delete `{\% include about-short.html author=site.author %\}`.
 
 
 
@@ -810,7 +687,7 @@ author:
   social:
     email:    mailto:mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.0.0-alpha.9.zip
+    download: https://github.com/qwtel/hydejack/archive/v8.0.0-alpha.10.zip
 ~~~
 
 ### Enabling comments
@@ -905,70 +782,82 @@ Below you find the the complete default `_config.yml` file. You may want to copy
 ## Config
 ## ========================================================================================
 
-title:                 Hydejack
-
-## Language of your content in 2-letter code, eg: en, de.
-## You may also provide a location, eg: en-us, de_AT.
-lang:                  en
-
-## The unique resource location of your page.
-## Set to `https://<username>.github.io` when hosting on GitHub Pages.
+## IMPORTANT: Set the URL of your page.
+## Set to https://<username>.github.io when hosting on GitHub Pages
+## (unless you are using a custom domain).
 url:                   https://domain.tld
 
-## Set to '' when hosting on GitHub Pages, like `//<username>.github.io`.
-## Set to '/<reponame>' when using the `gh-pages` branch of a repository.
-baseurl:               /hydejack
+## IMPORTANT: Set The "base URL" of your site.
+##
+# When hosting your site in a subdirectory of a server, set to /<name of directory>
+## (with leading /, but without the < >)
+## Use the empty string '' otherwise.
+##
+# When using GitHub Pages, set to '' when hosting a user- or organization page,
+## i.e. when the name of the repository looks like <username>.github.io.
+## Otherwise, set to /<name of repository> (with leading /, but without the < >).
+baseurl:               ''
 
-## A short description of the page used for the meta description tag.
+## Language of your content in 2-letter code, e.g.: en, de.
+## You may also provide a location, e.g.: en-us, de_AT.
+lang:                  en
+
+## The title of your blog. Used in the sidebar and the browser tab.
+title:                 Hydejack
+
+## A short description (~150 chars) of the page used for the meta description tag.
+## Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
   A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
   Combines the best of static sites and modern web apps.
   Open `_config.yml` to edit this text.
 
-## A shorter description for the sidebar.
+## A shorter description for the sidebar (optional).
 tagline:               >
   A Jekyll theme with JavaScript powers.
   Open `_config.yml` to edit this text.
 
-## A list of keywords for your blog, will be used as fallback
-## for pages that don't have `keywords` in their front matter.
+## A list of keywords for your blog (optional).
 keywords:              []
 
-## Used by jekyll-seo-tag...
+## Used by jekyll-seo-tag (optional).
 logo:                  /assets/icons/icon.png
 
 ## This should be the same author as first entry in `_data/authors.yml`.
-## Duplication is necessary due to the jekyll-feed plugin.
+## Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
 author:
-  # name:                <firstname> <lastname>
-  # email:               <mail@domain.tld>
+  name:                <firstname> <lastname>
+  email:               <mail@domain.tld>
+  # Used by `jekyll-seo-tag`:
+  # twitter:             <username>
 
 ## This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 20XX. Open _config.yml to edit this text.
+copyright:             © 2017. All rights reserved.
 
 ## Format of the permalinks
 permalink:             pretty
 
 ## Pagination configuration (used by the `blog` layout)
 paginate:              5
-paginate_path:         /blog/page-:num/
+paginate_path:         /page-:num/
+
 
 ## Customizaton
 ## ========================================================================================
+
+## Sidebar image and theme color of the site.
+accent_image:          /assets/img/sidebar-bg.jpg
+accent_color:          rgb(79, 177, 186)
 
 ## The string encoding which fonts to fetch from Google Fonts.
 ## See: <https://qwtel.com/hydejack/docs/configuration/>
 google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
 
 ## The text font. Expects a string that is a valid CSS font-family value.
-font:                  "'Noto Sans', Helvetica, Arial, sans-serif"
+font:                  Noto Sans, Helvetica, Arial, sans-serif
 
 ## The font used for headings. Expects a string that is a valid CSS font-family value.
-font_heading:          "'Roboto Slab', Helvetica, Arial, sans-serif"
-
-## Fallback image and color
-accent_image:          /assets/img/sidebar-bg.jpg
-accent_color:          '#4fb1ba'
+font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 
 ## 3rd Party Integrations
 ## ----------------------------------------------------------------------------------------
@@ -977,20 +866,22 @@ accent_color:          '#4fb1ba'
 ## pages with `comments: true` in the front matter.
 ## disqus:                <disqus_shortname>
 
-## Setting a tinyletter username will enable the newsletter subscription box.
-## tinyletter:            <tinyletter_username>
-
 ## Set your Google Analytics id to receive `pageview` events.
 ## To remove Google Anaylics from your page, remove the line below.
 ## google_analytics:      UA-XXXXXXXX-X
 
+## Setting a tinyletter username will enable the newsletter subscription box.
+## PRO version only!
+## tinyletter:            <tinyletter_username>
 
-## Hydejack Flags
+
+## Hydejack Settings
 ## ----------------------------------------------------------------------------------------
+## These settings are specific to Hydejack.
 
 hydejack:
   # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, related, random]
+  post_addons:         [about, newsletter, related]
 
   # Configure the order of complementary content on project pages
   project_addons:      [about, newsletter, other]
@@ -1048,15 +939,9 @@ collections:
 ## ========================================================================================
 
 exclude:
-  - README.md
-  - node_modules
   - vendor
-  - package.json
-  - package-lock.json
   - Gemfile
   - Gemfile.lock
-include:
-  - LICENSE.md
 
 
 ## Plugins and Plugin Configuration
@@ -1072,10 +957,16 @@ plugins:
   # - jekyll-readme-index
   # - jekyll-redirect-from
   - jekyll-relative-links
+  - jekyll-remote-theme
   - jekyll-seo-tag
   - jekyll-sitemap
   # - jekyll-titles-from-headings
 
+## Theme
+## ---------------------------------------------------------------------------------------
+
+## theme: jekyll-theme-hydejack
+remote_theme: qwtel/hydejack@gem
 
 ## SEO Tag
 ## ---------------------------------------------------------------------------------------
@@ -1091,7 +982,7 @@ plugins:
 
 ## Used for Twitter cards
 ## twitter:
-##   username:            <shortname>
+##   username:            <twitter handle>
 
 ## Used for Facebook open graph
 ## facebook:
@@ -1131,11 +1022,9 @@ kramdown:
     preview_as_code:   true
 
 compress_html:
-  comments:            ["<!-- ", " -->"]
+  comments:            ['<!-- ', ' -->']
   clippings:           all
   endings:             all
-  ignore:
-    envs:              [development]
 
 sass:
   style:               compressed

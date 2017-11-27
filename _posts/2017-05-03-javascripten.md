@@ -58,9 +58,9 @@ See the [the migration guide][upgrade] for instructions on how to upgrade.
 
 ***
 
-[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v8.0.0-alpha.9)
+[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v8.0.0-alpha.10)
 
-[upgrade]: ../docs/8.0.0-alpha.9/upgrade.md
-[writing]: ../docs/8.0.0-alpha.9/writing.md
+[upgrade]: ../docs/8.0.0-alpha.10/upgrade.md
+[writing]: ../docs/8.0.0-alpha.10/writing.md
 
 *[FOUC]: Flash of Unstyled Content
