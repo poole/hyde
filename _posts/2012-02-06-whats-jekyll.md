@@ -20,4 +20,4 @@ It's an immensely useful tool and one we encourage you to use here with Hyde.
 
 Find out more by [visiting the project on GitHub](https://github.com/mojombo/jekyll).
 
-[docs]: ../docs/7.4.0/index.md
+[docs]: ../docs/7.4.1/index.md
