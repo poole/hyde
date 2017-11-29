@@ -24,5 +24,9 @@ main > footer {
   text-align: center;
   > p { margin-bottom: 0; }
   @media screen and (min-width: $break-point-3) { left: 0; }
+  @media print {
+    page-break-inside: avoid;
+    page-break-after: avoid;
+  }
 }
 // >>>>>
