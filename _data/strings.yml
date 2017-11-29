@@ -125,10 +125,11 @@ resume:
   interests:           Interests
   keywords:            Keywords
   icons:
+    fallback:          icon-link
     location:          icon-location
-    email:             icon-envelop
+    email:             icon-mail2
     phone:             icon-phone
-    website:           icon-link
+    website:           icon-home2
     work:              icon-briefcase
     volunteer:         icon-earth
     education:         icon-library
