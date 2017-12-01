@@ -3,6 +3,16 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.4.2
+Dec 1 2017
+{:.heading.post-date}
+
+### Fixed
+* Dramatically improved resume print layout.
+  It is now much less likely that there will be page breaks within logical units.
+* Fixed a bug that cause the page to break when setting `no_drawer`.
+* Fixed a bug that cased the "Random Posts" heading to appear, even when there are no posts to show
+
 ## v7.4.1
 Nov 27 2017
 {:.heading.post-date}
