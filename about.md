@@ -117,7 +117,7 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [resume]: https://qwtel.com/hydejack/resume/
 [download]: https://qwtel.com/download/
 [welcome]: https://qwtel.com/hydejack/
-[forms]: https://qwtel.com/hydejack/docs/7.4.0/forms-by-example/
+[forms]: https://qwtel.com/hydejack/forms-by-example/
 
 [feat]: https://qwtel.com/hydejack/#features
 [news]: https://qwtel.com/hydejack/#newsletter-subscription-box

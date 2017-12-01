@@ -86,7 +86,7 @@ This table details what is and isn't included in each respective version.
 [resume]: https://qwtel.com/hydejack/resume/
 [download]: https://qwtel.com/download/
 [welcome]: https://qwtel.com/hydejack/
-[forms]: https://qwtel.com/hydejack/docs/7.4.1/forms-by-example/
+[forms]: https://qwtel.com/hydejack/forms-by-example/
 
 [feat]: https://qwtel.com/hydejack/#features
 [news]: https://qwtel.com/hydejack/#newsletter-subscription-box
