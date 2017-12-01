@@ -54,8 +54,10 @@ author:
 copyright:             © 2017. All rights reserved.
 
 # Add links to the footer.
-# Typically you'll want to link to your cookies or privacy policy, etc.
+# Typically you'll want to link to your impress, cookies or privacy policy, etc.
 # legal:
+#   - title:             Impress
+#     href:              /impress/
 #   - title:             Cookies Policy
 #     href:              /cookies-policy/
 
