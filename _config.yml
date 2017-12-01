@@ -53,6 +53,12 @@ author:
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:             © 2017. All rights reserved.
 
+# Add links to the footer.
+# Typically you'll want to link to your cookies or privacy policy, etc.
+# legal:
+#   - title:             Cookies Policy
+#     href:              /cookies-policy/
+
 # Format of the permalinks
 permalink:             pretty
 
