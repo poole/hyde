@@ -36,7 +36,7 @@ This table details what is and isn't included in each respective version.
 | No Hydejack Branding                |                                        | &#x2714;                               |
 | License                             | [GPL-3.0][license]                     | [PRO]                                  |
 | Price                               | Free                                   | $29                                    |
-|                                     | [**Download**][kit] or [**Fork**][git] | [Buy Now][buy]{:.btn.btn-primary} [^1] |
+|                                     | [**Download**][kit] or [**Fork**][git] | [**Buy Now**][buy] [^1]                |
 {:.stretch-table}
 
 ## Features
