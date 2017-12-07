@@ -7,7 +7,7 @@
     "test": "echo \"Warning: no test specified\" && exit 0",
     "build": "npm run build:js & npm run build:css & wait",
     "build:js": "mkdir -p assets/js && cat _includes/header.txt > assets/js/hydejack-$npm_package_version.js; cross-env NODE_ENV=production browserify _js/src/index.js -g browserify-css -g [ stringify --extensions [.html .svg] ] -g babelify | uglifyjs -c -m >> assets/js/hydejack-$npm_package_version.js",
-    "build:css": ".scripts/build-css.sh",
+    "build:css": ".scripts/build-css.js",
     "watch": "npm run watch:js & npm run watch:css",
     "watch:js": "mkdir -p assets/js && watchify -d _js/src/index.js -g browserify-css -g [ stringify --extensions [.html .svg] ] -g babelify -o assets/js/hydejack-$npm_package_version.js",
     "watch:css": "npm run build:css && onchange '_sass/**/*.scss' -e '_sass/**/__*/*' -- npm run build:css '{{changed}}'",
@@ -16,7 +16,7 @@
     "dev": "npm run watch & npm run serve",
     "prepare": "npm run lint && npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml",
-    "version": ".scripts/version.sh && npm run build && git add ."
+    "version": ".scripts/version.js && npm run build && git add ."
   },
   "config": {
     "port": 4000
