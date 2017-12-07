@@ -14,5 +14,8 @@
     "no-underscore-dangle": "off",
     "no-console": "off",
     "import/prefer-default-export": "off",
+    "react/jsx-filename-extension": "off",
+    "react/react-in-jsx-scope": "off",
+    "react/no-unknown-property": "off",
   },
 }

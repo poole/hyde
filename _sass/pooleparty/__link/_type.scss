@@ -118,7 +118,6 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
 
   > .permalink {
     @media screen {
-      &::after { content: '#' }
       border-bottom: none;
       opacity: 0;
       width: 1.5rem;
@@ -132,7 +131,7 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
       float: none;
       position: absolute;
       top: 0;
-      left: -1.5rem;
+      left: -1.75rem;
     }
 
     @media print {
