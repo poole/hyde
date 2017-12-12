@@ -56,7 +56,7 @@ html {
 }
 // >>>>>
 
-@media print { html { font-size: $root-font-size; } } // link
+@media print { html { font-size: $root-font-size-print; } } // link
 
 // Link styles
 hy-push-state a, .a {
