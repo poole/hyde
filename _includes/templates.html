@@ -2,57 +2,11 @@
 <hr class="sr-only"/>
 <h2 class="sr-only">{{ strings.templates | default: "Templates"}}{{ strings.colon | default:":" }}</h2>
 
-<template id="_animation-template">
-  <div class="animation-main fixed-top">
-    <div class="content">
-      <div class="page"></div>
-    </div>
-  </div>
-</template>
-
-<template id="_loading-template">
-  <div class="loading">
-    <span class="sr-only">{{ strings.loading | default:"Loading…" }}</span>
-    <span class="icon-cog"></span>
-  </div>
-</template>
-
-<template id="_error-template">
-  <div class="page">
-    <h1 class="page-title">{{ strings.error.title | default:"Error" }}</h1>
-    {% capture link %}<a class="this-link" href=""></a>{% endcapture %}
-    {% assign text = strings.error.message | default:"Sorry, an error occurred while loading: <!--link-->." %}
-    <p class="lead">
-      {{ text | replace:"<!--link-->",link }}
-    </p>
-  </div>
-</template>
-
-<template id="_back-template">
-  <a id="_back" class="back nav-btn no-hover">
-    <span class="sr-only">{{ strings.back | default:"Back" }}</span>
-    <span class="icon-arrow-left2"></span>
-  </a>
-</template>
-
-<template id="_permalink-template">
-  <a href="#" class="permalink">
-    <span class="sr-only">{{ strings.permalink | default:"Permalink" }}</span>
-    <span class="icon-link"></span>
-  </a>
-</template>
-
+{% include templates/animation.html %}
+{% include templates/loading.html %}
+{% include templates/error.html %}
+{% include templates/back.html %}
+{% include templates/permalink.html %}
 {% if site.google_analytics and site.hydejack.cookies_banner %}
-<template id="_cookies-banner-template">
-  <div id="_cookies-banner" class="navbar fixed-top CookiesOK">
-    <div class="content">
-      <div class="nav-btn-bar">
-        <small class="nav-btn">
-          <span>{{ site.data.strings.cookies_banner.text | default:'This site uses cookies.' | markdownify | replace:'<p>','' | replace:'</p>','' }}</span>
-          <button id="_cookies-ok" class="btn btn-primary btn-sm">{{ site.data.strings.cookies_banner.okay | default:'Okay' }}</button>
-        </small>
-      </div>
-    </div>
-  </div>
-</template>
+  {% include templates/cookies-banner.html %}
 {% endif %}
