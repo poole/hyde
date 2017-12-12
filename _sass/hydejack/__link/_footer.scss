@@ -38,11 +38,22 @@ main > footer {
   padding: 0 1rem;
   color: $gray;
   text-align: center;
-  > p { margin-bottom: 0; }
-  @media screen and (min-width: $break-point-3) { left: 0; }
+
+  > p {
+    margin-bottom: 0;
+  }
+
+  @media screen and (min-width: $break-point-3) {
+    left: 0;
+  }
+
   @media print {
-    page-break-inside: avoid;
-    page-break-after: avoid;
+    position: static;
+    margin-top: 5rem;
+
+    .legal {
+      display: none;
+    }
   }
 }
 

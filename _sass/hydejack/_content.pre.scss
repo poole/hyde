@@ -50,3 +50,10 @@
   }
 }
 // >>>>>
+// <<< link
+.content {
+  @media print {
+    padding-bottom: 1rem;
+  }
+}
+// >>>

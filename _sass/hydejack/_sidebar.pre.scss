@@ -125,8 +125,6 @@ hy-drawer {
     width: 15rem;
   }
   // >>>>>
-
-  @media print { padding: 0 1.5rem; } // link
 }
 
 /* About section */
@@ -186,11 +184,6 @@ a.sidebar-nav-item {
 
 @media print {
   .sidebar {
-    page-break-before: always;
-    break-before: always;
-  }
-
-  .sidebar-nav, .sidebar-social {
     display: none;
   }
 }
