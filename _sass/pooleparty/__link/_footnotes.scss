@@ -45,12 +45,14 @@ a[href^="#fnref:"] {
 sup {
   line-height: 1;
 
-  @media screen and (max-width: 73.5em) {
-    vertical-align: baseline;
-    font-size: inherit;
+  &[id^="fnref"] {
+    @media screen and (max-width: $break-point-4) {
+      vertical-align: baseline;
+      font-size: inherit;
 
-    > a::before { content: "["; }
-    > a::after  { content: "]"; }
+      > a::before { content: "["; }
+      > a::after  { content: "]"; }
+    }
   }
 }
 
