@@ -39,7 +39,7 @@
   if (!w._disqusLoading) {
     w._disqusLoading = true;
 
-    loadJSDeferred('//{{ include.disqus }}.disqus.com/embed.js');
+    loadJSDeferred('https://{{ include.disqus }}.disqus.com/embed.js');
 
     // add event listener
     if (w.addEventListener) w.addEventListener('scroll', loadDQ, { passive: true });
