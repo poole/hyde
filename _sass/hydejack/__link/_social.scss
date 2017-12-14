@@ -30,3 +30,11 @@
 // SOFTWARE.
 
 
+
+
+.sidebar-social {
+  @media print {
+    display: none;
+  }
+}
+

@@ -38,9 +38,10 @@
 
 
 @media print {
-  a::after {
+  a:not(.no-print-link)::after {
     content: " (" attr(href) ") ";
-    font-size: 0.83em;
+    font-size: .83em;
+    opacity: 0.67;
   }
 }
 

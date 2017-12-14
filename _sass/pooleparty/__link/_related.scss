@@ -30,3 +30,11 @@
 // SOFTWARE.
 
 
+
+
+.comments {
+  @media print {
+    display: none;
+  }
+}
+

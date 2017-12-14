@@ -49,3 +49,11 @@
   }
 }
 // >>>>>
+
+// <<< link
+.sidebar-social {
+  @media print {
+    display: none;
+  }
+}
+// >>>
