@@ -30,3 +30,11 @@
   }
 }
 // >>>>>
+
+// <<< link
+.comments {
+  @media print {
+    display: none;
+  }
+}
+// >>>
