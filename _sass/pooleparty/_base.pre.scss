@@ -69,6 +69,7 @@ a {
   a::after {
     content: " (" attr(href) ") ";
     font-size: 0.83em;
+    color: $gray;
   }
 }
 // >>>>> LINK
