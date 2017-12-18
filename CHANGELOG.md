@@ -3,6 +3,60 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.5.0
+Dec 18 2017
+{:.heading.post-date}
+
+### Added
+* Added secondary `legal` nav in footer:
+
+  ```yml
+  # file: _config.yml
+  legal:
+    - title: Cookies Policy
+      href:  /cookies-policy/
+    - title: Foobar
+      href:  https://foobar.com/
+  ```
+
+* The "heading permalink" can now be configured via `strings.yml`:
+
+  ```yml
+  # file: _data/strings.yml
+  permalink:      Permalink
+  permalink_icon: icon-link
+  ```
+
+* Sections on resume layout can now be rearranged, e.g.:
+
+  ```yml
+  # file: resume.md
+  left_column:
+    - work
+    - volunteer
+    - education
+    - awards
+    - publications
+    - references
+  right_column:
+    - languages
+    - skills
+    - interests
+  ```
+
+
+### Fixed
+* Fixed a bug that caused `<sup>` tags to render as regular text ([#52](https://github.com/qwtel/hydejack/pull/52))
+* Fixed a bug that caused Disqus to load the same thread on all pages ([#53](https://github.com/qwtel/hydejack/pull/52))
+* Fixed a bug that prevented Disqus comments to be loaded on sites that didn't cause scroll events
+* Fixed a bug that caused Disqus to be loaded over HTTP instead of HTTPS.
+* Fixed a bug that caused an extra space in URLs ([#55](https://github.com/qwtel/hydejack/pull/55)).
+* Comments no longer show up in the print version of the page.
+
+### Other
+* Set base font to `11pt` in print layout.
+* Set resume print layout to use 2 columns (A4 sheet)
+
 ## v7.4.2
 Dec 1 2017
 {:.heading.post-date}
