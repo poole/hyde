@@ -20,7 +20,7 @@ const ENC = 'utf-8';
 
 const FILES = [
   resolve('./_data/authors.yml'),
-  resolve('./_includes/body/scripts.html'),
+  resolve('./_includes/scripts.html'),
   resolve('./_includes/footer.html'),
   resolve('./_includes/head/meta.html'),
   resolve('./_includes/head/links.html'),
