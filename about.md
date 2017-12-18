@@ -24,28 +24,35 @@ A [portfolio], a [resume] layout and a [welcome] page to feature your favorite p
 
 This table details what is and isn't included in each respective version.
 
-|                                     | Free                                   | PRO                                    |
-|:------------------------------------|:--------------------------------------:|:--------------------------------------:|
-| Blog                                | &#x2714;                               | &#x2714;                               |
-| [Features][feat]                    | &#x2714;                               | &#x2714;                               |
-| [Portfolio] Layout                  |                                        | &#x2714;                               |
-| [Resume] Layout                     |                                        | &#x2714;                               |
-| [Welcome] Layout                    |                                        | &#x2714;                               |
-| [Newsletter Box][news]              |                                        | &#x2714;                               |
-| [Custom Forms][forms]               |                                        | &#x2714;                               |
-| No Hydejack Branding                |                                        | &#x2714;                               |
-| License                             | [GPL-3.0][license]                     | [PRO]                                  |
-| Price                               | Free                                   | $29                                    |
-|                                     | [**Download**][kit] or [**Fork**][git] | [**Buy Now**][buy] [^1]                |
+|                                     | Free                                   | PRO                                          |
+|:------------------------------------|:--------------------------------------:|:--------------------------------------------:|
+| Blog                                | &#x2714;                               | &#x2714;                                     |
+| [Features][feat]                    | &#x2714;                               | &#x2714;                                     |
+| [Portfolio] Layout                  |                                        | &#x2714;                                     |
+| [Resume] Layout                     |                                        | &#x2714;                                     |
+| [Welcome] Layout                    |                                        | &#x2714;                                     |
+| [Newsletter Box][news]              |                                        | &#x2714;                                     |
+| [Custom Forms][forms]               |                                        | &#x2714;                                     |
+| No Hydejack Branding                |                                        | &#x2714;                                     |
+| License                             | [GPL-3.0][license]                     | [PRO]                                        |
+| Source                              | [GitHub][src]                          | Included                                     |
+| Support[^1]                         | No                                     | No                                           |
+| Price                               | Free                                   | $29                                          |
+|                                     | [**Download**][kit]                    | [**Buy Now - $29**][buy] [^2]                |
 {:.stretch-table}
 
+[^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
+      You understand that using Jekyll requires technical know-how, and is NOT comparable to Wordpress in terms of usability.
+      Please use the free version to confirm that Hydejack works for you.
+      For more, see the [PRO] license.
+
 ## Features
-Both versions include *all* of these features:
+Both versions include these features:
 
 * Full in-app page loading, powered by [hy-push-state]{:.external}
 * A customizable sidebar that turns into a drawer menu on mobile, powered by [hy-drawer]{:.external}
 * Advanced FLIP animations, inspired by Material Design
-* Good [Google PageSpeed Score][gpss][^2]
+* Good [Google PageSpeed Score][gpss][^4]
 * Higher *perceived speed* thanks to content pre-fetching
 * [Syntax highlighting](#syntax-highlighting), powered by [Rouge]
 * [LaTeX math blocks](#latex-math-blocks), powered by [KaTeX]
@@ -62,6 +69,8 @@ Both versions include *all* of these features:
 * SEO meta tags via `jekyll-seo-tag` (optional)
 * Github avatars via `jekyll-avatar` (optional)
 * Gist support via `jekyll-gist` (optional)
+
+[^4]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
 
 ### Syntax Highlighting
 Syntax highlighting powered by [Rouge].
@@ -94,11 +103,17 @@ $$
 \end{aligned}
 $$
 
+### Newsletter Subscription Box*
+The *PRO version* has built-in support for [Tinyletter] subscription boxes.
+
+If you are using a different newsletter service, like MailChimp,
+you can build a custom newsletter subscription box using [custom forms][forms].
+
 ## Versions
 ### Free Version
 The *free version* features the design and tech of **Hydejack**, but only supports basic blogging.
 
-[Download the Starter Kit][kit] or [Fork the Starter Kit on GitHub][git]
+[**Download**][kit]
 
 ### PRO Version
 The *PRO version* aims to be the complete package for professionals on the web.
@@ -107,10 +122,9 @@ your [resume] (with support for [JSON Resume](https://jsonresume.org/)),
 a [welcome] page to introduce yourself to visitors,
 built-in support for [Tinyletter], and from element styles so you can build arbitrary contact forms.
 
-[Buy Now - $29][buy] [^1]
+[**Buy Now - $29**][buy] [^2]
 
-[^1]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
-[^2]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
+[^2]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
 
 [blog]: https://qwtel.com/hydejack/blog/
 [portfolio]: https://qwtel.com/hydejack/variations/
@@ -119,23 +133,23 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [welcome]: https://qwtel.com/hydejack/
 [forms]: https://qwtel.com/hydejack/forms-by-example/
 
-[feat]: https://qwtel.com/hydejack/#features
-[news]: https://qwtel.com/hydejack/#newsletter-subscription-box
-[syntax]: https://qwtel.com/hydejack/#syntax-highlighting
-[latex]: https://qwtel.com/hydejack/#latex-math-blocks
+[feat]: #features
+[news]: #newsletter-subscription-box
+[syntax]: #syntax-highlighting
+[latex]: #latex-math-blocks
 
 [license]: LICENSE.md
 [pro]: licenses/PRO.md
-[docs]: docs/7.4.2/index.md
+[docs]: docs/7.5.0/index.md
 
-[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/master.zip
-[git]: https://github.com/qwtel/hydejack-starter-kit
+[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v7.5.0.zip
+[src]: https://github.com/qwtel/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
-[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.4.2/index.md
-[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.4.2/Documentation._.Hydejack.pdf
+[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.5.0/index.md
+[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.5.0/Documentation._.Hydejack.pdf
 [hy-push-state]: https://qwtel.com/hy-push-state/
 [hy-drawer]: https://qwtel.com/hy-drawer/
 [rouge]: http://rouge.jneen.net
