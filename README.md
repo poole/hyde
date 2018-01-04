@@ -64,8 +64,8 @@ This table details what is and isn't included in each respective version.
 | License                             | [GPL-3.0][license]                     | [PRO]                                        |
 | Source                              | [GitHub][src]                          | Included                                     |
 | Support[^1]                         | No                                     | No                                           |
-| Price                               | Free                                   | $29                                          |
-|                                     | [**Download**][kit]                    | [**Buy Now - $29**][buy] [^2]                |
+| Price                               | Free                                   | $59                                          |
+|                                     | [**Download**][kit]                    | [**Buy Now - $59**][buy] [^2]                |
 {:.stretch-table}
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
