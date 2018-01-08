@@ -1,25 +1,32 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown: redcarpet
+highlighter: pygments
 
 # Permalinks
-permalink:        pretty
-relative_permalinks: true
+permalink: pretty
 
 # Setup
+<<<<<<< HEAD
 title:            Jacob DeCourcey
 tagline:          'A front-end web developer in Culpeper, VA'
 description:      "A blog to keep track progress on my 2018 learning goals."
 url:              https://www.linkedin.com/in/jacobdecourcey
 baseurl:          /
+=======
+title: Jacob DeCourcey
+tagline: 'A front-end web developer in Culpeper, VA'
+description: "I graduated with a B.S. in IT at the end of 2017, so I'm transitioning into developer, analyst, or project-oriented roles in the IT field, specializing in front-end development. I'm looking for roles near enough to commute from Culpeper, VA."
+url: https://www.linkedin.com/in/jacobdecourcey
+baseurl: /
+>>>>>>> fa80ac1978be62dcf49ea594fa1f9c4dd3bfc6d3
 
 author:
-  name:           'Jacob DeCourcey'
+  name: 'Jacob DeCourcey'
   url:
 
 paginate:         5
 
 # Custom vars
-version:          2.1.0
+version: 2.1.0
 
-github:           https://github.com/jakedecourcey
+github: https://github.com/jakedecourcey
