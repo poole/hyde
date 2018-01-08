@@ -2,7 +2,6 @@
 layout: page
 title: Spanish Progress
 ---
-# Spanish Progress
 Most of the world speaks more than one language. I need to get with the program, apparently. I'm using Duolingo to learn Spanish with my wife.
 
 ### Part 1

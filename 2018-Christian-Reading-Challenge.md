@@ -2,7 +2,6 @@
 layout: page
 title: Reading Progress
 ---
-# Reading Progress
 A good book list will keep me motivated and make sure my focus isn't too narrow. There's more to life than jobs and coding. Tim Challies provides a list each year. [Find it here.](https://www.challies.com/resources/the-2018-christian-reading-challenge/) If I can get past 26, I might go for 52. We'll see.
 
 ### Light (13 Books in a year)

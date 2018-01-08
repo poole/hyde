@@ -2,14 +2,13 @@
 layout: page
 title: 2018 Goals
 ---
-
-## Introduction
 I graduated from Western Governor's University with a bachelor's degree in I.T. at the end of 2017. Now, the real work begins.
 
 ### Goals
 - Get a job in web development
 - Learn to touch type
 - Read 26 books
+- Learn Spanish
 
 ### Implementation
 

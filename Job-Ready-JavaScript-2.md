@@ -2,7 +2,6 @@
 layout: page
 title: Job Ready JS Progress
 ---
-# Job Ready JS Progress
 This guide was created by p1xt. I've shortened it to just the core list for this page, but the full guide can be found here. [Get Job ready - JavaScript Edition - Version 2.0](https://github.com/jakedecourcey/p1xt-guides/blob/master/job-ready-javascript-edition-2.0.md).
 
 - [Tier 0 - Prep](#tier-0---prep)
@@ -46,6 +45,7 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 - [ ]  Project: [100 Days of CSS](https://100dayscss.com/), scroll to the bottom of that page, beginning with #001, recreate the images, in CodePen. Start the first one now and set a goal of finishing as many as you can by the end of Tier 3. (Intent: Build a presence on CodePen as a proficient HTML/(S)CSS developer to add another online body of work alongside your growing GitHub profile.)
 - [ ]  Book: [You Don't Know JS: ES6 & Beyond](https://github.com/getify/You-Dont-Know-JS/blob/master/es6%20&%20beyond/README.md#you-dont-know-js-es6--beyond)  
 - [ ]  Project: Select an API from [Todd Motto's API List](https://github.com/toddmotto/public-apis) and build a frontend-only application powered by data fetched from the API you chose.  
+
 ---
 
 ## Tier 2 - Add Complexity
@@ -76,6 +76,7 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 - [ ]  Project: Select an API from [Todd Motto's API List](https://github.com/toddmotto/public-apis) and build a frontend-only application powered by data fetched from the API you chose. Consider building it as a Chrome Extension, Mobile, or Electron App
 - [ ]  Project: Full stack project of your choice (ideas: clone Facebook, Reddit, Netflix, Slack) - Consider building it as a Chrome Extension, Mobile, or Electron App.
 - [ ]  Project: Full stack project of your choice (make it grand) - or do a one month Speedrun of the FreeCodeCamp Projects.
+
 ---
 
 ## Tier 4 - Wrap everything up and prep for interviews
@@ -86,4 +87,5 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 - [ ]  Project: Create and polish your Resume/CV.
 - [ ]  Project: [Cracking the Coding Interview](https://www.hackerrank.com/domains/tutorials/cracking-the-coding-interview) on HackerRank
 - [ ]  Project: Continue honing your skills as you interview. Prioritize contributing to open source.
+
 ---

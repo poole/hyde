@@ -2,7 +2,6 @@
 layout: page
 title: Typing Progress
 ---
-# Typing Club progress
 The way I type is pretty fast, but also stupid and wrong. It's 2018 and I need to type properly. It wouldn't hurt to type quickly, too. I'm working through the exercises on <https://TypingClub.com>
 
 - [x] Lessons 0 - 9
