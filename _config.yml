@@ -9,13 +9,13 @@ relative_permalinks: true
 # Setup
 title:            Jacob DeCourcey
 tagline:          'A front-end web developer in Culpeper, VA'
-description:      'I graduated with a B.S. in IT at the end of 2017, so I'm transitioning into developer, analyst, or project-oriented roles in the IT field, specializing in front-end development. I'm looking for roles near enough to commute from Culpeper, VA.'
+description:      "I graduated with a B.S. in IT at the end of 2017, so I'm transitioning into developer, analyst, or project-oriented roles in the IT field, specializing in front-end development. I'm looking for roles near enough to commute from Culpeper, VA."
 url:              https://www.linkedin.com/in/jacobdecourcey
 baseurl:          /
 
 author:
   name:           'Jacob DeCourcey'
-  url:            https://twitter.com/mdo
+  url:
 
 paginate:         5
 
@@ -23,4 +23,3 @@ paginate:         5
 version:          2.1.0
 
 github:           https://github.com/jakedecourcey
-  repo:           https://github.com/jakedecourcey/jakedecourcey.github.io
