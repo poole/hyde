@@ -22,7 +22,9 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 - [ ]  Project: [JavaScript Interview Prep](https://www.hackerrank.com/chingu-challenge-9-javascript-prep) - sign up for this now and work through it alongside the rest of the guide.
 - [x]  Project: take a quick read through the FAQs at the end of this document, particularly the helpful links, you'll want to reference them as you work through the guide.
 
+
 ---
+
 
 ## Tier 1 - Intro to Programming
 **Goal:** Become Proficient with HTML, CSS and JavaScript.
@@ -46,7 +48,9 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 - [ ]  Book: [You Don't Know JS: ES6 & Beyond](https://github.com/getify/You-Dont-Know-JS/blob/master/es6%20&%20beyond/README.md#you-dont-know-js-es6--beyond)  
 - [ ]  Project: Select an API from [Todd Motto's API List](https://github.com/toddmotto/public-apis) and build a frontend-only application powered by data fetched from the API you chose.  
 
+
 ---
+
 
 ## Tier 2 - Add Complexity
 **Goal:** Become familiar with D3.js and Node.js to strengthen your proficiency with JavaScript by exploring how it's used in a Full Stack application.
@@ -63,6 +67,8 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 
 
 ---
+
+
 ## Tier 3 - Practice
 **Goal:** Practice Frontend Development in greater depth and continue studying JavaScript, ensuring you understand the algorithms and data structures you're likely to encounter in interviews (and on the job).
 
@@ -77,7 +83,9 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 - [ ]  Project: Full stack project of your choice (ideas: clone Facebook, Reddit, Netflix, Slack) - Consider building it as a Chrome Extension, Mobile, or Electron App.
 - [ ]  Project: Full stack project of your choice (make it grand) - or do a one month Speedrun of the FreeCodeCamp Projects.
 
+
 ---
+
 
 ## Tier 4 - Wrap everything up and prep for interviews
 **Goal:** Interview with confidence.
@@ -87,5 +95,6 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 - [ ]  Project: Create and polish your Resume/CV.
 - [ ]  Project: [Cracking the Coding Interview](https://www.hackerrank.com/domains/tutorials/cracking-the-coding-interview) on HackerRank
 - [ ]  Project: Continue honing your skills as you interview. Prioritize contributing to open source.
+
 
 ---
