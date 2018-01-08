@@ -8,14 +8,14 @@ A good book list will keep me motivated and make sure my focus isn't too narrow.
 - [ ] A biography
 - [ ] A book about Christian living
 - [ ] A book published in 2018
-- [ ] A book by an author no longer alive
+- [x] A book by an author no longer alive (*Amusing Ourselves to Death*, by Neil Postman, R.I.P.)
 - [ ] A novel
 - [ ] A book for teens or young adults
 - [ ] A book more than 100 years old
 - [ ] A book targeted at the opposite gender
 - [ ] A book your best friend recommends
 - [ ] A book with at least 400 pages
-- [x] A book of your choice (Moneyball: The Art of Winning an Unfair Game, by Michael Lewis)
+- [x] A book of your choice (*Moneyball: The Art of Winning an Unfair Game*, by Michael Lewis)
 - [ ] A book about theology
 - [ ] A book about current events
 
