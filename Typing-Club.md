@@ -6,7 +6,7 @@ The way I type is pretty fast, but also stupid and wrong. It's 2018 and I need t
 
 - [x] Lessons 0 - 9
 - [x] Lessons 10 - 19
-- [ ] Lessons 20 - 29
+- [x] Lessons 20 - 29
 - [ ] Lessons 30 - 39
 - [ ] Lessons 40 - 49
 - [ ] Lessons 50 - 59
