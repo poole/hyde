@@ -6,7 +6,6 @@ highlighter: pygments
 permalink: pretty
 
 # Setup
-<<<<<<< HEAD
 title:            Jacob DeCourcey
 tagline:          'A front-end web developer in Culpeper, VA'
 description:      "A blog to keep track progress on my 2018 learning goals."
