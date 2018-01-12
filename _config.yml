@@ -8,7 +8,7 @@ permalink: pretty
 # Setup
 title:            Jacob DeCourcey
 tagline:          'A front-end web developer in Culpeper, VA'
-description:      "A blog to keep track progress on my 2018 learning goals."
+description:      "A blog to track progress on my 2018 learning goals."
 url:              https://www.linkedin.com/in/jacobdecourcey
 baseurl:          /
 
