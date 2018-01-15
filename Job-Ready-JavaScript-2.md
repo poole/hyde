@@ -19,7 +19,7 @@ _Anything in Tier 0 can be studied before beginning Tier 1, or alongside the res
 - [x]  Book: [College Algebra](https://openstax.org/details/books/college-algebra) or Course: [College Algebra and Problem Solving](https://www.edx.org/course/college-algebra-problem-solving-asux-mat117x) or *thorough knowledge of Algebra*.
 - [x]  Book: [Precalculus](https://openstax.org/details/books/precalculus) or Course: [Precalculus](https://www.edx.org/course/precalculus-asux-mat170x) or [Khan Academy](https://www.khanacademy.org/math/precalculus) or *thorough knowledge of Precalculus*
 - [x]  Course: [Try Git](https://try.github.io/levels/1/challenges/1) and/or How to not f-up your local files with Git [part1](https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-1-e0756c88fd3c), [part2](https://medium.com/@francesco.agnoletto/how-to-not-f-up-your-local-files-with-git-part-2-fc4e243be02a) and [part 3](https://medium.com/chingu/how-to-not-f-up-your-local-files-with-git-part-3-bf03b27b6e64)
-- [ ]  Project: [JavaScript Interview Prep](https://www.hackerrank.com/chingu-challenge-9-javascript-prep) - sign up for this now and work through it alongside the rest of the guide.
+- [x]  Project: [JavaScript Interview Prep](https://www.hackerrank.com/chingu-challenge-9-javascript-prep) - sign up for this now and work through it alongside the rest of the guide.
 - [x]  Project: take a quick read through the FAQs at the end of this document, particularly the helpful links, you'll want to reference them as you work through the guide.
 
 
