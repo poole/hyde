@@ -8,7 +8,7 @@ Most of the world speaks more than one language. I need to get with the program,
 - [x] Basics 1
 - [x] Phrases
 - [x] Basics 2
-- [ ] Food
+- [x] Food
 - [ ] Animals
 - [ ] Possession
 
