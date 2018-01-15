@@ -7,7 +7,7 @@ Most of the world speaks more than one language. I need to get with the program,
 ### Part 1
 - [x] Basics 1
 - [x] Phrases
-- [ ] Basics 2
+- [x] Basics 2
 - [ ] Food
 - [ ] Animals
 - [ ] Possession
