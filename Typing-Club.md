@@ -8,8 +8,8 @@ The way I type is pretty fast, but also stupid and wrong. It's 2018 and I need t
 - [x] Lessons 10 - 19
 - [x] Lessons 20 - 29
 - [x] Lessons 30 - 39
-- [ ] Lessons 40 - 49
-- [ ] Lessons 50 - 59
+- [x] Lessons 40 - 49
+- [x] Lessons 50 - 59
 - [ ] Lessons 60 - 69
 - [ ] Lessons 70 - 79
 - [ ] Lessons 80 - 89
