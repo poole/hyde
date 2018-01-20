@@ -1,3 +1,3 @@
-This week in CS50 I made a hash table out of a dictionary and ran some massive texts through it. According ot the public leaderboard, the top time for the load + check process was .05s. I got mine down to .40s. Not bad, but it amazes me that someone else's solution could be nearly an order of magnitude better than mine. I wish I could see it. 
+This week in CS50 I made a hash table out of a dictionary and ran some massive texts through it. According ot the public leaderboard, the top time for the load + check process was 4.2s. I got mine down to 30s. Not bad, but it amazes me that someone else's solution could be nearly an order of magnitude better than mine. I wish I could see it. 
 
 Anyway, this project was a blast - not because of the subject matter, although it was handy to know. I got to use calculus while trying to optimize my hash function! I do terribly love math. 
