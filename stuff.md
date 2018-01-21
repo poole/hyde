@@ -1,16 +1,11 @@
-
-
-# The Last
-Psychiatrist
+# The Last Psychiatrist
 
 ### Grade Inflation
 Today we're going to talk about the causes of grade inflation. 
 "Wait, is this going to be on the test?" 
 
-You're a professor and you grade the paper a C.  The next day Type A
-Personality Only Child comes up on you, "how is this a C?  I answered
-the question correctly, didn't I?" Yes, but you write like a nine year
-old, 80% of this is the syntactical equivalent of "umm" and
+You're a professor and you grade the paper a C.  The next day Type A Personality Only Child comes up on you, "how is this a C?  I answered
+the question correctly, didn't I?" Yes, but you write like a nine year old, 80% of this is the syntactical equivalent of "umm" and
 "ahhh", and many of your sentences are minimally altered passages
 right from Wikipedia.  "But this is a history class.  Why are
 you grading my writing style?"
@@ -30,9 +25,6 @@ drunken idiots.   While both have merit, let's see if there isn't another
 explanation that shrewdly protects the unconscious of most of the players.
 
 #### I.
-
-
-
 The only surprising thing to me about this graph is
 nothing.  Since no one over 90 is reading this, let's focus on 1986. 
 What happened in 1986 that changed the grading trend?
@@ -43,8 +35,7 @@ researchers Twenge et al
 found that that was the year narcissism on campus began to rise:
 
 
-And
-by "coincidentally" I mean "not coincidentally."  It's
+And by "coincidentally" I mean "not coincidentally."  It's
 hard to tell a growing population of narcissists that their schoolwork blows,
 so you don't: A.  Makes sense.
 
