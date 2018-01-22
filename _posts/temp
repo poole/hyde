@@ -1,3 +1,24 @@
-This week in CS50 I made a hash table out of a dictionary and ran some massive texts through it. According ot the public leaderboard, the top time for the load + check process was 4.2s. I got mine down to 30s. Not bad, but it amazes me that someone else's solution could be nearly an order of magnitude better than mine. I wish I could see it. 
+---
+layout: post
+title: Week 3: Jan 21 - Jan 20
+---
 
+# Week 2: Jan 14 - Jan 20
+## Goal Progress
+##### Job Ready JavaScript
+I almost completed my goal of through week 7 this week. 
+##### Typing
+I stuck to my goals here and completed through lesson 43.
+##### Reading
+I also didn't read as much as I had hoped. I spent a little too much time playing a new computer game I discovered, *Battle for Wesnoth.* Still well on target, though. I'm nearly done with *A Brave New World.*
+##### Spanish
+I'm doing reasonably well in Spanish progess. It feels really slow because I'm reviewing stuff that's very familiar already.
+## Noteworthy Notes
+This week in CS50 I made a hash table out of a dictionary and ran some massive texts through it. According ot the public leaderboard, the top time for the load + check process was 4.2s. I got mine down to ~35s. Not bad, but it amazes me that someone else's solution could be nearly an order of magnitude better than mine. I wish I could see it. 
 Anyway, this project was a blast - not because of the subject matter, although it was handy to know. I got to use calculus while trying to optimize my hash function! I do terribly love math. 
+
+## Looking Ahead
+This week, I intend to complete through week 7 in CS50. This is the same goal as last week; I'm leaving room for getting stuck again.
+I'm still going to type 20 lessons this week, but I'm not going to hold myself to at least one a day. Days off are good.
+Same for Spanish. No daily goal, but I want to finish 5 lessons.
+I'm also going to finish *A Brave New World* by Tuesday so that I can start on something else.
