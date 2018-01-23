@@ -9,7 +9,7 @@ A good book list will keep me motivated and make sure my focus isn't too narrow.
 - [ ] A book about Christian living
 - [ ] A book published in 2018
 - [x] A book by an author no longer alive (*Amusing Ourselves to Death*, by Neil Postman, R.I.P.)
-- [ ] A novel
+- [x] A novel (*Brave New World*, by Aldous Huxley)
 - [ ] A book for teens or young adults
 - [ ] A book more than 100 years old
 - [ ] A book targeted at the opposite gender
