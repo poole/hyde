@@ -17,7 +17,7 @@ A good book list will keep me motivated and make sure my focus isn't too narrow.
 - [ ] A book with at least 400 pages
 - [x] A book of your choice (*Moneyball: The Art of Winning an Unfair Game*, by Michael Lewis)
 - [ ] A book about theology
-- [ ] A book about current events
+- [ ] A book about current events (*Coming Apart: The State of White America, 1960-2010*, by Charles Murray)
 
 ### Avid (26 Books in a year)
 - [ ]
