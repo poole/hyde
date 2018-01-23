@@ -10,7 +10,7 @@ The way I type is pretty fast, but also stupid and wrong. It's 2018 and I need t
 - [x] Lessons 30 - 39
 - [x] Lessons 40 - 49
 - [x] Lessons 50 - 59
-- [ ] Lessons 60 - 69
+- [x] Lessons 60 - 69
 - [ ] Lessons 70 - 79
 - [ ] Lessons 80 - 89
 - [ ] Lessons 90 - 99
