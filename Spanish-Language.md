@@ -13,9 +13,9 @@ Most of the world speaks more than one language. I need to get with the program,
 - [x] Possession
 
 ### Part 2
-- [ ] Clothing
-- [ ] Questions
-- [ ] Present 1
+- [x] Clothing
+- [x] Questions
+- [x] Present 1
 - [ ] Food 2
 - [ ] Family
 - [ ] Sizes
