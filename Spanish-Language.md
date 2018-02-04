@@ -17,8 +17,8 @@ Most of the world speaks more than one language. I need to get with the program,
 - [x] Questions
 - [x] Present 1
 - [x] Food 2
-- [ ] Family
-- [ ] Sizes
+- [x] Family
+- [x] Sizes
 - [ ] Household
 - [ ] Occupation
 - [ ] Time
