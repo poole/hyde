@@ -20,8 +20,24 @@ Most of the world speaks more than one language. I need to get with the program,
 - [x] Family
 - [x] Sizes
 - [x] Household
-- [ ] Occupation
+- [x] Occupation
 - [ ] Time
 - [ ] Adjectives 1
+
+### Part 3
+
+- [ ] Present 2
+- [ ] Determiners
+- [ ] Adverbs
+- [ ] Objects
+- [ ] To Be
+- [ ] Places
+- [ ] People
+- [ ] Objective Pronouns
+- [ ] Numbers
+- [ ] Past Tense
+- [ ] Present 3
+- [ ] V. Inf. 1
+- [ ] Ir Future
 
 There's plenty more, but I'll add the list later. No chance of skipping ahead here...
