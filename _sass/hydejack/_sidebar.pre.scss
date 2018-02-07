@@ -56,8 +56,11 @@ hy-drawer {
     // <<< link
     > .hy-drawer-content.hy-drawer-left {
       left: calc(#{$sidebar-width} - 100%);
+      box-shadow: none;
     }
+
     --hy-drawer-slide-width: calc(100% - #{$sidebar-width});
+    --hy-drawer-box-shadow: none;
     // >>>
   }
 

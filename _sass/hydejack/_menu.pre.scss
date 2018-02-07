@@ -45,6 +45,12 @@
   border-bottom: none;
   color: #bbb!important;
 }
+
+#_menu {
+  @media screen and (min-width: $break-point-3) {
+    display: none;
+  }
+}
 // >>>>>
 
 // <<<< LINK
@@ -61,13 +67,11 @@
   right: 0;
   padding: 1.75rem 1rem;
 }
-// >>>>
 
 .navbar {
-  @media print { display: none; } // link
+  @media print { display: none; }
 }
 
-// <<<< LINK
 #_cookies-banner  {
   .nav-btn { padding: 1.75rem 0 }
   .nav-btn-bar { margin: 0 2rem; }

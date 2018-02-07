@@ -57,11 +57,11 @@
   color: #bbb!important;
 }
 
-
-
-
-.navbar {
-//   @media print { display: none; } 
+#_menu {
+  @media screen and (min-width: $break-point-3) {
+    display: none;
+  }
 }
+
 
 
