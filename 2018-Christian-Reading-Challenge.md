@@ -20,16 +20,16 @@ A good book list will keep me motivated and make sure my focus isn't too narrow.
 - [ ] A book about current events (*Coming Apart: The State of White America, 1960-2010*, by Charles Murray)
 
 ### Avid (26 Books in a year)
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
-- [ ]
+- [ ] A book about Christian Living
+- [ ] A book of 100 pages or less
+- [ ] A book about the early church
+- [ ] A book with a picture of the author on the cover
+- [ ] A book on the NYT best sellers list
+- [ ] A book written by a Puritan
+- [ ] A book by or about a pastor
+- [ ] A book of your choice
+- [ ] A commentary on a book ofthe Bible
+- [ ] A book about theology
+- [ ] A book that won a prize
+- [ ] A book you have borrowed
+- [ ] A book about Christian history
