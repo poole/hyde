@@ -17,7 +17,7 @@ The way I type is pretty fast, but also stupid and wrong. It's 2018 and I need t
 - [x] Lessons 100 - 109
 - [x] Lessons 110 - 119
 - [x] Lessons 120 - 129
-- [ ] Lessons 130 - 139
+- [x] Lessons 130 - 139
 - [ ] Lessons 140 - 149
 - [ ] Lessons 150 - 159
 - [ ] Lessons 160 - 169
