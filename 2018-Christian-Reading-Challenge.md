@@ -2,7 +2,7 @@
 layout: page
 title: Reading Progress
 ---
-A good book list will keep me motivated and make sure my focus isn't too narrow. There's more to life than jobs and coding. Tim Challies provides a list each year. [Find it here.](https://www.challies.com/resources/the-2018-christian-reading-challenge/) If I can get past 26, I might go for 52. We'll see.
+A good book list will keep me motivated and make sure my focus isn't too narrow. There's more to life than jobs and coding. Tim Challies provides a list each year. [Find it here.](https://www.challies.com/resources/the-2018-christian-reading-challenge/)
 
 ### Light (13 Books in a year)
 - [ ] A biography
@@ -27,8 +27,8 @@ A good book list will keep me motivated and make sure my focus isn't too narrow.
 - [ ] A book on the NYT best sellers list
 - [ ] A book written by a Puritan
 - [ ] A book by or about a pastor
-- [ ] A book of your choice
-- [ ] A commentary on a book ofthe Bible
+- [x] A book of your choice (*Economics in One Lesson*, by Henry Hazlitt) 
+- [ ] A commentary on a book of the Bible
 - [ ] A book about theology
 - [ ] A book that won a prize
 - [ ] A book you have borrowed
