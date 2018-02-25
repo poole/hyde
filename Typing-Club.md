@@ -19,7 +19,7 @@ The way I type is pretty fast, but also stupid and wrong. It's 2018 and I need t
 - [x] Lessons 120 - 129
 - [x] Lessons 130 - 139
 - [x] Lessons 140 - 149
-- [ ] Lessons 150 - 159
+- [x] Lessons 150 - 159
 - [ ] Lessons 160 - 169
 - [ ] Lessons 170 - 179
 - [ ] Lessons 180 - 189
