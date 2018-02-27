@@ -24,6 +24,7 @@
 // ## Includes
 // First, we patch the environment with some ES6+ functions we intend to use.
 import 'core-js/fn/array/for-each';
+import 'core-js/fn/array/from';
 import 'core-js/fn/function/bind';
 import 'core-js/fn/object/assign';
 import 'core-js/fn/string/includes';
@@ -36,8 +37,6 @@ import { PushState, VANILLA_FEATURE_TESTS } from 'hy-push-state/src/vanilla';
 import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { Observable } from 'rxjs/Observable';
-
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
 
 import { fromEvent } from 'rxjs/observable/fromEvent';
@@ -45,22 +44,24 @@ import { merge } from 'rxjs/observable/merge';
 import { of } from 'rxjs/observable/of';
 import { timer } from 'rxjs/observable/timer';
 
-import { _catch as catchError } from 'rxjs/operator/catch';
-import { _do as tap } from 'rxjs/operator/do';
-import { debounceTime } from 'rxjs/operator/debounceTime';
-import { exhaustMap } from 'rxjs/operator/exhaustMap';
-import { filter } from 'rxjs/operator/filter';
-import { map } from 'rxjs/operator/map';
-import { mapTo } from 'rxjs/operator/mapTo';
-import { mergeMap } from 'rxjs/operator/mergeMap';
-import { observeOn } from 'rxjs/operator/observeOn';
-import { pairwise } from 'rxjs/operator/pairwise';
-import { share } from 'rxjs/operator/share';
-import { startWith } from 'rxjs/operator/startWith';
-import { switchMap } from 'rxjs/operator/switchMap';
-import { take } from 'rxjs/operator/take';
-import { takeUntil } from 'rxjs/operator/takeUntil';
-import { zipProto as zip } from 'rxjs/operator/zip';
+import {
+  // catchError,
+  tap,
+  debounceTime,
+  exhaustMap,
+  filter,
+  map,
+  mapTo,
+  mergeMap,
+  observeOn,
+  pairwise,
+  share,
+  startWith,
+  switchMap,
+  take,
+  takeUntil,
+  zip,
+} from 'rxjs/operators';
 
 // Some of our own helper functions and classes.
 import { animate, empty, getResolvablePromise, hasFeatures, isSafari, isFirefoxIOS }
@@ -121,8 +122,7 @@ const SETTINGS = {
 const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
 // We also setup some shorthands:
-const { forEach } = Array.prototype;
-const assign = ::Object.assign;
+const assign = Object.assign.bind(Object);
 
 // ## Functions
 // Takes a heading and adds a "#" link for permalinks:
@@ -135,12 +135,11 @@ function upgradeHeading(h) {
 }
 
 // Like subscribe, but we log errors to the console, but continue as if it never happend.
-function subscribe(ne, er, co) {
-  return this
-    ::tap({ error: ::console.error })
-    ::catchError((e, c) => c)
-    .subscribe(ne, er, co);
-}
+// const subscribe = (source, ne, er, co) => source.pipe(
+//   tap({ error: e => console.error(e) }),
+//   catchError((e, c) => c),
+// )
+//   .subscribe(ne, er, co);
 
 // Set up the DOM elements:
 function setupAnimationMain(pushStateEl) {
@@ -202,20 +201,21 @@ function shouldRestoreScroll() {
 function animateFadeOut({ type, main }) {
   if (window._drawer && window._drawer.opened) {
     window._drawer.close();
-    return Observable::fromEvent(window._drawer.el, 'hy-drawer-transitioned')
-      ::take(1)
-      ::mapTo({ main });
+    return fromEvent(window._drawer.el, 'hy-drawer-transitioned').pipe(
+      take(1),
+      mapTo({ main }),
+    );
   }
 
   return shouldAnimate(type) ?
-    animate(main, FADE_OUT, SETTINGS)::mapTo({ main }) :
-    Observable::of({ main });
+    animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main })) :
+    of({ main });
 }
 
 function animateFadeIn({ type, replaceEls: [main], flipType }) {
   return shouldAnimate(type) ?
-    animate(main, FADE_IN, SETTINGS)::mapTo({ main, flipType }) :
-    Observable::of({ main, flipType });
+    animate(main, FADE_IN, SETTINGS).pipe(mapTo({ main, flipType })) :
+    of({ main, flipType });
 }
 
 // Before we register the WebComponent with the DOM, we set essential properties,
@@ -266,7 +266,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
   // Upgrade headlines to include headline-level `#` links.
   const initialMain = document.getElementById('_main');
-  initialMain.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeading);
+  Array.from(initialMain.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading);
 
   // Remove the CSS fade-in class (to avoid playing it again)
   initialMain.classList.remove('fade-in');
@@ -274,38 +274,43 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // Setting up the basic event observables.
   // In case of a start event we also add the `flipType` to the context,
   // so that we can use filter based on it later.
-  const start$ = Observable::fromEvent(pushStateEl, 'hy-push-state-start')
-    ::map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) }))
-    ::share();
+  const start$ = fromEvent(pushStateEl, 'hy-push-state-start').pipe(
+    map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) })),
+    share(),
+  );
 
-  const ready$ = Observable::fromEvent(pushStateEl, 'hy-push-state-ready')
-    ::map(({ detail }) => detail)
-    ::share();
+  const ready$ = fromEvent(pushStateEl, 'hy-push-state-ready').pipe(
+    map(({ detail }) => detail),
+    share(),
+  );
 
-  const after$ = Observable::fromEvent(pushStateEl, 'hy-push-state-after')
-    ::map(({ detail }) => detail)
-    ::share();
+  const after$ = fromEvent(pushStateEl, 'hy-push-state-after').pipe(
+    map(({ detail }) => detail),
+    share(),
+  );
 
-  const progress$ = Observable::fromEvent(pushStateEl, 'hy-push-state-progress')
-    ::map(({ detail }) => detail)
-    ::share();
+  const progress$ = fromEvent(pushStateEl, 'hy-push-state-progress').pipe(
+    map(({ detail }) => detail),
+    share(),
+  );
 
-  const error$ = Observable::fromEvent(pushStateEl, 'hy-push-state-networkerror')
-    ::map(({ detail }) => detail)
-    ::share();
+  const error$ = fromEvent(pushStateEl, 'hy-push-state-networkerror').pipe(
+    map(({ detail }) => detail),
+    share(),
+  );
 
   // ### Fade main content out
   // A `start` occurs immediately after a user clicks on a link.
   // First we get a hold fo the current content.
   // TODO: Change hy-push-state to provide this as part of the event?
-  const fadeOut$ = start$
-    ::map(context => assign(context, { main: document.getElementById('_main') }))
+  const fadeOut$ = start$.pipe(
+    map(context => assign(context, { main: document.getElementById('_main') })),
 
     // Next we have some side effects:
     // * Close the drawer if it's open (i.e. when clicking a link in the sidebar)
     // * Add the `active` class to the active entry in the sidebar (currently not in use)
     // * If we are going to animate the content, make some preparations.
-    ::tap(({ type, main }) => {
+    tap(({ type, main }) => {
       if (shouldAnimate(type)) {
         main.style.pointerEvents = 'none';
         main.style.opacity = 0;
@@ -317,66 +322,69 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
           else item.classList.remove('active');
         });
       */
-    })
+    }),
 
     // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
     // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
-    ::exhaustMap(animateFadeOut)
+    exhaustMap(animateFadeOut),
 
     // After the animation is complete, we empty the current content and scroll to the top.
-    ::tap(({ main }) => {
-      main::empty();
+    tap(({ main }) => {
+      empty.call(main);
       window.scrollTo(0, 0);
-    })
-    ::share();
+    }),
+    share(),
+  );
 
   // ### Show loading spinner
   // Show loading spinner --- but only when fetching takes longer than `DURATION`.
-  progress$::subscribe(() => { loading.style.display = 'block'; });
+  progress$.subscribe(() => { loading.style.display = 'block'; });
 
   // ### Prepare showing the new content
   // The `ready` event occurs when we've received the content from the server
   // and it is parsed as a document fragment, but before we add it to the DOM.
   // This is were we can make some changes to the content without triggering repaints.
-  ready$::subscribe(({ replaceEls: [main] }) => {
+  ready$.subscribe(({ replaceEls: [main] }) => {
     loading.style.display = 'none';
     main.classList.remove('fade-in');
-    main.querySelectorAll(HEADING_SELECTOR)::forEach(upgradeHeading);
+    Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading);
     main.style.pointerEvents = 'none';
   });
 
   // ### Fade new content in
   // `after` new content is added to the DOM, start animating it.
-  const fadeIn$ = after$
-    ::switchMap(animateFadeIn)
-    ::tap(({ main }) => { main.style.pointerEvents = ''; })
-    ::share();
+  const fadeIn$ = after$.pipe(
+    switchMap(animateFadeIn),
+    tap(({ main }) => { main.style.pointerEvents = ''; }),
+    share(),
+  );
 
   // In addition to fading the main content out,
   // there's also a FLIP animation playing when clicking certain links.
   // We set it up here because FLIP animation may do extra work after a `fadeIn` and/or cleanup
   // work when an error occurs.
-  const flip$ = setupFLIP(start$, ready$, Observable::merge(fadeIn$, error$), {
+  const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
     animationMain,
     settings: SETTINGS,
   })
-    ::share();
+    .pipe(share());
 
-  start$
-    ::map((context) => {
+  start$.pipe(
+    map((context) => {
       const promise = getResolvablePromise();
       context.waitUntil(promise);
       return promise;
-    })
+    }),
     // Every click starts a timer that lasts as long
     // as it takes for the FLIP and fade-out animations to complete.
-    ::switchMap(p => Observable::timer(DURATION)::zip(fadeOut$, flip$, () => p))
+    switchMap(p => timer(DURATION).pipe(zip(fadeOut$, flip$, () => p))),
+  )
     // Once the animation have completed, we resolve the promise so that hy-push-state continues.
-    ::subscribe(p => p.resolve());
+    .subscribe(p => p.resolve());
 
   // FIXME: Keeping permanent subscription? turn into hot observable?
-  fadeOut$::subscribe();
-  flip$::subscribe();
+  fadeOut$.subscribe();
+  flip$.subscribe();
 
   // ### Cross-fade the sidebar image
   // The cross fader has some internal state, i.e. it keeps track of DOM nodes,
@@ -390,44 +398,48 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // Also, we want to abort fetching the image whne the user has already `start`ed another request.
   // TODO: Maybe only abort `after` it becomes clear that the new site
   // is using a different background image?
-  after$::switchMap(({ replaceEls: [main] }) =>
-    crossFader.fetchImage(main)
-      ::zip(fadeIn$, x => x)
-      ::takeUntil(start$))
+  after$.pipe(
+    switchMap(({ replaceEls: [main] }) =>
+      crossFader.fetchImage(main).pipe(
+        zip(fadeIn$, x => x),
+        takeUntil(start$),
+      )),
 
     // Once we have both images, we take them `pairwise` and cross-fade.
     // We start with the initial sidebar image, which was part of HTML content.
     // Here we use `mergeMap`, because in edge cases there could be 3 or more images
     // being faded at the same time, but there is no reason to cancel the old ones.
-    ::startWith([document.querySelector('.sidebar-bg')])
-    ::pairwise()
-    ::mergeMap(([prev, curr]) => crossFader.fade(prev, curr))
-    ::subscribe();
+    startWith([document.querySelector('.sidebar-bg')]),
+    pairwise(),
+    mergeMap(([prev, curr]) => crossFader.fade(prev, curr)),
+  )
+    .subscribe();
 
   // ### Upgrade math blocks
   // Once the content is faded in, upgrade the math blocks with KaTeX.
   // This can take a while and will trigger multiple repaints,
   // so we don't want to start until after the animation.
-  fadeIn$
-    ::tap(upgradeMathBlocks)
-    ::tap(loadDisqus)
+  fadeIn$.pipe(
+    tap(upgradeMathBlocks),
+    tap(loadDisqus),
 
     // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
-    ::filter(() => !!window.ga)
-    ::debounceTime(GA_DELAY)
-    ::subscribe(() => {
+    filter(() => !!window.ga),
+    debounceTime(GA_DELAY),
+  )
+    .subscribe(() => {
       window.ga('set', 'page', window.location.pathname);
       window.ga('send', 'pageview');
     });
 
   // ### Show error page
   // In case of a network error, we don't want to show the browser's default offline page.
-  error$::subscribe(({ url }) => {
+  error$.subscribe(({ url }) => {
     loading.style.display = 'none';
-    animationMain.querySelector('.page')::empty();
+    empty.call(animationMain.querySelector('.page'));
 
     const main = document.getElementById('_main');
-    main::empty();
+    empty.call(main);
     main.style.pointerEvents = '';
     main.style.opacity = '';
 
@@ -443,18 +455,18 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // First, we make sure this the previous entry was pushed by us and wasn't a jump to a `#`:
     // Then we empty the content immediately to prevent flickering and
     // set the old `scrollHeigt` as the body's `minHeight`.
-    Observable::fromEvent(window, 'popstate')
-      ::filter(() => window.history.state && window.history.state['hy-push-state'] &&
-        !window.history.state['hy-push-state'].hash)
-      ::subscribe(() => {
+    fromEvent(window, 'popstate')
+      .pipe(filter(() => window.history.state && window.history.state['hy-push-state'] &&
+        !window.history.state['hy-push-state'].hash))
+      .subscribe(() => {
         const { scrollHeight } = window.history.state['hy-push-state'];
         document.body.style.minHeight = `${scrollHeight}px`;
       });
 
     // Once the content has been replaced (or an error occurred, etc), restore `minHeight`.
-    Observable::merge(after$, progress$, error$)
-      ::observeOn(animationFrame)
-      ::subscribe(() => {
+    merge(after$, progress$, error$)
+      .pipe(observeOn(animationFrame))
+      .subscribe(() => {
         document.body.style.minHeight = '';
       });
   }

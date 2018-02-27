@@ -26,18 +26,19 @@ import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
 import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { never } from 'rxjs/observable/never';
 
-import { _do as tap } from 'rxjs/operator/do';
-import { _finally as finalize } from 'rxjs/operator/finally';
-import { distinctUntilChanged } from 'rxjs/operator/distinctUntilChanged';
-import { map } from 'rxjs/operator/map';
-import { share } from 'rxjs/operator/share';
-import { startWith } from 'rxjs/operator/startWith';
-import { switchMap } from 'rxjs/operator/switchMap';
-import { withLatestFrom } from 'rxjs/operator/withLatestFrom';
+import {
+  tap,
+  finalize,
+  distinctUntilChanged,
+  map,
+  share,
+  startWith,
+  switchMap,
+  withLatestFrom,
+} from 'rxjs/operators';
 
 // Some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
@@ -73,10 +74,10 @@ function calcDrawerWidthDynamic() {
 }
 
 // ## Functions
-function subscribeWhen(p$) {
+const subscribeWhen = p$ => (source) => {
   if (process.env.DEBUG && !p$) throw Error();
-  return p$::switchMap(p => (p ? this : Observable::never()));
-}
+  return p$.pipe(switchMap(p => (p ? source : never())));
+};
 
 // Determins the range from which to draw the drawer in pixels, counted from the left edge.
 // It depends on the browser, e.g. Safari has a native guesture when sliding form the side,
@@ -141,41 +142,45 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
 
-  const resize$ = Observable::fromEvent(window, 'resize', { passive: true })::share();
+  const resize$ = fromEvent(window, 'resize', { passive: true }).pipe(share());
 
   // An observable keeping track of whether the window size is greater than `BREAK_POINT_3`.
-  const isDesktop$ = resize$
-    ::map(() => window.matchMedia(BREAK_POINT_3).matches)
-    ::distinctUntilChanged()
-    ::share()
-    ::startWith(window.matchMedia(BREAK_POINT_3).matches);
+  const isDesktop$ = resize$.pipe(
+    map(() => window.matchMedia(BREAK_POINT_3).matches),
+    distinctUntilChanged(),
+    share(),
+    startWith(window.matchMedia(BREAK_POINT_3).matches),
+  );
 
   // An observable keeping track of the drawer width.
-  const drawerWidth$ = resize$
-    ::startWith({})
-    ::map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches ?
+  const drawerWidth$ = resize$.pipe(
+    startWith({}),
+    map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches ?
       calcDrawerWidthDynamic() :
-      calcDrawerWidth()));
+      calcDrawerWidth())),
+  );
 
   // An observable keeping track of the distance between
   // the middle point of the screen and the middle point of the drawer.
-  const dist$ = drawerWidth$::map(drawerWidth =>
-    (document.body.clientWidth / 2) - (drawerWidth / 2));
+  const dist$ = drawerWidth$.pipe(map(drawerWidth =>
+    (document.body.clientWidth / 2) - (drawerWidth / 2)));
 
   // An observable that keeps track of the range from where the drawer can be drawn.
   // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
-  const range$ = drawerWidth$
-    ::withLatestFrom(isDesktop$)
-    ::map(([drawerWidth, isDesktop]) => (isDesktop ? [0, drawerWidth] : getRange()));
+  const range$ = drawerWidth$.pipe(
+    withLatestFrom(isDesktop$),
+    map(([drawerWidth, isDesktop]) => (isDesktop ? [0, drawerWidth] : getRange())),
+  );
 
   // Sliding the drawer's content between the middle point of the screen,
   // and the middle point of the drawer when closed.
-  Observable::fromEvent(drawerEl, 'hy-drawer-move')
-    ::finalize(() => {
+  fromEvent(drawerEl, 'hy-drawer-move').pipe(
+    finalize(() => {
       window._sidebar.style.transform = '';
-    })
-    ::subscribeWhen(isDesktop$)
-    ::withLatestFrom(dist$)
+    }),
+    subscribeWhen(isDesktop$),
+    withLatestFrom(dist$),
+  )
     .subscribe(([{ detail }, dist]) => {
       const t = 1 - detail;
       window._sidebar.style.transform = `translateX(${dist * t}px)`;
@@ -199,15 +204,16 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   });
 
   // Keeping track of the opened state.
-  const opened$ = Observable::fromEvent(drawerEl, 'hy-drawer-transitioned')
-    ::map(e => e.detail)
-    ::distinctUntilChanged()
-    ::tap((opened) => {
+  const opened$ = fromEvent(drawerEl, 'hy-drawer-transitioned').pipe(
+    map(e => e.detail),
+    distinctUntilChanged(),
+    tap((opened) => {
       if (!opened) {
         removeIcon();
       }
-    });
-    // ::share();
+    }),
+    // share(),
+  );
 
   // TODO: Close the drawer when scrolling down?
   /*
@@ -224,8 +230,8 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   */
 
   // Close the drawer on popstate, i.e. the back button.
-  Observable::fromEvent(window, 'popstate', { passive: true })
-    ::subscribeWhen(opened$)
+  fromEvent(window, 'popstate', { passive: true })
+    .pipe(subscribeWhen(opened$))
     .subscribe(() => { window._drawer.close(); });
 
   // Save scroll position before the drawer gets initialized.

@@ -14,11 +14,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import 'core-js/fn/array/from';
 import 'core-js/fn/array/for-each';
 
 import { hasFeatures, hide } from './common';
-
-const { forEach } = Array.prototype;
 
 const REQUIREMENTS = [
   'classlist',
@@ -43,7 +42,7 @@ function renderKatex(el) {
       displayMode: el.type === 'math/tex; mode=display',
     });
 
-    if (prev) prev::hide();
+    if (prev) hide.call(prev);
   } catch (e) {
     if (process.env.DEBUG) console.error(e);
   }
@@ -54,7 +53,7 @@ export default function upgradeMathBlocks() {
     const mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
     if (mathBlocks.length) {
       if (katexJSLoaded && katexCSSLoaded) {
-        mathBlocks::forEach(renderKatex);
+        Array.from(mathBlocks).forEach(renderKatex);
       } else {
         window.loadJSDeferred(document.getElementById('_katexJS').href, () => {
           katexJSLoaded = true;

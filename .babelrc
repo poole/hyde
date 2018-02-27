@@ -1,5 +1,4 @@
 {
-  "presets": ["es2015", "es2016"],
-  "plugins": ["transform-function-bind"],
-  "only": ["_js", "rxjs", "create-element-extended"]
+  "presets": ["env"],
+  "only": ["_js", "rxjs", "create-element-x"]
 }
