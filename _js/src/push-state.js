@@ -207,15 +207,15 @@ function animateFadeOut({ type, main }) {
     );
   }
 
-  return shouldAnimate(type) ?
-    animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main })) :
-    of({ main });
+  return shouldAnimate(type)
+    ? animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }))
+    : of({ main });
 }
 
 function animateFadeIn({ type, replaceEls: [main], flipType }) {
-  return shouldAnimate(type) ?
-    animate(main, FADE_IN, SETTINGS).pipe(mapTo({ main, flipType })) :
-    of({ main, flipType });
+  return shouldAnimate(type)
+    ? animate(main, FADE_IN, SETTINGS).pipe(mapTo({ main, flipType }))
+    : of({ main, flipType });
 }
 
 // Before we register the WebComponent with the DOM, we set essential properties,
@@ -474,7 +474,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // ### Create the component
   // If we have Custom Elements, use the WebComponent (it doesn't use ShadowDOM, so we are fine),
   // otherwise use the vanilla JS version.
-  window._pushState = 'customElements' in window ?
-    setupWebComponent(pushStateEl) :
-    setupVanilla(pushStateEl);
+  window._pushState = 'customElements' in window
+    ? setupWebComponent(pushStateEl)
+    : setupVanilla(pushStateEl);
 }

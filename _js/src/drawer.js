@@ -131,6 +131,12 @@ function removeIcon() {
   if (svg) svg.parentNode.removeChild(svg);
 }
 
+// Quick helper function to prevent repeat code.
+function updateSidebar(dist, opacity) {
+  const t = 1 - opacity;
+  window._sidebar.style.transform = `translateX(${dist * t}px)`;
+}
+
 // ## Main
 // First, we determine if the drawer is enabled,
 // and whether the current user agent meets our requirements.
@@ -142,7 +148,8 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
 
-  const resize$ = fromEvent(window, 'resize', { passive: true }).pipe(share());
+  const resize$ = fromEvent(window, 'resize', { passive: true })
+    .pipe(share());
 
   // An observable keeping track of whether the window size is greater than `BREAK_POINT_3`.
   const isDesktop$ = resize$.pipe(
@@ -155,21 +162,28 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // An observable keeping track of the drawer width.
   const drawerWidth$ = resize$.pipe(
     startWith({}),
-    map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches ?
-      calcDrawerWidthDynamic() :
-      calcDrawerWidth())),
+    map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches
+      ? calcDrawerWidthDynamic()
+      : calcDrawerWidth())),
   );
 
   // An observable keeping track of the distance between
   // the middle point of the screen and the middle point of the drawer.
-  const dist$ = drawerWidth$.pipe(map(drawerWidth =>
-    (document.body.clientWidth / 2) - (drawerWidth / 2)));
+  const dist$ = drawerWidth$
+    .pipe(
+      map(drawerWidth => (window.matchMedia(BREAK_POINT_3).matches
+        ? (document.body.clientWidth / 2) - (drawerWidth / 2)
+        : 0)),
+      share(),
+    );
 
   // An observable that keeps track of the range from where the drawer can be drawn.
   // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
   const range$ = drawerWidth$.pipe(
     withLatestFrom(isDesktop$),
-    map(([drawerWidth, isDesktop]) => (isDesktop ? [0, drawerWidth] : getRange())),
+    map(([drawerWidth, isDesktop]) => (isDesktop
+      ? [0, drawerWidth]
+      : getRange())),
   );
 
   // Sliding the drawer's content between the middle point of the screen,
@@ -181,9 +195,8 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     subscribeWhen(isDesktop$),
     withLatestFrom(dist$),
   )
-    .subscribe(([{ detail }, dist]) => {
-      const t = 1 - detail;
-      window._sidebar.style.transform = `translateX(${dist * t}px)`;
+    .subscribe(([{ detail: { opacity } }, dist]) => {
+      updateSidebar(dist, opacity);
     });
 
   // Setting `will-change` at the beginning of an interaction, and remove at the end.
@@ -243,9 +256,15 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // Now we create the component.
   // If we have Custom Elements and ShadowDOM (v1) we use the web component.
-  window._drawer = 'customElements' in window && 'attachShadow' in Element.prototype ?
-    setupWebComponent(drawerEl, opened) :
-    setupVanilla(drawerEl, opened);
+  window._drawer = 'customElements' in window && 'attachShadow' in Element.prototype
+    ? setupWebComponent(drawerEl, opened)
+    : setupVanilla(drawerEl, opened);
+
+  // When the distance changes, update the translateX property.
+  dist$.subscribe((dist) => {
+    const { opacity } = window._drawer;
+    updateSidebar(dist, opacity);
+  });
 
   // Keeping the drawer updated.
   range$.subscribe((range) => {
