@@ -20,8 +20,8 @@ The way I type is pretty fast, but also stupid and wrong. It's 2018 and I need t
 - [x] Lessons 130 - 139
 - [x] Lessons 140 - 149
 - [x] Lessons 150 - 159
-- [ ] Lessons 160 - 169
-- [ ] Lessons 170 - 179
+- [x] Lessons 160 - 169
+- [x] Lessons 170 - 179
 - [ ] Lessons 180 - 189
 - [ ] Lessons 190 - 199
 - [ ] Lessons 200 - 209
