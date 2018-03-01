@@ -19,7 +19,7 @@ tagline:          Digital Geographies & Controversies
 description:      HK-RGC PhD Fellow, City University of Hong Kong
 # Come back to get this right
 url:              https://ralentina.github.io/
-baseurl:          http://ralentina.github.io/
+baseurl:          ""
 
 author:
   name:           Valentina Carraro
