@@ -21,8 +21,8 @@ Most of the world speaks more than one language. I need to get with the program,
 - [x] Sizes
 - [x] Household
 - [x] Occupation
-- [ ] Time
-- [ ] Adjectives 1
+- [x] Time
+- [x] Adjectives 1
 
 ### Part 3
 
