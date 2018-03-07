@@ -22,8 +22,8 @@ The way I type is pretty fast, but also stupid and wrong. It's 2018 and I need t
 - [x] Lessons 150 - 159
 - [x] Lessons 160 - 169
 - [x] Lessons 170 - 179
-- [ ] Lessons 180 - 189
-- [ ] Lessons 190 - 199
+- [x] Lessons 180 - 189
+- [x] Lessons 190 - 199
 - [ ] Lessons 200 - 209
 - [ ] Lessons 210 - 219
 - [ ] Lessons 220 - 229
