@@ -170,7 +170,7 @@ If you want to use the blog layout at a URL like `/my-blog/`, create the followi
 ~~~
 ├── my-blog
 │   └── index.html
-├── my-blog.md
+├── !my-blog.md
 └── _config.yml
 ~~~
 
@@ -185,17 +185,18 @@ title: Blog
 ~~~
 
 (Optional) If you want to add a link to the blog in the sidebar, DO NOT add the `menu` key to the front matter of `my-blog/index.html`.
-Instead, create a new markdown file called `my-blog.md` and add it there:
+Instead, create a new markdown file called `!my-blog.md` with `menu` and `permalink` keys:
 
 ~~~yml
-# file: my-blog.md
+# file: !my-blog.md
 ---
-title: Blog
+title: My Blog
 menu: true
+permalink: /my-blog/
 ---
 ~~~
 
-Finally, in your cofnig file, make sue the `pageinate_path` matches the location of the index file:
+Finally, in your config file, make sue the `paginate_path` matches the `permalink`:
 
 ~~~yml
 # file: _config.yml
