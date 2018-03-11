@@ -18,14 +18,12 @@ import 'core-js/fn/function/bind';
 
 import { of } from 'rxjs/observable/of';
 
-import {
-  tap,
-  finalize,
-  filter,
-  map,
-  switchMap,
-  zip,
-} from 'rxjs/operators';
+import { tap } from 'rxjs/operators/tap';
+import { finalize } from 'rxjs/operators/finalize';
+import { filter } from 'rxjs/operators/filter';
+import { map } from 'rxjs/operators/map';
+import { switchMap } from 'rxjs/operators/switchMap';
+import { zip } from 'rxjs/operators/zip';
 
 import { animate, empty } from '../common';
 

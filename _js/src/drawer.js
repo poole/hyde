@@ -29,16 +29,14 @@ import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { never } from 'rxjs/observable/never';
 
-import {
-  tap,
-  finalize,
-  distinctUntilChanged,
-  map,
-  share,
-  startWith,
-  switchMap,
-  withLatestFrom,
-} from 'rxjs/operators';
+import { tap } from 'rxjs/operators/tap';
+import { finalize } from 'rxjs/operators/finalize';
+import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
+import { map } from 'rxjs/operators/map';
+import { share } from 'rxjs/operators/share';
+import { startWith } from 'rxjs/operators/startWith';
+import { switchMap } from 'rxjs/operators/switchMap';
+import { withLatestFrom } from 'rxjs/operators/withLatestFrom';
 
 // Some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';

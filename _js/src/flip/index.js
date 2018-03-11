@@ -18,8 +18,7 @@ import 'core-js/fn/array/includes';
 import 'core-js/fn/function/bind';
 
 import { merge } from 'rxjs/observable/merge';
-
-import { filter } from 'rxjs/operators';
+import { filter } from 'rxjs/operators/filter';
 
 import setupFLIPTitle from './title';
 

@@ -24,7 +24,9 @@ import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { of } from 'rxjs/observable/of';
 
-import { finalize, take, map } from 'rxjs/operators';
+import { finalize } from 'rxjs/operators/finalize';
+import { take } from 'rxjs/operators/take';
+import { map } from 'rxjs/operators/map';
 
 import elemDataset from 'elem-dataset';
 
