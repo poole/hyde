@@ -21,9 +21,9 @@ import 'core-js/fn/function/bind';
 // We include our main component, hy-drawer,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
+import 'hy-drawer/src/webcomponent/module';
 import { Set } from 'hy-drawer/src/common';
 import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
-import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { fromEvent } from 'rxjs/observable/fromEvent';
@@ -49,9 +49,6 @@ const REQUIREMENTS = new Set([
   'eventlistener',
   'matchmedia',
 ]);
-
-// Threshold before we recognize a touch move.
-const THRESHOLD = 10;
 
 // NOTE: Duplicated values from `_sass_/variables.scss`.
 const CONTENT_WIDTH_5 = 48;
@@ -91,12 +88,7 @@ function getRange() {
 // First it sets the options as HTML attributes, then it `define`s the WebComponent.
 function setupWebComponent(drawerEl, opened) {
   if (opened) drawerEl.setAttribute('opened', '');
-  drawerEl.setAttribute('align', 'left');
-  drawerEl.setAttribute('threshold', isSafari ? 0 : THRESHOLD);
-  drawerEl.setAttribute('prevent-default', '');
-  drawerEl.setAttribute('mouse-events', '');
-
-  customElements.define('hy-drawer', HTMLDrawerElement);
+  if (isSafari) drawerEl.setAttribute('threshold', 0);
   return drawerEl;
 }
 
@@ -104,10 +96,10 @@ function setupWebComponent(drawerEl, opened) {
 function setupVanilla(drawerEl, opened) {
   return new Drawer(drawerEl, {
     opened,
-    align: 'left',
-    threshold: isSafari ? 0 : THRESHOLD,
-    preventDefault: true,
-    mouseEvents: true,
+    align: drawerEl.getAttribute('align') || 'left',
+    threshold: isSafari ? 0 : Number(drawerEl.getAttribute('threshold')),
+    preventDefault: drawerEl.hasAttribute('prevent-default'),
+    mouseEvents: drawerEl.hasAttribute('mouse-events'),
   });
 }
 
@@ -168,12 +160,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // An observable keeping track of the distance between
   // the middle point of the screen and the middle point of the drawer.
   const dist$ = drawerWidth$
-    .pipe(
-      map(drawerWidth => (window.matchMedia(BREAK_POINT_3).matches
-        ? (document.body.clientWidth / 2) - (drawerWidth / 2)
-        : 0)),
-      share(),
-    );
+    .pipe(map(drawerWidth => (window.matchMedia(BREAK_POINT_3).matches
+      ? (document.body.clientWidth / 2) - (drawerWidth / 2)
+      : 0)));
 
   // An observable that keeps track of the range from where the drawer can be drawn.
   // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.

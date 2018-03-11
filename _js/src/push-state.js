@@ -32,9 +32,9 @@ import 'core-js/fn/string/includes';
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
+import 'hy-push-state/src/webcomponent/module';
 import { Set } from 'hy-push-state/src/common';
 import { PushState, VANILLA_FEATURE_TESTS } from 'hy-push-state/src/vanilla';
-import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
@@ -84,11 +84,7 @@ const REQUIREMENTS = new Set([
   'requestanimationframe',
 ]);
 
-// The options of the hy-push-state component.
-const REPLACE_IDS = '_main';
-const LINK_SELECTOR = 'a[href]:not(.external):not(.no-push-state)';
-const SCRIPT_SELECTOR = 'script:not([type^="math/tex"])';
-const HREF_REGEX = /^((?!(\/assets\/)).)*$/;
+// TODO:
 const DURATION = 250;
 
 // Duration of cross-fading the sidebar background images.
@@ -218,26 +214,19 @@ function animateFadeIn({ type, replaceEls: [main], flipType }) {
 // Before we register the WebComponent with the DOM, we set essential properties,
 // some of which depend on browser, standalone mode, etc...
 function setupWebComponent(pushStateEl) {
-  pushStateEl.setAttribute('replace-ids', REPLACE_IDS);
-  pushStateEl.setAttribute('link-selector', LINK_SELECTOR);
-  pushStateEl.setAttribute('duration', DURATION);
   if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
-  pushStateEl.setAttribute('_href-regex', HREF_REGEX);
-  pushStateEl.setAttribute('_script-selector', SCRIPT_SELECTOR);
-
-  customElements.define('hy-push-state', HTMLPushStateElement);
   return pushStateEl;
 }
 
 // Setting up hy-push-state as vanilla JS class.
 function setupVanilla(pushStateEl) {
   return new PushState(pushStateEl, {
-    replaceIds: REPLACE_IDS.split(','),
-    linkSelector: LINK_SELECTOR,
-    duration: DURATION,
+    replaceIds: pushStateEl.getAttribute('replace-ids').split(','),
+    linkSelector: pushStateEl.getAttribute('link-selector'),
+    duration: Number(pushStateEl.getAttribute('duration')),
+    hrefRegex: RegExp(pushStateEl.getAttribute('href-regex')),
+    scriptSelector: pushStateEl.getAttribute('script-selector'),
     scrollRestoration: shouldRestoreScroll(),
-    _hrefRegex: HREF_REGEX,
-    _scriptSelector: SCRIPT_SELECTOR,
   });
 }
 
@@ -453,7 +442,8 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // Then we empty the content immediately to prevent flickering and
     // set the old `scrollHeigt` as the body's `minHeight`.
     fromEvent(window, 'popstate')
-      .pipe(filter(() => window.history.state && window.history.state['hy-push-state'] &&
+      .pipe(filter(() => window.history.state &&
+        window.history.state['hy-push-state'] &&
         !window.history.state['hy-push-state'].hash))
       .subscribe(() => {
         const { scrollHeight } = window.history.state['hy-push-state'];

@@ -1,6 +1,12 @@
 {% include menu.html %}
 
-<hy-push-state>
+<hy-push-state
+  replace-ids="_main"
+  link-selector="a[href]:not(.external):not(.no-push-state)"
+  duration="250"
+  script-selector="script:not([type^='math/tex'])"
+  href-regex="^((?!(\/assets\/)).)*$"
+>
   {% if page.cover %}
     {% include sidebar.html %}
     {% include main.html %}

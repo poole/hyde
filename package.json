@@ -48,8 +48,8 @@
     "color": "^2.0.1",
     "core-js": "^2.5.3",
     "elem-dataset": "^1.1.1",
-    "hy-drawer": "^1.0.0-hydejack.15",
-    "hy-push-state": "^1.0.0-hydejack.15",
+    "hy-drawer": "^1.0.0-pre.1",
+    "hy-push-state": "^1.0.0-pre.1",
     "rxjs": "^5.5.6",
     "web-animations-js": "^2.3.1"
   },

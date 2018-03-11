@@ -1,4 +1,10 @@
-<hy-drawer class="{% if page.cover %}cover{% endif %}">
+<hy-drawer
+  class="{% if page.cover %}cover{% endif %}"
+  align="left"
+  threshold="10"
+  prevent-default
+  mouse-events
+>
   <header id="_sidebar" class="sidebar" role="banner">
     {% if image.background %}
       {% capture bg_style %}background:{{ image.background }}{% endcapture %}
