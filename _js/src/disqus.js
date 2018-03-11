@@ -25,7 +25,7 @@ function loadDisqus2() {
 }
 
 
-export default function loadDisqus() {
+export function loadDisqus() {
   if (document.getElementById('disqus_thread')) {
     if (window.DISQUS) {
       loadDisqus2();

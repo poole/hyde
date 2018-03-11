@@ -20,11 +20,11 @@ import 'core-js/fn/function/bind';
 import { merge } from 'rxjs/observable/merge';
 import { filter } from 'rxjs/operators/filter';
 
-import setupFLIPTitle from './title';
+import { setupFLIPTitle } from './title';
 
 const FLIP_TYPES = ['title'];
 
-export default function setupFLIP(start$, ready$, fadeIn$, options) {
+export function setupFLIP(start$, ready$, fadeIn$, options) {
   const other$ = start$.pipe(filter(({ flipType }) => !FLIP_TYPES.includes(flipType)));
 
   return merge(

@@ -48,24 +48,24 @@ function renderKatex(el) {
   }
 }
 
-export default function upgradeMathBlocks() {
-  if (featuresOk) {
+export const upgradeMathBlocks = !featuresOk
+  ? () => {}
+  : () => {
     const mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
     if (mathBlocks.length) {
       if (katexJSLoaded && katexCSSLoaded) {
         Array.from(mathBlocks).forEach(renderKatex);
       } else {
-        window.loadJSDeferred(document.getElementById('_katexJS').href, () => {
+        window.loadJS(document.getElementById('_katexJS').href).onload = () => {
           katexJSLoaded = true;
           if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-        });
+        };
         window.loadCSS(document.getElementById('_katexCSS').href).onload = () => {
           katexCSSLoaded = true;
           if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
         };
       }
     }
-  }
-}
+  };
 
 upgradeMathBlocks();

@@ -39,7 +39,7 @@ const pseudoHash = ({
   background, color, image, overlay,
 }) => `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
 
-export default class CrossFader {
+export class CrossFader {
   constructor(fadeDuration) {
     const main = document.getElementById('_main');
     const pageStyle = document.getElementById('_pageStyle');
