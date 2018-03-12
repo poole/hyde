@@ -62,7 +62,7 @@ copyright:             © 2017. All rights reserved.
 #     href:              /cookies-policy/
 
 # Format of the permalinks
-permalink:             pretty
+permalink:             /blog/:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              5
@@ -74,7 +74,7 @@ paginate_path:         /page-:num/
 
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/sidebar-bg.jpg
-accent_color:          rgb(79, 177, 186)
+accent_color:          rgb(79,177,186)
 
 # The string encoding which fonts to fetch from Google Fonts.
 # See: <https://qwtel.com/hydejack/docs/configuration/>
@@ -159,11 +159,11 @@ hydejack:
 
 collections:
   featured_categories:
-    permalink:         /category/:name/
+    permalink:         /blog/:name/
     output:            true
 
   featured_tags:
-    permalink:         /tag/:name/
+    permalink:         /tag-:name/
     output:            true
 
   projects:

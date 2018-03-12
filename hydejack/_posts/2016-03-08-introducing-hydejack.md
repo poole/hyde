@@ -6,6 +6,7 @@ description: >
   stolen by [@qwtel](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com).
   You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 excerpt_separator: <!--more-->
+redirect_from: /2016/03/08/introducing-hydejack/
 ---
 
 ## Features
