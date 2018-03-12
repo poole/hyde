@@ -24,21 +24,21 @@ A [portfolio], a [resume] layout and a [welcome] page to feature your favorite p
 
 This table details what is and isn't included in each respective version.
 
-|                                     | Free                                   | PRO                                          |
-|:------------------------------------|:--------------------------------------:|:--------------------------------------------:|
-| Blog                                | &#x2714;                               | &#x2714;                                     |
-| [Features][feat]                    | &#x2714;                               | &#x2714;                                     |
-| [Portfolio] Layout                  |                                        | &#x2714;                                     |
-| [Resume] Layout                     |                                        | &#x2714;                                     |
-| [Welcome] Layout                    |                                        | &#x2714;                                     |
-| [Newsletter Box][news]              |                                        | &#x2714;                                     |
-| [Custom Forms][forms]               |                                        | &#x2714;                                     |
-| No Hydejack Branding                |                                        | &#x2714;                                     |
-| License                             | [GPL-3.0][license]                     | [PRO]                                        |
-| Source                              | [GitHub][src]                          | Included                                     |
-| Support[^1]                         | No                                     | No                                           |
-| Price                               | Free                                   | $59                                          |
-| | [**Download**][kit] | [**Buy Now**][buy]{:.gumroad-button} |
+|| Free | PRO |
+|:-|:-:|:-:|
+| Blog | &#x2714; | &#x2714; |
+| [Features][feat] | &#x2714; | &#x2714; |
+| [Portfolio] || &#x2714; |
+| [Resume] || &#x2714; |
+| [Welcome] || &#x2714; |
+| [Newsletter Box][news] ||  &#x2714; |
+| [Custom Forms][forms] || &#x2714; |
+| No Hydejack Branding || &#x2714; |
+| License | [GPL-3.0][license] | [PRO] |
+| Source | [GitHub][src] | Included |
+| Support[^1] | No | No |
+| Price | Free | $59 |
+|| [**Download**][kit] | [**Buy PRO**][buy]{:.gumroad-button} |
 {:.stretch-table}
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.

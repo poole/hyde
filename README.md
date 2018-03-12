@@ -22,7 +22,7 @@ Both versions include these features:
 * Full in-app page loading, powered by [hy-push-state]
 * A customizable sidebar that turns into a drawer menu on mobile, powered by [hy-drawer]
 * Advanced FLIP animations, inspired by Material Design
-* Good [Google PageSpeed Score][gpss][^3]
+* Good [Google PageSpeed Score][gpss][^2]
 * Higher *perceived speed* thanks to content pre-fetching
 * [Syntax highlighting][syntax], powered by [Rouge]
 * [LaTeX math blocks][latex], powered by [KaTeX]
@@ -51,31 +51,28 @@ A [portfolio], a [resume] layout and a [welcome] page to feature your favorite p
 
 This table details what is and isn't included in each respective version.
 
-|                                     | Free                                   | PRO                                          |
-|:------------------------------------|:--------------------------------------:|:--------------------------------------------:|
-| Blog                                | &#x2714;                               | &#x2714;                                     |
-| [Features][feat]                    | &#x2714;                               | &#x2714;                                     |
-| [Portfolio] Layout                  |                                        | &#x2714;                                     |
-| [Resume] Layout                     |                                        | &#x2714;                                     |
-| [Welcome] Layout                    |                                        | &#x2714;                                     |
-| [Newsletter Box][news]              |                                        | &#x2714;                                     |
-| [Custom Forms][forms]               |                                        | &#x2714;                                     |
-| No Hydejack Branding                |                                        | &#x2714;                                     |
-| License                             | [GPL-3.0][license]                     | [PRO]                                        |
-| Source                              | [GitHub][src]                          | Included                                     |
-| Support[^1]                         | No                                     | No                                           |
-| Price                               | Free                                   | $59                                          |
-|                                     | [**Download**][kit]                    | [**Buy Now - $59**][buy] [^2]                |
-{:.stretch-table}
+|| Free | PRO |
+|:-|:-:|:-:|
+| Blog | &#x2714; | &#x2714; |
+| [Features][feat] | &#x2714; | &#x2714; |
+| [Portfolio] || &#x2714; |
+| [Resume] || &#x2714; |
+| [Welcome] || &#x2714; |
+| [Newsletter Box][news] ||  &#x2714; |
+| [Custom Forms][forms] || &#x2714; |
+| No Hydejack Branding || &#x2714; |
+| License | [GPL-3.0][license] | [PRO] |
+| Source | [GitHub][src] | Included |
+| Support[^1] | No | No |
+| Price | Free | $59 |
+|| [**Download**][kit] | [**Buy PRO**][buy] |
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
       You understand that using Jekyll requires technical know-how, and is NOT comparable to Wordpress in terms of usability.
       Please use the free version to confirm that Hydejack works for you.
       For more, see the [PRO] license.
 
-[^2]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
-
-[^3]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
+[^2]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.  
 
 ~~~
  __  __                __                                     __
