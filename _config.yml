@@ -125,10 +125,6 @@ hydejack:
   # Set to `true` if you want to disable the drawer
   no_drawer:           false
 
-  # Set to `true` if you do not want parts of the css inlined in <head/>
-  # This *may* be benefitial when serving the site over HTTP/2.
-  no_inline_css:       false
-
   # Code blocks and tables "break" the layout by spanning the full available width.
   # Set this to true if you want them to be the same width as other content.
   no_break_layout:     false
