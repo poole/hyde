@@ -46,7 +46,18 @@ async function getFiles(dir) {
     const prev = vPrev.replace(/\./g, '\\.');
     const prevRegExp = new RegExp(prev, 'g');
 
-    const pFiles = Promise.all(FILES
+    const [...args] = await Promise.all([
+      FILES,
+      getFiles('./hyde/_posts'),
+      getFiles('./hydejack/_posts'),
+      getFiles('./_projects'),
+      getFiles('./docs'),
+    ]);
+
+    const files = Array.prototype.concat.call(...args);
+
+    const pFiles = Promise.all(files
+      .filter(([f]) => !f.startsWith('.'))
       .map(f => [f, readFile(f, ENC)])
       .map(async ([f, p]) => {
         const content = await p;
