@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // Compress via uglify:
-// uglifyjs load-js-deferred.js -c -m > load-js-deferred.min.js
+// uglifyjs load-js.js -c -m > load-js.min.js
 (function (window, document) {
   function stdOnEnd(script, cb) {
     script.onload = function () {
@@ -57,12 +57,5 @@
 
   window.loadJSDeferred = function (src, cb) {
     return window.loadJS(src, cb, true);
-  };
-
-  window.setRelStylesheet = function (id) {
-    var link = document.getElementById(id);
-    function setRel() { this.rel = 'stylesheet'; }
-    if (link.addEventListener) link.addEventListener('load', setRel, false);
-    else link.onload = setRel;
   };
 })(window, document);
