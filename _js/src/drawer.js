@@ -21,8 +21,8 @@ import 'core-js/fn/function/bind';
 // We include our main component, hy-drawer,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import 'hy-drawer/src/webcomponent/module';
 import { Set } from 'hy-drawer/src/common';
+import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
 import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
@@ -89,6 +89,7 @@ function getRange() {
 function setupWebComponent(drawerEl, opened) {
   if (opened) drawerEl.setAttribute('opened', '');
   if (isSafari) drawerEl.setAttribute('threshold', 0);
+  window.customElements.define('hy-drawer', HTMLDrawerElement);
   return drawerEl;
 }
 

@@ -32,8 +32,8 @@ import 'core-js/fn/string/includes';
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import 'hy-push-state/src/webcomponent/module';
 import { Set } from 'hy-push-state/src/common';
+import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
 import { PushState, VANILLA_FEATURE_TESTS } from 'hy-push-state/src/vanilla';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
@@ -215,6 +215,7 @@ function animateFadeIn({ type, replaceEls: [main], flipType }) {
 // some of which depend on browser, standalone mode, etc...
 function setupWebComponent(pushStateEl) {
   if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
+  window.customElements.define('hy-push-state', HTMLPushStateElement);
   return pushStateEl;
 }
 
