@@ -251,13 +251,6 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     setupButton(btnBarEl, '_back-template', () => window.history.back());
   }
 
-  // Upgrade headlines to include headline-level `#` links.
-  const initialMain = document.getElementById('_main');
-  Array.from(initialMain.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading);
-
-  // Remove the CSS fade-in class (to avoid playing it again)
-  initialMain.classList.remove('fade-in');
-
   // Setting up the basic event observables.
   // In case of a start event we also add the `flipType` to the context,
   // so that we can use filter based on it later.
@@ -299,7 +292,6 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // * If we are going to animate the content, make some preparations.
     tap(({ type, main }) => {
       if (shouldAnimate(type)) {
-        main.style.pointerEvents = 'none';
         main.style.opacity = 0;
       }
       /*
@@ -331,18 +323,29 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // The `ready` event occurs when we've received the content from the server
   // and it is parsed as a document fragment, but before we add it to the DOM.
   // This is were we can make some changes to the content without triggering repaints.
-  ready$.subscribe(({ replaceEls: [main] }) => {
-    loading.style.display = 'none';
-    main.classList.remove('fade-in');
-    Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading);
-    main.style.pointerEvents = 'none';
-  });
+  ready$
+    .pipe(startWith({ replaceEls: [document.getElementById('_main')] }))
+    .subscribe(({ replaceEls: [main] }) => {
+      loading.style.display = 'none';
+      main.classList.remove('fade-in');
+      Array.from(main.querySelectorAll(HEADING_SELECTOR))
+        .forEach(upgradeHeading);
+    });
+
+  after$
+    .pipe(startWith({ replaceEls: [document.getElementById('_main')] }))
+    .subscribe(({ replaceEls: [main] }) => {
+      Array.from(main.querySelectorAll('li[id^="fn:"]'))
+        .forEach((li) => { li.tabIndex = 0; });
+      Array.from(main.querySelectorAll('a[href^="#fn:"]'))
+        .forEach(a => a.addEventListener('click', e =>
+          document.getElementById(e.currentTarget.hash.substr(1)).focus()));
+    });
 
   // ### Fade new content in
   // `after` new content is added to the DOM, start animating it.
   const fadeIn$ = after$.pipe(
     switchMap(animateFadeIn),
-    tap(({ main }) => { main.style.pointerEvents = ''; }),
     share(),
   );
 
@@ -428,7 +431,6 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
     const main = document.getElementById('_main');
     empty.call(main);
-    main.style.pointerEvents = '';
     main.style.opacity = '';
 
     setupErrorPage(main, url);

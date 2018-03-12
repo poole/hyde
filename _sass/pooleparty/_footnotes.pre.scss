@@ -46,6 +46,17 @@ sup {
 
   > ol {
     color: $gray;
+
+    > li {
+      padding: .5rem;
+      margin-left: .5rem;
+      > p { margin: 0; }
+      &:focus {
+        outline: none;
+        color: $gray-text;
+        background: $gray-bg;
+      }
+    }
   }
 
   &::before {
