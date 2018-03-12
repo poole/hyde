@@ -16,6 +16,8 @@
 // Compress via uglify:
 // uglifyjs load-js.js -c -m > load-js.min.js
 (function (window, document) {
+  'use strict';
+
   function stdOnEnd(script, cb) {
     script.onload = function () {
       this.onerror = this.onload = null;
