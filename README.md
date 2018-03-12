@@ -90,7 +90,7 @@ This table details what is and isn't included in each respective version.
 ~~~
 
 [blog]: https://qwtel.com/hydejack/blog/
-[portfolio]: https://qwtel.com/hydejack/variations/
+[portfolio]: https://qwtel.com/hydejack/projects/
 [resume]: https://qwtel.com/hydejack/resume/
 [download]: https://qwtel.com/download/
 [welcome]: https://qwtel.com/hydejack/
@@ -109,7 +109,7 @@ This table details what is and isn't included in each respective version.
 [src]: https://github.com/qwtel/hydejack
 [git]: https://github.com/qwtel/hydejack-starter-kit
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
-[buy]: https://app.simplegoods.co/i/AQTTVBOE
+[buy]: https://gum.co/ZCAsn
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
 [wiki]: https://github.com/qwtel/hydejack/blob/master/docs/8.0.0-alpha.14/index.md

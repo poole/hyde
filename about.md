@@ -37,8 +37,8 @@ This table details what is and isn't included in each respective version.
 | License                             | [GPL-3.0][license]                     | [PRO]                                        |
 | Source                              | [GitHub][src]                          | Included                                     |
 | Support[^1]                         | No                                     | No                                           |
-| Price                               | Free                                   | $29                                          |
-|                                     | [**Download**][kit]                    | [**Buy Now - $29**][buy] [^2]                |
+| Price                               | Free                                   | $59                                          |
+| | [**Download**][kit] | [**Buy Now**][buy]{:.gumroad-button} |
 {:.stretch-table}
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
@@ -113,7 +113,7 @@ you can build a custom newsletter subscription box using [custom forms][forms].
 ### Free Version
 The *free version* features the design and tech of **Hydejack**, but only supports basic blogging.
 
-[**Download**][kit]
+[**Download Free**][kit]
 
 ### PRO Version
 The *PRO version* aims to be the complete package for professionals on the web.
@@ -122,9 +122,7 @@ your [resume] (with support for [JSON Resume](https://jsonresume.org/)),
 a [welcome] page to introduce yourself to visitors,
 built-in support for [Tinyletter], and from element styles so you can build arbitrary contact forms.
 
-[**Buy Now - $29**][buy] [^2]
-
-[^2]: Transactions secured by [Stripe](https://stripe.com). Downloads handled by [Simple Goods](https://simplegoods.co/).  
+[**Buy PRO - $59**][buy]{:.gumroad-button}
 
 [blog]: https://qwtel.com/hydejack/blog/
 [portfolio]: https://qwtel.com/hydejack/variations/
@@ -145,7 +143,7 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 [kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v7.5.0.zip
 [src]: https://github.com/qwtel/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
-[buy]: https://app.simplegoods.co/i/AQTTVBOE
+[buy]: https://gum.co/ZCAsn
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
 [wiki]: https://github.com/qwtel/hydejack/blob/master/docs/8.0.0-alpha.14/index.md

@@ -1,9 +1,10 @@
-{% comment %}
+<script src="https://gumroad.com/js/gumroad.js" defer></script>
+
 <!--
 This is the CloudFlare mail protection script.
 CloudFlare will inject this on every page, but due to Hydejack's push state approach to page loading,
 it will only run on the initial page.
-To counteract this, the snippet below will run the code on every dynamic `hy-push-state-load` event.
+The snippet below will run the code on every dynamic `hy-push-state-load` event.
 -->
 <script>
   document.getElementsByTagName('hy-push-state')[0].addEventListener('hy-push-state-load', function (e) {
@@ -52,4 +53,3 @@ To counteract this, the snippet below will run the code on every dynamic `hy-pus
     }()
   });
 </script>
-{% endcomment %}
