@@ -97,7 +97,9 @@ export class CrossFader {
 
   updateStyle({ color = '#4fb1ba', themeColor } = {}) {
     if (this.themeColor) {
-      this.themeColor.content = themeColor || color;
+      window.setTimeout(() => {
+        this.themeColor.content = themeColor || color;
+      }, 250);
     }
 
     if (this.rules) {
