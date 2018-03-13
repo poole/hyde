@@ -14,6 +14,11 @@ author1:
 
     Open `_data/authors.yml` to edit this text.
 
+    [**Download Free**][kit] -- or -- [**Buy PRO**][buy]{:.gumroad-button}
+
+    [kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v7.5.0.zip
+    [buy]: https://gum.co/ZCAsn
+
   # This photo will be used in the about section
   picture:
     path:            https://placehold.it/128x128
