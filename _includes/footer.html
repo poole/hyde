@@ -6,7 +6,7 @@
   {% if site.legal.size > 0 %}
     <nav class="legal"><small>
     {% for le in site.legal %}
-      <a href="{% include smart-url url=le.href %}">{{ le.name | default:le.title }}</a>
+      <a class="heading flip-title" href="{% include smart-url url=le.href %}">{{ le.name | default:le.title }}</a>
       {% unless forloop.last %}{{ site.data.strings.separator | default:'|' }}{% endunless %}
     {% endfor %}
     </small></nav>
