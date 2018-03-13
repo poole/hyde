@@ -9,9 +9,9 @@ excerpt_separator: <!--more-->
 redirect_from: /2016/03/08/introducing-hydejack/
 ---
 
-## Features
-Unlike Hyde, it's very opinionated about how you are going to use it.
+Unlike Hyde, Hydejack is very opinionated about how you are going to use it.
 
+## Features
 Features include:
 
 * Touch-enabled sidebar / drawer for mobile, including fallback when JS is disabled.
