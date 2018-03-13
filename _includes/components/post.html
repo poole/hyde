@@ -18,19 +18,19 @@
       {% assign tag_start          = site.data.strings.tag_start          | default:"on " %}
       {% assign category_separator = site.data.strings.category_separator | default:" / " %}
       {% assign tag_separator      = site.data.strings.tag_separator      | default:", "  %}
-      {% include tag-list.html tags=post.categories meta=site.featured_categories start_with=category_start separator=category_separator %}
-      {% include tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
+      {% include components/tag-list.html tags=post.categories meta=site.featured_categories start_with=category_start separator=category_separator %}
+      {% include components/tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
     </p>
 
     {% assign alt = false %}
     {% unless hide_image %}{% if post.image %}
       <div class="img lead sixteen-nine">
-        {% include srcset-img.html img=post.image %}
+        {% include components/srcset-img.html img=post.image %}
       </div>
       {% assign alt = '' %}
     {% endif %}{% endunless %}
 
-    {% include message.html text=post.description hide=page.hide_description alt=alt %}
+    {% include components/message.html text=post.description hide=page.hide_description alt=alt %}
   </header>
 
   {% if no_excerpt %}

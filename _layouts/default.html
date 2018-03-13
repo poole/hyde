@@ -22,7 +22,7 @@ layout: base
 <article class="page" role="article">
   <header>
     <h1 class="page-title">{{ page.title | default:strings.home | default:"Home" }}</h1>
-    {% include message.html text=page.description hide=page.hide_description %}
+    {% include components/message.html text=page.description hide=page.hide_description %}
   </header>
 
   {{ content }}
@@ -33,7 +33,7 @@ layout: base
     <h2 class="hr">{{ strings.posts | default:"Posts" }}</h2>
     <ul class="related-posts">
       {% for post in site.posts limit:5 %}
-        {% include post-list-item.html post=post %}
+        {% include components/post-list-item.html post=post %}
       {% endfor %}
     </ul>
   {% endif %}

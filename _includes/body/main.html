@@ -5,7 +5,7 @@
   data-color="{{ color | escape }}"
   data-theme-color="{{ theme_color | escape }}"
   {% unless image.background %}
-    data-image="{% if image == 'none' %}none{% else %}{% capture tmp %}{% include smart-url url=image %}{% endcapture %}{{ tmp | escape }}{% endif %}"
+    data-image="{% if image == 'none' %}none{% else %}{% capture tmp %}{% include smart-url.txt url=image %}{% endcapture %}{{ tmp | escape }}{% endif %}"
     {% if image != 'none' %}data-overlay{% endif %}
   {% else %}
     data-background="{{ image.background | escape }}"
@@ -13,6 +13,6 @@
   {% endunless %}
   >
   {{ content }}
-  {% include comments.html %}
-  {% include footer.html %}
+  {% include body/comments.html %}
+  {% include body/footer.html %}
 </main>

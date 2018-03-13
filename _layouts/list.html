@@ -32,7 +32,7 @@ layout: base
 {% if page.title.size > 0 %}
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
-    {% include message.html text=page.description hide=page.hide_description %}
+    {% include components/message.html text=page.description hide=page.hide_description %}
   </header>
   <hr class="sr-only"/>
 {% endif %}
@@ -51,6 +51,6 @@ layout: base
     <ul class="related-posts">
     {% assign date = currentdate %}
   {% endif %}
-  {% include post-list-item.html post=post format=list_entry %}
+  {% include components/post-list-item.html post=post format=list_entry %}
   {% if forloop.last %}</ul>{% endif %}
 {% endfor %}

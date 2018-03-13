@@ -23,17 +23,17 @@ layout: base
   <!-- {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
 
   {% if author.picture %}
-    {% include srcset-img.html class="avatar" img=author.picture alt=author.name %}
+    {% include components/srcset-img.html class="avatar" img=author.picture alt=author.name %}
   {% elsif plugins contains 'jekyll-avatar' %}
     {% assign avatar = author.social.github | default:author.github.username | default:author.github %}
-    {% include avatar-tag.html user=avatar %}
+    {% include components/avatar-tag.html user=avatar %}
   {% endif %} -->
 
   <h1 class="page-title hr">{{ page.title }}</h1>
 
   <!-- {{ author.about | markdownify }} -->
 
-  {% include message.html text=page.description hide=page.hide_description alt="" %}
+  {% include components/message.html text=page.description hide=page.hide_description alt="" %}
 
   {{ content }}
 </article>

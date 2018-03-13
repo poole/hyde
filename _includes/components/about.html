@@ -3,6 +3,6 @@
 {% if author.about %}
   <aside class="about related mt4 mb4" role="complementary">
     {% assign about_heading = site.data.strings.about | default:"About" %}
-    {% include author.html author=author heading=about_heading heading_tag='h2' %}
+    {% include components/author.html author=author heading=about_heading heading_tag='h2' %}
   </aside>
 {% endif %}

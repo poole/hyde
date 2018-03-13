@@ -1,4 +1,4 @@
-{% include menu.html %}
+{% include body/menu.html %}
 
 <hy-push-state
   replace-ids="_main"
@@ -8,12 +8,14 @@
   href-regex="^((?!(\/assets\/)).)*$"
 >
   {% if page.cover %}
-    {% include sidebar.html %}
-    {% include main.html %}
+    {% include body/sidebar.html %}
+    {% include body/main.html %}
   {% else %}
-    {% include main.html %}
-    {% include sidebar.html %}
+    {% include body/main.html %}
+    {% include body/sidebar.html %}
   {% endif %}
 </hy-push-state>
 
-{% include scripts.html %}
+{% include body/scripts.html %}
+
+{% include templates/index.html %}

@@ -4,10 +4,10 @@
   {% assign author = include.author %}
 
   {% if author.picture %}
-    {% include srcset-img.html class="avatar" img=author.picture alt=author.name %}
+    {% include components/srcset-img.html class="avatar" img=author.picture alt=author.name %}
   {% elsif plugins contains 'jekyll-avatar' %}
     {% assign avatar = author.social.github | default:author.github.username | default:author.github  %}
-    {% include avatar-tag.html user=avatar %}
+    {% include components/avatar-tag.html user=avatar %}
   {% endif %}
 
   {% assign heading_tag = include.heading_tag | default:'h2' %}
@@ -19,6 +19,6 @@
   {{ .author.about | markdownify }}
 
   <div class="sidebar-social">
-    {% include social.html author=author %}
+    {% include components/social.html author=author %}
   </div>
 </div>

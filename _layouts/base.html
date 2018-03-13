@@ -24,14 +24,13 @@ layout: compress
 {% assign image       = site.accent_image | default:'/assets/img/sidebar-bg.jpg' %}
 
 {% if page.accent_color %}{% assign color = page.accent_color %}{% endif %}
-{% if page.theme_color %}{% assign theme_color = page.theme_color %}{% endif %}
+{% if page.theme_color  %}{% assign theme_color = page.theme_color %}{% endif %}
 {% if page.accent_image %}{% assign image = page.accent_image %}{% endif %}
 
 <head>
-  {% include head.html %}
+  {% include head/index.html %}
 </head>
 
 <body>
-  {% include body.html %}
-  {% include templates.html %}
+  {% include body/index.html %}
 </body>

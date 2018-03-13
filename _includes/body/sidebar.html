@@ -10,7 +10,7 @@
       {% capture bg_style %}background:{{ image.background }}{% endcapture %}
       {% capture bg_class %}sidebar-bg {% if image.overlay %}sidebar-overlay{% endif %}{% endcapture %}
     {% else %}
-      {% capture bg_style %}background-color:{{ color }};{% if image != 'none' %}background-image:url({% include smart-url url=image %}){% endif %}{% endcapture %}
+      {% capture bg_style %}background-color:{{ color }};{% if image != 'none' %}background-image:url({% include smart-url.txt url=image %}){% endif %}{% endcapture %}
       {% capture bg_class %}sidebar-bg {% if image != 'none' %}sidebar-overlay{% endif %}{% endcapture %}
     {% endif %}
     <div class="{{ bg_class }}" style="{{ bg_style }}"></div>
@@ -19,7 +19,7 @@
       <div class="sidebar-about">
         {% if site.logo %}
           <a class="no-hover" href="{{ '/' | relative_url }}">
-            {% include srcset-img.html class="avatar" img=site.logo alt=site.title %}
+            {% include components/srcset-img.html class="avatar" img=site.logo alt=site.title %}
           </a>
         {% endif %}
         <h2 class="h1"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
@@ -32,13 +32,13 @@
       </div>
 
       <nav class="sidebar-nav heading" role="navigation">
-        {% include nav.html %}
+        {% include body/nav.html %}
       </nav>
 
       {% assign author = site.data.authors.first[1] | default:site.author %}
 
       <div class="sidebar-social">
-        {% include social.html author=author %}
+        {% include components/social.html author=author %}
       </div>
     </div>
   </header>
