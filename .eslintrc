@@ -5,7 +5,7 @@
   },
   "globals": {
     "loadCSS": true,
-    "loadJSDeferred": true,
+    "loadJS": true,
   },
   "rules": {
     "no-param-reassign": "off",
