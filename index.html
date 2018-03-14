@@ -1,37 +1,99 @@
----
-layout: default
-title: Home
----
+<!DOCTYPE html>
+<html lang='eng'>
+<head>
+  <title>Jacob DeCourcey | Portfolio</title>
+  <meta charset='utf-8'>
+  <script defer src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+  <link rel="icon" type="image/png" href="logo.png" />
+  <link rel="stylesheet" type="text/css" href="styles.css" />
+  <link href="https://fonts.googleapis.com/css?family=Lato|Oswald" rel="stylesheet">
+</head>
+<body>
+  <header>
+    <div class='topper'>
+      <nav>
+        <a href='#About'>About</a>
+        <a href='#Portfolio'>Portfolio</a>
+        <a href='#Contact'>Contact</a>
+      </nav>
+    </div>
+  </header>
+  <main>
+    <section class='hero' id='About'>
+      <!--hero-->
+      <div>
+        <p>I'm a Front-End Developer in Culpeper, VA with practical experience in graphic design, sales, public speaking, copywriting, and branding. I love learning new things, systems-thinking, and a powerful vision for the future.
+        </p>
 
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
-  </div>
-  {% endfor %}
+        <h4>HTML5 // CSS3 // JavaScript</h4>
+      </div>
+      <img src='https://github.com/jakedecourcey/Portfolio/raw/master/images/headshot.jpg' alt='A headshot of me'>
+    </section>
+    <section class='portfolio' id='Portfolio'>
+      <!--portfolio-->
+      <h2>Portfolio</h2>
+      <div class='portfolio-flex'>
+        <div class="portfolio-item"><a href="https://github.com/jakedecourcey/Progressive-Missions-Website"><img class="portfolio-img" src='https://github.com/jakedecourcey/Portfolio/raw/master/images/progressive-missions.png'></a></div>
+        <div class="portfolio-item"><a href="https://github.com/jakedecourcey/Practice-Site-1"><img class="portfolio-img" src='https://github.com/jakedecourcey/Portfolio/raw/master/images/practice-site-1.png'></a></div>
+        <div class="portfolio-item"><a href="https://github.com/jakedecourcey/calculator"><img class="portfolio-img" src='https://github.com/jakedecourcey/Portfolio/raw/master/images/calculator.png'></a></div>
+        <div class="portfolio-item"><a href="https://github.com/jakedecourcey/purrfect-match"><img class="portfolio-img" src='https://github.com/jakedecourcey/Portfolio/raw/master/images/purrfect-match.png'></a></div>
+      </div>
+    </section>
+    <section class='contact' id='Contact'>
+      <!--contact-->
+      <h2>Contact</h2>
+      <div class='contact-flex'>
+        <div class='contact-form'>
+          <form id='Form'>
+            <input type='text' name='name' placeholder="Your Name">
+            <br>
+            <input type='email' name='email' placeholder="Your Email">
+            <br>
+            <input type='tel' name='tel' placeholder="Your Phone">
+            <br>
+            <input type='textarea' name='message' placeholder="Your Message">
+            <br>
+            <button type="submit" name="" value="">Submit</button>
+          </form>
+        </div>
+        <div class='cta'>
+<div class='cta-line'>
+          <a href='#Form'><i class="fas fa-arrow-left fa-fw"></i> Fill out the form</a>
+</div>
+<div class='cta-line'>
+          <a href='mailto:jakedecourcey@gmail.com'><i class="fas fa-envelope fa-fw"></i> Email me at JakeDeCourcey@gmail.com</a>
+</div>
+	  <div class='cta-line'>
+          <a href='tel:15402223271'><i class="fas fa-phone fa-fw"></i> Call me at 540.222.3271</a>
+</div>
+<div class='cta-line'>
+          <a href='sms:15402223271'><i class="fas fa-comments fa-fw"></i> Text me at 540.222.3271</a>
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>
+
+        </div>
+      </div>
+    </section>
+  </main>
+  <footer>
+    <div class='footer-flex'>
+      <div>
+        <a href='https://www.linkedin.com/in/jakedecourcey'><i class="fab fa-linkedin fa-2x"></i></a>
+        <a href='https://www.linkedin.com/in/jakedecourcey'>  LinkedIn</a>
+      </div>
+      <div>
+        <a href='https://www.github.com/jakedecourcey'><i class="fab fa-github-square fa-2x"></i></a>
+        <a href='https://www.github.com/jakedecourcey'>  GitHub</a>
+      </div>
+      <div>
+        <a href='https://codepen.io/jakedecourcey/#'><i class="fab fa-codepen fa-2x"></i></a>
+        <a href='https://codepen.io/jakedecourcey/#'>  CodePen</a>
+      </div>
+      <div>
+        <a href='blog.html'><i class="fas fa-file-alt fa-2x"></i></a>
+        <a href='blog.html'>  Blog</a>
+      </div>
+    </div>
+  </footer>
+</body>
+</html>
