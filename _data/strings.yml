@@ -92,10 +92,6 @@ tinyletter:
     {:.faded}
 
 welcome:
-  selected_projects:   Selected Projects
-  selected_posts:      Selected Posts
-  recent_projects:     Recent Projects
-  recent_posts:        Recent Posts
   more_projects:       See <!--projects_title--> for more
   more_posts:          See <!--posts_title--> for more
 
