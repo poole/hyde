@@ -36,6 +36,9 @@ import { Set } from 'hy-push-state/src/common';
 import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
 import { PushState, VANILLA_FEATURE_TESTS } from 'hy-push-state/src/vanilla';
 
+import { HyImageElement } from 'hy-img/src/webcomponent';
+import { HyImage } from 'hy-img/src/vanilla';
+
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
 
@@ -330,6 +333,11 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       main.classList.remove('fade-in');
       Array.from(main.querySelectorAll(HEADING_SELECTOR))
         .forEach(upgradeHeading);
+
+      if (!('customElements' in window)) {
+        Array.from(main.getElementsByTagName('hy-img'))
+          .forEach((el) => { el.hyImage = new HyImage(el, {}); });
+      }
     });
 
   after$
@@ -337,6 +345,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     .subscribe(({ replaceEls: [main] }) => {
       Array.from(main.querySelectorAll('li[id^="fn:"]'))
         .forEach((li) => { li.tabIndex = 0; });
+
       Array.from(main.querySelectorAll('a[href^="#fn:"]'))
         .forEach(a => a.addEventListener('click', e =>
           document.getElementById(e.currentTarget.hash.substr(1)).focus()));
@@ -468,4 +477,8 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   window._pushState = 'customElements' in window
     ? setupWebComponent(pushStateEl)
     : setupVanilla(pushStateEl);
+
+  if ('customElements' in window) {
+    window.customElements.define('hy-img', HyImageElement);
+  }
 }
