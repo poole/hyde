@@ -32,12 +32,7 @@ import 'core-js/fn/string/includes';
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import { Set } from 'hy-push-state/src/common';
-import { HTMLPushStateElement } from 'hy-push-state/src/webcomponent';
-import { PushState, VANILLA_FEATURE_TESTS } from 'hy-push-state/src/vanilla';
-
-import { HyImageElement } from 'hy-img/src/webcomponent';
-import { HyImage } from 'hy-img/src/vanilla';
+import { HyPushStateElement, WEBCOMPONENT_FEATURE_TESTS } from 'hy-push-state/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
@@ -63,6 +58,8 @@ import { take } from 'rxjs/operators/take';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { zip } from 'rxjs/operators/zip';
 
+import { Set } from 'qd-set';
+
 // Some of our own helper functions and classes.
 import { animate, empty, getResolvablePromise, hasFeatures, isSafari, isFirefoxIOS }
   from './common';
@@ -74,7 +71,7 @@ import { setupFLIP } from './flip';
 // ## Constants
 // A list of Modernizr feature tests that are required for the push state feature to work.
 const REQUIREMENTS = new Set([
-  ...VANILLA_FEATURE_TESTS,
+  ...WEBCOMPONENT_FEATURE_TESTS,
   'classlist',
   'cssanimations',
   'cssremunit',
@@ -216,22 +213,10 @@ function animateFadeIn({ type, replaceEls: [main], flipType }) {
 
 // Before we register the WebComponent with the DOM, we set essential properties,
 // some of which depend on browser, standalone mode, etc...
-function setupWebComponent(pushStateEl) {
+function defineWebComponent(pushStateEl) {
   if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
-  window.customElements.define('hy-push-state', HTMLPushStateElement);
+  window.customElements.define('hy-push-state', HyPushStateElement);
   return pushStateEl;
-}
-
-// Setting up hy-push-state as vanilla JS class.
-function setupVanilla(pushStateEl) {
-  return new PushState(pushStateEl, {
-    replaceIds: pushStateEl.getAttribute('replace-ids').split(','),
-    linkSelector: pushStateEl.getAttribute('link-selector'),
-    duration: Number(pushStateEl.getAttribute('duration')),
-    hrefRegex: RegExp(pushStateEl.getAttribute('href-regex')),
-    scriptSelector: pushStateEl.getAttribute('script-selector'),
-    scrollRestoration: shouldRestoreScroll(),
-  });
 }
 
 // ## Main
@@ -333,11 +318,6 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       main.classList.remove('fade-in');
       Array.from(main.querySelectorAll(HEADING_SELECTOR))
         .forEach(upgradeHeading);
-
-      if (!('customElements' in window)) {
-        Array.from(main.getElementsByTagName('hy-img'))
-          .forEach((el) => { el.hyImage = new HyImage(el, {}); });
-      }
     });
 
   after$
@@ -474,11 +454,5 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // ### Create the component
   // If we have Custom Elements, use the WebComponent (it doesn't use ShadowDOM, so we are fine),
   // otherwise use the vanilla JS version.
-  window._pushState = 'customElements' in window
-    ? setupWebComponent(pushStateEl)
-    : setupVanilla(pushStateEl);
-
-  if ('customElements' in window) {
-    window.customElements.define('hy-img', HyImageElement);
-  }
+  window._pushState = defineWebComponent(pushStateEl);
 }

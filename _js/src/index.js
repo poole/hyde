@@ -14,13 +14,22 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import '@webcomponents/webcomponentsjs/webcomponents-sd-ce';
+import 'intersection-observer';
 import 'web-animations-js';
 
 import '../lib/modernizr-custom';
 import '../lib/version';
-import '../lib/template-polyfill';
 
 import './cookies-banner';
 import './katex';
 import './drawer';
 import './push-state';
+
+/*
+// TODO...
+import { HyImageElement } from 'hy-img/src/webcomponent/'
+
+// TODO...
+window.customElements.define('hy-img', HyImageElement);
+*/

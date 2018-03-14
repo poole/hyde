@@ -21,9 +21,7 @@ import 'core-js/fn/function/bind';
 // We include our main component, hy-drawer,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import { Set } from 'hy-drawer/src/common';
-import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
-import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
+import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS } from 'hy-drawer/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { fromEvent } from 'rxjs/observable/fromEvent';
@@ -38,12 +36,14 @@ import { startWith } from 'rxjs/operators/startWith';
 import { switchMap } from 'rxjs/operators/switchMap';
 import { withLatestFrom } from 'rxjs/operators/withLatestFrom';
 
+import { Set } from 'qd-set';
+
 // Some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = new Set([
-  ...VANILLA_FEATURE_TESTS,
+  ...WEBCOMPONENT_FEATURE_TESTS,
   'cssremunit',
   'classlist',
   'eventlistener',
@@ -86,22 +86,11 @@ function getRange() {
 
 // This function sets y-drawer up as a WebComponent.
 // First it sets the options as HTML attributes, then it `define`s the WebComponent.
-function setupWebComponent(drawerEl, opened) {
+function defineWebComponent(drawerEl, opened) {
   if (opened) drawerEl.setAttribute('opened', '');
   if (isSafari) drawerEl.setAttribute('threshold', 0);
-  window.customElements.define('hy-drawer', HTMLDrawerElement);
+  window.customElements.define('hy-drawer', HyDrawerElement);
   return drawerEl;
-}
-
-// This function sets y-drawer up as a vanilla JS class.
-function setupVanilla(drawerEl, opened) {
-  return new Drawer(drawerEl, {
-    opened,
-    align: drawerEl.getAttribute('align') || 'left',
-    threshold: isSafari ? 0 : Number(drawerEl.getAttribute('threshold')),
-    preventDefault: drawerEl.hasAttribute('prevent-default'),
-    mouseEvents: drawerEl.hasAttribute('mouse-events'),
-  });
 }
 
 // The functions below add an svg graphic to the sidebar
@@ -243,10 +232,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const opened = drawerEl.classList.contains('cover') && scrollTop <= 0;
 
   // Now we create the component.
-  // If we have Custom Elements and ShadowDOM (v1) we use the web component.
-  window._drawer = 'customElements' in window && 'attachShadow' in Element.prototype
-    ? setupWebComponent(drawerEl, opened)
-    : setupVanilla(drawerEl, opened);
+  window._drawer = defineWebComponent(drawerEl, opened);
 
   // When the distance changes, update the translateX property.
   dist$.subscribe((dist) => {

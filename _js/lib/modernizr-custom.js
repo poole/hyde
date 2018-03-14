@@ -1,8 +1,8 @@
 // NOTE: This file has been modified to set `usePrefixes: false`!
 
 /*!
- * modernizr v3.5.0
- * Build https://modernizr.com/download?-classlist-cssanimations-csspointerevents-cssremunit-csstransforms-customevent-documentfragment-eventlistener-history-matchmedia-opacity-promises-queryselector-requestanimationframe-touchevents-dontmin
+ * modernizr v3.6.0
+ * Build https://modernizr.com/download?-classlist-cssanimations-csspointerevents-cssremunit-csstransforms-customelements-customevent-documentfragment-eventlistener-history-matchmedia-opacity-promises-queryselector-requestanimationframe-template-touchevents-dontmin
  *
  * Copyright (c)
  *  Faruk Ates
@@ -38,7 +38,7 @@
 
   var ModernizrProto = {
     // The current version, dummy
-    _version: '3.5.0',
+    _version: '3.6.0',
 
     // Any settings that don't work as separate modules
     // can go in here as configuration.
@@ -46,7 +46,7 @@
       'classPrefix': '',
       'enableClasses': true,
       'enableJSClass': true,
-      'usePrefixes': false
+      'usePrefixes': false,
     },
 
     // Queue of tests
@@ -85,6 +85,24 @@
   // Overwrite name so constructor name is nicer :D
   Modernizr = new Modernizr();
 
+
+/*!
+{
+  "name": "Custom Elements API",
+  "property": "customelements",
+  "tags": ["customelements"],
+  "polyfills": ["customelements"],
+  "notes": [{
+    "name": "Specs for Custom Elements",
+    "href": "https://www.w3.org/TR/custom-elements/"
+  }]
+}
+!*/
+/* DOC
+Detects support for the Custom Elements API, to create custom html elements via js
+*/
+
+  Modernizr.addTest('customelements', 'customElements' in window);
 
 /*!
 {
@@ -1422,6 +1440,23 @@ Detects whether or not elements can be animated using CSS
     return navigator.userAgent.indexOf('Android 2.') === -1 &&
            testAllProps('transform', 'scale(1)', true);
   });
+
+/*!
+{
+  "name": "Template Tag",
+  "property": "template",
+  "tags": ["elem"],
+  "notes": [{
+    "name": "HTML5Rocks Article",
+    "href": "http://www.html5rocks.com/en/tutorials/webcomponents/template/"
+  },{
+    "name": "W3 Spec",
+    "href": "https://dvcs.w3.org/hg/webcomponents/raw-file/tip/spec/templates/index.html"
+  }]
+}
+!*/
+
+  Modernizr.addTest('template', 'content' in createElement('template'));
 
 
   // Run each test
