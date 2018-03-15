@@ -54,7 +54,7 @@ const CONTENT_MARGIN_5 = 4;
 const BREAK_POINT_3 = '(min-width: 64em)';
 const BREAK_POINT_DYNAMIC = '(min-width: 1666px)';
 
-const r28 = (CONTENT_WIDTH_5 / 2) + CONTENT_MARGIN_5;
+const r28 = CONTENT_WIDTH_5 / 2 + CONTENT_MARGIN_5;
 
 function calcDrawerWidth() {
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -63,7 +63,7 @@ function calcDrawerWidth() {
 
 function calcDrawerWidthDynamic() {
   const rem = parseFloat(getComputedStyle(document.documentElement).fontSize);
-  return (document.body.clientWidth / 2) - (r28 * rem);
+  return document.body.clientWidth / 2 - r28 * rem;
 }
 
 // ## Functions
@@ -126,8 +126,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
 
-  const resize$ = fromEvent(window, 'resize', { passive: true })
-    .pipe(share());
+  const resize$ = fromEvent(window, 'resize', { passive: true }).pipe(share());
 
   // An observable keeping track of whether the window size is greater than `BREAK_POINT_3`.
   const isDesktop$ = resize$.pipe(
@@ -140,36 +139,36 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // An observable keeping track of the drawer width.
   const drawerWidth$ = resize$.pipe(
     startWith({}),
-    map(() => (window.matchMedia(BREAK_POINT_DYNAMIC).matches
-      ? calcDrawerWidthDynamic()
-      : calcDrawerWidth())),
+    map(() =>
+      (window.matchMedia(BREAK_POINT_DYNAMIC).matches
+        ? calcDrawerWidthDynamic()
+        : calcDrawerWidth())),
   );
 
   // An observable keeping track of the distance between
   // the middle point of the screen and the middle point of the drawer.
-  const dist$ = drawerWidth$
-    .pipe(map(drawerWidth => (window.matchMedia(BREAK_POINT_3).matches
-      ? (document.body.clientWidth / 2) - (drawerWidth / 2)
+  const dist$ = drawerWidth$.pipe(map(drawerWidth =>
+    (window.matchMedia(BREAK_POINT_3).matches
+      ? document.body.clientWidth / 2 - drawerWidth / 2
       : 0)));
 
   // An observable that keeps track of the range from where the drawer can be drawn.
   // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
   const range$ = drawerWidth$.pipe(
     withLatestFrom(isDesktop$),
-    map(([drawerWidth, isDesktop]) => (isDesktop
-      ? [0, drawerWidth]
-      : getRange())),
+    map(([drawerWidth, isDesktop]) => (isDesktop ? [0, drawerWidth] : getRange())),
   );
 
   // Sliding the drawer's content between the middle point of the screen,
   // and the middle point of the drawer when closed.
-  fromEvent(drawerEl, 'hy-drawer-move').pipe(
-    finalize(() => {
-      window._sidebar.style.transform = '';
-    }),
-    subscribeWhen(isDesktop$),
-    withLatestFrom(dist$),
-  )
+  fromEvent(drawerEl, 'hy-drawer-move')
+    .pipe(
+      finalize(() => {
+        window._sidebar.style.transform = '';
+      }),
+      subscribeWhen(isDesktop$),
+      withLatestFrom(dist$),
+    )
     .subscribe(([{ detail: { opacity } }, dist]) => {
       updateSidebar(dist, opacity);
     });
@@ -220,7 +219,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Close the drawer on popstate, i.e. the back button.
   fromEvent(window, 'popstate', { passive: true })
     .pipe(subscribeWhen(opened$))
-    .subscribe(() => { window._drawer.close(); });
+    .subscribe(() => {
+      window._drawer.close();
+    });
 
   // Save scroll position before the drawer gets initialized.
   const scrollTop = window.pageYOffset || document.body.scrollTop;

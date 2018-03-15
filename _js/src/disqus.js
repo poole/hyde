@@ -24,7 +24,6 @@ function loadDisqus2() {
   });
 }
 
-
 export function loadDisqus() {
   if (document.getElementById('disqus_thread')) {
     if (window.DISQUS) {

@@ -37,14 +37,15 @@ const BORDER_COLOR_FADE = 0.8;
 // Given a dataset, generate some string we can use the check if anything has changed...
 const pseudoHash = ({
   background, color, image, overlay,
-}) => `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
+}) =>
+  `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
 
 export class CrossFader {
   constructor(fadeDuration) {
     const main = document.getElementById('_main');
     const pageStyle = document.getElementById('_pageStyle');
-    const styleSheet = Array.from(document.styleSheets)
-      .find(ss => ss.ownerNode === pageStyle) || {};
+    const styleSheet =
+      Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) || {};
 
     this.sidebar = document.getElementById('_sidebar');
     this.fadeDuration = fadeDuration;
@@ -65,7 +66,9 @@ export class CrossFader {
     const imgObj = new Image();
     const image$ = fromEvent(imgObj, 'load').pipe(
       take(1),
-      finalize(() => { imgObj.src = ''; }),
+      finalize(() => {
+        imgObj.src = '';
+      }),
     );
     imgObj.src = image;
 
@@ -138,7 +141,9 @@ export class CrossFader {
 
         // ::selection or ::-moz-selection (assuming it is last in the list)
         this.rules[this.rules.length - 1].style.backgroundColor = color;
-      } catch (e) { console.error(e); }
+      } catch (e) {
+        console.error(e);
+      }
     }
   }
 
@@ -150,12 +155,8 @@ export class CrossFader {
     // Only update the prev hash after we're actually in the fade stage
     this.prevHash = hash;
 
-    return animate(div, [
-      { opacity: 0 },
-      { opacity: 1 },
-    ], {
+    return animate(div, [{ opacity: 0 }, { opacity: 1 }], {
       duration: this.fadeDuration,
-    })
-      .pipe(finalize(() => prevDiv.parentNode.removeChild(prevDiv)));
+    }).pipe(finalize(() => prevDiv.parentNode.removeChild(prevDiv)));
   }
 }

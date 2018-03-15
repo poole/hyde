@@ -19,11 +19,7 @@ import 'core-js/fn/array/for-each';
 
 import { hasFeatures, hide } from './common';
 
-const REQUIREMENTS = [
-  'classlist',
-  'eventlistener',
-  'queryselector',
-];
+const REQUIREMENTS = ['classlist', 'eventlistener', 'queryselector'];
 
 const featuresOk = hasFeatures(REQUIREMENTS);
 let katexJSLoaded = false;
@@ -34,9 +30,7 @@ function renderKatex(el) {
     let prev = el.previousElementSibling;
     while (prev && !prev.classList.contains('MathJax_Preview')) prev = prev.previousElementSibling;
 
-    const tex = el.textContent
-      .replace('% <![CDATA[', '')
-      .replace('%]]>', '');
+    const tex = el.textContent.replace('% <![CDATA[', '').replace('%]]>', '');
 
     el.outerHTML = window.katex.renderToString(tex, {
       displayMode: el.type === 'math/tex; mode=display',

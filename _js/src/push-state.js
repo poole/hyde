@@ -32,7 +32,11 @@ import 'core-js/fn/string/includes';
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import { HyPushStateElement, WEBCOMPONENT_FEATURE_TESTS, Set } from 'hy-push-state/src/webcomponent';
+import {
+  HyPushStateElement,
+  WEBCOMPONENT_FEATURE_TESTS,
+  Set,
+} from 'hy-push-state/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
@@ -59,8 +63,14 @@ import { takeUntil } from 'rxjs/operators/takeUntil';
 import { zip } from 'rxjs/operators/zip';
 
 // Some of our own helper functions and classes.
-import { animate, empty, getResolvablePromise, hasFeatures, isSafari, isFirefoxIOS }
-  from './common';
+import {
+  animate,
+  empty,
+  getResolvablePromise,
+  hasFeatures,
+  isSafari,
+  isFirefoxIOS,
+} from './common';
 import { CrossFader } from './cross-fader';
 import { upgradeMathBlocks } from './katex';
 import { loadDisqus } from './disqus';
@@ -92,10 +102,7 @@ const FADE_DURATION = 600;
 const GA_DELAY = 500;
 
 // Details of the fade-out animation.
-const FADE_OUT = [
-  { opacity: 1 },
-  { opacity: 0 },
-];
+const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
 
 // Details of the fade-in animation.
 const FADE_IN = [
@@ -185,17 +192,16 @@ function shouldAnimate(type) {
 // Similar to `shouldAnimate`, whether we use scroll restoration depends on whether it conflicts
 // with native guestures.
 function shouldRestoreScroll() {
-  if (isSafari) { return !!navigator.standalone; }
+  if (isSafari) {
+    return !!navigator.standalone;
+  }
   return true;
 }
 
 function animateFadeOut({ type, main }) {
   if (window._drawer && window._drawer.opened) {
     window._drawer.close();
-    return fromEvent(window._drawer.el, 'hy-drawer-transitioned').pipe(
-      take(1),
-      mapTo({ main }),
-    );
+    return fromEvent(window._drawer.el, 'hy-drawer-transitioned').pipe(take(1), mapTo({ main }));
   }
 
   return shouldAnimate(type)
@@ -303,7 +309,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
   // ### Show loading spinner
   // Show loading spinner --- but only when fetching takes longer than `DURATION`.
-  progress$.subscribe(() => { loading.style.display = 'block'; });
+  progress$.subscribe(() => {
+    loading.style.display = 'block';
+  });
 
   // ### Prepare showing the new content
   // The `ready` event occurs when we've received the content from the server
@@ -314,27 +322,24 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     .subscribe(({ replaceEls: [main] }) => {
       loading.style.display = 'none';
       main.classList.remove('fade-in');
-      Array.from(main.querySelectorAll(HEADING_SELECTOR))
-        .forEach(upgradeHeading);
+      Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading);
     });
 
   after$
     .pipe(startWith({ replaceEls: [document.getElementById('_main')] }))
     .subscribe(({ replaceEls: [main] }) => {
-      Array.from(main.querySelectorAll('li[id^="fn:"]'))
-        .forEach((li) => { li.tabIndex = 0; });
+      Array.from(main.querySelectorAll('li[id^="fn:"]')).forEach((li) => {
+        li.tabIndex = 0;
+      });
 
-      Array.from(main.querySelectorAll('a[href^="#fn:"]'))
-        .forEach(a => a.addEventListener('click', e =>
+      Array.from(main.querySelectorAll('a[href^="#fn:"]')).forEach(a =>
+        a.addEventListener('click', e =>
           document.getElementById(e.currentTarget.hash.substr(1)).focus()));
     });
 
   // ### Fade new content in
   // `after` new content is added to the DOM, start animating it.
-  const fadeIn$ = after$.pipe(
-    switchMap(animateFadeIn),
-    share(),
-  );
+  const fadeIn$ = after$.pipe(switchMap(animateFadeIn), share());
 
   // In addition to fading the main content out,
   // there's also a FLIP animation playing when clicking certain links.
@@ -343,19 +348,19 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
     animationMain,
     settings: SETTINGS,
-  })
-    .pipe(share());
+  }).pipe(share());
 
-  start$.pipe(
-    map((context) => {
-      const promise = getResolvablePromise();
-      context.waitUntil(promise);
-      return promise;
-    }),
-    // Every click starts a timer that lasts as long
-    // as it takes for the FLIP and fade-out animations to complete.
-    switchMap(p => timer(DURATION).pipe(zip(fadeOut$, flip$, () => p))),
-  )
+  start$
+    .pipe(
+      map((context) => {
+        const promise = getResolvablePromise();
+        context.waitUntil(promise);
+        return promise;
+      }),
+      // Every click starts a timer that lasts as long
+      // as it takes for the FLIP and fade-out animations to complete.
+      switchMap(p => timer(DURATION).pipe(zip(fadeOut$, flip$, () => p))),
+    )
     // Once the animation have completed, we resolve the promise so that hy-push-state continues.
     .subscribe(p => p.resolve());
 
@@ -375,36 +380,35 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // Also, we want to abort fetching the image whne the user has already `start`ed another request.
   // TODO: Maybe only abort `after` it becomes clear that the new site
   // is using a different background image?
-  after$.pipe(
-    switchMap(({ replaceEls: [main] }) =>
-      crossFader.fetchImage(main).pipe(
-        zip(fadeIn$, x => x),
-        takeUntil(start$),
-      )),
+  after$
+    .pipe(
+      switchMap(({ replaceEls: [main] }) =>
+        crossFader.fetchImage(main).pipe(zip(fadeIn$, x => x), takeUntil(start$))),
 
-    // Once we have both images, we take them `pairwise` and cross-fade.
-    // We start with the initial sidebar image, which was part of HTML content.
-    // Here we use `mergeMap`, because in edge cases there could be 3 or more images
-    // being faded at the same time, but there is no reason to cancel the old ones.
-    startWith([document.querySelector('.sidebar-bg')]),
-    pairwise(),
-    mergeMap(([prev, curr]) => crossFader.fade(prev, curr)),
-  )
+      // Once we have both images, we take them `pairwise` and cross-fade.
+      // We start with the initial sidebar image, which was part of HTML content.
+      // Here we use `mergeMap`, because in edge cases there could be 3 or more images
+      // being faded at the same time, but there is no reason to cancel the old ones.
+      startWith([document.querySelector('.sidebar-bg')]),
+      pairwise(),
+      mergeMap(([prev, curr]) => crossFader.fade(prev, curr)),
+    )
     .subscribe();
 
   // ### Upgrade math blocks
   // Once the content is faded in, upgrade the math blocks with KaTeX.
   // This can take a while and will trigger multiple repaints,
   // so we don't want to start until after the animation.
-  fadeIn$.pipe(
-    tap(() => {
-      upgradeMathBlocks();
-      loadDisqus();
-    }),
-    // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
-    filter(() => !!window.ga),
-    debounceTime(GA_DELAY),
-  )
+  fadeIn$
+    .pipe(
+      tap(() => {
+        upgradeMathBlocks();
+        loadDisqus();
+      }),
+      // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
+      filter(() => !!window.ga),
+      debounceTime(GA_DELAY),
+    )
     .subscribe(() => {
       window.ga('set', 'page', window.location.pathname);
       window.ga('send', 'pageview');
@@ -433,9 +437,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // Then we empty the content immediately to prevent flickering and
     // set the old `scrollHeigt` as the body's `minHeight`.
     fromEvent(window, 'popstate')
-      .pipe(filter(() => window.history.state &&
-        window.history.state['hy-push-state'] &&
-        !window.history.state['hy-push-state'].hash))
+      .pipe(filter(() =>
+        window.history.state &&
+            window.history.state['hy-push-state'] &&
+            !window.history.state['hy-push-state'].hash))
       .subscribe(() => {
         const { scrollHeight } = window.history.state['hy-push-state'];
         document.body.style.minHeight = `${scrollHeight}px`;

@@ -68,27 +68,32 @@ export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, setting
         { transform: 'translate3d(0, 0, 0) scale(1)' },
       ];
 
-      return animate(title, transform, settings)
-        .pipe(tap({ complete() { animationMain.style.position = 'absolute'; } }));
+      return animate(title, transform, settings).pipe(tap({
+        complete() {
+          animationMain.style.position = 'absolute';
+        },
+      }));
     }),
   );
 
-  start$.pipe(switchMap(({ flipType }) => ready$.pipe(
-    filter(() => flipType === 'title'),
-    map(({ replaceEls: [main] }) => {
-      const title = main.querySelector(TITLE_SELECTOR);
-      if (title) title.style.opacity = 0;
-      return title;
-    }),
-    zip(fadeIn$, x => x),
-    tap((title) => {
-      if (title) title.style.opacity = 1;
-      animationMain.style.opacity = 0;
-    }),
-    finalize(() => {
-      animationMain.style.opacity = 0;
-    }),
-  )))
+  start$
+    .pipe(switchMap(({ flipType }) =>
+      ready$.pipe(
+        filter(() => flipType === 'title'),
+        map(({ replaceEls: [main] }) => {
+          const title = main.querySelector(TITLE_SELECTOR);
+          if (title) title.style.opacity = 0;
+          return title;
+        }),
+        zip(fadeIn$, x => x),
+        tap((title) => {
+          if (title) title.style.opacity = 1;
+          animationMain.style.opacity = 0;
+        }),
+        finalize(() => {
+          animationMain.style.opacity = 0;
+        }),
+      )))
     .subscribe();
 
   return flip$;
