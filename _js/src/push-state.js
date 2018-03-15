@@ -32,7 +32,7 @@ import 'core-js/fn/string/includes';
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import { HyPushStateElement, WEBCOMPONENT_FEATURE_TESTS } from 'hy-push-state/src/webcomponent';
+import { HyPushStateElement, WEBCOMPONENT_FEATURE_TESTS, Set } from 'hy-push-state/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { animationFrame } from 'rxjs/scheduler/animationFrame';
@@ -57,8 +57,6 @@ import { switchMap } from 'rxjs/operators/switchMap';
 import { take } from 'rxjs/operators/take';
 import { takeUntil } from 'rxjs/operators/takeUntil';
 import { zip } from 'rxjs/operators/zip';
-
-import { Set } from 'qd-set';
 
 // Some of our own helper functions and classes.
 import { animate, empty, getResolvablePromise, hasFeatures, isSafari, isFirefoxIOS }

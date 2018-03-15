@@ -21,7 +21,7 @@ import 'core-js/fn/function/bind';
 // We include our main component, hy-drawer,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS } from 'hy-drawer/src/webcomponent';
+import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from 'hy-drawer/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { fromEvent } from 'rxjs/observable/fromEvent';
@@ -35,8 +35,6 @@ import { share } from 'rxjs/operators/share';
 import { startWith } from 'rxjs/operators/startWith';
 import { switchMap } from 'rxjs/operators/switchMap';
 import { withLatestFrom } from 'rxjs/operators/withLatestFrom';
-
-import { Set } from 'qd-set';
 
 // Some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
