@@ -6,10 +6,7 @@ const rxPaths = require('rxjs/_esm5/path-mapping');
 const {
   BannerPlugin,
   EnvironmentPlugin,
-  optimize: {
-    UglifyJsPlugin,
-    ModuleConcatenationPlugin,
-  },
+  optimize: { UglifyJsPlugin, ModuleConcatenationPlugin },
 } = require('webpack');
 
 const merge = require('webpack-merge');
@@ -35,42 +32,41 @@ function envConfig() {
     default:
       return {
         devtool: 'source-map',
-        plugins: [
-          new EnvironmentPlugin({ DEBUG: true }),
-        ],
+        plugins: [new EnvironmentPlugin({ DEBUG: true })],
       };
   }
 }
 
-module.exports = merge({
-  entry: resolve('./_js/src/index.js'),
-  output: {
-    path: resolve('./assets/js'),
-    filename: `${filename}-${version}.js`,
-  },
-  module: {
-    rules: [
-      {
-        test: /(\.jsx|\.js)$/,
-        loader: 'babel-loader',
-        options: {
-          presets: [['env', { modules: false }]],
-          babelrc: false,
+module.exports = merge(
+  {
+    entry: resolve('./_js/src/index.js'),
+    output: {
+      path: resolve('./assets/js'),
+      filename: `${filename}-${version}.js`,
+    },
+    module: {
+      rules: [
+        {
+          test: /(\.jsx|\.js)$/,
+          loader: 'babel-loader',
+          options: {
+            presets: [['env', { modules: false }]],
+            babelrc: false,
+          },
         },
-      },
-    ],
+      ],
+    },
+    resolve: {
+      modules: [
+        resolve('./_js'),
+        resolve('./node_modules'),
+        process.env.NODE_PATH ? resolve(process.env.NODE_PATH) : [],
+      ].reduce(...flatten),
+      extensions: ['.json', '.js'],
+      symlinks: true,
+      alias: rxPaths(),
+    },
+    plugins: [new ModuleConcatenationPlugin()],
   },
-  resolve: {
-    modules: [
-      resolve('./_js'),
-      resolve('./node_modules'),
-      process.env.NODE_PATH ? resolve(process.env.NODE_PATH) : [],
-    ].reduce(...flatten),
-    extensions: ['.json', '.js'],
-    symlinks: true,
-    alias: rxPaths(),
-  },
-  plugins: [
-    new ModuleConcatenationPlugin(),
-  ],
-}, envConfig());
+  envConfig(),
+);

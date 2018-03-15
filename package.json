@@ -5,13 +5,14 @@
   "scripts": {
     "clean": "rm -f assets/js/hydejack-*.js",
     "test": "eslint _js/src",
+    "format": "prettier-eslint --write \"_js/src/**/*.js\"",
     "build": "webpack --env prod",
     "watch": "webpack --progress --colors --watch --env dev",
     "serve": "bundle exec jekyll serve --port=$npm_package_config_port --host=0.0.0.0",
     "dev": "npm run watch & npm run serve",
     "prepare": "npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml",
-    "version": ".scripts/version.js && npm run build && git add ."
+    "version": ".scripts/version.js && npm run format && npm run build && git add ."
   },
   "config": {
     "port": 4000
@@ -30,6 +31,7 @@
     "eslint-plugin-react": "^7.7.0",
     "json2yaml": "^1.1.0",
     "onchange": "^3.3.0",
+    "prettier-eslint-cli": "^4.7.1",
     "re-template-tag": "^2.0.1",
     "webpack": "^3.11.0",
     "webpack-merge": "^4.1.2",
