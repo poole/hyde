@@ -12,7 +12,7 @@
     "dev": "npm run watch & npm run serve",
     "prepare": "npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml",
-    "version": ".scripts/version.js && npm run format && npm run build && git add ."
+    "version": "npm run format && npm run build && git add ."
   },
   "config": {
     "port": 4000
