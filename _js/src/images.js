@@ -1,4 +1,4 @@
-// # src / index.js
+// # src / images.js
 // Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
@@ -14,15 +14,14 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import '@webcomponents/webcomponentsjs/webcomponents-sd-ce';
-import 'intersection-observer';
-import 'web-animations-js';
+import { ShyImageElement, WEBCOMPONENT_FEATURE_TESTS, Set } from 'shy-img/src/webcomponent';
 
-import '../lib/modernizr-custom';
-import '../lib/version';
+import { hasFeatures } from './common';
 
-import './cookies-banner';
-import './katex';
-import './drawer';
-import './push-state';
-import './images';
+if (!window._noShyImage && hasFeatures(WEBCOMPONENT_FEATURE_TESTS)) {
+  window.customElements.define('shy-img', ShyImageElement);
+  const logo = document.querySelector('.sidebar shy-img');
+  if (logo) logo.loadImage();
+} else {
+  // TODO
+}
