@@ -1,6 +1,7 @@
 // NOTE: This file has been modified to set `usePrefixes: false`!
+// Find-replace: %s:/\*!:/*:g
 
-/*!
+/*
  * modernizr v3.6.0
  * Build https://modernizr.com/download?-classlist-cssanimations-csspointerevents-cssremunit-csstransforms-customelements-customevent-documentfragment-eventlistener-history-matchmedia-opacity-promises-queryselector-requestanimationframe-template-touchevents-dontmin
  *
@@ -86,7 +87,7 @@
   Modernizr = new Modernizr();
 
 
-/*!
+/*
 {
   "name": "Custom Elements API",
   "property": "customelements",
@@ -104,7 +105,7 @@ Detects support for the Custom Elements API, to create custom html elements via 
 
   Modernizr.addTest('customelements', 'customElements' in window);
 
-/*!
+/*
 {
   "name": "CustomEvent",
   "property": "customevent",
@@ -128,7 +129,7 @@ Detects support for CustomEvent.
 
   Modernizr.addTest('customevent', 'CustomEvent' in window && typeof window.CustomEvent === 'function');
 
-/*!
+/*
 {
   "name": "Event Listener",
   "property": "eventlistener",
@@ -146,7 +147,7 @@ Detects native support for addEventListener
 
   Modernizr.addTest('eventlistener', 'addEventListener' in window);
 
-/*!
+/*
 {
   "name": "History API",
   "property": "history",
@@ -192,7 +193,7 @@ Detects support for the History API for manipulating the browser session history
     return (window.history && 'pushState' in window.history);
   });
 
-/*!
+/*
 {
   "name": "QuerySelector",
   "property": "queryselector",
@@ -212,7 +213,7 @@ Detects support for querySelector.
 
   Modernizr.addTest('queryselector', 'querySelector' in document && 'querySelectorAll' in document);
 
-/*!
+/*
 {
   "name": "ES6 Promises",
   "property": "promises",
@@ -392,7 +393,7 @@ Check if browser implements ECMAScript 6 Promises per specification.
 
   var docElement = document.documentElement;
 
-/*!
+/*
 {
   "name": "classList",
   "caniuse": "classlist",
@@ -408,7 +409,7 @@ Check if browser implements ECMAScript 6 Promises per specification.
 
   Modernizr.addTest('classlist', 'classList' in docElement);
 
-/*!
+/*
 {
   "name": "Document Fragment",
   "property": "documentfragment",
@@ -488,7 +489,7 @@ Append multiple elements to the DOM within a single insertion.
   }
 
   ;
-/*!
+/*
 {
   "name": "CSS Opacity",
   "caniuse": "css-opacity",
@@ -511,7 +512,7 @@ Append multiple elements to the DOM within a single insertion.
     return (/^0.55$/).test(style.opacity);
   });
 
-/*!
+/*
 {
   "name": "CSS Pointer Events",
   "caniuse": "pointer-events",
@@ -544,7 +545,7 @@ Append multiple elements to the DOM within a single insertion.
     return style.pointerEvents === 'auto';
   });
 
-/*!
+/*
 {
   "name": "CSS Font rem Units",
   "caniuse": "rem",
@@ -735,7 +736,7 @@ Append multiple elements to the DOM within a single insertion.
 
   var testStyles = ModernizrProto.testStyles = injectElementWithStyles;
 
-/*!
+/*
 {
   "name": "Touch Events",
   "property": "touchevents",
@@ -1316,7 +1317,7 @@ This test will also return `true` for Firefox 4 Multitouch support.
   };
 
 
-/*!
+/*
 {
   "name": "requestAnimationFrame",
   "property": "requestanimationframe",
@@ -1337,7 +1338,7 @@ Detects support for the `window.requestAnimationFrame` API, for offloading anima
 
   Modernizr.addTest('requestanimationframe', !!prefixed('requestAnimationFrame', window), {aliases: ['raf']});
 
-/*!
+/*
 {
   "name": "matchMedia",
   "property": "matchmedia",
@@ -1405,7 +1406,7 @@ Detects support for matchMedia.
   }
   ModernizrProto.testAllProps = testAllProps;
 
-/*!
+/*
 {
   "name": "CSS Animations",
   "property": "cssanimations",
@@ -1425,7 +1426,7 @@ Detects whether or not elements can be animated using CSS
 
   Modernizr.addTest('cssanimations', testAllProps('animationName', 'a', true));
 
-/*!
+/*
 {
   "name": "CSS Transforms",
   "property": "csstransforms",
@@ -1441,7 +1442,7 @@ Detects whether or not elements can be animated using CSS
            testAllProps('transform', 'scale(1)', true);
   });
 
-/*!
+/*
 {
   "name": "Template Tag",
   "property": "template",
