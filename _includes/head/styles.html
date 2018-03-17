@@ -1,5 +1,65 @@
 <!--[if gt IE 8]><!---->
 {% capture style_url %}{% link assets/css/hydejack-8.0.0-alpha.17.css %}{% endcapture %}
-<link rel="stylesheet" href="{{ style_url | relative_url }}">
+
+{% if site.hydejack.no_inline_css or jekyll.environment == 'development' %}
+  <link rel="stylesheet" href="{{ style_url | relative_url }}">
+{% else %}
+  <style>
+    {% capture to_scssify %}{% include styles/inline.scss %}{% endcapture %}
+    {{ to_scssify | scssify }}
+
+    {% assign layout = page.layout %}
+    {% if layout == "projects" or layout == "project" or layout == "welcome" %}
+      {% capture to_scssify %}{% include styles/pro/projects.scss %}{% endcapture %}
+      {{ to_scssify | scssify }}
+    {% elsif layout == "resume" %}
+      {% capture to_scssify %}{% include styles/pro/resume.scss %}{% endcapture %}
+      {{ to_scssify | scssify }}
+    {% endif %}
+  </style>
+
+  <link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">
+  <script>setRel('_stylePreload');</script>
+
+  {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
+  <link id="_iconsPreload" rel="preload" as="style" href="{{ icons_url | relative_url }}">
+  <script>setRel('_iconsPreload');</script>
+
+  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+    {% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
+    {% assign font         = site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
+    {% assign google_fonts = site.google_fonts | default:"Roboto+Slab:400|Noto+Sans:400,400i,700,700i" %}
+
+    {% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts }}{% endcapture %}
+    <link id="_fontsPreload" rel="preload" as="style" href="{{ fonts_url }}">
+    <script>setRel('_fontsPreload');</script>
+
+    {% capture ffo_url %}{% link assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js %}{% endcapture %}
+    {% assign font_heading = font_heading | split:',' | first %}
+    {% assign font = font | split:',' | first %}
+    <script>
+      !function(w, d) {
+        loadJS('{{ ffo_url | relative_url }}', function() {
+          function f() { d.body.className += ' font-active'; }
+          if ('Promise' in w) {
+            Promise.all([
+              new FontFaceObserver('{{ font }}').load(),
+              new FontFaceObserver('{{ font_heading }}').load(),
+            ]).then(f);
+          } else f();
+        });
+      }(window, document);
+    </script>
+  {% endunless %}
+
+  <noscript>
+    <link rel="stylesheet" href="{{ style_url | relative_url }}">
+    <link rel="stylesheet" href="{{ icons_url | relative_url }}">
+    {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+      <link rel="stylesheet" href="{{ fonts_url }}">
+    {% endunless %}
+  </noscript>
+{% endif %}
+
 {% include head/page-style.html %}
 <!--<![endif]-->

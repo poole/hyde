@@ -24,6 +24,8 @@
 
 .clearfix, .clearafter::after { @include clearfix(); } // both
 
+.sixteen-nine { @include aspect-ratio(16, 9); }
+
 .sr-only {
   display: none; // inline
   // <<< link

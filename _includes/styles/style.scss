@@ -1,28 +1,25 @@
-// Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
+// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
 //
-// This program is free software: you can redistribute it and/or modify
-// it under the terms of the GNU General Public License as published by
-// the Free Software Foundation, either version 3 of the License, or
-// (at your option) any later version.
+// Permission is hereby granted, free of charge, to any person obtaining a copy
+// of this software and associated documentation files (the "Software"), to deal
+// in the Software without restriction, including without limitation the rights
+// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+// copies of the Software, and to permit persons to whom the Software is
+// furnished to do so, subject to the following conditions:
 //
-// This program is distributed in the hope that it will be useful,
-// but WITHOUT ANY WARRANTY; without even the implied warranty of
-// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-// GNU General Public License for more details.
+// The above copyright notice and this permission notice shall be included in all
+// copies or substantial portions of the Software.
 //
-// You should have received a copy of the GNU General Public License
-// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+// SOFTWARE.
 
 {% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
-{% assign font         = site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
-{% assign google_fonts = site.google_fonts | default:"Roboto+Slab:400|Noto+Sans:400,400i,700,700i" %}
-
-{% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-@import url('https://fonts.googleapis.com/css?family={{ google_fonts }}');
-{% endunless %}
-
-{% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
-@import url('{{ icons_url | relative_url }}');
+{% assign font =         site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
 
 $font-family-heading: {{ font_heading }};
 $font-family: {{ font }};
@@ -33,47 +30,91 @@ $font-family: {{ font }};
 
 @import "reboot-mod";
 
-@import "pooleparty/_base.pre.scss";
-@import "pooleparty/_type.pre.scss";
-@import "pooleparty/_table.pre.scss";
-@import "pooleparty/_footer.pre.scss";
-@import "pooleparty/_footnotes.pre.scss";
-@import "pooleparty/_code.pre.scss";
-@import "pooleparty/_posts.pre.scss";
-@import "pooleparty/_related.pre.scss";
-@import "pooleparty/_read-more.pre.scss";
-@import "pooleparty/_message.pre.scss";
-@import "pooleparty/_pagination.pre.scss";
+{% unless site.hydejack.no_inline_css or jekyll.environment == 'development' %}
+  @import "pooleparty/__link/base";
+  @import "pooleparty/__link/type";
+  @import "pooleparty/__link/table";
+  @import "pooleparty/__link/footer";
+  @import "pooleparty/__link/footnotes";
+  @import "pooleparty/__link/code";
+  @import "pooleparty/__link/posts";
+  @import "pooleparty/__link/related";
+  @import "pooleparty/__link/read-more";
+  @import "pooleparty/__link/message";
+  @import "pooleparty/__link/pagination";
 
-@import "hydejack/_base.pre.scss";
-@import "hydejack/_utilities.pre.scss";
-@import "hydejack/_links.pre.scss";
-@import "hydejack/_images.pre.scss";
-@import "hydejack/_sidebar.pre.scss";
-@import "hydejack/_social.pre.scss";
-@import "hydejack/_menu.pre.scss";
-@import "hydejack/_content.pre.scss";
-@import "hydejack/_avatar.pre.scss";
-@import "hydejack/_katex.pre.scss";
-@import "hydejack/_footer.pre.scss";
+  @import "hydejack/__link/base";
+  @import "hydejack/__link/utilities";
+  @import "hydejack/__link/links";
+  @import "hydejack/__link/images";
+  @import "hydejack/__link/sidebar";
+  @import "hydejack/__link/social";
+  @import "hydejack/__link/menu";
+  @import "hydejack/__link/content";
+  @import "hydejack/__link/avatar";
+  @import "hydejack/__link/katex";
+  @import "hydejack/__link/footer";
 
-{% unless site.hydejack.no_mark_external or site.no_mark_external %}
-  @import "hydejack/_mark-external.pre.scss";
+  {% unless site.hydejack.no_mark_external or site.no_mark_external %}
+    @import "hydejack/__link/mark-external";
+  {% endunless %}
+  {% unless site.hydejack.no_break_layout %}
+    @import "hydejack/__link/break-layout";
+  {% endunless %}
+
+  @import "syntax";
+  @import "spinner";
+
+  // @import "my-inline";
+  @import "my-style";
+{% else %}
+  @import "pooleparty/_base.pre.scss";
+  @import "pooleparty/_type.pre.scss";
+  @import "pooleparty/_table.pre.scss";
+  @import "pooleparty/_footer.pre.scss";
+  @import "pooleparty/_footnotes.pre.scss";
+  @import "pooleparty/_code.pre.scss";
+  @import "pooleparty/_posts.pre.scss";
+  @import "pooleparty/_related.pre.scss";
+  @import "pooleparty/_read-more.pre.scss";
+  @import "pooleparty/_message.pre.scss";
+  @import "pooleparty/_pagination.pre.scss";
+
+  @import "hydejack/_base.pre.scss";
+  @import "hydejack/_utilities.pre.scss";
+  @import "hydejack/_links.pre.scss";
+  @import "hydejack/_images.pre.scss";
+  @import "hydejack/_sidebar.pre.scss";
+  @import "hydejack/_social.pre.scss";
+  @import "hydejack/_menu.pre.scss";
+  @import "hydejack/_content.pre.scss";
+  @import "hydejack/_avatar.pre.scss";
+  @import "hydejack/_katex.pre.scss";
+  @import "hydejack/_footer.pre.scss";
+
+  {% unless site.hydejack.no_mark_external or site.no_mark_external %}
+    @import "hydejack/_mark-external.pre.scss";
+  {% endunless %}
+  {% unless site.hydejack.no_break_layout %}
+    @import "hydejack/_break-layout.pre.scss";
+  {% endunless %}
+
+  @import "syntax";
+  @import "spinner";
+
+  @import "my-inline";
+  @import "my-style";
+
+  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+    {% assign font = font | split:',' | shift | join:',' %}
+    {% assign font_heading = font_heading | split:',' | shift | join:',' %}
+  {% endunless %}
+
+  html { font-family: {{ font | default:"serif" }}; }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading | default:"serif" }}; }
+
+  .font-active {
+    font-family: $font-family;
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: $font-family-heading; }
+  }
 {% endunless %}
-{% unless site.hydejack.no_break_layout %}
-  @import "hydejack/_break-layout.pre.scss";
-{% endunless %}
-
-@import "syntax";
-@import "spinner";
-
-@import "my-inline";
-@import "my-style";
-
-html {
-  font-family: {{ font }};
-}
-
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
-  font-family: {{ font_heading }};
-}

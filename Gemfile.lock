@@ -1,3 +1,9 @@
+PATH
+  remote: .
+  specs:
+    jekyll-theme-hydejack-pro (8.0.0)
+      jekyll (~> 3.7)
+
 GEM
   remote: https://rubygems.org/
   specs:
@@ -52,6 +58,7 @@ GEM
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.2)
+    rake (10.5.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -68,6 +75,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bundler (~> 1.12)
   jekyll
   jekyll-feed
   jekyll-paginate
@@ -75,6 +83,8 @@ DEPENDENCIES
   jekyll-relative-links
   jekyll-seo-tag
   jekyll-sitemap
+  jekyll-theme-hydejack-pro!
+  rake (~> 10.0)
   tzinfo-data
 
 BUNDLED WITH

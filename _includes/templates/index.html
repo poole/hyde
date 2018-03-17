@@ -1,6 +1,6 @@
 {% assign strings = site.data.strings %}
-<hr class="sr-only"/>
-<h2 class="sr-only">{{ strings.templates | default: "Templates"}}{{ strings.colon | default:":" }}</h2>
+<hr class="sr-only" hidden />
+<h2 class="sr-only" hidden>{{ strings.templates | default: "Templates"}}{{ strings.colon | default:":" }}</h2>
 
 {% include templates/animation.html %}
 {% include templates/loading.html %}

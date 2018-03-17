@@ -14,7 +14,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-if (window.ga && !navigator.CookiesOK && !(localStorage && localStorage.getItem('hy:cookiesOK'))) {
+if (
+  window.ga &&
+  !navigator.CookiesOK &&
+  !('localStorage' in window && localStorage.getItem('hy:cookiesOK'))
+) {
   const template = document.getElementById('_cookies-banner-template');
   if (template) {
     const parent = document.getElementsByTagName('hy-push-state')[0];

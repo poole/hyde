@@ -96,7 +96,7 @@ This table details what is and isn't included in each respective version.
 [feat]: https://qwtel.com/hydejack/#features
 [news]: https://qwtel.com/hydejack/#newsletter-subscription-box
 [syntax]: https://qwtel.com/hydejack/#syntax-highlighting
-[latex]: https://qwtel.com/hydejack/#latex-math-blocks
+[latex]: https://qwtel.com/hydejack/blog/hydejack/2017/11/23/example-content/#math
 
 [license]: LICENSE.md
 [pro]: licenses/PRO.md

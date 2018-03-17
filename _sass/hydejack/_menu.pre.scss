@@ -69,7 +69,8 @@
 
 #_cookies-banner  {
   .nav-btn { padding: 1.75rem 0 }
-  .nav-btn-bar { margin: 0 2rem; }
+  .nav-btn-bar { margin-left: 2rem; }
+  @media screen and (min-width: $break-point-3) { .nav-btn-bar { margin: 0; } }
   @media print { display: none; }
 }
 // >>>>

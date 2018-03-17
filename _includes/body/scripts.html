@@ -1,12 +1,11 @@
 {% unless page.redirect %}
   <!--[if gt IE 9]><!---->
   {% capture js_url %}{% link assets/js/hydejack-8.0.0-alpha.17.js %}{% endcapture %}
-  <script src="{{ js_url | relative_url }}" defer></script>
+  <script>window.loadJSDeferred('{{ js_url | relative_url }}');</script>
   {% include my-scripts.html %}
   <!--<![endif]-->
 
   {% if site.google_analytics %}
-    <script src="https://www.google-analytics.com/analytics.js" defer></script>
     <script>
       window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
       {% if site.hydejack.cookies_banner %}
@@ -28,6 +27,7 @@
         ga('create', '{{ site.google_analytics }}', 'auto');
       {% endif %}
       ga('send', 'pageview');
+      window.loadJSDeferred('https://www.google-analytics.com/analytics.js');
     </script>
   {% endif %}
 {% endunless %}
