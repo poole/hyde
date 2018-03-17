@@ -6,6 +6,9 @@
   "globals": {
     "loadCSS": true,
     "loadJS": true,
+    "loadJSDEferred": true,
+    "setRel": true,
+    "setRelStylesheet": true,
   },
   "rules": {
     "no-param-reassign": "off",
