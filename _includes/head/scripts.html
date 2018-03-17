@@ -3,3 +3,20 @@
   window._noPushState = {{ site.hydejack.no_push_state | default:site.disable_push_state | default:false }};
   window._noDrawer = {{ site.hydejack.no_drawer | default:site.disable_drawer | default:false }};
 </script>
+
+{% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+  {% capture ffo_url %}{% link assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js %}{% endcapture %}
+  <script>
+    !function(w, d) {
+      loadJS('{{ ffo_url | relative_url }}', function() {
+        function f() { d.body.className += ' font-active'; }
+        if ('Promise' in w) {
+          Promise.all([
+            new FontFaceObserver('{{ font | split:',' | first }}').load(),
+            new FontFaceObserver('{{ font_heading | split:',' | first }}').load(),
+          ]).then(f);
+        } else f();
+      });
+    }(window, document);
+  </script>
+{% endunless %}

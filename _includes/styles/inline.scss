@@ -56,12 +56,12 @@ $font-family: {{ font }};
 // @import "my-style";
 
 {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-  {% assign font = font | split:',' | shift | join:',' %}
-  {% assign font_heading = font_heading | split:',' | shift | join:',' %}
+  {% assign font2 = font | split:',' | shift | join:',' %}
+  {% assign font_heading2 = font_heading | split:',' | shift | join:',' %}
 {% endunless %}
 
-html { font-family: {{ font | default:"serif" }}; }
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading | default:"serif" }}; }
+html { font-family: {{ font2 | default:"serif" }}; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading2 | default:"serif" }}; }
 
 .font-active {
   font-family: $font-family;
