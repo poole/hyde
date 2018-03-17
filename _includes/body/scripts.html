@@ -1,7 +1,6 @@
 {% unless page.redirect %}
   <!--[if gt IE 9]><!---->
-  {% capture js_url %}{% link assets/js/hydejack-8.0.0-alpha.18.js %}{% endcapture %}
-  <script>window.loadJSDeferred('{{ js_url | relative_url }}');</script>
+  <script>window.loadJSDeferred(document.getElementById('_hrefJS').href);</script>
   {% include my-scripts.html %}
   <!--<![endif]-->
 

@@ -2777,11 +2777,11 @@ var upgradeMathBlocks = !featuresOk ? function () {} : function () {
     if (katexJSLoaded && katexCSSLoaded) {
       Array.from(mathBlocks).forEach(renderKatex);
     } else {
-      window.loadJS(document.getElementById('_katexJS').href).onload = function () {
+      window.loadJS(document.getElementById('_hrefKatexJS').href, function () {
         katexJSLoaded = true;
         if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-      };
-      window.loadCSS(document.getElementById('_katexCSS').href).onload = function () {
+      });
+      window.loadCSS(document.getElementById('_hrefKatexCSS').href).onload = function () {
         katexCSSLoaded = true;
         if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
       };
@@ -9569,7 +9569,7 @@ function defineWebComponent(drawerEl, opened) {
 // The functions below add an svg graphic to the sidebar
 // that incidate that the sidebar can be drawn using touch gestures.
 function setupIcon() {
-  var img = document.getElementById('_swipeSVG');
+  var img = document.getElementById('_hrefSwipeSVG');
   if (img) {
     var svg = document.createElement('img');
     svg.id = '_swipe';
@@ -13411,7 +13411,7 @@ function loadDisqus() {
         this.page.url = window.location.href;
         this.page.title = document.title;
       };
-      window.loadJSDeferred(document.getElementById('_disqusJS').href);
+      window.loadJSDeferred(document.getElementById('_hrefDisqus').href);
     }
   }
 }

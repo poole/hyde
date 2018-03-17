@@ -33,7 +33,7 @@ export function loadDisqus() {
         this.page.url = window.location.href;
         this.page.title = document.title;
       };
-      window.loadJSDeferred(document.getElementById('_disqusJS').href);
+      window.loadJSDeferred(document.getElementById('_hrefDisqus').href);
     }
   }
 }

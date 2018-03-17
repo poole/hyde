@@ -95,7 +95,7 @@ function defineWebComponent(drawerEl, opened) {
 // The functions below add an svg graphic to the sidebar
 // that incidate that the sidebar can be drawn using touch gestures.
 function setupIcon() {
-  const img = document.getElementById('_swipeSVG');
+  const img = document.getElementById('_hrefSwipeSVG');
   if (img) {
     const svg = document.createElement('img');
     svg.id = '_swipe';

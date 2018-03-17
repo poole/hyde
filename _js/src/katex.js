@@ -50,11 +50,11 @@ export const upgradeMathBlocks = !featuresOk
       if (katexJSLoaded && katexCSSLoaded) {
         Array.from(mathBlocks).forEach(renderKatex);
       } else {
-        window.loadJS(document.getElementById('_katexJS').href).onload = () => {
+        window.loadJS(document.getElementById('_hrefKatexJS').href, () => {
           katexJSLoaded = true;
           if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-        };
-        window.loadCSS(document.getElementById('_katexCSS').href).onload = () => {
+        });
+        window.loadCSS(document.getElementById('_hrefKatexCSS').href).onload = () => {
           katexCSSLoaded = true;
           if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
         };

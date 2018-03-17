@@ -5,10 +5,9 @@
 </script>
 
 {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-  {% capture ffo_url %}{% link assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js %}{% endcapture %}
   <script>
     !function(w, d) {
-      loadJS('{{ ffo_url | relative_url }}', function() {
+      loadJS(document.getElementById('_hrefFFO').href, function() {
         function f() { d.body.className += ' font-active'; }
         if ('Promise' in w) {
           Promise.all([
