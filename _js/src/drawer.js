@@ -14,6 +14,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+/* eslint-disable no-mixed-operators */
+
 // ## Includes
 // First, we patch the environment with some ES6+ functions we intend to use.
 import 'core-js/fn/function/bind';
@@ -28,7 +30,6 @@ import { fromEvent } from 'rxjs/observable/fromEvent';
 import { never } from 'rxjs/observable/never';
 
 import { tap } from 'rxjs/operators/tap';
-import { finalize } from 'rxjs/operators/finalize';
 import { distinctUntilChanged } from 'rxjs/operators/distinctUntilChanged';
 import { map } from 'rxjs/operators/map';
 import { share } from 'rxjs/operators/share';
@@ -109,12 +110,6 @@ function removeIcon() {
   if (svg) svg.parentNode.removeChild(svg);
 }
 
-// Quick helper function to prevent repeat code.
-function updateSidebar(dist, opacity) {
-  const t = 1 - opacity;
-  window._sidebar.style.transform = `translateX(${dist * t}px)`;
-}
-
 // ## Main
 // First, we determine if the drawer is enabled,
 // and whether the current user agent meets our requirements.
@@ -125,8 +120,17 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // First we get hold of some DOM elements.
   const drawerEl = document.getElementsByTagName('hy-drawer')[0];
   const menuEl = document.getElementById('_menu');
+  const sticky = document.querySelector('.sidebar-sticky');
 
   const resize$ = fromEvent(window, 'resize', { passive: true }).pipe(share());
+
+  // Quick helper function to prevent repeat code.
+  const updateSidebar = (dist, opacity, isDesktop) => {
+    const t = 1 - opacity;
+    window._sidebar.style.transform = `translateX(${dist * t}px)`;
+    if (!isDesktop) sticky.style.opacity = opacity;
+    else sticky.style.opacity = 1;
+  };
 
   // An observable keeping track of whether the window size is greater than `BREAK_POINT_3`.
   const isDesktop$ = resize$.pipe(
@@ -150,7 +154,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   const dist$ = drawerWidth$.pipe(map(drawerWidth =>
     (window.matchMedia(BREAK_POINT_3).matches
       ? document.body.clientWidth / 2 - drawerWidth / 2
-      : 0)));
+      : document.body.clientWidth / 2)));
 
   // An observable that keeps track of the range from where the drawer can be drawn.
   // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
@@ -162,24 +166,20 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Sliding the drawer's content between the middle point of the screen,
   // and the middle point of the drawer when closed.
   fromEvent(drawerEl, 'hy-drawer-move')
-    .pipe(
-      finalize(() => {
-        window._sidebar.style.transform = '';
-      }),
-      subscribeWhen(isDesktop$),
-      withLatestFrom(dist$),
-    )
-    .subscribe(([{ detail: { opacity } }, dist]) => {
-      updateSidebar(dist, opacity);
+    .pipe(withLatestFrom(dist$, isDesktop$))
+    .subscribe(([{ detail: { opacity } }, dist, isDesktop]) => {
+      updateSidebar(dist, opacity, isDesktop);
     });
 
   // Setting `will-change` at the beginning of an interaction, and remove at the end.
   drawerEl.addEventListener('hy-drawer-prepare', () => {
     window._sidebar.style.willChange = 'transform';
+    sticky.style.willChange = 'opacity';
   });
 
   drawerEl.addEventListener('hy-drawer-transitioned', () => {
     window._sidebar.style.willChange = '';
+    sticky.style.willChange = '';
   });
 
   // Adding the click callback to the menu button.
@@ -234,9 +234,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   window._drawer = defineWebComponent(drawerEl, opened);
 
   // When the distance changes, update the translateX property.
-  dist$.subscribe((dist) => {
+  dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
     const { opacity } = window._drawer;
-    updateSidebar(dist, opacity);
+    updateSidebar(dist, opacity, isDesktop);
   });
 
   // Keeping the drawer updated.
