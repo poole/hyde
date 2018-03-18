@@ -12,9 +12,9 @@
 </head>
 
 <body>
-  <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark justify-content-around">
+  <nav class="navbar sticky-top navbar-expand-md navbar-dark bg-dark justify-content-around">
     <a class="navbar-brand" href="#">Jacob DeCourcey</a>
-    <a href="#contact-info" class="btn btn-primary btn-lg">Contact Me</a>
+    <a href="#contact-info" class="btn btn-success btn-lg"><i class="fas fa-address-card"></i> Contact Me</a>
   </nav>
 
   <div class="jumbotron-fluid hero">
@@ -90,7 +90,7 @@
           <div class="card-body">
             <h5 class="card-title">Progressive Missions Website</h5>
             <p class="card-text">A brochure website I built for a local non-profit.</p>
-            <a href="https://ProgressiveMissions.org" class="btn btn-primary">Site</a>
+            <a href="https://ProgressiveMissions.org" class="btn btn-dark">Site</a>
             <a href="https://github.com/jakedecourcey/Progressive-Missions-Website" class="btn btn-dark">GitHub</a>
           </div>
         </div>
@@ -131,30 +131,29 @@
     </div>
   </div>
 
-  <nav class="navbar bg-success justify-content-center banner">
+  <nav class="navbar bg-dark justify-content-center banner">
     <h3 class='text-light'>Contact</h3>
   </nav>
 
-  <div class="container text-center" id='contact-info'>
-    <a href="#" class='btn btn-dark btn-lg'>Email me at JakeDeCourcey@gmail.com</a>
-    <br>
-    <br>
-    <a href="#" class='btn btn-dark btn-lg'>Call me at 540.222.3271</a>
-    <br>
-    <br>
-    <a href="#" class='btn btn-dark btn-lg'>Text me at 540.222.3271</a>
+
+  <div class='card bg-success m-auto' style='max-width: 444px'>
+    <h5 class="card-header text-light text-center">Get In Touch</h5>
+    <ul class="list-group list-group-flush">
+      <li class='list-group-item'> <a href="mailto:jakedecourcey@gmail.com" class='card-link'><i class="fas fa-at"></i> Email me at JakeDeCourcey@gmail.com</a></li>
+      <li class='list-group-item'> <a href="tel:15402223271" class='card-link'><i class="fas fa-phone"></i> Call me at 540.222.3271</a></li>
+      <li class='list-group-item'> <a href="sms:15402223271" class='card-link'><i class="fas fa-comments"></i> Text me at 540.222.3271</a></li>
+    </ul>
   </div>
 
-  <nav class="navbar navbar-light bg-light justify-content-center banner mt-5">
-  </nav>
+<br>
 
-  <footer class="container">
-    <nav class="navbar fixed-bottom navbar-expand-md navbar-dark bg-dark justify-content-around">
-      <a href='https://www.linkedin.com/in/jakedecourcey' class="btn btn-light btn-lg"><i class="fab fa-linkedin"></i> LinkedIn</a>
-      <a href='https://www.github.com/jakedecourcey' class="btn btn-light btn-lg"><i class="fab fa-github-square"></i> Github</a>
-      <a href='https://codepen.io/jakedecourcey/#' class="btn btn-light btn-lg"><i class="fab fa-codepen"></i> Codepen</a>
-      <a href='blog.html' class="btn btn-light btn-lg"><i class="fas fa-file-alt"></i> Blog</a>
-    </nav>
+  <footer class="navbar navbar-bottom navbar-expand navbar-dark bg-dark justify-content-center">
+    <div class="btn-group">
+      <a class='nav-link btn btn-outline-light btn-sm' href='https://www.linkedin.com/in/jakedecourcey'><i class="fab fa-linkedin"></i> LinkedIn</a>
+      <a class='nav-link btn btn-outline-light btn-sm' href='https://www.github.com/jakedecourcey'><i class="fab fa-github-square"></i> Github</a>
+      <a class='nav-link btn btn-outline-light btn-sm' href='https://codepen.io/jakedecourcey/#'><i class="fab fa-codepen"></i> Codepen</a>
+      <a class='nav-link btn btn-outline-light btn-sm' href='blog.html'><i class="fas fa-file-alt"></i> Blog</a>
+    </div>
   </footer>
 
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
