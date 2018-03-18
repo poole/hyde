@@ -24,13 +24,6 @@
 
 
 
-
-.animation-main {
-  opacity: 0;
-  will-change: opacity;
-  pointer-events: none;
-}
-
 .loading {
   display: none;
   position: absolute;
@@ -45,8 +38,12 @@
 
 #_cookies-banner  {
   .nav-btn { padding: 1.75rem 0 }
-  .nav-btn-bar { margin-left: 2rem; }
-  @media screen and (min-width: $break-point-3) { .nav-btn-bar { margin: 0; } }
+  .nav-btn-bar {
+    margin-left: 2rem;
+    @media screen and (min-width: $break-point-3) {
+      margin: 0;
+    }
+  }
   @media print { display: none; }
 }
 
