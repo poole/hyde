@@ -1,10 +1,10 @@
 body {
-  background-color: #ececec;
-  background-image: url(images/sky.jpg);
+  background-image: url(images/bg.jpg);
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
-  background-attachment: fixed;
-  background-position: bottom;
 }
 
 .banner {
@@ -19,4 +19,36 @@ body {
 
 .hero__img {
   border-radius: 50%;
+}
+
+.card, .card-body, .list-group, .list-group-item {
+  background: none;
+  color: #f4b942;
+  border-width: 2px;
+}
+
+.card {
+  border-color: #f4b942;
+}
+
+.card-header, .btn-primary {
+  border: none;
+  background-color: #f4b942;
+  color: black;
+}
+
+.list-group, .list-group-item {
+  border: none;
+}
+
+.solid-light-background {
+  background-color: #CCC;
+}
+
+.solid-dark-background {
+  background-color: #444;
+}
+
+.bg-dark, .navbar-dark {
+  background-color: #444;
 }
