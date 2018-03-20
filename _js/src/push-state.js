@@ -23,11 +23,11 @@
 
 // ## Includes
 // First, we patch the environment with some ES6+ functions we intend to use.
-import 'core-js/fn/array/for-each';
-import 'core-js/fn/array/from';
-import 'core-js/fn/function/bind';
-import 'core-js/fn/object/assign';
-import 'core-js/fn/string/includes';
+import "core-js/fn/array/for-each";
+import "core-js/fn/array/from";
+import "core-js/fn/function/bind";
+import "core-js/fn/object/assign";
+import "core-js/fn/string/includes";
 
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
@@ -35,32 +35,32 @@ import 'core-js/fn/string/includes';
 import {
   HyPushStateElement,
   WEBCOMPONENT_FEATURE_TESTS,
-  Set,
-} from 'hy-push-state/src/webcomponent';
+  Set
+} from "hy-push-state/src/webcomponent";
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { animationFrame } from 'rxjs/scheduler/animationFrame';
+import { animationFrame } from "rxjs/scheduler/animationFrame";
 
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { merge } from 'rxjs/observable/merge';
-import { of } from 'rxjs/observable/of';
-import { timer } from 'rxjs/observable/timer';
+import { fromEvent } from "rxjs/observable/fromEvent";
+import { merge } from "rxjs/observable/merge";
+import { of } from "rxjs/observable/of";
+import { timer } from "rxjs/observable/timer";
 
-import { tap } from 'rxjs/operators/tap';
-import { debounceTime } from 'rxjs/operators/debounceTime';
-import { exhaustMap } from 'rxjs/operators/exhaustMap';
-import { filter } from 'rxjs/operators/filter';
-import { map } from 'rxjs/operators/map';
-import { mapTo } from 'rxjs/operators/mapTo';
-import { mergeMap } from 'rxjs/operators/mergeMap';
-import { observeOn } from 'rxjs/operators/observeOn';
-import { pairwise } from 'rxjs/operators/pairwise';
-import { share } from 'rxjs/operators/share';
-import { startWith } from 'rxjs/operators/startWith';
-import { switchMap } from 'rxjs/operators/switchMap';
-import { take } from 'rxjs/operators/take';
-import { takeUntil } from 'rxjs/operators/takeUntil';
-import { zip } from 'rxjs/operators/zip';
+import { tap } from "rxjs/operators/tap";
+import { debounceTime } from "rxjs/operators/debounceTime";
+import { exhaustMap } from "rxjs/operators/exhaustMap";
+import { filter } from "rxjs/operators/filter";
+import { map } from "rxjs/operators/map";
+import { mapTo } from "rxjs/operators/mapTo";
+import { mergeMap } from "rxjs/operators/mergeMap";
+import { observeOn } from "rxjs/operators/observeOn";
+import { pairwise } from "rxjs/operators/pairwise";
+import { share } from "rxjs/operators/share";
+import { startWith } from "rxjs/operators/startWith";
+import { switchMap } from "rxjs/operators/switchMap";
+import { take } from "rxjs/operators/take";
+import { takeUntil } from "rxjs/operators/takeUntil";
+import { zip } from "rxjs/operators/zip";
 
 // Some of our own helper functions and classes.
 import {
@@ -69,27 +69,27 @@ import {
   getResolvablePromise,
   hasFeatures,
   isSafari,
-  isFirefoxIOS,
-} from './common';
-import { CrossFader } from './cross-fader';
-import { upgradeMathBlocks } from './katex';
-import { loadDisqus } from './disqus';
-import { setupFLIP } from './flip';
+  isFirefoxIOS
+} from "./common";
+import { CrossFader } from "./cross-fader";
+import { upgradeMathBlocks } from "./katex";
+import { loadDisqus } from "./disqus";
+import { setupFLIP } from "./flip";
 
 // ## Constants
 // A list of Modernizr feature tests that are required for the push state feature to work.
 const REQUIREMENTS = new Set([
   ...WEBCOMPONENT_FEATURE_TESTS,
-  'classlist',
-  'cssanimations',
-  'cssremunit',
-  'documentfragment',
-  'eventlistener',
-  'history',
-  'matchmedia',
-  'opacity',
-  'queryselector',
-  'requestanimationframe',
+  "classlist",
+  "cssanimations",
+  "cssremunit",
+  "documentfragment",
+  "eventlistener",
+  "history",
+  "matchmedia",
+  "opacity",
+  "queryselector",
+  "requestanimationframe"
 ]);
 
 // TODO:
@@ -106,19 +106,19 @@ const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
 
 // Details of the fade-in animation.
 const FADE_IN = [
-  { opacity: 0, transform: 'translateY(-3rem)' },
-  { opacity: 1, transform: 'translateY(0)' },
+  { opacity: 0, transform: "translateY(-3rem)" },
+  { opacity: 1, transform: "translateY(0)" }
 ];
 
 // Settings as passed to the WebAnimations API.
 const SETTINGS = {
   duration: DURATION,
-  easing: 'ease-out',
-  fill: 'forwards',
+  easing: "ease-out",
+  fill: "forwards"
 };
 
 // A CSS selector for headlines with ids.
-const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
+const HEADING_SELECTOR = "h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]";
 
 // We also setup some shorthands:
 const assign = Object.assign.bind(Object);
@@ -126,9 +126,9 @@ const assign = Object.assign.bind(Object);
 // ## Functions
 // Takes a heading and adds a "#" link for permalinks:
 function upgradeHeading(h) {
-  const template = document.getElementById('_permalink-template');
+  const template = document.getElementById("_permalink-template");
   const df = document.importNode(template.content, true);
-  const a = df.querySelector('.permalink');
+  const a = df.querySelector(".permalink");
   a.href = `#${h.id}`;
   h.appendChild(df);
 }
@@ -142,23 +142,23 @@ function upgradeHeading(h) {
 
 // Set up the DOM elements:
 function setupAnimationMain(pushStateEl) {
-  const template = document.getElementById('_animation-template');
+  const template = document.getElementById("_animation-template");
   const animationMain = document.importNode(template.content, true);
   pushStateEl.parentNode.insertBefore(animationMain, pushStateEl);
   return pushStateEl.previousElementSibling;
 }
 
 function setupLoading(navbarEl) {
-  const template = document.getElementById('_loading-template');
+  const template = document.getElementById("_loading-template");
   const loading = document.importNode(template.content, true);
   navbarEl.appendChild(loading);
   return navbarEl.lastElementChild;
 }
 
 function setupErrorPage(main, { pathname }) {
-  const template = document.getElementById('_error-template');
+  const template = document.getElementById("_error-template");
   const error = document.importNode(template.content, true);
-  const anchor = error.querySelector('.this-link');
+  const anchor = error.querySelector(".this-link");
   if (anchor) {
     anchor.href = pathname;
     anchor.textContent = pathname;
@@ -170,7 +170,7 @@ function setupErrorPage(main, { pathname }) {
 function setupButton(parent, templateId, clickFn) {
   const template = document.getElementById(templateId);
   const backButton = document.importNode(template.content, true);
-  backButton.querySelector('.nav-btn').addEventListener('click', clickFn);
+  backButton.querySelector(".nav-btn").addEventListener("click", clickFn);
   parent.appendChild(backButton);
   return parent.lastElementChild;
 }
@@ -178,16 +178,16 @@ function setupButton(parent, templateId, clickFn) {
 // Get the FLIP type (currently 'title' or 'project') from an element.
 function getFlipType(el) {
   if (!el || !el.classList) return null;
-  if (el.classList.contains('flip-title')) return 'title';
-  if (el.classList.contains('flip-project')) return 'project';
-  return el.getAttribute && el.getAttribute('data-flip');
+  if (el.classList.contains("flip-title")) return "title";
+  if (el.classList.contains("flip-project")) return "project";
+  return el.getAttribute && el.getAttribute("data-flip");
 }
 
 // Whether the content should be animated.
 // Always for 'push' animations, only in 'standalone' mode for Safari (b/c it conflicts with
 // the native forward/backward guestures).
 function shouldAnimate(type) {
-  return type === 'push' || navigator.standalone || !isSafari;
+  return type === "push" || navigator.standalone || !isSafari;
 }
 
 // Similar to `shouldAnimate`, whether we use scroll restoration depends on whether it conflicts
@@ -202,11 +202,11 @@ function animateFadeOut({ type, main }) {
     : of({ main });
 
   if (window._drawer && window._drawer.opened) {
-    main.style.willChange = 'opacity';
+    main.style.willChange = "opacity";
     window._drawer.close();
-    return fromEvent(window._drawer.el, 'hy-drawer-transitioned').pipe(
+    return fromEvent(window._drawer.el, "hy-drawer-transitioned").pipe(
       take(1),
-      zip(anim$, (_, x) => x),
+      zip(anim$, (_, x) => x)
     );
   }
   return anim$;
@@ -221,8 +221,8 @@ function animateFadeIn({ type, replaceEls: [main], flipType }) {
 // Before we register the WebComponent with the DOM, we set essential properties,
 // some of which depend on browser, standalone mode, etc...
 function defineWebComponent(pushStateEl) {
-  if (shouldRestoreScroll()) pushStateEl.setAttribute('scroll-restoration', '');
-  window.customElements.define('hy-push-state', HyPushStateElement);
+  if (shouldRestoreScroll()) pushStateEl.setAttribute("scroll-restoration", "");
+  window.customElements.define("hy-push-state", HyPushStateElement);
   return pushStateEl;
 }
 
@@ -233,45 +233,48 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // ### Setup
   // We save some variables and setup the DOM:
   const isStandalone =
-    !!navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
+    !!navigator.standalone ||
+    window.matchMedia("(display-mode: standalone)").matches;
 
-  const pushStateEl = document.getElementsByTagName('hy-push-state')[0];
-  const btnBarEl = document.querySelector('.navbar .content .nav-btn-bar');
+  const pushStateEl = document.getElementsByTagName("hy-push-state")[0];
+  const btnBarEl = document.querySelector(".navbar .content .nav-btn-bar");
 
   const animationMain = setupAnimationMain(pushStateEl);
-  const loading = setupLoading(document.querySelector('.navbar .content'));
+  const loading = setupLoading(document.querySelector(".navbar .content"));
 
   // Show a back button when in standalone mode.
   if (isStandalone) {
-    setupButton(btnBarEl, '_back-template', () => window.history.back());
+    setupButton(btnBarEl, "_back-template", () => window.history.back());
   }
 
   // Setting up the basic event observables.
   // In case of a start event we also add the `flipType` to the context,
   // so that we can use filter based on it later.
-  const start$ = fromEvent(pushStateEl, 'hy-push-state-start').pipe(
-    map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) })),
-    share(),
+  const start$ = fromEvent(pushStateEl, "hy-push-state-start").pipe(
+    map(({ detail }) =>
+      assign(detail, { flipType: getFlipType(detail.anchor) })
+    ),
+    share()
   );
 
-  const ready$ = fromEvent(pushStateEl, 'hy-push-state-ready').pipe(
+  const ready$ = fromEvent(pushStateEl, "hy-push-state-ready").pipe(
     map(({ detail }) => detail),
-    share(),
+    share()
   );
 
-  const after$ = fromEvent(pushStateEl, 'hy-push-state-after').pipe(
+  const after$ = fromEvent(pushStateEl, "hy-push-state-after").pipe(
     map(({ detail }) => detail),
-    share(),
+    share()
   );
 
-  const progress$ = fromEvent(pushStateEl, 'hy-push-state-progress').pipe(
+  const progress$ = fromEvent(pushStateEl, "hy-push-state-progress").pipe(
     map(({ detail }) => detail),
-    share(),
+    share()
   );
 
-  const error$ = fromEvent(pushStateEl, 'hy-push-state-networkerror').pipe(
+  const error$ = fromEvent(pushStateEl, "hy-push-state-networkerror").pipe(
     map(({ detail }) => detail),
-    share(),
+    share()
   );
 
   // ### Fade main content out
@@ -279,7 +282,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // First we get a hold fo the current content.
   // TODO: Change hy-push-state to provide this as part of the event?
   const fadeOut$ = start$.pipe(
-    map(context => assign(context, { main: document.getElementById('_main') })),
+    map(context => assign(context, { main: document.getElementById("_main") })),
 
     // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
     // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
@@ -291,13 +294,13 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       empty.call(main);
       window.scrollTo(0, 0);
     }),
-    share(),
+    share()
   );
 
   // ### Show loading spinner
   // Show loading spinner --- but only when fetching takes longer than `DURATION`.
   progress$.subscribe(() => {
-    loading.style.display = 'block';
+    loading.style.display = "block";
   });
 
   // ### Prepare showing the new content
@@ -305,28 +308,36 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // and it is parsed as a document fragment, but before we add it to the DOM.
   // This is were we can make some changes to the content without triggering repaints.
   ready$
-    .pipe(startWith({ replaceEls: [document.getElementById('_main')] }))
+    .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
     .subscribe(({ replaceEls: [main] }) => {
-      loading.style.display = 'none';
-      main.classList.remove('fade-in');
-      Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading);
+      loading.style.display = "none";
+      main.classList.remove("fade-in");
+      Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(
+        upgradeHeading
+      );
     });
 
   after$
-    .pipe(startWith({ replaceEls: [document.getElementById('_main')] }))
+    .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
     .subscribe(({ replaceEls: [main] }) => {
-      Array.from(main.querySelectorAll('li[id^="fn:"]')).forEach((li) => {
+      Array.from(main.querySelectorAll('li[id^="fn:"]')).forEach(li => {
         li.tabIndex = 0;
       });
 
       Array.from(main.querySelectorAll('a[href^="#fn:"]')).forEach(a =>
-        a.addEventListener('click', e =>
-          document.getElementById(e.currentTarget.hash.substr(1)).focus()));
+        a.addEventListener("click", e =>
+          document.getElementById(e.currentTarget.hash.substr(1)).focus()
+        )
+      );
     });
 
   // ### Fade new content in
   // `after` new content is added to the DOM, start animating it.
-  const fadeIn$ = after$.pipe(observeOn(animationFrame), switchMap(animateFadeIn), share());
+  const fadeIn$ = after$.pipe(
+    observeOn(animationFrame),
+    switchMap(animateFadeIn),
+    share()
+  );
 
   // In addition to fading the main content out,
   // there's also a FLIP animation playing when clicking certain links.
@@ -334,19 +345,19 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // work when an error occurs.
   const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
     animationMain,
-    settings: SETTINGS,
+    settings: SETTINGS
   }).pipe(share());
 
   start$
     .pipe(
-      map((context) => {
+      map(context => {
         const promise = getResolvablePromise();
         context.waitUntil(promise);
         return promise;
       }),
       // Every click starts a timer that lasts as long
       // as it takes for the FLIP and fade-out animations to complete.
-      switchMap(p => timer(DURATION).pipe(zip(fadeOut$, flip$, () => p))),
+      switchMap(p => timer(DURATION).pipe(zip(fadeOut$, flip$, () => p)))
     )
     // Once the animation have completed, we resolve the promise so that hy-push-state continues.
     .subscribe(p => p.resolve());
@@ -370,15 +381,18 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   after$
     .pipe(
       switchMap(({ replaceEls: [main] }) =>
-        crossFader.fetchImage(main).pipe(zip(fadeIn$, x => x), takeUntil(start$))),
+        crossFader
+          .fetchImage(main)
+          .pipe(zip(fadeIn$, x => x), takeUntil(start$))
+      ),
 
       // Once we have both images, we take them `pairwise` and cross-fade.
       // We start with the initial sidebar image, which was part of HTML content.
       // Here we use `mergeMap`, because in edge cases there could be 3 or more images
       // being faded at the same time, but there is no reason to cancel the old ones.
-      startWith([document.querySelector('.sidebar-bg')]),
+      startWith([document.querySelector(".sidebar-bg")]),
       pairwise(),
-      mergeMap(([prev, curr]) => crossFader.fade(prev, curr)),
+      mergeMap(([prev, curr]) => crossFader.fade(prev, curr))
     )
     .subscribe();
 
@@ -394,26 +408,28 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       }),
       // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
       filter(() => !!window.ga),
-      debounceTime(GA_DELAY),
+      debounceTime(GA_DELAY)
     )
     .subscribe(() => {
-      window.ga('set', 'page', window.location.pathname);
-      window.ga('send', 'pageview');
+      window.ga("set", "page", window.location.pathname);
+      window.ga("send", "pageview");
     });
 
   // ### Show error page
   // In case of a network error, we don't want to show the browser's default offline page.
   error$
-    .pipe(switchMap(({ url }) => {
-      loading.style.display = 'none';
+    .pipe(
+      switchMap(({ url }) => {
+        loading.style.display = "none";
 
-      const main = document.getElementById('_main');
-      empty.call(animationMain.querySelector('.page'));
-      empty.call(main);
+        const main = document.getElementById("_main");
+        empty.call(animationMain.querySelector(".page"));
+        empty.call(main);
 
-      setupErrorPage(main, url);
-      return animate(main, FADE_IN, SETTINGS);
-    }))
+        setupErrorPage(main, url);
+        return animate(main, FADE_IN, SETTINGS);
+      })
+    )
     .subscribe();
 
   // ### Safari special treatment
@@ -425,13 +441,17 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // First, we make sure this the previous entry was pushed by us and wasn't a jump to a `#`:
     // Then we empty the content immediately to prevent flickering and
     // set the old `scrollHeigt` as the body's `minHeight`.
-    fromEvent(window, 'popstate')
-      .pipe(filter(() =>
-        window.history.state &&
-            window.history.state['hy-push-state'] &&
-            !window.history.state['hy-push-state'].hash))
+    fromEvent(window, "popstate")
+      .pipe(
+        filter(
+          () =>
+            window.history.state &&
+            window.history.state["hy-push-state"] &&
+            !window.history.state["hy-push-state"].hash
+        )
+      )
       .subscribe(() => {
-        const { scrollHeight } = window.history.state['hy-push-state'];
+        const { scrollHeight } = window.history.state["hy-push-state"];
         document.body.style.minHeight = `${scrollHeight}px`;
       });
 
@@ -439,7 +459,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     merge(after$, progress$, error$)
       .pipe(observeOn(animationFrame))
       .subscribe(() => {
-        document.body.style.minHeight = '';
+        document.body.style.minHeight = "";
       });
   }
 

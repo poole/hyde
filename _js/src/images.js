@@ -14,13 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { ShyImageElement, WEBCOMPONENT_FEATURE_TESTS, Set } from 'shy-img/src/webcomponent';
+import {
+  ShyImageElement,
+  WEBCOMPONENT_FEATURE_TESTS,
+  Set
+} from "shy-img/src/webcomponent";
 
-import { hasFeatures } from './common';
+import { hasFeatures } from "./common";
 
 if (!window._noShyImage && hasFeatures(WEBCOMPONENT_FEATURE_TESTS)) {
-  window.customElements.define('shy-img', ShyImageElement);
-  const logo = document.querySelector('.sidebar shy-img');
+  window.customElements.define("shy-img", ShyImageElement);
+  const logo = document.querySelector(".sidebar shy-img");
   if (logo) logo.loadImage();
 } else {
   // TODO

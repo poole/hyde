@@ -14,40 +14,39 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'core-js/fn/array/find';
-import 'core-js/fn/array/from';
-import 'core-js/fn/function/bind';
+import "core-js/fn/array/find";
+import "core-js/fn/array/from";
+import "core-js/fn/function/bind";
 
-import Color from 'color';
+import Color from "color";
 
-import { empty } from 'rxjs/observable/empty';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { of } from 'rxjs/observable/of';
+import { empty } from "rxjs/observable/empty";
+import { fromEvent } from "rxjs/observable/fromEvent";
+import { of } from "rxjs/observable/of";
 
-import { finalize } from 'rxjs/operators/finalize';
-import { take } from 'rxjs/operators/take';
-import { map } from 'rxjs/operators/map';
+import { finalize } from "rxjs/operators/finalize";
+import { take } from "rxjs/operators/take";
+import { map } from "rxjs/operators/map";
 
-import elemDataset from 'elem-dataset';
+import elemDataset from "elem-dataset";
 
-import { animate } from './common';
+import { animate } from "./common";
 
 const BORDER_COLOR_FADE = 0.8;
 
 // Given a dataset, generate some string we can use the check if anything has changed...
-const pseudoHash = ({
-  background, color, image, overlay,
-}) =>
-  `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
+const pseudoHash = ({ background, color, image, overlay }) =>
+  `${color}${image || background}${overlay === "" ? "overlay" : ""}`;
 
 export class CrossFader {
   constructor(fadeDuration) {
-    const main = document.getElementById('_main');
-    const pageStyle = document.getElementById('_pageStyle');
+    const main = document.getElementById("_main");
+    const pageStyle = document.getElementById("_pageStyle");
     const styleSheet =
-      Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) || {};
+      Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) ||
+      {};
 
-    this.sidebar = document.getElementById('_sidebar');
+    this.sidebar = document.getElementById("_sidebar");
     this.fadeDuration = fadeDuration;
     this.rules = styleSheet.cssRules || styleSheet.rules;
     this.prevHash = pseudoHash(elemDataset(main));
@@ -59,16 +58,22 @@ export class CrossFader {
   // or just remite immediately if there is no image, or it hasn't changed.
   // Note that the point is not to *use* the image object, just to make sure the image is in cache.
   cacheImage$({ background, image }) {
-    if (background || !image || image === '' || image === 'none' || image === this.prevImage) {
+    if (
+      background ||
+      !image ||
+      image === "" ||
+      image === "none" ||
+      image === this.prevImage
+    ) {
       return of({});
     }
 
     const imgObj = new Image();
-    const image$ = fromEvent(imgObj, 'load').pipe(
+    const image$ = fromEvent(imgObj, "load").pipe(
       take(1),
       finalize(() => {
-        imgObj.src = '';
-      }),
+        imgObj.src = "";
+      })
     );
     imgObj.src = image;
 
@@ -77,28 +82,30 @@ export class CrossFader {
 
   fetchImage(main) {
     const dataset = elemDataset(main);
-    const {
-      background, color, image, overlay,
-    } = dataset;
+    const { background, color, image, overlay } = dataset;
 
     // HACK: Using `dataset` here to store some intermediate data
     const hash = pseudoHash(dataset);
     if (hash === this.prevHash) return empty();
 
-    return this.cacheImage$(dataset).pipe(map(() => {
-      const div = document.createElement('div');
-      div.classList.add('sidebar-bg');
-      if (image !== 'none' && overlay === '') div.classList.add('sidebar-overlay');
-      if (background) div.style.background = background;
-      else {
-        div.style.backgroundColor = color;
-        if (image !== '' && image !== 'none') div.style.backgroundImage = `url(${image})`;
-      }
-      return [div, dataset, hash];
-    }));
+    return this.cacheImage$(dataset).pipe(
+      map(() => {
+        const div = document.createElement("div");
+        div.classList.add("sidebar-bg");
+        if (image !== "none" && overlay === "")
+          div.classList.add("sidebar-overlay");
+        if (background) div.style.background = background;
+        else {
+          div.style.backgroundColor = color;
+          if (image !== "" && image !== "none")
+            div.style.backgroundImage = `url(${image})`;
+        }
+        return [div, dataset, hash];
+      })
+    );
   }
 
-  updateStyle({ color = '#4fb1ba', themeColor } = {}) {
+  updateStyle({ color = "#4fb1ba", themeColor } = {}) {
     if (this.themeColor) {
       window.setTimeout(() => {
         this.themeColor.content = themeColor || color;
@@ -156,7 +163,7 @@ export class CrossFader {
     this.prevHash = hash;
 
     return animate(div, [{ opacity: 0 }, { opacity: 1 }], {
-      duration: this.fadeDuration,
+      duration: this.fadeDuration
     }).pipe(finalize(() => prevDiv.parentNode.removeChild(prevDiv)));
   }
 }

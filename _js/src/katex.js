@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'core-js/fn/array/from';
-import 'core-js/fn/array/for-each';
+import "core-js/fn/array/from";
+import "core-js/fn/array/for-each";
 
-import { hasFeatures, hide } from './common';
+import { hasFeatures, hide } from "./common";
 
-const REQUIREMENTS = ['classlist', 'eventlistener', 'queryselector'];
+const REQUIREMENTS = ["classlist", "eventlistener", "queryselector"];
 
 const featuresOk = hasFeatures(REQUIREMENTS);
 let katexJSLoaded = false;
@@ -28,12 +28,13 @@ let katexCSSLoaded = false;
 function renderKatex(el) {
   try {
     let prev = el.previousElementSibling;
-    while (prev && !prev.classList.contains('MathJax_Preview')) prev = prev.previousElementSibling;
+    while (prev && !prev.classList.contains("MathJax_Preview"))
+      prev = prev.previousElementSibling;
 
-    const tex = el.textContent.replace('% <![CDATA[', '').replace('%]]>', '');
+    const tex = el.textContent.replace("% <![CDATA[", "").replace("%]]>", "");
 
     el.outerHTML = window.katex.renderToString(tex, {
-      displayMode: el.type === 'math/tex; mode=display',
+      displayMode: el.type === "math/tex; mode=display"
     });
 
     if (prev) hide.call(prev);
@@ -45,25 +46,25 @@ function renderKatex(el) {
 export const upgradeMathBlocks = !featuresOk
   ? () => {}
   : () => {
-    const mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
-    if (mathBlocks.length) {
-      if (katexJSLoaded && katexCSSLoaded) {
-        Array.from(mathBlocks).forEach(renderKatex);
-      } else {
-        window
-          .loadJS(document.getElementById('_hrefKatexJS').href)
-          .addEventListener('load', () => {
-            katexJSLoaded = true;
-            if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-          });
-        window
-          .loadCSS(document.getElementById('_hrefKatexCSS').href)
-          .addEventListener('load', () => {
-            katexCSSLoaded = true;
-            if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-          });
+      const mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
+      if (mathBlocks.length) {
+        if (katexJSLoaded && katexCSSLoaded) {
+          Array.from(mathBlocks).forEach(renderKatex);
+        } else {
+          window
+            .loadJS(document.getElementById("_hrefKatexJS").href)
+            .addEventListener("load", () => {
+              katexJSLoaded = true;
+              if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
+            });
+          window
+            .loadCSS(document.getElementById("_hrefKatexCSS").href)
+            .addEventListener("load", () => {
+              katexCSSLoaded = true;
+              if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
+            });
+        }
       }
-    }
-  };
+    };
 
 upgradeMathBlocks();

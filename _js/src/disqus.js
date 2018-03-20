@@ -20,12 +20,12 @@ function loadDisqus2() {
     config() {
       this.page.url = window.location.href;
       this.page.title = document.title;
-    },
+    }
   });
 }
 
 export function loadDisqus() {
-  if (document.getElementById('disqus_thread')) {
+  if (document.getElementById("disqus_thread")) {
     if (window.DISQUS) {
       loadDisqus2();
     } else {
@@ -33,7 +33,7 @@ export function loadDisqus() {
         this.page.url = window.location.href;
         this.page.title = document.title;
       };
-      window.loadJSDeferred(document.getElementById('_hrefDisqus').href);
+      window.loadJSDeferred(document.getElementById("_hrefDisqus").href);
     }
   }
 }

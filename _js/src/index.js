@@ -14,17 +14,17 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import '@webcomponents/webcomponentsjs/webcomponents-sd-ce';
-import 'intersection-observer';
-import 'web-animations-js';
+import "@webcomponents/webcomponentsjs/webcomponents-sd-ce";
+import "intersection-observer";
+import "web-animations-js";
 
-import '../lib/modernizr-custom';
-import '../lib/version';
+import "../lib/modernizr-custom";
+import "../lib/version";
 
-import './cookies-banner';
-import './katex';
-import './drawer';
-import './push-state';
-import './images';
+import "./cookies-banner";
+import "./katex";
+import "./drawer";
+import "./push-state";
+import "./images";
 
 // document.body.classList.add('wf-active');
