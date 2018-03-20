@@ -38,9 +38,6 @@ import {
   Set
 } from "hy-push-state/src/webcomponent";
 
-// Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { animationFrame } from "rxjs/scheduler/animationFrame";
-
 import { fromEvent } from "rxjs/observable/fromEvent";
 import { merge } from "rxjs/observable/merge";
 import { of } from "rxjs/observable/of";
@@ -53,7 +50,6 @@ import { filter } from "rxjs/operators/filter";
 import { map } from "rxjs/operators/map";
 import { mapTo } from "rxjs/operators/mapTo";
 import { mergeMap } from "rxjs/operators/mergeMap";
-import { observeOn } from "rxjs/operators/observeOn";
 import { pairwise } from "rxjs/operators/pairwise";
 import { share } from "rxjs/operators/share";
 import { startWith } from "rxjs/operators/startWith";
@@ -202,7 +198,6 @@ function animateFadeOut({ type, main }) {
     : of({ main });
 
   if (window._drawer && window._drawer.opened) {
-    main.style.willChange = "opacity";
     window._drawer.close();
     return fromEvent(window._drawer.el, "hy-drawer-transitioned").pipe(
       take(1),
@@ -284,15 +279,18 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   const fadeOut$ = start$.pipe(
     map(context => assign(context, { main: document.getElementById("_main") })),
 
+    tap(({ main }) => {
+      main.style.pointerEvents = "none";
+    }),
+
     // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
     // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
-    observeOn(animationFrame),
     exhaustMap(animateFadeOut),
 
     // After the animation is complete, we empty the current content and scroll to the top.
     tap(({ main }) => {
       empty.call(main);
-      window.scrollTo(0, 0);
+      if (shouldRestoreScroll()) window.scrollTo(0, 0);
     }),
     share()
   );
@@ -333,11 +331,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
   // ### Fade new content in
   // `after` new content is added to the DOM, start animating it.
-  const fadeIn$ = after$.pipe(
-    observeOn(animationFrame),
-    switchMap(animateFadeIn),
-    share()
-  );
+  const fadeIn$ = after$.pipe(switchMap(animateFadeIn), share());
 
   // In addition to fading the main content out,
   // there's also a FLIP animation playing when clicking certain links.
@@ -423,6 +417,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
         loading.style.display = "none";
 
         const main = document.getElementById("_main");
+        main.style.pointerEvents = "";
         empty.call(animationMain.querySelector(".page"));
         empty.call(main);
 
@@ -456,11 +451,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       });
 
     // Once the content has been replaced (or an error occurred, etc), restore `minHeight`.
-    merge(after$, progress$, error$)
-      .pipe(observeOn(animationFrame))
-      .subscribe(() => {
-        document.body.style.minHeight = "";
-      });
+    merge(after$, progress$, error$).subscribe(() => {
+      document.body.style.minHeight = "";
+    });
   }
 
   // ### Create the component

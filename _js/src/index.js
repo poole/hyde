@@ -26,5 +26,3 @@ import "./katex";
 import "./drawer";
 import "./push-state";
 import "./images";
-
-// document.body.classList.add('wf-active');
