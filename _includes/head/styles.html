@@ -1,8 +1,14 @@
 <!--[if gt IE 8]><!---->
 {% capture style_url %}{% link assets/css/hydejack-8.0.0-alpha.18.css %}{% endcapture %}
+{% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
+{% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts }}{% endcapture %}
 
 {% if site.hydejack.no_inline_css or jekyll.environment == 'development' %}
   <link rel="stylesheet" href="{{ style_url | relative_url }}">
+  <link rel="stylesheet" href="{{ icons_url | relative_url }}">
+  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+    <link rel="stylesheet" href="{{ fonts_url }}">
+  {% endunless %}
 {% else %}
   <style>
     {% capture to_scssify %}{% include styles/inline.scss %}{% endcapture %}
@@ -21,12 +27,10 @@
   <link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">
   <script>setRel('_stylePreload');</script>
 
-  {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
   <link id="_iconsPreload" rel="preload" as="style" href="{{ icons_url | relative_url }}">
   <script>setRel('_iconsPreload');</script>
 
   {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-    {% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts }}{% endcapture %}
     <link id="_fontsPreload" rel="preload" as="style" href="{{ fonts_url }}">
     <script>setRel('_fontsPreload');</script>
   {% endunless %}
@@ -37,17 +41,12 @@
     {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
       <link rel="stylesheet" href="{{ fonts_url }}">
     {% endunless %}
+    <style>
+      html { font-family: {{ font }}!important; }
+      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading }}!important; }
+    </style>
   </noscript>
 {% endif %}
 
 {% include head/page-style.html %}
-
-{% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-  <noscript>
-    <style>
-      html { font-family: {{ font }}; }
-      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading }}; }
-    </style>
-  </noscript>
-{% endunless %}
 <!--<![endif]-->
