@@ -1,0 +1,79 @@
+body {
+  background-image: url(images/bg.jpg);
+  height: 100%;
+  background-attachment: fixed;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  font-size: 1.25em;
+}
+
+.banner {
+  margin-bottom: 22px;
+}
+
+.hero {
+  padding-top: 111px;
+  padding-bottom: 66px;
+  text-align: right;
+}
+
+.hero__img {
+  border-radius: 50%;
+}
+
+.card, .card-body, .list-group, .list-group-item {
+  background: none;
+  color: #FFC165;
+  border-width: 2px;
+}
+
+.card {
+  border-color: #FFC165;
+}
+
+.card-header, .btn-primary {
+  border: none;
+  background-color: #FFC165;
+  color: black;
+}
+
+.btn-info {
+background-color: #B773FF;
+  border: none;
+}
+
+.btn-info:hover {
+background-color: #7D09B2;
+}
+
+a {
+color: #B773FF;
+}
+
+.list-group, .list-group-item {
+  border: none;
+}
+
+.solid-light-background {
+  background-color: #CCC;
+}
+
+.solid-dark-background {
+  background-color: #444;
+}
+
+.wrapper {
+margin-top: 33px;
+margin-bottom: 66px;
+padding-top: 33px;
+padding-bottom: 66px;
+}
+
+.text-pale {
+color: #CCC;
+}
+
+a:visited {
+color: 
+}
