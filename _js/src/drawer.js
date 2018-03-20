@@ -38,7 +38,7 @@ import { switchMap } from 'rxjs/operators/switchMap';
 import { withLatestFrom } from 'rxjs/operators/withLatestFrom';
 
 // Some of our own helper functions/constants.
-import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';
+import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser } from './common';
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = new Set([
@@ -88,6 +88,7 @@ function getRange() {
 function defineWebComponent(drawerEl, opened) {
   if (opened) drawerEl.setAttribute('opened', '');
   if (isSafari) drawerEl.setAttribute('threshold', 0);
+  if (!isMobile) drawerEl.setAttribute('mouse-events', '');
   window.customElements.define('hy-drawer', HyDrawerElement);
   return drawerEl;
 }
@@ -195,26 +196,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     map(e => e.detail),
     distinctUntilChanged(),
     tap((opened) => {
-      if (!opened) {
-        removeIcon();
-      }
+      if (!opened) removeIcon();
     }),
-    // share(),
   );
-
-  // TODO: Close the drawer when scrolling down?
-  /*
-  if (!isMobile) {
-    Observable::fromEvent(document, 'scroll')
-      ::subscribeWhen(opened$)
-      .subscribe((e) => {
-        e.preventDefault();
-        if (window._drawer.opened) { // extra check, because scroll can fire multiple times
-          window._drawer.close();
-        }
-      });
-  }
-  */
 
   // Close the drawer on popstate, i.e. the back button.
   fromEvent(window, 'popstate', { passive: true })
@@ -242,10 +226,6 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Keeping the drawer updated.
   range$.subscribe((range) => {
     window._drawer.range = range;
-  });
-
-  isDesktop$.subscribe((isDesktop) => {
-    window._drawer.mouseEvents = isDesktop;
   });
 
   // Show the icon indicating that the drawer can be drawn using touch gestures.
