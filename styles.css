@@ -5,6 +5,7 @@ body {
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+  font-size: 1.25em;
 }
 
 .banner {
@@ -23,18 +24,31 @@ body {
 
 .card, .card-body, .list-group, .list-group-item {
   background: none;
-  color: #f4b942;
+  color: #FFC165;
   border-width: 2px;
 }
 
 .card {
-  border-color: #f4b942;
+  border-color: #FFC165;
 }
 
 .card-header, .btn-primary {
   border: none;
-  background-color: #f4b942;
+  background-color: #FFC165;
   color: black;
+}
+
+.btn-info {
+background-color: #B773FF;
+  border: none;
+}
+
+.btn-info:hover {
+background-color: #7D09B2;
+}
+
+a {
+color: #B773FF;
 }
 
 .list-group, .list-group-item {
@@ -49,6 +63,17 @@ body {
   background-color: #444;
 }
 
-.bg-dark, .navbar-dark {
-  background-color: #444;
+.wrapper {
+margin-top: 33px;
+margin-bottom: 66px;
+padding-top: 33px;
+padding-bottom: 66px;
+}
+
+.text-pale {
+color: #CCC;
+}
+
+a:visited {
+color: 
 }
