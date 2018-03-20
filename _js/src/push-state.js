@@ -113,7 +113,8 @@ const FADE_IN = [
 // Settings as passed to the WebAnimations API.
 const SETTINGS = {
   duration: DURATION,
-  easing: 'cubic-bezier(0,0,0.32,1)',
+  easing: 'ease-out',
+  fill: 'forwards',
 };
 
 // A CSS selector for headlines with ids.
@@ -192,21 +193,23 @@ function shouldAnimate(type) {
 // Similar to `shouldAnimate`, whether we use scroll restoration depends on whether it conflicts
 // with native guestures.
 function shouldRestoreScroll() {
-  if (isSafari) {
-    return !!navigator.standalone;
-  }
-  return true;
+  return !isSafari ? true : !!navigator.standalone;
 }
 
 function animateFadeOut({ type, main }) {
-  if (window._drawer && window._drawer.opened) {
-    window._drawer.close();
-    return fromEvent(window._drawer.el, 'hy-drawer-transitioned').pipe(take(1), mapTo({ main }));
-  }
-
-  return shouldAnimate(type)
+  const anim$ = shouldAnimate(type)
     ? animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }))
     : of({ main });
+
+  if (window._drawer && window._drawer.opened) {
+    main.style.willChange = 'opacity';
+    window._drawer.close();
+    return fromEvent(window._drawer.el, 'hy-drawer-transitioned').pipe(
+      take(1),
+      zip(anim$, (_, x) => x),
+    );
+  }
+  return anim$;
 }
 
 function animateFadeIn({ type, replaceEls: [main], flipType }) {
@@ -278,25 +281,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   const fadeOut$ = start$.pipe(
     map(context => assign(context, { main: document.getElementById('_main') })),
 
-    // Next we have some side effects:
-    // * Close the drawer if it's open (i.e. when clicking a link in the sidebar)
-    // * Add the `active` class to the active entry in the sidebar (currently not in use)
-    // * If we are going to animate the content, make some preparations.
-    tap(({ type, main }) => {
-      if (shouldAnimate(type)) {
-        main.style.opacity = 0;
-      }
-      /*
-      document.querySelectorAll('.sidebar-nav-item')
-        ::forEach((item) => {
-          if (window.location.href.includes(item.href)) item.classList.add('active');
-          else item.classList.remove('active');
-        });
-      */
-    }),
-
     // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
     // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
+    observeOn(animationFrame),
     exhaustMap(animateFadeOut),
 
     // After the animation is complete, we empty the current content and scroll to the top.
@@ -339,7 +326,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
   // ### Fade new content in
   // `after` new content is added to the DOM, start animating it.
-  const fadeIn$ = after$.pipe(switchMap(animateFadeIn), share());
+  const fadeIn$ = after$.pipe(observeOn(animationFrame), switchMap(animateFadeIn), share());
 
   // In addition to fading the main content out,
   // there's also a FLIP animation playing when clicking certain links.
@@ -416,16 +403,18 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
   // ### Show error page
   // In case of a network error, we don't want to show the browser's default offline page.
-  error$.subscribe(({ url }) => {
-    loading.style.display = 'none';
-    empty.call(animationMain.querySelector('.page'));
+  error$
+    .pipe(switchMap(({ url }) => {
+      loading.style.display = 'none';
 
-    const main = document.getElementById('_main');
-    empty.call(main);
-    main.style.opacity = '';
+      const main = document.getElementById('_main');
+      empty.call(animationMain.querySelector('.page'));
+      empty.call(main);
 
-    setupErrorPage(main, url);
-  });
+      setupErrorPage(main, url);
+      return animate(main, FADE_IN, SETTINGS);
+    }))
+    .subscribe();
 
   // ### Safari special treatment
   // Safari doesn't support manual scroll restoration and it immediately jumps to the old scroll
