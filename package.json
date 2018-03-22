@@ -4,7 +4,7 @@
   "description": "Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).",
   "scripts": {
     "clean": "rm -f assets/js/hydejack-*.js",
-    "test": "exit 0",
+    "test": "eslint _js",
     "format": "prettier --write \"_js/src/**/*.js\"",
     "build": "npm run build:js & npm run build:css & wait",
     "build:js": "webpack --env prod",
@@ -28,6 +28,8 @@
     "babel-core": "^6.26.0",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
+    "eslint": "^4.19.1",
+    "eslint-config-prettier": "^2.9.0",
     "json2yaml": "^1.1.0",
     "onchange": "^3.3.0",
     "prettier": "^1.11.1",
