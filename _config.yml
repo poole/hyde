@@ -20,7 +20,7 @@ paginate:         5
 
 # Custom vars
 version:          2.1.0
-gems: [jekyll-paginate]
+plugins: [jekyll-paginate]
 
 github:
   repo:           https://github.com/poole/hyde
