@@ -29,12 +29,7 @@ import { animate, empty } from "../common";
 
 const TITLE_SELECTOR = ".page-title, .post-title";
 
-export function setupFLIPTitle(
-  start$,
-  ready$,
-  fadeIn$,
-  { animationMain, settings }
-) {
+export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, settings }) {
   if (!animationMain) return start$;
 
   const flip$ = start$.pipe(

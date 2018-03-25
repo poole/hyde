@@ -33,8 +33,7 @@ export function hasFeatures(features) {
 
   features.forEach(feature => {
     const hasFeature = window.Modernizr[feature];
-    if (!hasFeature && process.env.DEBUG)
-      console.warn(`Feature '${feature}' missing!`);
+    if (!hasFeature && process.env.DEBUG) console.warn(`Feature '${feature}' missing!`);
     acc = acc && hasFeature;
   });
 

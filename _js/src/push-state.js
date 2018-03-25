@@ -228,8 +228,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // ### Setup
   // We save some variables and setup the DOM:
   const isStandalone =
-    !!navigator.standalone ||
-    window.matchMedia("(display-mode: standalone)").matches;
+    !!navigator.standalone || window.matchMedia("(display-mode: standalone)").matches;
 
   const pushStateEl = document.getElementsByTagName("hy-push-state")[0];
   const btnBarEl = document.querySelector(".navbar .content .nav-btn-bar");
@@ -246,9 +245,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // In case of a start event we also add the `flipType` to the context,
   // so that we can use filter based on it later.
   const start$ = fromEvent(pushStateEl, "hy-push-state-start").pipe(
-    map(({ detail }) =>
-      assign(detail, { flipType: getFlipType(detail.anchor) })
-    ),
+    map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) })),
     share()
   );
 
@@ -310,9 +307,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     .subscribe(({ replaceEls: [main] }) => {
       loading.style.display = "none";
       main.classList.remove("fade-in");
-      Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(
-        upgradeHeading
-      );
+      Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading);
     });
 
   after$
@@ -375,9 +370,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   after$
     .pipe(
       switchMap(({ replaceEls: [main] }) =>
-        crossFader
-          .fetchImage(main)
-          .pipe(zip(fadeIn$, x => x), takeUntil(start$))
+        crossFader.fetchImage(main).pipe(zip(fadeIn$, x => x), takeUntil(start$))
       ),
 
       // Once we have both images, we take them `pairwise` and cross-fade.

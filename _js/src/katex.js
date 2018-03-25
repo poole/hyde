@@ -28,8 +28,7 @@ let katexCSSLoaded = false;
 function renderKatex(el) {
   try {
     let prev = el.previousElementSibling;
-    while (prev && !prev.classList.contains("MathJax_Preview"))
-      prev = prev.previousElementSibling;
+    while (prev && !prev.classList.contains("MathJax_Preview")) prev = prev.previousElementSibling;
 
     const tex = el.textContent.replace("% <![CDATA[", "").replace("%]]>", "");
 

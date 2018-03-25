@@ -23,11 +23,7 @@ import "core-js/fn/function/bind";
 // We include our main component, hy-drawer,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import {
-  HyDrawerElement,
-  WEBCOMPONENT_FEATURE_TESTS,
-  Set
-} from "hy-drawer/src/webcomponent";
+import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { fromEvent } from "rxjs/observable/fromEvent";
@@ -42,13 +38,7 @@ import { switchMap } from "rxjs/operators/switchMap";
 import { withLatestFrom } from "rxjs/operators/withLatestFrom";
 
 // Some of our own helper functions/constants.
-import {
-  hasFeatures,
-  isSafari,
-  isMobile,
-  isMobileSafari,
-  isUCBrowser
-} from "./common";
+import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser } from "./common";
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = new Set([
@@ -111,6 +101,7 @@ function setupIcon() {
     const svg = document.createElement("img");
     svg.id = "_swipe";
     svg.src = img.href;
+    svg.alt = "Swipe image";
     svg.addEventListener("click", () => window._drawer.close());
     window._sidebar.appendChild(svg);
   }
@@ -177,9 +168,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
   const range$ = drawerWidth$.pipe(
     withLatestFrom(isDesktop$),
-    map(
-      ([drawerWidth, isDesktop]) => (isDesktop ? [0, drawerWidth] : getRange())
-    )
+    map(([drawerWidth, isDesktop]) => (isDesktop ? [0, drawerWidth] : getRange()))
   );
 
   // Sliding the drawer's content between the middle point of the screen,

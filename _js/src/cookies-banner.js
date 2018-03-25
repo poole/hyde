@@ -22,10 +22,7 @@ if (
   const template = document.getElementById("_cookies-banner-template");
   if (template) {
     const parent = document.getElementsByTagName("hy-push-state")[0];
-    parent.insertBefore(
-      document.importNode(template.content, true),
-      parent.firstChild
-    );
+    parent.insertBefore(document.importNode(template.content, true), parent.firstChild);
 
     document.getElementById("_cookies-ok").addEventListener(
       "click",
@@ -37,8 +34,7 @@ if (
 
         window.ga(tracker => {
           window.ga("set", "anonymizeIp", undefined);
-          if (localStorage)
-            localStorage.setItem("ga:clientId", tracker.get("clientId"));
+          if (localStorage) localStorage.setItem("ga:clientId", tracker.get("clientId"));
         });
       },
       { once: true }

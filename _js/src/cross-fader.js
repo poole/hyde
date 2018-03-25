@@ -43,8 +43,7 @@ export class CrossFader {
     const main = document.getElementById("_main");
     const pageStyle = document.getElementById("_pageStyle");
     const styleSheet =
-      Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) ||
-      {};
+      Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) || {};
 
     this.sidebar = document.getElementById("_sidebar");
     this.fadeDuration = fadeDuration;
@@ -58,13 +57,7 @@ export class CrossFader {
   // or just remite immediately if there is no image, or it hasn't changed.
   // Note that the point is not to *use* the image object, just to make sure the image is in cache.
   cacheImage$({ background, image }) {
-    if (
-      background ||
-      !image ||
-      image === "" ||
-      image === "none" ||
-      image === this.prevImage
-    ) {
+    if (background || !image || image === "" || image === "none" || image === this.prevImage) {
       return of({});
     }
 
@@ -92,13 +85,11 @@ export class CrossFader {
       map(() => {
         const div = document.createElement("div");
         div.classList.add("sidebar-bg");
-        if (image !== "none" && overlay === "")
-          div.classList.add("sidebar-overlay");
+        if (image !== "none" && overlay === "") div.classList.add("sidebar-overlay");
         if (background) div.style.background = background;
         else {
           div.style.backgroundColor = color;
-          if (image !== "" && image !== "none")
-            div.style.backgroundImage = `url(${image})`;
+          if (image !== "" && image !== "none") div.style.backgroundImage = `url(${image})`;
         }
         return [div, dataset, hash];
       })
