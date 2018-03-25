@@ -1,9 +1,0 @@
-{
-  "env": {
-    "browser": true
-  },
-  "extends": "prettier",
-  "parserOptions": {
-    "sourceType": "module"
-  }
-}

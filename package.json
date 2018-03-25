@@ -56,5 +56,21 @@
   "bugs": {
     "url": "https://github.com/qwtel/hydejack/issues"
   },
-  "homepage": "https://github.com/qwtel/hydejack#readme"
+  "homepage": "https://github.com/qwtel/hydejack#readme",
+  "babel": {
+    "presets": ["env"],
+    "only": ["_js", "rxjs", "create-element-x"]
+  },
+  "prettier": {
+    "printWidth": 100
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true
+    },
+    "extends": "prettier",
+    "parserOptions": {
+      "sourceType": "module"
+    }
+  }
 }

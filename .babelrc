@@ -1,4 +1,0 @@
-{
-  "presets": ["env"],
-  "only": ["_js", "rxjs", "create-element-x"]
-}
