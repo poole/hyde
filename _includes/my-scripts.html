@@ -51,3 +51,13 @@ The snippet below will run the code on every dynamic `hy-push-state-load` event.
     }()
   });
 </script>
+
+<script>
+  document.getElementsByTagName('hy-push-state')[0].addEventListener('hy-push-state-load', function() {
+    Array.prototype.forEach.call(document.querySelectorAll('.gumroad-button'), function(btn) {
+      var lgo = document.createElement('span');
+      lgo.className += 'gumroad-button-logo';
+      btn.insertBefore(lgo, btn.childNodes[0]);
+    });
+  });
+</script>
