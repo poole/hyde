@@ -3,6 +3,19 @@ layout: page
 title: CHANGELOG
 ---
 
+## v8.0.0
+Mar 23 2018
+{:.heading.post-date}
+
+This major update is a serious departure from earlier versions and removes
+
+* The `about` and `welcome` layout no longer prepend the content with the author information.
+  To restore the old behavior, add `<!--author-->` to the top of the file. You can also place it anywhere else now.
+* Per category/tag images and colors have been removed. Use [Front Matter defaults](https://jekyllrb.com/docs/configuration/#front-matter-defaults) instead.
+* 
+
+
+
 ## v7.5.0
 Dec 18 2017
 {:.heading.post-date}
