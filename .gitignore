@@ -43,3 +43,4 @@ vendor/bundle
 .sass-cache
 .jekyll-metadata
 *.gem
+_zip

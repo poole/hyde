@@ -29,6 +29,7 @@ const FILES = [
   resolve('./_js/lib/version.js'),
   resolve('./_layouts/compress.html'),
   resolve('./assets/version.json'),
+  resolve('./.scripts/release.sh'), // TODO: name
 ];
 
 // <https://stackoverflow.com/a/45130990/870615>
