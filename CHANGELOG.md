@@ -3,6 +3,16 @@ layout: page
 title: CHANGELOG
 ---
 
+## v7.5.1
+Apr 2 2018
+{:.heading.post-date}
+
+### Changed
+* Moved from browserify to webpack
+* Updated ruby dependencies
+* Updated JS dependencies
+* Updated hy-push-state and hy-drawer to latest versions
+
 ## v7.5.0
 Dec 18 2017
 {:.heading.post-date}
