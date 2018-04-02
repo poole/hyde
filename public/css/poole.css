@@ -48,9 +48,9 @@ body {
 }
 
 html {
-  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   font-size: 12px;
   line-height: 1.5;
+  font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
 @media (min-width: 38em) {
   html {
@@ -67,7 +67,7 @@ body {
 
 /* No `:visited` state is required by default (browsers will use `a`) */
 a {
-  color: #268bd2;
+  color: #515151;
   text-decoration: none;
 }
 a strong {
@@ -82,17 +82,20 @@ a:focus {
 /* Headings */
 h1, h2, h3, h4, h5, h6 {
   margin-bottom: .5rem;
-  font-weight: bold;
   line-height: 1.25;
-  color: #313131;
+  
   text-rendering: optimizeLegibility;
 }
+
 h1 {
-  font-size: 2rem;
+  font-size: 2.5rem;
+   margin-top: 5rem;
 }
+   
 h2 {
-  margin-top: 1rem;
-  font-size: 1.5rem;
+  margin-top: 2rem;
+  font-size: 2rem;
+  font-weight: normal;
 }
 h3 {
   margin-top: 1.5rem;
@@ -116,7 +119,7 @@ strong {
 
 /* Lists */
 ul, ol, dl {
-  margin-top: 0;
+  margin-top: 1rem;
   margin-bottom: 1rem;
 }
 
@@ -271,13 +274,6 @@ tbody tr:nth-child(odd) th {
  * or to a parent if there are multiple elements to show.
  */
 
-.message {
-  margin-bottom: 1rem;
-  padding: 1rem;
-  color: #717171;
-  background-color: #f9f9f9;
-}
-
 
 /*
  * Container
@@ -286,7 +282,7 @@ tbody tr:nth-child(odd) th {
  */
 
 .container {
-  max-width: 38rem;
+  max-width: 40rem;
   padding-left:  1rem;
   padding-right: 1rem;
   margin-left:  auto;
@@ -337,7 +333,7 @@ tbody tr:nth-child(odd) th {
 .page-title,
 .post-title,
 .post-title a {
-  color: #303030;
+  color: #202020;
 }
 .page-title,
 .post-title {
@@ -347,9 +343,9 @@ tbody tr:nth-child(odd) th {
 /* Meta data line below post title */
 .post-date {
   display: block;
+  font-size:0.8rem;
   margin-top: -.5rem;
   margin-bottom: 1rem;
-  color: #9a9a9a;
 }
 
 /* Related posts */
@@ -389,7 +385,7 @@ tbody tr:nth-child(odd) th {
   overflow: hidden; /* clearfix */
   margin-left: -1rem;
   margin-right: -1rem;
-  font-family: "PT Sans", Helvetica, Arial, sans-serif;
+  font-family: "Lato", Helvetica, Arial, sans-serif;
   color: #ccc;
   text-align: center;
 }

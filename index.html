@@ -1,37 +1,14 @@
 ---
 layout: default
-title: Home
+title: Valentina Carraro
 ---
-
-<div class="posts">
-  {% for post in paginator.posts %}
-  <div class="post">
-    <h1 class="post-title">
-      <a href="{{ post.url }}">
-        {{ post.title }}
-      </a>
-    </h1>
-
-    <span class="post-date">{{ post.date | date_to_string }}</span>
-
-    {{ post.content }}
-  </div>
-  {% endfor %}
+<div class="aboutMe">
+	<p>
+		I'm at the final stage of my HK RGC-funded PhD Fellowship at <a href="#">City University of Hong Kong</a>. My PhD project investigates the politics of web-maps through controversies, with a focus on Jerusalem. More broadly, my research interests include the politics of digital technologies, postcolonial geographies, and political participation.
+	</p>
+	<p>
+		Before starting my PhD, I worked as a mapping assistant to <a href="#">Grassroots Jerusalem</a>, a Palestinian NGO that, in addition and support to their advocacy work, collaborates with local communities to map Jerusalem from a Palestinian perspective.
+			I hold a Masters in Urban Studies from University College of London, and a Bachelor in Architecture from the Berlin Technische Universität.
+		</p>
 </div>
 
-<div class="pagination">
-  {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
-  {% else %}
-    <span class="pagination-item older">Older</span>
-  {% endif %}
-  {% if paginator.previous_page %}
-    {% if paginator.page == 2 %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}">Newer</a>
-    {% else %}
-      <a class="pagination-item newer" href="{{ site.baseurl }}page{{paginator.previous_page}}">Newer</a>
-    {% endif %}
-  {% else %}
-    <span class="pagination-item newer">Newer</span>
-  {% endif %}
-</div>

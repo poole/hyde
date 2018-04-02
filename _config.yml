@@ -14,18 +14,19 @@ permalink:        pretty
 
 
 # Setup
-title:            Valentina Carraro
-tagline:          Digital Geographies & Controversies
-description:      HK-RGC PhD Fellow, City University of Hong Kong
-# Come back to get this right
+title:              Valentina Carraro
+tagline:            Digital Geographies & Controversies
+excerpt_separator:  <!--stop-->
+
+# URLs
 url:              http://hyde.getpoole.com
 baseurl:          /
+
+# Site identity
 
 author:
   name:           Valentina Carraro
   url:            https://twitter.com/valecrrr
-
-paginate:         5
 
 # Custom vars
 version:          2.1.0
