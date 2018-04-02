@@ -19,14 +19,13 @@ import 'core-js/fn/function/bind';
 
 import Color from 'color';
 
-import { Observable } from 'rxjs/Observable';
 import { empty } from 'rxjs/observable/empty';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 import { of } from 'rxjs/observable/of';
 
-import { _finally as finalize } from 'rxjs/operator/finally';
-import { take } from 'rxjs/operator/take';
-import { map } from 'rxjs/operator/map';
+import { finalize } from 'rxjs/operators/finalize';
+import { take } from 'rxjs/operators/take';
+import { map } from 'rxjs/operators/map';
 
 import elemDataset from 'elem-dataset';
 
@@ -93,13 +92,14 @@ function pseudoHash({
 // Note that the point is not to *use* the image object, just to make sure the image is in cache.
 function cacheImage$({ background, image }) {
   if (background || !image || image === '' || image === 'none' || image === this.prevImage) {
-    return Observable::of({});
+    return of({});
   }
 
   const imgObj = new Image();
-  const image$ = Observable::fromEvent(imgObj, 'load')
-    ::take(1)
-    ::finalize(() => { imgObj.src = ''; });
+  const image$ = fromEvent(imgObj, 'load').pipe(
+    take(1),
+    finalize(() => { imgObj.src = ''; }),
+  );
   imgObj.src = image;
 
   return image$;
@@ -109,7 +109,7 @@ export default class CrossFader {
   constructor(fadeDuration) {
     const main = document.getElementById('_main');
     const pageStyle = document.getElementById('_pageStyle');
-    const styleSheet = document.styleSheets::find(ss => ss.ownerNode === pageStyle) || {};
+    const styleSheet = find.call(document.styleSheets, ss => ss.ownerNode === pageStyle) || {};
 
     this.sidebar = document.getElementById('_sidebar');
     this.fadeDuration = fadeDuration;
@@ -127,10 +127,10 @@ export default class CrossFader {
 
     // HACK: Using `dataset` here to store some intermediate data
     const hash = pseudoHash(dataset);
-    if (hash === this.prevHash) return Observable::empty();
+    if (hash === this.prevHash) return empty();
 
-    return this::cacheImage$(dataset)
-      ::map(() => {
+    return cacheImage$.call(this, dataset)
+      .pipe(map(() => {
         const div = document.createElement('div');
         div.classList.add('sidebar-bg');
         if (image !== 'none' && overlay === '') div.classList.add('sidebar-overlay');
@@ -140,13 +140,13 @@ export default class CrossFader {
           if (image !== '' && image !== 'none') div.style.backgroundImage = `url(${image})`;
         }
         return [div, dataset, hash];
-      });
+      }));
   }
 
   fade([prevDiv], [div, dataset, hash]) {
     prevDiv.parentNode.insertBefore(div, prevDiv.nextElementSibling);
 
-    this::updateStyle(dataset);
+    updateStyle.call(this, dataset);
 
     // Only update the prev hash after we're actually in the fade stage
     this.prevHash = hash;
@@ -157,6 +157,6 @@ export default class CrossFader {
     ], {
       duration: this.fadeDuration,
     })
-    ::finalize(() => prevDiv.parentNode.removeChild(prevDiv));
+      .pipe(finalize(() => prevDiv.parentNode.removeChild(prevDiv)));
   }
 }

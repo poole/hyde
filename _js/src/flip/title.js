@@ -16,16 +16,14 @@
 
 import 'core-js/fn/function/bind';
 
-import { Observable } from 'rxjs/Observable';
-
 import { of } from 'rxjs/observable/of';
 
-import { _do as tap } from 'rxjs/operator/do';
-import { _finally as finalize } from 'rxjs/operator/finally';
-import { filter } from 'rxjs/operator/filter';
-import { map } from 'rxjs/operator/map';
-import { switchMap } from 'rxjs/operator/switchMap';
-import { zipProto as zip } from 'rxjs/operator/zip';
+import { tap } from 'rxjs/operators/tap';
+import { finalize } from 'rxjs/operators/finalize';
+import { filter } from 'rxjs/operators/filter';
+import { map } from 'rxjs/operators/map';
+import { switchMap } from 'rxjs/operators/switchMap';
+import { zip } from 'rxjs/operators/zip';
 
 import { animate, empty } from '../common';
 
@@ -34,10 +32,10 @@ const TITLE_SELECTOR = '.page-title, .post-title';
 export default function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, settings }) {
   if (!animationMain) return start$;
 
-  const flip$ = start$
-    ::filter(({ flipType }) => flipType === 'title')
-    ::switchMap(({ anchor }) => {
-      if (!anchor) return Observable::of({});
+  const flip$ = start$.pipe(
+    filter(({ flipType }) => flipType === 'title'),
+    switchMap(({ anchor }) => {
+      if (!anchor) return of({});
 
       const title = document.createElement('h1');
 
@@ -46,8 +44,8 @@ export default function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain,
       title.style.transformOrigin = 'left top';
 
       const page = animationMain.querySelector('.page');
-      if (!page) return Observable::of({});
-      page::empty();
+      if (!page) return of({});
+      empty.call(page);
       page.appendChild(title);
       animationMain.style.position = 'fixed';
       animationMain.style.opacity = 1;
@@ -69,25 +67,26 @@ export default function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain,
       ];
 
       return animate(title, transform, settings)
-        ::tap({ complete() { animationMain.style.position = 'absolute'; } });
-    });
+        .pipe(tap({ complete() { animationMain.style.position = 'absolute'; } }));
+    }),
+  );
 
-  start$::switchMap(({ flipType }) =>
-    ready$
-      ::filter(() => flipType === 'title')
-      ::map(({ replaceEls: [main] }) => {
-        const title = main.querySelector(TITLE_SELECTOR);
-        if (title) title.style.opacity = 0;
-        return title;
-      })
-      ::zip(fadeIn$, x => x)
-      ::tap((title) => {
-        if (title) title.style.opacity = 1;
-        animationMain.style.opacity = 0;
-      })
-      ::finalize(() => {
-        animationMain.style.opacity = 0;
-      }))
+  start$.pipe(switchMap(({ flipType }) => ready$.pipe(
+    filter(() => flipType === 'title'),
+    map(({ replaceEls: [main] }) => {
+      const title = main.querySelector(TITLE_SELECTOR);
+      if (title) title.style.opacity = 0;
+      return title;
+    }),
+    zip(fadeIn$, x => x),
+    tap((title) => {
+      if (title) title.style.opacity = 1;
+      animationMain.style.opacity = 0;
+    }),
+    finalize(() => {
+      animationMain.style.opacity = 0;
+    }),
+  )))
     .subscribe();
 
   return flip$;

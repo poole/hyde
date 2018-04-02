@@ -21,12 +21,11 @@ import 'core-js/fn/function/bind';
 // We include our main component, hy-drawer,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import { Set } from 'hy-drawer/src/common';
-import { Drawer, VANILLA_FEATURE_TESTS } from 'hy-drawer/src/vanilla';
-import { HTMLDrawerElement } from 'hy-drawer/src/webcomponent';
+import { HyDrawer, VANILLA_FEATURE_TESTS, Set } from 'hy-drawer/src/vanilla';
+import { HyDrawerElement } from 'hy-drawer/src/webcomponent';
+import 'hy-drawer/src/style.css';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { Observable } from 'rxjs/Observable';
 import { fromEvent } from 'rxjs/observable/fromEvent';
 
 // And some of our own helper functions/constants.
@@ -83,13 +82,13 @@ function setupWebComponent(drawerEl) {
   drawerEl.setAttribute('threshold', isSafari ? 0 : 10);
   drawerEl.setAttribute('prevent-default', '');
 
-  customElements.define('hy-drawer', HTMLDrawerElement);
+  customElements.define('hy-drawer', HyDrawerElement);
   return drawerEl;
 }
 
 // This function sets y-drawer up as a vanilla JS class.
 function setupVanilla(drawerEl) {
-  return new Drawer(drawerEl, {
+  return new HyDrawer(drawerEl, {
     opened: window._isDesktop,
     persistent: window._isDesktop,
     align: 'left',
@@ -144,6 +143,6 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   menuEl.addEventListener('click', menuClickClallback);
 
   // Adding the resize callback to the resize event, but with a small delay.
-  Observable::fromEvent(window, 'resize', { passive: true })
+  fromEvent(window, 'resize', { passive: true })
     .subscribe(resizeCallback);
 }

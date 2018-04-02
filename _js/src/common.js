@@ -70,7 +70,7 @@ export function animate(el, keyframes, options) {
 
     anim.addEventListener('finish', (e) => {
       observer.next(e);
-      requestAnimationFrame(::observer.complete);
+      requestAnimationFrame(observer.complete.bind(observer));
     });
 
     return () => {
