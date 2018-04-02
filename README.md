@@ -103,17 +103,17 @@ This table details what is and isn't included in each respective version.
 
 [license]: LICENSE.md
 [pro]: licenses/PRO.md
-[docs]: docs/7.5.0/index.md
+[docs]: docs/7.5.1/index.md
 
-[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v7.5.0.zip
+[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v7.5.1.zip
 [src]: https://github.com/qwtel/hydejack
 [git]: https://github.com/qwtel/hydejack-starter-kit
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fqwtel.com%2Fhydejack%2F
-[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.5.0/index.md
-[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.5.0/Documentation._.Hydejack.pdf
+[wiki]: https://github.com/qwtel/hydejack/blob/master/docs/7.5.1/index.md
+[pdf]: https://github.com/qwtel/hydejack/releases/download/v7.5.1/Documentation._.Hydejack.pdf
 [hy-push-state]: https://qwtel.com/hy-push-state/
 [hy-drawer]: https://qwtel.com/hy-drawer/
 [rouge]: http://rouge.jneen.net
