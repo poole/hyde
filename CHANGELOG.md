@@ -4,7 +4,7 @@ title: CHANGELOG
 ---
 
 ## v8.0.0
-Mar 23 2018
+Jun 27 2018
 {:.heading.post-date}
 
 This major update is a serious departure from earlier versions and removes some 'features'.
@@ -33,6 +33,16 @@ This major update is a serious departure from earlier versions and removes some 
   E.g. <https://qwtel.com/hydejack/>{:.no-push-state}
 
 [ffd]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
+
+## v7.5.1
+Apr 2 2018
+{:.heading.post-date}
+
+### Changed
+* Moved from browserify to webpack
+* Updated ruby dependencies
+* Updated JS dependencies
+* Updated hy-push-state and hy-drawer to latest versions
 
 ## v7.5.0
 Dec 18 2017
