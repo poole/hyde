@@ -190,7 +190,7 @@ menu: true
 ---
 ~~~
 
-Finally, in your cofnig file, make sue the `pageinate_path` matches the location of the index file:
+Finally, in your config file, make sure the `pageinate_path` matches the location of the index file:
 
 ~~~yml
 # file: _config.yml
