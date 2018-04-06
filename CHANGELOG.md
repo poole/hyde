@@ -7,14 +7,30 @@ title: CHANGELOG
 Mar 23 2018
 {:.heading.post-date}
 
-This major update is a serious departure from earlier versions and removes
+This major update is a serious departure from earlier versions and removes some 'features'.
+
+### Breaking
+* The expected format of sidebar images has changed.
+  A sidebar image should now be a full-screen ~16:9 image.
+
+  NOTE: The sidebar can now be opened even on desktop, which generally requires a large landscape image to fill the whole window. To save bandwidth, you can blur the image on the left and right edges and save it as JPG. See also: Added `cover` option.
 
 * The `about` and `welcome` layout no longer prepend the content with the author information.
   To restore the old behavior, add `<!--author-->` to the top of the file. You can also place it anywhere else now.
-* Per category/tag images and colors have been removed. Use [Front Matter defaults](https://jekyllrb.com/docs/configuration/#front-matter-defaults) instead.
-* 
 
+  NOTE: Showing the author description on teh top of the `welcome` and `about` layouts was too broad an assumption, and just a left-over from when I was developing Hydejack primarily for myself.
 
+* Per category/tag images and colors have been removed.
+  To achieve a similar effect, use [Front Matter defaults][ffd] instead.
+
+  NOTE: The code to find the color for a given page was complicated and slow (potentially iterating all categories/tags to find the right one).
+
+### Added
+* Pages can now have the `cover` key in the front matter.
+  When set to `true`, the sidebar will be opened when visiting the page directly.
+  E.g. <https://qwtel.com/hydejack/>{:.no-push-state}
+
+[ffd]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
 
 ## v7.5.0
 Dec 18 2017
