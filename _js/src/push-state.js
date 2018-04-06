@@ -276,9 +276,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   const fadeOut$ = start$.pipe(
     map(context => assign(context, { main: document.getElementById("_main") })),
 
-    tap(({ main }) => {
-      main.style.pointerEvents = "none";
-    }),
+    tap(({ main }) => (main.style.pointerEvents = "none")),
 
     // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
     // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
@@ -294,9 +292,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
   // ### Show loading spinner
   // Show loading spinner --- but only when fetching takes longer than `DURATION`.
-  progress$.subscribe(() => {
-    loading.style.display = "block";
-  });
+  progress$.subscribe(() => (loading.style.display = "block"));
 
   // ### Prepare showing the new content
   // The `ready` event occurs when we've received the content from the server
@@ -444,9 +440,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       });
 
     // Once the content has been replaced (or an error occurred, etc), restore `minHeight`.
-    merge(after$, progress$, error$).subscribe(() => {
-      document.body.style.minHeight = "";
-    });
+    merge(after$, progress$, error$).subscribe(() => (document.body.style.minHeight = ""));
   }
 
   // ### Create the component

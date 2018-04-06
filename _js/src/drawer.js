@@ -210,9 +210,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Close the drawer on popstate, i.e. the back button.
   fromEvent(window, "popstate", { passive: true })
     .pipe(subscribeWhen(opened$))
-    .subscribe(() => {
-      window._drawer.close();
-    });
+    .subscribe(() => window._drawer.close());
 
   // Save scroll position before the drawer gets initialized.
   const scrollTop = window.pageYOffset || document.body.scrollTop;
@@ -231,9 +229,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   });
 
   // Keeping the drawer updated.
-  range$.subscribe(range => {
-    window._drawer.range = range;
-  });
+  range$.subscribe(range => (window._drawer.range = range));
 
   // Show the icon indicating that the drawer can be drawn using touch gestures.
   setupIcon();
