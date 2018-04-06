@@ -23,7 +23,7 @@
 RE_IMG     = /<img(.*?)\/>/m
 RE_DATAURL = /.*src\s*=\s*["']\s*data:.*["']/
 
-REPLACEMENT = '<noscript data-i="%{i}"><img%{attrs}/></noscript>'
+REPLACEMENT = '<shy-img padding="500"><noscript><img%{attrs}/></noscript></shy-img>'
 
 CONFIG_KEY = 'replace_imgs'
 REPLACEMENT_KEY = 'replacement'

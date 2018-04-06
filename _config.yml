@@ -261,9 +261,6 @@ titles_from_headings:
   strip_title:         true
   collections:         true
 
-replace_imgs:
-  replacement:         <shy-img padding="500"><noscript><img%{attrs}/></noscript></shy-img>
-
 kramdown:
   footnote_backlink:   '&#x21a9;&#xfe0e;'
   math_engine:         mathjax
