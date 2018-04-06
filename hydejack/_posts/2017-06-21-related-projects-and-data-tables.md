@@ -90,4 +90,4 @@ There's many more minor changes and fixes that you can read below.
 * Fixed bug that caused the project animation to "jump" when using long project titles.
 * No more empty attributes on `img` tags.
 
-[writing]: ../../docs/8.0.0-alpha.19/writing.md
+[writing]: ../../docs/8.0.0-alpha.20/writing.md
