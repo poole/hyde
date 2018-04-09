@@ -25,6 +25,8 @@ This major update is a serious departure from earlier versions and removes some 
 
   NOTE: The code to find the color for a given page was complicated and slow (potentially iterating all categories/tags to find the right one).
 
+* [PRO] Updated embedded bootstrap to v4.
+
 ### Added
 * Pages can now have the `cover` key in the front matter.
   When set to `true`, the sidebar will be opened when visiting the page directly.
