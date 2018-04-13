@@ -24,8 +24,14 @@
 
 .avatar {
   
-  position: relative; 
-  z-index: 1; 
+
+  
+  display: inline-block;
+  position: relative;
+  z-index: 1;
+  img { width: 100%; }
+  
+
   
 }
 

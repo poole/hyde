@@ -27,9 +27,12 @@
   width: 6.5rem;
   height: 6.5rem;
   border-radius: 100%;
+  overflow: hidden;
   
-//   position: relative; 
-//   z-index: 1; 
+
+  
+
+  
   @media screen and (min-width: $break-point-5) {
     width: 7rem;
     height: 7rem;
