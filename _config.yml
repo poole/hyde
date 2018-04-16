@@ -4,7 +4,6 @@ highlighter:      pygments
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            Hyde
@@ -14,7 +13,7 @@ url:              http://hyde.getpoole.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
+  name:           'Ryan Richards'
   url:            https://twitter.com/mdo
 
 paginate:         5
