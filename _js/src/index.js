@@ -22,8 +22,8 @@ import "../lib/request-idle-callback";
 import "../lib/modernizr-custom";
 import "../lib/version";
 
-import "./cookies-banner";
-import "./katex";
+import "./images";
 import "./drawer";
 import "./push-state";
-import "./images";
+import "./katex";
+import "./cookies-banner";
