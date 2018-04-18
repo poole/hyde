@@ -46,8 +46,10 @@ const REQUIREMENTS = new Set([
   "cssremunit",
   "classlist",
   "eventlistener",
-  "matchmedia"
+  "matchmedia",
 ]);
+
+const hasCSSOM = "attributeStyleMap" in Element.prototype && "CSS" in window && CSS.number;
 
 // NOTE: Duplicated values from `_sass_/variables.scss`.
 const CONTENT_WIDTH_5 = 48;
@@ -103,7 +105,7 @@ function setupIcon() {
     svg.src = img.href;
     svg.alt = "Swipe image";
     svg.addEventListener("click", () => window._drawer.close());
-    window._sidebar.appendChild(svg);
+    window.requestAnimationFrame(() => document.getElementById("_sidebar").appendChild(svg));
   }
 }
 
@@ -129,9 +131,17 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Quick helper function to prevent repeat code.
   const updateSidebar = (dist, opacity, isDesktop) => {
     const t = 1 - opacity;
-    window._sidebar.style.transform = `translateX(${dist * t}px)`;
-    if (!isDesktop) sticky.style.opacity = opacity;
-    else sticky.style.opacity = 1;
+    const sidebar = document.getElementById("_sidebar");
+    if (hasCSSOM) {
+      sidebar.attributeStyleMap.set(
+        "transform",
+        new CSSTransformValue([new CSSTranslate(CSS.px(dist * t), CSS.px(0))])
+      );
+      sticky.attributeStyleMap.set("opacity", !isDesktop ? opacity : 1);
+    } else {
+      sidebar.style.transform = `translateX(${dist * t}px)`;
+      sticky.style.opacity = !isDesktop ? opacity : 1;
+    }
   };
 
   // An observable keeping track of whether the window size is greater than `BREAK_POINT_3`.
@@ -181,13 +191,27 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // Setting `will-change` at the beginning of an interaction, and remove at the end.
   drawerEl.addEventListener("hy-drawer-prepare", () => {
-    window._sidebar.style.willChange = "transform";
-    sticky.style.willChange = "opacity";
+    const sidebar = document.getElementById("_sidebar");
+    if (hasCSSOM) {
+      sidebar.attributeStyleMap.set("will-change", "transform");
+      sticky.attributeStyleMap.set("will-change", "opacity");
+    } else {
+      sidebar.style.willChange = "transform";
+      sticky.style.willChange = "opacity";
+    }
   });
 
   drawerEl.addEventListener("hy-drawer-transitioned", () => {
-    window._sidebar.style.willChange = "";
-    sticky.style.willChange = "";
+    requestAnimationFrame(() => {
+      const sidebar = document.getElementById("_sidebar");
+      if (hasCSSOM) {
+        sidebar.attributeStyleMap.delete("will-change");
+        sticky.attributeStyleMap.delete("will-change");
+      } else {
+        sidebar.style.willChange = "";
+        sticky.style.willChange = "";
+      }
+    });
   });
 
   // Adding the click callback to the menu button.
@@ -222,24 +246,29 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Now we create the component.
   window._drawer = defineWebComponent(drawerEl, opened);
 
-  // When the distance changes, update the translateX property.
-  dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
-    const { opacity } = window._drawer;
-    updateSidebar(dist, opacity, isDesktop);
-  });
+  drawerEl.addEventListener(
+    "hy-drawer-init",
+    () => {
+      // When the distance changes, update the translateX property.
+      dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
+        const { opacity } = window._drawer;
+        // TODO: opacity is not defined on init...
+        if (opacity >= 0) updateSidebar(dist, opacity, isDesktop);
+      });
 
-  // Keeping the drawer updated.
-  range$.subscribe(range => (window._drawer.range = range));
+      // Keeping the drawer updated.
+      range$.subscribe(range => (window._drawer.range = range));
 
-  // Show the icon indicating that the drawer can be drawn using touch gestures.
-  setupIcon();
+      // Show the icon indicating that the drawer can be drawn using touch gestures.
+      setupIcon();
 
-  // Add a class to incidate that the drawer has been initialized.
-  drawerEl.classList.add("loaded");
+      // Add a class to incidate that the drawer has been initialized.
+      drawerEl.classList.add("loaded");
 
-  // The drawer height is `100vh` before the drawer is initialized and is now set to 0.
-  // We remove `innerHeight` from the old scroll position to prevent the content form "jumping".
-  if (!opened) {
-    window.scrollTo(0, scrollTop - window.innerHeight);
-  }
+      // The drawer height is `100vh` before the drawer is initialized and is now set to 0.
+      // We remove `innerHeight` from the old scroll position to prevent the content form "jumping".
+      if (!opened) window.scrollTo(0, scrollTop - window.innerHeight);
+    },
+    { once: true }
+  );
 }
