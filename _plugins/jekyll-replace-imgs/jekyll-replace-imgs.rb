@@ -18,12 +18,18 @@
 # This can increase page load speed, especially for documents with lots of images.
 #
 # This requires a JS component to lazy-load the images.
-# See also: https://github.com/qwtel/shy-img
+# See also: https://github.com/qwtel/hy-img
 
 RE_IMG     = /<img(.*?)\/>/m
 RE_DATAURL = /.*src\s*=\s*["']\s*data:.*["']/
 
-REPLACEMENT = '<shy-img padding="500"><noscript><img%{attrs}/></noscript></shy-img>'
+REPLACEMENT = '
+  <hy-img root-margin="300px" %{attrs}>
+    <noscript><img%{attrs}/></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img>'
 
 CONFIG_KEY = 'replace_imgs'
 REPLACEMENT_KEY = 'replacement'
