@@ -154,7 +154,7 @@ export class CrossFader {
     this.prevHash = hash;
 
     return animate(div, [{ opacity: 0 }, { opacity: 1 }], {
-      duration: this.fadeDuration
+      duration: this.fadeDuration,
     }).pipe(finalize(() => prevDiv.parentNode.removeChild(prevDiv)));
   }
 }

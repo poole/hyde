@@ -24,16 +24,16 @@
 
 
 
-.loading {
-  display: none;
-  position: absolute;
-  top: 0;
-  right: 0;
-  padding: 1.75rem 1rem;
-}
-
 .navbar {
   @media print { display: none; }
+
+  .loading {
+    display: none;
+    position: absolute;
+    top: 0;
+    right: 0;
+    padding: 1.75rem 1rem;
+  }
 }
 
 #_cookies-banner  {

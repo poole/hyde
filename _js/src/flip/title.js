@@ -65,16 +65,16 @@ export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, setting
 
       const transform = [
         {
-          transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})`
+          transform: `translate3d(${invertX}px, ${invertY}px, 0) scale(${invertScale})`,
         },
-        { transform: "translate3d(0, 0, 0) scale(1)" }
+        { transform: "translate3d(0, 0, 0) scale(1)" },
       ];
 
       return animate(title, transform, settings).pipe(
         tap({
           complete() {
             animationMain.style.position = "absolute";
-          }
+          },
         })
       );
     })

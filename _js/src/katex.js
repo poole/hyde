@@ -33,7 +33,7 @@ function renderKatex(el) {
     const tex = el.textContent.replace("% <![CDATA[", "").replace("%]]>", "");
 
     el.outerHTML = window.katex.renderToString(tex, {
-      displayMode: el.type === "math/tex; mode=display"
+      displayMode: el.type === "math/tex; mode=display",
     });
 
     if (prev) hide.call(prev);

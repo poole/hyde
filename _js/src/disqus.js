@@ -20,7 +20,7 @@ function loadDisqus2() {
     config() {
       this.page.url = window.location.href;
       this.page.title = document.title;
-    }
+    },
   });
 }
 
