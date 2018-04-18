@@ -99,7 +99,7 @@ google_fonts: "Roboto+Slab:700|Noto+Sans:400,400i,700,700i"
 The `google_fonts` key is the string necessary to fetch the fonts from Google.
 You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 
-![Where to get the google_fonts string]({{ site.baseurl }}/assets/img/docs/google-fonts.png)
+![Where to get the google_fonts string]({{ site.baseurl }}/assets/img/docs/google-fonts.png){:ratio="1.5075" width="600" height="398"}
 
 ### Using safe web fonts
 If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead,
