@@ -105,7 +105,7 @@ function setupIcon() {
     svg.src = img.href;
     svg.alt = "Swipe image";
     svg.addEventListener("click", () => window._drawer.close());
-    window.requestAnimationFrame(() => document.getElementById("_sidebar").appendChild(svg));
+    requestAnimationFrame(() => document.getElementById("_sidebar").appendChild(svg));
   }
 }
 

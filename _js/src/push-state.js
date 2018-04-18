@@ -125,8 +125,7 @@ function upgradeHeading(h) {
   const template = document.getElementById("_permalink-template");
   const df = document.importNode(template.content, true);
   const a = df.querySelector(".permalink");
-  a.href = `#${h.id}`;
-  h.appendChild(df);
+  requestAnimationFrame(() => ((a.href = `#${h.id}`), h.appendChild(df)));
 }
 
 // Like subscribe, but we log errors to the console, but continue as if it never happend.
@@ -301,9 +300,12 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   ready$
     .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
     .subscribe(({ replaceEls: [main] }) => {
-      loading.style.display = "none";
-      main.classList.remove("fade-in");
-      Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading);
+      requestAnimationFrame(
+        () => ((loading.style.display = "none"), main.classList.remove("fade-in"))
+      );
+      requestIdleCallback(() =>
+        Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading)
+      );
     });
 
   after$

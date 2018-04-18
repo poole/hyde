@@ -17,6 +17,7 @@
 import "@webcomponents/webcomponentsjs/webcomponents-sd-ce";
 import "intersection-observer";
 import "web-animations-js";
+import "../lib/request-idle-callback";
 
 import "../lib/modernizr-custom";
 import "../lib/version";
