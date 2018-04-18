@@ -35,7 +35,7 @@ import "core-js/fn/string/includes";
 import {
   HyPushStateElement,
   WEBCOMPONENT_FEATURE_TESTS,
-  Set
+  Set,
 } from "hy-push-state/src/webcomponent";
 
 import { fromEvent } from "rxjs/observable/fromEvent";
@@ -65,7 +65,7 @@ import {
   getResolvablePromise,
   hasFeatures,
   isSafari,
-  isFirefoxIOS
+  isFirefoxIOS,
 } from "./common";
 import { CrossFader } from "./cross-fader";
 import { upgradeMathBlocks } from "./katex";
@@ -85,7 +85,7 @@ const REQUIREMENTS = new Set([
   "matchmedia",
   "opacity",
   "queryselector",
-  "requestanimationframe"
+  "requestanimationframe",
 ]);
 
 // TODO:
@@ -103,14 +103,14 @@ const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
 // Details of the fade-in animation.
 const FADE_IN = [
   { opacity: 0, transform: "translateY(-3rem)" },
-  { opacity: 1, transform: "translateY(0)" }
+  { opacity: 1, transform: "translateY(0)" },
 ];
 
 // Settings as passed to the WebAnimations API.
 const SETTINGS = {
   duration: DURATION,
   easing: "ease-out",
-  fill: "forwards"
+  fill: "forwards",
 };
 
 // A CSS selector for headlines with ids.
@@ -330,7 +330,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // work when an error occurs.
   const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
     animationMain,
-    settings: SETTINGS
+    settings: SETTINGS,
   }).pipe(share());
 
   start$
