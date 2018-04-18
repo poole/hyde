@@ -300,9 +300,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   ready$
     .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
     .subscribe(({ replaceEls: [main] }) => {
-      requestAnimationFrame(
-        () => ((loading.style.display = "none"), main.classList.remove("fade-in"))
-      );
+      main.classList.remove("fade-in");
+
+      requestAnimationFrame(() => (loading.style.display = "none"));
       requestIdleCallback(() =>
         Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading)
       );
