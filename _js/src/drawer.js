@@ -124,6 +124,7 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // First we get hold of some DOM elements.
   const drawerEl = document.getElementsByTagName("hy-drawer")[0];
   const menuEl = document.getElementById("_menu");
+  const sidebar = document.getElementById("_sidebar");
   const sticky = document.querySelector(".sidebar-sticky");
 
   const resize$ = fromEvent(window, "resize", { passive: true }).pipe(share());
@@ -131,7 +132,6 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // Quick helper function to prevent repeat code.
   const updateSidebar = (dist, opacity, isDesktop) => {
     const t = 1 - opacity;
-    const sidebar = document.getElementById("_sidebar");
     if (hasCSSOM) {
       sidebar.attributeStyleMap.set(
         "transform",
@@ -191,7 +191,6 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // Setting `will-change` at the beginning of an interaction, and remove at the end.
   drawerEl.addEventListener("hy-drawer-prepare", () => {
-    const sidebar = document.getElementById("_sidebar");
     if (hasCSSOM) {
       sidebar.attributeStyleMap.set("will-change", "transform");
       sticky.attributeStyleMap.set("will-change", "opacity");
@@ -203,7 +202,6 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   drawerEl.addEventListener("hy-drawer-transitioned", () => {
     requestAnimationFrame(() => {
-      const sidebar = document.getElementById("_sidebar");
       if (hasCSSOM) {
         sidebar.attributeStyleMap.delete("will-change");
         sticky.attributeStyleMap.delete("will-change");
