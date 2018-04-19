@@ -44,5 +44,19 @@ hy-img {
       font-size: 2rem;
     }
   }
+
+  img {
+    animation-duration: 1000ms;
+    animation-timing-function: ease;
+    animation-name: fade-img;
+  }
 }
+
+@keyframes fade-img {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+.animation-main hy-img img { animation: none!important; }
+
 // >>>

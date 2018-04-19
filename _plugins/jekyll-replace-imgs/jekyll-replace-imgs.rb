@@ -24,7 +24,7 @@ RE_IMG     = /<img(.*?)\/>/m
 RE_DATAURL = /.*src\s*=\s*["']\s*data:.*["']/
 
 REPLACEMENT = '
-  <hy-img root-margin="300px" %{attrs}>
+  <hy-img root-margin="250px" %{attrs}>
     <noscript><img%{attrs}/></noscript>
     <span class="loading" slot="loading" hidden>
       <span class="icon-cog"></span>

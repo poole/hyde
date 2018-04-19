@@ -65,6 +65,7 @@ html {
 // <<<<< INLINE
 .fade-in {
   animation-duration: 500ms;
+  animation-timing-function: ease;
   animation-name: fade-in;
   animation-fill-mode: forwards;
 }
