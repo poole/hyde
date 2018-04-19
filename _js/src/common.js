@@ -27,6 +27,8 @@ export const isMobileSafari = isSafari && isMobile;
 export const isUCBrowser = ua.indexOf("ucbrowser") > 0;
 export const isFirefoxIOS = ua.indexOf("fxios") > 0 && ua.indexOf("safari") > 0;
 
+export const hasCSSOM = "attributeStyleMap" in Element.prototype && "CSS" in window && CSS.number;
+
 // Takes an array of Modernizr feature tests and makes sure they all pass.
 export function hasFeatures(features) {
   let acc = true;

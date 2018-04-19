@@ -38,7 +38,7 @@ import { switchMap } from "rxjs/operators/switchMap";
 import { withLatestFrom } from "rxjs/operators/withLatestFrom";
 
 // Some of our own helper functions/constants.
-import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser } from "./common";
+import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser, hasCSSOM } from "./common";
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = new Set([
@@ -48,8 +48,6 @@ const REQUIREMENTS = new Set([
   "eventlistener",
   "matchmedia",
 ]);
-
-const hasCSSOM = "attributeStyleMap" in Element.prototype && "CSS" in window && CSS.number;
 
 // NOTE: Duplicated values from `_sass_/variables.scss`.
 const CONTENT_WIDTH_5 = 48;
