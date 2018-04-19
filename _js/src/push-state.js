@@ -24,9 +24,7 @@
 // ## Includes
 // First, we patch the environment with some ES6+ functions we intend to use.
 import "core-js/fn/array/for-each";
-import "core-js/fn/array/from";
 import "core-js/fn/function/bind";
-import "core-js/fn/object/assign";
 import "core-js/fn/string/includes";
 
 // We include our main component, hy-push-state,

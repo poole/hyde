@@ -15,7 +15,6 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import "core-js/fn/array/find";
-import "core-js/fn/array/from";
 import "core-js/fn/function/bind";
 
 import Color from "color";
