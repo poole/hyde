@@ -22,7 +22,10 @@ if (hasFeatures(WEBCOMPONENT_FEATURE_TESTS)) {
   window.customElements.define("hy-img", HyImageElement);
 
   const logo = document.querySelector(".sidebar hy-img");
-  if (logo) logo.addEventListener("hy-img-init", () => logo.loadImage(), { once: true });
+  if (logo)
+    logo.addEventListener("hy-img-init", () => requestIdleCallback(() => logo.loadImage()), {
+      once: true,
+    });
 } else {
   // TODO
 }
