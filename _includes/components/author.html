@@ -4,7 +4,7 @@
   {% assign author = include.author %}
 
   {% if author.picture %}
-    {% include components/srcset-img.html class="avatar" img=author.picture alt=author.name %}
+    {% include components/hy-img.html class="avatar" img=author.picture alt=author.name %}
   {% elsif plugins contains 'jekyll-avatar' %}
     {% assign avatar = author.social.github | default:author.github.username | default:author.github  %}
     {% include components/avatar-tag.html user=avatar %}

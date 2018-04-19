@@ -25,7 +25,7 @@ RE_DATAURL = /.*src\s*=\s*["']\s*data:.*["']/
 
 REPLACEMENT = '
   <hy-img root-margin="250px" %{attrs}>
-    <noscript><img%{attrs}/></noscript>
+    <noscript><img re-ignore %{attrs}/></noscript>
     <span class="loading" slot="loading" hidden>
       <span class="icon-cog"></span>
     </span>
@@ -45,7 +45,7 @@ Jekyll::Hooks.register([:pages, :documents], :post_render) do |page|
 
     # TODO: run more logic here? parse attributes!?
 
-    if match.index(RE_DATAURL).nil? then
+    if match.index(/re-ignore/).nil? && match.index(RE_DATAURL).nil? then
       i += 1
       replacement % { i:i, attrs:attrs }
     else

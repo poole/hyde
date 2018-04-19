@@ -25,7 +25,7 @@
     {% assign alt = false %}
     {% unless hide_image %}{% if post.image %}
       <div class="img lead sixteen-nine">
-        {% include components/srcset-img.html img=post.image %}
+        {% include components/hy-img.html img=post.image %}
       </div>
       {% assign alt = '' %}
     {% endif %}{% endunless %}

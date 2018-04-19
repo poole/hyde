@@ -6,19 +6,27 @@
   {% endif %}
 
   {% assign src = include.img.src | default:include.img.path %}
-  <img
+  {% capture attrs %}
     src="{% include smart-url.txt url=src %}"
     {% if include.class %}class="{{ include.class }}"{% endif %}
     {% if include.alt %}alt="{{ include.alt }}"{% endif %}
     {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
     {% if include.sizes %}sizes="{{ include.sizes }}"{% endif %}
-    {% if include.property %}property="{{ include.property }}"{% endif %}
-  />
+  {% endcapture %}
 {% else %}
-  <img
+  {% capture attrs %}
     src="{% include smart-url.txt url=include.img %}"
     {% if include.class %}class="{{ include.class }}"{% endif %}
     {% if include.alt %}alt="{{ include.alt }}"{% endif %}
-    {% if include.property %}property="{{ include.property }}"{% endif %}
-  />
+  {% endcapture %}
 {% endif %}
+
+<hy-img
+  {{ attrs }}
+  {% if include.property %}property="{{ include.property }}"{% endif %}
+>
+  <noscript><img re-ignore {{ attrs }}/></noscript>
+  <span class="loading" slot="loading" hidden>
+    <span class="icon-cog"></span>
+  </span>
+</hy-img>
