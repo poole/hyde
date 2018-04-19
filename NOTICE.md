@@ -44,7 +44,7 @@ A copy of the [MIT] license is provided as part of this distribution.
 This software also uses portions of the hy-drawer project, which is
 GPL-3.0 licensed with the following copyright:
 
-> Copyright (c) 2017 Florian Klampfer
+> Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 
 A copy of the [GPL-3.0] license is provided as part of this distribution.
 
@@ -52,9 +52,25 @@ A copy of the [GPL-3.0] license is provided as part of this distribution.
 This software also uses portions of the hy-push-state project, which is
 GPL-3.0 licensed with the following copyright:
 
-> Copyright (c) 2017 Florian Klampfer
+> Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 
 A copy of the [GPL-3.0] license is provided as part of this distribution.
+
+### hy-img
+This software also uses portions of the hy-img project, which is
+GPL-3.0 licensed with the following copyright:
+
+> Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
+
+A copy of the [GPL-3.0] license is provided as part of this distribution.
+
+### hy-component
+This software also uses portions of the hy-component project,
+which is MIT licensed with the following copyright
+
+> Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
+
+A copy of the [MIT] license is provided as part of this distribution.
 
 ### rxjs
 This software also uses portions of the rxjs project, which is
@@ -74,17 +90,6 @@ MIT licensed with the following copyright:
 > Copyright (c) 2015 Khan Academy
 
 A copy of the [MIT] license is provided as part of this distribution.
-
-### webfontloader
-This software also uses portions of the webfontloader project, which is
-Apache-2.0 licensed with the following copyright;
-
-> Copyright 2016 Small Batch, Inc.
-
-No substantial changes to the software were made.
-No `NOTICE` file was provided.
-
-A copy of the [Apache-2.0] license is provided as part of this distribution.
 
 ### corejs
 This software also uses portions of the corejs project, which is
@@ -193,14 +198,6 @@ which is MIT licensed with the following copyright
 
 A copy of the [MIT] license is provided as part of this distribution.
 
-### hy-component
-This software also uses portions of the hy-component project,
-which is MIT licensed with the following copyright
-
-> Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
-
-A copy of the [MIT] license is provided as part of this distribution.
-
 ### camelcase
 This software also uses portions of the camelcase project,
 which is MIT licensed with the following copyright
@@ -233,14 +230,68 @@ which is MIT licensed with the following copyright
 
 A copy of the [MIT] license is provided as part of this distribution.
 
-### template-polyfill
-This software also uses portions of the template-polyfill project,
-which is MIT licensed with the following copyright
+### AMP
+This software also uses portions of the AMP project,
+which is Apache-2.0 licensed with the following copyright
 
-> Copyright (c) 2016 Jeff Carpenter
+> Copyright 2015 The AMP HTML Authors. All Rights Reserved.
 
-A copy of the [MIT] license is provided as part of this distribution.
+Changes: Removed dev/user assertions.
+No `NOTICE` file was provided.
 
+A copy of the [Apache-2.0] license is provided as part of this distribution.
+
+### intersection-observer
+This software also uses portions of the intersection-observer project,
+which is W3C licensed with the following copyright
+
+> Copyright 2016 Google Inc. All Rights Reserved.
+
+No substantial changes to the software were made.
+
+A copy of the [W3C] license is provided as part of this distribution.
+
+### Font Face Observer
+This software also uses portions of the Font Face Observer project, which is
+BSD-style licensed with the following copyright:
+
+> Copyright (c) 2014 - Bram Stein  
+> All rights reserved.
+
+Redistribution and use in source and binary forms, with or without
+modification, are permitted provided that the following conditions
+are met:
+
+ 1. Redistributions of source code must retain the above copyright
+    notice, this list of conditions and the following disclaimer.
+ 2. Redistributions in binary form must reproduce the above copyright
+    notice, this list of conditions and the following disclaimer in the
+    documentation and/or other materials provided with the distribution.
+
+THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
+WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
+MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
+EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
+INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
+BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
+DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
+OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
+NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
+EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
+
+### webcomponents.js (v1 spec polyfills)
+This software also uses portions of the webcomponents.js (v1 spec polyfills) project, which is
+BSD-style licensed with the following copyright
+
+> Copyright (c) 2015 The Polymer Authors. All rights reserved.
+
+Redistribution and use in source and binary forms, with or without modification, are permitted provided that the following conditions are met:
+
+* Redistributions of source code must retain the above copyright notice, this list of conditions and the following disclaimer.
+* Redistributions in binary form must reproduce the above copyright notice, this list of conditions and the following disclaimer in the documentation and/or other materials provided with the distribution.
+* Neither the name of Google Inc. nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission.
+
+THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 [11]: https://icomoon.io/#icons-icomoon
 [12]: http://keyamoon.com/
@@ -253,6 +304,7 @@ A copy of the [MIT] license is provided as part of this distribution.
 [MIT]: licenses/MIT.md
 [GPL-3.0]: licenses/GPL-3.0.md
 [Apache-2.0]: licenses/Apache-2.0.md
+[W3C]: licenses/W3C.md
 [CC-BY-SA-4.0]: https://creativecommons.org/licenses/by-sa/4.0/
 [CC-BY-SA-3.0]: https://creativecommons.org/licenses/by-sa/3.0/
 [CC0-1.0]: https://creativecommons.org/publicdomain/zero/1.0/deed.en
