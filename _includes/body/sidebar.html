@@ -18,7 +18,7 @@
     <div class="sidebar-sticky">
       <div class="sidebar-about">
         {% if site.logo %}
-          <a class="no-hover" href="{{ '/' | relative_url }}">
+          <a class="no-hover" href="{{ '/' | relative_url }}" tabindex="-1">
             {% include components/hy-img.html class="avatar" img=site.logo alt=site.title %}
           </a>
         {% endif %}
