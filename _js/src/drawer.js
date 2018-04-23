@@ -239,21 +239,21 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   // and the user hasn't started scrolling already.
   const opened = drawerEl.classList.contains("cover") && scrollTop <= 0;
 
-  // Now we create the component.
-  window._drawer = defineWebComponent(drawerEl, opened);
+  // We need the height of the darwer in case we need to reset the scroll position
+  let drawerHeight;
+  if (!opened) drawerHeight = drawerEl.getBoundingClientRect().height;
 
   drawerEl.addEventListener(
     "hy-drawer-init",
     () => {
       // When the distance changes, update the translateX property.
       dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
-        const { opacity } = window._drawer;
-        // TODO: opacity is not defined on init...
+        const { opacity } = drawerEl;
         if (opacity >= 0) updateSidebar(dist, opacity, isDesktop);
       });
 
       // Keeping the drawer updated.
-      range$.subscribe(range => (window._drawer.range = range));
+      range$.subscribe(range => (drawerEl.range = range));
 
       // Show the icon indicating that the drawer can be drawn using touch gestures.
       setupIcon();
@@ -263,8 +263,11 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
       // The drawer height is `100vh` before the drawer is initialized and is now set to 0.
       // We remove `innerHeight` from the old scroll position to prevent the content form "jumping".
-      if (!opened) window.scrollTo(0, scrollTop - window.innerHeight);
+      if (!opened && scrollTop >= drawerHeight) window.scrollTo(0, scrollTop - drawerHeight);
     },
     { once: true }
   );
+
+  // Now we create the component.
+  window._drawer = defineWebComponent(drawerEl, opened);
 }
