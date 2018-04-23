@@ -188,6 +188,7 @@ exclude:
   - package-lock.json
   - webpack.config.js
   - .sass-cache
+  - _js
 include:
   - LICENSE.md
 
