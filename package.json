@@ -25,7 +25,7 @@
   "license": "GPL-3.0",
   "private": true,
   "devDependencies": {
-    "babel-core": "^6.26.0",
+    "babel-core": "^6.26.3",
     "babel-loader": "^7.1.4",
     "babel-preset-env": "^1.6.1",
     "eslint": "^4.19.1",
@@ -43,9 +43,9 @@
     "color": "^2.0.1",
     "core-js": "^2.5.5",
     "elem-dataset": "^1.1.1",
-    "hy-drawer": "^1.0.0-pre.16",
+    "hy-drawer": "^1.0.0-pre.17",
     "hy-img": "^1.0.0-hydejack.3",
-    "hy-push-state": "^1.0.0-pre.16",
+    "hy-push-state": "^1.0.0-pre.17",
     "intersection-observer": "^0.5.0",
     "rxjs": "^5.5.10",
     "web-animations-js": "^2.3.1"
