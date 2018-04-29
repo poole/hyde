@@ -8,13 +8,10 @@
   <script>
     !function(w, d) {
       loadJS(document.getElementById('_hrefFFO').href, function() {
-        function f() { d.body.className += ' font-active'; }
-        if ('Promise' in w) {
-          Promise.all([
-            new FontFaceObserver('{{ font | split:',' | first }}').load(),
-            new FontFaceObserver('{{ font_heading | split:',' | first }}').load(),
-          ]).then(f);
-        } else f();
+        if ('Promise' in w) Promise.all([
+          new FontFaceObserver('{{ font | split:',' | first }}').load(),
+          new FontFaceObserver('{{ font_heading | split:',' | first }}').load(),
+        ]).then(function f() { d.body.className += ' font-active'; }, function() {});
       });
     }(window, document);
   </script>
