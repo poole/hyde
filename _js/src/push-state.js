@@ -183,12 +183,6 @@ function shouldAnimate(type) {
   return type === "push" || navigator.standalone || !isSafari;
 }
 
-// Similar to `shouldAnimate`, whether we use scroll restoration depends on whether it conflicts
-// with native guestures.
-function shouldRestoreScroll() {
-  return !isSafari ? true : !!navigator.standalone;
-}
-
 function animateFadeOut({ type, main }) {
   const anim$ = shouldAnimate(type)
     ? animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }))
@@ -213,7 +207,6 @@ function animateFadeIn({ type, replaceEls: [main], flipType }) {
 // Before we register the WebComponent with the DOM, we set essential properties,
 // some of which depend on browser, standalone mode, etc...
 function defineWebComponent(pushStateEl) {
-  if (shouldRestoreScroll()) pushStateEl.setAttribute("scroll-restoration", "");
   window.customElements.define("hy-push-state", HyPushStateElement);
   return pushStateEl;
 }
@@ -280,10 +273,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     exhaustMap(animateFadeOut),
 
     // After the animation is complete, we empty the current content and scroll to the top.
-    tap(({ main }) => {
-      empty.call(main);
-      if (shouldRestoreScroll()) window.scrollTo(0, 0);
-    }),
+    tap(({ main }) => empty.call(main)),
     share()
   );
 
@@ -300,7 +290,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     .subscribe(({ replaceEls: [main] }) => {
       main.classList.remove("fade-in");
 
+      // FIXME: does `requestAnimationFrame` make sense here?
       requestAnimationFrame(() => (loading.style.display = "none"));
+
+      // FIXME: put on idlecallback scheduler?
       requestIdleCallback(() =>
         Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading)
       );

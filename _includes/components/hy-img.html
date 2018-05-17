@@ -24,6 +24,7 @@
 <hy-img
   {{ attrs }}
   {% if include.property %}property="{{ include.property }}"{% endif %}
+  root-margin="512px"
 >
   <noscript><img re-ignore {{ attrs }}/></noscript>
   <span class="loading" slot="loading" hidden>

@@ -71,10 +71,13 @@ export function animate(el, keyframes, options) {
   return Observable.create(observer => {
     const anim = el.animate(keyframes, options);
 
-    anim.addEventListener("finish", e => {
-      observer.next(e);
-      requestAnimationFrame(observer.complete.bind(observer));
-    });
+    anim.addEventListener(
+      "finish",
+      e => (
+        observer.next(e),
+        requestAnimationFrame(() => requestAnimationFrame(observer.complete.bind(observer)))
+      )
+    );
 
     return () => {
       if (anim.playState !== "finished") anim.cancel();

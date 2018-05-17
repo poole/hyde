@@ -17,6 +17,7 @@
 import "@webcomponents/webcomponentsjs/webcomponents-sd-ce";
 import "intersection-observer";
 import "web-animations-js";
+import smoothscroll from "smoothscroll-polyfill";
 import "../lib/request-idle-callback";
 
 import "../lib/modernizr-custom";
@@ -27,3 +28,5 @@ import "./drawer";
 import "./push-state";
 import "./katex";
 import "./cookies-banner";
+
+smoothscroll.polyfill();

@@ -22,9 +22,6 @@ import { hasFeatures } from "./common";
 
 if (hasFeatures(WEBCOMPONENT_FEATURE_TESTS)) {
   window.customElements.define("hy-img", HyImageElement);
-
-  const logo = document.querySelector(".sidebar hy-img");
-  if (logo) logo.addEventListener("hy-img-init", () => logo.loadImage(), { once: true });
 } else {
   // If the necessary features aren't available, use the fact that we have `noscript` fallbacks
   // that are immediate children of the component, and add the fallback to the DOM

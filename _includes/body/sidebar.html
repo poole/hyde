@@ -18,7 +18,7 @@
       <div class="sidebar-about">
         {% if site.logo %}
           <a class="no-hover" href="{{ '/' | relative_url }}" tabindex="-1">
-            {% include components/hy-img.html class="avatar" img=site.logo alt=site.title %}
+            <img src="{{ site.logo | relative_url }}" class="avatar" alt="{{ site.title }}" re-ignore />
           </a>
         {% endif %}
         <h2 class="h1"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>

@@ -13,8 +13,9 @@
 # You should have received a copy of the GNU General Public License
 # along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+# # Jekyll Replace `img`s
 # This is a tiny, optional plugin (will be ignored on GitHub Pages)
-# that replaces *all* <img> tags with placeholders that won't load immediately.
+# that replaces <img> tags with placeholders that won't load immediately.
 # This can increase page load speed, especially for documents with lots of images.
 #
 # This requires a JS component to lazy-load the images.
@@ -24,7 +25,7 @@ RE_IMG     = /<img(.*?)\/>/m
 RE_DATAURL = /.*src\s*=\s*["']\s*data:.*["']/
 
 REPLACEMENT = '
-  <hy-img root-margin="250px" %{attrs}>
+  <hy-img root-margin="512px" %{attrs}>
     <noscript><img re-ignore %{attrs}/></noscript>
     <span class="loading" slot="loading" hidden>
       <span class="icon-cog"></span>

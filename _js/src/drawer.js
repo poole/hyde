@@ -25,6 +25,8 @@ import "core-js/fn/function/bind";
 // Since they share most of their code, it's not a big deal in terms of file size.
 import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
 
+import { Observable } from "rxjs/Observable";
+
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
 import { fromEvent } from "rxjs/observable/fromEvent";
 import { never } from "rxjs/observable/never";
@@ -181,9 +183,10 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
   // Sliding the drawer's content between the middle point of the screen,
   // and the middle point of the drawer when closed.
-  fromEvent(drawerEl, "hy-drawer-move")
+
+  Observable.create(observer => (drawerEl.moveCallback = observer.next.bind(observer)))
     .pipe(withLatestFrom(dist$, isDesktop$))
-    .subscribe(([{ detail: { opacity } }, dist, isDesktop]) => {
+    .subscribe(([{ opacity }, dist, isDesktop]) => {
       updateSidebar(dist, opacity, isDesktop);
     });
 
@@ -199,15 +202,13 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   });
 
   drawerEl.addEventListener("hy-drawer-transitioned", () => {
-    requestAnimationFrame(() => {
-      if (hasCSSOM) {
-        sidebar.attributeStyleMap.delete("will-change");
-        sticky.attributeStyleMap.delete("will-change");
-      } else {
-        sidebar.style.willChange = "";
-        sticky.style.willChange = "";
-      }
-    });
+    if (hasCSSOM) {
+      sidebar.attributeStyleMap.delete("will-change");
+      sticky.attributeStyleMap.delete("will-change");
+    } else {
+      sidebar.style.willChange = "";
+      sticky.style.willChange = "";
+    }
   });
 
   // Adding the click callback to the menu button.
