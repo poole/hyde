@@ -10,7 +10,7 @@
 // increase the cache number, otherwise the changes will NEVER be visible to returning visitors.
 // Will be overwritten with every change during development.
 // {% assign cv = site.hydejack.offline.cache_version | default:"1" %}
-const SHELL_CACHE = "shell--8.0.0-alpha.29--v{{ cv }}";
+const SHELL_CACHE = "shell--8.0.0-alpha.30--v{{ cv }}";
 
 // A separate assets cache that won't be invalidated when there's a newer version of
 const ASSETS_CACHE = "assets--v{{ cv }}";
@@ -37,8 +37,8 @@ const GOOGLE_FONTS = "https://fonts.googleapis.com/css?family={{ google_fonts | 
 // {% endunless %}
 
 const SHELL_FILES = [
-  "{{ '/assets/js/hydejack-8.0.0-alpha.29.js' | relative_url }}",
-  "{{ '/assets/css/hydejack-8.0.0-alpha.29.css' | relative_url }}",
+  "{{ '/assets/js/hydejack-8.0.0-alpha.30.js' | relative_url }}",
+  "{{ '/assets/css/hydejack-8.0.0-alpha.30.css' | relative_url }}",
   "{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js' | relative_url }}",
   "{{ '/assets/manifest.json' | relative_url }}",
   "{{ '/assets/img/swipe.svg' | relative_url }}",
