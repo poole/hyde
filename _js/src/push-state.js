@@ -297,6 +297,16 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       requestIdleCallback(() =>
         Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading)
       );
+
+      /*
+      requestIdleCallback(() => {
+        Array.from(main.querySelectorAll(pushStateEl.linkSelector)).forEach(anchor => {
+          caches.match(anchor.href).then(m => {
+            if (m) requestAnimationFrame(() => anchor.classList.add("visited"));
+          });
+        });
+      });
+      */
     });
 
   after$
@@ -424,7 +434,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
           () =>
             window.history.state &&
             window.history.state["hy-push-state"] &&
-            !window.history.state["hy-push-state"].hash
+            !window.history.state["hy-push-state"].hash // FIXME: hash no longer exists..
         )
       )
       .subscribe(() => {

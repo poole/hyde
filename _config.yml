@@ -98,7 +98,7 @@ defaults:
         background:    rgb(32,32,32)
         overlay:       false
 
-  # `jekyll-seo-tag` will mark up collection outputs as `BlogPosting`, 
+  # `jekyll-seo-tag` will mark up collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s.
   - scope:
       type:            projects
@@ -177,6 +177,11 @@ hydejack:
   # When enabled, no user-related data will be stored until the user gives consent.
   cookies_banner:      false
 
+  # ⚡️ DANGER ZONE ⚡️
+  # ----------------
+  offline:
+    enabled:           true
+    cache_version:     1
 
 # Collections
 # ========================================================================================
