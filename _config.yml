@@ -98,6 +98,25 @@ defaults:
         background:    rgb(32,32,32)
         overlay:       false
 
+  # `jekyll-seo-tag` will mark up collection outputs as `BlogPosting`, 
+  # but we want them to be `WebPage`s.
+  - scope:
+      type:            projects
+    values:
+      seo:
+        type:          WebPage
+  - scope:
+      type:            featured_categories
+    values:
+      seo:
+        type:          WebPage
+  - scope:
+      type:            featured_tags
+    values:
+      seo:
+        type:          WebPage
+
+
 # 3rd Party Integrations
 # ----------------------------------------------------------------------------------------
 
