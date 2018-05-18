@@ -3,6 +3,7 @@
 
 // ⚡️ DANGER ZONE ⚡️
 // ================
+// TODO
 
 // A shell cache that keeps "landmark" resources, like CSS and JS, start page, 404, etc.,
 // which won't change between content updates.
@@ -10,13 +11,13 @@
 // increase the cache number, otherwise the changes will NEVER be visible to returning visitors.
 // Will be overwritten with every change during development.
 // {% assign cv = site.hydejack.offline.cache_version | default:"1" %}
-const SHELL_CACHE = "shell--8.0.0-alpha.30--v{{ cv }}";
+const SHELL_CACHE = "shell-8.0.0-alpha.30--v{{ cv }}--sw{{ '/' | relative_url }}";
 
 // A separate assets cache that won't be invalidated when there's a newer version of
-const ASSETS_CACHE = "assets--v{{ cv }}";
+const ASSETS_CACHE = "assets--v{{ cv }}--sw{{ '/' | relative_url }}";
 
 // The cache for regular content, which will be invalidated every time you make a new build.
-const CONTENT_CACHE = "content--{{ site.time | date_to_xmlschema }}";
+const CONTENT_CACHE = "content--{{ site.time | date_to_xmlschema }}--sw{{ '/' | relative_url }}";
 
 // A URL search parameter you can add to external assets to cache them in the service worker.
 const CACHE_SEARCH_PARAM = "sw-cache";
@@ -40,7 +41,6 @@ const SHELL_FILES = [
   "{{ '/assets/js/hydejack-8.0.0-alpha.30.js' | relative_url }}",
   "{{ '/assets/css/hydejack-8.0.0-alpha.30.css' | relative_url }}",
   "{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js' | relative_url }}",
-  "{{ '/assets/manifest.json' | relative_url }}",
   "{{ '/assets/img/swipe.svg' | relative_url }}",
   ICON_FONT,
   /*{% if gf %}*/ GOOGLE_FONTS /*{% endif %}*/,
@@ -55,6 +55,7 @@ const PAGES_TO_ADD = [
   "{{ '/' | relative_url }}",
   "{{ '/?utm_source=homescreen' | relative_url }}",
   "{{ '/404' | relative_url }}",
+  "{{ '/assets/manifest.json' | relative_url }}",
   /*{% for legal in site.legal %}*/ "{% include smart-url.txt url=legal.href %}",
   /*{% endfor %}*/
 ];
@@ -112,19 +113,17 @@ async function getGoogleFontsFiles() {
   return getMatches(text, RE, 1).concat(GOOGLE_FONTS);
 }
 
-const toLocalURL = href => new URL(href, self.location);
+const toLocalURL = url => new URL(url, self.location);
+
+function addAll(cache, urls) {
+  return Promise.all(
+    urls.map(url => fetch(noCache(toLocalURL(url))).then(res => cache.put(url, res)))
+  );
+}
 
 async function cacheContent(cache) {
-  const urls = PAGES_TO_ADD/*.map(toLocalURL)*/;
-  return cache.addAll(urls);
-  /*
-  return Promise.all(
-    urls.map(async url => {
-      const response = await fetch(noCache(url));
-      return cache.put(url, response);
-    })
-  );
-  */
+  const urls = PAGES_TO_ADD.filter(x => !!x);
+  return addAll(cache, urls);
 }
 
 async function cacheShell(cache) {
@@ -133,16 +132,8 @@ async function cacheShell(cache) {
     /*{% if gf %}*/ getGoogleFontsFiles() /*{% endif %}*/,
   ]);
 
-  const urls = SHELL_FILES/*.map(toLocalURL)*/.concat(iconFontFiles, googleFontsFiles);
-  return cache.addAll(urls);
-  /*
-  return Promise.all(
-    urls.map(async url => {
-      const response = await fetch(noCache(url));
-      return cache.put(url, response);
-    })
-  );
-  */
+  const urls = SHELL_FILES.concat(iconFontFiles, googleFontsFiles).filter(x => !!x);
+  return addAll(cache, urls);
 }
 
 async function precache() {
@@ -162,16 +153,11 @@ async function precache() {
 
 async function onInstall(e) {
   await precache();
-  self.skipWaiting();
+  return self.skipWaiting();
 }
 
 function isSameSite({ origin, pathname }) {
-  // TODO: polyfill...
-  return (
-    (origin.startsWith("{{ site.url }}") && pathname.startsWith("{{ site.baseurl }}")) ||
-    // FIXME: remove from production
-    origin.includes("localhost")
-  );
+  return origin.startsWith("{{ site.url }}") && pathname.startsWith("{{ site.baseurl }}");
 }
 
 async function cacheResponse(cacheName, req, res) {
@@ -192,7 +178,7 @@ async function fromNetwork(e, request) {
   // FIXME: separate cache for `CACHE_SEARCH_PARAM` requests...
   const hasSWParam = url.searchParams.has(CACHE_SEARCH_PARAM);
   if (isSameSite(url) || hasSWParam) {
-    const isAsset = url.pathname.startsWith('{{ "assets" | relative_url }}');
+    const isAsset = url.pathname.startsWith("{{ 'assets' | relative_url }}");
     const cacheName = isAsset || hasSWParam ? ASSETS_CACHE : CONTENT_CACHE;
     return fetchAndCache(e, request, cacheName);
   }
@@ -206,8 +192,11 @@ async function onActivate(e) {
 
   const keys = await caches.keys();
 
-  await Promise.all(
+  return Promise.all(
     keys
+      // Only consider caches created by this baseurl, i.e. allow multiple Hydejack installations on same domain.
+      .filter(key => key.endsWith("sw{{ '/' | relative_url }}"))
+      // Delete old caches
       .filter(key => key !== SHELL_CACHE && key !== ASSETS_CACHE && key !== CONTENT_CACHE)
       .map(key => caches.delete(key))
   );
@@ -216,7 +205,12 @@ async function onActivate(e) {
 async function onFetch(e) {
   const { request } = e;
 
-  if (request.method !== "GET") return fetch(request);
+  if (
+    request.method !== "GET" ||
+    request.url.startsWith("https://www.google-analytics.com/collect")
+  ) {
+    return fetch(request);
+  }
 
   // NOTE: `encodeURI` wtf?
   const matching = await caches.match(encodeURI(request.url));
@@ -231,6 +225,7 @@ async function onFetch(e) {
   // }
 }
 
+// {% comment %}
 const ALL_ASSETS = [
   /*{% for file in site.static_files %}*/ "{{ file.path | relative_url }}",
   /*{% endfor %}*/
@@ -245,3 +240,4 @@ const ALL_PAGES = [
   /*{% for doc in site.pages %}*/ "{{ doc.url | relative_url }}",
   /*{% endfor %}*/
 ];
+// {% endcomment %}
