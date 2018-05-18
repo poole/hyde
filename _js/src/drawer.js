@@ -247,12 +247,6 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
   drawerEl.addEventListener(
     "hy-drawer-init",
     () => {
-      // When the distance changes, update the translateX property.
-      dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
-        const { opacity } = drawerEl;
-        if (opacity >= 0) updateSidebar(dist, opacity, isDesktop);
-      });
-
       // Keeping the drawer updated.
       range$.subscribe(range => (drawerEl.range = range));
 
@@ -268,6 +262,10 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     },
     { once: true }
   );
+
+  dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
+    updateSidebar(dist, opened ? 1 : 0, isDesktop);
+  });
 
   // Now we create the component.
   window._drawer = defineWebComponent(drawerEl, opened);
