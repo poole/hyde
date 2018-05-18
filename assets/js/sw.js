@@ -21,7 +21,7 @@
 // The shell cache keeps "landmark" resources, like CSS and JS, web fonts, etc.
 // which won't change between content updates.
 // {% assign cv = site.hydejack.offline.cache_version | default:"1" %}
-const SHELL_CACHE = "shell-8.0.0-alpha.32--v{{ cv }}--sw{{ '/' | relative_url }}";
+const SHELL_CACHE = "shell-8.0.0-alpha.33--v{{ cv }}--sw{{ '/' | relative_url }}";
 
 // A separate assets cache that won't be invalidated when there's a newer version of Hydejack.
 // NOTE: Whenever you make changes to any of the files in yor `assets` folder,
@@ -51,8 +51,8 @@ const GOOGLE_FONTS = "https://fonts.googleapis.com/css?family={{ google_fonts | 
 
 const SHELL_FILES = [
   "{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js' | relative_url }}",
-  "{{ '/assets/js/hydejack-8.0.0-alpha.32.js' | relative_url }}",
-  "{{ '/assets/css/hydejack-8.0.0-alpha.32.css' | relative_url }}",
+  "{{ '/assets/js/hydejack-8.0.0-alpha.33.js' | relative_url }}",
+  "{{ '/assets/css/hydejack-8.0.0-alpha.33.css' | relative_url }}",
   "{{ '/assets/img/swipe.svg' | relative_url }}",
   ICON_FONT,
   /*{% if gf %}*/ GOOGLE_FONTS /*{% endif %}*/,
