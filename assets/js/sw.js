@@ -17,17 +17,15 @@
 
 // ⚡️ DANGER ZONE ⚡️
 // ================
-// TODO
 
-// A shell cache that keeps "landmark" resources, like CSS and JS, start page, 404, etc.,
+// The shell cache keeps "landmark" resources, like CSS and JS, web fonts, etc.
 // which won't change between content updates.
-// NOTE: Whenever you make changes to any of the files in yor `assets` folder,
-// increase the cache number, otherwise the changes will NEVER be visible to returning visitors.
-// Will be overwritten with every change during development.
 // {% assign cv = site.hydejack.offline.cache_version | default:"1" %}
 const SHELL_CACHE = "shell-8.0.0-alpha.31--v{{ cv }}--sw{{ '/' | relative_url }}";
 
-// A separate assets cache that won't be invalidated when there's a newer version of
+// A separate assets cache that won't be invalidated when there's a newer version of Hydejack.
+// NOTE: Whenever you make changes to any of the files in yor `assets` folder,
+//       increase the cache number, otherwise the changes will NEVER be visible to returning visitors.
 const ASSETS_CACHE = "assets--v{{ cv }}--sw{{ '/' | relative_url }}";
 
 // The cache for regular content, which will be invalidated every time you make a new build.
@@ -52,20 +50,23 @@ const GOOGLE_FONTS = "https://fonts.googleapis.com/css?family={{ google_fonts | 
 // {% endunless %}
 
 const SHELL_FILES = [
+  "{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js' | relative_url }}",
   "{{ '/assets/js/hydejack-8.0.0-alpha.31.js' | relative_url }}",
   "{{ '/assets/css/hydejack-8.0.0-alpha.31.css' | relative_url }}",
-  "{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js' | relative_url }}",
   "{{ '/assets/img/swipe.svg' | relative_url }}",
   ICON_FONT,
   /*{% if gf %}*/ GOOGLE_FONTS /*{% endif %}*/,
+];
+
+const ASSET_FILES = [
   /*{% if site.accent_image %}{% unless site.accent_image.background %}*/ "{% include smart-url.txt url=site.accent_image %}" /*{% endunless %}{% endif %}*/,
   /*{% if site.logo %}*/ "{% include smart-url.txt url=site.logo %}" /*{% endif %}*/,
-  /*{% for file in site.hydejack.offline.precache %}*/ "{% include smart-url.txt url=file %}",
+  /*{% for file in site.hydejack.offline.precache_assets %}*/ "{% include smart-url.txt url=file %}",
   /*{% endfor %}*/
 ];
 
 // Files we add on every service worker installation.
-const PAGES_TO_ADD = [
+const CONTENT_FILES = [
   "{{ '/' | relative_url }}",
   "{{ '/?utm_source=homescreen' | relative_url }}",
   "{{ '/assets/manifest.json' | relative_url }}",
@@ -142,16 +143,11 @@ async function cache404(cache) {
   return cache.put(
     url,
     new Response(response.body, {
-      status: 404,
-      statusText: "Not Found",
+      status: 598,
+      statusText: "Offline",
       headers: response.headers,
     })
   );
-}
-
-async function cacheContent(cache) {
-  const urls = PAGES_TO_ADD.filter(x => !!x);
-  return Promise.all([addAll(cache, urls), cache404(cache)]);
 }
 
 async function cacheShell(cache) {
@@ -164,18 +160,33 @@ async function cacheShell(cache) {
   return addAll(cache, urls);
 }
 
+async function cacheAssets(cache) {
+  const urls = ASSET_FILES.filter(x => !!x);
+  return addAll(cache, urls);
+}
+
+async function cacheContent(cache) {
+  const urls = CONTENT_FILES.filter(x => !!x);
+  return Promise.all([addAll(cache, urls), cache404(cache)]);
+}
+
 async function precache() {
   const keys = await caches.keys();
 
-  if (keys.includes(SHELL_CACHE)) {
+  if (keys.includes(SHELL_CACHE) && keys.includes(ASSETS_CACHE)) {
     const contentCache = await caches.open(CONTENT_CACHE);
     return cacheContent(contentCache);
   } else {
-    const [shellCache, contentCache] = await Promise.all([
+    const [shellCache, assetsCache, contentCache] = await Promise.all([
       caches.open(SHELL_CACHE),
+      caches.open(ASSETS_CACHE),
       caches.open(CONTENT_CACHE),
     ]);
-    return Promise.all([cacheShell(shellCache), cacheContent(contentCache)]);
+    return Promise.all([
+      cacheShell(shellCache),
+      cacheAssets(assetsCache),
+      cacheContent(contentCache),
+    ]);
   }
 }
 
@@ -202,8 +213,7 @@ async function fetchAndCache(e, request, cacheName) {
 async function fromNetwork(e, request) {
   const url = new URL(request.url);
 
-  // TODO: always cache GET requests from other domains!?
-  // FIXME: separate cache for `CACHE_SEARCH_PARAM` requests...
+  // TODO: always cache GET requests from other domains!? Only images?
   const hasSWParam = url.searchParams.has(CACHE_SEARCH_PARAM);
   if (isSameSite(url) || hasSWParam) {
     const isAsset = url.pathname.startsWith("{{ 'assets' | relative_url }}");
@@ -233,23 +243,34 @@ async function onActivate(e) {
 async function onFetch(e) {
   const { request } = e;
 
+  // Bypass
+  // ------
+  // Go to network for non-GET request and Google Analytics right away.
   if (
-    request.method !== "GET" ||
-    request.url.startsWith("https://www.google-analytics.com/collect")
+    request.method !== "GET" /*{% if site.google_analytics %}*/ ||
+    request.url.startsWith("https://www.google-analytics.com/collect") /*{% endif %}*/
   ) {
     return fetch(request);
   }
 
+  // Caches
+  // ------
   // NOTE: `encodeURI` wtf?
   const url = encodeURI(request.url);
+
   // FIXME: don't wait for all promises to complete...
   const [matching1, matching2, matching3] = await Promise.all([
     caches.open(SHELL_CACHE).then(c => c.match(url)),
     caches.open(ASSETS_CACHE).then(c => c.match(url)),
     caches.open(CONTENT_CACHE).then(c => c.match(url)),
   ]);
+
   if (matching1 || matching2 || matching3) return matching1 || matching2 || matching3;
 
+  // Network
+  // -------
+  // Got to network otherwise. Show 404 when there's a network error.
+  // TODO: Use separate offline site instead of 404!?
   try {
     return await fromNetwork(e, request);
   } catch (err) {
@@ -259,6 +280,7 @@ async function onFetch(e) {
 }
 
 // {% comment %}
+// TODO: We could add support for downloading the entire page.
 const ALL_ASSETS = [
   /*{% for file in site.static_files %}*/ "{{ file.path | relative_url }}",
   /*{% endfor %}*/
