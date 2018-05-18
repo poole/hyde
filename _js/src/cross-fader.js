@@ -21,8 +21,12 @@ import Color from "color";
 
 import { empty } from "rxjs/observable/empty";
 import { fromEvent } from "rxjs/observable/fromEvent";
+import { never } from "rxjs/observable/never";
 import { of } from "rxjs/observable/of";
 
+import { ajax } from "rxjs/_esm5/observable/dom/ajax";
+
+import { catchError } from "rxjs/operators/catchError";
 import { finalize } from "rxjs/operators/finalize";
 import { take } from "rxjs/operators/take";
 import { map } from "rxjs/operators/map";
@@ -36,6 +40,11 @@ const BORDER_COLOR_FADE = 0.8;
 // Given a dataset, generate some string we can use the check if anything has changed...
 const pseudoHash = ({ background, color, image, overlay }) =>
   `${color}${image || background}${overlay === "" ? "overlay" : ""}`;
+
+// Consider a URL external if either the protocol, hostname or port is different.
+function isExternal({ protocol, host }, location = window.location) {
+  return protocol !== location.protocol || host !== location.host;
+}
 
 export class CrossFader {
   constructor(fadeDuration) {
@@ -52,24 +61,20 @@ export class CrossFader {
     this.themeColor = document.querySelector('meta[name="theme-color"]');
   }
 
-  // Get an Observable that emits (once) when the `image` has been loaded,
-  // or just remite immediately if there is no image, or it hasn't changed.
-  // Note that the point is not to *use* the image object, just to make sure the image is in cache.
-  cacheImage$({ background, image }) {
-    if (background || !image || image === "" || image === "none" || image === this.prevImage) {
-      return of({});
+  fetchImage2({ background, image }) {
+    if (background || !image || image === "" || image === "none") {
+      return of(null);
     }
 
-    const imgObj = new Image();
-    const image$ = fromEvent(imgObj, "load").pipe(
-      take(1),
-      finalize(() => {
-        imgObj.src = "";
-      })
-    );
-    imgObj.src = image;
+    const url = new URL(image, window.location);
 
-    return image$;
+    return ajax({
+      method: "GET",
+      responseType: "blob",
+      url,
+      crossDomain: isExternal(url),
+      headers: { Accept: "image/*" },
+    }).pipe(map(({ response }) => URL.createObjectURL(response)), catchError(() => of(image)));
   }
 
   fetchImage(main) {
@@ -80,16 +85,27 @@ export class CrossFader {
     const hash = pseudoHash(dataset);
     if (hash === this.prevHash) return empty();
 
-    return this.cacheImage$(dataset).pipe(
-      map(() => {
+    return this.fetchImage2(dataset).pipe(
+      map(objectURL => {
         const div = document.createElement("div");
         div.classList.add("sidebar-bg");
-        if (image !== "none" && overlay === "") div.classList.add("sidebar-overlay");
-        if (background) div.style.background = background;
-        else {
-          div.style.backgroundColor = color;
-          if (image !== "" && image !== "none") div.style.backgroundImage = `url(${image})`;
+
+        // Set overlay
+        if (image !== "none" && overlay === "") {
+          div.classList.add("sidebar-overlay");
         }
+
+        // Set background
+        if (background) {
+          div.style.background = background;
+        } else {
+          div.style.backgroundColor = color;
+          if (objectURL) {
+            div.style.backgroundImage = `url(${objectURL})`;
+            div.objectURL = objectURL; // HACK: Store objectURL on DOM node for later revocation
+          }
+        }
+
         return [div, dataset, hash];
       })
     );
@@ -154,6 +170,12 @@ export class CrossFader {
 
     return animate(div, [{ opacity: 0 }, { opacity: 1 }], {
       duration: this.fadeDuration,
-    }).pipe(finalize(() => prevDiv.parentNode.removeChild(prevDiv)));
+      easing: "ease",
+    }).pipe(
+      finalize(() => {
+        if (prevDiv.objectURL) URL.revokeObjectURL(prevDiv.objectURL);
+        prevDiv.parentNode.removeChild(prevDiv);
+      })
+    );
   }
 }

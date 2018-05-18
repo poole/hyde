@@ -90,7 +90,7 @@ const REQUIREMENTS = new Set([
 const DURATION = 250;
 
 // Duration of cross-fading the sidebar background images.
-const FADE_DURATION = 600;
+const FADE_DURATION = 1000;
 
 // Time a user has to stay on the site before we send word to Google Analytics.
 const GA_DELAY = 500;
