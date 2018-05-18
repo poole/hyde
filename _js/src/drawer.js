@@ -263,8 +263,11 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     { once: true }
   );
 
+  // HACK
+  let firstRun = true;
   dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
-    updateSidebar(dist, opened ? 1 : 0, isDesktop);
+    if (firstRun) updateSidebar(dist, opened ? 1 : 0, isDesktop), (firstRun = false);
+    else updateSidebar(dist, drawerEl.opacity, isDesktop);
   });
 
   // Now we create the component.
