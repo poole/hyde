@@ -33,7 +33,9 @@
   {% if site.hydejack.offline.enabled %}
     <script>
       if ('serviceWorker' in navigator) {
-        navigator.serviceWorker.register('{{ "sw.js" | relative_url }}').catch(() => {});
+        navigator.serviceWorker.register('{{ "sw.js" | relative_url }}')
+          .then(r => r.update())
+          .catch(() => {});
       }
     </script>
   {% endif %}
