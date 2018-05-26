@@ -11,10 +11,10 @@
       /*{% if site.hydejack.cookies_banner %}*/
         if (navigator.CookiesOK) {
           ga('create', '{{ site.google_analytics }}', 'auto');
-        } else if (localStorage && localStorage.getItem('hy:cookiesOK')) {
+        } else if (document.cookie.indexOf("hy--cookies-ok=true") > -1) {
           ga('create', '{{ site.google_analytics }}', {
             'storage': 'none',
-            'clientId': localStorage.getItem('ga:clientId')
+            'clientId': localStorage ? localStorage.getItem('ga--client-id') : undefined
           });
         } else {
           ga('create', '{{ site.google_analytics }}', {
