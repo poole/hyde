@@ -42,7 +42,6 @@ import { of } from "rxjs/observable/of";
 import { timer } from "rxjs/observable/timer";
 
 import { tap } from "rxjs/operators/tap";
-import { debounceTime } from "rxjs/operators/debounceTime";
 import { exhaustMap } from "rxjs/operators/exhaustMap";
 import { filter } from "rxjs/operators/filter";
 import { map } from "rxjs/operators/map";
@@ -386,20 +385,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   // Once the content is faded in, upgrade the math blocks with KaTeX.
   // This can take a while and will trigger multiple repaints,
   // so we don't want to start until after the animation.
-  fadeIn$
-    .pipe(
-      tap(() => {
-        upgradeMathBlocks();
-        loadDisqus();
-      }),
-      // Finally, after some debounce time, send a `pageview` to Google Analytics (if applicable).
-      filter(() => !!window.ga),
-      debounceTime(GA_DELAY)
-    )
-    .subscribe(() => {
-      window.ga("set", "page", window.location.pathname);
-      window.ga("send", "pageview");
-    });
+  fadeIn$.subscribe(() => {
+    upgradeMathBlocks();
+    loadDisqus();
+  });
 
   // ### Show error page
   // In case of a network error, we don't want to show the browser's default offline page.
@@ -414,6 +403,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
         empty.call(main);
 
         setupErrorPage(main, url);
+
         return animate(main, FADE_IN, SETTINGS);
       })
     )

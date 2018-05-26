@@ -4,39 +4,19 @@
   {% include my-scripts.html %}
   <!--<![endif]-->
 
-  {% if site.google_analytics %}
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-      {% if site.hydejack.cookies_banner %}
-        if (navigator.CookiesOK) {
-          ga('create', '{{ site.google_analytics }}', 'auto');
-        } else if (localStorage && localStorage.getItem('hy:cookiesOK')) {
-          ga('create', '{{ site.google_analytics }}', {
-            'storage': 'none',
-            'clientId': localStorage.getItem('ga:clientId')
-          });
-        } else {
-          ga('create', '{{ site.google_analytics }}', {
-            'storage': 'none'
-          });
-          ga('set', 'forceSSL', true);
-          ga('set', 'anonymizeIp', true);
-        }
-      {% else %}
-        ga('create', '{{ site.google_analytics }}', 'auto');
-      {% endif %}
-      ga('send', 'pageview');
-      window.loadJSDeferred('https://www.google-analytics.com/analytics.js');
-    </script>
-  {% endif %}
+  {% include body/analytics.html %}
 
-  {% if site.hydejack.offline.enabled %}
-    <script>
-      if ('serviceWorker' in navigator) {
+  <script>
+    if ('serviceWorker' in navigator) {
+      {% if site.hydejack.offline.enabled %}
         navigator.serviceWorker.register('{{ "sw.js" | relative_url }}')
           .then(r => r.update())
           .catch(() => {});
-      }
-    </script>
-  {% endif %}
+      {% else %}
+        navigator.serviceWorker.getRegistration()
+          .then(r => r.unregister())
+          .catch(() => {});
+      {% endif %}
+    }
+  </script>
 {% endunless %}
