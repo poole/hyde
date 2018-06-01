@@ -18,10 +18,10 @@
       <div class="sidebar-about">
         {% if site.logo %}
           <a class="no-hover" href="{{ '/' | relative_url }}" tabindex="-1">
-            <img src="{{ site.logo | relative_url }}" class="avatar" alt="{{ site.title }}" re-ignore />
+            <img src="{{ site.logo | relative_url }}" class="avatar" alt="{{ site.short_title | default:site.title }}" re-ignore />
           </a>
         {% endif %}
-        <h2 class="h1"><a href="{{ '/' | relative_url }}">{{ site.title }}</a></h2>
+        <h2 class="h1"><a href="{{ '/' | relative_url }}">{{ site.short_title | default:site.title }}</a></h2>
         {% assign text = site.tagline | default:site.description %}
         {% if text %}
           <p class="{% if text.size > 100 %}fine{% endif %}">
