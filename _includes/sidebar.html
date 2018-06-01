@@ -27,6 +27,50 @@
       {% endfor %}
       <a class="sidebar-nav-item" href="https://drive.google.com/file/d/1_Fg6N3P5n6uz1p8jGo2uv2uYPb6TlIw3/view?usp=sharing" target="_blank">Resume</a>
     </nav>
+    <div id="container" style="text-align: center; float: left; width: 80%; align-content: center;">
+      <ul style="list-style-type: none; margin: 0; padding: 0; overflow: hidden; display: flex; justify-content: space-between;">
+        {% if site.twitter_username %} 
+          <li style="float: left; display: block; flex: 0 1 auto;">
+            <a href="https://twitter.com/{{ site.twitter_username }}" target="_blank">
+              <i class="fa fa-twitter"></i>
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.github_username %}
+          <li style="float: left; display: block; flex: 0 1 auto;">
+            <a href="https://github.com/{{ site.github_username }}" target="_blank">
+              <i class="fa fa-github"></i> 
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.linkedin_username %}
+          <li style="float: left; display: block; flex: 0 1 auto;">
+            <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank">
+              <i class="fa fa-linkedin"></i> 
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.googleplus_username %}
+          <li style="float: left; display: block; flex: 0 1 auto;">
+            <a href="https://plus.google.com/{{ site.googleplus_username }}" target="_blank">
+              <i class="fa fa-google-plus"></i>
+            </a>
+          </li>
+        {% endif %}
+
+        {% if site.facebook_username %}
+          <li style="float: left; display: block; flex: 0 1 auto;">
+            <a href="https://facebook.com/{{ site.facebook_username }}" target="_blank">
+              <i class="fa fa-facebook"></i>
+            </a>
+          </li>
+        {% endif %}
+      </ul>
+    </div>
+    <br>
     <p style="font-size: 13px">&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
   </div>
 </div>
