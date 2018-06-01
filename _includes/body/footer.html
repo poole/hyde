@@ -1,3 +1,4 @@
+{% if site.copyright.size > 0 or site.legal.size > 0 or site.hydejack.advertise %}
 <footer role="contentinfo">
   <hr/>
   {% if site.copyright.size > 0 %}
@@ -14,3 +15,4 @@
   <p><small>Powered by <a class="external" href="https://qwtel.com/hydejack/">Hydejack</a> v<span id="_version">8.0.0-alpha.34</span></small></p>
   <hr class="sr-only"/>
 </footer>
+{% endif %}
