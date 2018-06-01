@@ -6,18 +6,20 @@ highlighter:      pygments
 permalink:        pretty
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+title:            'Mohit Reddy'
+tagline:          ''
+description:      'Programmer, Night Owl.<br>Future Employee @Google, Cloud Infrastructure, Warsaw.<br>Summer 2017 (May - August) Intern @Google, Search Infrastructure, Zurich.<br>Distributed Systems, Algorithms and Data Structures, Machine Learning Enthusiast.'
 url:              http://mohitreddy1996.github.io
-baseurl:          /
+baseurl:          "/"
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Mohit Reddy'
+  url:            'https://github.com/mohitreddy1996'
 
 paginate:         5
-gems:             [Jekyll-gist]
+gems:
+  - jekyll-paginate
+  - jekyll-gist
 
 # Custom vars
 version:          2.1.0
