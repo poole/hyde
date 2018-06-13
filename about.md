@@ -12,5 +12,5 @@ We
 * Offer a seven-week bioinformatics training course for beginners
 * Organize ad-hoc [events](/events/index.html) around computational topics
 
-The initiative was started by [Erick Matsen](http://matsen.fredhutch.org/) and [Brian Claywell](https://github.com/bcclaywell) and funded through and reviewed by the Public Heath Sciences division.
+The initiative was started by [Erick Matsen](http://matsen.fredhutch.org/) and [Brian Claywell](https://github.com/bcclaywell) and funded through and reviewed by the Public Health Sciences division.
 
