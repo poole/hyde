@@ -155,7 +155,7 @@ body{
     var url = new URL(url_string);
     var date_url = url.searchParams.get("time");
     if (date_url) {
-	target_date = date_url;
+	target_date = new Date(date_url);
     }
 
     // find the amount of "seconds" between now and target
