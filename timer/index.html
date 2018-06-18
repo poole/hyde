@@ -150,17 +150,18 @@ body{
   setInterval(function () { getCountdown(); }, 1000);
 
   function getCountdown(){
+    // Set the time from the url if it exists
+    var url_string = window.location.href
+    var url = new URL(url_string);
+    var date_url = url.searchParams.get("time");
+    if (date_url) {
+	target_date = date_url;
+    }
 
     // find the amount of "seconds" between now and target
     var current_date = new Date().getTime();
     var seconds_left = (target_date - current_date) / 1000;
-    // Set the time from the url if it exists
-    var url_string = window.location.href
-    var url = new URL(url_string);
-    var time_url = url.searchParams.get("time");
-    if (time_url) {
-	seconds_left = parseInt(time_url);
-    }
+
     days = pad( parseInt(seconds_left / 86400) );
     seconds_left = seconds_left % 86400;
 
