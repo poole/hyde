@@ -429,7 +429,7 @@ There you will also find an example form for MailChimp, where you need to fill i
 
 To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/).
 Note that only form, grid and utility classes are available.
-Check out [Forms by Example](forms-by-example.md){:.heading.flip-title} for some examples.
+Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} for some examples.
 
 ## Annotated config file
 Below you find the the complete default `_config.yml` file. You may want to copy it when using the gem-based version of the theme.
