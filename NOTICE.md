@@ -230,6 +230,14 @@ which is MIT licensed with the following copyright
 
 A copy of the [MIT] license is provided as part of this distribution.
 
+### smoothscroll
+This software also uses portions of the smoothscroll project,
+which is MIT licensed with the following copyright
+
+> Copyright (c) 2013 Dustan Kasten
+
+A copy of the [MIT] license is provided as part of this distribution.
+
 ### AMP
 This software also uses portions of the AMP project,
 which is Apache-2.0 licensed with the following copyright
