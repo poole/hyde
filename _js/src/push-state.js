@@ -56,14 +56,7 @@ import { takeUntil } from "rxjs/operators/takeUntil";
 import { zip } from "rxjs/operators/zip";
 
 // Some of our own helper functions and classes.
-import {
-  animate,
-  empty,
-  getResolvablePromise,
-  hasFeatures,
-  isSafari,
-  isFirefoxIOS,
-} from "./common";
+import { animate, empty, getResolvablePromise, hasFeatures, isFirefoxIOS } from "./common";
 import { CrossFader } from "./cross-fader";
 import { upgradeMathBlocks } from "./katex";
 import { loadDisqus } from "./disqus";
@@ -175,17 +168,8 @@ function getFlipType(el) {
   return el.getAttribute && el.getAttribute("data-flip");
 }
 
-// Whether the content should be animated.
-// Always for 'push' animations, only in 'standalone' mode for Safari (b/c it conflicts with
-// the native forward/backward guestures).
-function shouldAnimate(type) {
-  return type === "push" || navigator.standalone || !isSafari;
-}
-
 function animateFadeOut({ type, main }) {
-  const anim$ = shouldAnimate(type)
-    ? animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }))
-    : of({ main });
+  const anim$ = animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }));
 
   if (window._drawer && window._drawer.opened) {
     window._drawer.close();
@@ -194,13 +178,12 @@ function animateFadeOut({ type, main }) {
       zip(anim$, (_, x) => x)
     );
   }
+
   return anim$;
 }
 
 function animateFadeIn({ type, replaceEls: [main], flipType }) {
-  return shouldAnimate(type)
-    ? animate(main, FADE_IN, SETTINGS).pipe(mapTo({ main, flipType }))
-    : of({ main, flipType });
+  return animate(main, FADE_IN, SETTINGS).pipe(mapTo({ main, flipType }));
 }
 
 // Before we register the WebComponent with the DOM, we set essential properties,
@@ -324,7 +307,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
   // ### Fade new content in
   // `after` new content is added to the DOM, start animating it.
-  const fadeIn$ = after$.pipe(switchMap(animateFadeIn), share());
+  const fadeIn$ = after$.pipe(
+    switchMap(animateFadeIn),
+    share()
+  );
 
   // In addition to fading the main content out,
   // there's also a FLIP animation playing when clicking certain links.
@@ -368,7 +354,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   after$
     .pipe(
       switchMap(({ replaceEls: [main] }) =>
-        crossFader.fetchImage(main).pipe(zip(fadeIn$, x => x), takeUntil(start$))
+        crossFader.fetchImage(main).pipe(
+          zip(fadeIn$, x => x),
+          takeUntil(start$)
+        )
       ),
 
       // Once we have both images, we take them `pairwise` and cross-fade.
@@ -408,33 +397,6 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       })
     )
     .subscribe();
-
-  // ### Safari special treatment
-  // Safari doesn't support manual scroll restoration and it immediately jumps to the old scroll
-  // position after the `popstate` event handler completes.
-  // To make sure Safari can scroll to that position, the body needs to have sufficient height,
-  // otherwise it will simply scroll to the bottom of the current page.
-  if (isSafari && !navigator.standalone) {
-    // First, we make sure this the previous entry was pushed by us and wasn't a jump to a `#`:
-    // Then we empty the content immediately to prevent flickering and
-    // set the old `scrollHeigt` as the body's `minHeight`.
-    fromEvent(window, "popstate")
-      .pipe(
-        filter(
-          () =>
-            window.history.state &&
-            window.history.state["hy-push-state"] &&
-            !window.history.state["hy-push-state"].hash // FIXME: hash no longer exists..
-        )
-      )
-      .subscribe(() => {
-        const { scrollHeight } = window.history.state["hy-push-state"];
-        document.body.style.minHeight = `${scrollHeight}px`;
-      });
-
-    // Once the content has been replaced (or an error occurred, etc), restore `minHeight`.
-    merge(after$, progress$, error$).subscribe(() => (document.body.style.minHeight = ""));
-  }
 
   // ### Create the component
   // If we have Custom Elements, use the WebComponent (it doesn't use ShadowDOM, so we are fine),
