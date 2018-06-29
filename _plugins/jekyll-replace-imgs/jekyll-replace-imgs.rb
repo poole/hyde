@@ -44,8 +44,6 @@ Jekyll::Hooks.register([:pages, :documents], :post_render) do |page|
   page.output = page.output.gsub(RE_IMG) do |match|
     attrs = Regexp.last_match[1]
 
-    # TODO: run more logic here? parse attributes!?
-
     if match.index(/re-ignore/).nil? && match.index(RE_DATAURL).nil? then
       i += 1
       replacement % { i:i, attrs:attrs }
