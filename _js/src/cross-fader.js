@@ -19,17 +19,9 @@ import "core-js/fn/function/bind";
 
 import Color from "color";
 
-import { empty } from "rxjs/observable/empty";
-import { fromEvent } from "rxjs/observable/fromEvent";
-import { never } from "rxjs/observable/never";
-import { of } from "rxjs/observable/of";
-
-import { ajax } from "rxjs/_esm5/observable/dom/ajax";
-
-import { catchError } from "rxjs/operators/catchError";
-import { finalize } from "rxjs/operators/finalize";
-import { take } from "rxjs/operators/take";
-import { map } from "rxjs/operators/map";
+import { empty, fromEvent, never, of } from "rxjs";
+import { ajax } from "rxjs/ajax";
+import { catchError, finalize, take, map } from "rxjs/operators";
 
 import elemDataset from "elem-dataset";
 
@@ -74,7 +66,10 @@ export class CrossFader {
       url,
       crossDomain: isExternal(url),
       headers: { Accept: "image/*" },
-    }).pipe(map(({ response }) => URL.createObjectURL(response)), catchError(() => of(image)));
+    }).pipe(
+      map(({ response }) => URL.createObjectURL(response)),
+      catchError(() => of(image))
+    );
   }
 
   fetchImage(main) {

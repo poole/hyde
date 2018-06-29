@@ -36,24 +36,22 @@ import {
   Set,
 } from "hy-push-state/src/webcomponent";
 
-import { fromEvent } from "rxjs/observable/fromEvent";
-import { merge } from "rxjs/observable/merge";
-import { of } from "rxjs/observable/of";
-import { timer } from "rxjs/observable/timer";
-
-import { tap } from "rxjs/operators/tap";
-import { exhaustMap } from "rxjs/operators/exhaustMap";
-import { filter } from "rxjs/operators/filter";
-import { map } from "rxjs/operators/map";
-import { mapTo } from "rxjs/operators/mapTo";
-import { mergeMap } from "rxjs/operators/mergeMap";
-import { pairwise } from "rxjs/operators/pairwise";
-import { share } from "rxjs/operators/share";
-import { startWith } from "rxjs/operators/startWith";
-import { switchMap } from "rxjs/operators/switchMap";
-import { take } from "rxjs/operators/take";
-import { takeUntil } from "rxjs/operators/takeUntil";
-import { zip } from "rxjs/operators/zip";
+import { fromEvent, merge, of, timer } from "rxjs";
+import {
+  tap,
+  exhaustMap,
+  filter,
+  map,
+  mapTo,
+  mergeMap,
+  pairwise,
+  share,
+  startWith,
+  switchMap,
+  take,
+  takeUntil,
+  zip,
+} from "rxjs/operators";
 
 // Some of our own helper functions and classes.
 import { animate, empty, getResolvablePromise, hasFeatures, isFirefoxIOS } from "./common";

@@ -25,19 +25,17 @@ import "core-js/fn/function/bind";
 // Since they share most of their code, it's not a big deal in terms of file size.
 import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
 
-import { Observable } from "rxjs/Observable";
+import { Observable, fromEvent, never } from "rxjs";
 
-// Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { fromEvent } from "rxjs/observable/fromEvent";
-import { never } from "rxjs/observable/never";
-
-import { tap } from "rxjs/operators/tap";
-import { distinctUntilChanged } from "rxjs/operators/distinctUntilChanged";
-import { map } from "rxjs/operators/map";
-import { share } from "rxjs/operators/share";
-import { startWith } from "rxjs/operators/startWith";
-import { switchMap } from "rxjs/operators/switchMap";
-import { withLatestFrom } from "rxjs/operators/withLatestFrom";
+import {
+  distinctUntilChanged,
+  map,
+  share,
+  startWith,
+  switchMap,
+  tap,
+  withLatestFrom,
+} from "rxjs/operators";
 
 // Some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser, hasCSSOM } from "./common";
