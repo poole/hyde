@@ -36,7 +36,7 @@ import {
   Set,
 } from "hy-push-state/src/webcomponent";
 
-import { fromEvent, merge, of, timer } from "rxjs";
+import { fromEvent, merge, of, timer, zip } from "rxjs";
 import {
   tap,
   exhaustMap,
@@ -50,7 +50,6 @@ import {
   switchMap,
   take,
   takeUntil,
-  zip,
 } from "rxjs/operators";
 
 // Some of our own helper functions and classes.
@@ -171,10 +170,7 @@ function animateFadeOut({ type, main }) {
 
   if (window._drawer && window._drawer.opened) {
     window._drawer.close();
-    return fromEvent(window._drawer.el, "hy-drawer-transitioned").pipe(
-      take(1),
-      zip(anim$, (_, x) => x)
-    );
+    return zip(anim$, fromEvent(window._drawer.el, "hy-drawer-transitioned").pipe(take(1)), x => x);
   }
 
   return anim$;
@@ -328,7 +324,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       }),
       // Every click starts a timer that lasts as long
       // as it takes for the FLIP and fade-out animations to complete.
-      switchMap(p => timer(DURATION).pipe(zip(fadeOut$, flip$, () => p)))
+      switchMap(p => zip(timer(DURATION), fadeOut$, flip$, () => p))
     )
     // Once the animation have completed, we resolve the promise so that hy-push-state continues.
     .subscribe(p => p.resolve());
@@ -352,10 +348,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   after$
     .pipe(
       switchMap(({ replaceEls: [main] }) =>
-        crossFader.fetchImage(main).pipe(
-          zip(fadeIn$, x => x),
-          takeUntil(start$)
-        )
+        zip(crossFader.fetchImage(main), fadeIn$, x => x).pipe(takeUntil(start$))
       ),
 
       // Once we have both images, we take them `pairwise` and cross-fade.

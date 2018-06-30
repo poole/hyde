@@ -16,8 +16,8 @@
 
 import "core-js/fn/function/bind";
 
-import { of } from "rxjs";
-import { tap, finalize, filter, map, switchMap, zip } from "rxjs/operators";
+import { of, zip } from "rxjs";
+import { tap, finalize, filter, map, switchMap } from "rxjs/operators";
 
 import { animate, empty } from "../common";
 
@@ -77,14 +77,18 @@ export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, setting
   start$
     .pipe(
       switchMap(({ flipType }) =>
-        ready$.pipe(
-          filter(() => flipType === "title"),
-          map(({ replaceEls: [main] }) => {
-            const title = main.querySelector(TITLE_SELECTOR);
-            if (title) title.style.opacity = 0;
-            return title;
-          }),
-          zip(fadeIn$, x => x),
+        zip(
+          ready$.pipe(
+            filter(() => flipType === "title"),
+            map(({ replaceEls: [main] }) => {
+              const title = main.querySelector(TITLE_SELECTOR);
+              if (title) title.style.opacity = 0;
+              return title;
+            })
+          ),
+          fadeIn$,
+          x => x
+        ).pipe(
           tap(title => {
             if (title) title.style.opacity = 1;
             animationMain.style.opacity = 0;
