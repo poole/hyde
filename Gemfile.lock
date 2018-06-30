@@ -1,9 +1,3 @@
-PATH
-  remote: .
-  specs:
-    jekyll-theme-hydejack-pro (8.0.0)
-      jekyll (~> 3.7)
-
 GEM
   remote: https://rubygems.org/
   specs:
@@ -36,7 +30,9 @@ GEM
     jekyll-feed (0.10.0)
       jekyll (~> 3.3)
     jekyll-paginate (1.1.0)
-    jekyll-redirect-from (0.13.0)
+    jekyll-readme-index (0.2.0)
+      jekyll (~> 3.0)
+    jekyll-redirect-from (0.14.0)
       jekyll (~> 3.3)
     jekyll-relative-links (0.5.3)
       jekyll (~> 3.3)
@@ -45,6 +41,8 @@ GEM
     jekyll-seo-tag (2.5.0)
       jekyll (~> 3.3)
     jekyll-sitemap (1.2.0)
+      jekyll (~> 3.3)
+    jekyll-titles-from-headings (0.5.1)
       jekyll (~> 3.3)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
@@ -58,7 +56,6 @@ GEM
     pathutil (0.16.1)
       forwardable-extended (~> 2.6)
     public_suffix (3.0.2)
-    rake (10.5.0)
     rb-fsevent (0.10.3)
     rb-inotify (0.9.10)
       ffi (>= 0.5.0, < 2)
@@ -75,16 +72,15 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  bundler (~> 1.12)
   jekyll
   jekyll-feed
   jekyll-paginate
+  jekyll-readme-index
   jekyll-redirect-from
   jekyll-relative-links
   jekyll-seo-tag
   jekyll-sitemap
-  jekyll-theme-hydejack-pro!
-  rake (~> 10.0)
+  jekyll-titles-from-headings
   tzinfo-data
 
 BUNDLED WITH

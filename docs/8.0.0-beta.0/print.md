@@ -22,7 +22,7 @@ or [upgrades for pro buyers](#pro-version).)
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.0/index.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.0/README.md %}).
 {:.message}
 
 ## Table of Contents
