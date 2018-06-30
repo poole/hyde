@@ -42,8 +42,12 @@ Create a `sw.js` file in the root of your project and add the following content:
 ```js
 ---
 ---
-importScripts("{{ '/assets/js/sw.js' | relative_url }}?t={{ site.time | date_to_xmlschema }}");
+importScripts("{\{ '/assets/js/sw.js' | relative_url }\}?t={\{ site.time | date_to_xmlschema }\}");
 ```
+
+**NOTE**: You have to remove the `\` after each `{` and before each `}`!
+This is to prevent Jekyll from processing the line!
+{:.message}
 
 This will load the main service worker code from your assets folder. The `site.time` part is necessary to make the service worker "byte different" to trigger a reload every time you make a new build of your site.
 
