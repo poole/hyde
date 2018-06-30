@@ -26,7 +26,7 @@ Assets
 : **These are presumed to be immutable!** In other words, every file is cached indefinitely. If you want to update an image after enabling offline support, add the image to `assets` with a different name and change the link in the content! Alternatively, you can bump the `cache_version`, but this will remove all the other cached files from the asset cache.
 
 Content
-: The content cache exploits the fact that content can't change between builds, so that it can be stored for offline use until you upload a new version. For now, the entire content cache is discarded every time you publish a new post (future versions could cache them based on last modified dates)
+: The content cache exploits the fact that content can't change between builds, so that it can be stored for offline use until you upload a new build. For now, the entire content cache is discarded every time you publish a new post (future versions could cache them based on last modified dates, but that has)
 
 Other things to note are that the implementation will always cache the pages listed under `legal`, as well as the `404.html` page, which will be shown when the user is offline. TODO: Use dedicated offline page.
 

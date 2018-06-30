@@ -411,6 +411,52 @@ You may also change the strings used for formatting dates and times (look out fo
 but be aware that the values you provide need to be valid
 Ruby [format directives](http://ruby-doc.org/core-2.4.1/Time.html#method-i-strftime).
 
+
+## Adding legal documents
+If you have pages for contact data, privacy policy, cookie policy, etc, you can add links to them in the footer by listing them under the `legal` key in your config file as follows:
+
+```yml
+legal:
+  - title: Impress
+    href:  /impress/
+  - title: Cookies Policy
+    href:  /cookies-policy/
+```
+
+When using Hydejack's offline feature, the pages listed here will be downloaded and cached when loading the page for the first time.
+
+
+## Adding custom favicons and app icons
+By default, Hydejack includes its own favicon, as well as app icons for in five different resolutions.
+
+To change the favicon, place your own `favicon.ico` into `assets/icons/` (create the folder if it doesn't exist).
+
+To use your own app icons, you need to prepare five square PNG files in the following resolutions, and put them into `assets/icons/` (create the folder if it doesn't exist):
+
+| Name             | Pixels    |
+|:-----------------|----------:|
+| `icon@3x.png`    | `576x576` |
+| `icon@2x.png`    | `384x384` |
+| `icon.png`       | `192x192` |
+| `icon@0,75x.png` | `144x144` |
+| `icon@0,5x.png`  |   `96x96` |
+| `icon@0,25x.png` |   `48x48` |
+
+Additionally, you can provide tiles for Window 10:
+
+| Name              | Pixels    |
+|:------------------|----------:|
+| `tile-large.png`  | `558x588` |
+| `tile-medium.png` | `270x270` |
+| `tile-small.png`  |   `70x70` |
+| `tile-wide.png`   | `558x270` |
+
+If you don't want to use PNGs, or want to use different resolutions, you have to provide your own `assets/manifest.json` (and `assets/ieconfig.xml` when supporting Window 10). For more on web app manifests, see [MDN](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json).
+
+**NOTE**: In any case, Hydejack expects a `assets/icons/icon.png` file for use as `apple-touch-icon` and a `assets/icons/favicon.ico` for use as `shortcut icon`.
+{:.message}
+
+
 ## Enabling newsletter boxes*
 To enable showing newsletter subscription boxes below each post and project,
 provide your [Tinyletter] username to the `tinyletter` key in the config file.

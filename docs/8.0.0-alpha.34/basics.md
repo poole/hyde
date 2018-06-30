@@ -201,7 +201,15 @@ author: qwtel
 ---
 ~~~
 
+
+## Adding a cover page
+Hydejack 8 introduces cover pages, i.e. pages where the side initially spans the entire screen.
+This feature is intended for landing pages. To enable this feature on a page, simply add `cover: true` to the page's front matter.
+
+
 ## Adding a welcome page*
+**TODO**: new stuff
+
 If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.

@@ -13,6 +13,15 @@ redirect_from:
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
+## Starter Kit
+If you're using the [starter kit](install.md#via-starter-kit), all you have to do is push your repository:
+
+```bash
+$ git add .
+$ git commit "Update"
+$ git push origin master
+```
+
 ## Preparation
 
 Before building, make sure the following is part of your config file:
