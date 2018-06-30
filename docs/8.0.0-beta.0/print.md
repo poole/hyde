@@ -22,7 +22,7 @@ or [upgrades for pro buyers](#pro-version).)
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-alpha.34/index.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.0/index.md %}).
 {:.message}
 
 ## Table of Contents
@@ -159,7 +159,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 ├── PRO–hy-push-state License _ Hydejack.pdf
 ├── icon.psd
 ├── sidebar-bg.psd
-├── *-to-v8.0.0-alpha.34.diff
+├── *-to-v8.0.0-beta.0.diff
 └── .ssh
 ~~~
 
@@ -194,7 +194,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 `sidebar-bg.psd`
 : A Photoshop template for blurred sidebar backgrounds.
 
-`*-to-v8.0.0-alpha.34.diff`
+`*-to-v8.0.0-beta.0.diff`
 : There will be multiple fo these files, where `*` is a previous version.
   They are git patches that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
   Use these if you are using git and you are worried about accidentally overwriting changes you've made to Hydejack PRO.
@@ -210,7 +210,7 @@ For new installations only the `install` folder is interesting.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.0.0-alpha.34/install/
+$ cd ~/Downloads/hydejack-pro-8.0.0-beta.0/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -224,7 +224,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v8.0.0-alpha.34/.ssh/hydejack_pro_customers ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.0/.ssh/hydejack_pro_customers ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
@@ -444,7 +444,7 @@ google_fonts: "Roboto+Slab:700|Noto+Sans:400,400i,700,700i"
 The `google_fonts` key is the string necessary to fetch the fonts from Google.
 You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 
-![Where to get the google_fonts string]({{ site.baseurl }}/assets/img/docs/google-fonts.png){:ratio="1.5075" width="600" height="398"}
+![Where to get the google_fonts string](../../assets/img/docs/google-fonts.png){:width="600" height="398"}
 
 #### Using safe web fonts
 If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead,
@@ -688,7 +688,7 @@ author:
   social:
     email:    mailto:mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.0.0-alpha.34.zip
+    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.0.zip
 ~~~
 
 ### Enabling comments
@@ -756,6 +756,52 @@ You may also change the strings used for formatting dates and times (look out fo
 but be aware that the values you provide need to be valid
 Ruby [format directives](http://ruby-doc.org/core-2.4.1/Time.html#method-i-strftime).
 
+
+### Adding legal documents
+If you have pages for contact data, privacy policy, cookie policy, etc, you can add links to them in the footer by listing them under the `legal` key in your config file as follows:
+
+```yml
+legal:
+  - title: Impress
+    href:  /impress/
+  - title: Cookies Policy
+    href:  /cookies-policy/
+```
+
+When using Hydejack's offline feature, the pages listed here will be downloaded and cached when loading the page for the first time.
+
+
+### Adding custom favicons and app icons
+By default, Hydejack includes its own favicon, as well as app icons for in five different resolutions.
+
+To change the favicon, place your own `favicon.ico` into `assets/icons/` (create the folder if it doesn't exist).
+
+To use your own app icons, you need to prepare five square PNG files in the following resolutions, and put them into `assets/icons/` (create the folder if it doesn't exist):
+
+| Name             | Pixels    |
+|:-----------------|----------:|
+| `icon@3x.png`    | `576x576` |
+| `icon@2x.png`    | `384x384` |
+| `icon.png`       | `192x192` |
+| `icon@0,75x.png` | `144x144` |
+| `icon@0,5x.png`  |   `96x96` |
+| `icon@0,25x.png` |   `48x48` |
+
+Additionally, you can provide tiles for Window 10:
+
+| Name              | Pixels    |
+|:------------------|----------:|
+| `tile-large.png`  | `558x588` |
+| `tile-medium.png` | `270x270` |
+| `tile-small.png`  |   `70x70` |
+| `tile-wide.png`   | `558x270` |
+
+If you don't want to use PNGs, or want to use different resolutions, you have to provide your own `assets/manifest.json` (and `assets/ieconfig.xml` when supporting Window 10). For more on web app manifests, see [MDN](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json).
+
+**NOTE**: In any case, Hydejack expects a `assets/icons/icon.png` file for use as `apple-touch-icon` and a `assets/icons/favicon.ico` for use as `shortcut icon`.
+{:.message}
+
+
 ### Enabling newsletter boxes*
 To enable showing newsletter subscription boxes below each post and project,
 provide your [Tinyletter] username to the `tinyletter` key in the config file.
@@ -774,267 +820,8 @@ There you will also find an example form for MailChimp, where you need to fill i
 
 To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/).
 Note that only form, grid and utility classes are available.
-Check out [Forms by Example](forms-by-example.md){:.heading.flip-title} for some examples.
+Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} for some examples.
 
-### Annotated config file
-Below you find the the complete default `_config.yml` file. You may want to copy it when using the gem-based version of the theme.
-
-```yml
-## Config
-## ========================================================================================
-
-## IMPORTANT: Set the URL of your page.
-## Set to https://<username>.github.io when hosting on GitHub Pages
-## (unless you are using a custom domain).
-url:                   https://domain.tld
-
-## IMPORTANT: Set The "base URL" of your site.
-##
-# When hosting your site in a subdirectory of a server, set to /<name of directory>
-## (with leading /, but without the < >)
-## Use the empty string '' otherwise.
-##
-# When using GitHub Pages, set to '' when hosting a user- or organization page,
-## i.e. when the name of the repository looks like <username>.github.io.
-## Otherwise, set to /<name of repository> (with leading /, but without the < >).
-baseurl:               ''
-
-## Language of your content in 2-letter code, e.g.: en, de.
-## You may also provide a location, e.g.: en-us, de_AT.
-lang:                  en
-
-## The title of your blog. Used in the sidebar and the browser tab.
-title:                 Hydejack
-
-## A short description (~150 chars) of the page used for the meta description tag.
-## Can use markdown, but no more than one paragraph (enforced by `>`)
-description:           >
-  A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
-  Combines the best of static sites and modern web apps.
-  Open `_config.yml` to edit this text.
-
-## A shorter description for the sidebar (optional).
-tagline:               >
-  A Jekyll theme with JavaScript powers.
-  Open `_config.yml` to edit this text.
-
-## A list of keywords for your blog (optional).
-keywords:              []
-
-## Used by jekyll-seo-tag (optional).
-logo:                  /assets/icons/icon.png
-
-## This should be the same author as first entry in `_data/authors.yml`.
-## Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
-author:
-  name:                <firstname> <lastname>
-  email:               <mail@domain.tld>
-  # Used by `jekyll-seo-tag`:
-  # twitter:             <username>
-
-## This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2017. All rights reserved.
-
-## Format of the permalinks
-permalink:             pretty
-
-## Pagination configuration (used by the `blog` layout)
-paginate:              5
-paginate_path:         /page-:num/
-
-
-## Customizaton
-## ========================================================================================
-
-## Sidebar image and theme color of the site.
-accent_image:          /assets/img/sidebar-bg.jpg
-accent_color:          rgb(79, 177, 186)
-
-## The string encoding which fonts to fetch from Google Fonts.
-## See: <https://qwtel.com/hydejack/docs/configuration/>
-google_fonts:          Roboto+Slab:700|Noto+Sans:400,400i,700,700i
-
-## The text font. Expects a string that is a valid CSS font-family value.
-font:                  Noto Sans, Helvetica, Arial, sans-serif
-
-## The font used for headings. Expects a string that is a valid CSS font-family value.
-font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
-
-## 3rd Party Integrations
-## ----------------------------------------------------------------------------------------
-
-## Setting a disqus shortname will enable the comment section on
-## pages with `comments: true` in the front matter.
-## disqus:                <disqus_shortname>
-
-## Set your Google Analytics id to receive `pageview` events.
-## To remove Google Anaylics from your page, remove the line below.
-## google_analytics:      UA-XXXXXXXX-X
-
-## Setting a tinyletter username will enable the newsletter subscription box.
-## PRO version only!
-## tinyletter:            <tinyletter_username>
-
-
-## Hydejack Settings
-## ----------------------------------------------------------------------------------------
-## These settings are specific to Hydejack.
-
-hydejack:
-  # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, related]
-
-  # Configure the order of complementary content on project pages
-  project_addons:      [about, newsletter, other]
-
-  # If you do not use Google Fonts, set to `true`.
-  no_google_fonts:     false
-
-  # Set to `true` if you don't want to show an icon indicating external links
-  no_mark_external:    false
-
-  # Set to `true` if third party plugins fail to work with dynamically loaded pages
-  no_push_state:       false
-
-  # Set to `true` if you want to disable the drawer
-  no_drawer:           false
-
-  # Set to `true` if you do not want parts of the css inlined in <head/>
-  # This *may* be benefitial when serving the site over HTTP/2.
-  no_inline_css:       false
-
-  # Code blocks and tables "break" the layout by spanning the full available width.
-  # Set this to true if you want them to be the same width as other content.
-  no_break_layout:     false
-
-  # Set to `true` if you do not want to expose your resume and projects
-  # in machine-readable formats.
-  no_structured_data:  false
-
-  # You can set this to `true` if you don't want to set the `theme-color` meta tag,
-  # This only affects the meta tag, not the color specified in the app manifest.
-  no_theme_color:      false
-
-  # Set to `true` when building with the `--lsi` option
-  use_lsi:             false
-
-
-## Collections
-## ========================================================================================
-
-collections:
-  featured_categories:
-    permalink:         /category/:name/
-    output:            true
-
-  featured_tags:
-    permalink:         /tag/:name/
-    output:            true
-
-  projects:
-    permalink:         /projects/:path/
-    output:            true
-
-
-## File inclusion/exclusion
-## ========================================================================================
-
-exclude:
-  - vendor
-  - Gemfile
-  - Gemfile.lock
-
-
-## Plugins and Plugin Configuration
-## ========================================================================================
-
-plugins:
-  # - jekyll-avatar
-  # - jekyll-default-layout
-  - jekyll-feed
-  # - jekyll-gist
-  # - jekyll-optional-front-matter
-  - jekyll-paginate
-  # - jekyll-readme-index
-  # - jekyll-redirect-from
-  - jekyll-relative-links
-  - jekyll-remote-theme
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  # - jekyll-titles-from-headings
-
-## Theme
-## ---------------------------------------------------------------------------------------
-
-## theme: jekyll-theme-hydejack
-remote_theme: qwtel/hydejack@gem
-
-## SEO Tag
-## ---------------------------------------------------------------------------------------
-
-## Where you proof that you own this site (used by jekyll-seo-tag)
-## google_site_verification: <verification-id>
-## -- or --
-## webmaster_verifications:
-##   google:              <verification-id>
-##   bing:                <verification-id>
-##   alexa:               <verification-id>
-##   yandex:              <verification-id>
-
-## Used for Twitter cards
-## twitter:
-##   username:            <twitter handle>
-
-## Used for Facebook open graph
-## facebook:
-##   app_id:              <id>
-##   publisher:           <id>
-##   admins:              <id>
-
-## Used on index and about sites
-## social:
-##   name:                <firstname> <lastname>
-##   links:
-##     - https://twitter.com/<username>
-##     - https://github.com/<username>
-
-
-## Other Plugins
-## ---------------------------------------------------------------------------------------
-
-optional_front_matter:
-  remove_originals:    true
-
-readme_index:
-  remove_originals:    true
-
-relative_links:
-  collections:         true
-
-titles_from_headings:
-  strip_title:         true
-  collections:         true
-
-kramdown:
-  footnote_backlink:   '&#x21a9;&#xfe0e;'
-  math_engine:         mathjax
-  math_engine_opts:
-    preview:           true
-    preview_as_code:   true
-
-compress_html:
-  comments:            ['<!-- ', ' -->']
-  clippings:           all
-  endings:             all
-
-sass:
-  style:               compressed
-
-## If you are upgrading form v5 (or earlier), uncomment the lines below,
-## so that the location of the feed XML stays the same.
-## feed:
-##   path:                atom.xml
-```
 
 
 
@@ -1240,7 +1027,15 @@ author: qwtel
 ---
 ~~~
 
+
+### Adding a cover page
+Hydejack 8 introduces cover pages, i.e. pages where the side initially spans the entire screen.
+This feature is intended for landing pages. To enable this feature on a page, simply add `cover: true` to the page's front matter.
+
+
 ### Adding a welcome page*
+**TODO**: new stuff
+
 If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
 Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
@@ -1878,6 +1673,15 @@ hydejack:
 ----------------------------------------------------------------{% endcomment %}
 
 ## Build
+### Starter Kit
+If you're using the [starter kit](#via-starter-kit), all you have to do is push your repository:)
+
+```bash
+$ git add .
+$ git commit "Update"
+$ git push origin master
+```
+
 ### Preparation
 
 Before building, make sure the following is part of your config file:
@@ -1975,6 +1779,56 @@ More on [user, organization, and project pages](https://help.github.com/articles
 ----------------------------------------------------------------{% endcomment %}
 
 ## Advanced
+### Enabling offline support
+Hydejack v8 introduces "cache as you go" offline support. This is implemented via the Service Worker API, a new browser standard that is now supported in the latest versions of all major browsers! However, it is a very powerful feature and should be used with a lot of care.
+
+Hydejack's custom service worker implementation stores files for offline use on three different levels:
+
+Shell
+: The shell files are the core Hydejack files (CSS, JS) that only change between version updates.
+  If you made changes to these after enabling offline support you can force an update by bumping the `cache_version`.
+
+Assets
+: **These are presumed to be immutable!** In other words, every file is cached indefinitely. If you want to update an image after enabling offline support, add the image to `assets` with a different name and change the link in the content! Alternatively, you can bump the `cache_version`, but this will remove all the other cached files from the asset cache.
+
+Content
+: The content cache exploits the fact that content can't change between builds, so that it can be stored for offline use until you upload a new build. For now, the entire content cache is discarded every time you publish a new post (future versions could cache them based on last modified dates, but that has)
+
+Other things to note are that the implementation will always cache the pages listed under `legal`, as well as the `404.html` page, which will be shown when the user is offline. TODO: Use dedicated offline page.
+
+***
+
+To enable offline support in Hydejack do the following stepts:
+
+Because Service Workers are so powerful, they are only enabled on sites that are served over HTTPS.
+Unless your site is already served this way, enabling HTTPS is the first step.
+
+Create a `sw.js` file in the root of your project and add the following content:
+
+```js
+---
+---
+importScripts("{{ '/assets/js/sw.js' | relative_url }}?t={{ site.time | date_to_xmlschema }}");
+```
+
+This will load the main service worker code from your assets folder. The `site.time` part is necessary to make the service worker "byte different" to trigger a reload every time you make a new build of your site.
+
+In your `config.yml` under the `hydejack` key, add the following:
+
+```yml
+hydejack:
+  offline:
+    enabled: true
+    cache_version: 1
+```
+
+***
+
+Just to be save, the current implementation will not cache resources from other domains. If you link to an image that is hosted on another domain and you would like it to be available offline, add the `sw-cache` query parameter to the URL, e.g. `https://upload.wikimedia.org/wikipedia/commons/b/b1/57_Chevy_210.jpg?sw-cache`.
+
+Note that images stored in this way will not be updated, even if the version on the remote server changes!
+
+
 ### Adding a custom social media icon
 Hydejack includes a number of social media icons by default (in fact, everything that is provided by [IcoMoon](https://icomoon.io/)), but since the landscape is always changing, it is likely that a platform that is important to you will be missing at some point.
 
