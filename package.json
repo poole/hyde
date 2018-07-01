@@ -58,7 +58,7 @@
   "bugs": {
     "url": "https://github.com/qwtel/hydejack/issues"
   },
-  "homepage": "https://github.com/qwtel/hydejack#readme",
+  "homepage": "https://hydejack.com/",
   "babel": {
     "presets": [
       "env"

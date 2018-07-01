@@ -27,7 +27,7 @@ This major update is a serious departure from earlier versions and removes some 
 ### Added
 * Pages can now have the `cover` key in the front matter.
   When set to `true`, the sidebar will be opened when visiting the page directly.
-  E.g. <https://qwtel.com/hydejack/>{:.no-push-state}
+  E.g. <https://hydejack.com/>{:.no-push-state}
 
 [ffd]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
 

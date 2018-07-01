@@ -103,12 +103,12 @@ built-in support for [Tinyletter], and from element styles so you can build arbi
 
 [**Buy PRO - $59**][buy]{:.gumroad-button}
 
-[blog]: https://qwtel.com/hydejack/blog/
-[portfolio]: https://qwtel.com/hydejack/variations/
-[resume]: https://qwtel.com/hydejack/resume/
-[download]: https://qwtel.com/download/
-[welcome]: https://qwtel.com/hydejack/
-[forms]: https://qwtel.com/hydejack/forms-by-example/
+[blog]: https://hydejack.com/blog/
+[portfolio]: https://hydejack.com/variations/
+[resume]: https://hydejack.com/resume/
+[download]: https://hydejack.com/
+[welcome]: https://hydejack.com/
+[forms]: https://hydejack.com/forms-by-example/
 
 [feat]: #features
 [news]: #newsletter-subscription-box

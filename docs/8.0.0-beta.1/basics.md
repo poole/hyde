@@ -420,10 +420,10 @@ description: >
 Continue with [Writing](writing.md){:.heading.flip-title}
 {:.read-more}
 
-[about]: https://qwtel.com/hydejack/about/
-[welcome]: https://qwtel.com/hydejack/
-[resume]: https://qwtel.com/hydejack/resume/
-[projects]: https://qwtel.com/hydejack/projects/
-[project]: https://qwtel.com/hydejack/projects/hydejack-v6/
+[about]: https://hydejack.com/about/
+[welcome]: https://hydejack.com/
+[resume]: https://hydejack.com/resume/
+[projects]: https://hydejack.com/projects/
+[project]: https://hydejack.com/projects/default/
 
 [mipmap]: https://en.wikipedia.org/wiki/Mipmap

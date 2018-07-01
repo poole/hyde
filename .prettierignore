@@ -3,3 +3,4 @@ package.json
 *.html
 *.scss
 *.css
+_js/lib

@@ -341,7 +341,7 @@ add the `email`, `rss`, or `download` key, e.g.:
 # file: _config.yml
 author:
   social:
-    email:    mailto:mail@qwtel.com
+    email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
     download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.1.zip
 ~~~
@@ -481,8 +481,8 @@ Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} fo
 Continue with [Basics](basics.md){:.heading.flip-title}
 {:.read-more}
 
-[blog]: https://qwtel.com/hydejack/blog/
-[posts]: https://qwtel.com/hydejack/posts/
+[blog]: https://hydejack.com/blog/
+[posts]: https://hydejack.com/posts/
 [tinyletter]: https://tinyletter.com/
 
 *[FOIT]: Flash of Invisible Text
