@@ -1,7 +1,4 @@
----
-layout: page
-title: CHANGELOG
----
+# CHANGELOG
 
 ## v8.0.0
 Jun 27 2018

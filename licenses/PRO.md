@@ -1,8 +1,4 @@
----
-layout: page
-title: PRO License
----
-
+# PRO License
 ## License Summary
 * License concerns use of [Hydejack PRO][1]
 * License does not expire

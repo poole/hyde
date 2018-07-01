@@ -27,8 +27,12 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
+    jekyll-default-layout (0.1.4)
+      jekyll (~> 3.0)
     jekyll-feed (0.10.0)
       jekyll (~> 3.3)
+    jekyll-optional-front-matter (0.3.0)
+      jekyll (~> 3.0)
     jekyll-paginate (1.1.0)
     jekyll-readme-index (0.2.0)
       jekyll (~> 3.0)
@@ -73,7 +77,9 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-default-layout
   jekyll-feed
+  jekyll-optional-front-matter
   jekyll-paginate
   jekyll-readme-index
   jekyll-redirect-from

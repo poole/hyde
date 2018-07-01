@@ -1,5 +1,4 @@
 ---
-layout: welcome
 cover: true
 image: /assets/img/projects/default.jpg
 permalink: /
