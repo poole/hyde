@@ -2,7 +2,7 @@
 description: >
   Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
 menu: true
-order: 5
+order: 3
 permalink: /docs/8.0.0-beta.1/
 ---
 
