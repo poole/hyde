@@ -8,6 +8,7 @@ redirect_from:
 sitemap: false
 ---
 
+## Documentation
 Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
 Should you think something is missing, [please let me know](mailto:mail@qwtel.com).
 Should you discover a mistake in the docs (or a bug in general) feel free to [open an issue](https://github.com/qwtel/hydejack/issues) on GitHub.
@@ -22,7 +23,7 @@ or [upgrades for pro buyers](#pro-version).)
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.0/README.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.1/README.md %}).
 {:.message}
 
 ## Table of Contents
@@ -159,7 +160,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 ├── PRO–hy-push-state License _ Hydejack.pdf
 ├── icon.psd
 ├── sidebar-bg.psd
-├── *-to-v8.0.0-beta.0.diff
+├── *-to-v8.0.0-beta.1.diff
 └── .ssh
 ~~~
 
@@ -170,31 +171,13 @@ If you bought the PRO version, you've received a zip archive with the following 
 : Contains only the files and folders needed for upgrading form an earlier version of Hydejack (6.0.0 or above).
   See the [Upgrade]{:.heading.flip-title} for more.
 
-`CHANGELOG _ Hydejack.pdf`
-: The [changelog](../../CHANGELOG.md) in PDF form.
-
-`Documentation _ Hydejack.pdf`
-: This documentation in PDF form.
-
-`NOTICE _ Hydejack.pdf`
-: The [notice](../../NOTICE.md) in PDF form.
-
-`PRO License _ Hydejack.pdf`
-: The license for use of Hydejack PRO in PDF form.
-
-`PRO–hy-drawer License _ Hydejack.pdf`
-: A license for use of [hy-drawer](https://qwtel.com/hy-drawer/) as part of Hydejack PRO.
-
-`PRO–hy-push-state License _ Hydejack.pdf`
-: A license for use of [hy-push-state](https://qwtel.com/hy-push-state/) as part of Hydejack PRO.
-
 `icon.psd`
 : A Photoshop template to help with generating the favicon, apple touch icon, etc.
 
 `sidebar-bg.psd`
 : A Photoshop template for blurred sidebar backgrounds.
 
-`*-to-v8.0.0-beta.0.diff`
+`*-to-v8.0.0-beta.1.diff`
 : There will be multiple fo these files, where `*` is a previous version.
   They are git patches that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
   Use these if you are using git and you are worried about accidentally overwriting changes you've made to Hydejack PRO.
@@ -210,7 +193,7 @@ For new installations only the `install` folder is interesting.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.0.0-beta.0/install/
+$ cd ~/Downloads/hydejack-pro-8.0.0-beta.1/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -224,7 +207,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.0/.ssh/hydejack_pro_customers ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.1/.ssh/hydejack_pro_customers ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
@@ -688,7 +671,7 @@ author:
   social:
     email:    mailto:mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.0.zip
+    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.1.zip
 ~~~
 
 ### Enabling comments
@@ -1808,8 +1791,12 @@ Create a `sw.js` file in the root of your project and add the following content:
 ```js
 ---
 ---
-importScripts("{{ '/assets/js/sw.js' | relative_url }}?t={{ site.time | date_to_xmlschema }}");
+importScripts("{\{ '/assets/js/sw.js' | relative_url }\}?t={\{ site.time | date_to_xmlschema }\}");
 ```
+
+**NOTE**: You have to remove the `\` after each `{` and before each `}`!
+This is to prevent Jekyll from processing the line!
+{:.message}
 
 This will load the main service worker code from your assets folder. The `site.time` part is necessary to make the service worker "byte different" to trigger a reload every time you make a new build of your site.
 
