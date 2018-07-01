@@ -146,24 +146,6 @@ If you bought the PRO version, you've received a zip archive with the following 
 : Contains only the files and folders needed for upgrading form an earlier version of Hydejack (6.0.0 or above).
   See the [Upgrade]{:.heading.flip-title} for more.
 
-`CHANGELOG _ Hydejack.pdf`
-: The [changelog](../../CHANGELOG.md) in PDF form.
-
-`Documentation _ Hydejack.pdf`
-: This documentation in PDF form.
-
-`NOTICE _ Hydejack.pdf`
-: The [notice](../../NOTICE.md) in PDF form.
-
-`PRO License _ Hydejack.pdf`
-: The license for use of Hydejack PRO in PDF form.
-
-`PRO–hy-drawer License _ Hydejack.pdf`
-: A license for use of [hy-drawer](https://qwtel.com/hy-drawer/) as part of Hydejack PRO.
-
-`PRO–hy-push-state License _ Hydejack.pdf`
-: A license for use of [hy-push-state](https://qwtel.com/hy-push-state/) as part of Hydejack PRO.
-
 `icon.psd`
 : A Photoshop template to help with generating the favicon, apple touch icon, etc.
 
