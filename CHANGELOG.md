@@ -286,7 +286,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Event names described in the scripting chapter have changed from `y-push-state-*` to `hy-push-state-*`,
   except `y-push-state-animationend`, which has been removed. See the [docs][pstate] for more.
 
-[pstate]: docs/8.0.0-beta.1/scripts.md#registering-push-state-event-listeners
+[pstate]: docs/8.0.0-beta.2/scripts.md#registering-push-state-event-listeners
 
 ### Changes
 * `image` has been renamed to `accent_image`, but `image` continues to work unless you add the `jekyll-seo-tag` plugin.
@@ -485,7 +485,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Reduced building time during development.
   Roughly 50% of the time was spent rebuilding the inline CSS, which is now built once and included via `link` tag.
   Production builds still inlines CSS, so the building speed remains unchanged.
-  For more on how to improve building speeds, [see here](docs/8.0.0-beta.1/writing.md#a-word-on-building-speeds).
+  For more on how to improve building speeds, [see here](docs/8.0.0-beta.2/writing.md#a-word-on-building-speeds).
 
 ### Design
 * The default background image is no longer anti-selling the theme...
@@ -923,9 +923,9 @@ Oct 15 2013
 {:.heading.post-date}
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
-[migration]: docs/8.0.0-beta.1/upgrade.md
-[writing]: docs/8.0.0-beta.1/writing.md
-[scripts]: docs/8.0.0-beta.1/scripts.md
+[migration]: docs/8.0.0-beta.2/upgrade.md
+[writing]: docs/8.0.0-beta.2/writing.md
+[scripts]: docs/8.0.0-beta.2/scripts.md
 
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 [PRO-license]: licenses/PRO.md
