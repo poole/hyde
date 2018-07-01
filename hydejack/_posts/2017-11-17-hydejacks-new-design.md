@@ -5,9 +5,6 @@ description: >
   This post introduces Hydejack's now background image, color palette and logo.
 image: /assets/img/caleb-george.jpg
 hide_image: true
-redirect_from:
-  - /2017/11/17/whats-new-in-v7/
-  - /2017/11/17/hydejacks-new-design/
 ---
 
 While v7 brings an [insane amount of new stuff]({{ site.baseurl }}/CHANGELOG/#v700), the most notable change is the new background image.

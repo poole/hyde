@@ -4,9 +4,6 @@ description: >
 menu: true
 order: 5
 permalink: /docs/8.0.0-beta.0/
-redirect_from:
-  - /docs/latest/
-  - /docs/
 ---
 
 # Documentation
