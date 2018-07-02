@@ -38,7 +38,15 @@ import {
 } from "rxjs/operators";
 
 // Some of our own helper functions/constants.
-import { hasFeatures, isSafari, isMobile, isMobileSafari, isUCBrowser, hasCSSOM } from "./common";
+import {
+  hasFeatures,
+  isSafari,
+  isFirefox,
+  isMobile,
+  isMobileSafari,
+  isUCBrowser,
+  hasCSSOM,
+} from "./common";
 
 // A list of Modernizr tests that are required for the drawer to work.
 const REQUIREMENTS = new Set([
@@ -89,6 +97,7 @@ function defineWebComponent(drawerEl, opened) {
   if (opened) drawerEl.setAttribute("opened", "");
   if (isSafari) drawerEl.setAttribute("threshold", 0);
   if (!isMobile) drawerEl.setAttribute("mouse-events", "");
+  if (isFirefox) drawerEl.removeAttribute("prevent-default"); // ignored by ff anyway
   window.customElements.define("hy-drawer", HyDrawerElement);
   return drawerEl;
 }
