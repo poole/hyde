@@ -23,7 +23,7 @@ or [upgrades for pro buyers](#pro-version).)
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.2/README.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.3/README.md %}).
 {:.message}
 
 ## Table of Contents
@@ -160,7 +160,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 ├── PRO–hy-push-state License _ Hydejack.pdf
 ├── icon.psd
 ├── sidebar-bg.psd
-├── *-to-v8.0.0-beta.2.diff
+├── *-to-v8.0.0-beta.3.diff
 └── .ssh
 ~~~
 
@@ -177,7 +177,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 `sidebar-bg.psd`
 : A Photoshop template for blurred sidebar backgrounds.
 
-`*-to-v8.0.0-beta.2.diff`
+`*-to-v8.0.0-beta.3.diff`
 : There will be multiple fo these files, where `*` is a previous version.
   They are git patches that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
   Use these if you are using git and you are worried about accidentally overwriting changes you've made to Hydejack PRO.
@@ -193,7 +193,7 @@ For new installations only the `install` folder is interesting.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.0.0-beta.2/install/
+$ cd ~/Downloads/hydejack-pro-8.0.0-beta.3/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -207,7 +207,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.2/.ssh/hydejack_pro_customers ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.3/.ssh/hydejack_pro_customers ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
@@ -671,7 +671,7 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.2.zip
+    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.3.zip
 ~~~
 
 ### Enabling comments

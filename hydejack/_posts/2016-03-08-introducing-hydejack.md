@@ -105,5 +105,5 @@ as each tag requires some setup work. I tend to think of it as categories that c
    ~~~
 
 
-[docs]: ../../docs/8.0.0-beta.2/README.md
+[docs]: ../../docs/8.0.0-beta.3/README.md
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
