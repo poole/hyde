@@ -14,13 +14,12 @@
     {% endif %}
   {% endunless %}
 
-  {% if include.author.social.email and include.author.social.email.size > 0 %}
-  {% else %}
+  {% unless include.author.social.email and include.author.social.email.size > 0 %}
     {% assign email = author.email | default: site.email %}
     {% if email %}
       {% include components/social-list-item.html platform="email" username=email %}
     {% endif %}
-  {% endif %}
+  {% endunless %}
 
   {% for link in include.author.social %}
     {% include components/social-list-item.html platform=link.first username=link.last %}
