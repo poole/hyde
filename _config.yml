@@ -180,7 +180,7 @@ hydejack:
   # ⚡️ DANGER ZONE ⚡️
   # ----------------
   offline:
-    enabled:           true
+    enabled:           false
     cache_version:     1
 
 # Collections
