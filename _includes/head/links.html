@@ -18,16 +18,14 @@
 
 {% assign disqus = site.disqus | default:site.disqus_shortname %}
 {% if disqus %}
-<link rel="dns-prefetch" href="https://{{ disqus }}.disqus.com/embed.js" id="_hrefDisqus">
+<link rel="dns-prefetch" href="https://{{ disqus }}.disqus.com" id="_hrefDisqus">
 {% endif %}
 
 {% comment %}<!--
-Below are links to local assets we refer to from within JS.
-Since automated tools that host assets on a CDN can't discover URLs that are hard-coded in JS,
-we put them in a <link> tag instead.
+  This is to avoid hard-coding URLs in JS (where they can't be discovered by automated tools).
 -->{% endcomment %}
-<link rel="dns-prefetch" href="{{ '/assets/js/hydejack-8.0.0-beta.3.js'                                   | relative_url }}" id="_hrefJS">
-<link rel="dns-prefetch" href="{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js'| relative_url }}" id="_hrefFFO">
-<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'                        | relative_url }}" id="_hrefKatexJS">
-<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css'                       | relative_url }}" id="_hrefKatexCSS">
-<link rel="dns-prefetch" href="{{ '/assets/img/swipe.svg'                                                   | relative_url }}" id="_hrefSwipeSVG">
+<link rel="prefetch" href="{{ '/assets/js/hydejack-8.0.0-beta.3.js'                                     | relative_url }}" id="_hrefJS">
+<link rel="prefetch" href="{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js'| relative_url }}" id="_hrefFFO">
+<link rel="prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'                        | relative_url }}" id="_hrefKatexJS">
+<link rel="prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css'                       | relative_url }}" id="_hrefKatexCSS">
+<link rel="prefetch" href="{{ '/assets/img/swipe.svg'                                                   | relative_url }}" id="_hrefSwipeSVG">
