@@ -52,8 +52,11 @@ hy-img {
   }
 }
 
-figcaption, .figcaption {
+figure, .figure {
   @extend .faded, .fine, .centered;
+  img {
+    margin-bottom: .5rem;
+  }
 }
 
 @keyframes fade-img {

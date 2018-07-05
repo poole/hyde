@@ -80,12 +80,35 @@ You can make an image span the full width by adding the `lead` class.
 
 Example:
 
-![Full-width image](https://placehold.it/800x100){:.lead}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 
 Markdown:
 ~~~markdown
-![Full-width image](https://placehold.it/800x100){:.lead}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 ~~~
+
+## Adding captions to images
+You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
+
+![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+A caption to an image.
+{:.figure}
+
+Markdown:
+~~~md
+![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+A caption to an image.
+{:.figure}
+~~~
+
+For better semantics, you can also use the `figure`/`figcaption` HTML5 tags:
+
+```html
+<figure>
+  <img alt="An image with a caption" src="https://placehold.it/800x50" class="lead" width="800" height="50" />
+  <figcaption>A caption to an image.</figcaption>
+</figure>
+```
 
 ## Adding large quotes
 You can make a quote "pop out" by adding the `lead` class.
