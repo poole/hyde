@@ -22,8 +22,6 @@ Appropriate credit as per Creative Commons licenses.
 |:-------------------------------------------------------|:---------------|:-
 | [Photo][ph] by [Caleb George][cg]                      | [Unsplash]     | Rearranged objects, Filled in content, blurred
 | [IcoMoon Icons Free Version][11] by [Keyamoon][12]     | [CC-BY-SA-4.0] | None
-| [Napolean Crossing the Alps][21]                       | Public Domain  | Filled in content, blurred on the sides
-| [Section of a Mandelbrot set][31]                      | [CC-BY-SA-3.0] | Blurred on the sides
 | [Touch-161562.svg][41]                                 | [CC0-1.0]      | Composition
 
 ## Licenses
