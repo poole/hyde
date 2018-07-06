@@ -2,7 +2,7 @@
 layout: page
 title: Advanced
 description: >
-  Under the hood, Hydejack is surprisingly (maybe shockingly) complex. Some of the more advanced concepts are explained here.
+  This chapter covers advanced topics, such as offline support and custom JS builds. Codings skills are recommended.
 redirect_from:
   - /docs/latest/advanced/
   - /docs/advanced/

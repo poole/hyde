@@ -2,7 +2,8 @@
 layout: page
 title: Config
 description: >
-  Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`.
+  This chapter covers the many configuration options of Hydejack,
+  allowing you to tailor it to your needs.
 redirect_from:
   - /docs/latest/config/
   - /docs/config/
@@ -10,16 +11,16 @@ redirect_from:
   - /docs/configuration/
 ---
 
-Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`.
-Besides these descriptions, you can also read the [annotated config file](#annotated-config-file) below.
+Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`. Besides these descriptions, you can also read the [annotated config file](https://github.com/qwtel/hydejack/blob/v8/_config.yml).
 
-**NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for the changes to take effect.
+**NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
 {:.message}
 
 ## Table of Contents
 {:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
+
 
 ## Setting `url` and `baseurl`
 The first order of business should be to set the correct `url` and `baseurl` values in `_config.yml`.
@@ -41,6 +42,7 @@ baseurl: /hydejack
 
 Otherwise, provide the empty string `''`
 
+
 ### GitHub Pages
 When hosting on [GitHub Pages](https://pages.github.com/) the `url` is `https://<username>.github.io`
 (unless you are using a custom domain).
@@ -52,6 +54,7 @@ The `baseurl` depends on the kind of page you are hosting.
 
 For for information on the types of pages you can host on GitHub, see the
 [GitHub Help article](https://help.github.com/articles/user-organization-and-project-pages/).
+
 
 ## Changing accent colors and sidebar images
 Hydejack allows you to choose the background image of the sidebar, as well as the accent color
@@ -81,6 +84,7 @@ accent_image:
   overlay:    false     # set to true if you want a dark overlay
 ~~~
 
+
 ## Changing fonts
 Hydejack lets you configure the font of regular text and headlines, and it has built-in support for Google Fonts.
 There are three keys in `_config.yml` associated with this: `font`, `font_heading` and `google_fonts`.
@@ -101,6 +105,7 @@ You can get it from the download page at [Google Fonts](https://fonts.google.com
 
 ![Where to get the google_fonts string](../../assets/img/docs/google-fonts.png){:width="600" height="398"}
 
+
 ### Using safe web fonts
 If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead,
 set `no_google_fonts` to `true`:
@@ -113,6 +118,7 @@ hydejack:
 
 In this case, `font` and `font_heading` do not have to contain more than one font.
 You may also remove the `google_fonts` key in this case.
+
 
 ## Choosing a blog layout
 Hydejack features two layouts for showing your blog posts.
@@ -155,14 +161,15 @@ and the `paginate_path` needs to match the path to the `index.html` file.
 To match the `paginate_path` above, put a `index.html` with the following front matter in the root directory:
 
 ~~~yml
-# file: index.html
 ---
+# file: index.html
 layout: blog
 title: Blog
 ---
 ~~~
 
 For more information see [Pagination](https://jekyllrb.com/docs/pagination/).
+
 
 ### Using the `blog` layout in a subdirectory
 If you want to use the blog layout at a URL like `/my-blog/`, create the following folder structure:
@@ -177,22 +184,22 @@ If you want to use the blog layout at a URL like `/my-blog/`, create the followi
 You can use the same `index.html` as before:
 
 ~~~yml
-# file: my-blog/index.html
 ---
+# file: my-blog/index.html
 layout: blog
 title: Blog
 ---
 ~~~
 
-(Optional) If you want to add a link to the blog in the sidebar, DO NOT add the `menu` key to the front matter of `my-blog/index.html`.
-Instead, create a new markdown file called `!my-blog.md` with `menu` and `permalink` keys:
+(Optional) If you want to add a link to the blog in the sidebar, DO NOT add the `menu` key to the front matter of `my-blog/index.html`. Instead, create a new markdown file called `!my-blog.md` with `menu` and `permalink` keys:
 
 ~~~yml
-# file: !my-blog.md
 ---
+# file: !my-blog.md
 title: My Blog
 menu: true
 permalink: /my-blog/
+sitemap: false
 ---
 ~~~
 
@@ -204,8 +211,9 @@ paginate:      5
 paginate_path: /my-blog/page-:num/
 ~~~
 
+
 ## Adding an author
-As a bare minimum, you should add an `author` key with a `name` and `email` sub-key
+At a bare minimum, you should add an `author` key with a `name` and `email` sub-key
 (used by the [feed plugin](https://github.com/jekyll/jekyll-feed)) to to your config file:
 
 ~~~yml
@@ -215,9 +223,7 @@ author:
   email: mail@qwtel.com
 ~~~
 
-If you would like the author to be displayed in the about section below a post or project\*,
-as well as the top of about and welcome\* pages, add an `about` key and provide some markdown content.
-I recommend using the YAML pipe `|` syntax, so you can include multiple paragraphs:
+If you would like the author to be displayed in the about section below a post or project\*, add an `about` key and provide markdown content. I recommend using the YAML pipe `|` syntax, so you can include multiple paragraphs:
 
 ~~~yml
 # file: _config.yml
@@ -230,9 +236,9 @@ author:
     This is another paragraph.
 ~~~
 
+
 ### Adding an author's picture
-If you'd like for the author's picture to appear in addition the the about text (see above),
-you can either use the [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar) plugin or provide URLs to images manually.
+If you'd like for the author's picture to appear in addition the the about text (see above), you can either use the [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar) plugin or provide URLs to images manually.
 
 To use the plugin, add it to your `Gemfile` and the list of `plugins` in your config file:
 
@@ -274,19 +280,17 @@ author:
       2x:   /assets/img/me@2x.jpg
 ~~~
 
-The `path` key is a fallback image for browsers that don't support the `srcset` attribute.
+The keys of the `srcset` hash will be used as image descriptors. For more information on `srcset`, see the [documentation at MDN][mdnsrcset], or [this article from CSS-Tricks][csssrcset].
 
-The keys of the `srcset` hash will be used as image descriptors.
-For more information on `srcset`, see the
-[documentation at MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset), or
-[this article from CSS-Tricks](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/).
+[mdnsrcset]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset
+[csssrcset]: https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
+
 
 ### Adding social media icons
-Hydejack supports a variety of social media icons out of the box.
-These are defined on a per-author basis, so make sure you've followed the steps in [Adding an author](#adding-an-author).
+Hydejack supports a variety of social media icons out of the box. These are defined on a per-author basis, so make sure you've followed the steps in [Adding an author](#adding-an-author).
 
 **NOTE**: If you are using the gem-based version of Hydejack,
-download [`social.yml`](https://github.com/qwtel/hydejack/blob/master/_data/social.yml)
+download [`social.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/social.yml)
 and put it into `_data` in the root directory.
 This is necessary because gem-based themes do not support including `_data`.
 {:.message}
@@ -302,7 +306,7 @@ author:
     github:  qwtel
 ~~~
 
-Check out [`authors.yml`](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml) to see which networks are available.
+Check out [`authors.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/authors.yml) to see which networks are available.
 You can also follow the steps [here](advanced.md) to add your own social media icons.
 
 You can change the order in which the icons appear by moving lines up or down, e.g.
@@ -316,7 +320,7 @@ author:
 ~~~
 
 To get an overview of which networks are available and how a typical username in that network looks like,
-see the included [`authors.yml`](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml).
+see the included [`authors.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/authors.yml).
 
 Should providing a username not produce a correct link for some reason, you can provide a complete URL instead, e.g.
 
@@ -327,7 +331,7 @@ author:
     youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
 ~~~
 
-**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/master/_data/social.yml),
+**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/social.yml),
 by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available.
 Supplying your own icons is an [advanced topic](advanced.md).
 {:.message}
@@ -346,10 +350,9 @@ author:
     download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.3.zip
 ~~~
 
+
 ## Enabling comments
-Hydejack supports comments via [Disqus](https://disqus.com/).
-Before you can add comments to a page you need to register and add your site to Disqus' admin console.
-Once you have obtained your "Disqus shortname", you include it in your config file:
+Hydejack supports comments via [Disqus](https://disqus.com/). Before you can add comments to a page you need to register and add your site to Disqus' admin console. Once you have obtained your "Disqus shortname", you include it in your config file:
 
 ~~~yml
 # file: _config.yml
@@ -366,8 +369,7 @@ comments: true
 ---
 ~~~
 
-You can enable comments for entire classes of pages by using
-[front matter defaults](https://jekyllrb.com/docs/configuration/#front-matter-defaults).
+You can enable comments for entire classes of pages by using [front matter defaults][fmd].
 E.g. to enable comments on all posts, add to your config file:
 
 ~~~yml
@@ -379,6 +381,9 @@ defaults:
       comments: true
 ~~~
 
+[fmd]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
+
+
 ## Enabling Google Analytics
 Enabling Google Analytics is as simple as setting the `google_analytics` key.
 
@@ -387,12 +392,18 @@ Enabling Google Analytics is as simple as setting the `google_analytics` key.
 google_analytics: UA-XXXXXXXX-X
 ~~~
 
-Conversely, if you want to disable it, you only have to remove the key and no GA code will be part of the generated pages.
+Conversely, if you want to disable it, you only have to remove the `google_analytics` key and no GA code will be part of the generated site.
+
+
+### Using a custom analytics provider
+If you want to use a different analytics provider, e.g. [Matomo](https://matomo.org/), you can add its code snippet to `_includes/my-body.html` (create if it doesn't exist).
+The [default file](https://github.com/qwtel/hydejack/blob/v8/_includes/my-body.html) contains example code for using Matomo.
+
 
 ## Changing built-in strings
 You can change the wording of built-in strings like "Related Posts" or "Read more" in `_data/strings.yml`.
-If you are using the gem-based version, you can get the default file
-[here](https://github.com/qwtel/hydejack/blob/master/_data/strings.yml).
+
+If you are using the gem-based version the file doesn't exist, but you can get the default file [here](https://github.com/qwtel/hydejack/blob/v8/_data/strings.yml).
 
 You will frequently find markers like `<!--post_title-->`.
 You can place them freely within your string and they will be replaced with the content they refer to.
@@ -407,13 +418,11 @@ lang: cc-ll
 
 where `cc` is the 2-letter country code and `ll` specifies a 2-letter location code, e.g.: `de-at`.
 
-You may also change the strings used for formatting dates and times (look out for the `date_formats` key),
-but be aware that the values you provide need to be valid
-Ruby [format directives](http://ruby-doc.org/core-2.4.1/Time.html#method-i-strftime).
+You may also change the strings used for formatting dates and times (look out for the `date_formats` key), but be aware that the values you provide need to be valid Ruby [format directives](http://ruby-doc.org/core-2.4.1/Time.html#method-i-strftime).
 
 
 ## Adding legal documents
-If you have pages for contact data, privacy policy, cookie policy, etc, you can add links to them in the footer by listing them under the `legal` key in your config file as follows:
+If you have pages for contact data, privacy policy, cookie policy, etc. you can add links to them in the footer by listing them under the `legal` key in your config file as follows:
 
 ```yml
 legal:
@@ -468,14 +477,11 @@ tinyletter:  <tinyletter username>
 
 To edit the content of the newsletter box, open `_data/strings.yml`, and change the entries under the `tinyletter` key.
 
-If want to use a different mailing provider, like MailChimp, you can build your own form,
-and insert it into `_includes/my-newsletter.html`.
-There you will also find an example form for MailChimp, where you need to fill in `site.mailchimp.action` and `site.mailchimp.hidden_input`
-(you can get these from MailChimp).
+If want to use a different mailing provider you can build your own form, and insert it into `_includes/my-newsletter.html`. The file includes an example form for MailChimp, where you need to fill in `site.mailchimp.action` and `site.mailchimp.hidden_input` (you can get these from MailChimp).
 
-To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/).
-Note that only form, grid and utility classes are available.
-Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} for some examples.
+To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/). Note that only form, grid and utility classes are available. Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} for more examples.
+
+[tinyletter]: https://tinyletter.com/
 
 
 Continue with [Basics](basics.md){:.heading.flip-title}
@@ -483,7 +489,6 @@ Continue with [Basics](basics.md){:.heading.flip-title}
 
 [blog]: https://hydejack.com/blog/
 [posts]: https://hydejack.com/posts/
-[tinyletter]: https://tinyletter.com/
 
 *[FOIT]: Flash of Invisible Text
 *[GA]: Google Analytics

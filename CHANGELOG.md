@@ -1,33 +1,73 @@
 # CHANGELOG
 
 ## v8.0.0
-Jun 27 2018
+Jul 6 2018
 {:.heading.post-date}
-
-This major update is a serious departure from earlier versions and removes some 'features'.
 
 ### Breaking
 * The expected format of sidebar images has changed.
   A sidebar image should now be a full-screen ~16:9 image.
 
-  NOTE: The sidebar can now be opened even on desktop, which generally requires a large landscape image to fill the whole window. To save bandwidth, you can blur the image on the left and right edges and save it as JPG. See also: Added `cover` option.
+  Comment: The sidebar can now be opened even on desktop, which generally requires a large landscape image to fill the entire window.
+  To save bandwidth, you can blur the image on the left and right edges and save it as JPG.
 
 * The `about` and `welcome` layout no longer prepend the content with the author information.
-  To restore the old behavior, add `<!--author-->` to the top of the file. You can also place it anywhere else now.
+  The author info can now be set by adding the `<!--author-->` marker to the top of the file. You can also place it anywhere else.
 
-  NOTE: Showing the author description on teh top of the `welcome` and `about` layouts was too broad an assumption, and just a left-over from when I was developing Hydejack primarily for myself.
+  Comment: Showing the author description on the top of the `welcome` and `about` layouts felt like an imposition and was a left-over from when I was developing Hydejack primarily for myself.
 
-* Per category/tag images and colors have been removed.
+* [PRO] The `welcome` layout no longer adds recent posts and projects to the bottom of the page. Instead, they have to be explicity set using the `<!--posts-->` and `<!--projects-->` markers. The `content_separator` front matter opton is now ignored.
+
+* Setting the accent color and sidebar image for an entire category/tag/author is no longer possible.
   To achieve a similar effect, use [Front Matter defaults][ffd] instead.
 
-  NOTE: The code to find the color for a given page was complicated and slow (potentially iterating all categories/tags to find the right one).
+  E.g. to set the accent color and image for every post in the `hydejack` folder, use:
 
-* [PRO] Updated embedded bootstrap to v4.
+  ~~~yml
+  defaults:
+    - scope:
+        path:         hydejack
+      values:
+        accent_color: rgb(38,139,210)
+        accent_image: /assets/img/hydejack-bg.jpg
+  ~~~
+
+  Comment: The code to find the color for a given page was complicated and slow (potentially iterating all categories/tags to find the right one).
+
+### Changed
+
+* [PRO] Updated embedded Bootstrap to v4.
+* [PRO] Project cards now throw a shadow instead of having a border.
+* Cookie consent is now stored as a cookie (instead of `LocalStorage`) and expires after 1 year.
+* Hydejack now uses lazy-loading hy-img tags instead of regular `img` tags.
+  To revert to using regular images, set `hydejack.no_img` in the config file to true.
 
 ### Added
 * Pages can now have the `cover` key in the front matter.
   When set to `true`, the sidebar will be opened when visiting the page directly.
   E.g. <https://hydejack.com/>{:.no-push-state}
+
+* Added a `_plugin` that automatically replaces `<img>` tags with lazy-loading `<hy-img>` tags.  If you don't like this feature, delete or rename the `_plugins` folder. Note that this plugin will never run when building the site on GitHub Pages.
+
+  To get the most out of this plugin, it is recommended to provide the width and height of the image, e.g.
+
+  ~~~md
+  ![Some image](assets/img/some-img.png){:width="800" height="600"}
+  ~~~
+
+  This will cause hy-imge to render a placeholder of this size, preventing the document height from changing after an image has finished loading.
+
+
+* Added experimental offline support via Serivce Workers. Use with care!
+  For details, [read the docs](docs/8.0.0-beta.3/advanced.md#enabling-offline-support).
+
+* Added the `figure` CSS class, which allows images to have nicer-looking captions. E.g.
+
+  ~~~md
+  ![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+  A caption to an image.
+  {:.figure}
+  ~~~
 
 [ffd]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
 

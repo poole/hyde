@@ -2,8 +2,7 @@
 layout: page
 title: Basics
 description: >
-  Where it is explained how to add basic content types to your Hydejack blog: Blog posts, categories and tags,
-  as well as 'special' layouts included in Hydejack PRO.
+  This chapter covers the basics of content creation with Hydejack.
 redirect_from:
   - /docs/latest/basics/
   - /docs/basics/
@@ -13,6 +12,7 @@ redirect_from:
 {:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
+
 
 ## Adding a page
 You can add generic pages that support markdown content but aren't blog posts.
@@ -28,6 +28,7 @@ title:  Documentation
 ~~~
 
 Now you can add content as you would in a blog post.
+
 
 ## Adding an entry to the sidebar
 Hydejack's sidebar can add links to any page within the site. In order for a page to appear in the sidebar, it needs to have a truthy `menu` value defined in its front matter. The page also needs to have a `title`, otherwise the entry in the sidebar will be blank.
@@ -79,6 +80,7 @@ order: 5
 
 You may combine this with the [`jekyll-redirect-from`](https://github.com/jekyll/jekyll-redirect-from) plugin
 to generate a redirect page at the `permalink` of the file, but this is optional.
+
 
 ## Adding a category or tag
 Hydejack allows you to use the `list` layout to show all posts of a particular tag or category.
@@ -185,19 +187,17 @@ description: >
 
 Once the file is created, the page can be found at `/category/<categoryname>/` or `/tag/<tagname>/`.
 
-## Adding an about page
-About pages are a frequent use case, so Hydejack has a special layout for it, which is a slight modification of the `page` layout.
-[Demo][about].
-The main difference is that it will display an author's `about` text and `picture` above the regular content.
 
-To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author](config.md#adding-an-author).
+## Adding an about page
+About pages are a frequent use case, so Hydejack has a special layout for it. It is a slight modification of the `page` layout that allows showing the author information by adding the `<!--author-->` marker somewhere on the page.
+
+To create an about page, make sure `layout` is set to `about`. For more on authors, see [Adding an author](config.md#adding-an-author).
 
 ~~~yml
-# file: about.md
 ---
+# file: about.md
 layout: about
 title:  About
-author: qwtel
 ---
 ~~~
 
@@ -207,84 +207,84 @@ Hydejack 8 introduces cover pages, i.e. pages where the side initially spans the
 This feature is intended for landing pages. To enable this feature on a page, simply add `cover: true` to the page's front matter.
 
 
-## Adding a welcome page*
-**TODO**: new stuff
+## Adding custom CSS
+The quickest and safest way to add custom CSS to Hydejack is via the `_sass/my-inline.scss` and `_sass/my-style.scss` files (create the folder/the files if they don't exist).
 
+To add CSS that gets inlined into the page, i.e. is loaded with the first request, put the CSS rules into `my-inline.scss`. This is intended for above-the-fold content. Otherwise put the CSS rules into `my-style.scss`.
+Note that this distinction has no effect when `no_inline_css` is enabled.
+
+
+## Adding custom HTML to the head
+To add custom HTML elements to the `<head>` of the document, open `_includes/my-head.html` (create the folder/the files if they don't exist) and add your elements there.
+
+
+## Adding custom HTML to the body
+To add custom HTML elements to the `<body>` of the document, open `_includes/my-body.html` (create the folder/the files if they don't exist) and add your elements there.
+
+What's the difference with `my-scripts.html`?
+: This file was used in earlier versions of Hydejack to accomplish the same goal. However, there are still instances were you might want to prefer `my-scripts.html` over `my-body.html`, as it won't load scrips on redirect pages and will be ignored by browsers < IE10.
+
+
+## Adding a welcome page*
 If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
-Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
-[Demo][welcome].
-
-For reference, the layout/order of content on the welcome page looks like:
-* Title
-* Author's about text
-* Content (before `content_separator`)
-* Latest/Selected Projects
-* Latest/Selected Posts
-* Content after `content_separator` (if any)
+Technically, it is a modified version of the `about` layout, so it allows showing the author information where the `<!--author-->` marker is put. [Demo][welcome].
 
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
 ~~~yml
-# file: index.md
 ---
+# file: index.md
 layout: welcome
 title:  Welcome
-author: qwtel
+cover:  true
 ---
 ~~~
 
-Without further configuration, the welcome page will show the two most recent projects and five most recent blog posts.
-However, the welcome layout supports selecting specific projects and posts, by adding to the front matter, e.g.:
+Without further configuration, the welcome page will just look like a regular page. 
+To show the two most recent projects, add the `<!--projects-->` marker to the content. 
+To show the five most recent blog posts, add the `<!--posts-->` marker to the content.
+
+The welcome layout also supports selecting specific projects and posts, by adding to the front matter, e.g.:
 
 ~~~yml
-# file: index.md
 ---
-layout:            welcome
-title:             Welcome
+# file: index.md
 selected_projects:
   - _projects/hydejack-v6.md
   - _projects/hyde-v2.md
+more_projects: projects.md
 selected_posts:
   - _posts/2017-05-03-javascripten.md
   - _posts/2012-02-07-example-content.md
-more_projects:     projects.md
-more_posts:        posts.md
-big_project:       false
-content_separator: <!--more-->
+more_posts: posts.md
+featured: true
 ---
 ~~~
-
-`layout`
-: Must be `welcome`.
 
 `selected_projects`
 : A list of paths to project files that should be displayed below the main content of the page.
   The paths are relative to the main directory with no leading `./`.
   If no paths are provided, the two most recent projects will be used.
 
+`more_projects`
+: The path to the main projects page.
+  The path is relative to the main directory with no leading `./`.
+
 `selected_projects`
 : A list of paths to blog posts that should be featured on the welcome page.
   The paths are relative to the main directory with no leading `./`.
   If no paths are provided, the five most recent posts will be used.
 
-`more_projects`
-: The path to the main projects page.
-  The path is relative to the main directory with no leading `./`.
-
 `more_posts`
 : The path to the main posts page.
   The path is relative to the main directory with no leading `./`.
 
-`big_project`
+`featured`
 : Optional. When `true`, project thumbnails will span the full width instead of half.
-  This setting takes precedence over the `big_project` value of individual projects,
+  This setting takes precedence over the `featured` value of individual projects,
   i.e. it will apply to the entire page.
 
-`content_separator`
-: Optional. Defines a marker that will be used to split the content in two parts.
-  The first part will go before the "Selected/Latest Projects" and "Selected/Latest Posts" section,
-  the second part will go below it.
 
 ## Adding a projects page*
 The projects page will show all projects in a particular collection.
@@ -304,12 +304,12 @@ This file has the `projects` layout (mind the "s" at the end) and should have a 
 with the name of the collection as a value, e.g.:
 
 ~~~yml
-# file: projects.md
 ---
+# file: projects.md
 layout:          projects
 title:           Projects*
 show_collection: projects
-big_project:     true
+featured:        true
 ---
 ~~~
 
@@ -323,10 +323,11 @@ big_project:     true
 `show_collection`
 : The name of the collection you want display on this page. Defaults to `projects`.
 
-`big_project`
+`featured`
 : Optional. When `true`, project thumbnails will span the full width, instead of only half.
-  This setting takes precedence over the `big_project` value of individual projects,
+  This setting takes precedence over the `featured` value of individual projects,
   i.e. it will apply to the entire page.
+
 
 ## Adding a project*
 Projects are organized using [Jekyll Collections](https://jekyllrb.com/docs/collections/).
@@ -334,11 +335,11 @@ Each project generates an entry on the projects layout ([Demo][projects]) as wel
 
 Each project is defined by a file in the `_projects` directory.
 The project's meta information is defined in the file's front matter. You can also add markdown content.
-A project's front matter may look like:
+A project's front matter should look like:
 
 ~~~yml
-# file: _projects/hyde-v2.md
 ---
+# file: _projects/hyde-v2.md
 layout:      project
 title:       Hyde v2*
 date:        2 Jan 2014
@@ -357,8 +358,7 @@ links:
     url:     http://hyde.getpoole.com
   - title:   Source
     url:     https://github.com/poole/hyde
-author:      mdo
-big_project: true
+featured:    false
 ---
 ~~~
 
@@ -382,10 +382,11 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 : A list of `title`-`url` pairs that link to external resources related to this project.
 
 `author`
-: Optional. Shown below the project, similar to posts.
+: Optional. The author shown below the project, similar to posts. 
 
-`big_project`
-: Optional. When `true`, the project preview will span the full content width. You can use this for projects that you want to direct additional attention to. You can set/override this for an entire page, by setting `big_project` in the front matter (applies to the `projects` and `welcome` layout).
+`featured`
+: Optional. When `true`, the project preview will span the full content width. You can use this for projects that should receive more attention. You can set/override this for an entire page, by setting `featured` in the front matter (applies to the `projects` and `welcome` layout).
+
 
 ## Adding a resume*
 Hydejack's PRO version features a generalized resume layout.
@@ -395,18 +396,15 @@ It generates the resume page from a valid [JSON Resume](https://jsonresume.org/)
 
 * You can use the visual [JSON Resume Editor](http://registry.jsonresume.org/).
 * If you have a LinkedIn profile, you can try [LinkedIn to Json Résumé](https://jmperezperez.com/linkedin-to-json-resume/).
-* You can edit the [example `resume.json`](https://github.com/qwtel/hydejack/blob/master/_data/resume.json) in the `_data` directly. It contains example entries for each type of entry.
+* You can edit the [example `resume.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/resume.yml) in `_data` directly. It contains example entries for each type of entry.
 
 Once you have a JSON Resume, place it into `_data`.
 
-If you prefer editing YAML files, there is an [example `_resume.yml`](https://github.com/qwtel/hydejack/blob/master/_data/_resume.yml) file in `_data`.
-In order to use it, rename it to `resume.yml` and delete `resume.json`.
-
-To render the resume page, create a new markdown file and set the layout to `resume` in the front matter:
+To render a resume page, create a new markdown file and set the layout to `resume` in the front matter:
 
 ~~~yml
-# file: resume.md
 ---
+# file: resume.md
 layout: resume
 title:  Resume
 description: >
@@ -417,10 +415,30 @@ description: >
 **NOTE**: You can download the final `resume.json` (minified) from the assets folder. When running locally, you can find it at `_site/assets/resume.json`.
 {:.message}
 
+### Adding a specialized resume or multiple resumes
+You can add a specialized resume or multiple resumes by adding the resume YAML to the front matter under the `resume` key.
+E.g.:
+
+~~~yml
+---
+# file: resume.md
+layout: resume
+title:  Resume
+description: >
+  A short description of the page for search engines (~150 characters long).
+resume:
+  basics:
+    name: "Richard Hendricks"
+    label: "Programmer"
+    picture: "/assets/icons/icon.png"
+  # ...
+---
+~~~
+
+
 Continue with [Writing](writing.md){:.heading.flip-title}
 {:.read-more}
 
-[about]: https://hydejack.com/about/
 [welcome]: https://hydejack.com/
 [resume]: https://hydejack.com/resume/
 [projects]: https://hydejack.com/projects/

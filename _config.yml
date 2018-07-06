@@ -7,14 +7,11 @@
 url:                   https://domain.tld
 
 # IMPORTANT: Set The "base URL" of your site.
-#
-# When hosting your site in a subdirectory of a server, set to /<name of directory>
-# (with leading /, but without the < >)
+# When your site sits in a subdirectory, set to /<name of directory>
+# (with leading /, but without the < >).
 # Use the empty string '' otherwise.
-#
-# When using GitHub Pages, set to '' when hosting a user- or organization page,
-# i.e. when the name of the repository looks like <username>.github.io.
-# Otherwise, set to /<name of repository> (with leading /, but without the < >).
+# For GitHub project sites, this is usually the name of the project,
+# e.g. `/hydejack`.
 baseurl:               ''
 
 # Language of your content in 2-letter code, e.g.: en, de.
@@ -27,8 +24,9 @@ title:                 Hydejack
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  A Jekyll theme with JavaScript powers. "Best Theme by a Mile".
-  Combines the best of static sites and modern web apps.
+  Hydejack is Jekyll theme with JavaScript powers.
+  It has been called the "Best [Jekyll] Theme by a Mile".
+  Hundreds of hackers and scientists use it for their personal sites.
   Open `_config.yml` to edit this text.
 
 # A shorter description for the sidebar.
@@ -39,11 +37,12 @@ tagline:               >
 # A list of keywords for your blog
 keywords:              []
 
-# Used by jekyll-seo-tag...
+# Provide a (square) logo for you site.
+# If provided, it will be shown at the top of the sidebar.
+# This key is also used by the `jekyll-seo-tag` plugin.
 logo:                  /assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
-# Duplication is necessary due to the `jekyll-feed`, `jekyll-seo-tag` plugin.
 author:
   name:                <firstname> <lastname>
   email:               <mail@domain.tld>
@@ -75,6 +74,10 @@ paginate_path:         /page-:num/
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/sidebar-bg.jpg
 accent_color:          rgb(79,177,186)
+
+# This is used for the `theme-color` meta tag,
+# which changes the background color of the browser UI in certain browsers.
+# Defaults to `accent_color`.
 theme_color:           rgb(25,55,71)
 
 # The string encoding which fonts to fetch from Google Fonts.
@@ -98,8 +101,8 @@ defaults:
         background:    rgb(32,32,32)
         overlay:       false
 
-  # `jekyll-seo-tag` will mark up collection outputs as `BlogPosting`,
-  # but we want them to be `WebPage`s.
+  # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
+  # but we want them to be `WebPage`s:
   - scope:
       type:            projects
     values:
@@ -154,6 +157,9 @@ hydejack:
   # Set to `true` if you want to disable the drawer
   no_drawer:           false
 
+  # Set to `true` to prevent usage of `hy-img` (lazy-loading images).
+  no_img:              true
+
   # Set to `true` if you do not want parts of the css inlined in <head/>
   # This *may* be benefitial when serving the site over HTTP/2.
   no_inline_css:       false
@@ -179,6 +185,9 @@ hydejack:
 
   # ⚡️ DANGER ZONE ⚡️
   # ----------------
+  # This is an _experimental_ feature.
+  # Only use if you know what Service Workers are and how they can impact your site!
+  # Coding skills highly recommended.
   offline:
     enabled:           false
     cache_version:     1
