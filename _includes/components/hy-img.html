@@ -21,13 +21,20 @@
   {% endcapture %}
 {% endif %}
 
-<hy-img
-  {{ attrs }}
-  {% if include.property %}property="{{ include.property }}"{% endif %}
-  root-margin="512px"
->
-  <noscript><img re-ignore {{ attrs }}/></noscript>
-  <span class="loading" slot="loading" hidden>
-    <span class="icon-cog"></span>
-  </span>
-</hy-img>
+{% unless site.hydejack.no_img %}
+  <hy-img
+    {{ attrs }}
+    {% if include.property %}property="{{ include.property }}"{% endif %}
+    root-margin="512px"
+  >
+    <noscript><img re-ignore {{ attrs }}/></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img>
+{% else %}
+  <img 
+    {{ attrs }}
+    {% if include.property %}property="{{ include.property }}"{% endif %}
+  />
+{% endunless %}

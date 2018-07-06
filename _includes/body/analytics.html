@@ -1,43 +1,36 @@
-{% capture my_analytics %}{% include my-analytics.html %}{% endcapture %}
-{% assign  my_analytics = my_analytics | strip_newlines %}
+{% if site.google_analytics %}
+  <script>
+    window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
 
-{% if my_analytics.size > 0 %}
-  {{ my_analytics }}
-{% else %}
-  {% if site.google_analytics %}
-    <script>
-      window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
-
-      /*{% if site.hydejack.cookies_banner %}*/
-        if (navigator.CookiesOK) {
-          ga('create', '{{ site.google_analytics }}', 'auto');
-        } else if (document.cookie.indexOf("hy--cookies-ok=true") > -1) {
-          ga('create', '{{ site.google_analytics }}', {
-            'storage': 'none',
-            'clientId': localStorage ? localStorage.getItem('ga--client-id') : undefined
-          });
-        } else {
-          ga('create', '{{ site.google_analytics }}', {
-            'storage': 'none'
-          });
-          ga('set', 'forceSSL', true);
-          ga('set', 'anonymizeIp', true);
-        }
-      /*{% else %}*/
+    /*{% if site.hydejack.cookies_banner %}*/
+      if (navigator.CookiesOK) {
         ga('create', '{{ site.google_analytics }}', 'auto');
-      /*{% endif %}*/
+      } else if (document.cookie.indexOf("hy--cookies-ok=true") > -1) {
+        ga('create', '{{ site.google_analytics }}', {
+          'storage': 'none',
+          'clientId': localStorage ? localStorage.getItem('ga--client-id') : undefined
+        });
+      } else {
+        ga('create', '{{ site.google_analytics }}', {
+          'storage': 'none'
+        });
+        ga('set', 'forceSSL', true);
+        ga('set', 'anonymizeIp', true);
+      }
+    /*{% else %}*/
+      ga('create', '{{ site.google_analytics }}', 'auto');
+    /*{% endif %}*/
 
-      var pushStateEl = document.getElementsByTagName('hy-push-state')[0];
-      var timeoutId;
-      pushStateEl.addEventListener('hy-push-state-load', function() {
-        window.clearTimeout(timeoutId);
-        timeoutId = window.setTimeout(function() {
-          ga('set', 'page', window.location.pathname);
-          ga('send', 'pageview');
-        }, 500);
-      });
+    var pushStateEl = document.getElementsByTagName('hy-push-state')[0];
+    var timeoutId;
+    pushStateEl.addEventListener('hy-push-state-load', function() {
+      window.clearTimeout(timeoutId);
+      timeoutId = window.setTimeout(function() {
+        ga('set', 'page', window.location.pathname);
+        ga('send', 'pageview');
+      }, 500);
+    });
 
-      window.loadJSDeferred('https://www.google-analytics.com/analytics.js');
-    </script>
-  {% endif %}
+    window.loadJSDeferred('https://www.google-analytics.com/analytics.js');
+  </script>
 {% endif %}
