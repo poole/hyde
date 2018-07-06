@@ -23,7 +23,7 @@ or [upgrades for pro buyers](#pro-version).)
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.3/README.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.4/README.md %}).
 {:.message}
 
 ## Table of Contents
@@ -160,7 +160,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 ├── PRO–hy-push-state License _ Hydejack.pdf
 ├── icon.psd
 ├── sidebar-bg.psd
-├── *-to-v8.0.0-beta.3.diff
+├── *-to-v8.0.0-beta.4.diff
 └── .ssh
 ~~~
 
@@ -177,7 +177,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 `sidebar-bg.psd`
 : A Photoshop template for blurred sidebar backgrounds.
 
-`*-to-v8.0.0-beta.3.diff`
+`*-to-v8.0.0-beta.4.diff`
 : There will be multiple fo these files, where `*` is a previous version.
   They are git patches that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
   Use these if you are using git and you are worried about accidentally overwriting changes you've made to Hydejack PRO.
@@ -193,7 +193,7 @@ For new installations only the `install` folder is interesting.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.0.0-beta.3/install/
+$ cd ~/Downloads/hydejack-pro-8.0.0-beta.4/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -207,7 +207,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.3/.ssh/hydejack_pro_customers ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.4/.ssh/hydejack_pro_customers ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
@@ -340,11 +340,11 @@ $ bundle update jekyll-theme-hydejack-pro
 ----------------------------------------------------------------{% endcomment %}
 
 ## Config
-Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`.
-Besides these descriptions, you can also read the [annotated config file](#annotated-config-file) below.
+Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`. Besides these descriptions, you can also read the [annotated config file](https://github.com/qwtel/hydejack/blob/v8/_config.yml).
 
-**NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for the changes to take effect.
+**NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
 {:.message}
+
 
 
 
@@ -369,6 +369,7 @@ baseurl: /hydejack
 
 Otherwise, provide the empty string `''`
 
+
 #### GitHub Pages
 When hosting on [GitHub Pages](https://pages.github.com/) the `url` is `https://<username>.github.io`
 (unless you are using a custom domain).
@@ -380,6 +381,7 @@ The `baseurl` depends on the kind of page you are hosting.
 
 For for information on the types of pages you can host on GitHub, see the
 [GitHub Help article](https://help.github.com/articles/user-organization-and-project-pages/).
+
 
 ### Changing accent colors and sidebar images
 Hydejack allows you to choose the background image of the sidebar, as well as the accent color
@@ -409,6 +411,7 @@ accent_image:
   overlay:    false     # set to true if you want a dark overlay
 ~~~
 
+
 ### Changing fonts
 Hydejack lets you configure the font of regular text and headlines, and it has built-in support for Google Fonts.
 There are three keys in `_config.yml` associated with this: `font`, `font_heading` and `google_fonts`.
@@ -429,6 +432,7 @@ You can get it from the download page at [Google Fonts](https://fonts.google.com
 
 ![Where to get the google_fonts string](../../assets/img/docs/google-fonts.png){:width="600" height="398"}
 
+
 #### Using safe web fonts
 If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead,
 set `no_google_fonts` to `true`:
@@ -441,6 +445,7 @@ hydejack:
 
 In this case, `font` and `font_heading` do not have to contain more than one font.
 You may also remove the `google_fonts` key in this case.
+
 
 ### Choosing a blog layout
 Hydejack features two layouts for showing your blog posts.
@@ -483,14 +488,15 @@ and the `paginate_path` needs to match the path to the `index.html` file.
 To match the `paginate_path` above, put a `index.html` with the following front matter in the root directory:
 
 ~~~yml
-## file: index.html
 ---
+## file: index.html
 layout: blog
 title: Blog
 ---
 ~~~
 
 For more information see [Pagination](https://jekyllrb.com/docs/pagination/).
+
 
 #### Using the `blog` layout in a subdirectory
 If you want to use the blog layout at a URL like `/my-blog/`, create the following folder structure:
@@ -505,22 +511,22 @@ If you want to use the blog layout at a URL like `/my-blog/`, create the followi
 You can use the same `index.html` as before:
 
 ~~~yml
-## file: my-blog/index.html
 ---
+## file: my-blog/index.html
 layout: blog
 title: Blog
 ---
 ~~~
 
-(Optional) If you want to add a link to the blog in the sidebar, DO NOT add the `menu` key to the front matter of `my-blog/index.html`.
-Instead, create a new markdown file called `!my-blog.md` with `menu` and `permalink` keys:
+(Optional) If you want to add a link to the blog in the sidebar, DO NOT add the `menu` key to the front matter of `my-blog/index.html`. Instead, create a new markdown file called `!my-blog.md` with `menu` and `permalink` keys:
 
 ~~~yml
-## file: !my-blog.md
 ---
+## file: !my-blog.md
 title: My Blog
 menu: true
 permalink: /my-blog/
+sitemap: false
 ---
 ~~~
 
@@ -532,8 +538,9 @@ paginate:      5
 paginate_path: /my-blog/page-:num/
 ~~~
 
+
 ### Adding an author
-As a bare minimum, you should add an `author` key with a `name` and `email` sub-key
+At a bare minimum, you should add an `author` key with a `name` and `email` sub-key
 (used by the [feed plugin](https://github.com/jekyll/jekyll-feed)) to to your config file:
 
 ~~~yml
@@ -543,9 +550,7 @@ author:
   email: mail@qwtel.com
 ~~~
 
-If you would like the author to be displayed in the about section below a post or project\*,
-as well as the top of about and welcome\* pages, add an `about` key and provide some markdown content.
-I recommend using the YAML pipe `|` syntax, so you can include multiple paragraphs:
+If you would like the author to be displayed in the about section below a post or project\*, add an `about` key and provide markdown content. I recommend using the YAML pipe `|` syntax, so you can include multiple paragraphs:
 
 ~~~yml
 ## file: _config.yml
@@ -558,9 +563,9 @@ author:
     This is another paragraph.
 ~~~
 
+
 #### Adding an author's picture
-If you'd like for the author's picture to appear in addition the the about text (see above),
-you can either use the [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar) plugin or provide URLs to images manually.
+If you'd like for the author's picture to appear in addition the the about text (see above), you can either use the [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar) plugin or provide URLs to images manually.
 
 To use the plugin, add it to your `Gemfile` and the list of `plugins` in your config file:
 
@@ -602,19 +607,17 @@ author:
       2x:   /assets/img/me@2x.jpg
 ~~~
 
-The `path` key is a fallback image for browsers that don't support the `srcset` attribute.
+The keys of the `srcset` hash will be used as image descriptors. For more information on `srcset`, see the [documentation at MDN][mdnsrcset], or [this article from CSS-Tricks][csssrcset].
 
-The keys of the `srcset` hash will be used as image descriptors.
-For more information on `srcset`, see the
-[documentation at MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset), or
-[this article from CSS-Tricks](https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/).
+[mdnsrcset]: https://developer.mozilla.org/en-US/docs/Web/HTML/Element/img#attr-srcset
+[csssrcset]: https://css-tricks.com/responsive-images-youre-just-changing-resolutions-use-srcset/
+
 
 #### Adding social media icons
-Hydejack supports a variety of social media icons out of the box.
-These are defined on a per-author basis, so make sure you've followed the steps in [Adding an author](#adding-an-author).
+Hydejack supports a variety of social media icons out of the box. These are defined on a per-author basis, so make sure you've followed the steps in [Adding an author](#adding-an-author).
 
 **NOTE**: If you are using the gem-based version of Hydejack,
-download [`social.yml`](https://github.com/qwtel/hydejack/blob/master/_data/social.yml)
+download [`social.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/social.yml)
 and put it into `_data` in the root directory.
 This is necessary because gem-based themes do not support including `_data`.
 {:.message}
@@ -630,7 +633,7 @@ author:
     github:  qwtel
 ~~~
 
-Check out [`authors.yml`](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml) to see which networks are available.
+Check out [`authors.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/authors.yml) to see which networks are available.
 You can also follow the steps [here](#advanced) to add your own social media icons.
 
 You can change the order in which the icons appear by moving lines up or down, e.g.
@@ -644,7 +647,7 @@ author:
 ~~~
 
 To get an overview of which networks are available and how a typical username in that network looks like,
-see the included [`authors.yml`](https://github.com/qwtel/hydejack/blob/master/_data/authors.yml).
+see the included [`authors.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/authors.yml).
 
 Should providing a username not produce a correct link for some reason, you can provide a complete URL instead, e.g.
 
@@ -655,7 +658,7 @@ author:
     youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
 ~~~
 
-**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/master/_data/social.yml),
+**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/social.yml),
 by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available.
 Supplying your own icons is an [advanced topic](#advanced).
 {:.message}
@@ -671,13 +674,12 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.3.zip
+    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.4.zip
 ~~~
 
+
 ### Enabling comments
-Hydejack supports comments via [Disqus](https://disqus.com/).
-Before you can add comments to a page you need to register and add your site to Disqus' admin console.
-Once you have obtained your "Disqus shortname", you include it in your config file:
+Hydejack supports comments via [Disqus](https://disqus.com/). Before you can add comments to a page you need to register and add your site to Disqus' admin console. Once you have obtained your "Disqus shortname", you include it in your config file:
 
 ~~~yml
 ## file: _config.yml
@@ -694,8 +696,7 @@ comments: true
 ---
 ~~~
 
-You can enable comments for entire classes of pages by using
-[front matter defaults](https://jekyllrb.com/docs/configuration/#front-matter-defaults).
+You can enable comments for entire classes of pages by using [front matter defaults][fmd].
 E.g. to enable comments on all posts, add to your config file:
 
 ~~~yml
@@ -707,6 +708,9 @@ defaults:
       comments: true
 ~~~
 
+[fmd]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
+
+
 ### Enabling Google Analytics
 Enabling Google Analytics is as simple as setting the `google_analytics` key.
 
@@ -715,12 +719,18 @@ Enabling Google Analytics is as simple as setting the `google_analytics` key.
 google_analytics: UA-XXXXXXXX-X
 ~~~
 
-Conversely, if you want to disable it, you only have to remove the key and no GA code will be part of the generated pages.
+Conversely, if you want to disable it, you only have to remove the `google_analytics` key and no GA code will be part of the generated site.
+
+
+#### Using a custom analytics provider
+If you want to use a different analytics provider, e.g. [Matomo](https://matomo.org/), you can add its code snippet to `_includes/my-body.html` (create if it doesn't exist).
+The [default file](https://github.com/qwtel/hydejack/blob/v8/_includes/my-body.html) contains example code for using Matomo.
+
 
 ### Changing built-in strings
 You can change the wording of built-in strings like "Related Posts" or "Read more" in `_data/strings.yml`.
-If you are using the gem-based version, you can get the default file
-[here](https://github.com/qwtel/hydejack/blob/master/_data/strings.yml).
+
+If you are using the gem-based version the file doesn't exist, but you can get the default file [here](https://github.com/qwtel/hydejack/blob/v8/_data/strings.yml).
 
 You will frequently find markers like `<!--post_title-->`.
 You can place them freely within your string and they will be replaced with the content they refer to.
@@ -735,13 +745,11 @@ lang: cc-ll
 
 where `cc` is the 2-letter country code and `ll` specifies a 2-letter location code, e.g.: `de-at`.
 
-You may also change the strings used for formatting dates and times (look out for the `date_formats` key),
-but be aware that the values you provide need to be valid
-Ruby [format directives](http://ruby-doc.org/core-2.4.1/Time.html#method-i-strftime).
+You may also change the strings used for formatting dates and times (look out for the `date_formats` key), but be aware that the values you provide need to be valid Ruby [format directives](http://ruby-doc.org/core-2.4.1/Time.html#method-i-strftime).
 
 
 ### Adding legal documents
-If you have pages for contact data, privacy policy, cookie policy, etc, you can add links to them in the footer by listing them under the `legal` key in your config file as follows:
+If you have pages for contact data, privacy policy, cookie policy, etc. you can add links to them in the footer by listing them under the `legal` key in your config file as follows:
 
 ```yml
 legal:
@@ -796,14 +804,11 @@ tinyletter:  <tinyletter username>
 
 To edit the content of the newsletter box, open `_data/strings.yml`, and change the entries under the `tinyletter` key.
 
-If want to use a different mailing provider, like MailChimp, you can build your own form,
-and insert it into `_includes/my-newsletter.html`.
-There you will also find an example form for MailChimp, where you need to fill in `site.mailchimp.action` and `site.mailchimp.hidden_input`
-(you can get these from MailChimp).
+If want to use a different mailing provider you can build your own form, and insert it into `_includes/my-newsletter.html`. The file includes an example form for MailChimp, where you need to fill in `site.mailchimp.action` and `site.mailchimp.hidden_input` (you can get these from MailChimp).
 
-To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/).
-Note that only form, grid and utility classes are available.
-Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} for some examples.
+To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/). Note that only form, grid and utility classes are available. Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} for more examples.
+
+[tinyletter]: https://tinyletter.com/
 
 
 
@@ -811,7 +816,6 @@ Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} fo
 
 [blog]: https://hydejack.com/blog/
 [posts]: https://hydejack.com/posts/
-[tinyletter]: https://tinyletter.com/
 
 *[FOIT]: Flash of Invisible Text
 *[GA]: Google Analytics
@@ -837,6 +841,7 @@ title:  Documentation
 ~~~
 
 Now you can add content as you would in a blog post.
+
 
 ### Adding an entry to the sidebar
 Hydejack's sidebar can add links to any page within the site. In order for a page to appear in the sidebar, it needs to have a truthy `menu` value defined in its front matter. The page also needs to have a `title`, otherwise the entry in the sidebar will be blank.
@@ -888,6 +893,7 @@ order: 5
 
 You may combine this with the [`jekyll-redirect-from`](https://github.com/jekyll/jekyll-redirect-from) plugin
 to generate a redirect page at the `permalink` of the file, but this is optional.
+
 
 ### Adding a category or tag
 Hydejack allows you to use the `list` layout to show all posts of a particular tag or category.
@@ -994,19 +1000,17 @@ description: >
 
 Once the file is created, the page can be found at `/category/<categoryname>/` or `/tag/<tagname>/`.
 
-### Adding an about page
-About pages are a frequent use case, so Hydejack has a special layout for it, which is a slight modification of the `page` layout.
-[Demo][about].
-The main difference is that it will display an author's `about` text and `picture` above the regular content.
 
-To create an about page, make sure `layout` is set to `about`, and that the `author` key is set to an author defined in `_data/authors.yml`. For more on authors, see [Adding an author](#adding-an-author).)
+### Adding an about page
+About pages are a frequent use case, so Hydejack has a special layout for it. It is a slight modification of the `page` layout that allows showing the author information by adding the `<!--author-->` marker somewhere on the page.
+
+To create an about page, make sure `layout` is set to `about`. For more on authors, see [Adding an author](#adding-an-author).)
 
 ~~~yml
-## file: about.md
 ---
+## file: about.md
 layout: about
 title:  About
-author: qwtel
 ---
 ~~~
 
@@ -1016,84 +1020,84 @@ Hydejack 8 introduces cover pages, i.e. pages where the side initially spans the
 This feature is intended for landing pages. To enable this feature on a page, simply add `cover: true` to the page's front matter.
 
 
-### Adding a welcome page*
-**TODO**: new stuff
+### Adding custom CSS
+The quickest and safest way to add custom CSS to Hydejack is via the `_sass/my-inline.scss` and `_sass/my-style.scss` files (create the folder/the files if they don't exist).
 
+To add CSS that gets inlined into the page, i.e. is loaded with the first request, put the CSS rules into `my-inline.scss`. This is intended for above-the-fold content. Otherwise put the CSS rules into `my-style.scss`.
+Note that this distinction has no effect when `no_inline_css` is enabled.
+
+
+### Adding custom HTML to the head
+To add custom HTML elements to the `<head>` of the document, open `_includes/my-head.html` (create the folder/the files if they don't exist) and add your elements there.
+
+
+### Adding custom HTML to the body
+To add custom HTML elements to the `<body>` of the document, open `_includes/my-body.html` (create the folder/the files if they don't exist) and add your elements there.
+
+What's the difference with `my-scripts.html`?
+: This file was used in earlier versions of Hydejack to accomplish the same goal. However, there are still instances were you might want to prefer `my-scripts.html` over `my-body.html`, as it won't load scrips on redirect pages and will be ignored by browsers < IE10.
+
+
+### Adding a welcome page*
 If you bought the PRO version of Hydejack you have access to the `welcome` layout.
 It is intended to showcase your projects and blog posts in a compact way.
-Technically, it is a modified version of the `about` layout, so it will also show author information at the top.
-[Demo][welcome].
-
-For reference, the layout/order of content on the welcome page looks like:
-* Title
-* Author's about text
-* Content (before `content_separator`)
-* Latest/Selected Projects
-* Latest/Selected Posts
-* Content after `content_separator` (if any)
+Technically, it is a modified version of the `about` layout, so it allows showing the author information where the `<!--author-->` marker is put. [Demo][welcome].
 
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
 ~~~yml
-## file: index.md
 ---
+## file: index.md
 layout: welcome
 title:  Welcome
-author: qwtel
+cover:  true
 ---
 ~~~
 
-Without further configuration, the welcome page will show the two most recent projects and five most recent blog posts.
-However, the welcome layout supports selecting specific projects and posts, by adding to the front matter, e.g.:
+Without further configuration, the welcome page will just look like a regular page. 
+To show the two most recent projects, add the `<!--projects-->` marker to the content. 
+To show the five most recent blog posts, add the `<!--posts-->` marker to the content.
+
+The welcome layout also supports selecting specific projects and posts, by adding to the front matter, e.g.:
 
 ~~~yml
-## file: index.md
 ---
-layout:            welcome
-title:             Welcome
+## file: index.md
 selected_projects:
   - _projects/hydejack-v6.md
   - _projects/hyde-v2.md
+more_projects: projects.md
 selected_posts:
   - _posts/2017-05-03-javascripten.md
   - _posts/2012-02-07-example-content.md
-more_projects:     projects.md
-more_posts:        posts.md
-big_project:       false
-content_separator: <!--more-->
+more_posts: posts.md
+featured: true
 ---
 ~~~
-
-`layout`
-: Must be `welcome`.
 
 `selected_projects`
 : A list of paths to project files that should be displayed below the main content of the page.
   The paths are relative to the main directory with no leading `./`.
   If no paths are provided, the two most recent projects will be used.
 
+`more_projects`
+: The path to the main projects page.
+  The path is relative to the main directory with no leading `./`.
+
 `selected_projects`
 : A list of paths to blog posts that should be featured on the welcome page.
   The paths are relative to the main directory with no leading `./`.
   If no paths are provided, the five most recent posts will be used.
 
-`more_projects`
-: The path to the main projects page.
-  The path is relative to the main directory with no leading `./`.
-
 `more_posts`
 : The path to the main posts page.
   The path is relative to the main directory with no leading `./`.
 
-`big_project`
+`featured`
 : Optional. When `true`, project thumbnails will span the full width instead of half.
-  This setting takes precedence over the `big_project` value of individual projects,
+  This setting takes precedence over the `featured` value of individual projects,
   i.e. it will apply to the entire page.
 
-`content_separator`
-: Optional. Defines a marker that will be used to split the content in two parts.
-  The first part will go before the "Selected/Latest Projects" and "Selected/Latest Posts" section,
-  the second part will go below it.
 
 ### Adding a projects page*
 The projects page will show all projects in a particular collection.
@@ -1113,12 +1117,12 @@ This file has the `projects` layout (mind the "s" at the end) and should have a 
 with the name of the collection as a value, e.g.:
 
 ~~~yml
-## file: projects.md
 ---
+## file: projects.md
 layout:          projects
 title:           Projects*
 show_collection: projects
-big_project:     true
+featured:        true
 ---
 ~~~
 
@@ -1132,10 +1136,11 @@ big_project:     true
 `show_collection`
 : The name of the collection you want display on this page. Defaults to `projects`.
 
-`big_project`
+`featured`
 : Optional. When `true`, project thumbnails will span the full width, instead of only half.
-  This setting takes precedence over the `big_project` value of individual projects,
+  This setting takes precedence over the `featured` value of individual projects,
   i.e. it will apply to the entire page.
+
 
 ### Adding a project*
 Projects are organized using [Jekyll Collections](https://jekyllrb.com/docs/collections/).
@@ -1143,11 +1148,11 @@ Each project generates an entry on the projects layout ([Demo][projects]) as wel
 
 Each project is defined by a file in the `_projects` directory.
 The project's meta information is defined in the file's front matter. You can also add markdown content.
-A project's front matter may look like:
+A project's front matter should look like:
 
 ~~~yml
-## file: _projects/hyde-v2.md
 ---
+## file: _projects/hyde-v2.md
 layout:      project
 title:       Hyde v2*
 date:        2 Jan 2014
@@ -1166,8 +1171,7 @@ links:
     url:     http://hyde.getpoole.com
   - title:   Source
     url:     https://github.com/poole/hyde
-author:      mdo
-big_project: true
+featured:    false
 ---
 ~~~
 
@@ -1191,10 +1195,11 @@ For more information on `srcset`, see the [documentation at MDN](https://develop
 : A list of `title`-`url` pairs that link to external resources related to this project.
 
 `author`
-: Optional. Shown below the project, similar to posts.
+: Optional. The author shown below the project, similar to posts. 
 
-`big_project`
-: Optional. When `true`, the project preview will span the full content width. You can use this for projects that you want to direct additional attention to. You can set/override this for an entire page, by setting `big_project` in the front matter (applies to the `projects` and `welcome` layout).
+`featured`
+: Optional. When `true`, the project preview will span the full content width. You can use this for projects that should receive more attention. You can set/override this for an entire page, by setting `featured` in the front matter (applies to the `projects` and `welcome` layout).
+
 
 ### Adding a resume*
 Hydejack's PRO version features a generalized resume layout.
@@ -1204,18 +1209,15 @@ It generates the resume page from a valid [JSON Resume](https://jsonresume.org/)
 
 * You can use the visual [JSON Resume Editor](http://registry.jsonresume.org/).
 * If you have a LinkedIn profile, you can try [LinkedIn to Json Résumé](https://jmperezperez.com/linkedin-to-json-resume/).
-* You can edit the [example `resume.json`](https://github.com/qwtel/hydejack/blob/master/_data/resume.json) in the `_data` directly. It contains example entries for each type of entry.
+* You can edit the [example `resume.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/resume.yml) in `_data` directly. It contains example entries for each type of entry.
 
 Once you have a JSON Resume, place it into `_data`.
 
-If you prefer editing YAML files, there is an [example `_resume.yml`](https://github.com/qwtel/hydejack/blob/master/_data/_resume.yml) file in `_data`.
-In order to use it, rename it to `resume.yml` and delete `resume.json`.
-
-To render the resume page, create a new markdown file and set the layout to `resume` in the front matter:
+To render a resume page, create a new markdown file and set the layout to `resume` in the front matter:
 
 ~~~yml
-## file: resume.md
 ---
+## file: resume.md
 layout: resume
 title:  Resume
 description: >
@@ -1226,10 +1228,30 @@ description: >
 **NOTE**: You can download the final `resume.json` (minified) from the assets folder. When running locally, you can find it at `_site/assets/resume.json`.
 {:.message}
 
+#### Adding a specialized resume or multiple resumes
+You can add a specialized resume or multiple resumes by adding the resume YAML to the front matter under the `resume` key.
+E.g.:
+
+~~~yml
+---
+## file: resume.md
+layout: resume
+title:  Resume
+description: >
+  A short description of the page for search engines (~150 characters long).
+resume:
+  basics:
+    name: "Richard Hendricks"
+    label: "Programmer"
+    picture: "/assets/icons/icon.png"
+  # ...
+---
+~~~
 
 
 
-[about]: https://hydejack.com/about/
+
+
 [welcome]: https://hydejack.com/
 [resume]: https://hydejack.com/resume/
 [projects]: https://hydejack.com/projects/
@@ -1312,12 +1334,35 @@ You can make an image span the full width by adding the `lead` class.
 
 Example:
 
-![Full-width image](https://placehold.it/800x100){:.lead}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 
 Markdown:
 ~~~markdown
-![Full-width image](https://placehold.it/800x100){:.lead}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 ~~~
+
+### Adding captions to images
+You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
+
+![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+A caption to an image.
+{:.figure}
+
+Markdown:
+~~~md
+![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+A caption to an image.
+{:.figure}
+~~~
+
+For better semantics, you can also use the `figure`/`figcaption` HTML5 tags:
+
+```html
+<figure>
+  <img alt="An image with a caption" src="https://placehold.it/800x50" class="lead" width="800" height="50" />
+  <figcaption>A caption to an image.</figcaption>
+</figure>
+```
 
 ### Adding large quotes
 You can make a quote "pop out" by adding the `lead` class.
