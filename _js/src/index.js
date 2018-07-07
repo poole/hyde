@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import "@webcomponents/webcomponentsjs/webcomponents-sd-ce";
+import "@webcomponents/webcomponentsjs";
 import "intersection-observer";
 import "web-animations-js";
 import smoothscroll from "smoothscroll-polyfill";
