@@ -3,10 +3,13 @@ layout: page
 title: Basics
 description: >
   This chapter covers the basics of content creation with Hydejack.
+hide_description: true
 redirect_from:
   - /docs/latest/basics/
   - /docs/basics/
 ---
+
+This chapter covers the basics of content creation with Hydejack.
 
 ## Table of Contents
 {:.no_toc}

@@ -7,8 +7,8 @@ image: /assets/img/example-content-iii.jpg
 ---
 
 Hydejack offers a few additional features to markup your markdown.
-Don't worry, these are merely CSS classes added with kramdown's `{:.my-class}` syntax,
-so that your posts remain compatible with other Jekyll themes.
+Don't worry, these are merely CSS classes added with kramdown's `{:...}` syntax,
+so that your content remains compatible with other Jekyll themes.
 
 ## Message boxes
 **NOTE**: You can add a message box.

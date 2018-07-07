@@ -3,10 +3,13 @@ layout: page
 title: Advanced
 description: >
   This chapter covers advanced topics, such as offline support and custom JS builds. Codings skills are recommended.
+hide_description: true
 redirect_from:
   - /docs/latest/advanced/
   - /docs/advanced/
 ---
+
+This chapter covers advanced topics, such as offline support and custom JS builds. Codings skills are recommended.
 
 ## Table of Contents
 {:.no_toc}

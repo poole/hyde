@@ -2,11 +2,14 @@
 layout: page
 title: Upgrade
 description: >
-  This documents documents how to upgrade Hydejack to a newer version. The methods depends on how you've installed Hydejack.
+  This chapter shows how to upgrade Hydejack to a newer version. The method depends on how you've installed Hydejack.
+hide_description: true
 redirect_from:
   - /docs/latest/upgrade/
   - /docs/upgrade/
 ---
+
+This chapter shows how to upgrade Hydejack to a newer version. The method depends on how you've installed Hydejack.
 
 ## Table of Contents
 {:.no_toc}

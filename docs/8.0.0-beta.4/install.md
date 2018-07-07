@@ -4,6 +4,7 @@ title: Install
 description: >
   There are multiple ways of installing Hydejack and this document lays them out for you.
   The easiest way is with the Hydejack Starter Kit.
+hide_description: true
 redirect_from:
   - /docs/latest/install/
   - /docs/install/
@@ -29,7 +30,7 @@ Using the Starter Kit has the advantage of not cluttering your blog repository.
 Additionally, it allows you to publish your site on GitHub Pages with a single `push`.
 
 If you have a GitHub account, fork the [hydejack-starter-kit](https://github.com/qwtel/hydejack-starter-kit) repository.
-Otherwise [download the source files](https://github.com/qwtel/hydejack-starter-kit/archive/master.zip)
+Otherwise [download the source files](https://github.com/qwtel/hydejack-starter-kit/archive/v8.0.0-beta.3.zip)
 and unzip them somewhere on your machine.
 
 **NOTE**: In addition to the docs here, you can follow the quick start guide in the starter kit.
@@ -59,7 +60,7 @@ Your site's root dir should look something like this
 ~~~
 
 **NOTE**: Hydejack works with Jekyll's default `config.yml`, but it is recommended that you replace it with
-[Hydejack's default config file](https://github.com/qwtel/hydejack/blob/master/_config.yml).
+[Hydejack's default config file](https://github.com/qwtel/hydejack/blob/v8/_config.yml).
 It contains the names of all config options known to Hydejack and provides sensible defaults (like minifying HTML and CSS in production builds).
 {:.message}
 

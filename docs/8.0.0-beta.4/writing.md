@@ -3,16 +3,17 @@ layout: page
 title: Writing
 description: >
   Hydejack offers a few additional features to markup your markdown.
-  Don't worry, these are merely CSS classes added via the standard `{:.my-class}` syntax,
-  so that your posts remain compatible with other Jekyll themes.
+  Don't worry, these are merely CSS classes added with kramdown's `{:...}` syntax,
+  so that your content remains compatible with other Jekyll themes.
+hide_description: true
 redirect_from:
   - /docs/latest/writing/
   - /docs/writing/
 ---
 
 Hydejack offers a few additional features to markup your markdown.
-Don't worry, these are merely CSS classes added via the standard `{:.my-class}` syntax,
-so that your posts remain compatible with other Jekyll themes.
+Don't worry, these are merely CSS classes added with kramdown's `{:...}` syntax,
+so that your content remains compatible with other Jekyll themes.
 
 **NOTE**: For an introduction to markdown in general, see [Mastering Markdown][mm] and [kramdown Syntax][ksyn].
 {:.message}
