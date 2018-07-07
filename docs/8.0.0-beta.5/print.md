@@ -23,7 +23,7 @@ or [upgrades for pro buyers](#pro-version).)
 
 **NOTE**: This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
-you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.4/README.md %}).
+you can find it [here]({{ site.baseurl }}{% link docs/8.0.0-beta.5/README.md %}).
 {:.message}
 
 ## Table of Contents
@@ -54,7 +54,7 @@ Using the Starter Kit has the advantage of not cluttering your blog repository.
 Additionally, it allows you to publish your site on GitHub Pages with a single `push`.
 
 If you have a GitHub account, fork the [hydejack-starter-kit](https://github.com/qwtel/hydejack-starter-kit) repository.
-Otherwise [download the source files](https://github.com/qwtel/hydejack-starter-kit/archive/master.zip)
+Otherwise [download the source files](https://github.com/qwtel/hydejack-starter-kit/archive/v8.0.0-beta.3.zip)
 and unzip them somewhere on your machine.
 
 **NOTE**: In addition to the docs here, you can follow the quick start guide in the starter kit.
@@ -84,7 +84,7 @@ Your site's root dir should look something like this
 ~~~
 
 **NOTE**: Hydejack works with Jekyll's default `config.yml`, but it is recommended that you replace it with
-[Hydejack's default config file](https://github.com/qwtel/hydejack/blob/master/_config.yml).
+[Hydejack's default config file](https://github.com/qwtel/hydejack/blob/v8/_config.yml).
 It contains the names of all config options known to Hydejack and provides sensible defaults (like minifying HTML and CSS in production builds).
 {:.message}
 
@@ -158,9 +158,8 @@ If you bought the PRO version, you've received a zip archive with the following 
 ├── PRO License _ Hydejack.pdf
 ├── PRO–hy-drawer License _ Hydejack.pdf
 ├── PRO–hy-push-state License _ Hydejack.pdf
-├── icon.psd
-├── sidebar-bg.psd
-├── *-to-v8.0.0-beta.4.diff
+├── PRO–hy-img License _ Hydejack.pdf
+├── *-to-v8.0.0-beta.5.diff
 └── .ssh
 ~~~
 
@@ -171,13 +170,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 : Contains only the files and folders needed for upgrading form an earlier version of Hydejack (6.0.0 or above).
   See the [Upgrade]{:.heading.flip-title} for more.
 
-`icon.psd`
-: A Photoshop template to help with generating the favicon, apple touch icon, etc.
-
-`sidebar-bg.psd`
-: A Photoshop template for blurred sidebar backgrounds.
-
-`*-to-v8.0.0-beta.4.diff`
+`*-to-v8.0.0-beta.5.diff`
 : There will be multiple fo these files, where `*` is a previous version.
   They are git patches that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
   Use these if you are using git and you are worried about accidentally overwriting changes you've made to Hydejack PRO.
@@ -193,7 +186,7 @@ For new installations only the `install` folder is interesting.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.0.0-beta.4/install/
+$ cd ~/Downloads/hydejack-pro-8.0.0-beta.5/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -207,7 +200,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_pro_customers`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.4/.ssh/hydejack_pro_customers ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-v8.0.0-beta.5/.ssh/hydejack_pro_customers ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
@@ -274,6 +267,11 @@ and point your browser to <http://localhost:4000> to see Hydejack in action.
 ----------------------------------------------------------------{% endcomment %}
 
 ## Upgrade
+This chapter shows how to upgrade Hydejack to a newer version. The method depends on how you've installed Hydejack.
+
+
+
+
 **NOTE**: Before upgrading to v7+, make sure you've read the [CHANGELOG](../../CHANGELOG.md){:.heading.flip-title},
 especially the part about the [license change](../../CHANGELOG.md#license-change)!
 {:.message}
@@ -674,7 +672,7 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.4.zip
+    download: https://github.com/qwtel/hydejack/archive/v8.0.0-beta.5.zip
 ~~~
 
 
@@ -827,6 +825,12 @@ To build a completely new from, you can use [the same CSS classes as Bootstrap](
 ----------------------------------------------------------------{% endcomment %}
 
 ## Basics
+This chapter covers the basics of content creation with Hydejack.
+
+
+
+
+
 ### Adding a page
 You can add generic pages that support markdown content but aren't blog posts.
 For example, this documentation is written in markdown, consisting of several generic pages.
@@ -1267,8 +1271,8 @@ resume:
 
 ## Writing
 Hydejack offers a few additional features to markup your markdown.
-Don't worry, these are merely CSS classes added via the standard `{:.my-class}` syntax,
-so that your posts remain compatible with other Jekyll themes.
+Don't worry, these are merely CSS classes added with kramdown's `{:...}` syntax,
+so that your content remains compatible with other Jekyll themes.
 
 **NOTE**: For an introduction to markdown in general, see [Mastering Markdown][mm] and [kramdown Syntax][ksyn].
 {:.message}
@@ -1344,13 +1348,13 @@ Markdown:
 ### Adding captions to images
 You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
 
-![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 A caption to an image.
 {:.figure}
 
 Markdown:
 ~~~md
-![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 A caption to an image.
 {:.figure}
 ~~~
@@ -1807,6 +1811,11 @@ More on [user, organization, and project pages](https://help.github.com/articles
 ----------------------------------------------------------------{% endcomment %}
 
 ## Advanced
+This chapter covers advanced topics, such as offline support and custom JS builds. Codings skills are recommended.
+
+
+
+
 ### Enabling offline support
 Hydejack v8 introduces "cache as you go" offline support. This is implemented via the Service Worker API, a new browser standard that is now supported in the latest versions of all major browsers! However, it is a very powerful feature and should be used with a lot of care.
 

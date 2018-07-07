@@ -44,4 +44,4 @@ Hyde is developed on and hosted with GitHub. Head to the [GitHub repository](htt
 
 Thanks!
 
-[docs]: ../../docs/8.0.0-beta.4/README.md
+[docs]: ../../docs/8.0.0-beta.5/README.md
