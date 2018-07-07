@@ -134,8 +134,7 @@ If you bought the PRO version, you've received a zip archive with the following 
 ├── PRO License _ Hydejack.pdf
 ├── PRO–hy-drawer License _ Hydejack.pdf
 ├── PRO–hy-push-state License _ Hydejack.pdf
-├── icon.psd
-├── sidebar-bg.psd
+├── PRO–hy-img License _ Hydejack.pdf
 ├── *-to-v8.0.0-beta.4.diff
 └── .ssh
 ~~~
@@ -146,12 +145,6 @@ If you bought the PRO version, you've received a zip archive with the following 
 `upgrade`
 : Contains only the files and folders needed for upgrading form an earlier version of Hydejack (6.0.0 or above).
   See the [Upgrade]{:.heading.flip-title} for more.
-
-`icon.psd`
-: A Photoshop template to help with generating the favicon, apple touch icon, etc.
-
-`sidebar-bg.psd`
-: A Photoshop template for blurred sidebar backgrounds.
 
 `*-to-v8.0.0-beta.4.diff`
 : There will be multiple fo these files, where `*` is a previous version.

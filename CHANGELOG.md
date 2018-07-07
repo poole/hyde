@@ -4,6 +4,10 @@
 Jul 6 2018
 {:.heading.post-date}
 
+So far Hydejack has been a decent Jekyll theme, but with Hydejack 8 it becomes a truly unique experience --- 
+and that will show within seconds, thanks to the new [cover pages](README.md). 
+These are lading pages that show a full-sized background image and some core information: A logo, a tagline, links to the most important pages on your site, and your social media icons. Think of it as your digital business card.
+
 ### Breaking
 * The expected format of sidebar images has changed.
   A sidebar image should now be a full-screen ~16:9 image.
@@ -40,14 +44,16 @@ Jul 6 2018
 * [PRO] Project cards now throw a shadow instead of having a border.
 * Cookie consent is now stored as a cookie (instead of `LocalStorage`) and expires after 1 year.
 * Hydejack now uses lazy-loading hy-img tags instead of regular `img` tags.
-  To revert to using regular images, set `hydejack.no_img` in the config file to true.
+  To revert to using regular images, set `hydejack.no_img` in the config file to `true`.
+* Scrolling to a fragment link is now smooth.
 
 ### Added
 * Pages can now have the `cover` key in the front matter.
   When set to `true`, the sidebar will be opened when visiting the page directly.
   E.g. <https://hydejack.com/>{:.no-push-state}
 
-* Added a `_plugin` that automatically replaces `<img>` tags with lazy-loading `<hy-img>` tags.  If you don't like this feature, delete or rename the `_plugins` folder. Note that this plugin will never run when building the site on GitHub Pages.
+* Added a `_plugin` that automatically replaces `<img>` tags with lazy-loading `<hy-img>` tags. If you don't want images to load lazily, delete or rename the `_plugins` folder.
+  Note that this plugin will never run when building the site on GitHub Pages.
 
   To get the most out of this plugin, it is recommended to provide the width and height of the image, e.g.
 
@@ -55,7 +61,7 @@ Jul 6 2018
   ![Some image](assets/img/some-img.png){:width="800" height="600"}
   ~~~
 
-  This will cause hy-imge to render a placeholder of this size, preventing the document height from changing after an image has finished loading.
+  This will cause hy-img to render a placeholder of 800 by 600 `px`, preventing the document height from changing after the image has finished loading.
 
 
 * Added experimental offline support via Serivce Workers. Use with care!
@@ -68,6 +74,11 @@ Jul 6 2018
   A caption to an image.
   {:.figure}
   ~~~
+
+* Clicking on a footnote will give its corresponding footnote text a subtle highlight.
+
+### Fixes
+* The back button now works in combination with fragment links.
 
 [ffd]: https://jekyllrb.com/docs/configuration/#front-matter-defaults
 

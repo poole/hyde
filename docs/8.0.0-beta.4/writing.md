@@ -91,13 +91,13 @@ Markdown:
 ## Adding captions to images
 You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
 
-![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 A caption to an image.
 {:.figure}
 
 Markdown:
 ~~~md
-![An image with a caption](https://placehold.it/800x50){:.lead width="800" height="50"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 A caption to an image.
 {:.figure}
 ~~~

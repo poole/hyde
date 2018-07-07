@@ -22,7 +22,7 @@ You can add large text.
 ![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 
 ## Captions to images
-![An image with a caption](https://placehold.it/800x60){:.lead width="800" height="60"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 A caption to an image.
 {:.figure}
 
