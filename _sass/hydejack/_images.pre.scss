@@ -54,7 +54,7 @@ hy-img {
 
 figure, .figure {
   @extend .faded, .fine, .centered;
-  img {
+  hy-img, img {
     margin-bottom: .5rem;
   }
 }
