@@ -153,39 +153,6 @@ a.sidebar-nav-item {
 // >>>>>
 
 // <<<<< LINK
-a.sidebar-nav-item {
-  &::before, &::after {
-    position: absolute;
-    right: 0;
-    top: .75rem;
-  }
-
-  // &::before {
-  //   content: "\2666";
-  //   font-family: 'icomoon'!important;
-  //   speak: none;
-  //   font-style: normal;
-  //   font-weight: normal;
-  //   font-variant: normal;
-  //   text-transform: none;
-  //   line-height: 1;
-  //   font-size: smaller;
-  //   -webkit-font-smoothing: antialiased;
-  //   -moz-osx-font-smoothing: grayscale;
-  //   opacity: 0;
-  //   transition: opacity 500ms;
-  // }
-  //
-  // &.active::before {
-  //   opacity: 0.33;
-  // }
-  //
-  // &.active:hover::before {
-  //   opacity: 1;
-  //   transition: opacity 100ms;
-  // }
-}
-
 @media print {
   .sidebar {
     display: none;
