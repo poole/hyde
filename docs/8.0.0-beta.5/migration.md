@@ -1,14 +1,10 @@
 ---
-layout: page
-title: Migration
 description: >
   This documents shows how to upgrade Hydejack from previous versions (v5) in a step-by-step manner.
 hide_description: true
-redirect_from:
-  - /docs/latest/migration/
-  - /docs/migration/
 ---
 
+# Migration
 Unfortunately, upgrading form v5 and earlier is not straightforward. A lot of patterns and names have changed,
 motivated by a variety of reasons, including better integration with the rest of the Jekyll ecosystem and
 simplified workflows enabled by Jekyll Collections.

@@ -1,17 +1,10 @@
 ---
-layout: page
-title: Install
 description: >
-  There are multiple ways of installing Hydejack and this document lays them out for you.
-  The easiest way is with the Hydejack Starter Kit.
+  There are multiple ways of installing Hydejack and this document lays them out for you. The easiest way is with the Hydejack Starter Kit.
 hide_description: true
-redirect_from:
-  - /docs/latest/install/
-  - /docs/install/
-  - /docs/latest/installation/
-  - /docs/installation/
 ---
 
+# Install
 There are multiple ways of installing Hydejack.
 The easiest and cleanest way is [via the Starter Kit](#via-starter-kit).
 Alternatively, you can use the [Ruby gem](#via-gem).

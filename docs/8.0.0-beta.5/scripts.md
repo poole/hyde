@@ -1,15 +1,11 @@
 ---
-layout: page
-title: Scripts
 description: >
   There are two ways of adding third party scripts.
   Embedding is ideal for one-off scripts, while global scripts are loaded on every page.
 hide_description: true
-redirect_from:
-  - /docs/latest/scripts/
-  - /docs/scripts/
 ---
 
+# Scripts
 There are two ways of adding third party scripts.
 [Embedding](#embedding) is ideal for one-off scripts, e.g. `widgets.js` that is part of embedded tweets (see below).
 Adding [global scripts](#global-scripts) is for scripts that should be loaded on every page.

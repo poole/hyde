@@ -1,14 +1,10 @@
 ---
-layout: page
-title: Build
 description: >
   This chapters shows how to prepare your Hydejack site for a production build and deployment on 3rd party hosting providers.
 hide_description: true
-redirect_from:
-  - /docs/latest/build/
-  - /docs/build/
 ---
 
+# Build
 ## Table of Contents
 {:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list

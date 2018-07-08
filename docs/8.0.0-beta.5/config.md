@@ -1,16 +1,10 @@
 ---
-layout: page
-title: Config
 description: >
   This chapter covers the many configuration options of Hydejack, allowing you to tailor it to your needs.
 hide_description: true
-redirect_from:
-  - /docs/latest/config/
-  - /docs/config/
-  - /docs/latest/configuration/
-  - /docs/configuration/
 ---
 
+# Config
 Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`. Besides these descriptions, you can also read the [annotated config file](https://github.com/qwtel/hydejack/blob/v8/_config.yml).
 
 **NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
