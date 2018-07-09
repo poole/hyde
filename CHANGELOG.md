@@ -4,23 +4,23 @@
 Jul 6 2018
 {:.heading.post-date}
 
-So far Hydejack has been a decent Jekyll theme, but with Hydejack 8 it becomes a truly unique experience --- 
-and that will show within seconds, thanks to the new [cover pages](README.md). 
-These are lading pages that show a full-sized background image and some core information: A logo, a tagline, links to the most important pages on your site, and your social media icons. Think of it as your digital business card.
+So far Hydejack has been a decent Jekyll theme, but with v8 it really starts stand out among the competition: Beautiful and unique landing pages, lazy-loading images, and experimental offline support are just the most prominent new features.
 
 ### Breaking
-* The expected format of sidebar images has changed.
-  A sidebar image should now be a full-screen ~16:9 image.
+* The expected format for sidebar images has changed.
+  A sidebar image should now be a full-screen ~16:10 image.
 
-  Comment: The sidebar can now be opened even on desktop, which generally requires a large landscape image to fill the entire window.
+  Comment: The sidebar can now be fully extended on desktop, which generally requires a large landscape image to fill the entire window.
   To save bandwidth, you can blur the image on the left and right edges and save it as JPG.
 
 * The `about` and `welcome` layout no longer prepend the content with the author information.
-  The author info can now be set by adding the `<!--author-->` marker to the top of the file. You can also place it anywhere else.
+  Instead, the author info can be shown by adding the `<!--author-->` marker to the top of the file. You can also place it anywhere else.
 
   Comment: Showing the author description on the top of the `welcome` and `about` layouts felt like an imposition and was a left-over from when I was developing Hydejack primarily for myself.
 
-* [PRO] The `welcome` layout no longer adds recent posts and projects to the bottom of the page. Instead, they have to be explicity set using the `<!--posts-->` and `<!--projects-->` markers. The `content_separator` front matter opton is now ignored.
+* [PRO] The `welcome` layout no longer adds recent posts and projects to the bottom of the page. Instead, they have to be explicitly set using the `<!--posts-->` and `<!--projects-->` markers. The `content_separator` front matter opton is now ignored.
+
+  Comment: The old behavior felt arbitrary, and `<!--more-->` wasn't a good name to be replaced with recent projects ands posts.
 
 * Setting the accent color and sidebar image for an entire category/tag/author is no longer possible.
   To achieve a similar effect, use [Front Matter defaults][ffd] instead.
@@ -40,12 +40,17 @@ These are lading pages that show a full-sized background image and some core inf
 
 ### Changed
 
-* [PRO] Updated embedded Bootstrap to v4.
-* [PRO] Project cards now throw a shadow instead of having a border.
-* Cookie consent is now stored as a cookie (instead of `LocalStorage`) and expires after 1 year.
+* The drawer now responds to mouse inputs.
+* The default heading font is now less bold. To restore the old behavior, edit (create if it's missing) `_sass/my-variables.scss` and add `$font-weight-heading: 700;`.
 * Hydejack now uses lazy-loading hy-img tags instead of regular `img` tags.
   To revert to using regular images, set `hydejack.no_img` in the config file to `true`.
+* Cookie consent is now stored as a cookie (instead of `LocalStorage`) and expires after 1 year.
 * Scrolling to a fragment link is now smooth.
+* Font loading now works differently, and will be cancelled on slow connections.
+* The sidebar content is now centered.
+* The sidebar will now show the site's logo, which can be set in the config file under the `logo` key.
+* [PRO] Updated embedded Bootstrap to v4.
+* [PRO] Project cards now throw a shadow instead of having a border.
 
 ### Added
 * Pages can now have the `cover` key in the front matter.
@@ -63,8 +68,7 @@ These are lading pages that show a full-sized background image and some core inf
 
   This will cause hy-img to render a placeholder of 800 by 600 `px`, preventing the document height from changing after the image has finished loading.
 
-
-* Added experimental offline support via Serivce Workers. Use with care!
+* Added experimental offline support via Service Workers. Use with care!
   For details, [read the docs](docs/8.0.0-beta.5/advanced.md#enabling-offline-support).
 
 * Added the `figure` CSS class, which allows images to have nicer-looking captions. E.g.
@@ -75,7 +79,7 @@ These are lading pages that show a full-sized background image and some core inf
   {:.figure}
   ~~~
 
-* Clicking on a footnote will give its corresponding footnote text a subtle highlight.
+* Clicking on a footnote will give its corresponding text a subtle highlight.
 
 ### Fixes
 * The back button now works in combination with fragment links.

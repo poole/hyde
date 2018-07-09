@@ -1,13 +1,13 @@
 ---
 description: >
-  Hydejack offers a few additional features to markup your markdown.
+  Hydejack offers a few additional features to markup your content.
   Don't worry, these are merely CSS classes added with kramdown's `{:...}` syntax,
   so that your content remains compatible with other Jekyll themes.
 hide_description: true
 ---
 
 # Writing
-Hydejack offers a few additional features to markup your markdown.
+Hydejack offers a few additional features to markup your content.
 Don't worry, these are merely CSS classes added with kramdown's `{:...}` syntax,
 so that your content remains compatible with other Jekyll themes.
 
@@ -84,17 +84,17 @@ Markdown:
 ![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 ~~~
 
-## Adding captions to images
+## Adding image captions
 You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
 
 ![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
-A caption to an image.
+A caption for an image.
 {:.figure}
 
 Markdown:
 ~~~md
 ![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
-A caption to an image.
+A caption for an image.
 {:.figure}
 ~~~
 
@@ -122,10 +122,7 @@ Markdown:
 ~~~
 
 ## Adding faded text
-You can gray out text by adding the `faded` class.
-
-Use this sparingly and for information that is not essential
---- or you don't want viewers to read at all, like when you pull a line form a dirty rap song..
+You can gray out text by adding the `faded` class. Use this sparingly and for information that is not essential, as it is more difficult to read.
 
 Example:
 

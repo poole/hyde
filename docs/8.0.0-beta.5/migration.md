@@ -5,9 +5,9 @@ hide_description: true
 ---
 
 # Migration
-Unfortunately, upgrading form v5 and earlier is not straightforward. A lot of patterns and names have changed,
-motivated by a variety of reasons, including better integration with the rest of the Jekyll ecosystem and
-simplified workflows enabled by Jekyll Collections.
+This documents shows how to upgrade Hydejack from previous versions (v5) in a step-by-step manner.
+
+Unfortunately, upgrading form v5 and earlier is not straightforward. A lot of patterns and names have changed, motivated by a variety of reasons, including better integration with the rest of the Jekyll ecosystem and simplified workflows enabled by Jekyll Collections.
 
 ## Table of Contents
 {:.no_toc}
@@ -16,8 +16,7 @@ simplified workflows enabled by Jekyll Collections.
 
 ## From v5
 ### Updating the folder structure
-Copy the the following folders and files from Hydejack v6 into your existing repository.
-Make sure you merge the folder contents.
+Copy the the following folders and files from Hydejack v6 into your existing repository. Make sure you merge the folder contents.
 
 * `_data/`
 * `_includes/`

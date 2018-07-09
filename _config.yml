@@ -37,9 +37,9 @@ tagline:               >
 # A list of keywords for your blog
 keywords:              []
 
-# Provide a (square) logo for you site.
+# A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
-# This key is also used by the `jekyll-seo-tag` plugin.
+# It also used by the `jekyll-seo-tag` plugin.
 logo:                  /assets/icons/icon.png
 
 # This should be the same author as first entry in `_data/authors.yml`.
@@ -228,7 +228,7 @@ include:
   - LICENSE.md
 
 
-# Plugins and Plugin Configuration
+# Plugins
 # ========================================================================================
 
 plugins:
@@ -312,8 +312,3 @@ compress_html:
 
 sass:
   style:               compressed
-
-# If you are upgrading form v5 (or earlier), uncomment the lines below,
-# so that the location of the feed XML stays the same.
-# feed:
-#   path:                atom.xml
