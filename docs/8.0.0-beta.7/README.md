@@ -3,8 +3,8 @@ description: >
   Here you should be able to find everything you need to know to accomplish the most common tasks when blogging with Hydejack.
 hide_description: true
 menu: true
-order: 3
-permalink: /docs/8.0.0-beta.6/
+order: 5
+permalink: /docs/8.0.0-beta.7/
 ---
 
 # Documentation
