@@ -81,6 +81,9 @@ So far Hydejack has been a decent Jekyll theme, but with v8 it really starts sta
 
 * Clicking on a footnote will give its corresponding text a subtle highlight.
 
+* [PRO] Projects can now have an optional `end_date` field in the front matter.
+  The `date` is treated as the start date in this case.
+
 ### Fixes
 * The back button now works in combination with fragment links.
 

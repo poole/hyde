@@ -28,6 +28,7 @@ back:                  Back
 permalink:             Permalink
 permalink_icon:        icon-link
 templates:             Templates (for web app)
+present:               present
 
 loading:               Loading…
 redirecting:           Redirecting…
@@ -60,6 +61,7 @@ category_start:        'in '
 category_spearator:    ' / '
 tag_start:             'on '
 tag_separator:         ', '
+from_to_separator:     '–'
 
 
 # Date formats
@@ -98,8 +100,6 @@ welcome:
 resume:
   location:            Location
   location_separator:  ', '
-  from_to_separator:   '–'
-  present:             present
   email:               Email
   phone:               Phone
   website:             Website
