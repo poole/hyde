@@ -24,14 +24,14 @@
     {{ to_scssify | scssify }}
   </style>
 
-  <link id="_stylePreload" rel="preload" as="style" href="{{ style_url | relative_url }}">
+  <link rel="preload" as="style" href="{{ style_url | relative_url }}" id="_stylePreload">
   <script>setRel('_stylePreload');</script>
 
-  <link id="_iconsPreload" rel="preload" as="style" href="{{ icons_url | relative_url }}">
+  <link rel="preload" as="style" href="{{ icons_url | relative_url }}" id="_iconsPreload">
   <script>setRel('_iconsPreload');</script>
 
   {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-    <link id="_fontsPreload" rel="preload" as="style" href="{{ fonts_url }}">
+    <link rel="preload" as="style" href="{{ fonts_url }}" id="_fontsPreload">
     <script>setRel('_fontsPreload');</script>
   {% endunless %}
 
