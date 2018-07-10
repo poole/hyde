@@ -26,7 +26,7 @@ import { HyDrawerElement } from 'hy-drawer/src/webcomponent';
 import 'hy-drawer/src/style.css';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { fromEvent } from 'rxjs/observable/fromEvent';
+import { fromEvent } from 'rxjs';
 
 // And some of our own helper functions/constants.
 import { hasFeatures, isSafari, isMobileSafari, isUCBrowser } from './common';

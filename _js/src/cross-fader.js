@@ -19,13 +19,8 @@ import 'core-js/fn/function/bind';
 
 import Color from 'color';
 
-import { empty } from 'rxjs/observable/empty';
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { of } from 'rxjs/observable/of';
-
-import { finalize } from 'rxjs/operators/finalize';
-import { take } from 'rxjs/operators/take';
-import { map } from 'rxjs/operators/map';
+import { empty, fromEvent, of } from 'rxjs';
+import { finalize, take, map } from 'rxjs/operators';
 
 import elemDataset from 'elem-dataset';
 

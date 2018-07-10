@@ -17,7 +17,7 @@
 // Import what we need.
 import 'core-js/fn/function/bind';
 
-import { Observable } from 'rxjs/Observable';
+import { Observable } from 'rxjs';
 
 // Check the user agent for Safari and iOS Safari, to give them some special treatment...
 const ua = navigator.userAgent.toLowerCase();

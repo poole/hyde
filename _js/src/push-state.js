@@ -34,28 +34,24 @@ import { HyPushState, VANILLA_FEATURE_TESTS, Set } from 'hy-push-state/src/vanil
 import { HyPushStateElement } from 'hy-push-state/src/webcomponent';
 
 // Next, we include `Observable` and the RxJS functions we inted to use on it.
-import { animationFrame } from 'rxjs/scheduler/animationFrame';
+import { fromEvent, merge, of, timer, animationFrameScheduler } from 'rxjs';
 
-import { fromEvent } from 'rxjs/observable/fromEvent';
-import { merge } from 'rxjs/observable/merge';
-import { of } from 'rxjs/observable/of';
-import { timer } from 'rxjs/observable/timer';
-
-// import { catchError } from 'rxjs/operators/catch';
-import { tap } from 'rxjs/operators/tap';
-import { debounceTime } from 'rxjs/operators/debounceTime';
-import { filter } from 'rxjs/operators/filter';
-import { map } from 'rxjs/operators/map';
-import { mapTo } from 'rxjs/operators/mapTo';
-import { mergeMap } from 'rxjs/operators/mergeMap';
-import { observeOn } from 'rxjs/operators/observeOn';
-import { pairwise } from 'rxjs/operators/pairwise';
-import { share } from 'rxjs/operators/share';
-import { startWith } from 'rxjs/operators/startWith';
-import { exhaustMap } from 'rxjs/operators/exhaustMap';
-import { switchMap } from 'rxjs/operators/switchMap';
-import { takeUntil } from 'rxjs/operators/takeUntil';
-import { zip } from 'rxjs/operators/zip';
+import {
+  tap,
+  debounceTime,
+  filter,
+  map,
+  mapTo,
+  mergeMap,
+  observeOn,
+  pairwise,
+  share,
+  startWith,
+  exhaustMap,
+  switchMap,
+  takeUntil,
+  zip,
+} from 'rxjs/operators';
 
 // Some of our own helper functions and classes.
 import { animate, empty, getResolvablePromise, hasFeatures, isSafari, isFirefoxIOS }
@@ -449,7 +445,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
     // Once the content has been replaced (or an error occurred, etc), restore `minHeight`.
     merge(after$, progress$, error$)
-      .pipe(observeOn(animationFrame))
+      .pipe(observeOn(animationFrameScheduler))
       .subscribe(() => {
         document.body.style.minHeight = '';
       });
