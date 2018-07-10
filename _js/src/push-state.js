@@ -191,90 +191,91 @@ function defineWebComponent(pushStateEl) {
 // First, we determine if push state is enabled,
 // and if the current user agent meets our requirements.
 if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
-  // ### Setup
-  // We save some variables and setup the DOM:
-  const isStandalone =
-    !!navigator.standalone || window.matchMedia("(display-mode: standalone)").matches;
+  window.requestIdleCallback(() => {
+    // ### Setup
+    // We save some variables and setup the DOM:
+    const isStandalone =
+      !!navigator.standalone || window.matchMedia("(display-mode: standalone)").matches;
 
-  const pushStateEl = document.getElementsByTagName("hy-push-state")[0];
-  const btnBarEl = document.querySelector(".navbar .content .nav-btn-bar");
+    const pushStateEl = document.getElementsByTagName("hy-push-state")[0];
+    const btnBarEl = document.querySelector(".navbar .content .nav-btn-bar");
 
-  const animationMain = setupAnimationMain(pushStateEl);
-  const loading = setupLoading(document.querySelector(".navbar .content"));
+    const animationMain = setupAnimationMain(pushStateEl);
+    const loading = setupLoading(document.querySelector(".navbar .content"));
 
-  // Show a back button when in standalone mode.
-  if (isStandalone) {
-    setupButton(btnBarEl, "_back-template", () => window.history.back());
-  }
+    // Show a back button when in standalone mode.
+    if (isStandalone) {
+      setupButton(btnBarEl, "_back-template", () => window.history.back());
+    }
 
-  // Setting up the basic event observables.
-  // In case of a start event we also add the `flipType` to the context,
-  // so that we can use filter based on it later.
-  const start$ = fromEvent(pushStateEl, "hy-push-state-start").pipe(
-    map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) })),
-    share()
-  );
+    // Setting up the basic event observables.
+    // In case of a start event we also add the `flipType` to the context,
+    // so that we can use filter based on it later.
+    const start$ = fromEvent(pushStateEl, "hy-push-state-start").pipe(
+      map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) })),
+      share()
+    );
 
-  const ready$ = fromEvent(pushStateEl, "hy-push-state-ready").pipe(
-    map(({ detail }) => detail),
-    share()
-  );
+    const ready$ = fromEvent(pushStateEl, "hy-push-state-ready").pipe(
+      map(({ detail }) => detail),
+      share()
+    );
 
-  const after$ = fromEvent(pushStateEl, "hy-push-state-after").pipe(
-    map(({ detail }) => detail),
-    share()
-  );
+    const after$ = fromEvent(pushStateEl, "hy-push-state-after").pipe(
+      map(({ detail }) => detail),
+      share()
+    );
 
-  const progress$ = fromEvent(pushStateEl, "hy-push-state-progress").pipe(
-    map(({ detail }) => detail),
-    share()
-  );
+    const progress$ = fromEvent(pushStateEl, "hy-push-state-progress").pipe(
+      map(({ detail }) => detail),
+      share()
+    );
 
-  const error$ = fromEvent(pushStateEl, "hy-push-state-networkerror").pipe(
-    map(({ detail }) => detail),
-    share()
-  );
+    const error$ = fromEvent(pushStateEl, "hy-push-state-networkerror").pipe(
+      map(({ detail }) => detail),
+      share()
+    );
 
-  // ### Fade main content out
-  // A `start` occurs immediately after a user clicks on a link.
-  // First we get a hold fo the current content.
-  // TODO: Change hy-push-state to provide this as part of the event?
-  const fadeOut$ = start$.pipe(
-    map(context => assign(context, { main: document.getElementById("_main") })),
+    // ### Fade main content out
+    // A `start` occurs immediately after a user clicks on a link.
+    // First we get a hold fo the current content.
+    // TODO: Change hy-push-state to provide this as part of the event?
+    const fadeOut$ = start$.pipe(
+      map(context => assign(context, { main: document.getElementById("_main") })),
 
-    tap(({ main }) => (main.style.pointerEvents = "none")),
+      tap(({ main }) => (main.style.pointerEvents = "none")),
 
-    // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
-    // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
-    exhaustMap(animateFadeOut),
+      // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
+      // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
+      exhaustMap(animateFadeOut),
 
-    // After the animation is complete, we empty the current content and scroll to the top.
-    tap(({ main }) => empty.call(main)),
-    share()
-  );
+      // After the animation is complete, we empty the current content and scroll to the top.
+      tap(({ main }) => empty.call(main)),
+      share()
+    );
 
-  // ### Show loading spinner
-  // Show loading spinner --- but only when fetching takes longer than `DURATION`.
-  progress$.subscribe(() => (loading.style.display = "block"));
+    // ### Show loading spinner
+    // Show loading spinner --- but only when fetching takes longer than `DURATION`.
+    progress$.subscribe(() => (loading.style.display = "block"));
 
-  // ### Prepare showing the new content
-  // The `ready` event occurs when we've received the content from the server
-  // and it is parsed as a document fragment, but before we add it to the DOM.
-  // This is were we can make some changes to the content without triggering repaints.
-  ready$
-    .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
-    .subscribe(({ replaceEls: [main] }) => {
-      main.classList.remove("fade-in");
+    // ### Prepare showing the new content
+    // The `ready` event occurs when we've received the content from the server
+    // and it is parsed as a document fragment, but before we add it to the DOM.
+    // This is were we can make some changes to the content without triggering repaints.
+    ready$
+      .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
+      .subscribe(({ replaceEls: [main] }) => {
+        main.classList.remove("fade-in");
 
-      // FIXME: does `requestAnimationFrame` make sense here?
-      requestAnimationFrame(() => (loading.style.display = "none"));
+        // FIXME: does `requestAnimationFrame` make sense here?
+        requestAnimationFrame(() => (loading.style.display = "none"));
 
-      // FIXME: put on idlecallback scheduler?
-      requestIdleCallback(() =>
-        Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading)
-      );
+        // FIXME: put on idlecallback scheduler?
+        requestIdleCallback(() =>
+          Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading)
+        );
 
-      /*
+        /*
       requestIdleCallback(() => {
         Array.from(main.querySelectorAll(pushStateEl.linkSelector)).forEach(anchor => {
           caches.match(anchor.href).then(m => {
@@ -283,114 +284,115 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
         });
       });
       */
-    });
-
-  after$
-    .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
-    .subscribe(({ replaceEls: [main] }) => {
-      Array.from(main.querySelectorAll('li[id^="fn:"]')).forEach(li => {
-        li.tabIndex = 0;
       });
 
-      Array.from(main.querySelectorAll('a[href^="#fn:"]')).forEach(a =>
-        a.addEventListener("click", e =>
-          document.getElementById(e.currentTarget.hash.substr(1)).focus()
-        )
-      );
+    after$
+      .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
+      .subscribe(({ replaceEls: [main] }) => {
+        Array.from(main.querySelectorAll('li[id^="fn:"]')).forEach(li => {
+          li.tabIndex = 0;
+        });
+
+        Array.from(main.querySelectorAll('a[href^="#fn:"]')).forEach(a =>
+          a.addEventListener("click", e =>
+            document.getElementById(e.currentTarget.hash.substr(1)).focus()
+          )
+        );
+      });
+
+    // ### Fade new content in
+    // `after` new content is added to the DOM, start animating it.
+    const fadeIn$ = after$.pipe(
+      switchMap(animateFadeIn),
+      share()
+    );
+
+    // In addition to fading the main content out,
+    // there's also a FLIP animation playing when clicking certain links.
+    // We set it up here because FLIP animation may do extra work after a `fadeIn` and/or cleanup
+    // work when an error occurs.
+    const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
+      animationMain,
+      settings: SETTINGS,
+    }).pipe(share());
+
+    start$
+      .pipe(
+        map(context => {
+          const promise = getResolvablePromise();
+          context.waitUntil(promise);
+          return promise;
+        }),
+        // Every click starts a timer that lasts as long
+        // as it takes for the FLIP and fade-out animations to complete.
+        switchMap(p => zip(timer(DURATION), fadeOut$, flip$, () => p))
+      )
+      // Once the animation have completed, we resolve the promise so that hy-push-state continues.
+      .subscribe(p => p.resolve());
+
+    // FIXME: Keeping permanent subscription? turn into hot observable?
+    fadeOut$.subscribe();
+    flip$.subscribe();
+
+    // ### Cross-fade the sidebar image
+    // The cross fader has some internal state, i.e. it keeps track of DOM nodes,
+    // so it is implemented as a class.
+    const crossFader = new CrossFader(FADE_DURATION);
+
+    // There is no point in swapping out the image while it is still loading, so we only start
+    // fetching the sidebar image `after` the new content was added to the DOM.
+    // However, we also want to gurantee that we don't start cross-fading the image
+    // while the fade-in animation is still playing, so we wait for `fadeIn`.
+    // Also, we want to abort fetching the image whne the user has already `start`ed another request.
+    // TODO: Maybe only abort `after` it becomes clear that the new site
+    // is using a different background image?
+    after$
+      .pipe(
+        switchMap(({ replaceEls: [main] }) =>
+          zip(crossFader.fetchImage(main), fadeIn$, x => x).pipe(takeUntil(start$))
+        ),
+
+        // Once we have both images, we take them `pairwise` and cross-fade.
+        // We start with the initial sidebar image, which was part of HTML content.
+        // Here we use `mergeMap`, because in edge cases there could be 3 or more images
+        // being faded at the same time, but there is no reason to cancel the old ones.
+        startWith([document.querySelector(".sidebar-bg")]),
+        pairwise(),
+        mergeMap(([prev, curr]) => crossFader.fade(prev, curr))
+      )
+      .subscribe();
+
+    // ### Upgrade math blocks
+    // Once the content is faded in, upgrade the math blocks with KaTeX.
+    // This can take a while and will trigger multiple repaints,
+    // so we don't want to start until after the animation.
+    fadeIn$.subscribe(() => {
+      upgradeMathBlocks();
+      loadDisqus();
     });
 
-  // ### Fade new content in
-  // `after` new content is added to the DOM, start animating it.
-  const fadeIn$ = after$.pipe(
-    switchMap(animateFadeIn),
-    share()
-  );
+    // ### Show error page
+    // In case of a network error, we don't want to show the browser's default offline page.
+    error$
+      .pipe(
+        switchMap(({ url }) => {
+          loading.style.display = "none";
 
-  // In addition to fading the main content out,
-  // there's also a FLIP animation playing when clicking certain links.
-  // We set it up here because FLIP animation may do extra work after a `fadeIn` and/or cleanup
-  // work when an error occurs.
-  const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
-    animationMain,
-    settings: SETTINGS,
-  }).pipe(share());
+          const main = document.getElementById("_main");
+          main.style.pointerEvents = "";
+          empty.call(animationMain.querySelector(".page"));
+          empty.call(main);
 
-  start$
-    .pipe(
-      map(context => {
-        const promise = getResolvablePromise();
-        context.waitUntil(promise);
-        return promise;
-      }),
-      // Every click starts a timer that lasts as long
-      // as it takes for the FLIP and fade-out animations to complete.
-      switchMap(p => zip(timer(DURATION), fadeOut$, flip$, () => p))
-    )
-    // Once the animation have completed, we resolve the promise so that hy-push-state continues.
-    .subscribe(p => p.resolve());
+          setupErrorPage(main, url);
 
-  // FIXME: Keeping permanent subscription? turn into hot observable?
-  fadeOut$.subscribe();
-  flip$.subscribe();
+          return animate(main, FADE_IN, SETTINGS);
+        })
+      )
+      .subscribe();
 
-  // ### Cross-fade the sidebar image
-  // The cross fader has some internal state, i.e. it keeps track of DOM nodes,
-  // so it is implemented as a class.
-  const crossFader = new CrossFader(FADE_DURATION);
-
-  // There is no point in swapping out the image while it is still loading, so we only start
-  // fetching the sidebar image `after` the new content was added to the DOM.
-  // However, we also want to gurantee that we don't start cross-fading the image
-  // while the fade-in animation is still playing, so we wait for `fadeIn`.
-  // Also, we want to abort fetching the image whne the user has already `start`ed another request.
-  // TODO: Maybe only abort `after` it becomes clear that the new site
-  // is using a different background image?
-  after$
-    .pipe(
-      switchMap(({ replaceEls: [main] }) =>
-        zip(crossFader.fetchImage(main), fadeIn$, x => x).pipe(takeUntil(start$))
-      ),
-
-      // Once we have both images, we take them `pairwise` and cross-fade.
-      // We start with the initial sidebar image, which was part of HTML content.
-      // Here we use `mergeMap`, because in edge cases there could be 3 or more images
-      // being faded at the same time, but there is no reason to cancel the old ones.
-      startWith([document.querySelector(".sidebar-bg")]),
-      pairwise(),
-      mergeMap(([prev, curr]) => crossFader.fade(prev, curr))
-    )
-    .subscribe();
-
-  // ### Upgrade math blocks
-  // Once the content is faded in, upgrade the math blocks with KaTeX.
-  // This can take a while and will trigger multiple repaints,
-  // so we don't want to start until after the animation.
-  fadeIn$.subscribe(() => {
-    upgradeMathBlocks();
-    loadDisqus();
+    // ### Create the component
+    // If we have Custom Elements, use the WebComponent (it doesn't use ShadowDOM, so we are fine),
+    // otherwise use the vanilla JS version.
+    window._pushState = defineWebComponent(pushStateEl);
   });
-
-  // ### Show error page
-  // In case of a network error, we don't want to show the browser's default offline page.
-  error$
-    .pipe(
-      switchMap(({ url }) => {
-        loading.style.display = "none";
-
-        const main = document.getElementById("_main");
-        main.style.pointerEvents = "";
-        empty.call(animationMain.querySelector(".page"));
-        empty.call(main);
-
-        setupErrorPage(main, url);
-
-        return animate(main, FADE_IN, SETTINGS);
-      })
-    )
-    .subscribe();
-
-  // ### Create the component
-  // If we have Custom Elements, use the WebComponent (it doesn't use ShadowDOM, so we are fine),
-  // otherwise use the vanilla JS version.
-  window._pushState = defineWebComponent(pushStateEl);
 }
