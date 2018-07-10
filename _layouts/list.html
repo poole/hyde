@@ -22,17 +22,7 @@
 layout: base
 ---
 
-{% assign category = site.featured_categories | where: "slug", page.slug | first %}
-{% if category %}
-  {% assign posts = site.categories[page.slug] %}
-{% else %}
-  {% assign tag = site.featured_tags | where: "slug", page.slug | first %}
-  {% if tag %}
-    {% assign posts = site.tags[page.slug] %}
-  {% else %}
-    {% assign posts = site.posts %}
-  {% endif %}
-{% endif %}
+{% assign posts = site.categories[page.slug] | default:site.tags[page.slug] | default:site.posts %}
 
 {% if page.title.size > 0 %}
   <header>
