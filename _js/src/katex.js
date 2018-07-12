@@ -49,18 +49,14 @@ export const upgradeMathBlocks = !featuresOk
         if (katexJSLoaded && katexCSSLoaded) {
           Array.from(mathBlocks).forEach(renderKatex);
         } else {
-          window
-            .loadJS(document.getElementById("_hrefKatexJS").href)
-            .addEventListener("load", () => {
-              katexJSLoaded = true;
-              if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-            });
-          window
-            .loadCSS(document.getElementById("_hrefKatexCSS").href)
-            .addEventListener("load", () => {
-              katexCSSLoaded = true;
-              if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-            });
+          loadJS(document.getElementById("_hrefKatexJS").href).addEventListener("load", () => {
+            katexJSLoaded = true;
+            if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
+          });
+          loadCSS(document.getElementById("_hrefKatexCSS").href).addEventListener("load", () => {
+            katexCSSLoaded = true;
+            if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
+          });
         }
       }
     };

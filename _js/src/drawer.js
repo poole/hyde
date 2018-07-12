@@ -78,7 +78,6 @@ function calcDrawerWidthDynamic() {
   return document.body.clientWidth / 2 - R_28 * rem();
 }
 
-// ## Functions
 const subscribeWhen = p$ => source => {
   if (process.env.DEBUG && !p$) throw Error();
   return p$.pipe(switchMap(p => (p ? source : never())));
@@ -113,7 +112,7 @@ function setupIcon() {
     svg.src = img.href;
     svg.alt = "Swipe image";
     svg.addEventListener("click", () => window._drawer.close());
-    requestAnimationFrame(() => document.getElementById("_sidebar").appendChild(svg));
+    document.getElementById("_sidebar").appendChild(svg);
   }
 }
 
@@ -129,7 +128,7 @@ function removeIcon() {
 // Note that the UC Browser has even more invasive native swipe gestures than iOS Safari,
 // so we disable the component alltogether.
 if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
-  window.requestIdleCallback(() => {
+  requestIdleCallback(() => {
     // First we get hold of some DOM elements.
     const drawerEl = document.getElementsByTagName("hy-drawer")[0];
     const menuEl = document.getElementById("_menu");
@@ -242,7 +241,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
       // We need the height of the darwer in case we need to reset the scroll position
       let drawerHeight;
-      if (!opened) drawerHeight = drawerEl.getBoundingClientRect().height;
+      if (!opened) {
+        drawerHeight = drawerEl.getBoundingClientRect().height;
+      }
 
       drawerEl.addEventListener(
         "hy-drawer-init",
@@ -258,7 +259,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
           // The drawer height is `100vh` before the drawer is initialized and is now set to 0.
           // We remove `innerHeight` from the old scroll position to prevent the content form "jumping".
-          if (!opened && scrollTop >= drawerHeight) window.scrollTo(0, scrollTop - drawerHeight);
+          if (!opened && scrollTop >= drawerHeight) {
+            window.scrollTo(0, scrollTop - drawerHeight);
+          }
         },
         { once: true }
       );
@@ -266,15 +269,18 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       // HACK
       let firstRun = true;
       dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
-        if (firstRun) updateSidebar(dist, opened ? 1 : 0, isDesktop), (firstRun = false);
-        else updateSidebar(dist, drawerEl.opacity, isDesktop);
+        if (firstRun) {
+          firstRun = false;
+          updateSidebar(dist, opened ? 1 : 0, isDesktop);
+        } else {
+          updateSidebar(dist, drawerEl.opacity, isDesktop);
+        }
       });
 
       // Now we create the component.
       window._drawer = defineWebComponent(drawerEl, opened);
     }
 
-    // Quick helper function to prevent repeat code.
     function updateSidebar(dist, opacity, isDesktop) {
       const t = 1 - opacity;
       if (hasCSSOM) {

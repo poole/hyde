@@ -19,9 +19,9 @@ import "core-js/fn/function/bind";
 
 import Color from "color";
 
-import { empty, fromEvent, never, of } from "rxjs";
+import { empty, of } from "rxjs";
 import { ajax } from "rxjs/ajax";
-import { catchError, finalize, take, map } from "rxjs/operators";
+import { catchError, finalize, map } from "rxjs/operators";
 
 import elemDataset from "elem-dataset";
 

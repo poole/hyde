@@ -40,7 +40,6 @@ import { fromEvent, merge, of, timer, zip } from "rxjs";
 import {
   tap,
   exhaustMap,
-  filter,
   map,
   mapTo,
   mergeMap,
@@ -191,7 +190,7 @@ function defineWebComponent(pushStateEl) {
 // First, we determine if push state is enabled,
 // and if the current user agent meets our requirements.
 if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
-  window.requestIdleCallback(() => {
+  requestIdleCallback(() => {
     // ### Setup
     // We save some variables and setup the DOM:
     const isStandalone =
