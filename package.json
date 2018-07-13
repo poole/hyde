@@ -45,7 +45,7 @@
     "core-js": "^2.5.7",
     "elem-dataset": "^1.1.1",
     "hy-drawer": "^1.0.0-pre.22",
-    "hy-img": "^1.0.0-hydejack.8",
+    "hy-img": "^1.0.0-hydejack.9",
     "hy-push-state": "^1.0.0-pre.22",
     "intersection-observer": "^0.5.0",
     "rxjs": "^6.2.1",

@@ -77,23 +77,23 @@ You can make an image span the full width by adding the `lead` class.
 
 Example:
 
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead data-width="800" data-height="100"}
 
 Markdown:
 ~~~markdown
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead data-width="800" data-height="100"}
 ~~~
 
 ## Adding image captions
 You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
 
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead data-width="800" data-height="100"}
 A caption for an image.
 {:.figure}
 
 Markdown:
 ~~~md
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead data-width="800" data-height="100"}
 A caption for an image.
 {:.figure}
 ~~~
@@ -102,7 +102,7 @@ For better semantics, you can also use the `figure`/`figcaption` HTML5 tags:
 
 ```html
 <figure>
-  <img alt="An image with a caption" src="https://placehold.it/800x50" class="lead" width="800" height="50" />
+  <img alt="An image with a caption" src="https://placehold.it/800x100" class="lead" data-width="800" data-height="100" />
   <figcaption>A caption to an image.</figcaption>
 </figure>
 ```

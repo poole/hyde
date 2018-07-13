@@ -24,9 +24,8 @@ title:                 Hydejack
 # A short description (~150 chars) of the page used for the meta description tag.
 # Can use markdown, but no more than one paragraph (enforced by `>`)
 description:           >
-  Hydejack is Jekyll theme with JavaScript powers.
-  It has been called the "Best [Jekyll] Theme by a Mile".
-  Hundreds of hackers and scientists use it for their personal sites.
+  **Hydejack** is your presence on the web.
+  It features a blog, a portfolio, and a resume.
   Open `_config.yml` to edit this text.
 
 # A shorter description for the sidebar.
