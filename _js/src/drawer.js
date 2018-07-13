@@ -25,7 +25,7 @@ import "core-js/fn/function/bind";
 // Since they share most of their code, it's not a big deal in terms of file size.
 import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
 
-import { Observable, fromEvent, never } from "rxjs";
+import { Observable, fromEvent, NEVER } from "rxjs";
 
 import {
   distinctUntilChanged,
@@ -80,7 +80,7 @@ function calcDrawerWidthDynamic() {
 
 const subscribeWhen = p$ => source => {
   if (process.env.DEBUG && !p$) throw Error();
-  return p$.pipe(switchMap(p => (p ? source : never())));
+  return p$.pipe(switchMap(p => (p ? source : NEVER)));
 };
 
 // Determins the range from which to draw the drawer in pixels, counted from the left edge.
