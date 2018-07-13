@@ -36,7 +36,7 @@ import {
   Set,
 } from "hy-push-state/src/webcomponent";
 
-import { fromEvent, merge, of, timer, zip } from "rxjs";
+import { fromEvent, merge, timer, zip } from "rxjs";
 import {
   tap,
   exhaustMap,
@@ -52,7 +52,7 @@ import {
 } from "rxjs/operators";
 
 // Some of our own helper functions and classes.
-import { animate, empty, getResolvablePromise, hasFeatures, isFirefoxIOS } from "./common";
+import { animate, empty, hasFeatures, isFirefoxIOS } from "./common";
 import { CrossFader } from "./cross-fader";
 import { upgradeMathBlocks } from "./katex";
 import { loadDisqus } from "./disqus";
@@ -101,9 +101,6 @@ const SETTINGS = {
 
 // A CSS selector for headlines with ids.
 const HEADING_SELECTOR = "h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]";
-
-// We also setup some shorthands:
-const assign = Object.assign.bind(Object);
 
 // ## Functions
 // Takes a heading and adds a "#" link for permalinks:
@@ -211,7 +208,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // In case of a start event we also add the `flipType` to the context,
     // so that we can use filter based on it later.
     const start$ = fromEvent(pushStateEl, "hy-push-state-start").pipe(
-      map(({ detail }) => assign(detail, { flipType: getFlipType(detail.anchor) })),
+      map(({ detail }) => Object.assign(detail, { flipType: getFlipType(detail.anchor) })),
       share()
     );
 
@@ -240,7 +237,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // First we get a hold fo the current content.
     // TODO: Change hy-push-state to provide this as part of the event?
     const fadeOut$ = start$.pipe(
-      map(context => assign(context, { main: document.getElementById("_main") })),
+      map(context => Object.assign(context, { main: document.getElementById("_main") })),
 
       tap(({ main }) => (main.style.pointerEvents = "none")),
 
@@ -317,17 +314,13 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
     start$
       .pipe(
-        map(context => {
-          const promise = getResolvablePromise();
-          context.waitUntil(promise);
+        switchMap(context => {
+          const promise = zip(timer(DURATION), fadeOut$, flip$).toPromise();
+          context.transitionUntil(promise);
           return promise;
-        }),
-        // Every click starts a timer that lasts as long
-        // as it takes for the FLIP and fade-out animations to complete.
-        switchMap(p => zip(timer(DURATION), fadeOut$, flip$, () => p))
+        })
       )
-      // Once the animation have completed, we resolve the promise so that hy-push-state continues.
-      .subscribe(p => p.resolve());
+      .subscribe();
 
     // FIXME: Keeping permanent subscription? turn into hot observable?
     fadeOut$.subscribe();

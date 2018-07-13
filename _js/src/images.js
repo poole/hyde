@@ -16,7 +16,7 @@
 
 import "core-js/fn/array/for-each";
 
-import { HyImageElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-img/src/webcomponent";
+import { HyImageElement, WEBCOMPONENT_FEATURE_TESTS } from "hy-img/src/webcomponent";
 
 import { hasFeatures } from "./common";
 
