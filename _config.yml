@@ -191,7 +191,7 @@ hydejack:
   # Only use if you know what Service Workers are and how they can impact your site!
   # Coding skills highly recommended.
   offline:
-    enabled:           false
+    enabled:           true
     cache_version:     1
 
 # Collections
