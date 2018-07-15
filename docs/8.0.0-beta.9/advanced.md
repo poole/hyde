@@ -35,24 +35,32 @@ importScripts("{\{ '/assets/js/sw.js' | relative_url }\}?t={\{ site.time | date_
 
 [sw]: https://github.com/qwtel/hydejack/blob/v8/sw.js
 
-This will load the main service worker code from your assets folder. The `site.time` part is necessary to make the service worker "byte different" to trigger a reload every time you create a new build of your site.
+This will load the main service worker script from Hydejack's assets. The `site.time` part is necessary to make the service worker "byte different" every time you create a new build of your site, which triggers an update.
 
 In your `config.yml` under the `hydejack` key, add the following:
 
 ```yml
-hydejack:
-  offline:
-    enabled: true
-    cache_version: 1
+offline:
+  enabled: true
+  cache_version: 1
 ```
 
-***
+The current implementation does not cache resources from external domains. There is now way of knowing if external sites conform to the conditions mentioned above, hence caching can be problematic and result in unexpected behavior.
 
-Just to be save, the current implementation will not cache resources from other domains. If you link to an image that is hosted on another domain and you would like it to be available offline, add the `sw-cache` query parameter to the URL, e.g. `https://upload.wikimedia.org/wikipedia/commons/b/b1/57_Chevy_210.jpg?sw-cache`.
+For example, Google Analytics uses GET requests to send page views, each of which would be cached by the service worker without this policy. Frequently updating images, such as badges would never change.
 
-Note that images stored in this way will not be updated, even if the version on the remote server changes!
+![Gem Version][gemv]
 
-***
+However, if you include resources that are hosted on another domain and don't change, you can add the `sw-cache` query parameter to the URL, e.g.
+
+    https://upload.wikimedia.org/wikipedia/commons/b/b1/57_Chevy_210.jpg?sw-cache
+
+This will cause them to be cached like resources from the assets folder.
+
+[gemv]: https://badge.fury.io/rb/jekyll-theme-hydejack.svg
+
+
+### How offline storage works
 
 Hydejack's custom service worker implementation stores files for offline use on three different levels:
 
@@ -61,10 +69,10 @@ Shell
   If you made changes to any of these after enabling offline support, you must force an update by bumping the `cache_version` number in the config file.
 
 Assets
-: *These are presumed to be immutable.* In other words, every file is cached indefinitely. E.g.: If you want to update an image after enabling offline support, add the image to `assets` under a different name and change the link in the content! Alternatively, you can bump the `cache_version`, but this will remove all the other cached files from the asset cache.
+: *These are presumed to be immutable.* In other words, every file is cached indefinitely. E.g.: If you want to update an image after enabling offline support, add the image under a different name and change the link in the content. Alternatively, you can bump the `cache_version`, but this will remove all other cached files from the asset cache.
 
 Content
-: The content cache exploits the fact that content can't change between builds, so that it can be stored for offline use until you upload a new build. For now, the entire content cache is discarded every time you publish a new post (future versions could cache them based on last modified dates, but that has)
+: The content cache exploits the fact that your content can't change between builds, so that it can be stored for offline use until you upload a new build. For now, the entire content cache is discarded every time you publish new content (future versions could cache them based on last modified dates).
 
 Other things to note are that the implementation will always cache the pages listed under `legal`, as well as the `404.html` page, which will be shown when the user is offline.
 
