@@ -1,0 +1,265 @@
+html, body {
+  margin: 0;
+  background-color: #000;
+}
+
+canvas {
+	cursor: crosshair;
+	display: block;
+}
+.above-fold {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin: 0;
+  -webkit-perspective: 800px;
+          perspective: 800px;
+  -webkit-perspective-origin: 50% 200px;
+          perspective-origin: 50% 200px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+.above-fold .info-text {
+  width: 100%;
+  display: block;
+  text-align: center;
+  margin: 0;
+  padding: 0;
+  color: #555;
+  font-family: 'Avenir';
+  font-weight: 100;
+  font-size: 13px;
+  height: 25px;
+  align-self: flex-end;
+}
+
+.wrap-present {
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+}
+
+.present-box {
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  -webkit-animation: rotate 11s alternate linear infinite;
+          animation: rotate 11s alternate linear infinite;
+  cursor: pointer;
+}
+.present-box:hover {
+  -webkit-animation: staticFront 700ms ease forwards;
+          animation: staticFront 700ms ease forwards;
+}
+.present-box.open {
+  /*&>.side.top{
+      opacity: .2;
+  }*/
+  -webkit-animation: zoomIn 1s ease-in forwards;
+          animation: zoomIn 1s ease-in forwards;
+  -webkit-transform: rotateX(-103deg) rotateY(-180deg);
+          transform: rotateX(-103deg) rotateY(-180deg);
+  transition: -webkit-transform 400ms;
+  transition: transform 400ms;
+  transition: transform 400ms, -webkit-transform 400ms;
+}
+.present-box.open .present {
+  pointer-events: auto;
+  visibility: visible;
+}
+.present-box.open .present .img-wrap {
+  opacity: 1;
+  transition: opacity 800ms 200ms, -webkit-transform 600ms 800ms;
+  transition: transform 600ms 800ms, opacity 800ms 200ms;
+  transition: transform 600ms 800ms, opacity 800ms 200ms, -webkit-transform 600ms 800ms;
+  -webkit-transform: translateZ(0px);
+          transform: translateZ(0px);
+}
+.present-box.open > .side {
+  opacity: .3;
+  transition: opacity 500ms 600ms;
+}
+.present-box.open > .side.back {
+  opacity: 0.7;
+  -webkit-transform: translateZ(-101px) rotateY(180deg);
+          transform: translateZ(-101px) rotateY(180deg);
+}
+.present-box.open > .side.front {
+  transition: opacity 500ms 600ms, -webkit-transform 800ms 0s;
+  transition: transform 800ms 0s, opacity 500ms 600ms;
+  transition: transform 800ms 0s, opacity 500ms 600ms, -webkit-transform 800ms 0s;
+  -webkit-transform: translateZ(100px) rotateY(190deg) translateX(0px);
+          transform: translateZ(100px) rotateY(190deg) translateX(0px);
+  -webkit-transform-origin: 0% 0%;
+          transform-origin: 0% 0%;
+  opacity: 0.3;
+}
+
+.present-box .present {
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  z-index: 50;
+  -webkit-transform: rotateY(-180deg) rotateX(180deg) translateZ(-100px);
+          transform: rotateY(-180deg) rotateX(180deg) translateZ(-100px);
+  display: flex;
+  -webkit-perspective: 600px;
+          perspective: 600px;
+  pointer-events: none;
+  visibility: hidden;
+}
+.present-box .present > .img-wrap {
+  width: 200px;
+  align-self: center;
+  transition: -webkit-transform 400ms;
+  transition: transform 400ms;
+  transition: transform 400ms, -webkit-transform 400ms;
+  opacity: 0;
+  -webkit-transform: translateZ(-80px);
+          transform: translateZ(-80px);
+}
+.present-box .present > .img-wrap a {
+  transition: -webkit-transform 300ms;
+  transition: transform 300ms;
+  transition: transform 300ms, -webkit-transform 300ms;
+  position: relative;
+  display: block;
+  -webkit-transform: scale(0.94);
+          transform: scale(0.94);
+}
+.present-box .present > .img-wrap a:hover {
+  -webkit-transform: scale(1);
+          transform: scale(1);
+}
+.present-box .present > .img-wrap img {
+  max-width: 100%;
+  height: auto;
+}
+
+.present-box > .side {
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  display: block;
+  background: repeating-linear-gradient(45deg, #cc2000, #cc2000 20px, #ffffff 20px, #ffffff 40px);
+  top: 0;
+  left: 0;
+  transition: -webkit-transform 400ms;
+  transition: transform 400ms;
+  transition: transform 400ms, -webkit-transform 400ms;
+}
+.present-box > .side.back {
+  -webkit-transform: translateZ(-100px) rotateY(180deg);
+          transform: translateZ(-100px) rotateY(180deg);
+}
+.present-box > .side.right {
+  -webkit-transform: rotateY(-270deg) translateX(100px);
+          transform: rotateY(-270deg) translateX(100px);
+  -webkit-transform-origin: top right;
+          transform-origin: top right;
+}
+.present-box > .side.left {
+  -webkit-transform: rotateY(270deg) translateX(-100px);
+          transform: rotateY(270deg) translateX(-100px);
+  -webkit-transform-origin: center left;
+          transform-origin: center left;
+}
+.present-box > .side.top {
+  -webkit-transform: rotateX(-90deg) translateY(-100px);
+          transform: rotateX(-90deg) translateY(-100px);
+  -webkit-transform-origin: top center;
+          transform-origin: top center;
+  -webkit-transform-style: preserve-3d;
+          transform-style: preserve-3d;
+  -webkit-perspective: 100px;
+          perspective: 100px;
+  text-align: center;
+}
+.present-box > .side.top .to {
+  display: inline-block;
+  font-family: cursive;
+  position: relative;
+  padding: 10px 10px 30px 10px;
+  border: 5px dotted #ff6666;
+  border-width: 2px;
+  background: #fff;
+  margin: auto;
+  -webkit-transform: translateZ(-2px) translateY(50px);
+          transform: translateZ(-2px) translateY(50px);
+}
+.present-box > .side.top .to:after {
+  content: 'Happy Birthday';
+  display: inline-block;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+  color: #990000;
+}
+.present-box > .side.top .to .name {
+  display: block;
+  position: absolute;
+  -webkit-transform: translateY(20px) rotateY(180deg) translateX(10px);
+          transform: translateY(20px) rotateY(180deg) translateX(10px);
+  text-align: center;
+  width: 100%;
+  font-size: 1.1rem;
+  color: green;
+}
+.present-box > .side.bottom {
+  -webkit-transform: rotateX(90deg) translateY(100px);
+          transform: rotateX(90deg) translateY(100px);
+  -webkit-transform-origin: bottom center;
+          transform-origin: bottom center;
+}
+.present-box > .side.front {
+  -webkit-transform: translateZ(100px);
+          transform: translateZ(100px);
+}
+
+@-webkit-keyframes rotate {
+  100% {
+    -webkit-transform: rotateY(-360deg) rotateX(180deg);
+            transform: rotateY(-360deg) rotateX(180deg);
+  }
+}
+
+@keyframes rotate {
+  100% {
+    -webkit-transform: rotateY(-360deg) rotateX(180deg);
+            transform: rotateY(-360deg) rotateX(180deg);
+  }
+}
+@-webkit-keyframes staticFront {
+  100% {
+    -webkit-transform: rotateX(-100deg) rotateY(-180deg);
+            transform: rotateX(-100deg) rotateY(-180deg);
+  }
+}
+@keyframes staticFront {
+  100% {
+    -webkit-transform: rotateX(-100deg) rotateY(-180deg);
+            transform: rotateX(-100deg) rotateY(-180deg);
+  }
+}
+@-webkit-keyframes zoomIn {
+  50% {
+    -webkit-transform: rotateX(-143deg) rotateY(-180deg) translateZ(-15px);
+            transform: rotateX(-143deg) rotateY(-180deg) translateZ(-15px);
+  }
+  100% {
+    -webkit-transform: rotateX(-167deg) rotateY(-180deg) translateZ(-15px) scale(1.2);
+            transform: rotateX(-167deg) rotateY(-180deg) translateZ(-15px) scale(1.2);
+  }
+}
+@keyframes zoomIn {
+  50% {
+    -webkit-transform: rotateX(-143deg) rotateY(-180deg) translateZ(-15px);
+            transform: rotateX(-143deg) rotateY(-180deg) translateZ(-15px);
+  }
+  100% {
+    -webkit-transform: rotateX(-167deg) rotateY(-180deg) translateZ(-15px) scale(1.2);
+            transform: rotateX(-167deg) rotateY(-180deg) translateZ(-15px) scale(1.2);
+  }
+}

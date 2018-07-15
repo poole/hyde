@@ -1,0 +1,217 @@
+html, body {
+  margin: 0;
+}
+
+.above-fold {
+  height: 100vh;
+  width: 100vw;
+  padding: 0;
+  margin:0;
+  perspective:800px;
+	perspective-origin: 50% 200px;
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+
+
+  .info-text{
+    width: 100%;
+    display: block;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #555;
+    font-family: 'Avenir';
+    font-weight: 100;
+    font-size: 13px;
+    height: 25px;
+    align-self: flex-end;
+  }
+}
+.wrap-present{
+  width: 100%;
+  display: flex;
+  align-self: flex-end;
+}
+
+.present-box{
+  transform-style: preserve-3d;
+  width: 200px;
+  height: 200px;
+  margin: auto;
+  animation: rotate 11s alternate linear infinite;
+  cursor: pointer;
+
+
+  &:hover{
+    animation: staticFront 700ms ease forwards;
+
+  }
+
+  &.open{
+    .present{
+      pointer-events: auto;
+      visibility: visible;
+
+      .img-wrap{
+        opacity: 1;
+        transition: transform 600ms 800ms, opacity 800ms 200ms;
+        transform: translateZ(0px);
+      }
+    }
+    &>.side {
+      opacity: .3;
+      transition: opacity 500ms 600ms;
+    }
+    &>.side.back{
+      opacity: 0.7;
+      transform: translateZ(-101px) rotateY(180deg);
+
+    }
+    /*&>.side.top{
+        opacity: .2;
+    }*/
+    &>.side.front{
+      transition: transform 800ms 0s, opacity 500ms 600ms;
+      transform: translateZ(100px) rotateY(190deg) translateX(0px);
+      transform-origin: 0% 0%;
+      opacity: 0.3;
+    }
+    animation: zoomIn 1s ease-in forwards;
+    transform: rotateX(-103deg) rotateY(-180deg);
+    transition: transform 400ms;
+  }
+
+}
+.present-box .present{
+  position: absolute;
+  width: 200px;
+  height: 200px;
+  z-index: 50;
+  transform: rotateY(-180deg) rotateX(180deg) translateZ(-100px);
+  display: flex;
+  perspective: 600px;
+  pointer-events: none;
+  visibility: hidden;
+
+
+  &>.img-wrap{
+    width: 200px;
+    align-self: center;
+    transition: transform 400ms;
+    opacity: 0;
+    transform: translateZ(-80px);
+    a {
+      transition: transform 300ms;
+      position: relative;
+      display: block;
+      transform: scale(0.94);
+      &:hover{
+        transform: scale(1);
+      }
+    }
+
+    img{
+      max-width: 100%;
+      height: auto;
+    }
+
+  }
+}
+.present-box > .side{
+  width: 200px;
+  height: 200px;
+  position: absolute;
+  display: block;
+  background: repeating-linear-gradient(
+    45deg,
+    #cc2000,
+    #cc2000 20px,
+    #ffffff 20px,
+    #ffffff 40px
+  );
+
+  top: 0;
+  left: 0;
+  transition: transform 400ms;
+
+  &.back {
+    transform: translateZ(-100px) rotateY(180deg);
+  }
+  &.right {
+    transform: rotateY(-270deg) translateX(100px);
+    transform-origin: top right;
+  }
+  &.left {
+    transform: rotateY(270deg) translateX(-100px);
+    transform-origin: center left;
+  }
+  &.top {
+    transform: rotateX(-90deg) translateY(-100px);
+    transform-origin: top center;
+    transform-style: preserve-3d;
+    perspective: 100px;
+    text-align: center;
+
+
+    .to{
+
+      &:after{
+        content: 'Happy Birthday';
+        display: inline-block;
+        transform: rotateY(180deg);
+        color: darken(red, 20%);
+
+      }
+
+      display: inline-block;
+      font-family: cursive;
+      position: relative;
+      padding: 10px 10px 30px 10px;
+      border: 5px dotted lighten(red, 20%);
+      border-width: 2px;
+      background: #fff;
+      margin: auto;
+      transform: translateZ(-2px) translateY(50px);
+
+      .name{
+        display: block;
+        position: absolute;
+        transform: translateY(20px) rotateY(180deg) translateX(10px);
+        text-align: center;
+        width: 100%;
+        font-size: 1.1rem;
+        color: green;
+      }
+    }
+
+  }
+  &.bottom {
+    transform: rotateX(90deg) translateY(100px);
+    transform-origin: bottom center;
+  }
+  &.front {
+    transform: translateZ(100px);
+  }
+
+
+}
+
+@keyframes rotate{
+  100% {
+    transform: rotateY(-360deg) rotateX(180deg);
+  }
+}
+@keyframes staticFront {
+  100%{
+    transform: rotateX(-100deg) rotateY(-180deg);
+  }
+}
+@keyframes zoomIn {
+  50%{
+    transform: rotateX(-143deg) rotateY(-180deg) translateZ(-15px);
+  }
+  100%{
+    transform: rotateX(-167deg) rotateY(-180deg) translateZ(-15px) scale(1.2);
+  }
+}
