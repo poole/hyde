@@ -1,0 +1,22 @@
+{% unless page.redirect %}
+  <!--[if gt IE 9]><!---->
+  <script>window.loadJSDeferred(document.getElementById('_hrefJS').href);</script>
+  {% include my-scripts.html %}
+  <!--<![endif]-->
+
+  {% include body/analytics.html %}
+
+  <script>
+    if ('serviceWorker' in navigator) {
+      {% if site.hydejack.offline.enabled %}
+        navigator.serviceWorker.register('{{ "sw.js" | relative_url }}')
+          .then(r => r.update())
+          .catch(() => {});
+      {% else %}
+        navigator.serviceWorker.getRegistration()
+          .then(r => r.unregister())
+          .catch(() => {});
+      {% endif %}
+    }
+  </script>
+{% endunless %}

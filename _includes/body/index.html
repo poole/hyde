@@ -1,0 +1,22 @@
+{% include body/menu.html %}
+
+<hy-push-state
+  replace-ids="_main"
+  link-selector="a[href]:not([href*='/assets/']):not(.external):not(.no-push-state)"
+  duration="250"
+  script-selector="script:not([type^='math/tex'])"
+  prefetch
+>
+  {% if page.cover %}
+    {% include body/sidebar.html %}
+    {% include body/main.html %}
+  {% else %}
+    {% include body/main.html %}
+    {% include body/sidebar.html %}
+  {% endif %}
+</hy-push-state>
+
+{% include body/scripts.html %}
+{% include my-body.html %}
+
+{% include templates/index.html %}

@@ -6,11 +6,10 @@ const rxPaths = require('rxjs/_esm5/path-mapping');
 const {
   BannerPlugin,
   EnvironmentPlugin,
-  optimize: { UglifyJsPlugin, ModuleConcatenationPlugin },
 } = require('webpack');
 
 const merge = require('webpack-merge');
-const { argv: { env } } = require('yargs');
+const { argv: { mode } } = require('yargs');
 
 const { name: filename, version } = require('./package.json');
 
@@ -19,13 +18,12 @@ const banner = readFileSync(resolve('./_includes/header.txt'), 'utf-8');
 const flatten = [(a, x) => a.concat(x), []];
 
 function envConfig() {
-  switch (env) {
-    case 'prod':
+  switch (mode) {
+    case 'production':
       return {
         plugins: [
           new BannerPlugin({ banner, raw: true }),
           new EnvironmentPlugin({ DEBUG: false }),
-          new UglifyJsPlugin(),
         ],
       };
 
@@ -54,10 +52,6 @@ module.exports = merge(
             babelrc: false,
           },
         },
-        {
-          test: /\.css$/,
-          use: ['style-loader', 'css-loader']
-        },
       ],
     },
     resolve: {
@@ -70,7 +64,6 @@ module.exports = merge(
       symlinks: true,
       alias: rxPaths(),
     },
-    plugins: [new ModuleConcatenationPlugin()],
   },
-  envConfig(),
+  envConfig()
 );

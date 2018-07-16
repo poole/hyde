@@ -18,12 +18,14 @@
 
 {% assign disqus = site.disqus | default:site.disqus_shortname %}
 {% if disqus %}
-<link id="_disqusJS" rel="dns-prefetch" href="https://{{ disqus }}.disqus.com/embed.js">
+<link rel="dns-prefetch" href="https://{{ disqus }}.disqus.com" id="_hrefDisqus">
 {% endif %}
 
 {% comment %}<!--
-The links below are here so that we can use their `href` in JS (see `_js/src/katex.js`).
-This way, CDN optimizers or other tools can modify the URL and we avoid hard-coding it in JavaScript.
+  This is to avoid hard-coding URLs in JS (where they can't be discovered by automated tools).
 -->{% endcomment %}
-<link id="_katexJS"  rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'  | relative_url }}">
-<link id="_katexCSS" rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css' | relative_url }}">
+<link href="{{ '/assets/js/hydejack-8.0.0.js'                                     | relative_url }}" id="_hrefJS">
+<link href="{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js'| relative_url }}" id="_hrefFFO">
+<link href="{{ '/assets/bower_components/katex/dist/katex.min.js'                        | relative_url }}" id="_hrefKatexJS">
+<link href="{{ '/assets/bower_components/katex/dist/katex.min.css'                       | relative_url }}" id="_hrefKatexCSS">
+<link href="{{ '/assets/img/swipe.svg'                                                   | relative_url }}" id="_hrefSwipeSVG">

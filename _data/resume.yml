@@ -4,12 +4,11 @@
 basics:
   name: "Richard Hendricks"
   label: "Programmer"
-  picture: "https://placehold.it/126x126"
+  picture: "/assets/icons/icon.png"
   email: ""
   phone: "(912) 555-4321"
   website: "https://piedpiper.com"
   summary: >
-    **THIS IS AN EXAMPLE RESUME**.
     Richard hails from Tulsa.
     He has earned degrees from the University of Oklahoma and Stanford. (Go Sooners and Cardinals!)
     Before starting Pied Piper, he worked for Hooli as a part time software developer.

@@ -6,7 +6,7 @@
   {% if plugins contains 'jekyll-seo-tag' %}{% include head/seo-tag.html %}
   {% else %}{% include head/seo-fallback.html %}{% endif %}
 
-  {% if site.keywords or page.keywords %}
+  {% if site.keywords.size > 0 or page.keywords.size > 0 %}
     <meta name="keywords" content="{{ page.keywords | default:site.keywords | join:',' }}">
   {% endif %}
 {% else %}
@@ -24,7 +24,7 @@
 <meta name="msapplication-config" content="{{ '/assets/ieconfig.xml' | relative_url }}">
 
 {% unless site.hydejack.no_theme_color %}
-<meta name="theme-color" content="{{ page.theme_color | default:color | default:'#4fb1ba' }}">
+<meta name="theme-color" content="{{ theme_color | default:'#193747' }}">
 {% endunless %}
 
-<meta name="generator" content="Hydejack v7.5.2">
+<meta name="generator" content="Hydejack v8.0.0" />

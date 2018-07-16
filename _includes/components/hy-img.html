@@ -1,0 +1,40 @@
+{% if include.img.src or include.img.path %}
+  {% assign srcset = null %}
+
+  {% if include.img.srcset %}
+    {% capture srcset %}{% for hash in include.img.srcset %}{% assign tmp = hash[1] %}{% include smart-url.txt url=tmp %} {{ hash[0] }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+  {% endif %}
+
+  {% assign src = include.img.src | default:include.img.path %}
+  {% capture attrs %}
+    src="{% include smart-url.txt url=src %}"
+    {% if include.class %}class="{{ include.class }}"{% endif %}
+    {% if include.alt %}alt="{{ include.alt }}"{% endif %}
+    {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
+    {% if include.sizes %}sizes="{{ include.sizes }}"{% endif %}
+  {% endcapture %}
+{% else %}
+  {% capture attrs %}
+    src="{% include smart-url.txt url=include.img %}"
+    {% if include.class %}class="{{ include.class }}"{% endif %}
+    {% if include.alt %}alt="{{ include.alt }}"{% endif %}
+  {% endcapture %}
+{% endif %}
+
+{% unless site.hydejack.no_img %}
+  <hy-img
+    {{ attrs }}
+    {% if include.property %}property="{{ include.property }}"{% endif %}
+    root-margin="512px"
+  >
+    <noscript><img re-ignore {{ attrs }}/></noscript>
+    <span class="loading" slot="loading" hidden>
+      <span class="icon-cog"></span>
+    </span>
+  </hy-img>
+{% else %}
+  <img 
+    {{ attrs }}
+    {% if include.property %}property="{{ include.property }}"{% endif %}
+  />
+{% endunless %}

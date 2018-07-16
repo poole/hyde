@@ -1,8 +1,4 @@
----
-layout: page
-title: PRO License
----
-
+# PRO License
 ## License Summary
 * License concerns use of [Hydejack PRO][1]
 * License does not expire
@@ -137,4 +133,4 @@ Licensee hereby agrees not to initiate class-action lawsuits against Licensor in
 relation to this license and to compensate Licensor for any legal fees, cost or attorney fees should any claim
 brought by Licensee against Licensor be denied, in part or in full.
 
-[1]: https://qwtel.com/hydejack/
+[1]: https://hydejack.com/

@@ -1,5 +1,5 @@
 // # src / index.js
-// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+// Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,13 +14,19 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'web-animations-js';
+import "@webcomponents/webcomponentsjs";
+import "intersection-observer";
+import "web-animations-js";
+import smoothscroll from "smoothscroll-polyfill";
+import "../lib/request-idle-callback";
 
-import '../lib/modernizr-custom';
-import '../lib/version';
-import '../lib/template-polyfill';
+import "../lib/modernizr-custom";
+import "../lib/version";
 
-import './cookies-banner';
-import './katex';
-import './drawer';
-import './push-state';
+import "./images";
+import "./drawer";
+import "./push-state";
+import "./katex";
+import "./cookies-banner";
+
+smoothscroll.polyfill();

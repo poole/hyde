@@ -1,5 +1,5 @@
 // # src / katex.js
-// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+// Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -24,9 +24,8 @@ function loadDisqus2() {
   });
 }
 
-
-export default function loadDisqus() {
-  if (document.getElementById('disqus_thread')) {
+export function loadDisqus() {
+  if (document.getElementById("disqus_thread")) {
     if (window.DISQUS) {
       loadDisqus2();
     } else {
@@ -34,7 +33,7 @@ export default function loadDisqus() {
         this.page.url = window.location.href;
         this.page.title = document.title;
       };
-      window.loadJSDeferred(document.getElementById('_disqusJS').href);
+      window.loadJSDeferred(document.getElementById("_hrefDisqus").href);
     }
   }
 }

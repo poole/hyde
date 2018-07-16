@@ -27,9 +27,17 @@ GEM
       pathutil (~> 0.9)
       rouge (>= 1.7, < 4)
       safe_yaml (~> 1.0)
+    jekyll-default-layout (0.1.4)
+      jekyll (~> 3.0)
     jekyll-feed (0.10.0)
       jekyll (~> 3.3)
+    jekyll-optional-front-matter (0.3.0)
+      jekyll (~> 3.0)
     jekyll-paginate (1.1.0)
+    jekyll-readme-index (0.2.0)
+      jekyll (~> 3.0)
+    jekyll-redirect-from (0.14.0)
+      jekyll (~> 3.3)
     jekyll-relative-links (0.5.3)
       jekyll (~> 3.3)
     jekyll-sass-converter (1.5.2)
@@ -37,6 +45,8 @@ GEM
     jekyll-seo-tag (2.5.0)
       jekyll (~> 3.3)
     jekyll-sitemap (1.2.0)
+      jekyll (~> 3.3)
+    jekyll-titles-from-headings (0.5.1)
       jekyll (~> 3.3)
     jekyll-watch (2.0.0)
       listen (~> 3.0)
@@ -67,11 +77,16 @@ PLATFORMS
 
 DEPENDENCIES
   jekyll
+  jekyll-default-layout
   jekyll-feed
+  jekyll-optional-front-matter
   jekyll-paginate
+  jekyll-readme-index
+  jekyll-redirect-from
   jekyll-relative-links
   jekyll-seo-tag
   jekyll-sitemap
+  jekyll-titles-from-headings
   tzinfo-data
 
 BUNDLED WITH

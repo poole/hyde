@@ -1,5 +1,5 @@
 // # src / cookies-banner.js
-// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+// Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,22 +14,28 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-if (window.ga && !navigator.CookiesOK && !(localStorage && localStorage.getItem('hy:cookiesOK'))) {
-  const template = document.getElementById('_cookies-banner-template');
-  if (template) {
-    const parent = document.getElementsByTagName('hy-push-state')[0];
-    parent.insertBefore(document.importNode(template.content, true), parent.firstChild);
+requestIdleCallback(() => {
+  if (window.ga && !navigator.CookiesOK && document.cookie.indexOf("hy--cookies-ok") === -1) {
+    const template = document.getElementById("_cookies-banner-template");
+    if (template) {
+      const parent = document.getElementsByTagName("hy-push-state")[0];
+      parent.insertBefore(document.importNode(template.content, true), parent.firstChild);
+      document.getElementById("_cookies-ok").addEventListener(
+        "click",
+        () => {
+          const maxAge = 60 * 60 * 24 * 356;
+          document.cookie = `hy--cookies-ok=true;path=/;max-age=${maxAge}`;
 
-    document.getElementById('_cookies-ok').addEventListener('click', () => {
-      if (localStorage) localStorage.setItem('hy:cookiesOK', true);
+          const banner = document.getElementById("_cookies-banner");
+          banner.parentNode.removeChild(banner);
 
-      const banner = document.getElementById('_cookies-banner');
-      banner.parentNode.removeChild(banner);
-
-      window.ga((tracker) => {
-        window.ga('set', 'anonymizeIp', undefined);
-        if (localStorage) localStorage.setItem('ga:clientId', tracker.get('clientId'));
-      });
-    }, { once: true });
+          window.ga(tracker => {
+            window.ga("set", "anonymizeIp", undefined);
+            if (localStorage) localStorage.setItem("ga--client-id", tracker.get("clientId"));
+          });
+        },
+        { once: true }
+      );
+    }
   }
-}
+});

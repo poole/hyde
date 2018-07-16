@@ -18,8 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-{% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
-{% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
+{% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
+{% assign font =         site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
 
 $font-family-heading: {{ font_heading }};
 $font-family: {{ font }};
@@ -27,9 +27,6 @@ $font-family: {{ font }};
 @import "variables";
 @import "my-variables";
 @import "mixins";
-
-// @import "reboot-mod";
-
 
 @import "pooleparty/__inline/base";
 @import "pooleparty/__inline/type";
@@ -39,10 +36,14 @@ $font-family: {{ font }};
 @import "pooleparty/__inline/code";
 @import "pooleparty/__inline/posts";
 @import "pooleparty/__inline/related";
+@import "pooleparty/__inline/read-more";
 @import "pooleparty/__inline/message";
 @import "pooleparty/__inline/pagination";
 
 @import "hydejack/__inline/base";
+@import "hydejack/__inline/utilities";
+@import "hydejack/__inline/links";
+@import "hydejack/__inline/images";
 @import "hydejack/__inline/sidebar";
 @import "hydejack/__inline/social";
 @import "hydejack/__inline/menu";
@@ -51,23 +52,18 @@ $font-family: {{ font }};
 @import "hydejack/__inline/katex";
 @import "hydejack/__inline/footer";
 
-// {% unless site.hydejack.no_mark_external or site.no_mark_external %}
-//   @import "hydejack/__link/mark-external";
-// {% endunless %}
-// {% unless site.hydejack.no_break_layout %}
-//   @import "hydejack/__link/break-layout";
-// {% endunless %}
-
-// @import "syntax";
-// @import "spinner";
-
 @import "my-inline";
 // @import "my-style";
 
 {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-  {% assign font = font | split:',' | shift | join:',' %}
-  {% assign font_heading = font_heading | split:',' | shift | join:',' %}
+  {% assign font2 = font | split:',' | shift | join:',' %}
+  {% assign font_heading2 = font_heading | split:',' | shift | join:',' %}
 {% endunless %}
 
-html { font-family: {{ font | default:"serif" }}; }
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading | default:"serif" }}; }
+html { font-family: {{ font2 | default:"serif" }}; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading2 | default:"serif" }}; }
+
+.font-active {
+  font-family: $font-family;
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: $font-family-heading; }
+}

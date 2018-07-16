@@ -1,0 +1,6 @@
+package.json
+*.md
+*.html
+*.scss
+*.css
+_js/lib

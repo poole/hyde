@@ -1,5 +1,5 @@
 // # src / flip / index.js
-// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+// Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -14,21 +14,18 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import 'core-js/fn/array/includes';
-import 'core-js/fn/function/bind';
+import "core-js/fn/array/includes";
+import "core-js/fn/function/bind";
 
-import { merge } from 'rxjs';
-import { filter } from 'rxjs/operators';
+import { merge } from "rxjs";
+import { filter } from "rxjs/operators";
 
-import setupFLIPTitle from './title';
+import { setupFLIPTitle } from "./title";
 
-const FLIP_TYPES = ['title'];
+const FLIP_TYPES = ["title"];
 
-export default function setupFLIP(start$, ready$, fadeIn$, options) {
+export function setupFLIP(start$, ready$, fadeIn$, options) {
   const other$ = start$.pipe(filter(({ flipType }) => !FLIP_TYPES.includes(flipType)));
 
-  return merge(
-    setupFLIPTitle(start$, ready$, fadeIn$, options),
-    other$,
-  );
+  return merge(setupFLIPTitle(start$, ready$, fadeIn$, options), other$);
 }

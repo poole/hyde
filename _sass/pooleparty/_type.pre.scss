@@ -1,31 +1,22 @@
 // Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
 //
-// Permission is hereby granted, free of charge, to any person obtaining a copy
-// of this software and associated documentation files (the "Software"), to deal
-// in the Software without restriction, including without limitation the rights
-// to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
-// copies of the Software, and to permit persons to whom the Software is
-// furnished to do so, subject to the following conditions:
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
 //
-// The above copyright notice and this permission notice shall be included in all
-// copies or substantial portions of the Software.
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
 //
-// THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
-// IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
-// FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
-// AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
-// LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
-// OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
-// SOFTWARE.
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // <<<<< INLINE
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
   font-weight: $font-weight-heading;
   margin: 4rem 0 1rem;
-}
-
-.heading {
-  font-weight: $font-weight-heading;
 }
 
 h1, .h1 {
@@ -43,11 +34,17 @@ h3, .h3 {
   line-height: 1.5;
 }
 
+h4, h5, h6, .h4, .h5, .h6 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
 p {
   margin-top: 0;
   margin-bottom: 1rem;
 
   &.lead {
+    font-size: 1.2em;
     padding: 0 1rem;
   }
 }
@@ -68,25 +65,16 @@ hr {
   border-top: 1px solid $border-color;
 }
 
-strong {
-  font-weight: $font-weight-bold;
-}
-
 .hr {
   border-bottom: 1px solid $border-color;
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
-
-h4, h5, h6, .h4, .h5, .h6 {
-  margin-bottom: 0.5rem;
-  font-size: 1rem;
-}
 // >>>>>
 
 // <<<<< LINK
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
-  text-rendering: optimizeLegibility; // link
+  text-rendering: optimizeLegibility;
 }
 
 h1 + h2, .h1 + .h2, h1 + .h2, .h1 + h2,
@@ -97,7 +85,7 @@ h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
   margin-top: 0;
 }
 
-dt {
+dt, strong {
   font-weight: $font-weight-bold;
 }
 
@@ -124,6 +112,7 @@ blockquote {
   border-left: .25rem solid $border-color;
 
   &.lead {
+    font-size: 1.2em;
     margin-top: 1.5rem;
     margin-bottom: 1.5rem;
     border-left-width: 0.4rem;
@@ -134,8 +123,8 @@ blockquote {
   }
 }
 
-.lead {
-  font-size: 1.2em;
+.heading {
+  font-weight: $font-weight-heading;
 }
 
 .fine {
@@ -146,25 +135,10 @@ blockquote {
   color: $gray;
 }
 
-.read-more {
-  @extend .faded;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-
-  &::after {
-    content: " \2192"; // →
-    font-family: 'icomoon'!important;
-    speak: none;
-    font-style: normal;
-    font-weight: normal;
-    font-variant: normal;
-    text-transform: none;
-    line-height: 1;
-    font-size: smaller;
-    -webkit-font-smoothing: antialiased;
-    -moz-osx-font-smoothing: grayscale;
-  }
+.centered {
+  text-align: center;
 }
+
 
 h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   position: relative;

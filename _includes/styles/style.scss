@@ -18,8 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-{% assign font_heading = site.font_heading | default:"'Roboto Slab', Helvetica, Arial, sans-serif" %}
-{% assign font =         site.font         | default:"'Noto Sans', Helvetica, Arial, sans-serif" %}
+{% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
+{% assign font =         site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
 
 $font-family-heading: {{ font_heading }};
 $font-family: {{ font }};
@@ -39,10 +39,14 @@ $font-family: {{ font }};
   @import "pooleparty/__link/code";
   @import "pooleparty/__link/posts";
   @import "pooleparty/__link/related";
+  @import "pooleparty/__link/read-more";
   @import "pooleparty/__link/message";
   @import "pooleparty/__link/pagination";
 
   @import "hydejack/__link/base";
+  @import "hydejack/__link/utilities";
+  @import "hydejack/__link/links";
+  @import "hydejack/__link/images";
   @import "hydejack/__link/sidebar";
   @import "hydejack/__link/social";
   @import "hydejack/__link/menu";
@@ -63,16 +67,6 @@ $font-family: {{ font }};
 
   // @import "my-inline";
   @import "my-style";
-
-  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-    .wf-active {
-      font-family: {{ font }};
-
-      h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
-        font-family: {{ font_heading }};
-      }
-    }
-  {% endunless %}
 {% else %}
   @import "pooleparty/_base.pre.scss";
   @import "pooleparty/_type.pre.scss";
@@ -82,10 +76,14 @@ $font-family: {{ font }};
   @import "pooleparty/_code.pre.scss";
   @import "pooleparty/_posts.pre.scss";
   @import "pooleparty/_related.pre.scss";
+  @import "pooleparty/_read-more.pre.scss";
   @import "pooleparty/_message.pre.scss";
   @import "pooleparty/_pagination.pre.scss";
 
   @import "hydejack/_base.pre.scss";
+  @import "hydejack/_utilities.pre.scss";
+  @import "hydejack/_links.pre.scss";
+  @import "hydejack/_images.pre.scss";
   @import "hydejack/_sidebar.pre.scss";
   @import "hydejack/_social.pre.scss";
   @import "hydejack/_menu.pre.scss";
@@ -107,11 +105,16 @@ $font-family: {{ font }};
   @import "my-inline";
   @import "my-style";
 
-  html {
-    font-family: {{ font }};
-  }
+  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+    {% assign font = font | split:',' | shift | join:',' %}
+    {% assign font_heading = font_heading | split:',' | shift | join:',' %}
+  {% endunless %}
 
-  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading {
-    font-family: {{ font_heading }};
+  html { font-family: {{ font | default:"serif" }}; }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading | default:"serif" }}; }
+
+  .font-active {
+    font-family: $font-family;
+    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: $font-family-heading; }
   }
 {% endunless %}

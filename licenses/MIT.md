@@ -1,7 +1,4 @@
----
-layout: page
-title: MIT License
----
+# MIT License
 
 Copyright (c) \<YEAR\> \<COPYRIGHT HOLDER\>
 
