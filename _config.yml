@@ -158,7 +158,7 @@ hydejack:
   no_drawer:           false
 
   # Set to `true` to prevent usage of `hy-img` (lazy-loading images).
-  no_img:              true
+  no_img:              false
 
   # Set to `true` if you do not want parts of the css inlined in <head/>
   # This *may* be benefitial when serving the site over HTTP/2.
