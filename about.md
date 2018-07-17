@@ -14,14 +14,12 @@ fredhutch.io promotes bioinformatics education and access to computational metho
 
 ### People
 
-**Gabi Barnes**
+**Gabi Barnes**: project coordinator
 
-[**Brian Claywell**](https://github.com/bcclaywell)
+**Brian Claywell**: online content developer ([GitHub](https://github.com/bcclaywell))
 
-**Kate Hertweck**
+**Kate Hertweck**: training manager, instructor, and curriculum developer ([GitHub](https://github.com/k8hertweck), [twitter](https://twitter.com/k8hert))
 
-[**Erick Matsen**](http://matsen.fredhutch.org/)
-
+**Erick Matsen**: principal investigator ([website](http://matsen.fredhutch.org/))
 
 fredhutch.io is reviewed and funded by the Public Health Sciences division.
-
