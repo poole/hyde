@@ -14,7 +14,7 @@ fredhutch.io promotes bioinformatics education and access to computational metho
 
 ### People
 
-**Gabi Barnes**: project coordinator
+**Gabrielle Barnes**: project coordinator
 
 **Brian Claywell**: online content developer ([GitHub](https://github.com/bcclaywell))
 
