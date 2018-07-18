@@ -1,6 +1,6 @@
 ---
 layout: category_index
-title: Events
+title: Announcements
 category: events
 published: true
 ---
