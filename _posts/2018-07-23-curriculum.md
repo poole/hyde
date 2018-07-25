@@ -1,6 +1,6 @@
 ---
 layout: post
-title: Your toolbox
+title: New curriculum plan for fredhutch.io
 category: events
 tags: education 
 ---
