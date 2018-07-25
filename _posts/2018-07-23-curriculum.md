@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Your toolbox
-category: articles
+category: events
 tags: education 
 ---
 
