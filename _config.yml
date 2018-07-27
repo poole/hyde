@@ -10,7 +10,7 @@ relative_permalinks: true
 title:            Disaster Damage Detection
 tagline:          'D-cubed'
 description:      'Automatic damage detection from satellite imagery after hurricanes <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+url:              http://DDS-Lab/disaster-damage-detection/hyde.getpoole.com
 baseurl:          /
 
 author:
