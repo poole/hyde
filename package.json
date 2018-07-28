@@ -29,6 +29,7 @@
     "babel-loader": "^7.1.5",
     "babel-preset-env": "^1.7.0",
     "color": "^3.0.0",
+    "dedent": "^0.7.0",
     "eslint": "^5.1.0",
     "eslint-config-prettier": "^2.9.0",
     "json2yaml": "^1.1.0",
