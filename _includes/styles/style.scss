@@ -18,15 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-{% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
-{% assign font         = site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
-{% assign color        = site.accent_color | default:'#4fb1ba' %}
-{% assign theme_color  = site.theme_color  | default:'#193747' %}
-
-$font-family-heading: {{ font_heading }};
-$font-family: {{ font }};
-$color: {{ color }};
-$theme-color: {{ theme_color }};
+$font-family-heading: {{ site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" }};
+$font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif"   }};
 
 @import "variables";
 @import "my-variables";

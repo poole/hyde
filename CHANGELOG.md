@@ -1,7 +1,13 @@
 # CHANGELOG
 
+## v8.1.0
+Jul XX 2018
+{:.heading.post-date}
+
+This release adds Dark Mode for Hydejack PRO customers.
+
 ## v8.0.0
-Jul 6 2018
+Jul 16 2018
 {:.heading.post-date}
 
 So far Hydejack has been a decent Jekyll theme, but with v8 it really starts stand out among the competition: Beautiful and unique landing pages, lazy-loading images, and experimental offline support are just the most prominent new features.

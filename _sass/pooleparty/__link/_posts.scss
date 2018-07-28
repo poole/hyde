@@ -33,6 +33,6 @@ hr.dingbat::after {
   display: block;
   text-align: center;
   font-size: 1.5rem;
-  color: #ddd; // TODO
+  color: var(--menu-text);
 }
 

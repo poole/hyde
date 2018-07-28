@@ -32,8 +32,6 @@
 .mt4 { margin-top: 4rem }
 .pb0 { padding-bottom: 0 }
 
-.clearfix, .clearafter::after { @include clearfix(); } // both
-
 .sixteen-nine { @include aspect-ratio(16, 9); }
 
 .sr-only {

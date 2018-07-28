@@ -48,7 +48,6 @@ dd {
 abbr {
   font-size: 85%;
   font-weight: $font-weight-bold;
-  color: #555; // TODO
   text-transform: uppercase;
 
   &[title] {
@@ -85,6 +84,7 @@ blockquote {
 }
 
 .faded {
+  @extend .color-transition;
   color: var(--gray);
 }
 

@@ -85,3 +85,8 @@ export function animate(el, keyframes, options) {
     };
   });
 }
+
+export function importTemplate(templateId) {
+  const template = document.getElementById(templateId);
+  return template && document.importNode(template.content, true);
+}

@@ -14,12 +14,15 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+import { importTemplate } from "./common";
+
 requestIdleCallback(() => {
   if (window.ga && !navigator.CookiesOK && document.cookie.indexOf("hy--cookies-ok") === -1) {
-    const template = document.getElementById("_cookies-banner-template");
-    if (template) {
+    const cookiesBanner = importTemplate("_cookies-banner-template");
+    if (cookiesBanner) {
       const parent = document.getElementsByTagName("hy-push-state")[0];
-      parent.insertBefore(document.importNode(template.content, true), parent.firstChild);
+      parent.insertBefore(cookiesBanner, parent.firstChild);
+
       document.getElementById("_cookies-ok").addEventListener(
         "click",
         () => {
