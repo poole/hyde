@@ -64,7 +64,7 @@ figure, .figure {
   @extend .faded, .fine, .centered;
   margin-bottom: 2rem;
 
-  hy-img, img {
+  > *:first-child {
     margin-bottom: .5rem;
   }
 }
