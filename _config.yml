@@ -204,8 +204,8 @@ hydejack:
   # This is an _experimental_ feature.
   # Only use if you know what Service Workers are and how they can impact your site!
   offline:
-    enabled:           true
-    cache_version:     4
+    enabled:           false
+    cache_version:     5
 
 # Collections
 # ========================================================================================
