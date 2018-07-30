@@ -1,10 +1,21 @@
 # CHANGELOG
 
-## v8.1.0
+## v8.1.0-beta.0
 Jul XX 2018
 {:.heading.post-date}
 
 This release adds Dark Mode for Hydejack PRO customers.
+
+## Changed
+* The cookies banners is now showing at the bottom of the page and the background color is no longer transparent to increase visibility
+* Changed the default syntax theme from "GitHub" to "Atom One Light"
+* Adapted `figure` CSS class to accommodate different children, not just `img`s
+* `video` tags now have a `max-width` of 100%
+* Increased margin before headings to `5rem`, up from 4
+
+## Added
+* [PRO] Added Dark Mode
+* `border` CSS class
 
 ## v8.0.0
 Jul 16 2018
