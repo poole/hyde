@@ -69,8 +69,8 @@ async function getFiles(dir) {
         const header = genHeader([path, basename(file)].join("/"));
 
         return Promise.all([
-          writeFile(resolve(dir, ".__inline__", filename), header + "\n\n" + inline, ENC),
-          writeFile(resolve(dir, ".__link__", filename), header + "\n\n" + defer, ENC),
+          writeFile(resolve(dir, "__inline__", filename), header + "\n\n" + inline, ENC),
+          writeFile(resolve(dir, "__link__", filename), header + "\n\n" + defer, ENC),
         ]);
       })
     );
