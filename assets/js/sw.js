@@ -217,7 +217,9 @@ async function fromNetwork(e, request) {
   // TODO: always cache GET requests from other domains!? Only images?
   const hasSWParam = url.searchParams.has(CACHE_SEARCH_PARAM);
   if (isSameSite(url) || hasSWParam) {
-    const isAsset = url.pathname.startsWith("{{ 'assets' | relative_url }}");
+    const isAsset =
+      url.pathname.startsWith("{{ 'assets' | relative_url }}") &&
+      !url.pathname.startsWith("{{ 'assets/video' | relative_url }}");
     const cacheName = isAsset || hasSWParam ? ASSETS_CACHE : CONTENT_CACHE;
     return fetchAndCache(e, request, cacheName);
   }
