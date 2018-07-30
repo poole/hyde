@@ -55,7 +55,3 @@ In 8.1, buyers of the PRO version will have access to Dark Mode. At your choosin
 Version 8 introduces experimental offline support. This allows visitors to navigate your site while offline and continue reading articles when connectivity is lost. It also improves loading times for repeat visitors dramatically.
 
 
-
-[src]: https://github.com/qwtel/hydejack
-[gem]: https://rubygems.org/gems/jekyll-theme-hydejack
-[buy]: https://app.simplegoods.co/i/NATYVLYT

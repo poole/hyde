@@ -53,10 +53,10 @@ $font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Aria
   @import "hydejack/.__link__/footer";
 
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
-    @import "hydejack/__link__/mark-external";
+    @import "hydejack/.__link__/mark-external";
   {% endunless %}
   {% unless site.hydejack.no_break_layout %}
-    @import "hydejack/__link__/break-layout";
+    @import "hydejack/.__link__/break-layout";
   {% endunless %}
 
   @import "syntax";
