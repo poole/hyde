@@ -45,4 +45,4 @@ vendor/bundle
 *.gem
 _zip
 
-#<removed>
+/assets/js/hydejack-*
