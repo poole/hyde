@@ -66,3 +66,7 @@ body {
 .color-transition {
   transition: background-color 1s ease, border-color 1s ease;
 }
+
+.no-color-transition {
+  transition: none!important;
+}
