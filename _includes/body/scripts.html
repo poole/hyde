@@ -17,7 +17,7 @@
   <script>
     if ('serviceWorker' in navigator) {
       {% if site.hydejack.offline.enabled %}
-        navigator.serviceWorker.register('{{ "sw.js" | relative_url }}')
+        navigator.serviceWorker.register(document.getElementById('_hrefSW').href)
           .then(r => r.update())
           .catch(() => {});
       {% else %}
