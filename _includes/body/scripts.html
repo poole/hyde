@@ -14,17 +14,17 @@
 
   {% include body/analytics.html %}
 
-  <script>
-    if ('serviceWorker' in navigator) {
-      {% if site.hydejack.offline.enabled %}
-        navigator.serviceWorker.register(document.getElementById('_hrefSW').href)
-          .then(r => r.update())
-          .catch(() => {});
-      {% else %}
-        navigator.serviceWorker.getRegistration()
-          .then(r => r.unregister())
-          .catch(() => {});
-      {% endif %}
+  <script>!function(w, d) {
+    if ('serviceWorker' in w.navigator) {
+      /*{% if site.hydejack.offline.enabled %}*/
+      w.navigator.serviceWorker.register(d.getElementById('_hrefSW').href)
+        .then(r => r.update())
+        .catch(() => {});
+      /*{% else %}*/
+      w.navigator.serviceWorker.getRegistration()
+        .then(r => r.unregister())
+        .catch(() => {});
+      /*{% endif %}*/
     }
-  </script>
+  }(window, document);</script>
 {% endunless %}
