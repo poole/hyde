@@ -29,19 +29,6 @@ body {
   --border-color: #{$border-color};
 }
 
-@mixin pre($padding: 1rem) {
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding: $padding;
-  background-color: var(--gray-bg);
-
-  @media print {
-    width: 100%!important;
-    page-break-inside: avoid;
-    break-inside: avoid-page;
-  }
-}
-
 @mixin aspect-ratio($width, $height) {
   position: relative;
 
