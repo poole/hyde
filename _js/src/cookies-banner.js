@@ -17,7 +17,7 @@
 import { importTemplate } from "./common";
 
 requestIdleCallback(() => {
-  if (window.ga && !navigator.CookiesOK && document.cookie.indexOf("hy--cookies-ok") === -1) {
+  if (!navigator.CookiesOK && document.cookie.indexOf("hy--cookies-ok") === -1) {
     const cookiesBanner = importTemplate("_cookies-banner-template");
     if (cookiesBanner) {
       const parent = document.getElementsByTagName("hy-push-state")[0];
@@ -32,10 +32,7 @@ requestIdleCallback(() => {
           const banner = document.getElementById("_cookies-banner");
           banner.parentNode.removeChild(banner);
 
-          window.ga(tracker => {
-            window.ga("set", "anonymizeIp", undefined);
-            if (localStorage) localStorage.setItem("ga--client-id", tracker.get("clientId"));
-          });
+          document.dispatchEvent(new CustomEvent("hy--cookies-ok"));
         },
         { once: true }
       );

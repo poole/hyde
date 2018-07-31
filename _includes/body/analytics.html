@@ -31,6 +31,13 @@
       }, 500);
     });
 
+    document.addEventListener('hy--cookies-ok', function () {
+      window.ga(function(tracker) {
+        window.ga("set", "anonymizeIp", undefined);
+        localStorage && localStorage.setItem("ga--client-id", tracker.get("clientId"));
+      });
+    });
+
     window.loadJSDeferred('https://www.google-analytics.com/analytics.js');
   </script>
 {% endif %}
