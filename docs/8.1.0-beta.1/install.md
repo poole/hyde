@@ -161,7 +161,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_8_pro`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-v8.1.0-beta.1/.ssh/hydejack_8_pro ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-8.1.0-beta.1/.ssh/hydejack_8_pro ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
