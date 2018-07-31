@@ -14,7 +14,7 @@ After a long wait, Hydejack 8 finally sees the day of its release. It makes Hyde
 The new design doubles down on Hydejack as your personal site. The new cover page lets visitors know at a glance what you're about, showing your logo or profile picture, tagline or description, and your selection of social media icons.
 
 <figure>
-  <video alt="Cover page slide animation" src="/assets/video/cover-page.mp4" class="border" controls muted autoplay loop></video>
+  <video alt="Cover page slide animation" src="/assets/video/cover-page.mp4" class="border" controls muted autoplay loop><img re-ignore src="/assets/img/cover-page.jpg"/></video>
   <figcaption>Sliding over a cover page will reveal the content below.</figcaption>
 </figure>
 
@@ -25,7 +25,7 @@ Using lots of images can severely impact the performance of a site. It can also 
 In Hydejack 8 you have the option to provide `width` and `height` information for your images and let Hydejack load them as readers scroll through the page.
 
 <figure>
-  <video alt="Lazy loading demo" src="/assets/video/lazy-images.mp4" class="border" controls muted autoplay loop></video>
+  <video alt="Lazy loading demo" src="/assets/video/lazy-images.mp4" class="border" controls muted autoplay loop><img re-ignore src="/assets/img/lazy-images.jpg"/></video>
   <figcaption>Images are loaded as they are scrolled into view.</figcaption>
 </figure>
 
@@ -35,7 +35,7 @@ In Hydejack 8 you have the option to provide `width` and `height` information fo
 The `blog` layout finally catches up to modern design standards and renders a posts's `image` as part of the preview, giving it a tastier look that makes visitors more likely to engage.
 
 <figure>
-  <video alt="Scrolling through the blog layout" src="/assets/video/blog-layout.mp4" class="border" controls muted autoplay loop></video>
+  <video alt="Scrolling through the blog layout" src="/assets/video/blog-layout.mp4" class="border" controls muted autoplay loop><img re-ignore src="/assets/img/blog-layout.jpg"/></video>
   <figcaption>Hydejack's improved blog layout renders each post's image.</figcaption>
 </figure>
 
@@ -45,7 +45,7 @@ The `blog` layout finally catches up to modern design standards and renders a po
 In 8.1, buyers of the PRO version will have access to Dark Mode. At your choosing, it will be enabled by default, enabled based on visitors' local time, or flipped on by a switch.
 
 <figure>
-  <video alt="Dark Mode Teaser" src="/assets/video/dark-mode.mp4" class="border" controls muted autoplay loop></video>
+  <video alt="Dark Mode Teaser" src="/assets/video/dark-mode.mp4" class="border" controls muted autoplay loop><img re-ignore src="/assets/img/dark-mode.jpg"/></video>
   <figcaption>Hydejack switches between light and dark mode fluidly.</figcaption>
 </figure>
 
@@ -53,5 +53,3 @@ In 8.1, buyers of the PRO version will have access to Dark Mode. At your choosin
 ### Offline Support ⚡️
 
 Version 8 introduces experimental offline support. This allows visitors to navigate your site while offline and continue reading articles when connectivity is lost. It also improves loading times for repeat visitors dramatically.
-
-
