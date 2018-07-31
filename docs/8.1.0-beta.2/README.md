@@ -4,7 +4,7 @@ description: >
 hide_description: true
 menu: true
 order: 5
-permalink: /docs/8.1.0-beta.1/
+permalink: /docs/8.1.0-beta.2/
 ---
 
 # Documentation

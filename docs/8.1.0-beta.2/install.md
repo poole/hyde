@@ -23,7 +23,7 @@ Using the Starter Kit has the advantage of not cluttering your blog repository.
 Additionally, it allows you to publish your site on GitHub Pages with a single `push`.
 
 If you have a GitHub account, fork the [hy-starter-kit](https://github.com/qwtel/hy-starter-kit) repository.
-Otherwise [download the source files](https://github.com/qwtel/hy-starter-kit/archive/v8.1.0-beta.1.zip)
+Otherwise [download the source files](https://github.com/qwtel/hy-starter-kit/archive/v8.1.0-beta.2.zip)
 and unzip them somewhere on your machine.
 
 **NOTE**: In addition to the docs here, you can follow the quick start guide in the starter kit.
@@ -147,7 +147,7 @@ For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.1.0-beta.1/install/
+$ cd ~/Downloads/hydejack-pro-8.1.0-beta.2/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -161,7 +161,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_8_pro`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-8.1.0-beta.1/.ssh/hydejack_8_pro ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-8.1.0-beta.2/.ssh/hydejack_8_pro ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:
