@@ -19,7 +19,7 @@ a[href^="#fn:"],
 // Back to footnote link
 a[href^="#fnref:"] {
   margin-left: .1rem;
-  font-weight: $font-weight-bold;
+  font-weight: var(--font-weight-bold);
 
   @media screen and (max-width: 73.5em) {
     font-weight: normal;
@@ -45,7 +45,7 @@ sup {
   margin-top: 5rem;
 
   > ol {
-    color: var(--gray);
+    color: var(--text-muted);
 
     > li {
       padding: .5rem;

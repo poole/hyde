@@ -13,9 +13,14 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<< inline
 body {
-  --gray: #{$gray};
+  --code-font-family: #{$code-font-family};
+
+  --font-weight: #{$font-weight};
+  --font-weight-bold: #{$font-weight-bold};
+  --font-weight-heading: #{$font-weight-heading};
+
+  --text-muted: #{$gray};
   --gray-bg: #{$gray-bg};
   --gray-text: #{$gray-text};
   --menu-text: #{$menu-text};
@@ -23,7 +28,6 @@ body {
   --body-bg: #{$body-bg};
   --border-color: #{$border-color};
 }
-// >>>
 
 @mixin pre($padding: 1rem) {
   margin-left: -1rem;

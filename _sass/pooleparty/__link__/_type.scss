@@ -38,7 +38,7 @@ h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
 }
 
 dt, strong {
-  font-weight: $font-weight-bold;
+  font-weight: var(--font-weight-bold);
 }
 
 dd {
@@ -47,7 +47,7 @@ dd {
 
 abbr {
   font-size: 85%;
-  font-weight: $font-weight-bold;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
 
   &[title] {
@@ -60,7 +60,7 @@ blockquote {
   @extend .color-transition;
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: var(--gray);
+  color: var(--text-muted);
   border-left: .25rem solid var(--border-color);
 
   &.lead {
@@ -76,7 +76,7 @@ blockquote {
 }
 
 .heading {
-  font-weight: $font-weight-heading;
+  font-weight: var(--font-weight-heading);
 }
 
 .fine {
@@ -85,7 +85,7 @@ blockquote {
 
 .faded {
   @extend .color-transition;
-  color: var(--gray);
+  color: var(--text-muted);
 }
 
 .centered {

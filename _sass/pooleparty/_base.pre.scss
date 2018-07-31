@@ -34,6 +34,7 @@ body {
   @extend .color-transition;
   color: var(--body-color);
   background-color: var(--body-bg);
+  font-weight: var(--font-weight);
   overflow-y: scroll;
 }
 
