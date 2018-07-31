@@ -12,10 +12,16 @@ This release adds Dark Mode for Hydejack PRO customers.
 * Adapted `figure` CSS class to accommodate different children, not just `img`s
 * `video` tags now have a `max-width` of 100%
 * Increased margin before headings to `5rem`, up from 4
+* Increased margin of `hr` elements.
+* Cookies banner can now be enabled without using Google Analytics
+* Clicking the cookie banner "Okay" button will now fire a `hy--cookies-ok` event on `document`, so that custom analytics solutions can plug in.
+* All Google Analytics code has been removed from Hydejack's core and moved to `_includes/body/analytics.js`.
+* Using CSS Custom Properties instead of SASS variables for certain properties to make style customization easier.
 
 ## Added
 * [PRO] Added Dark Mode
 * `border` CSS class
+
 
 ## v8.0.0
 Jul 16 2018
