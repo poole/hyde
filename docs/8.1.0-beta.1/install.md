@@ -22,8 +22,8 @@ Buyers of the PRO version should [follow these steps](#pro-version).
 Using the Starter Kit has the advantage of not cluttering your blog repository.
 Additionally, it allows you to publish your site on GitHub Pages with a single `push`.
 
-If you have a GitHub account, fork the [hydejack-starter-kit](https://github.com/qwtel/hydejack-starter-kit) repository.
-Otherwise [download the source files](https://github.com/qwtel/hydejack-starter-kit/archive/v8.1.0-beta.1-beta.3.zip)
+If you have a GitHub account, fork the [hy-starter-kit](https://github.com/qwtel/hy-starter-kit) repository.
+Otherwise [download the source files](https://github.com/qwtel/hy-starter-kit/archive/v8.1.0-beta.1.zip)
 and unzip them somewhere on your machine.
 
 **NOTE**: In addition to the docs here, you can follow the quick start guide in the starter kit.
