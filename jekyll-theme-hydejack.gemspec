@@ -2,7 +2,7 @@
 
 Gem::Specification.new do |spec|
   spec.name          = "jekyll-theme-hydejack"
-  spec.version       = "8.0.0"
+  spec.version       = "8.1.0"
   spec.authors       = ["Florian Klampfer"]
   spec.email         = ["mail@qwtel.com"]
 
