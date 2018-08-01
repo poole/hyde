@@ -27,13 +27,13 @@
     {% if include.property %}property="{{ include.property }}"{% endif %}
     root-margin="512px"
   >
-    <noscript><img re-ignore {{ attrs }}/></noscript>
+    <noscript><img data-ignore {{ attrs }}/></noscript>
     <span class="loading" slot="loading" hidden>
       <span class="icon-cog"></span>
     </span>
   </hy-img>
 {% else %}
-  <img 
+  <img
     {{ attrs }}
     {% if include.property %}property="{{ include.property }}"{% endif %}
   />
