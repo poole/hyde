@@ -28,7 +28,7 @@ hy-push-state a, .a {
 
   &.no-hover {
     border-bottom: none; // inline
-    padding-bottom: none; // inline
+    padding-bottom: 0; // inline
     transition: none; // link
     &:hover { transition: none; } // link
   }
