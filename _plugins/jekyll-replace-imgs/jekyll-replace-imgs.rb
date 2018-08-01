@@ -33,6 +33,10 @@ REPLACEMENT = '
     </span>
   </hy-img>'
 
+if ENV['JEKYLL_ENV'] == 'production' then
+  REPLACEMENT.gsub!(/\n+/, '')
+end
+
 CONFIG_KEY = 'replace_imgs'
 REPLACEMENT_KEY = 'replacement'
 
