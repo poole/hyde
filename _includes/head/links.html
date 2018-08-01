@@ -24,10 +24,10 @@
 {% comment %}<!--
   This is to avoid hard-coding URLs in JS (where they can't be discovered by automated tools).
 -->{% endcomment %}
-<link href="{{ '/'                                                                       | relative_url }}" id="_baseURL">
-<link href="{{ '/assets/js/hydejack-8.1.0-beta.2.js'                                     | relative_url }}" id="_hrefJS">
-<link href="{{ '/sw.js'                                                                  | relative_url }}" id="_hrefSW">
-<link href="{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js'| relative_url }}" id="_hrefFFO">
-<link href="{{ '/assets/bower_components/katex/dist/katex.min.js'                        | relative_url }}" id="_hrefKatexJS">
-<link href="{{ '/assets/bower_components/katex/dist/katex.min.css'                       | relative_url }}" id="_hrefKatexCSS">
-<link href="{{ '/assets/img/swipe.svg'                                                   | relative_url }}" id="_hrefSwipeSVG">
+<link rel="dns-prefetch" href="{{ '/'                                                                       | relative_url }}" id="_baseURL">
+<link rel="dns-prefetch" href="{{ '/assets/js/hydejack-8.1.0-beta.2.js'                                     | relative_url }}" id="_hrefJS">
+<link rel="dns-prefetch" href="{{ '/sw.js'                                                                  | relative_url }}" id="_hrefSW">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js'| relative_url }}" id="_hrefFFO">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'                        | relative_url }}" id="_hrefKatexJS">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css'                       | relative_url }}" id="_hrefKatexCSS">
+<link rel="dns-prefetch" href="{{ '/assets/img/swipe.svg'                                                   | relative_url }}" id="_hrefSwipeSVG">
