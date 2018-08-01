@@ -1,7 +1,7 @@
 # CHANGELOG
 
-## v8.1.0-beta.0
-Jul XX 2018
+## v8.1.0-beta
+Aug XX 2018
 {:.heading.post-date}
 
 This release adds Dark Mode for Hydejack PRO customers.
