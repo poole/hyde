@@ -7,7 +7,7 @@
 {% endif %}
 
 {% unless page.redirect %}
-  <!--[if gt IE 9]><!---->
+  <!--[if !IE]><!---->
   <script>loadJSDeferred(document.getElementById('_hrefJS').href);</script>
   {% include my-scripts.html %}
   <!--<![endif]-->
