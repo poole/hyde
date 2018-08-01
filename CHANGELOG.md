@@ -10,7 +10,7 @@ This release adds Dark Mode for Hydejack PRO customers.
 * Removed cookie banner from free version
 * Removed offline support from free version
 
-In an attempt to make the PRO offering more appealing, I'm removing features that arguably should have never been included in the free version. 
+In an attempt to make the PRO offering more appealing, I'm removing features that arguably should have never been included in the free version.
 As software licenses go, nobody is stopping you from using the old code, but updates will no longer be free.
 
 ## Changed
