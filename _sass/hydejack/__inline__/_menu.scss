@@ -52,16 +52,11 @@
 }
 
 .nav-btn {
+  background: none;
+  border: none;
   padding: 1.75rem .875rem;
-  border-bottom: none;
   color: var(--menu-text)!important;
   cursor: pointer;
-}
-
-#_menu {
-  @media screen and (min-width: $break-point-3) {
-    display: none;
-  }
 }
 
 .animation-main {
