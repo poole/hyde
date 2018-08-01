@@ -6,12 +6,12 @@ description: >
   It introduces Cover Pages, Offline Support, and soon... Dark Mode.
 ---
 
-After a long wait, Hydejack 8 finally sees the day of its release. It makes Hydejack look more elegant (no more super bold headings) and introduces features to make your site more impressive to first time visitors, and load faster for repeat visitors.
+After a long wait, Hydejack 8 finally sees the day of its release. It makes Hydejack look more elegant (no more super bold headings) and introduces features that make your site more impressive to first time visitors, while loading faster for repeat visitors.
 
 
 ### Cover Pages
 
-The new design doubles down on Hydejack as your personal site. The new cover page lets visitors know at a glance what you're about, showing your logo or profile picture, tagline or description, and your selection of social media icons.
+The new design doubles down on Hydejack as your personal site. The new Cover Pages let visitors know what you're about at a glance, showing your logo or profile picture, tagline or description, and selection of social media icons.
 
 <figure>
   <video alt="Cover page slide animation" src="/assets/video/cover-page.mp4" class="border" controls muted autoplay loop><img re-ignore src="/assets/img/cover-page.jpg"/></video>
@@ -19,10 +19,10 @@ The new design doubles down on Hydejack as your personal site. The new cover pag
 </figure>
 
 
-### Lazy-loading images
+### Lazy-Loading Images
 
 Using lots of images can severely impact the performance of a site. It can also cause layout quirks when images pop into existence.
-In Hydejack 8 you have the option to provide `width` and `height` information for your images and let Hydejack load them as readers scroll through the page.
+In Hydejack 8 you have the option to provide `width` and `height` information for your images and let Hydejack lazy-load them as readers scroll the page.
 
 <figure>
   <video alt="Lazy loading demo" src="/assets/video/lazy-images.mp4" class="border" controls muted autoplay loop><img re-ignore src="/assets/img/lazy-images.jpg"/></video>

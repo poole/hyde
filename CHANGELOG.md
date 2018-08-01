@@ -6,6 +6,13 @@ Jul XX 2018
 
 This release adds Dark Mode for Hydejack PRO customers.
 
+## Breaking
+* Removed cookie banner from free version
+* Removed offline support from free version
+
+In an attempt to make the PRO offering more appealing, I'm removing features that arguably should have never been included in the free version. 
+As software licenses go, nobody is stopping you from using the old code, but updates will no longer be free.
+
 ## Changed
 * The cookies banners is now showing at the bottom of the page and the background color is no longer transparent to increase visibility
 * Changed the default syntax theme from "GitHub" to "Atom One Light"
@@ -17,6 +24,7 @@ This release adds Dark Mode for Hydejack PRO customers.
 * Clicking the cookie banner "Okay" button will now fire a `hy--cookies-ok` event on `document`, so that custom analytics solutions can plug in.
 * All Google Analytics code has been removed from Hydejack's core and moved to `_includes/body/analytics.js`.
 * Using CSS Custom Properties instead of SASS variables for certain properties to make style customization easier.
+* Added shadow to sidebar to draw attention to the fact that it is an interactive element
 
 ## Added
 * [PRO] Added Dark Mode

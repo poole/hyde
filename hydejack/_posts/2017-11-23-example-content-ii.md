@@ -13,7 +13,7 @@ There should be whitespace between paragraphs.
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](another-page).
+[Link to another page](./2018-06-01-example-content-iii.md).
 
 ## Header 2
 
