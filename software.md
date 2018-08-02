@@ -3,6 +3,10 @@ layout: page
 title: Software
 ---
 
+All software required for courses is open source and free unless otherwise noted. 
+If you have any questions or problems regarding software installation, please contact 
+your instructor.
+
 ### R and RStudio
 
 R and RStudio are separate downloads.
@@ -34,3 +38,32 @@ Follow the instructions below for your operating system to install them.
 * Under _Installers_, click the link for the _Mac OS X 10.6+ (64-bit)_ installer to download it.
 * Double-click the downloaded `.dmg` file, then open the RStudio folder that appears on your desktop. Drag the RStudio icon into the Applications folder.
 * Once everything is installed, launch RStudio and make sure there are no error messages.
+
+
+### Git and GitHub
+
+Git is version control software, which helps you keep track of changes made to files.
+GitHub is a repository for data and code tracked with Git, which is mechanism for publishing 
+and collaborating on project development. 
+
+
+#### Windows, macOS
+
+If you do not already have one, please register for a [GitHub](https://github.com) account. 
+Please note that your name and email will be publicly visbible through GitHub by default, 
+but more information on controlling privacy settings can be found 
+[here](https://help.github.com/articles/setting-your-commit-email-address-on-github/).
+
+The website for [GitHub Desktop](https://desktop.github.com) should auto-detect your operating system 
+and allow you to download and install the software. We recommend installing 
+[Atom](https://atom.io) if you do not already have a preferred text editor; 
+this website will also auto-detect your operating system.
+
+If you are working on macOS, you do not need to install any other software.
+
+
+#### Windows (only for optional third week)
+
+If you would like to work with Git on the command line in the third week of class on a Windows laptop, 
+also install [Git for Windows](https://gitforwindows.org). Please note that this installs Git Gui, 
+which we will not use.
