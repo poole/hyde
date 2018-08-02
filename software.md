@@ -43,20 +43,19 @@ Follow the instructions below for your operating system to install them.
 ### Git and GitHub
 
 Git is version control software, which helps you keep track of changes made to files.
-GitHub is a repository for data and code tracked with Git, which is mechanism for publishing 
+GitHub is a repository for data and code tracked with Git, and is a mechanism for publishing 
 and collaborating on project development. 
 
 
 #### Windows, macOS
 
-If you do not already have one, please register for a [GitHub](https://github.com) account. 
-Please note that your name and email will be publicly visbible through GitHub by default, 
+* If you do not already have one, please register for a [GitHub](https://github.com) account. 
+Please note that your name and email will be publicly visible through GitHub by default, 
 but more information on controlling privacy settings can be found 
 [here](https://help.github.com/articles/setting-your-commit-email-address-on-github/).
-
-The website for [GitHub Desktop](https://desktop.github.com) should auto-detect your operating system 
-and allow you to download and install the software. We recommend installing 
-[Atom](https://atom.io) if you do not already have a preferred text editor; 
+* The website for [GitHub Desktop](https://desktop.github.com) should auto-detect your operating system 
+and allow you to download and install the software. 
+* We recommend installing [Atom](https://atom.io) if you do not already have a preferred text editor; 
 this website will also auto-detect your operating system.
 
 If you are working on macOS, you do not need to install any other software.
