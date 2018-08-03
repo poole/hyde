@@ -3,7 +3,7 @@ layout: post
 title: Example Content III
 description: >
   A page showing Hydejack-specific markdown content.
-image: /assets/img/example-content-iii.jpg
+image: /assets/img/blog/example-content-iii.jpg
 ---
 
 Hydejack offers a few additional features to markup your markdown.
