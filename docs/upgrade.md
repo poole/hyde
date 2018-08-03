@@ -12,8 +12,8 @@ This chapter shows how to upgrade Hydejack to a newer version. The method depend
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
-**NOTE**: Before upgrading to v7+, make sure you've read the [CHANGELOG](../../CHANGELOG.md){:.heading.flip-title},
-especially the part about the [license change](../../CHANGELOG.md#license-change)!
+**NOTE**: Before upgrading to v7+, make sure you've read the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title},
+especially the part about the [license change](../CHANGELOG.md#license-change)!
 {:.message}
 
 ## Via gem
@@ -37,7 +37,7 @@ Generally, you'll want to copy these files and folders:
 * `Gemfile.lock`
 
 and merge them with your existing folder. However, you'll also want to check out `_data` and `_config.yml` for any changes
-and read latest entries to the [CHANGELOG](../../CHANGELOG.md){:.heading.flip-title}.
+and read latest entries to the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title}.
 
 **NOTE**: If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
 and you have to apply them again.
