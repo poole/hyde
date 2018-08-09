@@ -23,8 +23,9 @@ As software licenses go, nobody is stopping you from using the old code, but upd
 * Cookies banner can now be enabled without using Google Analytics
 * Clicking the cookie banner "Okay" button will now fire a `hy--cookies-ok` event on `document`, so that custom analytics solutions can plug in.
 * All Google Analytics code has been removed from Hydejack's core and moved to `_includes/body/analytics.js`.
-* Using CSS Custom Properties instead of SASS variables for certain properties to make style customization easier.
-* Added shadow to sidebar to draw attention to the fact that it is an interactive element
+* All Disqus code has been removed from Hydejack's core and moved to `_includes/comments.html` and `_includes/my-comments.html`.
+* Using CSS Custom Properties instead of SASS variables for certain properties to enable style customization using only CSS.
+* Added shadow to sidebar
 
 ## Added
 * [PRO] Added Dark Mode

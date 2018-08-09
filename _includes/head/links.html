@@ -16,11 +16,6 @@
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
 {% endif %}
 
-{% assign disqus = site.disqus | default:site.disqus_shortname %}
-{% if disqus %}
-<link rel="dns-prefetch" href="https://{{ disqus }}.disqus.com" id="_hrefDisqus">
-{% endif %}
-
 {% comment %}<!--
   This is to avoid hard-coding URLs in JS (where they can't be discovered by automated tools).
 -->{% endcomment %}
@@ -31,3 +26,8 @@
 <link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'                        | relative_url }}" id="_hrefKatexJS">
 <link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css'                       | relative_url }}" id="_hrefKatexCSS">
 <link rel="dns-prefetch" href="{{ '/assets/img/swipe.svg'                                                   | relative_url }}" id="_hrefSwipeSVG">
+
+{% assign disqus = site.disqus | default:site.disqus_shortname %}
+{% if disqus %}
+<link rel="dns-prefetch" href="https://{{ disqus }}.disqus.com" id="_hrefDisqus">
+{% endif %}

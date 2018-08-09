@@ -55,7 +55,6 @@ import {
 import { animate, empty, hasFeatures, isFirefoxIOS, importTemplate } from "./common";
 import { CrossFader } from "./cross-fader";
 import { upgradeMathBlocks } from "./katex";
-import { loadDisqus } from "./disqus";
 import { setupFLIP } from "./flip";
 
 // ## Constants
@@ -346,10 +345,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // Once the content is faded in, upgrade the math blocks with KaTeX.
     // This can take a while and will trigger multiple repaints,
     // so we don't want to start until after the animation.
-    fadeIn$.subscribe(() => {
-      upgradeMathBlocks();
-      loadDisqus();
-    });
+    fadeIn$.subscribe(() => upgradeMathBlocks());
 
     // ### Show error page
     // In case of a network error, we don't want to show the browser's default offline page.
