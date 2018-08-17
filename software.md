@@ -13,6 +13,8 @@ R and RStudio are separate downloads.
 R is the "engine", while RStudio is an integrated desktop environment (IDE) that makes using R much more pleasant.
 R must be installed before RStudio.
 Follow the instructions below for your operating system to install them.
+If you are working on a computer owned by Fred Hutch, 
+it may also be possible to install these programs through the self-service app.
 
 
 #### Windows
@@ -47,7 +49,7 @@ GitHub is a repository for data and code tracked with Git, and is a mechanism fo
 and collaborating on project development. 
 
 
-#### Windows, macOS
+#### GitHub Desktop App for Windows, macOS
 
 * If you do not already have one, please register for a [GitHub](https://github.com) account. 
 Please note that your name and email will be publicly visible through GitHub by default, 
@@ -58,11 +60,17 @@ and allow you to download and install the software.
 * We recommend installing [Atom](https://atom.io) if you do not already have a preferred text editor; 
 this website will also auto-detect your operating system.
 
-If you are working on macOS, you do not need to install any other software.
 
-
-#### Windows (only for optional third week)
+#### Command line tools for Windows (only for optional third week)
 
 If you would like to work with Git on the command line in the third week of class on a Windows laptop, 
-also install [Git for Windows](https://gitforwindows.org). Please note that this installs Git Gui, 
+also install [Git for Windows](https://gitforwindows.org). Please note that this also installs Git Gui, 
 which we will not use.
+
+#### Command line tools for macOS (only for optional third week)
+
+If you would like to work with Git on the command line in the third week of class on a Mac laptop, 
+you will also need to install command line Git tools by clicking on "GitHub Desktop" in the top menu of the app, 
+then selecting "Install Command Line Tool." You will then be able to access the software through
+Terminal, which you can locate by clicking on your Desktop, selecting "Go" in the menu at the top, 
+and clicking on "Utilities."
