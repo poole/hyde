@@ -26,6 +26,7 @@ As software licenses go, nobody is stopping you from using the old code, but upd
 * All Disqus code has been removed from Hydejack's core and moved to `_includes/comments.html` and `_includes/my-comments.html`.
 * Using CSS Custom Properties instead of SASS variables for certain properties to enable style customization using only CSS.
 * Added shadow to sidebar
+* Navbar is longer positioned `fixed`
 
 ## Added
 * [PRO] Added Dark Mode
