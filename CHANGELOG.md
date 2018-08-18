@@ -1,7 +1,7 @@
 # CHANGELOG
 
-## v8.1.0-beta.2
-Aug XX 2018
+## v8.1.0
+Aug 18 2018
 {:.heading.post-date}
 
 This release adds Dark Mode for Hydejack PRO customers.
@@ -11,10 +11,10 @@ This release adds Dark Mode for Hydejack PRO customers.
 * Removed offline support from free version
 
 In an attempt to make the PRO offering more appealing, I'm removing features that arguably should have never been included in the free version.
-As software licenses go, nobody is stopping you from using the old code, but updates will no longer be free.
+As software licenses go, nobody is stopping you from using the old code, but updates will no longer be included.
 
 ## Changed
-* The cookies banners is now showing at the bottom of the page and the background color is no longer transparent to increase visibility
+* The cookies banners is now showing at the bottom of the page and its background color is no longer transparent to increase visibility
 * Changed the default syntax theme from "GitHub" to "Atom One Light"
 * Adapted `figure` CSS class to accommodate different children, not just `img`s
 * `video` tags now have a `max-width` of 100%

@@ -156,8 +156,7 @@ layout: list
 title:  Hyde
 slug:   hyde
 description: >
-  Hyde is a brazen two-column Jekyll](http://jekyllrb.com) theme
-  that pairs a prominent sidebar with uncomplicated content.
+  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme.
   It's based on [Poole](http://getpoole.com), the Jekyll butler.
 ---
 ~~~
@@ -346,7 +345,7 @@ screenshot:
     480w:    /assets/img/projects/hyde-v2@0,25x.jpg
 caption:     Hyde is a brazen two-column Jekyll theme.
 description: >
-  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme that pairs a prominent sidebar with uncomplicated content.
+  Hyde is a brazen two-column [Jekyll](http://jekyllrb.com) theme.
   It's based on [Poole](http://getpoole.com), the Jekyll butler.
 links:
   - title:   Demo
