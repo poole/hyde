@@ -183,6 +183,14 @@ hydejack:
   # When enabled, no user-related data will be stored until the user gives consent.
   cookies_banner:      false
 
+  # Set to `true` if you would like to add a "Powered by Hydejack" link in the footer.
+  advertise:           false
+
+  # TODO
+  dark_mode:
+    sunrise: 6
+    sunset: 18
+
   # ⚡️ DANGER ZONE ⚡️
   # ----------------
   # This is an _experimental_ feature.
@@ -221,6 +229,8 @@ exclude:
   - package-lock.json
   - webpack.config.js
   - "*.gemspec"
+  - _js
+  - .sass-cache
 include:
   - LICENSE.md
 

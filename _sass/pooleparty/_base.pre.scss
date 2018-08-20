@@ -31,8 +31,9 @@ html {
 }
 
 body {
-  color: $body-color;
-  background-color: $body-bg;
+  @extend .color-transition;
+  color: var(--body-color);
+  background-color: var(--body-bg);
   overflow-y: scroll;
 }
 

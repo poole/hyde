@@ -68,14 +68,16 @@ ul, ol {
 }
 
 hr {
+  @extend .color-transition;
   position: relative;
   margin: 1.5rem 0;
   border: 0;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--border-color);
 }
 
 .hr {
-  border-bottom: 1px solid $border-color;
+  @extend .color-transition;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }

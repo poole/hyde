@@ -29,7 +29,7 @@
   body::before {
     content: '';
     width: .5rem;
-    background: $border-color;
+    background: var(--border-color);
     position: fixed;
     left: 0;
     top: 0;

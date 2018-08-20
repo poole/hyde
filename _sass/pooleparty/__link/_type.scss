@@ -48,20 +48,21 @@ dd {
 abbr {
   font-size: 85%;
   font-weight: $font-weight-bold;
-  color: #555;
+  color: #555; // TODO
   text-transform: uppercase;
 
   &[title] {
     cursor: help;
-    border-bottom: 1px dotted $border-color;
+    border-bottom: 1px dotted var(--border-color);
   }
 }
 
 blockquote {
+  @extend .color-transition;
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: $gray;
-  border-left: .25rem solid $border-color;
+  color: var(--gray);
+  border-left: .25rem solid var(--border-color);
 
   &.lead {
     font-size: 1.2em;
@@ -84,7 +85,7 @@ blockquote {
 }
 
 .faded {
-  color: $gray;
+  color: var(--gray);
 }
 
 .centered {

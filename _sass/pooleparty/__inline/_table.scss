@@ -33,8 +33,9 @@ table:not(.highlight) {
 
   
   td, th {
+    @extend .color-transition;
     padding: .25rem .5rem;
-    border: 1px solid $border-color;
+    border: 1px solid var(--border-color);
 
     &:first-child {
       padding-left: 1rem;

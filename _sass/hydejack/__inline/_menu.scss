@@ -23,32 +23,38 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
-.fixed-top {
+.fixed-common {
   position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
   z-index: 2;
+}
+
+.fixed-top {
+  @extend .fixed-common;
+  top: 0;
+}
+
+.fixed-bottom {
+  @extend .fixed-common;
+  bottom: 0;
 }
 
 .navbar > .content {
   padding-top: 0;
   padding-bottom: 0;
   min-height: 0;
-  height: 0;
-  color: #bbb;
+  color: var(--menu-text);
 }
 
 .nav-btn-bar {
-  margin-left: -.875rem;
-  height: 0;
+  margin: 0 -1rem 0 -.875rem;
 }
 
 .nav-btn {
-  display: inline-block;
   padding: 1.75rem .875rem;
   border-bottom: none;
-  color: #bbb!important;
+  color: var(--menu-text)!important;
 }
 
 #_menu {

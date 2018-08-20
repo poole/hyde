@@ -28,8 +28,9 @@ code, pre {
 }
 
 code {
+  @extend .color-transition;
   padding: .25em .5em;
-  background-color: $code-bg;
+  background-color: var(--gray-bg);
   font-size: .85em;
 }
 

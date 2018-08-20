@@ -45,7 +45,7 @@ sup {
   margin-top: 5rem;
 
   > ol {
-    color: $gray;
+    color: var(--gray);
 
     > li {
       padding: .5rem;
@@ -53,18 +53,19 @@ sup {
       > p { margin: 0; }
       &:focus {
         outline: none;
-        color: $gray-text;
-        background: $gray-bg;
+        color: var(--gray-text);
+        background: var(--gray-bg);
       }
     }
   }
 
   &::before {
+    @extend .color-transition;
     content: "";
     display: block;
     margin: 1.5rem 0;
     border: 0;
-    border-top: 1px solid $border-color;
+    border-top: 1px solid var(--border-color);
   }
 }
 // >>>>> LINK

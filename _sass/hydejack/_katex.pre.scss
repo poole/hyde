@@ -38,7 +38,7 @@ article {
     font-family: $code-font-family;
     padding: .25em .5em;
     font-size: .85em;
-    background-color: $code-bg;
+    background-color: var(--code-bg);
   }
 }
 

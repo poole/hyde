@@ -147,9 +147,9 @@ function setupErrorPage(main, { pathname }) {
 
 function setupButton(parent, templateId, clickFn) {
   const template = document.getElementById(templateId);
-  const backButton = document.importNode(template.content, true);
-  backButton.querySelector(".nav-btn").addEventListener("click", clickFn);
-  parent.appendChild(backButton);
+  const button = document.importNode(template.content, true);
+  button.querySelector(".nav-btn").addEventListener("click", clickFn);
+  parent.appendChild(button);
   return parent.lastElementChild;
 }
 
@@ -197,7 +197,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     const btnBarEl = document.querySelector(".navbar .content .nav-btn-bar");
 
     const animationMain = setupAnimationMain(pushStateEl);
-    const loading = setupLoading(document.querySelector(".navbar .content"));
+    const loading = setupLoading(btnBarEl);
 
     // Show a back button when in standalone mode.
     if (isStandalone) {

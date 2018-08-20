@@ -26,7 +26,7 @@ hy-push-state a, .a {
   position: relative; 
   padding-bottom: .15rem; 
   border-bottom: 1px solid; 
-//   transition: color 500ms, border-color 250ms; 
+//   transition: color 1s, border-color 250ms; 
   
 
   &.no-hover {
@@ -39,7 +39,7 @@ hy-push-state a, .a {
 
 /*
 img {
-  background-color: $gray-bg; 
+  background-color: var(--gray-bg); 
   
 }
 */

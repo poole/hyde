@@ -50,7 +50,7 @@ export class CrossFader {
     this.rules = styleSheet.cssRules || styleSheet.rules;
     this.prevHash = pseudoHash(elemDataset(main));
 
-    this.themeColor = document.querySelector('meta[name="theme-color"]');
+    this.themeColorEl = document.querySelector('meta[name="theme-color"]');
   }
 
   fetchImage2({ background, image }) {
@@ -106,11 +106,9 @@ export class CrossFader {
     );
   }
 
-  updateStyle({ color = "#4fb1ba", themeColor } = {}) {
-    if (this.themeColor) {
-      window.setTimeout(() => {
-        this.themeColor.content = themeColor || color;
-      }, 250);
+  updateStyle({ color = "#4fb1ba", themeColor = "#193747" } = {}) {
+    if (this.themeColorEl) {
+      window.setTimeout(() => (this.themeColorEl.content = themeColor), 250);
     }
 
     if (this.rules) {

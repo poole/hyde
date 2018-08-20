@@ -29,7 +29,7 @@ main > footer {
   left: .5rem;
   right: 0;
   padding: 0 1rem;
-  color: $gray;
+  color: var(--gray);
   text-align: center;
 
   > p {
