@@ -16,18 +16,13 @@
 // <<<<< LINK
 article {
   .katex-display, div.MathJax_Preview {
-    /* Prevent code linebreaks and allow side-scrolling (much better readability on mobile) */
-    overflow-x: auto;
-    -webkit-overflow-scrolling: touch;
+    @extend .pre-base;
+    padding: 2rem;
     text-align: left;
-
-    @include pre(2rem);
-
-    backface-visibility: hidden;
   }
 
   div.MathJax_Preview {
-    font-family: $code-font-family;
+    font-family: var(--code-font-family);
     font-size: .75em;
     line-height: 1.45;
     white-space: pre;
@@ -35,10 +30,10 @@ article {
   }
 
   span.MathJax_Preview {
-    font-family: $code-font-family;
+    font-family: var(--code-font-family);
     padding: .25em .5em;
     font-size: .85em;
-    background-color: $code-bg;
+    background-color: var(--code-bg);
   }
 }
 

@@ -18,39 +18,36 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-{% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
-{% assign font =         site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
-
-$font-family-heading: {{ font_heading }};
-$font-family: {{ font }};
+$font-family-heading: {{ site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" }};
+$font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif"   }};
 
 @import "variables";
 @import "my-variables";
 @import "mixins";
 
-@import "pooleparty/__inline/base";
-@import "pooleparty/__inline/type";
-@import "pooleparty/__inline/table";
-@import "pooleparty/__inline/footer";
-@import "pooleparty/__inline/footnotes";
-@import "pooleparty/__inline/code";
-@import "pooleparty/__inline/posts";
-@import "pooleparty/__inline/related";
-@import "pooleparty/__inline/read-more";
-@import "pooleparty/__inline/message";
-@import "pooleparty/__inline/pagination";
+@import "pooleparty/__inline__/base";
+@import "pooleparty/__inline__/type";
+@import "pooleparty/__inline__/table";
+@import "pooleparty/__inline__/footer";
+@import "pooleparty/__inline__/footnotes";
+@import "pooleparty/__inline__/code";
+@import "pooleparty/__inline__/posts";
+@import "pooleparty/__inline__/related";
+@import "pooleparty/__inline__/read-more";
+@import "pooleparty/__inline__/message";
+@import "pooleparty/__inline__/pagination";
 
-@import "hydejack/__inline/base";
-@import "hydejack/__inline/utilities";
-@import "hydejack/__inline/links";
-@import "hydejack/__inline/images";
-@import "hydejack/__inline/sidebar";
-@import "hydejack/__inline/social";
-@import "hydejack/__inline/menu";
-@import "hydejack/__inline/content";
-@import "hydejack/__inline/avatar";
-@import "hydejack/__inline/katex";
-@import "hydejack/__inline/footer";
+@import "hydejack/__inline__/base";
+@import "hydejack/__inline__/utilities";
+@import "hydejack/__inline__/links";
+@import "hydejack/__inline__/images";
+@import "hydejack/__inline__/sidebar";
+@import "hydejack/__inline__/social";
+@import "hydejack/__inline__/menu";
+@import "hydejack/__inline__/content";
+@import "hydejack/__inline__/avatar";
+@import "hydejack/__inline__/katex";
+@import "hydejack/__inline__/footer";
 
 @import "my-inline";
 // @import "my-style";

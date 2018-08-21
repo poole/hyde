@@ -15,8 +15,8 @@
 
 // <<<<< INLINE
 h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
-  font-weight: $font-weight-heading;
-  margin: 4rem 0 1rem;
+  font-weight: var(--font-weight-heading);
+  margin: 5rem 0 1rem;
 }
 
 h1, .h1 {
@@ -45,6 +45,8 @@ p {
 
   &.lead {
     font-size: 1.2em;
+    margin-top: 1.5rem;
+    margin-bottom: 1.5rem;
     padding: 0 1rem;
   }
 }
@@ -59,14 +61,16 @@ ul, ol {
 }
 
 hr {
+  @extend .color-transition;
   position: relative;
-  margin: 1.5rem 0;
+  margin: 3rem 0;
   border: 0;
-  border-top: 1px solid $border-color;
+  border-top: 1px solid var(--border-color);
 }
 
 .hr {
-  border-bottom: 1px solid $border-color;
+  @extend .color-transition;
+  border-bottom: 1px solid var(--border-color);
   padding-bottom: 1rem;
   margin-bottom: 2rem;
 }
@@ -86,7 +90,7 @@ h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
 }
 
 dt, strong {
-  font-weight: $font-weight-bold;
+  font-weight: var(--font-weight-bold);
 }
 
 dd {
@@ -95,21 +99,21 @@ dd {
 
 abbr {
   font-size: 85%;
-  font-weight: $font-weight-bold;
-  color: #555;
+  font-weight: var(--font-weight-bold);
   text-transform: uppercase;
 
   &[title] {
     cursor: help;
-    border-bottom: 1px dotted $border-color;
+    border-bottom: 1px dotted var(--border-color);
   }
 }
 
 blockquote {
+  @extend .color-transition;
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: $gray;
-  border-left: .25rem solid $border-color;
+  color: var(--text-muted);
+  border-left: .25rem solid var(--border-color);
 
   &.lead {
     font-size: 1.2em;
@@ -124,7 +128,7 @@ blockquote {
 }
 
 .heading {
-  font-weight: $font-weight-heading;
+  font-weight: var(--font-weight-heading);
 }
 
 .fine {
@@ -132,7 +136,8 @@ blockquote {
 }
 
 .faded {
-  color: $gray;
+  @extend .color-transition;
+  color: var(--text-muted);
 }
 
 .centered {

@@ -29,8 +29,9 @@ table:not(.highlight) {
 
   // <<< inline
   td, th {
+    @extend .color-transition;
     padding: .25rem .5rem;
-    border: 1px solid $border-color;
+    border: 1px solid var(--border-color);
 
     &:first-child {
       padding-left: 1rem;
@@ -44,23 +45,27 @@ table:not(.highlight) {
 
   // <<< link
   thead {
-    background-color: $body-bg;
+    @extend .color-transition;
+    background-color: var(--body-bg);
   }
 
   thead + tbody,
   tbody + tbody,
   tfoot {
-    border-top: 3px double $border-color;
+    @extend .color-transition;
+    border-top: 3px double var(--border-color);
   }
 
   tbody tr:nth-child(even) td,
   tbody tr:nth-child(even) th {
-    background-color: $body-bg;
+    @extend .color-transition;
+    background-color: var(--body-bg);
   }
 
   tbody tr:nth-child(odd) td,
   tbody tr:nth-child(odd) th {
-    background-color: $gray-bg;
+    @extend .color-transition;
+    background-color: var(--gray-bg);
   }
   // >>>
 }
@@ -86,8 +91,8 @@ table:not(.highlight) {
   thead,
   thead + tbody,
   tbody + tbody {
-    border-top: 1px solid $border-color;
-    border-bottom: 1px solid $border-color;
+    border-top: 1px solid var(--border-color);
+    border-bottom: 1px solid var(--border-color);
   }
 
   thead, tbody {
@@ -123,14 +128,14 @@ table:not(.highlight) {
 
     &:first-child {
       td {
-        border-left: 1px solid $border-color;
+        border-left: 1px solid var(--border-color);
       }
     }
 
     &:last-child {
       td {
         padding-right: 1rem;
-        border-right: 1px solid $border-color;
+        border-right: 1px solid var(--border-color);
       }
     }
   }

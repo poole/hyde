@@ -18,11 +18,8 @@
 // OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 // SOFTWARE.
 
-{% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
-{% assign font =         site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
-
-$font-family-heading: {{ font_heading }};
-$font-family: {{ font }};
+$font-family-heading: {{ site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" }};
+$font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif"   }};
 
 @import "variables";
 @import "my-variables";
@@ -31,35 +28,35 @@ $font-family: {{ font }};
 @import "reboot-mod";
 
 {% unless site.hydejack.no_inline_css or jekyll.environment == 'development' %}
-  @import "pooleparty/__link/base";
-  @import "pooleparty/__link/type";
-  @import "pooleparty/__link/table";
-  @import "pooleparty/__link/footer";
-  @import "pooleparty/__link/footnotes";
-  @import "pooleparty/__link/code";
-  @import "pooleparty/__link/posts";
-  @import "pooleparty/__link/related";
-  @import "pooleparty/__link/read-more";
-  @import "pooleparty/__link/message";
-  @import "pooleparty/__link/pagination";
+  @import "pooleparty/__link__/base";
+  @import "pooleparty/__link__/type";
+  @import "pooleparty/__link__/table";
+  @import "pooleparty/__link__/footer";
+  @import "pooleparty/__link__/footnotes";
+  @import "pooleparty/__link__/code";
+  @import "pooleparty/__link__/posts";
+  @import "pooleparty/__link__/related";
+  @import "pooleparty/__link__/read-more";
+  @import "pooleparty/__link__/message";
+  @import "pooleparty/__link__/pagination";
 
-  @import "hydejack/__link/base";
-  @import "hydejack/__link/utilities";
-  @import "hydejack/__link/links";
-  @import "hydejack/__link/images";
-  @import "hydejack/__link/sidebar";
-  @import "hydejack/__link/social";
-  @import "hydejack/__link/menu";
-  @import "hydejack/__link/content";
-  @import "hydejack/__link/avatar";
-  @import "hydejack/__link/katex";
-  @import "hydejack/__link/footer";
+  @import "hydejack/__link__/base";
+  @import "hydejack/__link__/utilities";
+  @import "hydejack/__link__/links";
+  @import "hydejack/__link__/images";
+  @import "hydejack/__link__/sidebar";
+  @import "hydejack/__link__/social";
+  @import "hydejack/__link__/menu";
+  @import "hydejack/__link__/content";
+  @import "hydejack/__link__/avatar";
+  @import "hydejack/__link__/katex";
+  @import "hydejack/__link__/footer";
 
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
-    @import "hydejack/__link/mark-external";
+    @import "hydejack/__link__/mark-external";
   {% endunless %}
   {% unless site.hydejack.no_break_layout %}
-    @import "hydejack/__link/break-layout";
+    @import "hydejack/__link__/break-layout";
   {% endunless %}
 
   @import "syntax";

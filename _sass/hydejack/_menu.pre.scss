@@ -14,38 +14,40 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // <<<<< INLINE
-.fixed-top {
+.fixed-common {
   position: fixed;
-  top: 0;
   left: 0;
   width: 100%;
   z-index: 2;
+}
+
+.fixed-top {
+  @extend .fixed-common;
+  top: 0;
+}
+
+.fixed-bottom {
+  @extend .fixed-common;
+  bottom: 0;
 }
 
 .navbar > .content {
   padding-top: 0;
   padding-bottom: 0;
   min-height: 0;
-  height: 0;
-  color: #bbb;
+  color: var(--menu-text);
 }
 
 .nav-btn-bar {
-  margin-left: -.875rem;
-  height: 0;
+  margin: 0 -1rem 0 -.875rem;
 }
 
 .nav-btn {
-  display: inline-block;
+  background: none;
+  border: none;
   padding: 1.75rem .875rem;
-  border-bottom: none;
-  color: #bbb!important;
-}
-
-#_menu {
-  @media screen and (min-width: $break-point-3) {
-    display: none;
-  }
+  color: var(--menu-text)!important;
+  cursor: pointer;
 }
 
 .animation-main {
@@ -56,24 +58,17 @@
 // <<<< LINK
 .navbar {
   @media print { display: none; }
+  .loading { display: none; }
+}
 
-  .loading {
-    display: none;
-    position: absolute;
-    top: 0;
-    right: 0;
-    padding: 1.75rem 1rem;
-  }
+#_navbar {
+  position: absolute;
+  height: 0;
 }
 
 #_cookies-banner  {
-  .nav-btn { padding: 1.75rem 0 }
-  .nav-btn-bar {
-    margin-left: 2rem;
-    @media screen and (min-width: $break-point-3) {
-      margin: 0;
-    }
-  }
-  @media print { display: none; }
+  @extend .color-transition;
+  background-color: var(--body-bg);
+  border-top: 1px solid var(--border-color);
 }
 // >>>>

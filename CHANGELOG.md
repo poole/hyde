@@ -1,7 +1,40 @@
 # CHANGELOG
 
+## v8.1.0
+Aug 18 2018
+{:.heading.post-date}
+
+This release adds Dark Mode for Hydejack PRO customers.
+
+## Breaking
+* Removed cookie banner from free version
+* Removed offline support from free version
+
+In an attempt to make the PRO offering more appealing, I'm removing features that arguably should have never been included in the free version.
+As software licenses go, nobody is stopping you from using the old code, but updates will no longer be included.
+
+## Changed
+* The cookies banners is now showing at the bottom of the page and its background color is no longer transparent to increase visibility
+* Changed the default syntax theme from "GitHub" to "Atom One Light"
+* Adapted `figure` CSS class to accommodate different children, not just `img`s
+* `video` tags now have a `max-width` of 100%
+* Increased margin before headings to `5rem`, up from 4
+* Increased margin of `hr` elements.
+* Cookies banner can now be enabled without using Google Analytics
+* Clicking the cookie banner "Okay" button will now fire a `hy--cookies-ok` event on `document`, so that custom analytics solutions can plug in.
+* All Google Analytics code has been removed from Hydejack's core and moved to `_includes/body/analytics.js`.
+* All Disqus code has been removed from Hydejack's core and moved to `_includes/comments.html` and `_includes/my-comments.html`.
+* Using CSS Custom Properties instead of SASS variables for certain properties to enable style customization using only CSS.
+* Added shadow to sidebar
+* Navbar is longer positioned `fixed`
+
+## Added
+* [PRO] Added Dark Mode
+* `border` CSS class
+
+
 ## v8.0.0
-Jul 6 2018
+Jul 16 2018
 {:.heading.post-date}
 
 So far Hydejack has been a decent Jekyll theme, but with v8 it really starts stand out among the competition: Beautiful and unique landing pages, lazy-loading images, and experimental offline support are just the most prominent new features.
@@ -69,7 +102,7 @@ So far Hydejack has been a decent Jekyll theme, but with v8 it really starts sta
   This will cause hy-img to render a placeholder of 800 by 600 `px`, preventing the document height from changing after the image has finished loading.
 
 * Added experimental offline support via Service Workers. Use with care!
-  For details, [read the docs](docs/8.0.0/advanced.md#enabling-offline-support).
+  For details, [read the docs](docs/advanced.md#enabling-offline-support).
 
 * Added the `figure` CSS class, which allows images to have nicer-looking captions. E.g.
 
@@ -361,7 +394,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Event names described in the scripting chapter have changed from `y-push-state-*` to `hy-push-state-*`,
   except `y-push-state-animationend`, which has been removed. See the [docs][pstate] for more.
 
-[pstate]: docs/8.0.0/scripts.md#registering-push-state-event-listeners
+[pstate]: docs/scripts.md#registering-push-state-event-listeners
 
 ### Changes
 * `image` has been renamed to `accent_image`, but `image` continues to work unless you add the `jekyll-seo-tag` plugin.
@@ -560,7 +593,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Reduced building time during development.
   Roughly 50% of the time was spent rebuilding the inline CSS, which is now built once and included via `link` tag.
   Production builds still inlines CSS, so the building speed remains unchanged.
-  For more on how to improve building speeds, [see here](docs/8.0.0/writing.md#a-word-on-building-speeds).
+  For more on how to improve building speeds, [see here](docs/writing.md#a-word-on-building-speeds).
 
 ### Design
 * The default background image is no longer anti-selling the theme...
@@ -998,9 +1031,9 @@ Oct 15 2013
 {:.heading.post-date}
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
-[migration]: docs/8.0.0/upgrade.md
-[writing]: docs/8.0.0/writing.md
-[scripts]: docs/8.0.0/scripts.md
+[migration]: docs/upgrade.md
+[writing]: docs/writing.md
+[scripts]: docs/scripts.md
 
 [buy]: https://app.simplegoods.co/i/AQTTVBOE
 [PRO-license]: licenses/PRO.md

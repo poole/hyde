@@ -13,17 +13,20 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-@mixin pre($padding: 1rem) {
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding: $padding;
-  background-color: $code-bg;
+body {
+  --code-font-family: #{$code-font-family};
 
-  @media print {
-    width: 100%!important;
-    page-break-inside: avoid;
-    break-inside: avoid-page;
-  }
+  --font-weight: #{$font-weight};
+  --font-weight-bold: #{$font-weight-bold};
+  --font-weight-heading: #{$font-weight-heading};
+
+  --text-muted: #{$gray};
+  --gray-bg: #{$gray-bg};
+  --gray-text: #{$gray-text};
+  --menu-text: #{$menu-text};
+  --body-color: #{$body-color};
+  --body-bg: #{$body-bg};
+  --border-color: #{$border-color};
 }
 
 @mixin aspect-ratio($width, $height) {
@@ -45,8 +48,16 @@
   }
 }
 
-@mixin clearfix() {
+.clearfix {
   content: "";
   display: table;
   clear: both;
+}
+
+.color-transition {
+  transition: background-color 1s ease, border-color 1s ease;
+}
+
+.no-color-transition {
+  transition: none!important;
 }

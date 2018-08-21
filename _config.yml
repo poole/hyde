@@ -158,7 +158,7 @@ hydejack:
   no_drawer:           false
 
   # Set to `true` to prevent usage of `hy-img` (lazy-loading images).
-  no_img:              true
+  no_img:              false
 
   # Set to `true` if you do not want parts of the css inlined in <head/>
   # This *may* be benefitial when serving the site over HTTP/2.
@@ -183,13 +183,28 @@ hydejack:
   # When enabled, no user-related data will be stored until the user gives consent.
   cookies_banner:      false
 
+  # Set to `true` if you would like to add a "Powered by Hydejack" link in the footer.
+  advertise:           false
+
+  # Note that dark mode only works in the PRO version of Hydejack.
+  dark_mode:
+    # Set to `true` to always use the dark theme.
+    always:            false
+
+    # Set to `true` to use the dark theme based on visitors' local time.
+    dynamic:           true
+    sunrise:           6
+    sunset:            18
+
+    # Set to `true` to allow visitors to switch between light and dark mode.
+    icon:              true
+
   # ⚡️ DANGER ZONE ⚡️
   # ----------------
   # This is an _experimental_ feature.
   # Only use if you know what Service Workers are and how they can impact your site!
-  # Coding skills highly recommended.
   offline:
-    enabled:           true
+    enabled:           false
     cache_version:     1
 
 # Collections
@@ -221,6 +236,9 @@ exclude:
   - package-lock.json
   - webpack.config.js
   - "*.gemspec"
+  - _js
+  - _plugins
+  - .sass-cache
 include:
   - LICENSE.md
 

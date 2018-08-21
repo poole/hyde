@@ -21,7 +21,7 @@
     height: 100%; // inline
     object-fit: cover; // link
     object-position: center; // link
-    background-color: $gray-bg; // inline
+    background-color: var(--gray-bg); // inline
 
     // <<< link
     background-position: center;
@@ -37,7 +37,7 @@ hy-img {
   position: relative;
 
   .loading {
-    background-color: $gray-bg;
+    background-color: var(--gray-bg);
     position: absolute;
     top: 0;
     left: 0;
@@ -48,7 +48,7 @@ hy-img {
     align-items: center;
 
     > * {
-      color: #ddd;
+      color: var(--menu-text);
       font-size: 2rem;
     }
   }
@@ -62,7 +62,9 @@ hy-img {
 
 figure, .figure {
   @extend .faded, .fine, .centered;
-  hy-img, img {
+  margin-bottom: 2rem;
+
+  > *:first-child {
     margin-bottom: .5rem;
   }
 }

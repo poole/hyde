@@ -1,15 +1,15 @@
-<script>
-  {% include scripts/load-js.min.js %}{% include scripts/loadCSS.min.js %}{% include scripts/cssrelpreload.min.js %}
-  window._noPushState = {{ site.hydejack.no_push_state | default:site.disable_push_state | default:false }};
-  window._noDrawer = {{ site.hydejack.no_drawer | default:site.disable_drawer | default:false }};
-  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-    !function(w, d) {
-      loadJS(document.getElementById('_hrefFFO').href, function() {
-        if ('Promise' in w) Promise.all([
-          new FontFaceObserver('{{ font | split:',' | first }}').load(),
-          new FontFaceObserver('{{ font_heading | split:',' | first }}').load(),
-        ]).then(function f() { d.body.className += ' font-active'; }, function() {});
-      });
-    }(window, document);
-  {% endunless %}
-</script>
+<script>{% include scripts/load-js.min.js %}{% include scripts/loadCSS.min.js %}{% include scripts/cssrelpreload.min.js %}</script>
+
+<script>!function(w, d) {
+    w._noPushState = {{ site.hydejack.no_push_state | default:site.disable_push_state | default:false }};
+    w._noDrawer = {{ site.hydejack.no_drawer | default:site.disable_drawer | default:false }};
+
+    /*{% unless site.hydejack.no_google_fonts or site.no_google_fonts %}*/
+    loadJS(d.getElementById('_hrefFFO').href, function() {
+      if ('Promise' in w) Promise.all([
+        new FontFaceObserver('{{ font | split:',' | first }}').load(),
+        new FontFaceObserver('{{ font_heading | split:',' | first }}').load(),
+      ]).then(function f() { d.body.classList.add('font-active'); }, function() {});
+    });
+    /*{% endunless %}*/
+}(window, document);</script>

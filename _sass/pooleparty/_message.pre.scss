@@ -15,10 +15,11 @@
 
 // <<<<< INLINE
 .message {
+  @extend .color-transition;
   margin-bottom: 1rem;
   padding: 1rem;
-  color: $gray-text;
-  background-color: $gray-bg;
+  color: var(--gray-text);
+  background-color: var(--gray-bg);
   margin-left: -1rem;
   margin-right: -1rem;
 }

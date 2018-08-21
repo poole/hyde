@@ -31,8 +31,10 @@ html {
 }
 
 body {
-  color: $body-color;
-  background-color: $body-bg;
+  @extend .color-transition;
+  color: var(--body-color);
+  background-color: var(--body-bg);
+  font-weight: var(--font-weight);
   overflow-y: scroll;
 }
 
@@ -46,7 +48,7 @@ a {
   margin-right: -1rem;
 }
 
-.content img, .img {
+.content img, .img, .content video, .video {
   display: block;
   max-width: 100%;
 

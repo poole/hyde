@@ -3,7 +3,7 @@ layout: post
 title: Example Content II
 description: >
   A page showing how regular markdown content is styled in Hydejack.
-image: /assets/img/example-content-ii.jpg
+image: /assets/img/blog/example-content-ii.jpg
 canonical_url: https://pages-themes.github.io/architect/
 ---
 
@@ -13,7 +13,7 @@ There should be whitespace between paragraphs.
 
 Text can be **bold**, _italic_, or ~~strikethrough~~.
 
-[Link to another page](another-page).
+[Link to another page](./2018-06-01-example-content-iii.md).
 
 ## Header 2
 

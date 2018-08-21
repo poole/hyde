@@ -17,18 +17,18 @@ hy-push-state a, .a {
   position: relative; // inline
   padding-bottom: .15rem; // inline
   border-bottom: 1px solid; // inline
-  transition: color 500ms, border-color 250ms; // link
+  transition: color 1s, border-color 250ms; // link
 
   // <<< link
   &:hover {
     text-decoration: none;
-    transition: color 500ms, border-color 50ms;
+    transition: color 1s, border-color 50ms;
   }
   // >>>
 
   &.no-hover {
     border-bottom: none; // inline
-    padding-bottom: none; // inline
+    padding-bottom: 0; // inline
     transition: none; // link
     &:hover { transition: none; } // link
   }
@@ -36,7 +36,7 @@ hy-push-state a, .a {
 
 /*
 img {
-  background-color: $gray-bg; // inline
+  background-color: var(--gray-bg); // inline
 
   // <<< link
   background-position: center;

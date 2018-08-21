@@ -15,9 +15,10 @@
 
 // <<<<< LINK
 .pagination {
+  @extend .color-transition;
   width: calc(100% + 2rem);
   margin: 0 -1rem 1rem;
-  color: $gray;
+  color: var(--text-muted);
   text-align: center;
 
   > ul {
@@ -31,12 +32,13 @@
   > * {
     display: block;
     padding: .25rem 1rem;
-    border: solid $border-color;
+    border: solid var(--border-color);
     border-width: 1px 0;
+    transition: border-color 1s ease;
   }
 
   > a, > a:hover, > a:focus {
-    border-color: $border-color!important;
+    border-color: var(--border-color)!important;
   }
 
   &:first-child > * {
@@ -45,8 +47,8 @@
 
   // Only provide a hover state for linked pagination items
   > a:hover, a:focus {
-    background-color: #f5f5f5;
-    border-bottom: 1px solid $border-color;
+    background-color: var(--gray-bg);
+    border-bottom: 1px solid var(--border-color);
   }
 }
 
@@ -68,6 +70,7 @@
       border-top-left-radius: 0.25rem;
       border-bottom-left-radius: 0.25rem;
     }
+
     &:last-child > * {
       margin-left: -1px;
       border-top-right-radius: 0.25rem;

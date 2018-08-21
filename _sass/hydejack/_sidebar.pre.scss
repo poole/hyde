@@ -44,7 +44,6 @@ hy-drawer {
 
     // <<< link
     --hy-drawer-slide-width: calc(100% - #{$sidebar-width});
-    --hy-drawer-box-shadow: none;
     // >>>
   }
 
@@ -145,7 +144,7 @@ hy-drawer.loaded .sidebar {
 
 a.sidebar-nav-item {
   display: inline-block;
-  font-weight: $font-weight-heading;
+  font-weight: var(--font-weight-heading);
   line-height: 1.75;
   padding: .25rem;
   border-bottom: 1px solid rgba(255, 255, 255, 0.2);

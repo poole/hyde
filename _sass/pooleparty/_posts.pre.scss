@@ -34,7 +34,7 @@
   display: block;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
-  color: $gray;
+  color: var(--text-muted);
 }
 // >>>>>
 // <<<<< LINK
@@ -47,6 +47,6 @@ hr.dingbat::after {
   display: block;
   text-align: center;
   font-size: 1.5rem;
-  color: #ddd;
+  color: var(--menu-text);
 }
 // >>>>>

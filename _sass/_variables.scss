@@ -16,6 +16,10 @@
 $gray: #888;
 $gray-bg: rgba(0,0,0,.025);
 $gray-text: #666;
+$menu-text: #bbb;
+$body-color: #333;
+$body-bg: #fff;
+$border-color: #ebebeb;
 
 $root-font-size: 16px;
 $root-font-size-medium: 17px;
@@ -27,14 +31,7 @@ $font-weight: 400;
 $font-weight-bold: 700;
 $font-weight-heading: 400;
 
-$body-color: #333;
-$body-bg: #fff;
-
-$border-color: #eee;
-
 $code-font-family: Menlo, Monaco, Consolas, monospace;
-$code-color: inherit;
-$code-bg: $gray-bg;
 
 // Breakpoints and content width. All units must be in rem!
 // NOTE: Duplicated values from `_js/src/drawer.js`.
