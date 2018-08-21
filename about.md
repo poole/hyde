@@ -23,7 +23,7 @@ There are two versions of **Hydejack**: The base version is free, while features
 
 [**Download Free**][kit]
 -- or --
-[**Buy PRO**][buy]{:.btn.btn-primary}
+[**Buy PRO**][buy]
 
 
 ### A Free Blogging Theme
@@ -144,7 +144,7 @@ This table below shows what's included in each version:
 | Source                 | [GitHub][src]  | Included |
 | Support[^1]            | No             | No       |
 | Price                  | Free           | $59      |
-| | [**Download**][kit] | [**Buy PRO**][buy]{:.btn.btn-primary} |
+| | [**Download**][kit] | [**Buy PRO**][buy] |
 {:.stretch-table.dl-table}
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
