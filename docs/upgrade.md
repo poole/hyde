@@ -16,6 +16,16 @@ This chapter shows how to upgrade Hydejack to a newer version. The method depend
 especially the part about the [license change](../CHANGELOG.md#license-change)!
 {:.message}
 
+## Via Starter Kit
+When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
+
+```yml
+remote_theme: qwtel/hydejack@v8.1.0
+```
+
+To use the latest version on the `v8` branch on each build, you can use  `qwtel/hydejack@v8`.
+
+
 ## Via gem
 Upgrading the the gem-based theme is as easy as running
 
@@ -44,6 +54,7 @@ and you have to apply them again.
 Make sure you've made a backup before overwriting any files.
 {:.message}
 
+
 ## Via git
 The latest version sits on the `master` branch of [qwtel/hydejack](https://github.com/qwtel/hydejack).
 To apply them to your repository run
@@ -52,6 +63,7 @@ To apply them to your repository run
 $ git remote add hydejack git@github.com:qwtel/hydejack.git
 $ git pull hydejack master
 ~~~
+
 
 ## PRO Version
 Buyers of the PRO version will find the files necessary for an upgrade in the `upgrade` folder of the downloaded zip archive.
@@ -63,6 +75,7 @@ Make sure you've made a backup before overwriting any files.
 
 The archive also contains `.patch` files, that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
 Using this method, git will generate merge conflicts when changes in the patch conflict with any of your changes.
+
 
 ### PRO via GitHub (advanced)
 If you've followed the steps [here](install.md#pro-via-github-advanced), all you need to upgrade is:
