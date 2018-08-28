@@ -48,15 +48,19 @@ as well as the following packages:
 [numpy](http://www.numpy.org), [matplotlib](https://matplotlib.org),
 and [plotnine](https://plotnine.readthedocs.io/en/stable/).
 We recommend installing Python using Anaconda,
-which includes most of the packages listed above. Download and install the
-[Anaconda](https://www.anaconda.com/download/) installer for Python 3.x
-for your particular operating system.
+which includes most of the packages listed above:
+* Download the [Anaconda](https://www.anaconda.com/download/) installer for
+Python 3.x for your particular operating system
+* Double-click the downloaded file and follow the prompts to install Anaconda
 
-Following installation, you should open Terminal (only for MacOSX,
-locate by clicking on your Desktop, selecting "Go" in the menu at the top,
-and clicking on "Utilities.")
-or Command Prompt (Windows) and execute the following line of code to install
-the final package: `conda install -c conda-forge plotnine`
+Following installation, open the following command line software based
+on your operating system to install the final package:
+* MacOSX: Terminal, locate by clicking on your Desktop, selecting "Go" in the menu at the top,
+and clicking on "Utilities"
+* Windows: Command Prompt
+* Both MacOSX and Windows: copy and paste the following code onto the
+command line and execute by hitting "Enter":
+`conda install -c conda-forge plotnine`
 
 
 ### R and RStudio
