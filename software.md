@@ -40,6 +40,25 @@ Terminal, which you can locate by clicking on your Desktop, selecting "Go" in th
 and clicking on "Utilities."
 
 
+### Python
+
+We will be using Python version 3 (and above) for our courses,
+as well as the following packages:
+[pandas](http://pandas.pydata.org), [jupyter notebook](http://jupyter.org),
+[numpy](http://www.numpy.org), [matplotlib](https://matplotlib.org),
+and [plotnine](https://plotnine.readthedocs.io/en/stable/).
+We recommend installing Python using Anaconda,
+which includes most of the packages listed above. Download and install the
+[Anaconda](https://www.anaconda.com/download/) installer for Python 3.x
+for your particular operating system.
+
+Following installation, you should open Terminal (only for MacOSX,
+locate by clicking on your Desktop, selecting "Go" in the menu at the top, 
+and clicking on "Utilities.")
+or Command Prompt (Windows) and execute the following line of code to install
+the final package: `conda install -c conda-forge plotnine`
+
+
 ### R and RStudio
 
 R and RStudio are separate downloads.
