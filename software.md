@@ -53,7 +53,7 @@ which includes most of the packages listed above. Download and install the
 for your particular operating system.
 
 Following installation, you should open Terminal (only for MacOSX,
-locate by clicking on your Desktop, selecting "Go" in the menu at the top, 
+locate by clicking on your Desktop, selecting "Go" in the menu at the top,
 and clicking on "Utilities.")
 or Command Prompt (Windows) and execute the following line of code to install
 the final package: `conda install -c conda-forge plotnine`
@@ -73,7 +73,7 @@ it may also be possible to install these programs through the self-service app.
 * Download the installer for the latest version of R from [CRAN](http://cran.r-project.org/bin/windows/base/release.htm).
   The file will begin downloading automatically.
 * Double-click the downloaded `.exe` file and follow the prompts to install.
-* Go the the [RStudio download page](https://www.rstudio.com/products/rstudio/download/#download).
+* Go to the [RStudio download page](https://www.rstudio.com/products/rstudio/download/#download).
 * Under _Installers_, click the link for the _Windows Vista/7/8/10_ installer to download it.
 * Double-click the downloaded `.exe` file and follow the prompts to install.
 * Once both are installed, launch RStudio and make sure there are no error messages.
