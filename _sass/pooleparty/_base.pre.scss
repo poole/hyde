@@ -48,8 +48,8 @@ a {
   margin-right: -1rem;
 }
 
-.content img, .img, .content video, .video {
-  display: block;
+.content img, .img,
+.content video, .video {
   max-width: 100%;
 
   &.lead {
