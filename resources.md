@@ -17,6 +17,15 @@ This four-week course is designed to introduce attendees to R statistical progra
 * Week 4: Data visualization in ggplot2
 
 
+#### Introduction to Python
+
+This four-week course is designed to introduce attendees to Python programming and its broad applications. Each two hour session will include brief tutorials interspersed with challenge exercises, and assumes attendees have no prior computer coding experience. At the end of this course, you will be able to use Python to import, manipulate, and visualize data.
+* Week 1: Intro to python, jupyter notebooks, and data types
+* Week 2: Using pandas to explore data frames
+* Week 3: Extracting data from data frames
+* Week 4: Data visualization with ggplot
+
+
 #### Git and GitHub
 
 This two-week course (with optional third week session) is designed to introduce attendees to git version control software and GitHub as a repository for code and/or data. Each two hour session will include brief tutorials interspersed with challenge exercises. The first two sessions assume no prior programming knowledge. At the end of these two sessions, you will be able to use git to track changes to software and other files, and use GitHub to work collaboratively to publish repositories of code and/or data. The optional third session assumes attendees have a basic familiarity with using the command line to navigate through directories and work with files and will include an overview of the command line interface to access the full functionality of the git software.
