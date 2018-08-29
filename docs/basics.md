@@ -215,7 +215,7 @@ To add custom HTML elements to the `<head>` of the document, open `_includes/my-
 ### Adding custom HTML to the body
 To add custom HTML elements to the `<body>` of the document, open `_includes/my-body.html` (create the folder/the files if they don't exist) and add your elements there.
 
-What's the difference with `my-scripts.html`?
+What's the difference to `my-scripts.html`?
 : This file was used in earlier versions of Hydejack to accomplish the same goal. However, there are still instances were you might want to prefer `my-scripts.html` over `my-body.html`, as it won't load scrips on redirect pages and will be ignored by browsers < IE10.
 
 

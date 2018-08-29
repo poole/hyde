@@ -6,14 +6,14 @@ Aug 18 2018
 
 This release adds Dark Mode for Hydejack PRO customers.
 
-## Breaking
+### Breaking
 * Removed cookie banner from free version
 * Removed offline support from free version
 
 In an attempt to make the PRO offering more appealing, I'm removing features that arguably should have never been included in the free version.
 As software licenses go, nobody is stopping you from using the old code, but updates will no longer be included.
 
-## Changed
+### Changed
 * The cookies banners is now showing at the bottom of the page and its background color is no longer transparent to increase visibility
 * Changed the default syntax theme from "GitHub" to "Atom One Light"
 * Adapted `figure` CSS class to accommodate different children, not just `img`s
@@ -28,7 +28,7 @@ As software licenses go, nobody is stopping you from using the old code, but upd
 * Added shadow to sidebar
 * Navbar is longer positioned `fixed`
 
-## Added
+### Added
 * [PRO] Added Dark Mode
 * `border` CSS class
 

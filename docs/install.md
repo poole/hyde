@@ -22,14 +22,18 @@ Buyers of the PRO version should [follow these steps](#pro-version).
 Using the Starter Kit has the advantage of not cluttering your blog repository.
 Additionally, it allows you to publish your site on GitHub Pages with a single `push`.
 
-If you have a GitHub account, fork the [hy-starter-kit](https://github.com/qwtel/hy-starter-kit) repository.
-Otherwise [download the source files](https://github.com/qwtel/hy-starter-kit/archive/v8.1.0.zip)
-and unzip them somewhere on your machine.
+If you have a GitHub account, fork the [hy-starter-kit](https://github.com/qwtel/hy-starter-kit) repository. Otherwise [download the source files][src] and unzip them somewhere on your machine.
 
-**NOTE**: In addition to the docs here, you can follow the quick start guide in the starter kit.
+**NOTE**: In addition to the docs here, you can follow the quick start guide in the Starter Kit.
 {:.message}
 
 `cd` into the directory where `_config.yml` is located and follow the steps in [Running locally](#running-locally).
+
+Alternatively, you can just [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark}.
+
+[src]: https://github.com/qwtel/hy-starter-kit/archive/v8.1.0.zip
+[nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/qwtel/hydejack-starter-kit
+[dtn]: https://www.netlify.com/img/deploy/button.svg
 
 ## Via gem
 Jekyll has [built-in support](https://jekyllrb.com/docs/themes/) for using themes that are hosted on RubyGems.  
