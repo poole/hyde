@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v8.1.1
+Aug 31 2018
+{:.heading.post-date}
+
+### Fixes
+* Fixed an issue that prevented the drawer from working on iOS 10.
+* Changing the page via push state will now also update the `link[rel=canonical]` tag.
+* Changing the page via push state will now also update the `meta[name=description]` tag.
+* Fixed an issue that prevented the JS from building on Netlify.
+
 ## v8.1.0
 Aug 18 2018
 {:.heading.post-date}
