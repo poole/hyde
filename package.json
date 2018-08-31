@@ -45,7 +45,7 @@
     "elem-dataset": "^1.1.1",
     "hy-drawer": "^1.0.0-pre.22",
     "hy-img": "^1.0.0-hydejack.9",
-    "hy-push-state": "^1.0.0-pre.22",
+    "hy-push-state": "^1.0.0-pre.23",
     "intersection-observer": "^0.5.0",
     "rxjs": "^6.2.1",
     "smoothscroll-polyfill": "^0.4.3",
