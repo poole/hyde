@@ -20,13 +20,16 @@ function envConfig() {
   switch (mode) {
     case "production":
       return {
-        plugins: [new BannerPlugin({ banner, raw: true }), new EnvironmentPlugin({ DEBUG: false })],
+        plugins: [
+          new BannerPlugin({ banner, raw: true }),
+          new EnvironmentPlugin({ DEBUG: false, HYDEJACK: true }),
+        ],
       };
 
     default:
       return {
         devtool: "source-map",
-        plugins: [new EnvironmentPlugin({ DEBUG: true })],
+        plugins: [new EnvironmentPlugin({ DEBUG: true, HYDEJACK: true })],
       };
   }
 }
