@@ -20,16 +20,13 @@ function envConfig() {
   switch (mode) {
     case "production":
       return {
-        plugins: [
-          new BannerPlugin({ banner, raw: true }),
-          new EnvironmentPlugin({ DEBUG: false, HYDEJACK: true }),
-        ],
+        plugins: [new BannerPlugin({ banner, raw: true }), new EnvironmentPlugin({ DEBUG: false })],
       };
 
     default:
       return {
         devtool: "source-map",
-        plugins: [new EnvironmentPlugin({ DEBUG: true, HYDEJACK: true })],
+        plugins: [new EnvironmentPlugin({ DEBUG: true })],
       };
   }
 }
@@ -47,7 +44,7 @@ module.exports = merge(
           test: /(\.jsx|\.js)$/,
           loader: "babel-loader",
           options: {
-            presets: [["env", { modules: false }]],
+            presets: [["@babel/preset-env", { modules: false }]],
             babelrc: false,
           },
         },
