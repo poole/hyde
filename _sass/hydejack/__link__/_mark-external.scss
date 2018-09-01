@@ -22,9 +22,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<< link
+
 @media screen {
-  a.external, a[href*="//"]:not(.no-mark-external), a.no-push-state:not(.no-mark-external) {
+  a.external,
+  a[href*="//"]:not(.no-mark-external):not(.no-mark),
+  a.no-push-state:not(.no-mark-external):not(.no-mark) {
     &::after {
       content: "\00A0\ea7e";
       font-family: 'icomoon'!important;
@@ -46,4 +48,4 @@
     }
   }
 }
-// >>
+

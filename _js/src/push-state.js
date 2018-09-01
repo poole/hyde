@@ -73,6 +73,12 @@ const REQUIREMENTS = new Set([
   "requestanimationframe",
 ]);
 
+const NAVBAR_SEL = "#_navbar > .content > .nav-btn-bar";
+const CANONICAL_SEL = "link[rel=canonical]";
+const META_DESC_SEL = "meta[name=description]";
+const FN_SEL = "li[id^='fn:']";
+const FN_LINK_SEL = "a[href^='#fn:']";
+
 // TODO:
 const DURATION = 250;
 
@@ -181,7 +187,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       !!navigator.standalone || window.matchMedia("(display-mode: standalone)").matches;
 
     const pushStateEl = document.getElementsByTagName("hy-push-state")[0];
-    const navbarEl = document.querySelector("#_navbar > .content > .nav-btn-bar");
+    const navbarEl = document.querySelector(NAVBAR_SEL);
+    const canonicalEl = document.querySelector(CANONICAL_SEL);
+    const metaDescEl = document.querySelector(META_DESC_SEL);
 
     const animationMain = setupAnimationMain(pushStateEl);
     const loading = setupLoading(navbarEl);
@@ -259,24 +267,33 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
         );
 
         /*
-      requestIdleCallback(() => {
-        Array.from(main.querySelectorAll(pushStateEl.linkSelector)).forEach(anchor => {
-          caches.match(anchor.href).then(m => {
-            if (m) requestAnimationFrame(() => anchor.classList.add("visited"));
+        requestIdleCallback(() => {
+          Array.from(main.querySelectorAll(pushStateEl.linkSelector)).forEach(anchor => {
+            caches.match(anchor.href).then(m => {
+              if (m) requestAnimationFrame(() => anchor.classList.add("visited"));
+            });
           });
         });
-      });
-      */
+        */
       });
 
     after$
-      .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
-      .subscribe(({ replaceEls: [main] }) => {
-        Array.from(main.querySelectorAll('li[id^="fn:"]')).forEach(li => {
-          li.tabIndex = 0;
-        });
+      .pipe(
+        startWith({
+          replaceEls: [document.getElementById("_main")],
+          documentFragment: document,
+        })
+      )
+      .subscribe(({ replaceEls: [main], documentFragment }) => {
+        const cEl = documentFragment.querySelector(CANONICAL_SEL);
+        if (canonicalEl && cEl) canonicalEl.href = cEl.href;
 
-        Array.from(main.querySelectorAll('a[href^="#fn:"]')).forEach(a =>
+        const mEl = documentFragment.querySelector(META_DESC_SEL);
+        if (metaDescEl && mEl) metaDescEl.content = mEl.content;
+
+        Array.from(main.querySelectorAll(FN_SEL)).forEach(li => (li.tabIndex = 0));
+
+        Array.from(main.querySelectorAll(FN_LINK_SEL)).forEach(a =>
           a.addEventListener("click", e =>
             document.getElementById(e.currentTarget.hash.substr(1)).focus()
           )

@@ -20,17 +20,18 @@
 // First, we patch the environment with some ES6+ functions we intend to use.
 import "core-js/fn/function/bind";
 
-// We include our main component, hy-drawer,
-// in both the vanilla JS and the WebComponent version (will decide later which one to use).
-// Since they share most of their code, it's not a big deal in terms of file size.
-import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
+import ResizeObserver from "resize-observer-polyfill";
 
-import { Observable, fromEvent, NEVER } from "rxjs";
+import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
+import { createXObservable } from "hy-component/src/rxjs";
+
+import { Observable, fromEvent, NEVER, of } from "rxjs";
 
 import {
   distinctUntilChanged,
   map,
   share,
+  skip,
   startWith,
   switchMap,
   tap,
@@ -65,6 +66,10 @@ const BREAK_POINT_DYNAMIC = "(min-width: 1666px)";
 
 const DRAWER_WIDTH = 21;
 const R_28 = CONTENT_WIDTH_5 / 2 + CONTENT_MARGIN_5;
+
+const MOBILE = 1;
+const DESKTOP = 2;
+const LARGE_DESKTOP = 3;
 
 function rem() {
   return parseFloat(getComputedStyle(document.documentElement).fontSize);
@@ -133,46 +138,40 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
     const drawerEl = document.getElementsByTagName("hy-drawer")[0];
     const menuEl = document.getElementById("_menu");
     const sidebar = document.getElementById("_sidebar");
-    const sticky = document.querySelector(".sidebar-sticky");
-
-    // HACK: Working around a quirk in webkit that sometomes causes
-    //       JS to execute before the CSS is loaded.
-    (function isCSSLoaded() {
-      if (getComputedStyle(drawerEl).getPropertyValue("--hy-drawer-width")) {
-        setupDrawer();
-      } else {
-        setTimeout(isCSSLoaded, 300);
-      }
-    })();
+    const content = document.querySelector(".sidebar-sticky");
 
     function setupDrawer() {
-      const resize$ = fromEvent(window, "resize", { passive: true }).pipe(share());
-
-      // An observable keeping track of whether the window size is greater than `BREAK_POINT_3`.
-      const isDesktop$ = resize$.pipe(
-        map(() => window.matchMedia(BREAK_POINT_3).matches),
-        distinctUntilChanged(),
-        share(),
-        startWith(window.matchMedia(BREAK_POINT_3).matches)
-      );
-
-      // An observable keeping track of the drawer width.
-      const drawerWidth$ = resize$.pipe(
-        startWith({}),
+      const size$ = createXObservable(ResizeObserver)(drawerEl).pipe(
         map(
           () =>
             window.matchMedia(BREAK_POINT_DYNAMIC).matches
-              ? calcDrawerWidthDynamic()
-              : calcDrawerWidth()
+              ? LARGE_DESKTOP
+              : window.matchMedia(BREAK_POINT_3).matches
+                ? DESKTOP
+                : MOBILE
+        ),
+        share(),
+        startWith(
+          window.matchMedia(BREAK_POINT_DYNAMIC).matches
+            ? LARGE_DESKTOP
+            : window.matchMedia(BREAK_POINT_3).matches
+              ? DESKTOP
+              : MOBILE
         )
+      );
+
+      // An observable keeping track of the drawer width.
+      const drawerWidth$ = size$.pipe(
+        map(size => (size >= LARGE_DESKTOP ? calcDrawerWidthDynamic() : calcDrawerWidth()))
       );
 
       // An observable keeping track of the distance between
       // the middle point of the screen and the middle point of the drawer.
       const dist$ = drawerWidth$.pipe(
+        withLatestFrom(size$),
         map(
-          drawerWidth =>
-            window.matchMedia(BREAK_POINT_3).matches
+          ([drawerWidth, s]) =>
+            s >= DESKTOP
               ? document.body.clientWidth / 2 - drawerWidth / 2
               : document.body.clientWidth / 2
         )
@@ -181,34 +180,34 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       // An observable that keeps track of the range from where the drawer can be drawn.
       // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
       const range$ = drawerWidth$.pipe(
-        withLatestFrom(isDesktop$),
-        map(([drawerWidth, isDesktop]) => (isDesktop ? [0, drawerWidth] : getRange()))
+        withLatestFrom(size$),
+        map(([drawerWidth, size]) => (size >= DESKTOP ? [0, drawerWidth] : getRange()))
       );
 
       // Sliding the drawer's content between the middle point of the screen,
       // and the middle point of the drawer when closed.
-      Observable.create(observer => (drawerEl.moveCallback = observer.next.bind(observer)))
-        .pipe(withLatestFrom(dist$, isDesktop$))
-        .subscribe(([{ opacity }, dist, isDesktop]) => updateSidebar(dist, opacity, isDesktop));
+      Observable.create(observer => (drawerEl.moveCallback = x => observer.next(x)))
+        .pipe(withLatestFrom(dist$, size$))
+        .subscribe(([{ opacity }, dist, size]) => updateSidebar(size >= DESKTOP, dist, opacity));
 
       // Setting `will-change` at the beginning of an interaction, and remove at the end.
       drawerEl.addEventListener("hy-drawer-prepare", () => {
         if (hasCSSOM) {
           sidebar.attributeStyleMap.set("will-change", "transform");
-          sticky.attributeStyleMap.set("will-change", "opacity");
+          content.attributeStyleMap.set("will-change", "opacity");
         } else {
           sidebar.style.willChange = "transform";
-          sticky.style.willChange = "opacity";
+          content.style.willChange = "opacity";
         }
       });
 
       drawerEl.addEventListener("hy-drawer-transitioned", () => {
         if (hasCSSOM) {
           sidebar.attributeStyleMap.delete("will-change");
-          sticky.attributeStyleMap.delete("will-change");
+          content.attributeStyleMap.delete("will-change");
         } else {
           sidebar.style.willChange = "";
-          sticky.style.willChange = "";
+          content.style.willChange = "";
         }
       });
 
@@ -239,60 +238,80 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       // and the user hasn't started scrolling already.
       const opened = drawerEl.classList.contains("cover") && scrollTop <= 0;
 
+      // HACK: uuuugly
+      drawerEl._peek$ = size$.pipe(
+        map(size => {
+          switch (size) {
+            case LARGE_DESKTOP:
+              return calcDrawerWidthDynamic();
+            case DESKTOP:
+              return calcDrawerWidth();
+            case MOBILE:
+              return 0.5 * rem();
+          }
+        })
+      );
+
       // We need the height of the darwer in case we need to reset the scroll position
-      let drawerHeight;
-      if (!opened) {
-        drawerHeight = drawerEl.getBoundingClientRect().height;
-      }
+      const drawerHeight = opened ? null : drawerEl.getBoundingClientRect().height;
 
       drawerEl.addEventListener(
         "hy-drawer-init",
         () => {
-          // Keeping the drawer updated.
-          range$.subscribe(range => (drawerEl.range = range));
-
           // Show the icon indicating that the drawer can be drawn using touch gestures.
           setupIcon();
 
           // Add a class to incidate that the drawer has been initialized.
           drawerEl.classList.add("loaded");
 
-          // The drawer height is `100vh` before the drawer is initialized and is now set to 0.
-          // We remove `innerHeight` from the old scroll position to prevent the content form "jumping".
-          if (!opened && scrollTop >= drawerHeight) {
+          // Compensating for the change in layout after the drawer gets initialized.
+          if (drawerHeight && scrollTop >= drawerHeight) {
             window.scrollTo(0, scrollTop - drawerHeight);
           }
         },
         { once: true }
       );
 
-      // HACK
-      let firstRun = true;
-      dist$.pipe(withLatestFrom(isDesktop$)).subscribe(([dist, isDesktop]) => {
-        if (firstRun) {
-          firstRun = false;
-          updateSidebar(dist, opened ? 1 : 0, isDesktop);
-        } else {
-          updateSidebar(dist, drawerEl.opacity, isDesktop);
-        }
-      });
+      dist$
+        .pipe(
+          withLatestFrom(size$),
+          skip(1)
+        )
+        .subscribe(([dist, size]) =>
+          updateSidebar(
+            size >= DESKTOP,
+            dist,
+            typeof drawerEl.opacity !== "undefined" ? drawerEl.opacity : opened ? 1 : 0 // HACK
+          )
+        );
 
       // Now we create the component.
       window._drawer = defineWebComponent(drawerEl, opened);
+
+      // Keeping the drawer updated.
+      range$.subscribe(range => (drawerEl.range = range));
     }
 
-    function updateSidebar(dist, opacity, isDesktop) {
+    function updateSidebar(isDesktop, dist, opacity) {
       const t = 1 - opacity;
       if (hasCSSOM) {
-        sidebar.attributeStyleMap.set(
-          "transform",
-          new CSSTransformValue([new CSSTranslate(CSS.px(dist * t), CSS.px(0))])
-        );
-        sticky.attributeStyleMap.set("opacity", !isDesktop ? opacity : 1);
+        const value = new CSSTransformValue([new CSSTranslate(CSS.px(dist * t), CSS.px(0))]);
+        sidebar.attributeStyleMap.set("transform", value);
+        content.attributeStyleMap.set("opacity", isDesktop ? 1 : opacity);
       } else {
         sidebar.style.transform = `translateX(${dist * t}px)`;
-        sticky.style.opacity = !isDesktop ? opacity : 1;
+        content.style.opacity = isDesktop ? 1 : opacity;
       }
     }
+
+    // HACK: Working around a quirk in webkit that sometomes causes
+    //       JS to execute before the CSS is loaded.
+    (function isCSSLoaded() {
+      if (getComputedStyle(drawerEl).getPropertyValue("--hy-drawer-width")) {
+        setupDrawer();
+      } else {
+        setTimeout(isCSSLoaded, 300);
+      }
+    })();
   });
 }

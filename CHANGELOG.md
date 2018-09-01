@@ -1,19 +1,29 @@
 # CHANGELOG
 
+## v8.1.1
+Sep 1 2018
+{:.heading.post-date}
+
+### Fixes
+* Fixed an issue that prevented the drawer from working on iOS 10.
+* Changing the page via push state will now also update the `link[rel=canonical]` tag.
+* Changing the page via push state will now also update the `meta[name=description]` tag.
+* Fixed an issue that prevented the JS from building on Netlify.
+
 ## v8.1.0
 Aug 18 2018
 {:.heading.post-date}
 
 This release adds Dark Mode for Hydejack PRO customers.
 
-## Breaking
+### Breaking
 * Removed cookie banner from free version
 * Removed offline support from free version
 
 In an attempt to make the PRO offering more appealing, I'm removing features that arguably should have never been included in the free version.
 As software licenses go, nobody is stopping you from using the old code, but updates will no longer be included.
 
-## Changed
+### Changed
 * The cookies banners is now showing at the bottom of the page and its background color is no longer transparent to increase visibility
 * Changed the default syntax theme from "GitHub" to "Atom One Light"
 * Adapted `figure` CSS class to accommodate different children, not just `img`s
@@ -28,7 +38,7 @@ As software licenses go, nobody is stopping you from using the old code, but upd
 * Added shadow to sidebar
 * Navbar is longer positioned `fixed`
 
-## Added
+### Added
 * [PRO] Added Dark Mode
 * `border` CSS class
 
