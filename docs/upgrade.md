@@ -73,9 +73,6 @@ and you have to apply them again.
 Make sure you've made a backup before overwriting any files.
 {:.message}
 
-The archive also contains `.patch` files, that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
-Using this method, git will generate merge conflicts when changes in the patch conflict with any of your changes.
-
 
 ### PRO via GitHub (advanced)
 If you've followed the steps [here](install.md#pro-via-github-advanced), all you need to upgrade is:
