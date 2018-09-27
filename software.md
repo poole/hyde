@@ -57,7 +57,7 @@ Following installation, open the following command line software based
 on your operating system to install the final package:
 * MacOSX: Terminal, locate by clicking on your Desktop, selecting "Go" in the menu at the top,
 and clicking on "Utilities"
-* Windows: Command Prompt
+* Windows: Anaconda Prompt
 * Both MacOSX and Windows: copy and paste the following code onto the
 command line and execute by hitting "Enter":
 `conda install -c conda-forge plotnine`
