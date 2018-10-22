@@ -1,5 +1,15 @@
 # CHANGELOG
 
+## v8.2.0
+Oct 22 2018
+{:.heading.post-date}
+
+* Added support for custom `related_posts` 
+* Removed footer from print layout
+* Increased photo size in print resume 
+* Improved `welcome` layout generation performance
+
+
 ## v8.1.1
 Sep 1 2018
 {:.heading.post-date}
