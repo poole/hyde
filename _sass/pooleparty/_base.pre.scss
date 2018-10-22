@@ -63,8 +63,8 @@ a {
 @media print {
   a:not(.no-print-link)::after {
     content: " (" attr(href) ") ";
+    color: var(--text-muted);
     font-size: .83em;
-    opacity: 0.67;
   }
 }
 // >>>>> LINK
