@@ -21,7 +21,9 @@ Please note that your name and email will be publicly visible through GitHub by 
 but more information on controlling privacy settings can be found
 [here](https://help.github.com/articles/setting-your-commit-email-address-on-github/).
 * The website for [GitHub Desktop](https://desktop.github.com) should auto-detect your operating system
-and allow you to download and install the software.
+and allow you to download and install the software. If you have difficulty installing the GitHub Desktop App 
+(which has been reported for some Hutch-owned PCs), 
+please install the command line tools for Windows as described below.
 * We recommend installing [Atom](https://atom.io) if you do not already have a preferred text editor;
 this website will also auto-detect your operating system.
 
@@ -29,7 +31,7 @@ this website will also auto-detect your operating system.
 
 If you would like to work with Git on the command line in the third week of class on a Windows laptop,
 also install [Git for Windows](https://gitforwindows.org). Please note that this also installs Git Gui,
-which we will not use.
+which we will not use (unless you have difficulty installing the GitHub Desktop App, as described above).
 
 #### Command line tools for macOS (only for optional third week)
 
