@@ -33,6 +33,14 @@ This two-week course (with optional third week session) is designed to introduce
 * Week 2: Collaboration and code sharing with GitHub, resolving conflicts
 * Week 3 (optional): git workflow on the command line
 
+#### Software Carpentry Bootcamp: Unix, Git, and Python
+
+This bootcamp-style course is designed to introduce attendees to a collection of tools useful for reproducible computational research: Unix (bash) shell scripting, version control with Git, and programming with Python. The class will meet over four consecutive days for three hours each session. Each class meeting will include brief tutorials interspersed with challenge exercises. No prior programming experience is required. 
+* Day 1: Task automation with Unix (bash) shell scripting
+* Day 2: Version control with Git
+* Day 3: Programming with Python: data structures, loops, conditionals
+* Day 4: Programming with Python: creating functions, errors and exceptions, defensive programming
+
 ### General
 
 * [Your toolbox: an overview of Galaxy, R, Python, and the command line]({% post_url 2014-07-13-toolbox %})
