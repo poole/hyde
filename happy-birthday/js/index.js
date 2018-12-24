@@ -1,5 +1,5 @@
 
-var to = 'Alexandra!';
+var to = 'Ana!';
 var gift_url = 'https://www.youtube.com/watch?v=bCcAP8lBt1I';
 var gift_image_url = 'birthday-quote.jpg';
 
