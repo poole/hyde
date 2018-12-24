@@ -191,7 +191,7 @@ canvas {
           transform: translateZ(-2px) translateY(50px);
 }
 .present-box > .side.top .to:after {
-  content: 'Happy Birthday';
+  content: 'Merry Christmas';
   display: inline-block;
   -webkit-transform: rotateY(180deg);
           transform: rotateY(180deg);
