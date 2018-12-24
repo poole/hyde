@@ -1,6 +1,6 @@
 
 var to = 'Ana!';
-var gift_url = 'http://cosmin1123.github.io/happy-birthday/Bad Blood - John Carreyrou 1.zip';
+var gift_url = 'https://www.amazon.co.uk/kindle/redeem/?t=GS7JXML7V9PKBA8';
 var gift_image_url = 'birthday-quote.jpg';
 
 
