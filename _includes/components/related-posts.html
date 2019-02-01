@@ -1,6 +1,8 @@
 {% assign post = include.post %}
 
-{% if site.hydejack.use_lsi or site.use_lsi %}
+{% if page.related_posts %}
+  {% assign related_posts = site.posts | where_exp:"post", "page.related_posts contains post.path" %}
+{% elsif site.hydejack.use_lsi or site.use_lsi %}
   {% assign related_posts = site.related_posts %}
 {% elsif post.categories.first %}
   {% assign related_posts = site.categories[post.categories.first] | where_exp:"post", "post.url != page.url" %}

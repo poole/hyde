@@ -20,7 +20,7 @@ especially the part about the [license change](../CHANGELOG.md#license-change)!
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: qwtel/hydejack@v8.1.1
+remote_theme: qwtel/hydejack@v8.2.0
 ```
 
 To use the latest version on the `v8` branch on each build, you can use  `qwtel/hydejack@v8`.
@@ -72,9 +72,6 @@ Buyers of the PRO version will find the files necessary for an upgrade in the `u
 and you have to apply them again.
 Make sure you've made a backup before overwriting any files.
 {:.message}
-
-The archive also contains `.patch` files, that you can apply to your repository via [git-apply](https://git-scm.com/docs/git-apply).
-Using this method, git will generate merge conflicts when changes in the patch conflict with any of your changes.
 
 
 ### PRO via GitHub (advanced)

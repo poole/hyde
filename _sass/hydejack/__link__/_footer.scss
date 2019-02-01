@@ -41,12 +41,7 @@ main > footer {
   }
 
   @media print {
-    position: static;
-    margin-top: 5rem;
-
-    .legal {
-      display: none;
-    }
+    display: none;
   }
 }
 

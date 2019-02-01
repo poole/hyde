@@ -168,7 +168,7 @@ This table below shows what's included in each version:
 [pro]: licenses/PRO.md
 [docs]: docs/README.md
 
-[kit]: https://github.com/qwtel/hy-starter-kit/archive/v8.1.0.zip
+[kit]: https://github.com/qwtel/hy-starter-kit/archive/v8.1.1.zip
 [src]: https://github.com/qwtel/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/NATYVLYT
