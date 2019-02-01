@@ -142,21 +142,20 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
     function setupDrawer() {
       const size$ = createXObservable(ResizeObserver)(drawerEl).pipe(
-        map(
-          () =>
-            window.matchMedia(BREAK_POINT_DYNAMIC).matches
-              ? LARGE_DESKTOP
-              : window.matchMedia(BREAK_POINT_3).matches
-                ? DESKTOP
-                : MOBILE
+        map(() =>
+          window.matchMedia(BREAK_POINT_DYNAMIC).matches
+            ? LARGE_DESKTOP
+            : window.matchMedia(BREAK_POINT_3).matches
+            ? DESKTOP
+            : MOBILE
         ),
         share(),
         startWith(
           window.matchMedia(BREAK_POINT_DYNAMIC).matches
             ? LARGE_DESKTOP
             : window.matchMedia(BREAK_POINT_3).matches
-              ? DESKTOP
-              : MOBILE
+            ? DESKTOP
+            : MOBILE
         )
       );
 
@@ -169,11 +168,10 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       // the middle point of the screen and the middle point of the drawer.
       const dist$ = drawerWidth$.pipe(
         withLatestFrom(size$),
-        map(
-          ([drawerWidth, s]) =>
-            s >= DESKTOP
-              ? document.body.clientWidth / 2 - drawerWidth / 2
-              : document.body.clientWidth / 2
+        map(([drawerWidth, s]) =>
+          s >= DESKTOP
+            ? document.body.clientWidth / 2 - drawerWidth / 2
+            : document.body.clientWidth / 2
         )
       );
 
