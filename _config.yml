@@ -1,6 +1,6 @@
 # Dependencies
 markdown:         redcarpet
-highlighter:      rouge
+
 
 # Permalinks
 permalink:        pretty
@@ -12,6 +12,7 @@ tagline:          'Furkan Mısır'ın bloğu'
 description:      'Yazmaya değer bulduğum teknoli,kültür,sanat ve bilim gibi konuların olduğu blog. '
 url:              https://misirfurkan.github.io/
 baseurl:          https://misirfurkan.github.io/
+highlighter:      rouge
 
 author:
   name:           'Furkan Mısır'
