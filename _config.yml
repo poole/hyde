@@ -7,15 +7,15 @@ permalink:        pretty
 
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+title:            Furkan Mısır
+tagline:          'Furkan Mısır'ın bloğu'
+description:      'Yazmaya değer bulduğum teknoli,kültür,sanat ve bilim gibi konuların olduğu blog. '
 url:              https://misirfurkan.github.io/
 baseurl:          https://misirfurkan.github.io/
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Furkan Mısır'
+  url:            https://instagram.com/misirfurkanz
 
 paginate:         5
 
