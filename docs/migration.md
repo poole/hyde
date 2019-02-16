@@ -16,7 +16,7 @@ Unfortunately, upgrading form v5 and earlier is not straightforward. A lot of pa
 
 ## From v5
 ### Updating the folder structure
-Copy the the following folders and files from Hydejack v6 into your existing repository. Make sure you merge the folder contents.
+Copy the following folders and files from Hydejack v6 into your existing repository. Make sure you merge the folder contents.
 
 * `_data/`
 * `_includes/`

@@ -27,7 +27,7 @@ To use the latest version on the `v8` branch on each build, you can use  `qwtel/
 
 
 ## Via gem
-Upgrading the the gem-based theme is as easy as running
+Upgrading the gem-based theme is as easy as running
 
 ```bash
 bundle update jekyll-theme-hydejack

@@ -225,7 +225,7 @@ author:
 
 
 ### Adding an author's picture
-If you'd like for the author's picture to appear in addition the the about text (see above), you can either use the [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar) plugin or provide URLs to images manually.
+If you'd like for the author's picture to appear in addition the about text (see above), you can either use the [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar) plugin or provide URLs to images manually.
 
 To use the plugin, add it to your `Gemfile` and the list of `plugins` in your config file:
 

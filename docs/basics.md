@@ -292,7 +292,7 @@ collections:
     output:    true
 ~~~
 
-Next, add a `projects.md` to in the root (you can adjust the name/location to match the the `permalink` of the
+Next, add a `projects.md` to in the root (you can adjust the name/location to match the `permalink` of the
 collection).
 This file has the `projects` layout (mind the "s" at the end) and should have a `show_collection` key,
 with the name of the collection as a value, e.g.:
