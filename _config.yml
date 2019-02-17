@@ -45,18 +45,28 @@ author:
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
-# This text will appear in a `<small>` tag in the footer of every page.
-copyright: >
-  © 2018. All rights reserved.
-  Open `_config.yml` to edit this text.
+# Add links to the sidebar.
+menu:
+  - title:             Hydejack
+    url:               /hydejack/
+  - title:             Hyde
+    url:               /hyde/
+  - title:             About
+    url:               /about/
+  - title:             Documentation
+    url:               /docs/
 
 # Add links to the footer.
-# Typically you'll want to link to your impress, cookies or privacy policy, etc.
+# Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
 # legal:
 #   - title:             Impress
-#     href:              /impress/
+#     url:               /impress/
 #   - title:             Cookies Policy
-#     href:              /cookies-policy/
+#     url:               /cookies-policy/
+
+# This text will appear in a `<small>` tag in the footer of every page.
+copyright:             >
+  \* Not included in free version
 
 # Format of the permalinks
 permalink: /:categories/:year-:month-:day-:title/
@@ -157,8 +167,12 @@ hydejack:
   no_img: false
 
   # Set to `true` if you do not want parts of the css inlined in <head/>
-  # This *may* be benefitial when serving the site over HTTP/2.
+  # This will increase site build speed dramatically!
   no_inline_css: false
+
+  # Set to `true` if you don't intend on changing the accent color on a per-page basis.
+  # This will increase site build speed!
+  no_page_style: false
 
   # Code blocks and tables "break" the layout by spanning the full available width.
   # Set this to true if you want them to be the same width as other content.

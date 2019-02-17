@@ -47,5 +47,7 @@
     {% endunless %}
   </noscript>
 {% endif %}
-{% include head/page-style.html %}
+{% unless site.hydejack.no_page_style %}
+  {% include head/page-style.html %}
+{% endunless %}
 <!--<![endif]-->
