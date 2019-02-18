@@ -1,8 +1,10 @@
 # CHANGELOG
 
 ## v8.3.0
-Feb XX 2019
+Feb 18 2019
 {:.heading.post-date}
+
+This version adds new options to increase production build speed. Read [this post](hydejack/_posts/2019-02-18-improving-site-build-speed.md) for details.
 
 ### Added
 * Added `no_page_style` config option to increase site build speed.

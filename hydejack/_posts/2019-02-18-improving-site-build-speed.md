@@ -37,7 +37,8 @@ hydejack:
 ```
 
 ## 3. Define Sidebar Entries in the Config File
-In previous versions of Hydejack adding entries to the sidebar was done by setting `menu` to `true` in the front matter of a page. This meant that, to finding the sidebar entries, every page had to be iterated and checked for the `menu` flag, which is slow. Staring with verion 8.3.0 you can define sidebar entries in the config file under the `menu` key like so:
+In previous versions of Hydejack adding entries to the sidebar was done by setting `menu` to `true` in the front matter of a page. This meant that finding the sidebar entries required checking every page for the `menu` flag, once per page. This was slow and the time increased quadratically with the number of pages. 
+Staring with version 8.3.0, you can define sidebar entries in the config file under the `menu` key like so:
 
 ```yml
 menu:
@@ -50,4 +51,8 @@ menu:
   - title: About
     url:   /about/
 ```
+
+Note that the old way of doing things still works if you upgrade to 8.3.0. Only when you set the `menu` key will Hydejack switch to the new behavior.
+{:.message}
+
 
