@@ -38,7 +38,7 @@ GEM
       jekyll (~> 3.0)
     jekyll-redirect-from (0.14.0)
       jekyll (~> 3.3)
-    jekyll-relative-links (0.5.3)
+    jekyll-relative-links (0.6.0)
       jekyll (~> 3.3)
     jekyll-sass-converter (1.5.2)
       sass (~> 3.4)
