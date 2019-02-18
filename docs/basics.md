@@ -31,52 +31,29 @@ Now you can add content as you would in a blog post.
 
 
 ## Adding an entry to the sidebar
-Hydejack's sidebar can add links to any page within the site. In order for a page to appear in the sidebar, it needs to have a truthy `menu` value defined in its front matter. The page also needs to have a `title`, otherwise the entry in the sidebar will be blank.
-
-If you want the link to appear at a particular position, you can set a numeric value to the `order` key. However, the page is not guaranteed to appear in a specific position when you set a certain number, as it will only be used to sort the pages. The position of a page also depends on the `order` of all other pages in the sidebar.
-
-If you don't want to spread the sidebar definitions across multiple markdown files,
-you can manage them centrally in your config file using front matter defaults, e.g.:
+To add links to the sidebar, populate the `menu` entry in `_config.yml` with a list of `title`-`url` pairs, e.g.:
 
 ```yml
 # file: _config.yml
-defaults:
-  - scope:
-      path: blog.md
-    values:
-      menu: true
-      order: 1
-  - scope:
-      path: projects.md
-    values:
-      menu: true
-      order: 2
-  - scope:
-      path: resume.md
-    values:
-      menu: true
-      order: 3
-  - scope:
-      path: about.md
-    values:
-      menu: true
-      order: 4
+menu:
+  - title: Blog
+    url:   /blog/
+  - title: Projects
+    url:   /projects/
+  - title: Resume
+    url:   /resume/
+  - title: About
+    url:   /about/
 ```
 
 ### Adding a link to an external page to the sidebar
-You can add links to external pages to the sidebar by creating a new markdown file for each entry and adding to the front matter:
+To add links to external sites, simply provide a fully qualified URL, e.g.
 
 ```yml
----
-title: External
-redirect_to: https://example.com/
-menu: true
-order: 5
----
-```
-
-You may combine this with the [`jekyll-redirect-from`](https://github.com/jekyll/jekyll-redirect-from) plugin to generate a redirect page at the location of the file, but this is optional.
-
+menu:
+  - title: "@qwtel"
+    url:   https://qwtel.com/
+``` 
 
 ## Adding a category or tag
 Hydejack allows you to use the `list` layout to show all posts of a particular category or tag.

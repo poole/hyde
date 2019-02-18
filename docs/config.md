@@ -414,9 +414,9 @@ If you have pages for contact data, privacy policy, cookie policy, etc. you can 
 ```yml
 legal:
   - title: Impress
-    href:  /impress/
+    url:  /impress/
   - title: Cookies Policy
-    href:  /cookies-policy/
+    url:  /cookies-policy/
 ```
 
 When using Hydejack's offline feature, the pages listed here will be downloaded and cached when loading the page for the first time.

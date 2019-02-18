@@ -7,6 +7,10 @@ Feb XX 2019
 ### Added
 * Added `no_page_style` config option to increase site build speed.
 * Added `menu` config option to increase site build speed.
+* Copying math will now add the LaTeX source to the clipboard.
+
+### Changed
+* Upgraded KaTeX to version 0.10.0.
 
 ## v8.2.0
 Feb 1 2019
