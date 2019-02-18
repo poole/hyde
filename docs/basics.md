@@ -53,7 +53,7 @@ To add links to external sites, simply provide a fully qualified URL, e.g.
 menu:
   - title: "@qwtel"
     url:   https://qwtel.com/
-``` 
+```
 
 ## Adding a category or tag
 Hydejack allows you to use the `list` layout to show all posts of a particular category or tag.
