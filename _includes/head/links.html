@@ -19,13 +19,15 @@
 {% comment %}<!--
   This is to avoid hard-coding URLs in JS (where they can't be discovered by automated tools).
 -->{% endcomment %}
-<link rel="dns-prefetch" href="{{ '/'                                                                       | relative_url }}" id="_baseURL">
-<link rel="dns-prefetch" href="{{ '/assets/js/hydejack-8.2.0.js'                                     | relative_url }}" id="_hrefJS">
-<link rel="dns-prefetch" href="{{ '/sw.js'                                                                  | relative_url }}" id="_hrefSW">
-<link rel="dns-prefetch" href="{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js'| relative_url }}" id="_hrefFFO">
-<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'                        | relative_url }}" id="_hrefKatexJS">
-<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css'                       | relative_url }}" id="_hrefKatexCSS">
-<link rel="dns-prefetch" href="{{ '/assets/img/swipe.svg'                                                   | relative_url }}" id="_hrefSwipeSVG">
+<link rel="dns-prefetch" href="{{ '/'                                                                        | relative_url }}" id="_baseURL">
+<link rel="dns-prefetch" href="{{ '/assets/js/hydejack-8.3.0.js'                                             | relative_url }}" id="_hrefJS">
+<link rel="dns-prefetch" href="{{ '/sw.js'                                                                   | relative_url }}" id="_hrefSW">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/fontfaceobserver/fontfaceobserver.standalone.js' | relative_url }}" id="_hrefFFO">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.js'                         | relative_url }}" id="_hrefKatexJS">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/katex.min.css'                        | relative_url }}" id="_hrefKatexCSS">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/contrib/copy-tex.min.js'              | relative_url }}" id="_hrefKatexCopyJS">
+<link rel="dns-prefetch" href="{{ '/assets/bower_components/katex/dist/contrib/copy-tex.min.css'             | relative_url }}" id="_hrefKatexCopyCSS">
+<link rel="dns-prefetch" href="{{ '/assets/img/swipe.svg'                                                    | relative_url }}" id="_hrefSwipeSVG">
 
 {% assign disqus = site.disqus | default:site.disqus_shortname %}
 {% if disqus %}

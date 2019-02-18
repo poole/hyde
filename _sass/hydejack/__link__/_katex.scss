@@ -27,11 +27,16 @@ article {
   .katex-display, div.MathJax_Preview {
     @extend .pre-base;
     padding: 2rem;
-    text-align: left;
+    & > .katex {
+      text-align: left;
+    }
+  }
+
+  .MathJax_Preview {
+    font-family: var(--code-font-family);
   }
 
   div.MathJax_Preview {
-    font-family: var(--code-font-family);
     font-size: .75em;
     line-height: 1.45;
     white-space: pre;
@@ -39,7 +44,6 @@ article {
   }
 
   span.MathJax_Preview {
-    font-family: var(--code-font-family);
     padding: .25em .5em;
     font-size: .85em;
     background-color: var(--code-bg);

@@ -21,8 +21,7 @@ import { hasFeatures, hide } from "./common";
 const REQUIREMENTS = ["classlist", "eventlistener", "queryselector"];
 
 const featuresOk = hasFeatures(REQUIREMENTS);
-let katexJSLoaded = false;
-let katexCSSLoaded = false;
+let loaded;
 
 function renderKatex(el) {
   try {
@@ -35,29 +34,30 @@ function renderKatex(el) {
       displayMode: el.type === "math/tex; mode=display",
     });
 
-    if (prev) hide.call(prev);
+    if (prev) prev.parentNode.removeChild(prev);
   } catch (e) {
     if (process.env.DEBUG) console.error(e);
   }
 }
+
+const promisify = (f, href) => new Promise(resolve => f(href).addEventListener("load", resolve));
 
 export const upgradeMathBlocks = !featuresOk
   ? () => {}
   : () => {
       const mathBlocks = document.querySelectorAll('script[type^="math/tex"]');
       if (mathBlocks.length) {
-        if (katexJSLoaded && katexCSSLoaded) {
-          Array.from(mathBlocks).forEach(renderKatex);
-        } else {
-          loadJS(document.getElementById("_hrefKatexJS").href).addEventListener("load", () => {
-            katexJSLoaded = true;
-            if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-          });
-          loadCSS(document.getElementById("_hrefKatexCSS").href).addEventListener("load", () => {
-            katexCSSLoaded = true;
-            if (katexJSLoaded && katexCSSLoaded) upgradeMathBlocks();
-          });
+        if (!loaded) {
+          loaded = Promise.all([
+            promisify(loadJS, document.getElementById("_hrefKatexJS").href),
+            promisify(loadCSS, document.getElementById("_hrefKatexCSS").href),
+            promisify(loadJS, document.getElementById("_hrefKatexCopyJS").href),
+            promisify(loadCSS, document.getElementById("_hrefKatexCopyCSS").href),
+          ]);
         }
+        loaded.then(() => {
+          Array.from(mathBlocks).forEach(renderKatex);
+        });
       }
     };
 

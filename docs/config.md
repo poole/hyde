@@ -225,7 +225,7 @@ author:
 
 
 ### Adding an author's picture
-If you'd like for the author's picture to appear in addition the the about text (see above), you can either use the [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar) plugin or provide URLs to images manually.
+If you'd like for the author's picture to appear in addition the about text (see above), you can either use the [`jekyll-avatar`](https://github.com/benbalter/jekyll-avatar) plugin or provide URLs to images manually.
 
 To use the plugin, add it to your `Gemfile` and the list of `plugins` in your config file:
 
@@ -334,7 +334,7 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.2.0.zip
+    download: https://github.com/qwtel/hydejack/archive/v8.3.0.zip
 ~~~
 
 
@@ -414,9 +414,9 @@ If you have pages for contact data, privacy policy, cookie policy, etc. you can 
 ```yml
 legal:
   - title: Impress
-    href:  /impress/
+    url:  /impress/
   - title: Cookies Policy
-    href:  /cookies-policy/
+    url:  /cookies-policy/
 ```
 
 When using Hydejack's offline feature, the pages listed here will be downloaded and cached when loading the page for the first time.

@@ -20,14 +20,14 @@ especially the part about the [license change](../CHANGELOG.md#license-change)!
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: qwtel/hydejack@v8.2.0
+remote_theme: qwtel/hydejack@v8.3.0
 ```
 
 To use the latest version on the `v8` branch on each build, you can use  `qwtel/hydejack@v8`.
 
 
 ## Via gem
-Upgrading the the gem-based theme is as easy as running
+Upgrading the gem-based theme is as easy as running
 
 ```bash
 bundle update jekyll-theme-hydejack

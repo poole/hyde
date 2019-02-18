@@ -1,5 +1,5 @@
 <!--[if gt IE 8]><!---->
-{% capture style_url %}{% link assets/css/hydejack-8.2.0.css %}{% endcapture %}
+{% capture style_url %}{% link assets/css/hydejack-8.3.0.css %}{% endcapture %}
 {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
 {% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts }}{% endcapture %}
 
@@ -47,5 +47,7 @@
     {% endunless %}
   </noscript>
 {% endif %}
-{% include head/page-style.html %}
+{% unless site.hydejack.no_page_style %}
+  {% include head/page-style.html %}
+{% endunless %}
 <!--<![endif]-->

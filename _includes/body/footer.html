@@ -6,13 +6,14 @@
   {% endif %}
   {% if site.legal.size > 0 %}
     <nav class="legal"><small>
-    {% for le in site.legal %}
-      <a class="heading flip-title" href="{% include smart-url.txt url=le.href %}">{{ le.name | default:le.title }}</a>
+    {% for node in site.legal %}
+      {% assign url = node.url | default: node.href %}
+      <a class="heading flip-title" href="{% include smart-url.txt url=url %}">{{ node.name | default:node.title }}</a>
       {% unless forloop.last %}{{ site.data.strings.separator | default:'|' }}{% endunless %}
     {% endfor %}
     </small></nav>
   {% endif %}
-  <p><small>Powered by <a class="external" href="https://hydejack.com/">Hydejack</a> v<span id="_version">8.2.0</span></small></p>
+  <p><small>Powered by <a class="external" href="https://hydejack.com/">Hydejack</a> v<span id="_version">8.3.0</span></small></p>
   <hr class="sr-only"/>
 </footer>
 {% endif %}

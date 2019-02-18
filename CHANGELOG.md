@@ -1,12 +1,26 @@
 # CHANGELOG
 
+## v8.3.0
+Feb 18 2019
+{:.heading.post-date}
+
+This version adds new options to increase production build speed. Read [this post](hydejack/_posts/2019-02-18-improving-site-build-speed.md) for details.
+
+### Added
+* Added `no_page_style` config option to increase site build speed.
+* Added `menu` config option to increase site build speed.
+* Copying math will now add the LaTeX source to the clipboard.
+
+### Changed
+* Upgraded KaTeX to version 0.10.0.
+
 ## v8.2.0
 Feb 1 2019
 {:.heading.post-date}
 
-* Added support for custom `related_posts` 
+* Added support for custom `related_posts`
 * Removed footer from print layout
-* Increased photo size in print resume 
+* Increased photo size in print resume
 * Improved `welcome` layout generation performance
 * Fixed a bug that prevented scrolling to headlines with non-ascii characters (Thanks [@ForelaxX](https://github.com/ForelaxX))
 
