@@ -9,5 +9,5 @@
  *                 /\___/                \ \____/
  *                 \/__/                  \/___/
  *
- * Powered by Hydejack v8.3.0 <https://hydejack.com/>
+ * Powered by Hydejack v8.3.1 <https://hydejack.com/>
  */
