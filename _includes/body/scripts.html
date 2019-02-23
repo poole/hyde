@@ -1,11 +1,3 @@
-{% if site.hydejack.dark_mode.dynamic %}
-  <script>!function(w, d) {
-    var h = new Date().getHours();
-    var m = h <= {{ site.hydejack.dark_mode.sunrise | default:"6" }} || h >= {{ site.hydejack.dark_mode.sunset | default:"18" }} ? 'add' : 'remove';
-    d.body.classList[m]('dark-mode');
-  }(window, document);</script>
-{% endif %}
-
 {% unless page.redirect %}
   <!--[if !IE]><!---->
   <script>loadJSDeferred(document.getElementById('_hrefJS').href);</script>

@@ -45,11 +45,6 @@
   border-color: darken({{ color }}, 7.5%);
 }
 
-body.dark-mode {
-  --body-bg: #{hsl(hue({{ theme_color }}), 12.5%, 20%)};
-  --border-color: #{hsl(hue({{ theme_color }}), 12.5%, 25%)};
-}
-
 ::selection {
   color: #fff;
   background: {{ color }};
