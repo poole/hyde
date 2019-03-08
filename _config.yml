@@ -1,10 +1,5 @@
-# Dependencies
-markdown:         redcarpet
-highlighter:      pygments
-
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
 
 # Setup
 title:            Hyde
@@ -20,7 +15,11 @@ author:
 paginate:         5
 
 # Custom vars
-version:          2.1.0
+version:          2.1.1
 
 github:
   repo:           https://github.com/poole/hyde
+
+plugins:
+  - jekyll-paginate
+  - jekyll-gist
