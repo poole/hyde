@@ -2,23 +2,23 @@
 permalink:        pretty
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+title:            HITO
+tagline:          'A Health IT Ontology'
+description:      'A Health IT Ontology for systematically describing application systems and software products in health IT. By <a href="" target="_blank">IMISE</a> and <a href="" target="_blank">UMIT</a>.'
 url:              http://hyde.getpoole.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Konrad Höffner'
+  url:            https://github.com/KonradHoeffner
 
 paginate:         5
 
 # Custom vars
-version:          2.1.1
+version:          0.0.1
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/hito/hitontology
 
 plugins:
   - jekyll-paginate
