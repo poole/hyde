@@ -1,5 +1,13 @@
 # CHANGELOG
 
+## v8.4.0
+Mar 9 2019
+{:.heading.post-date}
+
+* Added support for `noindex` property in the front matter
+* Fixed ordering of selected projects/post in welcome layout
+* Updated dependencies
+
 ## v8.3.0
 Feb 18 2019
 {:.heading.post-date}

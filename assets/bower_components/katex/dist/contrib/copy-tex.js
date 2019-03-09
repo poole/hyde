@@ -91,7 +91,7 @@ return /******/ (function(modules) { // webpackBootstrap
 /******/
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 2);
+/******/ 	return __webpack_require__(__webpack_require__.s = 1);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -101,8 +101,7 @@ return /******/ (function(modules) { // webpackBootstrap
 // extracted by mini-css-extract-plugin
 
 /***/ }),
-/* 1 */,
-/* 2 */
+/* 1 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -173,7 +172,6 @@ var katexReplaceWithTex = function katexReplaceWithTex(fragment, copyDelimiters)
 };
 /* harmony default export */ var katex2tex = (katexReplaceWithTex);
 // CONCATENATED MODULE: ./contrib/copy-tex/copy-tex.js
-
  // Global copy handler to modify behavior on .katex elements.
 
 document.addEventListener('copy', function (event) {
@@ -202,6 +200,13 @@ document.addEventListener('copy', function (event) {
 
   event.preventDefault();
 });
+// CONCATENATED MODULE: ./contrib/copy-tex/copy-tex.webpack.js
+/**
+ * This is the webpack entry point for KaTeX. As ECMAScript doesn't support
+ * CSS modules natively, a separate entry point is used.
+ */
+
+
 
 /***/ })
 /******/ ])["default"];

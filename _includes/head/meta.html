@@ -2,6 +2,10 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta http-equiv="x-ua-compatible" content="ie=edge">
 
+{% if page.noindex %}
+<meta name="robots" content="noindex">
+{% endif %}
+
 {% unless page.redirect %}
   {% if plugins contains 'jekyll-seo-tag' %}{% include head/seo-tag.html %}
   {% else %}{% include head/seo-fallback.html %}{% endif %}
@@ -27,4 +31,4 @@
 <meta name="theme-color" content="{{ theme_color | default:'#193747' }}">
 {% endunless %}
 
-<meta name="generator" content="Hydejack v8.3.2" />
+<meta name="generator" content="Hydejack v8.4.0" />

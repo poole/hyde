@@ -14,9 +14,25 @@ Hydejack's cover page on a variety of screens.
 
 There are two versions of **Hydejack**: The base version is free, while features that are specific to *professionals* are a payed upgrade.
 
-[**Download Free**][kit]
-– or –
-[**Buy PRO**][buy]
+|                        | Free           | PRO      |
+|:-----------------------|:--------------:|:--------:|
+| Blog                   | &#x2714;       | &#x2714; |
+| [Features]             | &#x2714;       | &#x2714; |
+| [Portfolio]            |                | &#x2714; |
+| [Resume]               |                | &#x2714; |
+| [Welcome]              |                | &#x2714; |
+| [Newsletter Box][news] |                | &#x2714; |
+| [Custom Forms][forms]  |                | &#x2714; |
+| Dark Mode              |                | &#x2714; |
+| Cookie Banner          |                | &#x2714; |
+| Offline Support        |                | &#x2714; |
+| No Hydejack Branding   |                | &#x2714; |
+| License                | [GPL-3.0][lic] | [PRO]    |
+| Source                 | [GitHub][src]  | Included |
+| Support[^1]            | No             | No       |
+| Price                  | Free           | $59      |
+| | [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]][nfy] | [**Buy PRO**][buy] |
+
 
 
 ## A Free Blogging Theme
@@ -64,31 +80,11 @@ They say math is beautiful — and with **Hydejack**'s [math support][latex] it'
 Hydejack uses KaTeX to efficiently render math.
 
 
-<!-- $$
-\begin{aligned}
-  \phi(x,y) &= \phi \left(\sum_{i=1}^n x_ie_i, \sum_{j=1}^n y_je_j \right) \\[2em]
-            &= \sum_{i=1}^n \sum_{j=1}^n x_i y_j \phi(e_i, e_j)            \\[2em]
-            &= (x_1, \ldots, x_n)
-               \left(\begin{array}{ccc}
-                 \phi(e_1, e_1)  & \cdots & \phi(e_1, e_n) \\
-                 \vdots          & \ddots & \vdots         \\
-                 \phi(e_n, e_1)  & \cdots & \phi(e_n, e_n)
-               \end{array}\right)
-               \left(\begin{array}{c}
-                 y_1    \\
-                 \vdots \\
-                 y_n
-               \end{array}\right)
-\end{aligned}
-$$ -->
-
 
 ## Build an Audience
 The PRO version has built-in support for customizable [Tinyletter] newsletter subscription boxes.
 
 If you are using a different service like MailChimp, you can build a custom newsletter subscription box using [Custom Forms][forms].
-
-{% include pro/newsletter.html %}
 
 
 ## A Personal Site That Belongs to You
@@ -103,7 +99,7 @@ An incomplete list of features included in all versions of **Hydejack**:
 * Lazy image loading with cancellation and placeholder, powered by [hy-img]
 * Advanced FLIP animations, inspired by Material Design
 * 99/100 [Google PageSpeed Score][gpss][^2]
-* [Syntax highlighting](#syntax-highlighting), powered by [Rouge]
+* [Syntax highlighting][syntax], powered by [Rouge]
 * [LaTeX math blocks][latex], powered by [KaTeX]
 * Change the wording of built-in strings and possibly translate in other languages
 * Support for categories and tags
@@ -112,7 +108,6 @@ An incomplete list of features included in all versions of **Hydejack**:
 * Structured Data for core entities
 * Author section below each article and support for multiple authors
 * Google Analytics and Google Fonts support
-* Disqus comments
 
 
 ## Download
@@ -139,7 +134,9 @@ This table below shows what's included in each version:
 | Source                 | [GitHub][src]  | Included |
 | Support[^1]            | No             | No       |
 | Price                  | Free           | $59      |
-| | [**Download**][kit] | [**Buy PRO**][buy] |
+| | [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]][nfy] | [**Buy PRO**][buy] |
+
+
 
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
@@ -163,10 +160,12 @@ This table below shows what's included in each version:
 [pro]: licenses/PRO.md
 [docs]: docs/README.md
 
-[kit]: https://github.com/qwtel/hy-starter-kit/archive/v8.1.1.zip
+[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v8.4.0.zip
 [src]: https://github.com/qwtel/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/NATYVLYT
+[nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/qwtel/hydejack-starter-kit
+[dtn]: https://www.netlify.com/img/deploy/button.svg
 
 [gpss]: https://developers.google.com/speed/pagespeed/insights/?url=https%3A%2F%2Fhydejack.com%2F
 [hy-push-state]: https://qwtel.com/hy-push-state/

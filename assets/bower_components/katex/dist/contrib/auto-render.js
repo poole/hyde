@@ -242,6 +242,10 @@ var auto_render_renderMathInText = function renderMathInText(text, optionsCopy) 
       optionsCopy.displayMode = data[i].display;
 
       try {
+        if (optionsCopy.preProcess) {
+          math = optionsCopy.preProcess(math);
+        }
+
         external_katex_default.a.render(math, span, optionsCopy);
       } catch (e) {
         if (!(e instanceof external_katex_default.a.ParseError)) {
