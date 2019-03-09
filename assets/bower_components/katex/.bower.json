@@ -14,7 +14,7 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/Khan/KaTeX.git"
+    "url": "git://github.com/KaTeX/KaTeX.git"
   },
   "ignore": [
     "**/.*",
@@ -33,15 +33,15 @@
     "/static",
     "/website"
   ],
-  "version": "0.10.0",
-  "_release": "0.10.0",
+  "version": "0.10.1",
+  "_release": "0.10.1",
   "_resolution": {
     "type": "version",
-    "tag": "v0.10.0",
-    "commit": "e1361b5ea5e750aa09833eed7f0a92f042387675"
+    "tag": "v0.10.1",
+    "commit": "e77bf08983d4d5f8df6490e703173fa9ea9aac8b"
   },
   "_source": "https://github.com/Khan/KaTeX.git",
-  "_target": "0.10.0",
+  "_target": "0.10.1",
   "_originalSource": "katex",
   "_direct": true
 }

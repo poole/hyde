@@ -967,10 +967,7 @@
 .katex .boxpad {
   padding: 0 0.3em 0 0.3em;
 }
-.katex .fbox {
-  box-sizing: border-box;
-  border: 0.04em solid black;
-}
+.katex .fbox,
 .katex .fcolorbox {
   box-sizing: border-box;
   border: 0.04em solid;
@@ -1003,5 +1000,12 @@
 .katex-display > .katex > .katex-html > .tag {
   position: absolute;
   right: 0;
+}
+.katex-display.leqno > .katex > .katex-html > .tag {
+  left: 0;
+  right: auto;
+}
+.katex-display.fleqn > .katex {
+  text-align: left;
 }
 
