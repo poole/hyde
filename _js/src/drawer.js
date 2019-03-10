@@ -25,7 +25,7 @@ import ResizeObserver from "resize-observer-polyfill";
 import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
 import { createXObservable } from "hy-component/src/rxjs";
 
-import { Observable, fromEvent, NEVER, of } from "rxjs";
+import { Observable, fromEvent, NEVER } from "rxjs";
 
 import {
   distinctUntilChanged,
@@ -35,6 +35,7 @@ import {
   startWith,
   switchMap,
   tap,
+  throttleTime,
   withLatestFrom,
 } from "rxjs/operators";
 
@@ -146,16 +147,16 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
           window.matchMedia(BREAK_POINT_DYNAMIC).matches
             ? LARGE_DESKTOP
             : window.matchMedia(BREAK_POINT_3).matches
-            ? DESKTOP
-            : MOBILE
+              ? DESKTOP
+              : MOBILE
         ),
         share(),
         startWith(
           window.matchMedia(BREAK_POINT_DYNAMIC).matches
             ? LARGE_DESKTOP
             : window.matchMedia(BREAK_POINT_3).matches
-            ? DESKTOP
-            : MOBILE
+              ? DESKTOP
+              : MOBILE
         )
       );
 
@@ -229,6 +230,18 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
         .pipe(subscribeWhen(opened$))
         .subscribe(() => window._drawer.close());
 
+      // Hacky way of letting the cover page close when scrolling
+      fromEvent(document, 'wheel').pipe(
+        subscribeWhen(opened$),
+        tap((e) => {
+          if (drawerEl.translateX > 0) {
+            e.preventDefault();
+          }
+        }),
+        throttleTime(500),
+      )
+        .subscribe(() => window._drawer.close());
+
       // Save scroll position before the drawer gets initialized.
       const scrollTop = window.pageYOffset || document.body.scrollTop;
 
@@ -279,7 +292,10 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
           updateSidebar(
             size >= DESKTOP,
             dist,
-            typeof drawerEl.opacity !== "undefined" ? drawerEl.opacity : opened ? 1 : 0 // HACK
+            // HACK
+            typeof drawerEl.opacity !== "undefined"
+              ? drawerEl.opacity
+              : opened ? 1 : 0
           )
         );
 
