@@ -148,7 +148,7 @@ export class CrossFader {
         // ::selection or ::-moz-selection (assuming it is last in the list)
         this.rules[this.rules.length - 1].style.backgroundColor = color;
       } catch (e) {
-        console.error(e);
+        if (process.env.DEBUG) console.error(e);
       }
     }
   }
