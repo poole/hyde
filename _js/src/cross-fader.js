@@ -22,8 +22,6 @@ import { catchError, finalize, map } from 'rxjs/operators';
 
 import { animate } from './common';
 
-const BORDER_COLOR_FADE = 0.8;
-
 // Given a dataset, generate some string we can use the check if anything has changed...
 const pseudoHash = ({ background, color, image, overlay }) =>
   `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
@@ -111,16 +109,13 @@ export class CrossFader {
         const active = c.darken(0.1);
         const bodyBg = Color.hsl(tc.hue(), 12.5, 20);
         const borderColor = Color.hsl(tc.hue(), 12.5, 27.5);
-        const underlineColor = c.fade(BORDER_COLOR_FADE)
 
         // .content a
-        this.rules[0].style.color = color;
-        this.rules[0].style.textDecorationColor = underlineColor;
-        this.rules[0].style.borderColor = underlineColor;
+        this.rules[0].style.textDecorationColor = color;
+        this.rules[0].style.borderColor = color;
 
         // .content a:hover
-        this.rules[1].style.textDecorationColor = color;
-        this.rules[1].style.borderColor = color;
+        this.rules[1].style.color = color;
 
         // :focus
         this.rules[2].style.outlineColor = color;

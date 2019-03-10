@@ -23,15 +23,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 hy-push-state a, .a {
+//   color: var(--body-color); 
 //   text-decoration-style: solid; 
 //   text-underline-offset: .5rem; 
 //   text-decoration-thickness: 1px; 
-  transition: color 1s, border-color 250ms; 
-  transition: color 1s, border-color 250ms, text-decoration-color 250ms; 
+  transition: color 250ms, text-decoration-color 250ms, border-color 250ms; 
   
   &:hover {
-    transition: color 1s, text-decoration-color 50ms;
-    transition: color 1s, border-color 50ms, text-decoration-color 50ms;
+    transition: color 50ms, text-decoration-color 50ms, border-color 50ms;
   }
   
 

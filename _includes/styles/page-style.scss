@@ -6,15 +6,13 @@
 
 // 0
 .content a:not(.btn) {
-  color: {{ color }};
-  border-color: fade-out({{ color }}, 0.8);
-  text-decoration-color: fade-out({{ color }}, 0.8);
+  text-decoration-color: {{ color }};
+  border-color: {{ color }};
 }
 
 // 1
 .content a:not(.btn):hover {
-  border-color: {{ color }};
-  text-decoration-color: {{ color }};
+  color: {{ color }};
 }
 
 // 2
