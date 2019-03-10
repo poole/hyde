@@ -161,11 +161,10 @@ hy-drawer.loaded .sidebar {
   padding-left: 0;
 }
 
-a.sidebar-nav-item {
+.sidebar-nav-item {
+  @extend .f4;
   display: inline-block;
-  font-weight: var(--font-weight-heading);
-  line-height: 1.75;
-  padding: .25rem;
+  margin-bottom: .25rem;
 }
 // >>>>>
 

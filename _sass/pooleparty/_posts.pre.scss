@@ -31,6 +31,7 @@
 
 // Meta data line below post title
 .post-date {
+  @extend .h4;
   display: block;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
