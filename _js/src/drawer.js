@@ -99,13 +99,13 @@ function getRange() {
 
 // This function sets y-drawer up as a WebComponent.
 // First it sets the options as HTML attributes, then it `define`s the WebComponent.
-function defineWebComponent(drawerEl, opened) {
-  if (opened) drawerEl.setAttribute("opened", "");
-  if (isSafari) drawerEl.setAttribute("threshold", 0);
-  if (!isMobile) drawerEl.setAttribute("mouse-events", "");
-  if (isFirefox) drawerEl.removeAttribute("prevent-default"); // ignored by ff anyway
+function defineWebComponent(el, opened) {
+  if (opened) el.setAttribute("opened", "");
+  if (isSafari) el.setAttribute("threshold", 0);
+  if (!isMobile) el.setAttribute("mouse-events", "");
+  if (isFirefox) el.removeAttribute("prevent-default"); // ignored by ff anyway
   window.customElements.define("hy-drawer", HyDrawerElement);
-  return drawerEl;
+  return el;
 }
 
 // The functions below add an svg graphic to the sidebar
@@ -222,7 +222,13 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       const opened$ = fromEvent(drawerEl, "hy-drawer-transitioned").pipe(
         map(e => e.detail),
         distinctUntilChanged(),
-        tap(opened => !opened && removeIcon())
+        tap(opened => {
+          if (!opened) {
+            removeIcon();
+            if (!history.state) history.replaceState({}, document.title);
+            history.state.closedOnce = true;
+          }
+        })
       );
 
       // Close the drawer on popstate, i.e. the back button.
@@ -247,7 +253,14 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
       // Start the drawer in `opened` state when the cover class is present,
       // and the user hasn't started scrolling already.
-      const opened = drawerEl.classList.contains("cover") && scrollTop <= 0;
+      const opened = drawerEl.classList.contains("cover")
+        && scrollTop <= 0
+        && !(history.state && history.state.closedOnce);
+
+      if (!opened) {
+        if (!history.state) history.replaceState({}, document.title);
+        history.state.closedOnce = true;
+      }
 
       // HACK: uuuugly
       drawerEl._peek$ = size$.pipe(
