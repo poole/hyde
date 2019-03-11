@@ -80,13 +80,10 @@ const FN_SEL = "li[id^='fn:']";
 const FN_LINK_SEL = "a[href^='#fn:']";
 
 // TODO:
-const DURATION = 250;
+const DURATION = 350;
 
 // Duration of cross-fading the sidebar background images.
 const FADE_DURATION = 1000;
-
-// Time a user has to stay on the site before we send word to Google Analytics.
-const GA_DELAY = 500;
 
 // Details of the fade-out animation.
 const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
