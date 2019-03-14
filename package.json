@@ -37,15 +37,15 @@
     "webpack": "^4.29.6",
     "webpack-cli": "^3.2.3",
     "webpack-merge": "^4.2.1",
-    "yargs": "^12.0.5"
+    "yargs": "^13.2.2"
   },
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "2.1.3",
+    "@webcomponents/webcomponentsjs": "2.2.7",
     "core-js": "^2.6.5",
-    "elem-dataset": "^1.1.1",
-    "hy-drawer": "^1.0.0-pre.25",
-    "hy-img": "^1.0.0-hydejack.10",
-    "hy-push-state": "^1.0.0-pre.25",
+    "elem-dataset": "^2.0.0",
+    "hy-drawer": "^1.0.0-pre.27",
+    "hy-img": "^1.0.0-hydejack.12",
+    "hy-push-state": "^1.0.0-pre.27",
     "intersection-observer": "^0.5.1",
     "resize-observer-polyfill": "^1.5.1",
     "rxjs": "^6.4.0",
