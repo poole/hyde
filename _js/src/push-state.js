@@ -83,7 +83,7 @@ const FN_LINK_SEL = "a[href^='#fn:']";
 const DURATION = 350;
 
 // Duration of cross-fading the sidebar background images.
-const FADE_DURATION = 1000;
+const FADE_DURATION = 2000;
 
 // Details of the fade-out animation.
 const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
