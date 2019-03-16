@@ -76,6 +76,10 @@ figure, .figure {
   }
 }
 
+.highlighter-rouge + .figure {
+  margin-top: -1.5rem;
+}
+
 @keyframes fade-img {
   from { opacity: 0; }
   to   { opacity: 1; }
