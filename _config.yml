@@ -18,7 +18,10 @@ paginate:         5
 version:          0.0.1
 
 github:
-  repo:           https://github.com/hitontology
+  org:           https://github.com/hitontology
+
+socialmedia:
+  twitter: https://twitter.com/hitontology
 
 plugins:
   - jekyll-paginate
