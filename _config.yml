@@ -5,8 +5,8 @@ permalink:        pretty
 title:            HITO
 tagline:          'A Health IT Ontology'
 description:      'A Health IT Ontology for systematically describing application systems and software products in health IT. By <a href="https://imise.uni-leipzig.de/" target="_blank">IMISE</a> and <a href="https://umit.at/" target="_blank">UMIT</a>.'
-url:              https://hitontology.github.io/hitontology.eu/
-baseurl:          /
+url:              https://hitontology.github.io/
+baseurl:          /hitontology.eu/
 
 author:
   name:           'Konrad Höffner'
