@@ -8,10 +8,10 @@ order: 99
 
 These pages are being maintained by the research group Management of Information Systems in the Healthcare (MIG) of the Institute for Medical Informatics, Statistics and Epidemiology (IMISE) of the University of Leipzig.
 
-Institut für Medizinische Informatik, Statistik und Epidemiologie
-Universität Leipzig
-Härtelstraße 16-18
-04107 LEIPZIG
+Institut für Medizinische Informatik, Statistik und Epidemiologie<br>
+Universität Leipzig<br>
+Härtelstraße 16-18<br>
+04107 LEIPZIG<br>
 GERMANY
 
 The University of Leipzig is a public body. It is legally represented by the acting chancellor. Further information, especially concerning supervisory authority, can be found in the imprint of the University of Leipzig.
@@ -40,3 +40,4 @@ These terms and conditions will be governed by the laws of the Federal Republic 
 
 ## Hosted by
 
+Universität Leipzig<br>

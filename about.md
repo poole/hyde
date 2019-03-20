@@ -4,28 +4,19 @@ title: About
 order: 10
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+The goal of this project is to develop a Health IT Ontology (HITO) that allows systematically describing application systems and software products in health IT.
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+Our motivation is that information management professionals have a strong need to share and compare knowledge about health IT in several situations.
+These situations are, among others, to describe the components of a health information system as part of its strategic or operational management, to select a new software product, to learn about available evidence regarding an application, or to hire or train health IT specialists.
 
-There are currently two themes built on Poole:
+However, at the moment, health IT descriptions are not easily comparable.
+Thus, based on these needs, our motivation is to develop a Health IT Ontology allowing a systematic description of application systems and software products within health information systems (HIS).
+This will allow easier sharing of knowledge and experiences, support better cooperation when planning and operating HIS and allow evidence-based decision making in information management in health care.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+The objective of the three-year project is thus to develop a health IT ontology, to connect it with a folksonomy and to verify it in five case studies.
+To reach these objectives, we will combine an agile research approach and a case-based approach as well as a multi-facet approach to taxonomy development.
+This project builds on our earlier work such as the 3LGM2 metamodel for hospital information systems, the reference model for the domain layer of a hospital information system, the requirement index for HIS and the Ontology SNIK.
 
-Learn more and contribute on [GitHub](https://github.com/poole).
-
-## Setup
-
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+Our idea is innovative, as it combines earlier work on health IT terminology with newer approaches of ontology and folksontology development.
+The Health IT Ontology will allow describing health IT systems in a comparable way, thus supporting both health IT management as well as health IT research and health IT education.
+HITO will thus contribute to professional health IT management and evidence-based health informatics.

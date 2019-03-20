@@ -23,6 +23,9 @@ github:
 socialmedia:
   twitter: https://twitter.com/hitontology
 
+internal:
+  owncloud:  https://denethor.imise.uni-leipzig.de/index.php/apps/files?dir=/Shared/HITO/
+
 plugins:
   - jekyll-paginate
   - jekyll-gist
