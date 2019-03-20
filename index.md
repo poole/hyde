@@ -1,10 +1,10 @@
 ---
 layout: page
-title: About
+title: Project 
 order: 10
 ---
-
-The goal of this project is to develop a Health IT Ontology (HITO) that allows systematically describing application systems and software products in health IT.
+HITO is a 3-year project funded by the Deutsche Forschungsgemeinschaft (DFG) within the D-A-CH Lead Agency process (Project No. 395585521). 
+The goal of the project is to develop a Health IT Ontology (HITO) that allows systematically describing application systems and software products in health IT.
 
 Our motivation is that information management professionals have a strong need to share and compare knowledge about health IT in several situations.
 These situations are, among others, to describe the components of a health information system as part of its strategic or operational management, to select a new software product, to learn about available evidence regarding an application, or to hire or train health IT specialists.
