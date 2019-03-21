@@ -12,8 +12,6 @@ author:
   name:           'Konrad Höffner'
   url:            https://github.com/KonradHoeffner
 
-paginate:         5
-
 # Custom vars
 version:          0.0.1
 
@@ -27,5 +25,3 @@ internal:
   owncloud:  https://denethor.imise.uni-leipzig.de/index.php/apps/files?dir=/Shared/HITO/
 
 plugins:
-  - jekyll-paginate
-  - jekyll-gist
