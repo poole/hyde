@@ -18,7 +18,7 @@ E-mail: ...
 
 ## Webmaster
 
-Konrad Höffner<br>
+Thomas Pause and Konrad Höffner<br>
 Please report website issues at the <a href="https://github.com/hitontology/hitontology.eu/issues" target="_blank">GitHub Issue Tracker</a>.
 
 ## Address
