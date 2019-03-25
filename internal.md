@@ -5,8 +5,9 @@ order: 35
 ---
 
 ## OwnCloud
-[Test]({{ site.internal.owncloud }})
+[Link to our OwnCloud]({{ site.internal.owncloud }})
 
 ## Slack
+
 
 ## Conductor

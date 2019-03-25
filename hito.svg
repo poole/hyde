@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="150pt"
+   height="150pt"
+   id="svg2"
+   sodipodi:version="0.32"
+   inkscape:version="0.46"
+   version="1.0"
+   sodipodi:docbase="/media/sda2/HU SVG/kangxi radicals yong style svg"
+   sodipodi:docname="009_-_ren2_-_man.svg"
+   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+  <defs
+     id="defs4">
+    <inkscape:perspective
+       sodipodi:type="inkscape:persp3d"
+       inkscape:vp_x="0 : 93.75 : 1"
+       inkscape:vp_y="0 : 1000 : 0"
+       inkscape:vp_z="187.5 : 93.75 : 1"
+       inkscape:persp3d-origin="93.75 : 62.5 : 1"
+       id="perspective9" />
+  </defs>
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="1"
+     inkscape:pageshadow="2"
+     inkscape:zoom="1.7787076"
+     inkscape:cx="121.46521"
+     inkscape:cy="115.02202"
+     inkscape:document-units="px"
+     inkscape:current-layer="layer1"
+     inkscape:window-width="990"
+     inkscape:window-height="709"
+     inkscape:window-x="22"
+     inkscape:window-y="22"
+     showguides="true"
+     inkscape:guide-bbox="true"
+     showgrid="false" />
+  <metadata
+     id="metadata7">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1">
+    <path
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:#000000;stroke-width:0.44477424px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 74.05957,90.846655 C 90.506234,105.98403 113.38097,134.92633 132.189,147.51457 C 149.81724,157.60207 164.78865,161.34923 183.57389,168.52199 C 186.90068,170.22558 183.14086,171.36575 181.45697,172.09275 C 175.5505,174.63835 165.41223,177.07874 152.41923,179.06091 C 146.64173,179.21907 142.68719,178.75121 140.51547,177.19159 C 121.82258,162.14938 87.214911,114.49094 76.117921,101.7356 C 70.338127,95.461247 71.010872,89.357221 74.05957,90.846655 z "
+       id="path11177"
+       sodipodi:nodetypes="cccccccc" />
+    <path
+       sodipodi:nodetypes="ccccccccccc"
+       id="path5659"
+       d="M 85.359706,6.2518263 C 92.779687,8.8979203 100.64956,11.916072 105.75934,16.439733 C 107.24839,17.639792 108.95372,19.648718 105.28444,23.127503 C 101.16276,28.852342 99.11335,33.136839 97.94657,38.027436 C 87.623711,80.401417 60.160951,136.27404 35.184278,160.26419 C 25.862009,168.61399 14.775489,178.25518 7.797935,180.56622 C 4.0794143,181.75839 3.5345813,179.98569 9.384824,174.97671 C 19.677187,165.98401 25.175817,157.85395 32.541134,149.22259 C 57.782117,115.13323 72.996588,73.306167 80.947821,49.322913 C 84.933009,33.161982 84.651426,16.617654 82.545565,10.571207 C 80.236091,6.9510823 82.681108,5.3685197 85.359706,6.2518263 z "
+       style="fill:#000000;fill-opacity:1;fill-rule:evenodd;stroke:none;stroke-width:1px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1" />
+  </g>
+</svg>
