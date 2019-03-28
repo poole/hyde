@@ -4,7 +4,7 @@
     "dist/katex.js",
     "dist/katex.css"
   ],
-  "homepage": "https://katex.org/",
+  "homepage": "http://khan.github.io/KaTeX/",
   "description": "Fast math typesetting for the web.",
   "moduleType": [
     "amd",
@@ -14,23 +14,22 @@
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "git://github.com/KaTeX/KaTeX.git"
+    "url": "git://github.com/Khan/KaTeX.git"
   },
   "ignore": [
     "**/.*",
+    "/*.txt",
     "/*.js",
-    "/*.json",
     "/*.md",
-    "!/README.md",
     "/*.sh",
     "/package.json",
     "/Makefile",
+    "/build",
     "/test",
     "/src",
     "/contrib",
     "/dockers",
-    "/submodules",
-    "/static",
-    "/website"
+    "/metrics",
+    "/static"
   ]
 }
