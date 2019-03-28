@@ -33,29 +33,35 @@
 .fixed-top {
   @extend .fixed-common;
   top: 0;
+  border-bottom: 1px solid var(--border-color);
 }
 
 .fixed-bottom {
   @extend .fixed-common;
   bottom: 0;
+  border-top: 1px solid var(--border-color);
 }
 
-.navbar > .content {
-  padding-top: 0;
-  padding-bottom: 0;
-  min-height: 0;
-  color: var(--menu-text);
+.navbar {
+  @extend .color-transition;
+  background-color: var(--body-bg);
+  > .content {
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 0;
+    color: var(--menu-text);
+  }
 }
 
 .nav-btn-bar {
-  margin: 0 -1rem 0 -.875rem;
+  margin: 0 -1rem 0 -1rem;
 }
 
 .nav-btn {
   background: none;
   border: none;
   text-decoration: none;
-  padding: 1.75rem .875rem;
+  padding: 1.75rem 1rem;
   color: var(--menu-text)!important;
   cursor: pointer;
 }

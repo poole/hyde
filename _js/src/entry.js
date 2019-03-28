@@ -51,6 +51,7 @@ const PUSH_STATE_FEATURES = [
 
 if (hasFeatures(BASELINE)) {
   import(/* webpackMode: "eager" */ './katex');
+  import(/* webpackMode: "eager" */ './navbar');
   // import(/* webpackMode: "eager" */ './pro/cookies-banner');
 }
 

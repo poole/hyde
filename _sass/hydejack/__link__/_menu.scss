@@ -30,13 +30,6 @@
 }
 
 #_navbar {
-  position: absolute;
-  height: 0;
-}
-
-#_cookies-banner  {
-  @extend .color-transition;
-  background-color: var(--body-bg);
-  border-top: 1px solid var(--border-color);
+  z-index: 3;
 }
 

@@ -17,7 +17,7 @@ hy-drawer {
   width: 100%; // inline
   position: relative; // inline
   overflow: hidden; // inline
-  z-index: 2; // link
+  z-index: 3; // link
 
   @media screen {
     // <<< link
@@ -74,7 +74,6 @@ hy-drawer {
   align-items: center;
   color: rgba(255, 255, 255, .75);
   text-align: center;
-  z-index: 2;
   min-height: 100vh;
   // >>>
 

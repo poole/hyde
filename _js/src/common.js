@@ -86,14 +86,17 @@ export function importTemplate(templateId) {
   return template && document.importNode(template.content, true);
 }
 
-export function getScrollTop() {
-  return window.pageYOffset || (document.body || document.documentElement).scrollTop;
+export function getScrollHeight() {
+  const h = document.documentElement;
+  const b = document.body;
+  const sh = "scrollHeight";
+  return h[sh] || b[sh];
 }
 
-export function createResizeObservable(el) {
-  return Observable.create((obs) => {
-    const observer = new window.ResizeObserver(xs => xs.forEach(x => obs.next(x)));
-    observer.observe(el);
-    return () => { observer.unobserve(el); };
-  });
+export function getScrollLeft() {
+  return window.pageXOffset || document.body.scrollLeft;
+}
+
+export function getScrollTop() {
+  return window.pageYOffset || document.body.scrollTop;
 }
