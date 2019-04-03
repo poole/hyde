@@ -21,37 +21,58 @@
 # This requires a JS component to lazy-load the images.
 # See also: https://github.com/qwtel/hy-img
 
-RE_IMG     = /<img(.*?)\/>/m
-RE_DATAURL = /.*src\s*=\s*["']\s*data:.*["']/
-RE_IGNORE  = /(re|data)-ignore/
+KEY_CONFIG = 'replace_imgs'
 
-REPLACEMENT = '
-  <hy-img root-margin="512px" %{attrs}>
-    <noscript><img data-ignore %{attrs}/></noscript>
-    <span class="loading" slot="loading" hidden>
-      <span class="icon-cog"></span>
-    </span>
-  </hy-img>'
+KEY_RE_IMG      = 're_img'
+KEY_RE_IGNORE   = 're_ignore'
+KEY_REPLACEMENT = 'replacement'
+
+RE_IMG      = '<img\s*(?<attrs>.*?)\s*/>'
+RE_IGNORE   = 'data-ignore'
+REPLACEMENT = '<hy-img %{attrs}><noscript><img data-ignore %{attrs}/></noscript></hy-img>'
+
+RE_DATAURL = /src\s*=\s*["']\s*data:/ix
 
 if ENV['JEKYLL_ENV'] == 'production' then
   REPLACEMENT.gsub!(/\n+/, '')
 end
 
-CONFIG_KEY = 'replace_imgs'
-REPLACEMENT_KEY = 'replacement'
+config, re_img, re_ignore, replacement = nil
+
+def get_config(config, key)
+  return config[KEY_CONFIG] && config[KEY_CONFIG][key]
+end
+
+Jekyll::Hooks.register(:site, :after_init) do |site|
+  re_img = Regexp.new(
+    get_config(site.config, KEY_RE_IMG) ||  RE_IMG, 
+    Regexp::EXTENDED | Regexp::IGNORECASE | Regexp::MULTILINE
+  )
+
+  re_ignore = Regexp.new(
+    get_config(site.config, KEY_RE_IGNORE) ||  RE_IGNORE,
+    Regexp::EXTENDED | Regexp::IGNORECASE
+  )
+
+  replacement = get_config(site.config, KEY_REPLACEMENT) || REPLACEMENT
+  if ENV['JEKYLL_ENV'] == 'production' then 
+    replacement.gsub!(/\n+/, '') 
+  end
+end
 
 Jekyll::Hooks.register([:pages, :documents], :post_render) do |page|
-  config ||= page.site.config
-  replacement ||= (config[CONFIG_KEY] && config[CONFIG_KEY][REPLACEMENT_KEY]) ||
-    REPLACEMENT
-
   i = 0
-  page.output = page.output.gsub(RE_IMG) do |match|
-    attrs = Regexp.last_match[1]
+  page.output = page.output.gsub(re_img) do |match|
+    last_match = Regexp.last_match
 
-    if match.index(RE_IGNORE).nil? && match.index(RE_DATAURL).nil? then
+    subs = { i:i }
+    for name in last_match.names
+      subs[name.intern] = last_match[name]
+    end
+
+    if match.index(re_ignore).nil? && match.index(RE_DATAURL).nil? then
       i += 1
-      replacement % { i:i, attrs:attrs }
+      replacement % subs
     else
       match
     end

@@ -271,6 +271,7 @@ plugins:
   - jekyll-seo-tag
   - jekyll-sitemap
   - jekyll-titles-from-headings
+  - jekyll-replace-img
 
 # Theme
 # ---------------------------------------------------------------------------------------
@@ -324,6 +325,15 @@ relative_links:
 titles_from_headings:
   strip_title:         true
   collections:         true
+  
+replace_img:
+  re_img:              <img\s*(?<attrs>.*?)\s*/>
+  re_ignore:           (re|data)-ignore
+  replacement:         |
+    <hy-img root-margin="512px" %{attrs}>
+      <noscript><img data-ignore %{attrs}/></noscript>
+      <span slot="loading" class="loading"><span class="icon-cog"></span></span>
+    </hy-img>
 
 kramdown:
   footnote_backlink:   '&#x21a9;&#xfe0e;'
