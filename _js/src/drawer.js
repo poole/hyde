@@ -318,16 +318,22 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       // Keeping the drawer updated.
       range$.subscribe(range => (drawerEl.range = range));
     }
+     
+    const tvalue = hasCSSOM 
+      ? new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))]) 
+      : null;
 
     function updateSidebar(isDesktop, dist, opacity) {
       const t = 1 - opacity;
+      const value = dist * t;
+      const opacityCSS = isDesktop ? 1 : opacity;
       if (hasCSSOM) {
-        const value = new CSSTransformValue([new CSSTranslate(CSS.px(dist * t), CSS.px(0))]);
-        sidebar.attributeStyleMap.set("transform", value);
-        content.attributeStyleMap.set("opacity", isDesktop ? 1 : opacity);
+        tvalue[0].x.value = value;
+        sidebar.attributeStyleMap.set("transform", tvalue);
+        content.attributeStyleMap.set("opacity", opacityCSS);
       } else {
-        sidebar.style.transform = `translateX(${dist * t}px)`;
-        content.style.opacity = isDesktop ? 1 : opacity;
+        sidebar.style.transform = `translateX(${value}px)`;
+        content.style.opacity = opacityCSS;
       }
     }
 
