@@ -191,9 +191,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     const animationMain = setupAnimationMain(pushStateEl);
     const loading = setupLoading(navbarEl);
 
-    // Show a back button when in standalone mode.
     if (isStandalone) {
       setupButton(navbarEl, "_back-template", () => window.history.back());
+      setupButton(navbarEl, "_forward-template", () => window.history.forward());
     }
 
     // Setting up the basic event observables.
