@@ -237,15 +237,12 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
         .subscribe(() => window._drawer.close());
 
       // Hacky way of letting the cover page close when scrolling
-      fromEvent(document, 'wheel').pipe(
-        subscribeWhen(opened$),
-        tap((e) => {
-          if (drawerEl.translateX > 0) {
-            e.preventDefault();
-          }
-        }),
-        throttleTime(500),
-      )
+      fromEvent(document, "wheel", { passive: false })
+        .pipe(
+          subscribeWhen(opened$),
+          tap(e => { if (drawerEl.translateX > 0) e.preventDefault(); }),
+          throttleTime(500),
+        )
         .subscribe(() => window._drawer.close());
 
       // Save scroll position before the drawer gets initialized.
