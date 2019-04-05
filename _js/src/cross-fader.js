@@ -115,6 +115,8 @@ export class CrossFader {
       try {
         const c = Color(color);
         const active = c.darken(0.1);
+        const bodyBg =  Color.hsl(tc.hue(), 12.5, 20);
+        const borderColor =  Color.hsl(tc.hue(), 12.5, 27.5);
 
         // .content a
         this.rules[0].style.color = color;
