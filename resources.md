@@ -25,8 +25,15 @@ This four-week course is designed to introduce attendees to Python programming a
 * Week 3: Extracting data from data frames
 * Week 4: Data visualization with ggplot
 
+#### Intermediate Python: Programming
 
-#### Git and GitHub
+This four-week course focuses on task automation using Python programming. Each two hour session will include brief tutorials interspersed with challenge exercises, and assumes participants are familiar with all material in Introduction to Python (working in Jupyter notebooks, basic syntax including variables and functions, importing data, data types and structures, subsetting data). At the end of this course, you will be able to create fully documented and automated workflows to perform data analysis tasks.
+* Week 1: Review of pre-requisites, repeating actions with loops
+* Week 2: Analyzing data from multiple files, conditional statements, creating functions
+* Week 3: Errors and exceptions, defensive programming
+* Week 4: Debugging, modules/packaging for reproducibility
+
+#### Introduction to Git and GitHub
 
 This two-week course (with optional third week session) is designed to introduce attendees to git version control software and GitHub as a repository for code and/or data. Each two hour session will include brief tutorials interspersed with challenge exercises. The first two sessions assume no prior programming knowledge. At the end of these two sessions, you will be able to use git to track changes to software and other files, and use GitHub to work collaboratively to publish repositories of code and/or data. The optional third session assumes attendees have a basic familiarity with using the command line to navigate through directories and work with files and will include an overview of the command line interface to access the full functionality of the git software. Course materials [here](https://github.com/fredhutchio/git_github_intro).
 * Week 1: introduction to version control, git workflow with desktop clients (tracking changes, branching, merging, ignoring things)
