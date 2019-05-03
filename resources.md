@@ -27,7 +27,7 @@ This four-week course is designed to introduce attendees to Python programming a
 
 #### Intermediate Python: Programming
 
-This four-week course focuses on task automation using Python programming. Each two hour session will include brief tutorials interspersed with challenge exercises, and assumes participants are familiar with all material in Introduction to Python (working in Jupyter notebooks, basic syntax including variables and functions, importing data, data types and structures, subsetting data). At the end of this course, you will be able to create fully documented and automated workflows to perform data analysis tasks.
+This four-week course focuses on task automation using Python programming. Each two hour session will include brief tutorials interspersed with challenge exercises, and assumes participants are familiar with all material in Introduction to Python (working in Jupyter notebooks, basic syntax including variables and functions, importing data, data types and structures, subsetting data). At the end of this course, you will be able to create fully documented and automated workflows to perform data analysis tasks. Course materials [here](https://github.com/fredhutchio/python_programming).
 * Week 1: Review of pre-requisites, repeating actions with loops
 * Week 2: Analyzing data from multiple files, conditional statements, creating functions
 * Week 3: Errors and exceptions, defensive programming
