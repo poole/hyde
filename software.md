@@ -44,13 +44,12 @@ and clicking on "Utilities."
 
 ### Python
 
-We will be using Python version 3 (and above) for our courses,
-as well as the following packages:
-[pandas](http://pandas.pydata.org), [jupyter notebook](http://jupyter.org),
-[numpy](http://www.numpy.org), [matplotlib](https://matplotlib.org),
-and [plotnine](https://plotnine.readthedocs.io/en/stable/).
+We will be using Python version 3 (and above) for our courses. 
+
+**For Introduction to Python,** we will use [Jupyter notebooks](http://jupyter.org) to record code, output, and text throughout the course, as well as the following packages (note: plotnine is the only package not installed with Anaconda: [pandas](http://pandas.pydata.org), [numpy](http://www.numpy.org), [matplotlib](https://matplotlib.org), [plotnine](https://plotnine.readthedocs.io/en/stable/) 
+
 We recommend installing Python using Anaconda,
-which includes most of the packages listed above:
+which includes most of the packages listed above, according to the following instructions:
 * Download the [Anaconda](https://www.anaconda.com/download/) installer for
 Python 3.x for your particular operating system
 * Double-click the downloaded file and follow the prompts to install Anaconda
@@ -63,6 +62,11 @@ and clicking on "Utilities"
 * Both MacOSX and Windows: copy and paste the following code onto the
 command line and execute by hitting "Enter":
 `conda install -c conda-forge plotnine`
+
+**For Intermediate Python courses,** you are welcome to use whatever interface is most comfortable for you. Some suggestions are as follows (please see the HackMD page for your course to see what your instructor will be using):
+* [Atom](https://atom.io), a text editor, which requires you to also install [Hydrogen](https://atom.io/packages/hydrogen) as well as a separate version of Python (e.g., if you've already installed Anaconda) (*preferred*)
+* [Visual Studio Code](https://code.visualstudio.com), a streamlined code editor
+* [Spyder](https://www.spyder-ide.org), a scientific IDE (integrated development environment) installed with Anaconda and available in the Anaconda Navigator
 
 
 ### R and RStudio
