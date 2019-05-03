@@ -48,32 +48,13 @@ This bootcamp-style course is designed to introduce attendees to a collection of
 * Day 3: Programming with Python: data structures, loops, conditionals
 * Day 4: Programming with Python: creating functions, errors and exceptions, defensive programming
 
-### General
+### Retired and archived training materials
 
 * [Your toolbox: an overview of Galaxy, R, Python, and the command line]({% post_url 2014-07-13-toolbox %})
-* [Slides for our introduction to bioinformatics](http://fredhutchio.github.io/intro-bioinformatics/)
-
-
-### Galaxy
-
-* [Galaxy: introduction]({% post_url 2014-05-09-galaxy %})
-
-
-### Terminal/Shell
-
+* [Introduction to bioinformatics](http://fredhutchio.github.io/intro-bioinformatics/)
 * [Feeling cozy on the command line]({% post_url 2017-01-05-command-line-cozy %})
 * [Shell scripting, the Puritan way]({% post_url 2017-02-25-shell-scripting %})
-* [Our bioinformatics course notes](http://fredhutchio.github.io/intro-bioinformatics/)
-
-
-### R
-
 * [R: first steps]({% post_url 2014-05-20-R %})
 * [R: introductory course material]({% post_url 2014-10-20-introductory-r-course-material %})
-
-
-
-### Inkscape
-
+* [Galaxy: introduction]({% post_url 2014-05-09-galaxy %})
 * [Inkscape tutorial](https://github.com/fredhutchio/inkscape-tutorial)
-* [inkscape.org learning resources](https://inkscape.org/en/learn/)
