@@ -7,6 +7,7 @@ All software required for courses is open source and free unless otherwise noted
 If you have any questions or problems regarding software installation, please contact
 your instructor.
 
+- [Git and GitHub](#git-and-github)
 
 ### Git and GitHub
 
@@ -100,3 +101,7 @@ it may also be possible to install these programs through the self-service app.
 * Under _Installers_, click the link for the _Mac OS X 10.6+ (64-bit)_ installer to download it.
 * Double-click the downloaded `.dmg` file, then open the RStudio folder that appears on your desktop. Drag the RStudio icon into the Applications folder.
 * Once everything is installed, launch RStudio and make sure there are no error messages.
+
+### SCCA employees
+
+SCCA employees cannot connect to Marconi, the main wireless network at Fred Hutch, and must use the Fred Hutch Guest network. When combined with The configuration of SCCA laptops and required remote logins, this makes it very difficult to interact with the course materials. We recommend using a personal computer for this course. If one is not available, please contact your instructor to arrange use of one of the laptops located in the Coop Lab.
