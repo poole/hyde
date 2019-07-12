@@ -6,6 +6,14 @@ published: true
 
 If you're interested in documentation about computing at Fred Hutch, or looking for additional tutorials or online lessons to learn programming, please see the [Fred Hutch Biomedical Data Science Wiki](http://sciwiki.fredhutch.org).
 
+- [Introduction to R](#introduction-to-r)
+- [Introduction to Python](#introduction-to-python)
+- [Intermediate Python: Programming](#intermediate-python-programming)
+- [Introduction to Git and GitHub](#introduction-to-git-and-github)
+- [Software Carpentry Bootcamp: Unix, Git, and Python](#software-carpentry-bootcamp-unix-git-and-python)
+- [Retired and archived training materials](#retired-and-archived-training-materials)
+
+
 ### Current curriculum
 
 #### Introduction to R
