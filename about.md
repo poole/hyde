@@ -16,8 +16,6 @@ fredhutch.io promotes bioinformatics education and access to computational metho
 
 **Gabrielle Barnes**: project coordinator
 
-**Brian Claywell**: online content developer ([GitHub](https://github.com/bcclaywell))
-
 **Kate Hertweck**: training manager, instructor, and curriculum developer ([GitHub](https://github.com/k8hertweck), [twitter](https://twitter.com/k8hert))
 
 **Erick Matsen**: principal investigator ([website](http://matsen.fredhutch.org/))
