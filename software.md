@@ -5,9 +5,15 @@ title: Software
 
 All software required for courses is open source and free unless otherwise noted.
 If you have any questions or problems regarding software installation, please contact
-your instructor.
+your instructor. Please see the following sections for more information on required and 
+suggested software
 
-- [Git and GitHub](#git-and-github)
+- [Git and GitHub](#git-and-github): GitHub Desktop App and command line tools
+- [Introduction to Python](#introduction-to-python): Jupyter notebooks
+- [Intermediate Python](#intermediate-python): your choice of interface
+- [R](#r-and-rstudio): R and RStudio
+- [SCCA employees](#scca-employees)
+
 
 ### Git and GitHub
 
@@ -47,7 +53,9 @@ and clicking on "Utilities."
 
 We will be using Python version 3 (and above) for our courses. 
 
-**For Introduction to Python,** we will use [Jupyter notebooks](http://jupyter.org) to record code, output, and text throughout the course, as well as the following packages (note: plotnine is the only package not installed with Anaconda: [pandas](http://pandas.pydata.org), [numpy](http://www.numpy.org), [matplotlib](https://matplotlib.org), [plotnine](https://plotnine.readthedocs.io/en/stable/) 
+#### Introduction to Python
+
+We will use [Jupyter notebooks](http://jupyter.org) to record code, output, and text throughout the course, as well as the following packages (note: plotnine is the only package not installed with Anaconda: [pandas](http://pandas.pydata.org), [numpy](http://www.numpy.org), [matplotlib](https://matplotlib.org), [plotnine](https://plotnine.readthedocs.io/en/stable/) 
 
 We recommend installing Python using Anaconda,
 which includes most of the packages listed above, according to the following instructions:
@@ -64,9 +72,11 @@ and clicking on "Utilities"
 command line and execute by hitting "Enter":
 `conda install -c conda-forge plotnine`
 
-**For Intermediate Python courses,** you are welcome to use whatever interface is most comfortable for you. Some suggestions are as follows (please see the HackMD page for your course to see what your instructor will be using):
+#### Intermediate Python
+
+You are welcome to use whatever interface is most comfortable for you. Some suggestions are as follows (please see the HackMD page for your course to see what your instructor will be using):
 * [Atom](https://atom.io), a text editor, which requires you to also install [Hydrogen](https://atom.io/packages/hydrogen) as well as a separate version of Python (e.g., if you've already installed Anaconda) (*preferred*)
-* [Visual Studio Code](https://code.visualstudio.com), a streamlined code editor
+* [Visual Studio Code](https://code.visualstudio.com), a streamlined code editor that is recommended by Scientific Computing at Fred Hutch
 * [Spyder](https://www.spyder-ide.org), a scientific IDE (integrated development environment) installed with Anaconda and available in the Anaconda Navigator
 
 
