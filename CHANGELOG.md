@@ -1,5 +1,14 @@
 # CHANGELOG
 
+## v8.5.0
+Mar X 2019
+{:.heading.post-date}
+
+### Changed
+* Theme now respects `prefers-color-scheme` CSS property to match the operating system color scheme
+* Darkened font color in dark mode to reduce contrast
+* Scrolling down when on a page with an open drawer will close it
+
 ## v8.4.0
 Mar 9 2019
 {:.heading.post-date}
