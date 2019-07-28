@@ -27,7 +27,7 @@ older:                 Older
 forward:               Forward
 back:                  Back
 permalink:             Permalink
-permalink_icon:        icon-link
+permalink_icon:        content-hash
 templates:             Templates (for web app)
 present:               present
 
