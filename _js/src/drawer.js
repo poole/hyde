@@ -14,12 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-/* eslint-disable no-mixed-operators */
-
 // ## Includes
-// First, we patch the environment with some ES6+ functions we intend to use.
-import "core-js/fn/function/bind";
-
 import ResizeObserver from "resize-observer-polyfill";
 
 import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";

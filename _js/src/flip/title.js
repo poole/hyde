@@ -14,8 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import "core-js/fn/function/bind";
-
 import { of, zip } from "rxjs";
 import { tap, finalize, filter, map, switchMap } from "rxjs/operators";
 

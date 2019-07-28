@@ -14,16 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import "core-js/fn/array/find";
-import "core-js/fn/function/bind";
-
-import Color from "color";
+import { default as Color } from 'color';
+import { default as elemDataset } from "elem-dataset";
 
 import { empty, of } from "rxjs";
 import { ajax } from "rxjs/ajax";
 import { catchError, finalize, map } from "rxjs/operators";
-
-import elemDataset from "elem-dataset";
 
 import { animate } from "./common";
 

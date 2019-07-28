@@ -14,9 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// Import what we need.
-import "core-js/fn/function/bind";
-
 import { Observable } from "rxjs";
 
 // Check the user agent for Safari and iOS Safari, to give them some special treatment...

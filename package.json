@@ -25,32 +25,33 @@
   "license": "GPL-3.0",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.3.4",
-    "@babel/preset-env": "^7.3.4",
-    "babel-loader": "^8.0.5",
-    "color": "^3.1.0",
+    "@babel/core": "^7.5.5",
+    "@babel/preset-env": "^7.5.5",
+    "babel-loader": "^8.0.6",
+    "color": "^3.1.2",
     "dedent": "^0.7.0",
     "json2yaml": "^1.1.0",
-    "onchange": "^5.2.0",
-    "prettier": "^1.16.4",
+    "onchange": "^6.0.0",
+    "prettier": "^1.18.2",
     "re-template-tag": "^2.0.1",
-    "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
+    "webpack": "^4.38.0",
+    "webpack-cli": "^3.3.6",
     "webpack-merge": "^4.2.1",
-    "yargs": "^13.2.2"
+    "yargs": "^13.3.0"
   },
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "2.2.7",
-    "core-js": "^2.6.5",
+    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "core-js": "^2.6.9",
     "elem-dataset": "^2.0.0",
-    "hy-drawer": "^1.0.0-pre.27",
-    "hy-img": "^1.0.0-hydejack.12",
-    "hy-push-state": "^1.0.0-pre.27",
-    "intersection-observer": "^0.5.1",
+    "hy-drawer": "1.0.0-pre.27",
+    "hy-img": "1.0.0-hydejack.12",
+    "hy-push-state": "1.0.0-pre.27",
+    "intersection-observer": "^0.7.0",
+    "regenerator-runtime": "^0.13.3",
     "resize-observer-polyfill": "^1.5.1",
-    "rxjs": "^6.4.0",
-    "smoothscroll-polyfill": "^0.4.3",
-    "web-animations-js": "^2.3.1"
+    "rxjs": "^6.5.2",
+    "smoothscroll-polyfill": "^0.4.4",
+    "web-animations-js": "^2.3.2"
   },
   "repository": {
     "type": "git",
@@ -60,13 +61,7 @@
     "url": "https://github.com/qwtel/hydejack/issues"
   },
   "homepage": "https://hydejack.com/",
-  "babel": {
-    "presets": [
-      "@babel/preset-env"
-    ]
-  },
-  "prettier": {
-    "printWidth": 100,
-    "trailingComma": "es5"
+  "engines": {
+    "node": ">=11"
   }
 }

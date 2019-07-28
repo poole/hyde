@@ -44,7 +44,19 @@ module.exports = merge(
           test: /(\.jsx|\.js)$/,
           loader: "babel-loader",
           options: {
-            presets: [["@babel/preset-env", { modules: false }]],
+            presets: [
+              [
+                "@babel/preset-env",
+                {
+                  modules: false,
+                  useBuiltIns: "entry",
+                  corejs: 2,
+                  targets: {
+                    ie: "11",
+                  },
+                },
+              ],
+            ],
             babelrc: false,
           },
         },
