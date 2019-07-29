@@ -31,7 +31,7 @@ If you have a GitHub account, fork the [hy-starter-kit](https://github.com/qwtel
 
 Alternatively, you can just [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark}.
 
-[src]: https://github.com/qwtel/hy-starter-kit/archive/v8.4.0.zip
+[src]: https://github.com/qwtel/hy-starter-kit/archive/v8.5.0-beta.0.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/qwtel/hydejack-starter-kit
 [dtn]: https://www.netlify.com/img/deploy/button.svg
 
@@ -151,7 +151,7 @@ For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.4.0/install/
+$ cd ~/Downloads/hydejack-pro-8.5.0-beta.0/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -165,7 +165,7 @@ It is located at `<dowloaded zip>/.ssh/hydejack_8_pro`.
 You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
 
 ~~~bash
-$ cp ~/Downloads/hydejack-pro-8.4.0/.ssh/hydejack_8_pro ~/.ssh/
+$ cp ~/Downloads/hydejack-pro-8.5.0-beta.0/.ssh/hydejack_8_pro ~/.ssh/
 ~~~
 
 It is required that your private key files are NOT accessible by others, e.g.:

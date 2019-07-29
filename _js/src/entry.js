@@ -14,12 +14,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import '@babel/polyfill'
+import "@babel/polyfill";
 import "intersection-observer";
 import { default as ResizeObserver } from "resize-observer-polyfill";
 import "web-animations-js";
 import { default as smoothscroll } from "smoothscroll-polyfill";
-import '../lib/webcomponents'
+import "../lib/webcomponents";
 import "../lib/modernizr-custom";
 import "../lib/request-idle-callback";
 import "../lib/version";

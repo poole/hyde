@@ -28,7 +28,7 @@
 import {
   HyPushStateElement,
   WEBCOMPONENT_FEATURE_TESTS,
-  Set,
+  Set
 } from "hy-push-state/src/webcomponent";
 
 import { fromEvent, merge, timer, zip } from "rxjs";
@@ -43,11 +43,18 @@ import {
   startWith,
   switchMap,
   take,
-  takeUntil,
+  takeUntil
 } from "rxjs/operators";
 
 // Some of our own helper functions and classes.
-import { animate, empty, hasFeatures, isFirefoxIOS, importTemplate, webComponentsReady } from "./common";
+import {
+  animate,
+  empty,
+  hasFeatures,
+  isFirefoxIOS,
+  importTemplate,
+  webComponentsReady
+} from "./common";
 import { CrossFader } from "./cross-fader";
 import { upgradeMathBlocks } from "./katex";
 import { setupFLIP } from "./flip";
@@ -65,7 +72,7 @@ const REQUIREMENTS = new Set([
   "matchmedia",
   "opacity",
   "queryselector",
-  "requestanimationframe",
+  "requestanimationframe"
 ]);
 
 const NAVBAR_SEL = "#_navbar > .content > .nav-btn-bar";
@@ -86,14 +93,14 @@ const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
 // Details of the fade-in animation.
 const FADE_IN = [
   { opacity: 0, transform: "translateY(-3rem)" },
-  { opacity: 1, transform: "translateY(0)" },
+  { opacity: 1, transform: "translateY(0)" }
 ];
 
 // Settings as passed to the WebAnimations API.
 const SETTINGS = {
   duration: DURATION,
   easing: "ease-out",
-  fill: "forwards",
+  fill: "forwards"
 };
 
 // A CSS selector for headlines with ids.
@@ -151,7 +158,11 @@ function animateFadeOut({ type, main }) {
 
   if (window._drawer && window._drawer.opened) {
     window._drawer.close();
-    return zip(anim$, fromEvent(window._drawer.el, "hy-drawer-transitioned").pipe(take(1)), x => x);
+    return zip(
+      anim$,
+      fromEvent(window._drawer.el, "hy-drawer-transitioned").pipe(take(1)),
+      x => x
+    );
   }
 
   return anim$;
@@ -176,7 +187,8 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // ### Setup
     // We save some variables and setup the DOM:
     const isStandalone =
-      !!navigator.standalone || window.matchMedia("(display-mode: standalone)").matches;
+      !!navigator.standalone ||
+      window.matchMedia("(display-mode: standalone)").matches;
 
     const pushStateEl = document.getElementsByTagName("hy-push-state")[0];
     const navbarEl = document.querySelector(NAVBAR_SEL);
@@ -188,14 +200,18 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
     if (isStandalone) {
       setupButton(navbarEl, "_back-template", () => window.history.back());
-      setupButton(navbarEl, "_forward-template", () => window.history.forward());
+      setupButton(navbarEl, "_forward-template", () =>
+        window.history.forward()
+      );
     }
 
     // Setting up the basic event observables.
     // In case of a start event we also add the `flipType` to the context,
     // so that we can use filter based on it later.
     const start$ = fromEvent(pushStateEl, "hy-push-state-start").pipe(
-      map(({ detail }) => Object.assign(detail, { flipType: getFlipType(detail.anchor) })),
+      map(({ detail }) =>
+        Object.assign(detail, { flipType: getFlipType(detail.anchor) })
+      ),
       share()
     );
 
@@ -224,7 +240,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // First we get a hold fo the current content.
     // TODO: Change hy-push-state to provide this as part of the event?
     const fadeOut$ = start$.pipe(
-      map(context => Object.assign(context, { main: document.getElementById("_main") })),
+      map(context =>
+        Object.assign(context, { main: document.getElementById("_main") })
+      ),
 
       tap(({ main }) => (main.style.pointerEvents = "none")),
 
@@ -255,7 +273,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
         // FIXME: put on idlecallback scheduler?
         requestIdleCallback(() =>
-          Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading)
+          Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(
+            upgradeHeading
+          )
         );
 
         /*
@@ -273,7 +293,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
       .pipe(
         startWith({
           replaceEls: [document.getElementById("_main")],
-          documentFragment: document,
+          documentFragment: document
         })
       )
       .subscribe(({ replaceEls: [main], documentFragment }) => {
@@ -283,7 +303,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
         const mEl = documentFragment.querySelector(META_DESC_SEL);
         if (metaDescEl && mEl) metaDescEl.content = mEl.content;
 
-        Array.from(main.querySelectorAll(FN_SEL)).forEach(li => (li.tabIndex = 0));
+        Array.from(main.querySelectorAll(FN_SEL)).forEach(
+          li => (li.tabIndex = 0)
+        );
 
         Array.from(main.querySelectorAll(FN_LINK_SEL)).forEach(a =>
           a.addEventListener("click", e =>
@@ -305,7 +327,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // work when an error occurs.
     const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
       animationMain,
-      settings: SETTINGS,
+      settings: SETTINGS
     }).pipe(share());
 
     start$
@@ -337,7 +359,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     after$
       .pipe(
         switchMap(({ replaceEls: [main] }) =>
-          zip(crossFader.fetchImage(main), fadeIn$, x => x).pipe(takeUntil(start$))
+          zip(crossFader.fetchImage(main), fadeIn$, x => x).pipe(
+            takeUntil(start$)
+          )
         ),
 
         // Once we have both images, we take them `pairwise` and cross-fade.

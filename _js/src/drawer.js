@@ -17,7 +17,11 @@
 // ## Includes
 import ResizeObserver from "resize-observer-polyfill";
 
-import { HyDrawerElement, WEBCOMPONENT_FEATURE_TESTS, Set } from "hy-drawer/src/webcomponent";
+import {
+  HyDrawerElement,
+  WEBCOMPONENT_FEATURE_TESTS,
+  Set
+} from "hy-drawer/src/webcomponent";
 import { createXObservable } from "hy-component/src/rxjs";
 
 import { Observable, fromEvent, NEVER } from "rxjs";
@@ -31,7 +35,7 @@ import {
   switchMap,
   tap,
   throttleTime,
-  withLatestFrom,
+  withLatestFrom
 } from "rxjs/operators";
 
 // Some of our own helper functions/constants.
@@ -43,7 +47,7 @@ import {
   isMobileSafari,
   isUCBrowser,
   hasCSSOM,
-  webComponentsReady,
+  webComponentsReady
 } from "./common";
 
 // A list of Modernizr tests that are required for the drawer to work.
@@ -52,7 +56,7 @@ const REQUIREMENTS = new Set([
   "cssremunit",
   "classlist",
   "eventlistener",
-  "matchmedia",
+  "matchmedia"
 ]);
 
 // NOTE: Duplicated values from `_sass_/variables.scss`.
@@ -143,22 +147,24 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
           window.matchMedia(BREAK_POINT_DYNAMIC).matches
             ? LARGE_DESKTOP
             : window.matchMedia(BREAK_POINT_3).matches
-              ? DESKTOP
-              : MOBILE
+            ? DESKTOP
+            : MOBILE
         ),
         share(),
         startWith(
           window.matchMedia(BREAK_POINT_DYNAMIC).matches
             ? LARGE_DESKTOP
             : window.matchMedia(BREAK_POINT_3).matches
-              ? DESKTOP
-              : MOBILE
+            ? DESKTOP
+            : MOBILE
         )
       );
 
       // An observable keeping track of the drawer width.
       const drawerWidth$ = size$.pipe(
-        map(size => (size >= LARGE_DESKTOP ? calcDrawerWidthDynamic() : calcDrawerWidth()))
+        map(size =>
+          size >= LARGE_DESKTOP ? calcDrawerWidthDynamic() : calcDrawerWidth()
+        )
       );
 
       // An observable keeping track of the distance between
@@ -176,14 +182,20 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       // Should be between 0 and the drawer's width on desktop; `getRange` on mobile.
       const range$ = drawerWidth$.pipe(
         withLatestFrom(size$),
-        map(([drawerWidth, size]) => (size >= DESKTOP ? [0, drawerWidth] : getRange()))
+        map(([drawerWidth, size]) =>
+          size >= DESKTOP ? [0, drawerWidth] : getRange()
+        )
       );
 
       // Sliding the drawer's content between the middle point of the screen,
       // and the middle point of the drawer when closed.
-      Observable.create(observer => (drawerEl.moveCallback = x => observer.next(x)))
+      Observable.create(
+        observer => (drawerEl.moveCallback = x => observer.next(x))
+      )
         .pipe(withLatestFrom(dist$, size$))
-        .subscribe(([{ opacity }, dist, size]) => updateSidebar(size >= DESKTOP, dist, opacity));
+        .subscribe(([{ opacity }, dist, size]) =>
+          updateSidebar(size >= DESKTOP, dist, opacity)
+        );
 
       // Setting `will-change` at the beginning of an interaction, and remove at the end.
       drawerEl.addEventListener("hy-drawer-prepare", () => {
@@ -236,8 +248,10 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       fromEvent(document, "wheel", { passive: false })
         .pipe(
           subscribeWhen(opened$),
-          tap(e => { if (drawerEl.translateX > 0) e.preventDefault(); }),
-          throttleTime(500),
+          tap(e => {
+            if (drawerEl.translateX > 0) e.preventDefault();
+          }),
+          throttleTime(500)
         )
         .subscribe(() => window._drawer.close());
 
@@ -246,9 +260,10 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
 
       // Start the drawer in `opened` state when the cover class is present,
       // and the user hasn't started scrolling already.
-      const opened = drawerEl.classList.contains("cover")
-        && scrollTop <= 0
-        && !(history.state && history.state.closedOnce);
+      const opened =
+        drawerEl.classList.contains("cover") &&
+        scrollTop <= 0 &&
+        !(history.state && history.state.closedOnce);
 
       if (!opened) {
         if (!history.state) history.replaceState({}, document.title);
@@ -270,7 +285,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       );
 
       // We need the height of the darwer in case we need to reset the scroll position
-      const drawerHeight = opened ? null : drawerEl.getBoundingClientRect().height;
+      const drawerHeight = opened
+        ? null
+        : drawerEl.getBoundingClientRect().height;
 
       drawerEl.addEventListener(
         "hy-drawer-init",
@@ -301,7 +318,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
             // HACK
             typeof drawerEl.opacity !== "undefined"
               ? drawerEl.opacity
-              : opened ? 1 : 0
+              : opened
+              ? 1
+              : 0
           )
         );
 
@@ -311,9 +330,9 @@ if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
       // Keeping the drawer updated.
       range$.subscribe(range => (drawerEl.range = range));
     }
-     
-    const tvalue = hasCSSOM 
-      ? new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))]) 
+
+    const tvalue = hasCSSOM
+      ? new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))])
       : null;
 
     function updateSidebar(isDesktop, dist, opacity) {

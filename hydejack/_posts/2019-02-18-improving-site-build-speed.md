@@ -2,7 +2,7 @@
 title: Improving Hydejack's Build Speed
 image: /assets/img/blog/wade-lambert.jpg
 description: >
-  Hydejack 8.4.0 introduces new options to bring Hydejack's build time in line with other Jekyll themes. 
+  Hydejack 8.5.0-beta.0 introduces new options to bring Hydejack's build time in line with other Jekyll themes. 
 ---
 
 Hydejack was designed with personal sites in mind, i.e. sites with around 100 pages. Because of this, build speed hasn't been a major concern during its development. When attempting to use Hydejack with thousands of pages this becomes very apparent, as build times go from seconds, to minutes, to hours. 
@@ -49,7 +49,7 @@ hydejack:
 
 ## Define Sidebar Entries in the Config File
 In previous versions of Hydejack adding entries to the sidebar was done by setting `menu` to `true` in the front matter of a page. This meant that finding the sidebar entries required checking every page for the `menu` flag, once per page. This was slow and the time increased quadratically with the number of pages. 
-Staring with version 8.4.0, you can define sidebar entries in the config file under the `menu` key like so:
+Staring with version 8.5.0-beta.0, you can define sidebar entries in the config file under the `menu` key like so:
 
 ```yml
 menu:
@@ -63,7 +63,7 @@ menu:
     url:   /about/
 ```
 
-Note that the old way of doing things still works if you upgrade to 8.4.0. Only when you set the `menu` key will Hydejack switch to the new behavior.
+Note that the old way of doing things still works if you upgrade to 8.5.0-beta.0. Only when you set the `menu` key will Hydejack switch to the new behavior.
 {:.message}
 
 

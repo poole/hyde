@@ -14,7 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { default as Color } from 'color';
+import { default as Color } from "color";
 import { default as elemDataset } from "elem-dataset";
 
 import { empty, of } from "rxjs";
@@ -39,7 +39,8 @@ export class CrossFader {
     const main = document.getElementById("_main");
     const pageStyle = document.getElementById("_pageStyle");
     const styleSheet =
-      Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) || {};
+      Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) ||
+      {};
 
     this.sidebar = document.getElementById("_sidebar");
     this.fadeDuration = fadeDuration;
@@ -61,7 +62,7 @@ export class CrossFader {
       responseType: "blob",
       url,
       crossDomain: isExternal(url),
-      headers: { Accept: "image/*" },
+      headers: { Accept: "image/*" }
     }).pipe(
       map(({ response }) => URL.createObjectURL(response)),
       catchError(() => of(image))
@@ -111,8 +112,8 @@ export class CrossFader {
       try {
         const c = Color(color);
         const active = c.darken(0.1);
-        const bodyBg =  Color.hsl(tc.hue(), 12.5, 20);
-        const borderColor =  Color.hsl(tc.hue(), 12.5, 27.5);
+        const bodyBg = Color.hsl(tc.hue(), 12.5, 20);
+        const borderColor = Color.hsl(tc.hue(), 12.5, 27.5);
 
         // .content a
         this.rules[0].style.color = color;
@@ -161,7 +162,7 @@ export class CrossFader {
 
     return animate(div, [{ opacity: 0 }, { opacity: 1 }], {
       duration: this.fadeDuration,
-      easing: "ease",
+      easing: "ease"
     }).pipe(
       finalize(() => {
         if (prevDiv.objectURL) URL.revokeObjectURL(prevDiv.objectURL);
