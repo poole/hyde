@@ -20,6 +20,7 @@
 
 $font-family-heading: {{ site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" }};
 $font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif"   }};
+$theme-color:         {{ site.theme_color  | default:'#193747' }};
 
 @import "variables";
 @import "my-variables";
@@ -50,20 +51,9 @@ $font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Aria
 @import "hydejack/__inline__/footer";
 
 @import "my-inline";
-// @import "my-style";
 
-{% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-  {% assign font2 = font | split:',' | shift | join:',' %}
-  {% assign font_heading2 = font_heading | split:',' | shift | join:',' %}
-{% endunless %}
-
-html { font-family: {{ font2 | default:"serif" }}; }
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading2 | default:"serif" }}; }
-
-.font-active {
-  font-family: $font-family;
-  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: $font-family-heading; }
-}
+html { font-family: $font-family; }
+h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: $font-family-heading; }
 
 {% if site.hydejack.no_page_style %}
   {% assign color       = site.accent_color | default:'#4fb1ba' %}
