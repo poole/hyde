@@ -1,9 +1,6 @@
 ---
 layout: page
 title: Documentation
-redirect_from:
-  - /docs/latest/print/
-  - /docs/print/
 sitemap: false
 ---
 
