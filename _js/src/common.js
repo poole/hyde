@@ -85,3 +85,15 @@ export function importTemplate(templateId) {
   const template = document.getElementById(templateId);
   return template && document.importNode(template.content, true);
 }
+
+export function getScrollTop() {
+  return window.pageYOffset || document.body.scrollTop;
+}
+
+export function createResizeObservable(el) {
+  return Observable.create((obs) => {
+    const observer = new window.ResizeObserver(xs => xs.forEach(x => obs.next(x)));
+    observer.observe(el);
+    return () => { observer.unobserve(el); };
+  });
+}
