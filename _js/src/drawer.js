@@ -43,6 +43,7 @@ import {
   isMobileSafari,
   isUCBrowser,
   hasCSSOM,
+  webComponentsReady,
 } from "./common";
 
 // A list of Modernizr tests that are required for the drawer to work.
@@ -129,7 +130,7 @@ function removeIcon() {
 // Note that the UC Browser has even more invasive native swipe gestures than iOS Safari,
 // so we disable the component alltogether.
 if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
-  requestIdleCallback(() => {
+  webComponentsReady.then(() => {
     // First we get hold of some DOM elements.
     const drawerEl = document.getElementsByTagName("hy-drawer")[0];
     const menuEl = document.getElementById("_menu");

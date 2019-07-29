@@ -47,7 +47,7 @@ import {
 } from "rxjs/operators";
 
 // Some of our own helper functions and classes.
-import { animate, empty, hasFeatures, isFirefoxIOS, importTemplate } from "./common";
+import { animate, empty, hasFeatures, isFirefoxIOS, importTemplate, webComponentsReady } from "./common";
 import { CrossFader } from "./cross-fader";
 import { upgradeMathBlocks } from "./katex";
 import { setupFLIP } from "./flip";
@@ -172,7 +172,7 @@ function defineWebComponent(pushStateEl) {
 // First, we determine if push state is enabled,
 // and if the current user agent meets our requirements.
 if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
-  requestIdleCallback(() => {
+  webComponentsReady.then(() => {
     // ### Setup
     // We save some variables and setup the DOM:
     const isStandalone =

@@ -11,6 +11,7 @@
     "build:css": ".scripts/build-css.js",
     "watch": "npm run watch:js & npm run watch:css",
     "watch:js": "webpack --watch --mode development --progress --colors",
+    "build:js:stats": "webpack --mode production --progress --colors --json > stats.json",
     "watch:css": "npm run build:css && onchange '_sass/**/*.scss' -e '_sass/**/__*/*' -- npm run build:css '{{changed}}'",
     "serve": "bundle exec jekyll serve --port=$npm_package_config_port --host=0.0.0.0",
     "dev": "npm run watch & npm run serve",
@@ -31,6 +32,7 @@
     "color": "^3.1.2",
     "dedent": "^0.7.0",
     "json2yaml": "^1.1.0",
+    "null-loader": "^3.0.0",
     "onchange": "^6.0.0",
     "prettier": "^1.18.2",
     "re-template-tag": "^2.0.1",
@@ -40,7 +42,11 @@
     "yargs": "^13.3.0"
   },
   "dependencies": {
-    "@webcomponents/webcomponentsjs": "^2.2.7",
+    "@babel/polyfill": "^7.4.4",
+    "@webcomponents/template": "^1.4.0",
+    "@webcomponents/url": "^0.7.3",
+    "@webcomponents/webcomponents-platform": "^1.0.1",
+    "@webcomponents/webcomponentsjs": "^2.2.10",
     "core-js": "^2.6.9",
     "elem-dataset": "^2.0.0",
     "hy-drawer": "1.0.0-pre.27",

@@ -27,17 +27,18 @@ export const isFirefoxIOS = ua.indexOf("fxios") > 0 && ua.indexOf("safari") > 0;
 
 export const hasCSSOM = "attributeStyleMap" in Element.prototype && "CSS" in window && CSS.number;
 
+export const webComponentsReady = new Promise((res) => (
+  document.addEventListener('WebComponentsReady', res)
+))
+
 // Takes an array of Modernizr feature tests and makes sure they all pass.
 export function hasFeatures(features) {
-  let acc = true;
-
-  features.forEach(feature => {
+  if (!window.Modernizr) return true;
+  return [...features].every(feature => {
     const hasFeature = window.Modernizr[feature];
     if (!hasFeature && process.env.DEBUG) console.warn(`Feature '${feature}' missing!`);
-    acc = acc && hasFeature;
+    return hasFeature;
   });
-
-  return acc;
 }
 
 // Some functions to hide and show content.
