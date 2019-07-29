@@ -58,6 +58,8 @@
     "hy-img": "1.0.0-hydejack.12",
     "hy-push-state": "1.0.0-pre.27",
     "intersection-observer": "^0.7.0",
+    "lit-element": "^2.2.1",
+    "lit-html": "^1.1.1",
     "regenerator-runtime": "^0.13.3",
     "resize-observer-polyfill": "^1.5.1",
     "rxjs": "^6.5.3",
