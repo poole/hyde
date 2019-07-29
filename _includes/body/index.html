@@ -1,10 +1,10 @@
 {% include body/menu.html %}
 
 <hy-push-state
-  replace-ids="_main"
+  replace-selector="#_main"
   link-selector="a[href]:not([href*='/assets/']):not(.external):not(.no-push-state)"
-  duration="250"
   script-selector="script:not([type^='math/tex'])"
+  duration="250"
   prefetch
 >
   {% if page.cover %}
