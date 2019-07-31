@@ -29,8 +29,8 @@ export const hasCSSOM =
   "attributeStyleMap" in Element.prototype && "CSS" in window && CSS.number;
 
 export const webComponentsReady = new Promise(res => {
-  if (window.webComponentsReady) res(true)
-  else document.addEventListener("WebComponentsReady", res)
+  if (window.webComponentsReady) res(true);
+  else document.addEventListener("WebComponentsReady", res);
 });
 
 // Takes an array of Modernizr feature tests and makes sure they all pass.

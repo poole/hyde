@@ -57,7 +57,7 @@ See the [the migration guide][upgrade] for instructions on how to upgrade.
 
 ***
 
-[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v8.5.0-beta.0)
+[Get *JavaScripten* on GitHub](https://github.com/qwtel/hydejack/releases/tag/v8.5.0-beta.1)
 
 [upgrade]: ../../docs/upgrade.md
 [writing]: ../../docs/writing.md
