@@ -1,30 +1,31 @@
 # CHANGELOG
 
 ## v8.5.0
-July 30 2019
+July 31 2019
 {:.heading.post-date}
 
 ### Changed
 * [PRO] The theme now matches the operating system's dark mode.
+* Scrolling down on a page with an open drawer will now close the drawer
 * Reloading a cover page after the drawer has been closed will now open the page with the drawer closed
 * Removed JavaScript-based web font swapping in favor of using `font-display: swap`
 * Darkened font color in dark mode to reduce contrast
 * Updated KaTeX to the latest version
 * Increased the durations of various animations slightly
-
-### Added
-* Scrolling down on a page with an open drawer will now close the drawer
 * Now using [`jekyll-replace-img`](https://github.com/qwtel/jekyll-replace-img) instead of custom code in `_plugins` folder
 * Added a separate, smaller JavaScript bundle for modern browsers
+
+### Added
 * Added support for figure captions on code blocks
 * Added `keybase` to social media icons
 * [PRO] There's now a forward button when using the theme as a PWA
-* Added back minimal support for IE11
 
 ### Fixed
 * Fixed print layout when dark mode is enabled
 * Using `CSSTransformValue` correctly
 * Fixed a minor style bug for dates
+* Fixed a bug where light mode would flash when loading a page in dark mode
+* Minimal support for IE11
 
 ## v8.4.0
 Mar 9 2019
