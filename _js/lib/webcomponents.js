@@ -1,7 +1,9 @@
 import '@webcomponents/webcomponents-platform'
 import '@webcomponents/url';
 import "@webcomponents/template";
-import "@webcomponents/webcomponentsjs/bundles/webcomponents-sd-ce";
+import '@webcomponents/shadydom';
+import '@webcomponents/custom-elements'
+import '@webcomponents/shadycss/entrypoints/scoping-shim';
 
 const customElements = window.customElements;
 
@@ -24,6 +26,7 @@ function flushAndFire() {
   }
   flusher && flusher();
   shouldFlush = true;
+  window.webComponentsReady = true;
   document.dispatchEvent(new CustomEvent('WebComponentsReady', { bubbles: true }));
 }
 

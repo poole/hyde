@@ -14,7 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// ## Includes
 import ResizeObserver from "resize-observer-polyfill";
 
 import {
@@ -25,7 +24,6 @@ import {
 import { createXObservable } from "hy-component/src/rxjs";
 
 import { Observable, fromEvent, NEVER } from "rxjs";
-
 import {
   distinctUntilChanged,
   map,
@@ -38,7 +36,6 @@ import {
   withLatestFrom
 } from "rxjs/operators";
 
-// Some of our own helper functions/constants.
 import {
   hasFeatures,
   isSafari,
@@ -55,6 +52,7 @@ const REQUIREMENTS = new Set([
   ...WEBCOMPONENT_FEATURE_TESTS,
   "cssremunit",
   "classlist",
+  "customproperties",
   "eventlistener",
   "matchmedia"
 ]);
@@ -127,10 +125,6 @@ function removeIcon() {
   if (svg) svg.parentNode.removeChild(svg);
 }
 
-// ## Main
-// First, we determine if the drawer is enabled,
-// and whether the current user agent meets our requirements.
-//
 // Note that the UC Browser has even more invasive native swipe gestures than iOS Safari,
 // so we disable the component alltogether.
 if (!window._noDrawer && hasFeatures(REQUIREMENTS) && !isUCBrowser) {
