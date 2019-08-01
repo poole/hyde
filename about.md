@@ -27,15 +27,15 @@ There are two versions of **Hydejack**: The base version is free, while features
 | [Welcome]              |                | &#x2714; |
 | [Newsletter Box][news] |                | &#x2714; |
 | [Custom Forms][forms]  |                | &#x2714; |
-| Dark Mode              |                | &#x2714; |
+| [Dark Mode][darkm]     |                | &#x2714; |
+| [Offline Support][ofln]|                | &#x2714; |
 | Cookie Banner          |                | &#x2714; |
-| Offline Support        |                | &#x2714; |
 | No Hydejack Branding   |                | &#x2714; |
 | License                | [GPL-3.0][lic] | [PRO]    |
 | Source                 | [GitHub][src]  | Included |
 | Support[^1]            | No             | No       |
 | Price                  | Free           | $59      |
-| | [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark} | [**Buy PRO**][buy] |
+| | [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark} | [**Buy PRO** --- $59][buy]{:.btn.btn-primary.btn-lg.heading} |
 {:.stretch-table.dl-table}
 
 
@@ -130,15 +130,15 @@ This table below shows what's included in each version:
 | [Welcome]              |                | &#x2714; |
 | [Newsletter Box][news] |                | &#x2714; |
 | [Custom Forms][forms]  |                | &#x2714; |
-| Dark Mode              |                | &#x2714; |
+| [Dark Mode][darkm]     |                | &#x2714; |
+| [Offline Support][ofln]|                | &#x2714; |
 | Cookie Banner          |                | &#x2714; |
-| Offline Support        |                | &#x2714; |
 | No Hydejack Branding   |                | &#x2714; |
 | License                | [GPL-3.0][lic] | [PRO]    |
 | Source                 | [GitHub][src]  | Included |
 | Support[^1]            | No             | No       |
 | Price                  | Free           | $59      |
-| | [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark} | [**Buy PRO**][buy] |
+| | [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark} | [**Buy PRO** --- $59][buy]{:.btn.btn-primary.btn-lg.heading} |
 {:.stretch-table.dl-table}
 
 
@@ -159,12 +159,14 @@ This table below shows what's included in each version:
 [news]: #build-an-audience
 [syntax]: #syntax-highlighting
 [latex]: hydejack/_posts/2018-06-01-example-content-iii.md#math
+[darkm]: hydejack/_posts/2018-09-01-introducing-dark-mode.md
 
 [lic]: LICENSE.md
 [pro]: licenses/PRO.md
 [docs]: docs/README.md
+[ofln]: docs/advanced.md#enabling-offline-support
 
-[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v8.4.0.zip
+[kit]: https://github.com/qwtel/hydejack-starter-kit/archive/v8.5.0.zip
 [src]: https://github.com/qwtel/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/NATYVLYT
