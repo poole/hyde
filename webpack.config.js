@@ -16,7 +16,7 @@ const envConfig = (() => {
   switch (mode) {
     case "production":
       return {
-        devtool: "source-map",
+        devtool: false,
         plugins: [new BannerPlugin({ banner, raw: true }), new EnvironmentPlugin({ DEBUG: false })],
       };
 
