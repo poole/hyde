@@ -1,9 +1,8 @@
 <!--[if gt IE 10]><!---->
 {% unless page.redirect %}
-  <script type="module">window.__ESM__=!0; import '{{ "/assets/js/hydejack-8.5.0.js" | relative_url }}';</script>
+  <script type="module">window.__ESM__=!0; import '{{ "/assets/js/hydejack-8.5.1.js" | relative_url }}';</script>
   <script nomodule>if (!window.__ESM__) loadJSDeferred(document.getElementById('_hrefJS').href);</script>
   {% include my-scripts.html %}
-
   {% include body/analytics.html %}
 {% endunless %}
 <!--<![endif]-->
