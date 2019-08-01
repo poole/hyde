@@ -45,5 +45,6 @@ vendor/bundle
 .jekyll-metadata
 *.gem
 _zip
+/stats.json
 
 #<removed>

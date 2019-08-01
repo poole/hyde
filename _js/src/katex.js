@@ -14,9 +14,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import "core-js/fn/array/for-each";
-
-import { hasFeatures, hide } from "./common";
+import { hasFeatures } from "./common";
 
 const REQUIREMENTS = ["classlist", "eventlistener", "queryselector"];
 
@@ -26,12 +24,13 @@ let loaded;
 function renderKatex(el) {
   try {
     let prev = el.previousElementSibling;
-    while (prev && !prev.classList.contains("MathJax_Preview")) prev = prev.previousElementSibling;
+    while (prev && !prev.classList.contains("MathJax_Preview"))
+      prev = prev.previousElementSibling;
 
     const tex = el.textContent.replace("% <![CDATA[", "").replace("%]]>", "");
 
     el.outerHTML = window.katex.renderToString(tex, {
-      displayMode: el.type === "math/tex; mode=display",
+      displayMode: el.type === "math/tex; mode=display"
     });
 
     if (prev) prev.parentNode.removeChild(prev);
@@ -40,7 +39,8 @@ function renderKatex(el) {
   }
 }
 
-const promisify = (f, href) => new Promise(resolve => f(href).addEventListener("load", resolve));
+const promisify = (f, href) =>
+  new Promise(resolve => f(href).addEventListener("load", resolve));
 
 export const upgradeMathBlocks = !featuresOk
   ? () => {}
@@ -52,7 +52,10 @@ export const upgradeMathBlocks = !featuresOk
             promisify(loadJS, document.getElementById("_hrefKatexJS").href),
             promisify(loadCSS, document.getElementById("_hrefKatexCSS").href),
             promisify(loadJS, document.getElementById("_hrefKatexCopyJS").href),
-            promisify(loadCSS, document.getElementById("_hrefKatexCopyCSS").href),
+            promisify(
+              loadCSS,
+              document.getElementById("_hrefKatexCopyCSS").href
+            )
           ]);
         }
         loaded.then(() => {

@@ -266,6 +266,24 @@ project, which is MIT licensed with the following copyright:
 
 A copy of the [MIT] license is provided as part of this distribution.
 
+### ResizeObserver Polyfill
+This software also uses portions of the
+`que-etc/resize-observer-polyfill`
+project, which is MIT licensed with the following copyright:
+
+> Copyright (c) 2016 Denis Rul
+
+A copy of the [MIT] license is provided as part of this distribution.
+
+### regenerator
+This software also uses portions of the
+`facebook/regenerator`
+project, which is MIT licensed with the following copyright:
+
+> Copyright (c) 2014-present, Facebook, Inc.
+
+A copy of the [MIT] license is provided as part of this distribution.
+
 ### AMP HTML
 This software also uses portions of the
 `ampproject/amphtml`
@@ -289,34 +307,6 @@ No substantial changes to the software were made.
 
 A copy of the [W3C] license is provided as part of this distribution.
 
-### Font Face Observer
-This software also uses portions of the
-`bramstein/fontfaceobserver`
-project, which is BSD-style licensed with the following copyright:
-
-> Copyright (c) 2014 - Bram Stein  
-> All rights reserved.
-
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions
-are met:
-
- 1. Redistributions of source code must retain the above copyright
-    notice, this list of conditions and the following disclaimer.
- 2. Redistributions in binary form must reproduce the above copyright
-    notice, this list of conditions and the following disclaimer in the
-    documentation and/or other materials provided with the distribution.
-
-THIS SOFTWARE IS PROVIDED BY THE AUTHOR "AS IS" AND ANY EXPRESS OR IMPLIED
-WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF
-MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO
-EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT,
-INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING,
-BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE,
-DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY
-OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING
-NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE,
-EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
 ### webcomponents.js (v1 spec polyfills)
 This software also uses portions of the

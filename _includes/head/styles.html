@@ -1,49 +1,37 @@
 <!--[if gt IE 8]><!---->
-{% capture style_url %}{% link assets/css/hydejack-8.4.0.css %}{% endcapture %}
+{% capture style_url %}{% link assets/css/hydejack-8.5.0.css %}{% endcapture %}
 {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
-{% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts }}{% endcapture %}
+{% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts }}&display=swap{% endcapture %}
 
 {% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
 {% assign font         = site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
 
+{% assign layout = page.layout %}
+{% assign no_google_fonts = site.hydejack.no_google_fonts or site.no_google_fonts %}
+
 {% if site.hydejack.no_inline_css or jekyll.environment == 'development' %}
   <link rel="stylesheet" href="{{ style_url | relative_url }}">
   <link rel="stylesheet" href="{{ icons_url | relative_url }}">
-  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+  {% unless no_google_fonts %}
     <link rel="stylesheet" href="{{ fonts_url }}">
-    <noscript>
-      <style>
-        html { font-family: {{ font }}!important; }
-        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading }}!important; }
-      </style>
-    </noscript>
   {% endunless %}
 {% else %}
   <style>
-    {% capture to_scssify %}{% include styles/inline.scss %}{% endcapture %}
-    {{ to_scssify | scssify }}
+    {% capture to_scssify %}{% include styles/inline.scss %}{% endcapture %}{{ to_scssify | scssify }}
   </style>
 
   <link rel="preload" as="style" href="{{ style_url | relative_url }}" id="_stylePreload">
-  <script>setRel('_stylePreload');</script>
-
   <link rel="preload" as="style" href="{{ icons_url | relative_url }}" id="_iconsPreload">
-  <script>setRel('_iconsPreload');</script>
-
-  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+  {% unless no_google_fonts %}
     <link rel="preload" as="style" href="{{ fonts_url }}" id="_fontsPreload">
-    <script>setRel('_fontsPreload');</script>
   {% endunless %}
 
+  <script>setRel('_stylePreload');setRel('_iconsPreload');/*{% unless no_google_fonts %}*/setRel('_fontsPreload');/*{% endunless %}*/</script>
   <noscript>
     <link rel="stylesheet" href="{{ style_url | relative_url }}">
     <link rel="stylesheet" href="{{ icons_url | relative_url }}">
-    {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
+    {% unless no_google_fonts %}
       <link rel="stylesheet" href="{{ fonts_url }}">
-      <style>
-        html { font-family: {{ font }}!important; }
-        h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading }}!important; }
-      </style>
     {% endunless %}
   </noscript>
 {% endif %}

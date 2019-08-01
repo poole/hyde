@@ -3746,12 +3746,12 @@ function getCharacterMetrics(character, font, mode) {
   }
 
   let ch = character.charCodeAt(0);
-
-  if (character[0] in extraCharacterMap) {
-    ch = extraCharacterMap[character[0]].charCodeAt(0);
-  }
-
   let metrics = metricMap[font][ch];
+
+  if (!metrics && character[0] in extraCharacterMap) {
+    ch = extraCharacterMap[character[0]].charCodeAt(0);
+    metrics = metricMap[font][ch];
+  }
 
   if (!metrics && mode === 'text') {
     // We don't typically have font metrics for Asian scripts.
@@ -3984,12 +3984,13 @@ defineSymbol(math, main, rel, "\u21c1", "\\rightharpoondown", true);
 defineSymbol(math, main, rel, "\u2196", "\\nwarrow", true);
 defineSymbol(math, main, rel, "\u21cc", "\\rightleftharpoons", true); // AMS Negated Binary Relations
 
-defineSymbol(math, ams, rel, "\u226e", "\\nless", true);
-defineSymbol(math, ams, rel, "\ue010", "\\nleqslant");
-defineSymbol(math, ams, rel, "\ue011", "\\nleqq");
+defineSymbol(math, ams, rel, "\u226e", "\\nless", true); // Symbol names preceeded by "@" each have a corresponding macro.
+
+defineSymbol(math, ams, rel, "\ue010", "\\@nleqslant");
+defineSymbol(math, ams, rel, "\ue011", "\\@nleqq");
 defineSymbol(math, ams, rel, "\u2a87", "\\lneq", true);
 defineSymbol(math, ams, rel, "\u2268", "\\lneqq", true);
-defineSymbol(math, ams, rel, "\ue00c", "\\lvertneqq");
+defineSymbol(math, ams, rel, "\ue00c", "\\@lvertneqq");
 defineSymbol(math, ams, rel, "\u22e6", "\\lnsim", true);
 defineSymbol(math, ams, rel, "\u2a89", "\\lnapprox", true);
 defineSymbol(math, ams, rel, "\u2280", "\\nprec", true); // unicode-math maps \u22e0 to \npreccurlyeq. We'll use the AMS synonym.
@@ -3998,22 +3999,22 @@ defineSymbol(math, ams, rel, "\u22e0", "\\npreceq", true);
 defineSymbol(math, ams, rel, "\u22e8", "\\precnsim", true);
 defineSymbol(math, ams, rel, "\u2ab9", "\\precnapprox", true);
 defineSymbol(math, ams, rel, "\u2241", "\\nsim", true);
-defineSymbol(math, ams, rel, "\ue006", "\\nshortmid");
+defineSymbol(math, ams, rel, "\ue006", "\\@nshortmid");
 defineSymbol(math, ams, rel, "\u2224", "\\nmid", true);
 defineSymbol(math, ams, rel, "\u22ac", "\\nvdash", true);
 defineSymbol(math, ams, rel, "\u22ad", "\\nvDash", true);
 defineSymbol(math, ams, rel, "\u22ea", "\\ntriangleleft");
 defineSymbol(math, ams, rel, "\u22ec", "\\ntrianglelefteq", true);
 defineSymbol(math, ams, rel, "\u228a", "\\subsetneq", true);
-defineSymbol(math, ams, rel, "\ue01a", "\\varsubsetneq");
+defineSymbol(math, ams, rel, "\ue01a", "\\@varsubsetneq");
 defineSymbol(math, ams, rel, "\u2acb", "\\subsetneqq", true);
-defineSymbol(math, ams, rel, "\ue017", "\\varsubsetneqq");
+defineSymbol(math, ams, rel, "\ue017", "\\@varsubsetneqq");
 defineSymbol(math, ams, rel, "\u226f", "\\ngtr", true);
-defineSymbol(math, ams, rel, "\ue00f", "\\ngeqslant");
-defineSymbol(math, ams, rel, "\ue00e", "\\ngeqq");
+defineSymbol(math, ams, rel, "\ue00f", "\\@ngeqslant");
+defineSymbol(math, ams, rel, "\ue00e", "\\@ngeqq");
 defineSymbol(math, ams, rel, "\u2a88", "\\gneq", true);
 defineSymbol(math, ams, rel, "\u2269", "\\gneqq", true);
-defineSymbol(math, ams, rel, "\ue00d", "\\gvertneqq");
+defineSymbol(math, ams, rel, "\ue00d", "\\@gvertneqq");
 defineSymbol(math, ams, rel, "\u22e7", "\\gnsim", true);
 defineSymbol(math, ams, rel, "\u2a8a", "\\gnapprox", true);
 defineSymbol(math, ams, rel, "\u2281", "\\nsucc", true); // unicode-math maps \u22e1 to \nsucccurlyeq. We'll use the AMS synonym.
@@ -4023,20 +4024,20 @@ defineSymbol(math, ams, rel, "\u22e9", "\\succnsim", true);
 defineSymbol(math, ams, rel, "\u2aba", "\\succnapprox", true); // unicode-math maps \u2246 to \simneqq. We'll use the AMS synonym.
 
 defineSymbol(math, ams, rel, "\u2246", "\\ncong", true);
-defineSymbol(math, ams, rel, "\ue007", "\\nshortparallel");
+defineSymbol(math, ams, rel, "\ue007", "\\@nshortparallel");
 defineSymbol(math, ams, rel, "\u2226", "\\nparallel", true);
 defineSymbol(math, ams, rel, "\u22af", "\\nVDash", true);
 defineSymbol(math, ams, rel, "\u22eb", "\\ntriangleright");
 defineSymbol(math, ams, rel, "\u22ed", "\\ntrianglerighteq", true);
-defineSymbol(math, ams, rel, "\ue018", "\\nsupseteqq");
+defineSymbol(math, ams, rel, "\ue018", "\\@nsupseteqq");
 defineSymbol(math, ams, rel, "\u228b", "\\supsetneq", true);
-defineSymbol(math, ams, rel, "\ue01b", "\\varsupsetneq");
+defineSymbol(math, ams, rel, "\ue01b", "\\@varsupsetneq");
 defineSymbol(math, ams, rel, "\u2acc", "\\supsetneqq", true);
-defineSymbol(math, ams, rel, "\ue019", "\\varsupsetneqq");
+defineSymbol(math, ams, rel, "\ue019", "\\@varsupsetneqq");
 defineSymbol(math, ams, rel, "\u22ae", "\\nVdash", true);
 defineSymbol(math, ams, rel, "\u2ab5", "\\precneqq", true);
 defineSymbol(math, ams, rel, "\u2ab6", "\\succneqq", true);
-defineSymbol(math, ams, rel, "\ue016", "\\nsubseteqq");
+defineSymbol(math, ams, rel, "\ue016", "\\@nsubseteqq");
 defineSymbol(math, ams, bin, "\u22b4", "\\unlhd");
 defineSymbol(math, ams, bin, "\u22b5", "\\unrhd"); // AMS Negated Arrows
 
@@ -4059,7 +4060,6 @@ defineSymbol(math, ams, textord, "\u2204", "\\nexists");
 defineSymbol(math, ams, textord, "\u2127", "\\mho");
 defineSymbol(math, ams, textord, "\u2132", "\\Finv", true);
 defineSymbol(math, ams, textord, "\u2141", "\\Game", true);
-defineSymbol(math, ams, textord, "\u006b", "\\Bbbk");
 defineSymbol(math, ams, textord, "\u2035", "\\backprime");
 defineSymbol(math, ams, textord, "\u25b2", "\\blacktriangle");
 defineSymbol(math, ams, textord, "\u25bc", "\\blacktriangledown");
@@ -4793,7 +4793,8 @@ const sizeMultipliers = [// fontMetrics.js:getGlobalMetrics also uses size index
 
 const sizeAtStyle = function sizeAtStyle(size, style) {
   return style.size < 2 ? size : sizeStyleMap[size - 1][style.size - 1];
-};
+}; // In these types, "" (empty string) means "no change".
+
 
 /**
  * This is the main options class. It contains the current style, size, color,
@@ -5061,20 +5062,13 @@ class Options {
     return this._fontMetrics;
   }
   /**
-   * A map of color names to CSS colors.
-   * TODO(emily): Remove this when we have real macros
+   * Gets the CSS color of the current options object
    */
 
 
-  /**
-   * Gets the CSS color of the current options object, accounting for the
-   * `colorMap`.
-   */
   getColor() {
     if (this.phantom) {
       return "transparent";
-    } else if (this.color != null && Options.colorMap.hasOwnProperty(this.color)) {
-      return Options.colorMap[this.color];
     } else {
       return this.color;
     }
@@ -5083,64 +5077,6 @@ class Options {
 }
 
 Options.BASESIZE = 6;
-Options.colorMap = {
-  "katex-blue": "#6495ed",
-  "katex-orange": "#ffa500",
-  "katex-pink": "#ff00af",
-  "katex-red": "#df0030",
-  "katex-green": "#28ae7b",
-  "katex-gray": "gray",
-  "katex-purple": "#9d38bd",
-  "katex-blueA": "#ccfaff",
-  "katex-blueB": "#80f6ff",
-  "katex-blueC": "#63d9ea",
-  "katex-blueD": "#11accd",
-  "katex-blueE": "#0c7f99",
-  "katex-tealA": "#94fff5",
-  "katex-tealB": "#26edd5",
-  "katex-tealC": "#01d1c1",
-  "katex-tealD": "#01a995",
-  "katex-tealE": "#208170",
-  "katex-greenA": "#b6ffb0",
-  "katex-greenB": "#8af281",
-  "katex-greenC": "#74cf70",
-  "katex-greenD": "#1fab54",
-  "katex-greenE": "#0d923f",
-  "katex-goldA": "#ffd0a9",
-  "katex-goldB": "#ffbb71",
-  "katex-goldC": "#ff9c39",
-  "katex-goldD": "#e07d10",
-  "katex-goldE": "#a75a05",
-  "katex-redA": "#fca9a9",
-  "katex-redB": "#ff8482",
-  "katex-redC": "#f9685d",
-  "katex-redD": "#e84d39",
-  "katex-redE": "#bc2612",
-  "katex-maroonA": "#ffbde0",
-  "katex-maroonB": "#ff92c6",
-  "katex-maroonC": "#ed5fa6",
-  "katex-maroonD": "#ca337c",
-  "katex-maroonE": "#9e034e",
-  "katex-purpleA": "#ddd7ff",
-  "katex-purpleB": "#c6b9fc",
-  "katex-purpleC": "#aa87ff",
-  "katex-purpleD": "#7854ab",
-  "katex-purpleE": "#543b78",
-  "katex-mintA": "#f5f9e8",
-  "katex-mintB": "#edf2df",
-  "katex-mintC": "#e0e5cc",
-  "katex-grayA": "#f6f7f7",
-  "katex-grayB": "#f0f1f2",
-  "katex-grayC": "#e3e5e6",
-  "katex-grayD": "#d6d8da",
-  "katex-grayE": "#babec2",
-  "katex-grayF": "#888d93",
-  "katex-grayG": "#626569",
-  "katex-grayH": "#3b3e40",
-  "katex-grayI": "#21242c",
-  "katex-kaBlue": "#314453",
-  "katex-kaGreen": "#71B307"
-};
 
 /**
  * This file does conversion between units.  In particular, it provides
@@ -6921,13 +6857,24 @@ const buildExpression$1 = function buildExpression(expression, options) {
           lastGroup.children.push(...group.children);
           continue;
         }
+      } else if (lastGroup.type === 'mi' && lastGroup.children.length === 1) {
+        const lastChild = lastGroup.children[0];
+
+        if (lastChild instanceof TextNode && lastChild.text === '\u0338' && (group.type === 'mo' || group.type === 'mi' || group.type === 'mn')) {
+          const child = group.children[0];
+
+          if (child instanceof TextNode && child.text.length > 0) {
+            // Overlay with combining character long solidus
+            child.text = child.text.slice(0, 1) + "\u0338" + child.text.slice(1);
+            groups.pop();
+          }
+        }
       }
     }
 
     groups.push(group);
     lastGroup = group;
-  } // TODO(kevinb): combine \\not with mrels and mords
-
+  }
 
   return groups;
 };
@@ -7046,8 +6993,10 @@ const stretchyCodePoint = {
   overrightarrow: "\u2192",
   underrightarrow: "\u2192",
   xrightarrow: "\u2192",
-  underbrace: "\u23b5",
+  underbrace: "\u23df",
   overbrace: "\u23de",
+  overgroup: "\u23e0",
+  undergroup: "\u23e1",
   overleftrightarrow: "\u2194",
   underleftrightarrow: "\u2194",
   xleftrightarrow: "\u2194",
@@ -7626,7 +7575,15 @@ defineFunction({
   }
 });
 
-// Stretchy arrows with an optional argument
+// Helper function
+const paddedNode = group => {
+  const node = new mathMLTree.MathNode("mpadded", group ? [group] : []);
+  node.setAttribute("width", "+0.6em");
+  node.setAttribute("lspace", "0.3em");
+  return node;
+}; // Stretchy arrows with an optional argument
+
+
 defineFunction({
   type: "xArrow",
   names: ["\\xleftarrow", "\\xrightarrow", "\\xLeftarrow", "\\xRightarrow", "\\xleftrightarrow", "\\xLeftrightarrow", "\\xhookleftarrow", "\\xhookrightarrow", "\\xmapsto", "\\xrightharpoondown", "\\xrightharpoonup", "\\xleftharpoondown", "\\xleftharpoonup", "\\xrightleftharpoons", "\\xleftrightharpoons", "\\xlongequal", "\\xtwoheadrightarrow", "\\xtwoheadleftarrow", "\\xtofrom", // The next 3 functions are here to support the mhchem extension.
@@ -7724,22 +7681,24 @@ defineFunction({
   mathmlBuilder(group, options) {
     const arrowNode = stretchy.mathMLnode(group.label);
     let node;
-    let lowerNode;
 
     if (group.body) {
-      const upperNode = buildGroup$1(group.body, options);
+      const upperNode = paddedNode(buildGroup$1(group.body, options));
 
       if (group.below) {
-        lowerNode = buildGroup$1(group.below, options);
+        const lowerNode = paddedNode(buildGroup$1(group.below, options));
         node = new mathMLTree.MathNode("munderover", [arrowNode, lowerNode, upperNode]);
       } else {
         node = new mathMLTree.MathNode("mover", [arrowNode, upperNode]);
       }
     } else if (group.below) {
-      lowerNode = buildGroup$1(group.below, options);
+      const lowerNode = paddedNode(buildGroup$1(group.below, options));
       node = new mathMLTree.MathNode("munder", [arrowNode, lowerNode]);
     } else {
-      node = new mathMLTree.MathNode("mover", [arrowNode]);
+      // This should never happen.
+      // Parser.js throws an error if there is no argument.
+      node = paddedNode();
+      node = new mathMLTree.MathNode("mover", [arrowNode, node]);
     }
 
     return node;
@@ -7794,7 +7753,7 @@ const htmlBuilder$1 = (group, options) => {
 };
 
 const mathmlBuilder$1 = (group, options) => {
-  const inner = buildExpression$1(group.body, options);
+  const inner = buildExpression$1(group.body, options.withColor(group.color));
   const node = new mathMLTree.MathNode("mstyle", inner);
   node.setAttribute("mathcolor", group.color);
   return node;
@@ -7824,31 +7783,6 @@ defineFunction({
 
   htmlBuilder: htmlBuilder$1,
   mathmlBuilder: mathmlBuilder$1
-}); // TODO(kevinb): define these using macros
-
-defineFunction({
-  type: "color",
-  names: ["\\blue", "\\orange", "\\pink", "\\red", "\\green", "\\gray", "\\purple", "\\blueA", "\\blueB", "\\blueC", "\\blueD", "\\blueE", "\\tealA", "\\tealB", "\\tealC", "\\tealD", "\\tealE", "\\greenA", "\\greenB", "\\greenC", "\\greenD", "\\greenE", "\\goldA", "\\goldB", "\\goldC", "\\goldD", "\\goldE", "\\redA", "\\redB", "\\redC", "\\redD", "\\redE", "\\maroonA", "\\maroonB", "\\maroonC", "\\maroonD", "\\maroonE", "\\purpleA", "\\purpleB", "\\purpleC", "\\purpleD", "\\purpleE", "\\mintA", "\\mintB", "\\mintC", "\\grayA", "\\grayB", "\\grayC", "\\grayD", "\\grayE", "\\grayF", "\\grayG", "\\grayH", "\\grayI", "\\kaBlue", "\\kaGreen"],
-  props: {
-    numArgs: 1,
-    allowedInText: true,
-    greediness: 3
-  },
-
-  handler(_ref2, args) {
-    let parser = _ref2.parser,
-        funcName = _ref2.funcName;
-    const body = args[0];
-    return {
-      type: "color",
-      mode: parser.mode,
-      color: "katex-" + funcName.slice(1),
-      body: ordargument(body)
-    };
-  },
-
-  htmlBuilder: htmlBuilder$1,
-  mathmlBuilder: mathmlBuilder$1
 });
 defineFunction({
   type: "color",
@@ -7860,9 +7794,9 @@ defineFunction({
     argTypes: ["color"]
   },
 
-  handler(_ref3, args) {
-    let parser = _ref3.parser,
-        breakOnTokenText = _ref3.breakOnTokenText;
+  handler(_ref2, args) {
+    let parser = _ref2.parser,
+        breakOnTokenText = _ref2.breakOnTokenText;
     const color = assertNodeType(args[0], "color-token").color; // If we see a styling function, parse out the implicit body
 
     const body = parser.parseExpression(true, breakOnTokenText);
@@ -8896,8 +8830,17 @@ defineFunction({
     return middleDelim;
   },
   mathmlBuilder: (group, options) => {
-    const middleNode = new mathMLTree.MathNode("mo", [makeText(group.delim, group.mode)]);
-    middleNode.setAttribute("fence", "true");
+    // A Firefox \middle will strech a character vertically only if it
+    // is in the fence part of the operator dictionary at:
+    // https://www.w3.org/TR/MathML3/appendixc.html.
+    // So we need to avoid U+2223 and use plain "|" instead.
+    const textNode = group.delim === "\\vert" || group.delim === "|" ? makeText("|", "text") : makeText(group.delim, group.mode);
+    const middleNode = new mathMLTree.MathNode("mo", [textNode]);
+    middleNode.setAttribute("fence", "true"); // MathML gives 5/18em spacing to each <mo> element.
+    // \middle should get delimiter spacing instead.
+
+    middleNode.setAttribute("lspace", "0.05em");
+    middleNode.setAttribute("rspace", "0.05em");
     return middleNode;
   }
 });
@@ -9003,7 +8946,7 @@ const htmlBuilder$2 = (group, options) => {
 };
 
 const mathmlBuilder$2 = (group, options) => {
-  const node = new mathMLTree.MathNode("menclose", [buildGroup$1(group.body, options)]);
+  const node = new mathMLTree.MathNode(group.label.indexOf("colorbox") > -1 ? "mpadded" : "menclose", [buildGroup$1(group.body, options)]);
 
   switch (group.label) {
     case "\\cancel":
@@ -9023,8 +8966,20 @@ const mathmlBuilder$2 = (group, options) => {
       break;
 
     case "\\fcolorbox":
-      // TODO(ron): I don't know any way to set the border color.
-      node.setAttribute("notation", "box");
+    case "\\colorbox":
+      // <menclose> doesn't have a good notation option. So use <mpadded>
+      // instead. Set some attributes that come included with <menclose>.
+      node.setAttribute("width", "+6pt");
+      node.setAttribute("height", "+6pt");
+      node.setAttribute("lspace", "3pt"); // LaTeX source2e: \fboxsep = 3pt
+
+      node.setAttribute("voffset", "3pt");
+
+      if (group.label === "\\fcolorbox") {
+        const thk = options.fontMetrics().defaultRuleThickness;
+        node.setAttribute("style", "border: " + thk + "em solid " + String(group.borderColor));
+      }
+
       break;
 
     case "\\xcancel":
@@ -9206,7 +9161,8 @@ function parseArray(parser, _ref, style) {
   let hskipBeforeAndAfter = _ref.hskipBeforeAndAfter,
       addJot = _ref.addJot,
       cols = _ref.cols,
-      arraystretch = _ref.arraystretch;
+      arraystretch = _ref.arraystretch,
+      colSeparationType = _ref.colSeparationType;
   // Parse body of array with \\ temporarily mapped to \cr
   parser.gullet.beginGroup();
   parser.gullet.macros.set("\\\\", "\\cr"); // Get current arraystretch if it's not set by the environment
@@ -9291,7 +9247,8 @@ function parseArray(parser, _ref, style) {
     cols,
     rowGaps,
     hskipBeforeAndAfter,
-    hLinesBeforeRow
+    hLinesBeforeRow,
+    colSeparationType
   };
 } // Decides on a style for cells in an array according to whether the given
 // environment name starts with the letter 'd'.
@@ -9540,12 +9497,117 @@ const htmlBuilder$3 = function htmlBuilder(group, options) {
   return buildCommon.makeSpan(["mord"], [body], options);
 };
 
+const alignMap = {
+  c: "center ",
+  l: "left ",
+  r: "right "
+};
+
 const mathmlBuilder$3 = function mathmlBuilder(group, options) {
-  return new mathMLTree.MathNode("mtable", group.body.map(function (row) {
+  const table = new mathMLTree.MathNode("mtable", group.body.map(function (row) {
     return new mathMLTree.MathNode("mtr", row.map(function (cell) {
       return new mathMLTree.MathNode("mtd", [buildGroup$1(cell, options)]);
     }));
-  }));
+  })); // Set column alignment, row spacing, column spacing, and
+  // array lines by setting attributes on the table element.
+  // Set the row spacing. In MathML, we specify a gap distance.
+  // We do not use rowGap[] because MathML automatically increases
+  // cell height with the height/depth of the element content.
+  // LaTeX \arraystretch multiplies the row baseline-to-baseline distance.
+  // We simulate this by adding (arraystretch - 1)em to the gap. This
+  // does a reasonable job of adjusting arrays containing 1 em tall content.
+  // The 0.16 and 0.09 values are found emprically. They produce an array
+  // similar to LaTeX and in which content does not interfere with \hines.
+
+  const gap = 0.16 + group.arraystretch - 1 + (group.addJot ? 0.09 : 0);
+  table.setAttribute("rowspacing", gap + "em"); // MathML table lines go only between cells.
+  // To place a line on an edge we'll use <menclose>, if necessary.
+
+  let menclose = "";
+  let align = "";
+
+  if (group.cols) {
+    // Find column alignment, column spacing, and  vertical lines.
+    const cols = group.cols;
+    let columnLines = "";
+    let prevTypeWasAlign = false;
+    let iStart = 0;
+    let iEnd = cols.length;
+
+    if (cols[0].type === "separator") {
+      menclose += "top ";
+      iStart = 1;
+    }
+
+    if (cols[cols.length - 1].type === "separator") {
+      menclose += "bottom ";
+      iEnd -= 1;
+    }
+
+    for (let i = iStart; i < iEnd; i++) {
+      if (cols[i].type === "align") {
+        align += alignMap[cols[i].align];
+
+        if (prevTypeWasAlign) {
+          columnLines += "none ";
+        }
+
+        prevTypeWasAlign = true;
+      } else if (cols[i].type === "separator") {
+        // MathML accepts only single lines between cells.
+        // So we read only the first of consecutive separators.
+        if (prevTypeWasAlign) {
+          columnLines += cols[i].separator === "|" ? "solid " : "dashed ";
+          prevTypeWasAlign = false;
+        }
+      }
+    }
+
+    table.setAttribute("columnalign", align.trim());
+
+    if (/[sd]/.test(columnLines)) {
+      table.setAttribute("columnlines", columnLines.trim());
+    }
+  } // Set column spacing.
+
+
+  if (group.colSeparationType === "align") {
+    const cols = group.cols || [];
+    let spacing = "";
+
+    for (let i = 1; i < cols.length; i++) {
+      spacing += i % 2 ? "0em " : "1em ";
+    }
+
+    table.setAttribute("columnspacing", spacing.trim());
+  } else if (group.colSeparationType === "alignat") {
+    table.setAttribute("columnspacing", "0em");
+  } else {
+    table.setAttribute("columnspacing", "1em");
+  } // Address \hline and \hdashline
+
+
+  let rowLines = "";
+  const hlines = group.hLinesBeforeRow;
+  menclose += hlines[0].length > 0 ? "left " : "";
+  menclose += hlines[hlines.length - 1].length > 0 ? "right " : "";
+
+  for (let i = 1; i < hlines.length - 1; i++) {
+    rowLines += hlines[i].length === 0 ? "none " // MathML accepts only a single line between rows. Read one element.
+    : hlines[i][0] ? "dashed " : "solid ";
+  }
+
+  if (/[sd]/.test(rowLines)) {
+    table.setAttribute("rowlines", rowLines.trim());
+  }
+
+  if (menclose === "") {
+    return table;
+  } else {
+    const wrapper = new mathMLTree.MathNode("menclose", [table]);
+    wrapper.setAttribute("notation", menclose.trim());
+    return wrapper;
+  }
 }; // Convenience function for aligned and alignedat environments.
 
 
@@ -9628,6 +9690,7 @@ const alignedHandler = function alignedHandler(context, args) {
     };
   }
 
+  res.colSeparationType = isAligned ? "align" : "alignat";
   return res;
 }; // Arrays are part of LaTeX, defined in lttab.dtx so its documentation
 // is part of the source2e.pdf file of LaTeX2e source documentation.
@@ -9999,6 +10062,7 @@ defineFunction({
       mode: baseArg.mode,
       limits: true,
       alwaysHandleSupSub: true,
+      parentIsSupSub: false,
       symbol: false,
       suppressBaseShift: funcName !== "\\stackrel",
       body: ordargument(baseArg)
@@ -10127,23 +10191,30 @@ defineFunction({
   mathmlBuilder: mathmlBuilder$5
 });
 
-const htmlBuilder$6 = (group, options) => {
-  // Fractions are handled in the TeXbook on pages 444-445, rules 15(a-e).
+const adjustStyle = (size, originalStyle) => {
   // Figure out what style this fraction should be in based on the
   // function used
-  let style = options.style;
+  let style = originalStyle;
 
-  if (group.size === "display") {
-    style = Style$1.DISPLAY;
-  } else if (group.size === "text" && style.size === Style$1.DISPLAY.size) {
+  if (size === "display") {
+    // Get display style as a default.
+    // If incoming style is sub/sup, use style.text() to get correct size.
+    style = style.id >= Style$1.SCRIPT.id ? style.text() : Style$1.DISPLAY;
+  } else if (size === "text" && style.size === Style$1.DISPLAY.size) {
     // We're in a \tfrac but incoming style is displaystyle, so:
     style = Style$1.TEXT;
-  } else if (group.size === "script") {
+  } else if (size === "script") {
     style = Style$1.SCRIPT;
-  } else if (group.size === "scriptscript") {
+  } else if (size === "scriptscript") {
     style = Style$1.SCRIPTSCRIPT;
   }
 
+  return style;
+};
+
+const htmlBuilder$6 = (group, options) => {
+  // Fractions are handled in the TeXbook on pages 444-445, rules 15(a-e).
+  const style = adjustStyle(group.size, options.style);
   const nstyle = style.fracNum();
   const dstyle = style.fracDen();
   let newOptions;
@@ -10186,7 +10257,7 @@ const htmlBuilder$6 = (group, options) => {
   let clearance;
   let denomShift;
 
-  if (style.size === Style$1.DISPLAY.size) {
+  if (style.size === Style$1.DISPLAY.size || group.size === "display") {
     numShift = options.fontMetrics().num1;
 
     if (ruleWidth > 0) {
@@ -10297,7 +10368,7 @@ const htmlBuilder$6 = (group, options) => {
 };
 
 const mathmlBuilder$6 = (group, options) => {
-  const node = new mathMLTree.MathNode("mfrac", [buildGroup$1(group.numer, options), buildGroup$1(group.denom, options)]);
+  let node = new mathMLTree.MathNode("mfrac", [buildGroup$1(group.numer, options), buildGroup$1(group.denom, options)]);
 
   if (!group.hasBarLine) {
     node.setAttribute("linethickness", "0px");
@@ -10306,11 +10377,20 @@ const mathmlBuilder$6 = (group, options) => {
     node.setAttribute("linethickness", ruleWidth + "em");
   }
 
+  const style = adjustStyle(group.size, options.style);
+
+  if (style.size !== options.style.size) {
+    node = new mathMLTree.MathNode("mstyle", [node]);
+    const isDisplay = style.size === Style$1.DISPLAY.size ? "true" : "false";
+    node.setAttribute("displaystyle", isDisplay);
+    node.setAttribute("scriptlevel", "0");
+  }
+
   if (group.leftDelim != null || group.rightDelim != null) {
     const withDelims = [];
 
     if (group.leftDelim != null) {
-      const leftOp = new mathMLTree.MathNode("mo", [new mathMLTree.TextNode(group.leftDelim)]);
+      const leftOp = new mathMLTree.MathNode("mo", [new mathMLTree.TextNode(group.leftDelim.replace("\\", ""))]);
       leftOp.setAttribute("fence", "true");
       withDelims.push(leftOp);
     }
@@ -10318,7 +10398,7 @@ const mathmlBuilder$6 = (group, options) => {
     withDelims.push(node);
 
     if (group.rightDelim != null) {
-      const rightOp = new mathMLTree.MathNode("mo", [new mathMLTree.TextNode(group.rightDelim)]);
+      const rightOp = new mathMLTree.MathNode("mo", [new mathMLTree.TextNode(group.rightDelim.replace("\\", ""))]);
       rightOp.setAttribute("fence", "true");
       withDelims.push(rightOp);
     }
@@ -11057,7 +11137,10 @@ defineFunction({
 });
 
 // Limits, symbols
-// NOTE: Unlike most `htmlBuilder`s, this one handles not only "op", but also
+// Most operators have a large successor symbol, but these don't.
+const noSuccessor = ["\\smallint"]; // NOTE: Unlike most `htmlBuilder`s, this one handles not only "op", but also
+// "supsub" since some of them (like \int) can affect super/subscripting.
+
 const htmlBuilder$8 = (grp, options) => {
   // Operators are handled in the TeXbook pg. 443-444, rule 13(a).
   let supGroup;
@@ -11078,9 +11161,7 @@ const htmlBuilder$8 = (grp, options) => {
     group = assertNodeType(grp, "op");
   }
 
-  const style = options.style; // Most operators have a large successor symbol, but these don't.
-
-  const noSuccessor = ["\\smallint"];
+  const style = options.style;
   let large = false;
 
   if (style.size === Style$1.DISPLAY.size && group.symbol && !utils.contains(noSuccessor, group.name)) {
@@ -11290,11 +11371,15 @@ const htmlBuilder$8 = (grp, options) => {
 };
 
 const mathmlBuilder$8 = (group, options) => {
-  let node; // TODO(emily): handle big operators using the `largeop` attribute
+  let node;
 
   if (group.symbol) {
     // This is a symbol. Just add the symbol.
     node = new MathNode("mo", [makeText(group.name, group.mode)]);
+
+    if (utils.contains(noSuccessor, group.name)) {
+      node.setAttribute("largeop", "false");
+    }
   } else if (group.body) {
     // This is an operator with children. Add them.
     node = new MathNode("mo", buildExpression$1(group.body, options));
@@ -11307,7 +11392,12 @@ const mathmlBuilder$8 = (group, options) => {
     // ref: https://www.w3.org/TR/REC-MathML/chap3_2.html#sec3.2.4
 
     const operator = new MathNode("mo", [makeText("\u2061", "text")]);
-    return newDocumentFragment([node, operator]);
+
+    if (group.parentIsSupSub) {
+      node = new MathNode("mo", [node, operator]);
+    } else {
+      node = newDocumentFragment([node, operator]);
+    }
   }
 
   return node;
@@ -11346,6 +11436,7 @@ defineFunction({
       type: "op",
       mode: parser.mode,
       limits: true,
+      parentIsSupSub: false,
       symbol: true,
       name: fName
     };
@@ -11368,6 +11459,7 @@ defineFunction({
       type: "op",
       mode: parser.mode,
       limits: false,
+      parentIsSupSub: false,
       symbol: false,
       body: ordargument(body)
     };
@@ -11401,6 +11493,7 @@ defineFunction({
       type: "op",
       mode: parser.mode,
       limits: false,
+      parentIsSupSub: false,
       symbol: false,
       name: funcName
     };
@@ -11424,6 +11517,7 @@ defineFunction({
       type: "op",
       mode: parser.mode,
       limits: true,
+      parentIsSupSub: false,
       symbol: false,
       name: funcName
     };
@@ -11453,6 +11547,7 @@ defineFunction({
       type: "op",
       mode: parser.mode,
       limits: false,
+      parentIsSupSub: false,
       symbol: true,
       name: fName
     };
@@ -11706,8 +11801,10 @@ defineFunction({
   },
   mathmlBuilder: (group, options) => {
     const inner = buildExpression$1(ordargument(group.body), options);
-    const node = new mathMLTree.MathNode("mphantom", inner);
+    const phantom = new mathMLTree.MathNode("mphantom", inner);
+    const node = new mathMLTree.MathNode("mpadded", [phantom]);
     node.setAttribute("height", "0px");
+    node.setAttribute("depth", "0px");
     return node;
   }
 });
@@ -11734,7 +11831,8 @@ defineFunction({
   },
   mathmlBuilder: (group, options) => {
     const inner = buildExpression$1(ordargument(group.body), options);
-    const node = new mathMLTree.MathNode("mphantom", inner);
+    const phantom = new mathMLTree.MathNode("mphantom", inner);
+    const node = new mathMLTree.MathNode("mpadded", [phantom]);
     node.setAttribute("width", "0px");
     return node;
   }
@@ -11890,14 +11988,9 @@ defineFunction({
     // Make an empty span for the rule
     const rule = buildCommon.makeSpan(["mord", "rule"], [], options); // Calculate the shift, width, and height of the rule, and account for units
 
-    let shift = 0;
-
-    if (group.shift) {
-      shift = calculateSize(group.shift, options);
-    }
-
     const width = calculateSize(group.width, options);
-    const height = calculateSize(group.height, options); // Style the rule to the right size
+    const height = calculateSize(group.height, options);
+    const shift = group.shift ? calculateSize(group.shift, options) : 0; // Style the rule to the right size
 
     rule.style.borderRightWidth = width + "em";
     rule.style.borderTopWidth = height + "em";
@@ -11914,10 +12007,25 @@ defineFunction({
   },
 
   mathmlBuilder(group, options) {
-    // TODO(emily): Figure out if there's an actual way to draw black boxes
-    // in MathML.
-    const node = new mathMLTree.MathNode("mrow");
-    return node;
+    const width = calculateSize(group.width, options);
+    const height = calculateSize(group.height, options);
+    const shift = group.shift ? calculateSize(group.shift, options) : 0;
+    const color = options.color && options.getColor() || "black";
+    const rule = new mathMLTree.MathNode("mspace");
+    rule.setAttribute("mathbackground", color);
+    rule.setAttribute("width", width + "em");
+    rule.setAttribute("height", height + "em");
+    const wrapper = new mathMLTree.MathNode("mpadded", [rule]);
+
+    if (shift >= 0) {
+      wrapper.setAttribute("height", "+" + shift + "em");
+    } else {
+      wrapper.setAttribute("height", shift + "em");
+      wrapper.setAttribute("depth", "+" + -shift + "em");
+    }
+
+    wrapper.setAttribute("voffset", shift + "em");
+    return wrapper;
   }
 
 });
@@ -12399,6 +12507,10 @@ defineFunctionBuilders({
       }
     }
 
+    if (group.base && group.base.type === "op") {
+      group.base.parentIsSupSub = true;
+    }
+
     const children = [buildGroup$1(group.base, options)];
 
     if (group.sub) {
@@ -12416,7 +12528,7 @@ defineFunctionBuilders({
     } else if (!group.sub) {
       const base = group.base;
 
-      if (base && base.type === "op" && base.limits && options.style === Style$1.DISPLAY) {
+      if (base && base.type === "op" && base.limits && (options.style === Style$1.DISPLAY || base.alwaysHandleSupSub)) {
         nodeType = "mover";
       } else {
         nodeType = "msup";
@@ -12424,7 +12536,7 @@ defineFunctionBuilders({
     } else if (!group.sup) {
       const base = group.base;
 
-      if (base && base.type === "op" && base.limits && options.style === Style$1.DISPLAY) {
+      if (base && base.type === "op" && base.limits && (options.style === Style$1.DISPLAY || base.alwaysHandleSupSub)) {
         nodeType = "munder";
       } else {
         nodeType = "msub";
@@ -12463,6 +12575,10 @@ defineFunctionBuilders({
       }
     } else if (group.family === "punct") {
       node.setAttribute("separator", "true");
+    } else if (group.family === "open" || group.family === "close") {
+      // Delims built here should not stretch vertically.
+      // See delimsizing.js for stretchy delims.
+      node.setAttribute("stretchy", "false");
     }
 
     return node;
@@ -12591,13 +12707,25 @@ defineFunctionBuilders({
 
 });
 
+const pad = () => {
+  const padNode = new mathMLTree.MathNode("mtd", []);
+  padNode.setAttribute("width", "50%");
+  return padNode;
+};
+
 defineFunctionBuilders({
   type: "tag",
 
   mathmlBuilder(group, options) {
-    const table = new mathMLTree.MathNode("mtable", [new mathMLTree.MathNode("mlabeledtr", [new mathMLTree.MathNode("mtd", [buildExpressionRow(group.tag, options)]), new mathMLTree.MathNode("mtd", [buildExpressionRow(group.body, options)])])]);
-    table.setAttribute("side", "right");
-    return table;
+    const table = new mathMLTree.MathNode("mtable", [new mathMLTree.MathNode("mtr", [pad(), new mathMLTree.MathNode("mtd", [buildExpressionRow(group.body, options)]), pad(), new mathMLTree.MathNode("mtd", [buildExpressionRow(group.tag, options)])])]);
+    table.setAttribute("width", "100%");
+    return table; // TODO: Left-aligned tags.
+    // Currently, the group and options passed here do not contain
+    // enough info to set tag alignment. `leqno` is in Settings but it is
+    // not passed to Options. On the HTML side, leqno is
+    // set by a CSS class applied in buildTree.js. That would have worked
+    // in MathML if browsers supported <mlabeledtr>. Since they don't, we
+    // need to rewrite the way this function is called.
   }
 
 });
@@ -12610,10 +12738,12 @@ const textFontFamilies = {
   "\\textnormal": "textrm"
 };
 const textFontWeights = {
-  "\\textbf": "textbf"
+  "\\textbf": "textbf",
+  "\\textmd": "textmd"
 };
 const textFontShapes = {
-  "\\textit": "textit"
+  "\\textit": "textit",
+  "\\textup": "textup"
 };
 
 const optionsWithFont = (group, options) => {
@@ -12634,8 +12764,8 @@ defineFunction({
   type: "text",
   names: [// Font families
   "\\text", "\\textrm", "\\textsf", "\\texttt", "\\textnormal", // Font weights
-  "\\textbf", // Font Shapes
-  "\\textit"],
+  "\\textbf", "\\textmd", // Font Shapes
+  "\\textit", "\\textup"],
   props: {
     numArgs: 1,
     argTypes: ["text"],
@@ -13321,7 +13451,9 @@ defineMacro("\u211B", "\\mathscr{R}");
 defineMacro("\u212D", "\\mathfrak{C}"); // Fraktur
 
 defineMacro("\u210C", "\\mathfrak{H}");
-defineMacro("\u2128", "\\mathfrak{Z}"); // Unicode middle dot
+defineMacro("\u2128", "\\mathfrak{Z}"); // Define \Bbbk with a macro that works in both HTML and MathML.
+
+defineMacro("\\Bbbk", "\\Bbb{k}"); // Unicode middle dot
 // The KaTeX fonts do not contain U+00B7. Instead, \cdotp displays
 // the dot at U+22C5 and gives it punct spacing.
 
@@ -13333,8 +13465,9 @@ defineMacro("\\clap", "\\mathclap{\\textrm{#1}}"); // \not is defined by base/fo
 // \DeclareMathSymbol{\not}{\mathrel}{symbols}{"36}
 // It's thus treated like a \mathrel, but defined by a symbol that has zero
 // width but extends to the right.  We use \rlap to get that spacing.
+// For MathML we write U+0338 here. buildMathML.js will then do the overlay.
 
-defineMacro("\\not", '\\mathrel{\\mathrlap\\@not}'); // Negated symbols from base/fontmath.ltx:
+defineMacro("\\not", '\\html@mathml{\\mathrel{\\mathrlap\\@not}}{\\char"338}'); // Negated symbols from base/fontmath.ltx:
 // \def\neq{\not=} \let\ne=\neq
 // \DeclareRobustCommand
 //   \notin{\mathrel{\m@th\mathpalette\c@ncel\in}}
@@ -13650,31 +13783,37 @@ defineMacro("\\ordinarycolon", ":"); //\def\vcentcolon{\mathrel{\mathop\ordinary
 
 defineMacro("\\vcentcolon", "\\mathrel{\\mathop\\ordinarycolon}"); // \providecommand*\dblcolon{\vcentcolon\mathrel{\mkern-.9mu}\vcentcolon}
 
-defineMacro("\\dblcolon", "\\mathrel{\\vcentcolon\\mathrel{\\mkern-.9mu}\\vcentcolon}"); // \providecommand*\coloneqq{\vcentcolon\mathrel{\mkern-1.2mu}=}
+defineMacro("\\dblcolon", "\\html@mathml{" + "\\mathrel{\\vcentcolon\\mathrel{\\mkern-.9mu}\\vcentcolon}}" + "{\\mathop{\\char\"2237}}"); // \providecommand*\coloneqq{\vcentcolon\mathrel{\mkern-1.2mu}=}
 
-defineMacro("\\coloneqq", "\\mathrel{\\vcentcolon\\mathrel{\\mkern-1.2mu}=}"); // \providecommand*\Coloneqq{\dblcolon\mathrel{\mkern-1.2mu}=}
+defineMacro("\\coloneqq", "\\html@mathml{" + "\\mathrel{\\vcentcolon\\mathrel{\\mkern-1.2mu}=}}" + "{\\mathop{\\char\"2254}}"); // ≔
+// \providecommand*\Coloneqq{\dblcolon\mathrel{\mkern-1.2mu}=}
 
-defineMacro("\\Coloneqq", "\\mathrel{\\dblcolon\\mathrel{\\mkern-1.2mu}=}"); // \providecommand*\coloneq{\vcentcolon\mathrel{\mkern-1.2mu}\mathrel{-}}
+defineMacro("\\Coloneqq", "\\html@mathml{" + "\\mathrel{\\dblcolon\\mathrel{\\mkern-1.2mu}=}}" + "{\\mathop{\\char\"2237\\char\"3d}}"); // \providecommand*\coloneq{\vcentcolon\mathrel{\mkern-1.2mu}\mathrel{-}}
 
-defineMacro("\\coloneq", "\\mathrel{\\vcentcolon\\mathrel{\\mkern-1.2mu}\\mathrel{-}}"); // \providecommand*\Coloneq{\dblcolon\mathrel{\mkern-1.2mu}\mathrel{-}}
+defineMacro("\\coloneq", "\\html@mathml{" + "\\mathrel{\\vcentcolon\\mathrel{\\mkern-1.2mu}\\mathrel{-}}}" + "{\\mathop{\\char\"3a\\char\"2212}}"); // \providecommand*\Coloneq{\dblcolon\mathrel{\mkern-1.2mu}\mathrel{-}}
 
-defineMacro("\\Coloneq", "\\mathrel{\\dblcolon\\mathrel{\\mkern-1.2mu}\\mathrel{-}}"); // \providecommand*\eqqcolon{=\mathrel{\mkern-1.2mu}\vcentcolon}
+defineMacro("\\Coloneq", "\\html@mathml{" + "\\mathrel{\\dblcolon\\mathrel{\\mkern-1.2mu}\\mathrel{-}}}" + "{\\mathop{\\char\"2237\\char\"2212}}"); // \providecommand*\eqqcolon{=\mathrel{\mkern-1.2mu}\vcentcolon}
 
-defineMacro("\\eqqcolon", "\\mathrel{=\\mathrel{\\mkern-1.2mu}\\vcentcolon}"); // \providecommand*\Eqqcolon{=\mathrel{\mkern-1.2mu}\dblcolon}
+defineMacro("\\eqqcolon", "\\html@mathml{" + "\\mathrel{=\\mathrel{\\mkern-1.2mu}\\vcentcolon}}" + "{\\mathop{\\char\"2255}}"); // ≕
+// \providecommand*\Eqqcolon{=\mathrel{\mkern-1.2mu}\dblcolon}
 
-defineMacro("\\Eqqcolon", "\\mathrel{=\\mathrel{\\mkern-1.2mu}\\dblcolon}"); // \providecommand*\eqcolon{\mathrel{-}\mathrel{\mkern-1.2mu}\vcentcolon}
+defineMacro("\\Eqqcolon", "\\html@mathml{" + "\\mathrel{=\\mathrel{\\mkern-1.2mu}\\dblcolon}}" + "{\\mathop{\\char\"3d\\char\"2237}}"); // \providecommand*\eqcolon{\mathrel{-}\mathrel{\mkern-1.2mu}\vcentcolon}
 
-defineMacro("\\eqcolon", "\\mathrel{\\mathrel{-}\\mathrel{\\mkern-1.2mu}\\vcentcolon}"); // \providecommand*\Eqcolon{\mathrel{-}\mathrel{\mkern-1.2mu}\dblcolon}
+defineMacro("\\eqcolon", "\\html@mathml{" + "\\mathrel{\\mathrel{-}\\mathrel{\\mkern-1.2mu}\\vcentcolon}}" + "{\\mathop{\\char\"2239}}"); // \providecommand*\Eqcolon{\mathrel{-}\mathrel{\mkern-1.2mu}\dblcolon}
 
-defineMacro("\\Eqcolon", "\\mathrel{\\mathrel{-}\\mathrel{\\mkern-1.2mu}\\dblcolon}"); // \providecommand*\colonapprox{\vcentcolon\mathrel{\mkern-1.2mu}\approx}
+defineMacro("\\Eqcolon", "\\html@mathml{" + "\\mathrel{\\mathrel{-}\\mathrel{\\mkern-1.2mu}\\dblcolon}}" + "{\\mathop{\\char\"2212\\char\"2237}}"); // \providecommand*\colonapprox{\vcentcolon\mathrel{\mkern-1.2mu}\approx}
 
-defineMacro("\\colonapprox", "\\mathrel{\\vcentcolon\\mathrel{\\mkern-1.2mu}\\approx}"); // \providecommand*\Colonapprox{\dblcolon\mathrel{\mkern-1.2mu}\approx}
+defineMacro("\\colonapprox", "\\html@mathml{" + "\\mathrel{\\vcentcolon\\mathrel{\\mkern-1.2mu}\\approx}}" + "{\\mathop{\\char\"3a\\char\"2248}}"); // \providecommand*\Colonapprox{\dblcolon\mathrel{\mkern-1.2mu}\approx}
 
-defineMacro("\\Colonapprox", "\\mathrel{\\dblcolon\\mathrel{\\mkern-1.2mu}\\approx}"); // \providecommand*\colonsim{\vcentcolon\mathrel{\mkern-1.2mu}\sim}
+defineMacro("\\Colonapprox", "\\html@mathml{" + "\\mathrel{\\dblcolon\\mathrel{\\mkern-1.2mu}\\approx}}" + "{\\mathop{\\char\"2237\\char\"2248}}"); // \providecommand*\colonsim{\vcentcolon\mathrel{\mkern-1.2mu}\sim}
 
-defineMacro("\\colonsim", "\\mathrel{\\vcentcolon\\mathrel{\\mkern-1.2mu}\\sim}"); // \providecommand*\Colonsim{\dblcolon\mathrel{\mkern-1.2mu}\sim}
+defineMacro("\\colonsim", "\\html@mathml{" + "\\mathrel{\\vcentcolon\\mathrel{\\mkern-1.2mu}\\sim}}" + "{\\mathop{\\char\"3a\\char\"223c}}"); // \providecommand*\Colonsim{\dblcolon\mathrel{\mkern-1.2mu}\sim}
 
-defineMacro("\\Colonsim", "\\mathrel{\\dblcolon\\mathrel{\\mkern-1.2mu}\\sim}"); // Some Unicode characters are implemented with macros to mathtools functions.
+defineMacro("\\Colonsim", "\\html@mathml{" + "\\mathrel{\\dblcolon\\mathrel{\\mkern-1.2mu}\\sim}}" + "{\\mathop{\\char\"2237\\char\"223c}}"); // Some Unicode characters are implemented with macros to mathtools functions.
+
+defineMacro("\u2237", "\\dblcolon"); // ::
+
+defineMacro("\u2239", "\\eqcolon"); // -:
 
 defineMacro("\u2254", "\\coloneqq"); // :=
 
@@ -13708,13 +13847,37 @@ defineMacro("\\approxcoloncolon", "\\mathrel{\\approx\\mathrel{\\mkern-1.2mu}\\d
 defineMacro("\\notni", "\\html@mathml{\\not\\ni}{\\mathrel{\\char`\u220C}}");
 defineMacro("\\limsup", "\\DOTSB\\mathop{\\operatorname{lim\\,sup}}\\limits");
 defineMacro("\\liminf", "\\DOTSB\\mathop{\\operatorname{lim\\,inf}}\\limits"); //////////////////////////////////////////////////////////////////////
-// semantic
-// The semantic package renders the next two items by calling a glyph from the
-// bbold package. Those glyphs do not exist in the KaTeX fonts. Hence the macros.
+// MathML alternates for KaTeX glyphs in the Unicode private area
 
-defineMacro("\u27e6", "\\mathopen{[\\mkern-3.2mu[}"); // blackboard bold [
+defineMacro("\\gvertneqq", "\\html@mathml{\\@gvertneqq}{\u2269}");
+defineMacro("\\lvertneqq", "\\html@mathml{\\@lvertneqq}{\u2268}");
+defineMacro("\\ngeqq", "\\html@mathml{\\@ngeqq}{\u2271}");
+defineMacro("\\ngeqslant", "\\html@mathml{\\@ngeqslant}{\u2271}");
+defineMacro("\\nleqq", "\\html@mathml{\\@nleqq}{\u2270}");
+defineMacro("\\nleqslant", "\\html@mathml{\\@nleqslant}{\u2270}");
+defineMacro("\\nshortmid", "\\html@mathml{\\@nshortmid}{∤}");
+defineMacro("\\nshortparallel", "\\html@mathml{\\@nshortparallel}{∦}");
+defineMacro("\\nsubseteqq", "\\html@mathml{\\@nsubseteqq}{\u2288}");
+defineMacro("\\nsupseteqq", "\\html@mathml{\\@nsupseteqq}{\u2289}");
+defineMacro("\\varsubsetneq", "\\html@mathml{\\@varsubsetneq}{⊊}");
+defineMacro("\\varsubsetneqq", "\\html@mathml{\\@varsubsetneqq}{⫋}");
+defineMacro("\\varsupsetneq", "\\html@mathml{\\@varsupsetneq}{⊋}");
+defineMacro("\\varsupsetneqq", "\\html@mathml{\\@varsupsetneqq}{⫌}"); //////////////////////////////////////////////////////////////////////
+// stmaryrd and semantic
+// The stmaryrd and semantic packages render the next four items by calling a
+// glyph. Those glyphs do not exist in the KaTeX fonts. Hence the macros.
 
-defineMacro("\u27e7", "\\mathclose{]\\mkern-3.2mu]}"); // blackboard bold ]
+defineMacro("\\llbracket", "\\html@mathml{" + "\\mathopen{[\\mkern-3.2mu[}}" + "{\\mathopen{\\char`\u27e6}}");
+defineMacro("\\rrbracket", "\\html@mathml{" + "\\mathclose{]\\mkern-3.2mu]}}" + "{\\mathclose{\\char`\u27e7}}");
+defineMacro("\u27e6", "\\llbracket"); // blackboard bold [
+
+defineMacro("\u27e7", "\\rrbracket"); // blackboard bold ]
+
+defineMacro("\\lBrace", "\\html@mathml{" + "\\mathopen{\\{\\mkern-3.2mu[}}" + "{\\mathopen{\\char`\u2983}}");
+defineMacro("\\rBrace", "\\html@mathml{" + "\\mathclose{]\\mkern-3.2mu\\}}}" + "{\\mathclose{\\char`\u2984}}");
+defineMacro("\u2983", "\\lBrace"); // blackboard bold {
+
+defineMacro("\u2984", "\\rBrace"); // blackboard bold }
 // TODO: Create variable sized versions of the last two items. I believe that
 // will require new font glyphs.
 //////////////////////////////////////////////////////////////////////
@@ -13776,7 +13939,7 @@ defineMacro("\\Rarr", "\\Rightarrow");
 defineMacro("\\real", "\\Re");
 defineMacro("\\reals", "\\mathbb{R}");
 defineMacro("\\Reals", "\\mathbb{R}");
-defineMacro("\\Rho", "\\mathrm{R}");
+defineMacro("\\Rho", "\\mathrm{P}");
 defineMacro("\\sdot", "\\cdot");
 defineMacro("\\sect", "\\S");
 defineMacro("\\spades", "\\spadesuit");
@@ -13792,7 +13955,64 @@ defineMacro("\\Zeta", "\\mathrm{Z}"); //////////////////////////////////////////
 // https://ctan.math.illinois.edu/macros/latex/contrib/statmath/statmath.pdf
 
 defineMacro("\\argmin", "\\DOTSB\\mathop{\\operatorname{arg\\,min}}\\limits");
-defineMacro("\\argmax", "\\DOTSB\\mathop{\\operatorname{arg\\,max}}\\limits");
+defineMacro("\\argmax", "\\DOTSB\\mathop{\\operatorname{arg\\,max}}\\limits"); // Custom Khan Academy colors, should be moved to an optional package
+
+defineMacro("\\blue", "\\textcolor{##6495ed}{#1}");
+defineMacro("\\orange", "\\textcolor{##ffa500}{#1}");
+defineMacro("\\pink", "\\textcolor{##ff00af}{#1}");
+defineMacro("\\red", "\\textcolor{##df0030}{#1}");
+defineMacro("\\green", "\\textcolor{##28ae7b}{#1}");
+defineMacro("\\gray", "\\textcolor{gray}{##1}");
+defineMacro("\\purple", "\\textcolor{##9d38bd}{#1}");
+defineMacro("\\blueA", "\\textcolor{##ccfaff}{#1}");
+defineMacro("\\blueB", "\\textcolor{##80f6ff}{#1}");
+defineMacro("\\blueC", "\\textcolor{##63d9ea}{#1}");
+defineMacro("\\blueD", "\\textcolor{##11accd}{#1}");
+defineMacro("\\blueE", "\\textcolor{##0c7f99}{#1}");
+defineMacro("\\tealA", "\\textcolor{##94fff5}{#1}");
+defineMacro("\\tealB", "\\textcolor{##26edd5}{#1}");
+defineMacro("\\tealC", "\\textcolor{##01d1c1}{#1}");
+defineMacro("\\tealD", "\\textcolor{##01a995}{#1}");
+defineMacro("\\tealE", "\\textcolor{##208170}{#1}");
+defineMacro("\\greenA", "\\textcolor{##b6ffb0}{#1}");
+defineMacro("\\greenB", "\\textcolor{##8af281}{#1}");
+defineMacro("\\greenC", "\\textcolor{##74cf70}{#1}");
+defineMacro("\\greenD", "\\textcolor{##1fab54}{#1}");
+defineMacro("\\greenE", "\\textcolor{##0d923f}{#1}");
+defineMacro("\\goldA", "\\textcolor{##ffd0a9}{#1}");
+defineMacro("\\goldB", "\\textcolor{##ffbb71}{#1}");
+defineMacro("\\goldC", "\\textcolor{##ff9c39}{#1}");
+defineMacro("\\goldD", "\\textcolor{##e07d10}{#1}");
+defineMacro("\\goldE", "\\textcolor{##a75a05}{#1}");
+defineMacro("\\redA", "\\textcolor{##fca9a9}{#1}");
+defineMacro("\\redB", "\\textcolor{##ff8482}{#1}");
+defineMacro("\\redC", "\\textcolor{##f9685d}{#1}");
+defineMacro("\\redD", "\\textcolor{##e84d39}{#1}");
+defineMacro("\\redE", "\\textcolor{##bc2612}{#1}");
+defineMacro("\\maroonA", "\\textcolor{##ffbde0}{#1}");
+defineMacro("\\maroonB", "\\textcolor{##ff92c6}{#1}");
+defineMacro("\\maroonC", "\\textcolor{##ed5fa6}{#1}");
+defineMacro("\\maroonD", "\\textcolor{##ca337c}{#1}");
+defineMacro("\\maroonE", "\\textcolor{##9e034e}{#1}");
+defineMacro("\\purpleA", "\\textcolor{##ddd7ff}{#1}");
+defineMacro("\\purpleB", "\\textcolor{##c6b9fc}{#1}");
+defineMacro("\\purpleC", "\\textcolor{##aa87ff}{#1}");
+defineMacro("\\purpleD", "\\textcolor{##7854ab}{#1}");
+defineMacro("\\purpleE", "\\textcolor{##543b78}{#1}");
+defineMacro("\\mintA", "\\textcolor{##f5f9e8}{#1}");
+defineMacro("\\mintB", "\\textcolor{##edf2df}{#1}");
+defineMacro("\\mintC", "\\textcolor{##e0e5cc}{#1}");
+defineMacro("\\grayA", "\\textcolor{##f6f7f7}{#1}");
+defineMacro("\\grayB", "\\textcolor{##f0f1f2}{#1}");
+defineMacro("\\grayC", "\\textcolor{##e3e5e6}{#1}");
+defineMacro("\\grayD", "\\textcolor{##d6d8da}{#1}");
+defineMacro("\\grayE", "\\textcolor{##babec2}{#1}");
+defineMacro("\\grayF", "\\textcolor{##888d93}{#1}");
+defineMacro("\\grayG", "\\textcolor{##626569}{#1}");
+defineMacro("\\grayH", "\\textcolor{##3b3e40}{#1}");
+defineMacro("\\grayI", "\\textcolor{##21242c}{#1}");
+defineMacro("\\kaBlue", "\\textcolor{##314453}{#1}");
+defineMacro("\\kaGreen", "\\textcolor{##71B307}{#1}");
 
 /**
  * This file contains the “gullet” where macros are expanded
@@ -16037,7 +16257,7 @@ var katex = {
   /**
    * Current KaTeX version
    */
-  version: "0.10.1",
+  version: "0.10.2",
 
   /**
    * Renders the given LaTeX into an HTML+MathML combination, and adds

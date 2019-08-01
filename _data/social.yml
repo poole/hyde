@@ -199,6 +199,10 @@ paypal:
   name: PayPal
   icon: icon-paypal
   prepend: "https://www.paypal.me/"
+keybase:
+  name: Keybase
+  icon: icon-key
+  prepend: "https://keybase.io/"
 download:
   name: Download
   icon: icon-box-add

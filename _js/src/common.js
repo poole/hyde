@@ -14,9 +14,6 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// Import what we need.
-import "core-js/fn/function/bind";
-
 import { Observable } from "rxjs";
 
 // Check the user agent for Safari and iOS Safari, to give them some special treatment...
@@ -28,19 +25,23 @@ export const isUCBrowser = ua.indexOf("ucbrowser") > 0;
 export const isFirefox = ua.indexOf("firefox") > 0;
 export const isFirefoxIOS = ua.indexOf("fxios") > 0 && ua.indexOf("safari") > 0;
 
-export const hasCSSOM = "attributeStyleMap" in Element.prototype && "CSS" in window && CSS.number;
+export const hasCSSOM =
+  "attributeStyleMap" in Element.prototype && "CSS" in window && CSS.number;
+
+export const webComponentsReady = new Promise(res => {
+  if (window.webComponentsReady) res(true);
+  else document.addEventListener("WebComponentsReady", res);
+});
 
 // Takes an array of Modernizr feature tests and makes sure they all pass.
 export function hasFeatures(features) {
-  let acc = true;
-
-  features.forEach(feature => {
+  if (!window.Modernizr) return true;
+  return [...features].every(feature => {
     const hasFeature = window.Modernizr[feature];
-    if (!hasFeature && process.env.DEBUG) console.warn(`Feature '${feature}' missing!`);
-    acc = acc && hasFeature;
+    if (!hasFeature && process.env.DEBUG)
+      console.warn(`Feature '${feature}' missing!`);
+    return hasFeature;
   });
-
-  return acc;
 }
 
 // Some functions to hide and show content.
@@ -76,7 +77,9 @@ export function animate(el, keyframes, options) {
       "finish",
       e => (
         observer.next(e),
-        requestAnimationFrame(() => requestAnimationFrame(observer.complete.bind(observer)))
+        requestAnimationFrame(() =>
+          requestAnimationFrame(observer.complete.bind(observer))
+        )
       )
     );
 

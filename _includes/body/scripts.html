@@ -1,22 +1,9 @@
+<!--[if gt IE 10]><!---->
 {% unless page.redirect %}
-  <!--[if !IE]><!---->
-  <script>loadJSDeferred(document.getElementById('_hrefJS').href);</script>
+  <script type="module">window.__ESM__=!0; import '{{ "/assets/js/hydejack-8.5.0.js" | relative_url }}';</script>
+  <script nomodule>if (!window.__ESM__) loadJSDeferred(document.getElementById('_hrefJS').href);</script>
   {% include my-scripts.html %}
-  <!--<![endif]-->
 
   {% include body/analytics.html %}
-
-  <script>
-    if ('serviceWorker' in navigator) {
-      {% if site.hydejack.offline.enabled %}
-        navigator.serviceWorker.register(document.getElementById('_hrefSW').href)
-          .then(r => r.update())
-          .catch(() => {});
-      {% else %}
-        navigator.serviceWorker.getRegistration()
-          .then(r => r.unregister())
-          .catch(() => {});
-      {% endif %}
-    }
-  </script>
 {% endunless %}
+<!--<![endif]-->

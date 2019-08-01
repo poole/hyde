@@ -20,6 +20,7 @@
 
 $font-family-heading: {{ site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" }};
 $font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif"   }};
+$theme-color:         {{ site.theme_color  | default:'#193747' }};
 
 @import "variables";
 @import "my-variables";
@@ -53,16 +54,15 @@ $font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Aria
   @import "hydejack/__link__/footer";
 
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
-    @import "hydejack/__link__/mark-external";
+  @import "hydejack/__link__/mark-external";
   {% endunless %}
   {% unless site.hydejack.no_break_layout %}
-    @import "hydejack/__link__/break-layout";
+  @import "hydejack/__link__/break-layout";
   {% endunless %}
 
   @import "syntax";
   @import "spinner";
 
-  // @import "my-inline";
   @import "my-style";
 {% else %}
   @import "pooleparty/_base.pre.scss";
@@ -102,18 +102,8 @@ $font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Aria
   @import "my-inline";
   @import "my-style";
 
-  {% unless site.hydejack.no_google_fonts or site.no_google_fonts %}
-    {% assign font = font | split:',' | shift | join:',' %}
-    {% assign font_heading = font_heading | split:',' | shift | join:',' %}
-  {% endunless %}
-
-  html { font-family: {{ font | default:"serif" }}; }
-  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: {{ font_heading | default:"serif" }}; }
-
-  .font-active {
-    font-family: $font-family;
-    h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: $font-family-heading; }
-  }
+  html { font-family: $font-family; }
+  h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, .heading { font-family: $font-family-heading; }
 
   {% if site.hydejack.no_page_style %}
     {% assign color       = site.accent_color | default:'#4fb1ba' %}
