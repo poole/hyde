@@ -13,22 +13,19 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import '@babel/polyfill';
-import 'intersection-observer';
-import { default as ResizeObserver } from 'resize-observer-polyfill';
-import 'web-animations-js';
-import { default as smoothscroll } from 'smoothscroll-polyfill';
-import '../lib/webcomponents';
-import '../lib/modernizr-custom';
-import '../lib/request-idle-callback';
-import '../lib/version';
+import "@babel/polyfill";
+import "intersection-observer";
+import "web-animations-js";
+import "../lib/webcomponents";
+import '../lib/resize-observer';
+import '../lib/smoothscroll';
+import "../lib/modernizr-custom";
 
-import './images';
-import './drawer';
-import './push-state';
-import './katex';
-// import './pro/dark-mode';
-// import './pro/cookies-banner';
+import "../lib/version";
 
-window.ResizeObserver = window.ResizeObserver || ResizeObserver;
-smoothscroll.polyfill();
+import "./images";
+import "./drawer";
+import "./push-state";
+import "./katex";
+// import "./pro/dark-mode";
+// import "./pro/cookies-banner";
