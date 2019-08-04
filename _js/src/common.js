@@ -27,8 +27,8 @@ export const isFirefoxIOS = ua.indexOf('fxios') > 0 && ua.indexOf('safari') > 0;
 export const hasCSSOM = 'attributeStyleMap' in Element.prototype && 'CSS' in window && CSS.number;
 
 export const webComponentsReady = new Promise(res => {
-  if (window.webComponentsReady) res(true);
-  else document.addEventListener('WebComponentsReady', res);
+  if ('customElements' in window) res(true);
+  else document.addEventListener("WebComponentsReady", res);
 });
 
 // Takes an array of Modernizr feature tests and makes sure they all pass.

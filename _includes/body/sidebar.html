@@ -1,10 +1,10 @@
 <hy-drawer
   id="_drawer"
   class="{% if page.cover %}cover{% endif %}"
-  align="left"
+  side="left"
   threshold="10"
-  touch-events
-  prevent-default
+  noscroll
+  {% if page.cover %}opened{% endif %}
 >
   <header id="_sidebar" class="sidebar" role="banner">
     {% if image.background %}

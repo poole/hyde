@@ -18,7 +18,9 @@
     "dev": "npm run watch & npm run serve",
     "prepare": "npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml",
-    "version": "npm run format && npm run build && git add ."
+    "preversion": "sed -i '' 's:/assets/js/\\*hydejack-\\*:#<removed>:' .gitignore",
+    "version": ".scripts/version.js && .scripts/gen-print-doc.js && npm run format && npm run build && git add .",
+    "postversion": "sed -i '' 's:#<removed>:/assets/js/*hydejack-*:' .gitignore && git rm --cached assets/js/*hydejack-* && git add . && git ci -m 'Restore pre-version .gitignore'"
   },
   "config": {
     "port": 4000

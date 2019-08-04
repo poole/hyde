@@ -14,18 +14,47 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import "@babel/polyfill";
-import "intersection-observer";
-import "web-animations-js";
-import "../lib/webcomponents";
-import '../lib/resize-observer';
-import '../lib/smoothscroll';
-import "../lib/modernizr-custom";
 
 import "../lib/version";
+import "../lib/modernizr-custom";
+import { hasFeatures } from "./common";
 
-import "./images";
-import "./drawer";
-import "./push-state";
-import "./katex";
-// import "./pro/dark-mode";
-// import "./pro/cookies-banner";
+const BASELINE =  [
+  "classlist",
+  "eventlistener",
+  "queryselector",
+]
+ 
+const DRAWER_FEATURES = [
+  ...BASELINE,
+  "cssremunit",
+  "customproperties",
+  "history",
+  "matchmedia",
+  "opacity",
+];
+
+const PUSH_STATE_FEATURES = [
+  ...BASELINE,
+  "cssanimations",
+  "cssremunit",
+  "documentfragment",
+  "history",
+  "matchmedia",
+  "opacity",
+];
+
+if (hasFeatures(BASELINE)) {
+  import(/* webpackMode: "eager" */ './katex');
+  // import(/* webpackMode: "eager" */ './pro/dark-mode');
+  // import(/* webpackMode: "eager" */ './pro/cookies-banner');
+}
+
+// A list of Modernizr tests that are required for the drawer to work.
+if (!window._noDrawer && hasFeatures(DRAWER_FEATURES)) {
+  import(/* webpackChunkName: "drawer" */ './drawer');
+}
+
+if (!window._noPushState && hasFeatures(PUSH_STATE_FEATURES)) {
+  import(/* webpackChunkName: "push-state" */ './push-state');
+}
