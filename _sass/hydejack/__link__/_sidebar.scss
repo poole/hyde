@@ -30,7 +30,7 @@ hy-drawer {
   @media screen {
     
     --hy-drawer-width: 100%;
-    --hy-drawer-slide-width: calc(100% - .5rem);
+    --hy-drawer-peek-width: .5rem;
     --hy-drawer-box-shadow: 0 0 1rem rgba(0, 0, 0, 0.25);
     
   }
@@ -39,7 +39,7 @@ hy-drawer {
     
 
     
-    --hy-drawer-slide-width: calc(100% - #{$sidebar-width});
+    --hy-drawer-peek-width: #{$sidebar-width};
     
   }
 
@@ -49,7 +49,7 @@ hy-drawer {
     width: calc(50% - #{$r28});
 
     
-    --hy-drawer-slide-width: calc(50% + #{$r28});
+    --hy-drawer-peek-width: calc(50% - #{$r28});
     
   }
 

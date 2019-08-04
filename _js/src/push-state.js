@@ -104,12 +104,6 @@ function getFlipType(el) {
 
 function animateFadeOut({ main }, drawerEl) {
   const anim$ = animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }));
-
-  if (drawerEl && drawerEl.opened && drawerEl.close) {
-    drawerEl.close();
-    return zip(anim$, fromEvent(drawerEl, "transitioned").pipe(take(1)), x => x);
-  }
-
   return anim$;
 }
 

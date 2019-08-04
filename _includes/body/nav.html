@@ -5,7 +5,7 @@
       {% assign url = node.url | default: node.href %}
       <li>
         <a
-          {% if forloop.first %}id="_navigation"{% endif %}
+          {% if forloop.first %}id="_drawer--opened"{% endif %}
           href="{% include smart-url.txt url=url %}"
           class="sidebar-nav-item{% if page.url contains url %} active{% endif %}"
           {% if node.rel %}rel="{{ node.rel }}"{% endif %}

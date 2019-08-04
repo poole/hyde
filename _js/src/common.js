@@ -87,7 +87,7 @@ export function importTemplate(templateId) {
 }
 
 export function getScrollTop() {
-  return window.pageYOffset || document.body.scrollTop;
+  return window.pageYOffset || (document.body || document.documentElement).scrollTop;
 }
 
 export function createResizeObservable(el) {
