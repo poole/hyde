@@ -21,9 +21,15 @@ import { CrossFader } from "./cross-fader";
 import { setupFLIP } from "./flip";
 
 (async () => {
+  if ('prepend' in Element.prototype) {} else {
+    await import(/* webpackChunkName: "dom4" */ "./polyfills/dom4");
+  }
   await Promise.all([
     ...'customElements' in window ? [] : [
       import(/* webpackChunkName: "webcomponents" */ "./polyfills/webcomponents"),
+    ],
+    ...'fetch' in window ? [] : [
+      import(/* webpackChunkName: "fetch" */ "./polyfills/fetch"),
     ],
     ...'animate' in Element.prototype ? [] : [
       import(/* webpackChunkName: "webanimations" */ "./polyfills/webanimations"),

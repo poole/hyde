@@ -23,7 +23,12 @@ const BASELINE =  [
   "classlist",
   "eventlistener",
   "queryselector",
-]
+];
+
+const DARK_MODE_FEATURES = [
+  ...BASELINE,
+  "customproperties",
+];
  
 const DRAWER_FEATURES = [
   ...BASELINE,
@@ -46,9 +51,12 @@ const PUSH_STATE_FEATURES = [
 
 if (hasFeatures(BASELINE)) {
   import(/* webpackMode: "eager" */ './katex');
-  // import(/* webpackMode: "eager" */ './pro/dark-mode');
   // import(/* webpackMode: "eager" */ './pro/cookies-banner');
 }
+
+// if (hasFeatures(DARK_MODE_FEATURES)) {
+//   import(/* webpackMode: "eager" */ './pro/dark-mode');
+// }
 
 // A list of Modernizr tests that are required for the drawer to work.
 if (!window._noDrawer && hasFeatures(DRAWER_FEATURES)) {

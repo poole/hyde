@@ -21,10 +21,9 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
 (async () => {
   await Promise.all([
     ...'customElements' in window ? [] : [
-      import(/* webpackChunkName: "webcomponents" */ "./polyfills/webcomponents"),
-    ],
-    ...'attachShadow' in Element.prototype ? [] : [
-      import(/* webpackChunkName: "shady" */ './polyfills/shady'),
+      import(/* webpackChunkName: "webcomponents" */ "./polyfills/webcomponents").then(() => 
+        import(/* webpackChunkName: "shady" */ "./polyfills/shady")
+      ),
     ],
     ...'ResizeObserver' in window ? [] : [
       import(/* webpackChunkName: "resize-observer" */ './polyfills/resize-observer'),
