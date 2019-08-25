@@ -1,11 +1,12 @@
 ---
+layout: page
+title: Config
 description: >
   This chapter covers the many configuration options of Hydejack, allowing you to tailor it to your needs.
 hide_description: true
 ---
 
-# Config
-Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`. Besides these descriptions, you can also read the [annotated config file](https://github.com/qwtel/hydejack/blob/v8/_config.yml).
+Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`. Besides these descriptions, you can also read the [annotated config file](https://github.com/hydecorp/hydejack/blob/v8/_config.yml).
 
 **NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
 {:.message}
@@ -276,10 +277,7 @@ The keys of the `srcset` hash will be used as image descriptors. For more inform
 ### Adding social media icons
 Hydejack supports a variety of social media icons out of the box. These are defined on a per-author basis, so make sure you've followed the steps in [Adding an author](#adding-an-author).
 
-**NOTE**: If you are using the gem-based version of Hydejack,
-download [`social.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/social.yml)
-and put it into `_data` in the root directory.
-This is necessary because gem-based themes do not support including `_data`.
+**NOTE**: If you are using the gem-based version of Hydejack, download [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml) and put it into `_data` in the root directory. This is necessary because gem-based themes do not support including `_data`.
 {:.message}
 
 You can add a link to a social network by adding an entry to the `social` key in to an author.
@@ -293,7 +291,7 @@ author:
     github:  qwtel
 ~~~
 
-Check out [`authors.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/authors.yml) to see which networks are available.
+Check out [`authors.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/authors.yml) to see which networks are available.
 You can also follow the steps [here](advanced.md) to add your own social media icons.
 
 You can change the order in which the icons appear by moving lines up or down, e.g.
@@ -307,7 +305,7 @@ author:
 ~~~
 
 To get an overview of which networks are available and how a typical username in that network looks like,
-see the included [`authors.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/authors.yml).
+see the included [`authors.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/authors.yml).
 
 Should providing a username not produce a correct link for some reason, you can provide a complete URL instead, e.g.
 
@@ -318,15 +316,12 @@ author:
     youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
 ~~~
 
-**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/social.yml),
-by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available.
-Supplying your own icons is an [advanced topic](advanced.md).
+**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic](advanced.md).
 {:.message}
 
 
 ### Adding an email, RSS icon or download icon
-If you'd like to add an email <span class="icon-mail"></span>, RSS <span class="icon-rss2"></span>, or download <span class="icon-box-add"></span> icon to the list,
-add the `email`, `rss`, or `download` key, e.g.:
+If you'd like to add an email <span class="icon-mail"></span>, RSS <span class="icon-rss2"></span>, or download <span class="icon-box-add"></span> icon to the list, add the `email`, `rss`, or `download` key, e.g.:
 
 ~~~yml
 # file: _config.yml
@@ -334,7 +329,7 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/qwtel/hydejack/archive/v8.5.1.zip
+    download: https://github.com/hydecorp/hydejack/archive/v8.5.2.zip
 ~~~
 
 
@@ -384,13 +379,13 @@ Conversely, if you want to disable it, you only have to remove the `google_analy
 
 ### Using a custom analytics provider
 If you want to use a different analytics provider, e.g. [Matomo](https://matomo.org/), you can add its code snippet to `_includes/my-body.html` (create if it doesn't exist).
-The [default file](https://github.com/qwtel/hydejack/blob/v8/_includes/my-body.html) contains example code for using Matomo.
+The [default file](https://github.com/hydecorp/hydejack/blob/v8/_includes/my-body.html) contains example code for using Matomo.
 
 
 ## Changing built-in strings
 You can change the wording of built-in strings like "Related Posts" or "Read more" in `_data/strings.yml`.
 
-If you are using the gem-based version the file doesn't exist, but you can get the default file [here](https://github.com/qwtel/hydejack/blob/v8/_data/strings.yml).
+If you are using the gem-based version the file doesn't exist, but you can get the default file [here](https://github.com/hydecorp/hydejack/blob/v8/_data/strings.yml).
 
 You will frequently find markers like `<!--post_title-->`.
 You can place them freely within your string and they will be replaced with the content they refer to.

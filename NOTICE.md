@@ -38,7 +38,7 @@ A copy of the [MIT] license is provided as part of this distribution.
 
 ### hy-drawer
 This software also uses portions of the
-`qwtel/hy-drawer`
+`hydecorp/hy-drawer`
 project, which is GPL-3.0 licensed with the following copyright:
 
 > Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
@@ -47,7 +47,7 @@ A copy of the [GPL-3.0] license is provided as part of this distribution.
 
 ### hy-push-state
 This software also uses portions of the
-`qwtel/hy-push-state`
+`hydecorp/hy-push-state`
 project, which is GPL-3.0 licensed with the following copyright:
 
 > Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
@@ -56,7 +56,7 @@ A copy of the [GPL-3.0] license is provided as part of this distribution.
 
 ### hy-img
 This software also uses portions of the
-`qwtel/hy-img`
+`hydecorp/hy-img`
 project, which is GPL-3.0 licensed with the following copyright:
 
 > Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
@@ -65,7 +65,7 @@ A copy of the [GPL-3.0] license is provided as part of this distribution.
 
 ### hy-component
 This software also uses portions of the
-`qwtel/hy-component`
+`hydecorp/hy-component`
 project, which is MIT licensed with the following copyright:
 
 > Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>

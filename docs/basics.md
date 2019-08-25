@@ -1,10 +1,11 @@
 ---
+layout: page
+title: Basics
 description: >
   This chapter covers the basics of content creation with Hydejack.
 hide_description: true
 ---
 
-# Basics
 This chapter covers the basics of content creation with Hydejack.
 
 ## Table of Contents
@@ -53,7 +54,7 @@ To add links to external sites, simply provide a fully qualified URL, e.g.
 menu:
   - title: "@qwtel"
     url:   https://qwtel.com/
-```
+``` 
 
 ## Adding a category or tag
 Hydejack allows you to use the `list` layout to show all posts of a particular category or tag.
@@ -117,7 +118,7 @@ Tags       | Welcome to Jekyll¬ 07 Apr 2017 **on** Jekyll, Update
 Both       | Welcome to Jekyll¬ 07 Apr 2017 **in** Jekyll / Update **on** Jekyll, Update
 {:.scroll-table-small}
 
-You can adjust these in [`_data/string.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/strings.yml).
+You can adjust these in [`_data/string.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/strings.yml).
 
 ### Creating a new category or tag
 By default, categories and tags are rendered as plain text. Further steps are necessary if you want them to link to a page that contains a list of all posts that belong to that category or tag.
@@ -371,7 +372,7 @@ Hydejack's PRO version features a generalized resume layout.
 
 It generates the resume page from a valid [JSON Resume](https://jsonresume.org/), which is good news if you already have a JSON resume. Otherwise, there are various ways of obtaining one:
 
-* You can edit the [example `resume.yml`](https://github.com/qwtel/hydejack/blob/v8/_data/resume.yml) in `_data` directly. It contains example entries for each type of entry.
+* You can edit the [example `resume.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/resume.yml) in `_data` directly. It contains example entries for each type of entry.
 * You can use the visual [JSON Resume Editor](http://registry.jsonresume.org/).
 * If you have a LinkedIn profile, you can try [LinkedIn to Json Résumé](https://jmperezperez.com/linkedin-to-json-resume/).
 
