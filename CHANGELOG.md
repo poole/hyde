@@ -1,24 +1,24 @@
 # CHANGELOG
 
 ## v8.5.2
-July 31 2019
+August 31 2019
 {:.heading.post-date}
 
 * Fixed breaking builds due to name collision when upgrading to 8.5
   This is caused when using both `_plugins/jekyll-replace-imgs` and the new `jekyll-replace-img` ruby gem.
   I recommend deleting `_plugins/jekyll-replace-imgs` when using the `jekyll-replace-img` gem.
   Note that this is an optional plugin.
-
 * Fixed `nomodule` script loading for Safari 10.1
+* Fixed [#176](https://github.com/hydecorp/hydejack/issues/176)
 
 ## v8.5.1
-July 31 2019
+Aug 1 2019
 {:.heading.post-date}
 
 * Fixed minification bug
 
 ## v8.5.0
-July 31 2019
+Aug 1 2019
 {:.heading.post-date}
 
 ### Changed
