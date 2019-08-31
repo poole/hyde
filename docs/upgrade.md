@@ -1,10 +1,11 @@
 ---
+layout: page
+title: Upgrade
 description: >
   This chapter shows how to upgrade Hydejack to a newer version. The method depends on how you've installed Hydejack.
 hide_description: true
 ---
 
-# Upgrade
 This chapter shows how to upgrade Hydejack to a newer version. The method depends on how you've installed Hydejack.
 
 ## Table of Contents
@@ -20,10 +21,10 @@ especially the part about the [license change](../CHANGELOG.md#license-change)!
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: qwtel/hydejack@v8.5.1
+remote_theme: hydecorp/hydejack@v8.5.2
 ```
 
-To use the latest version on the `v8` branch on each build, you can use  `qwtel/hydejack@v8`.
+To use the latest version on the `v8` branch on each build, you can use  `hydecorp/hydejack@v8`.
 
 
 ## Via gem
@@ -56,11 +57,11 @@ Make sure you've made a backup before overwriting any files.
 
 
 ## Via git
-The latest version sits on the `master` branch of [qwtel/hydejack](https://github.com/qwtel/hydejack).
+The latest version sits on the `master` branch of [hydecorp/hydejack](https://github.com/hydecorp/hydejack).
 To apply them to your repository run
 
 ~~~bash
-$ git remote add hydejack git@github.com:qwtel/hydejack.git
+$ git remote add hydejack git@github.com:hydecorp/hydejack.git
 $ git pull hydejack master
 ~~~
 

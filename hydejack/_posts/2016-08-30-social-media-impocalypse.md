@@ -41,7 +41,7 @@ See the [Documentation][docs]{:.heading.flip-title} for up-to-date instructions.
 
 ***
 
-[Get *Social Media Impocalypse* on GitHub](https://github.com/qwtel/hydejack/releases)
+[Get *Social Media Impocalypse* on GitHub](https://github.com/hydecorp/hydejack/releases/tag/v4.0.0)
 
 
 [docs]: ../../docs/README.md

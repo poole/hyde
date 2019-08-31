@@ -29,7 +29,7 @@ See the [Documentation][docs]{:.heading.flip-title} for up-to-date instructions.
 {:.message}
 
 ## Download
-Hydejack is developed on and hosted with GitHub. Head to the [GitHub repository](https://github.com/qwtel/hydejack)
+Hydejack is developed on and hosted with GitHub. Head to the [GitHub repository](https://github.com/hydecorp/hydejack)
 for downloads, bug reports, and feature requests.
 
 ## Sidebar
@@ -46,7 +46,7 @@ This also provides a hint to the user that an interaction is possible.
 
 ### Configuration
 You can configure important aspects of the theme via
-[`_config.yml`](https://github.com/qwtel/hydejack/blob/v3/_config.yml).
+[`_config.yml`](https://github.com/hydecorp/hydejack/blob/v3/_config.yml).
 This includes:
 
 * the blog description in the sidebar

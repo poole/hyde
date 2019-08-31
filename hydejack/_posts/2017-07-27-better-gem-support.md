@@ -48,9 +48,9 @@ For the full patch notes, read on.
   ~~~yml
   author:
     social:
-      github: https://github.com/qwtel/hydejack
+      github: https://github.com/hydecorp/hydejack
       npm: https://www.npmjs.com/package/hydejack
-      download: https://github.com/qwtel/hydejack/archive/v8.5.1.zip
+      download: https://github.com/hydecorp/hydejack/archive/v8.5.2.zip
 
   data_social:
     github:
