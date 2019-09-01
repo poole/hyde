@@ -142,30 +142,19 @@ import { setupFLIP } from "./flip";
     );
   }
 
-  const start$ = fromEvent(pushStateEl, "start").pipe(
-    map(({ detail }) => Object.assign(detail, { flipType: getFlipType(detail.anchor) })),
-    share()
+  const fromEventX = (eventName, mapFn) => fromEvent(pushStateEl, eventName).pipe(
+    map(({ detail }) => detail),
+    mapFn ? map(mapFn) : _ => _,
+    share(),
   );
 
-  const ready$ = fromEvent(pushStateEl, "ready").pipe(
-    map(({ detail }) => detail),
-    share()
+  const start$ = fromEventX("hy-push-state-start", (detail) => 
+    Object.assign(detail, { flipType: getFlipType(detail.anchor) })
   );
-
-  const after$ = fromEvent(pushStateEl, "after").pipe(
-    map(({ detail }) => detail),
-    share()
-  );
-
-  const progress$ = fromEvent(pushStateEl, "progress").pipe(
-    map(({ detail }) => detail),
-    share()
-  );
-
-  const error$ = fromEvent(pushStateEl, "networkerror").pipe(
-    map(({ detail }) => detail),
-    share()
-  );
+  const ready$ = fromEventX("hy-push-state-ready");
+  const after$ = fromEventX("hy-push-state-after");
+  const progress$ = fromEventX("hy-push-state-progress");
+  const error$ = fromEventX("hy-push-state-networkerror");
 
   const fadeOut$ = start$.pipe(
     map(context => Object.assign(context, { main: document.getElementById("_main") })),

@@ -158,17 +158,17 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
         : opened ? 0 : 1;
       return t;
     })),
-    fromEvent(drawerEl, 'move').pipe(map(({ detail: { opacity } }) => {
+    fromEvent(drawerEl, 'hy-drawer-move').pipe(map(({ detail: { opacity } }) => {
       return 1 - opacity;
     })),
   );
 
-  drawerEl.addEventListener("prepare", () => {
+  drawerEl.addEventListener("hy-drawer-prepare", () => {
     sidebarEl.style.willChange = "transform";
     contentEl.style.willChange = "opacity";
   });
 
-  drawerEl.addEventListener("transitioned", () => {
+  drawerEl.addEventListener("hy-drawer-transitioned", () => {
     sidebarEl.style.willChange = "";
     contentEl.style.willChange = "";
   });
@@ -188,7 +188,7 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
   //   history.state.closedOnce = true;
   // }
 
-  const opened$ = fromEvent(drawerEl, "transitioned").pipe(
+  const opened$ = fromEvent(drawerEl, "hy-drawer-transitioned").pipe(
     map(e => e.detail),
     distinctUntilChanged(),
     tap(opened => {
@@ -206,7 +206,7 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
     ? null
     : drawerEl.getBoundingClientRect().height;
 
-  drawerEl.addEventListener("init", () => {
+  drawerEl.addEventListener("hy-drawer-init", () => {
     drawerEl.classList.add("loaded");
 
     setupIcon();
