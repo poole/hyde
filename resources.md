@@ -10,6 +10,7 @@ If you're interested in documentation about computing at Fred Hutch, or looking 
 - [Introduction to Python](#introduction-to-python)
 - [Intermediate Python: Programming](#intermediate-python-programming)
 - [Introduction to Git and GitHub](#introduction-to-git-and-github)
+- [Concepts in Machine Learning](#concepts-in-machine-learning)
 - [Software Carpentry Bootcamp: Unix, Git, and Python](#software-carpentry-bootcamp-unix-git-and-python)
 - [Retired and archived training materials](#retired-and-archived-training-materials)
 
@@ -47,6 +48,14 @@ This two-week course (with optional third week session) is designed to introduce
 * Week 1: introduction to version control, git workflow with desktop clients (tracking changes, branching, merging, ignoring things)
 * Week 2: Collaboration and code sharing with GitHub, resolving conflicts
 * Week 3 (optional): git workflow on the command line
+
+#### Concepts in Machine Learning
+
+This four week course is designed to introduce attendees to central concepts in machine learning as well as examples of applications in biomedical research. Each one hour lecture will include a conceptual overview of a machine learning paradigm, a quick foundation on the underlying mechanisms, and some examples of current or potential applications. The course assumes a strong foundation in basic statistics, but does not assume any prior experience coding. At the end of this course, you will be able to understand the core differences between different forms of machine learning and consider their application with respect to a variety of problem spaces. This course (or equivalent knowledge/preparation) is intended as a prerequisite for future courses covering machine learning skills in both R and Python.
+* Week 1: Introduction and overview; supervised learning
+* Week 2: Supervised Learning
+* Week 3: Unsupervised Learning
+* Week 4: Reinforcement Learning
 
 #### Software Carpentry Bootcamp: Unix, Git, and Python
 
