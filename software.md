@@ -57,13 +57,14 @@ We will be using Python version 3 (and above) for our courses.
 
 We will use [Jupyter notebooks](http://jupyter.org) to record code, output, and text throughout the course, as well as the following packages (note: plotnine is the only package not installed with Anaconda: [pandas](http://pandas.pydata.org), [numpy](http://www.numpy.org), [matplotlib](https://matplotlib.org), [plotnine](https://plotnine.readthedocs.io/en/stable/) 
 
-We recommend installing Python using Anaconda,
+1. We recommend installing Python using Anaconda,
 which includes most of the packages listed above, according to the following instructions:
 * Download the [Anaconda](https://www.anaconda.com/download/) installer for
-Python 3.x for your particular operating system
-* Double-click the downloaded file and follow the prompts to install Anaconda
+Python 3.x for your particular operating system.
+* Double-click the downloaded file and follow the prompts to install Anaconda (default options are acceptable).
+* For assistance troubleshooting installation, please go [here](https://jupyter.readthedocs.io/en/latest/install.html).
 
-Following installation, open the following command line software based
+2. Following installation, open the following command line software based
 on your operating system to install the final package:
 * MacOSX: Terminal, locate by clicking on your Desktop, selecting "Go" in the menu at the top,
 and clicking on "Utilities"
@@ -71,6 +72,7 @@ and clicking on "Utilities"
 * Both MacOSX and Windows: copy and paste the following code onto the
 command line and execute by hitting "Enter":
 `conda install -c conda-forge plotnine`
+
 
 #### Intermediate Python
 
@@ -87,7 +89,7 @@ R is the "engine", while RStudio is an integrated desktop environment (IDE) that
 R must be installed before RStudio.
 Follow the instructions below for your operating system to install them.
 If you are working on a computer owned by Fred Hutch,
-it may also be possible to install these programs through the self-service app.
+RStudio + R is available through the Self Service application.
 
 #### Windows
 
@@ -96,7 +98,7 @@ it may also be possible to install these programs through the self-service app.
 * Double-click the downloaded `.exe` file and follow the prompts to install.
 * Go to the [RStudio download page](https://www.rstudio.com/products/rstudio/download/#download).
 * Under _Installers_, click the link for the _Windows Vista/7/8/10_ installer to download it.
-* Double-click the downloaded `.exe` file and follow the prompts to install.
+* Double-click the downloaded `.exe` file and follow the prompts to install (default options are acceptable).
 * Once both are installed, launch RStudio and make sure there are no error messages.
 
 #### macOS
@@ -104,11 +106,10 @@ it may also be possible to install these programs through the self-service app.
 * Download the installer for the latest version of R compatible with your version of macOS from [CRAN](https://cran.r-project.org/bin/macosx/).
   If you are not using a recent version of macOS you may have to scroll down to _Binaries for legacy OS X systems_ and find the one appropriate for your version of macOS.
   To check what version of macOS you are using, click the apple icon in the upper left corner of your screen and go to _About This Mac_.
-* Double-click the downloaded `.pkg` file and follow the prompts to install.
-* Download the installer for [XQuartz](https://www.xquartz.org/).
-* Double-click the downloaded `.dmg` file, then open the XQuartz folder that appears on your desktop. Double-click the `.pkg` file and follow the prompts to install.
+  Please note the instructions on that page for downloading and installing [XQuartz](https://www.xquartz.org/) if necessary.
+* Double-click the downloaded `.pkg` file and follow the prompts to install (default options are acceptable).
 * Go the the [RStudio download page](https://www.rstudio.com/products/rstudio/download/#download).
-* Under _Installers_, click the link for the _Mac OS X 10.6+ (64-bit)_ installer to download it.
+* Under _Installers_, click the link for the your OSX version's installer to download it.
 * Double-click the downloaded `.dmg` file, then open the RStudio folder that appears on your desktop. Drag the RStudio icon into the Applications folder.
 * Once everything is installed, launch RStudio and make sure there are no error messages.
 
