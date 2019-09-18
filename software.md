@@ -8,11 +8,28 @@ If you have any questions or problems regarding software installation, please co
 your instructor. Please see the following sections for more information on required and 
 suggested software
 
+- [Data for Data Science](#data-for-data-science): spreadsheet program (like Microsoft Excel) and a text editor (like Atom)
 - [Git and GitHub](#git-and-github): GitHub Desktop App and command line tools
 - [Introduction to Python](#introduction-to-python): Jupyter notebooks
 - [Intermediate Python](#intermediate-python): your choice of interface
 - [R](#r-and-rstudio): R and RStudio
 - [SCCA employees](#scca-employees)
+
+### Data for Data Science 
+
+#### Spreadsheet program (e.g., Microsoft Excel)
+
+Spreadsheet programs are a useful way for us as humans to interact with data. The most common of these is Microsoft Excel. Commands may differ a bit between programs, but the general ideas for thinking about spreadsheets are the same.
+If you are working on a computer owned by Fred Hutch,
+Microsoft Office (including Excel) is available through the Self Service application.
+If you are working on a personal computer that doesn't have a spreadsheet program, you can use a free, open source program called LibreOffice.
+
+* Install LibreOffice by going to the [installation page](https://www.libreoffice.org/download/download/). The version for your operating system should automatically be selected. Click Download Version X.X.X (whichever is the most recent version). You will go to a page that asks about a donation, but you don’t need to make one. Your download should begin automatically.
+* Once the installer is downloaded, double click on it and LibreOffice should install.
+
+#### Text editor
+
+Text editors allow us to understand how computers may interact with our data. We recommend installing [Atom](https://atom.io) if you do not already have a preferred text editor (the link should auto-detect your operating system). Please note that the default text editors on most computers (Notepad on Windows and TextEdit on Mac) are not optimal for this course. 
 
 
 ### Git and GitHub
