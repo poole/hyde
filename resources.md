@@ -6,6 +6,7 @@ published: true
 
 If you're interested in documentation about computing at Fred Hutch, or looking for additional tutorials or online lessons to learn programming, please see the [Fred Hutch Biomedical Data Science Wiki](http://sciwiki.fredhutch.org).
 
+- [Data for Data Science](#data-for-data-science)
 - [Introduction to R](#introduction-to-r)
 - [Introduction to Python](#introduction-to-python)
 - [Intermediate Python: Programming](#intermediate-python-programming)
@@ -16,6 +17,15 @@ If you're interested in documentation about computing at Fred Hutch, or looking 
 
 
 ### Current curriculum
+
+#### Data for Data Science
+
+Researchers face a growing data management challenge, starting with data collection and continuing through data analysis, publication, and archival. Potential problems research labs may face include scalability of their data management methods to many and/or very large data files, fully documenting data and its organization, and meeting requirements of grants/publication related to data sharing. This four-week course is designed to introduce attendees to best practices in data organization and management. Each one-hour lecture will include lecture, discussion, and practice exercises. This course assumes no prior training in data science. At the end of this course, you will be able to identify resources at Fred Hutch for data management and apply best practices in data organization to your own research projects. 
+* Week 1: Data entry and creating spreadsheets
+* Week 2: Organizing data and project files
+* Week 3: Documenting data with metadata
+* Week 4: Data manipulation and reproducibility
+
 
 #### Introduction to R
 
