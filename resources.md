@@ -61,11 +61,11 @@ This two-week course (with optional third week session) is designed to introduce
 
 #### Concepts in Machine Learning
 
-This four week course is designed to introduce attendees to central concepts in machine learning as well as examples of applications in biomedical research. Each one hour lecture will include a conceptual overview of a machine learning paradigm, a quick foundation on the underlying mechanisms, and some examples of current or potential applications. The course assumes a strong foundation in basic statistics, but does not assume any prior experience coding. At the end of this course, you will be able to understand the core differences between different forms of machine learning and consider their application with respect to a variety of problem spaces. This course (or equivalent knowledge/preparation) is intended as a prerequisite for future courses covering machine learning skills in both R and Python.
-* Week 1: Introduction and overview; supervised learning
-* Week 2: Supervised Learning
-* Week 3: Unsupervised Learning
-* Week 4: Reinforcement Learning
+This four week course is designed to introduce attendees to central concepts in machine learning as well as examples of applications in biomedical research. Each one hour lecture will emphasize conceptual and practical aspects of machine learning paradigms, explore the foundations of underlying mechanisms, and look at current or potential applications through examples or case studies. The course assumes a strong foundation in basic statistics, but does not assume any prior coding experience. At the end of this course, you will be able to understand the core differences between different forms of machine learning and consider their application with respect to a variety of problem spaces. This course (or equivalent knowledge/preparation) is intended as a prerequisite for future courses covering machine learning skills in both R and Python.
+* Week 1: Introduction and Conceptual Overview; Machine Learning and Experimental Design
+* Week 2: Case Study in Classification
+* Week 3: Case Study in Regression
+* Week 4: Case Study in Deep Learning and Transfer Learning
 
 #### Software Carpentry Bootcamp: Unix, Git, and Python
 
