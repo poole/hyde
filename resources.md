@@ -4,7 +4,10 @@ title: Resources
 published: true
 ---
 
-If you're interested in documentation about computing at Fred Hutch, or looking for additional tutorials or online lessons to learn programming, please see the [Fred Hutch Biomedical Data Science Wiki](http://sciwiki.fredhutch.org).
+This page contains course descriptions for fredhutch.io classes. If you're interested in documentation about computing at Fred Hutch, or looking for additional tutorials or online lessons to learn programming, please see the [Fred Hutch Biomedical Data Science Wiki](http://sciwiki.fredhutch.org).
+
+
+Most classes meet for 1-2 hours a week for 3-4 weeks; see the class listings below for more information. If you are a Fred Hutch or SCCA employee, you can register for classes in [Hutch Learning](https://centernet.fredhutch.org/cn/u/training/access-hutch-learning.html) (internal link). We schedule classes 2-4 weeks in advance, so the class in which you are interested may not be available right now. We recommend adding your name to the interest tracking system so you will receive a notification when the course is available again. If the class in which you are interested in currently full, add your name to the waitlist so we can add you if someone drops. We announce new classes in the monthly [Coop newsletter](https://research.fhcrc.org/coop/en/newsletter.html).
 
 - [Data for Data Science](#data-for-data-science)
 - [Introduction to R](#introduction-to-r)
