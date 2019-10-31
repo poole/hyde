@@ -2,10 +2,6 @@
 {% capture style_url %}{% link assets/css/hydejack-8.5.2.css %}{% endcapture %}
 {% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
 {% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts }}&display=swap{% endcapture %}
-
-{% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
-{% assign font         = site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
-
 {% assign layout = page.layout %}
 {% assign no_google_fonts = site.hydejack.no_google_fonts or site.no_google_fonts %}
 
