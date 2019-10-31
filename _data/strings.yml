@@ -49,6 +49,13 @@ not_found:
     <!--home_link--> to try finding it again.
   home_link:           Head back home
 
+offline:
+  title:               'You are Offline'
+  message:             |
+    Sorry, but you appear to be offline and this page has not been prepared for offline viewing.
+    <!--home_link--> to try finding another page.
+  home_link:           Head back home
+
 error:
   title:               Error
   message:             |
