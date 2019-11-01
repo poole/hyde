@@ -24,8 +24,8 @@
 
     {% assign alt = false %}
     {% unless hide_image %}{% if post.image %}
-      <div class="img lead sixteen-nine">
-        {% include components/hy-img.html img=post.image alt=post.title %}
+      <div class="lead aspect-ratio sixteen-nine">
+        {% include components/hy-img.html img=post.image alt=post.title width=864 height=486 %}
       </div>
       {% assign alt = '' %}
     {% endif %}{% endunless %}

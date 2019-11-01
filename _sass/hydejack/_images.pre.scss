@@ -13,12 +13,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-.content .img {
+.content .aspect-ratio {
   overflow: hidden; // inline
   img {
     margin: 0; // inline
     width: 100%; // inline
-    height: 100%; // inline
+    height: auto; // inline
     object-fit: cover; // link
     object-position: center; // link
     background-color: var(--gray-bg); // inline
@@ -32,34 +32,6 @@
 }
 
 // <<< link
-hy-img {
-  display: block;
-  position: relative;
-
-  .loading {
-    background-color: var(--gray-bg);
-    position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-
-    > * {
-      color: var(--menu-text);
-      font-size: 2rem;
-    }
-  }
-
-  img {
-    animation-duration: 1000ms;
-    animation-timing-function: ease;
-    animation-name: fade-img;
-  }
-}
-
 figure, .figure {
   @extend .faded, .fine, .centered;
   margin-bottom: 2rem;
@@ -77,7 +49,4 @@ figure, .figure {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
-.animation-main hy-img img { animation: none!important; }
-
 // >>>

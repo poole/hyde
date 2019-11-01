@@ -60,7 +60,6 @@
     "dom4": "^2.1.5",
     "elem-dataset": "^2.0.0",
     "hy-drawer": "1.0.0-pre.27",
-    "hy-img": "1.0.0-hydejack.12",
     "hy-push-state": "1.0.0-pre.27",
     "intersection-observer": "^0.7.0",
     "lit-element": "^2.2.1",

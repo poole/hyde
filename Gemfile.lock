@@ -40,8 +40,6 @@ GEM
       jekyll (>= 3.3, < 5.0)
     jekyll-relative-links (0.6.1)
       jekyll (>= 3.3, < 5.0)
-    jekyll-replace-img (0.6.0)
-      jekyll (>= 3.3, < 5.0)
     jekyll-sass-converter (2.0.1)
       sassc (> 2.0.1, < 3.0)
     jekyll-seo-tag (2.6.1)
@@ -85,7 +83,6 @@ DEPENDENCIES
   jekyll-readme-index
   jekyll-redirect-from
   jekyll-relative-links
-  jekyll-replace-img
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-titles-from-headings

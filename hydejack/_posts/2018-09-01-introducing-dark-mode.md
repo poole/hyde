@@ -10,7 +10,7 @@ Like many people, I'm a sucker for is dark UI themes, whether it's Twitter, macO
 
 When I was playing around with Unity, I even considered a subscription just so I could use the dark theme, which is exclusive to subscribers. Following this line of thought, I've added a Dark Mode to the PRO version of Hydejack.
 
-![Dark Mode](/assets/img/blog/dark-mode.jpg){:data-width="1440" data-height="836"}
+![Dark Mode](/assets/img/blog/dark-mode.jpg){:width="1440" height="836"}
 *This is what it looks like!*
 {:.figure}
 
@@ -18,7 +18,7 @@ A unique challenge with regards to Hydejack was its color customization feature.
 
 To solve the problem, Hydejack's Dark Mode adjusts the background based on the `theme_color`. This property can be set for the entire site, or individual pages just like `accent_color`. It also adjusts the UI of many browsers that support the Web App Manifest API, making the whole experience even more seamless.
 
-![Adaptive Dark Mode Example](/assets/img/blog/dark-mode-ii.jpg){:data-width="1440" data-height="836"}
+![Adaptive Dark Mode Example](/assets/img/blog/dark-mode-ii.jpg){:width="1440" height="836"}
 Dark Mode adjusts to a different accent colors.
 {:.figure}
 

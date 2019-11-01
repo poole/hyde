@@ -50,7 +50,7 @@ The current implementation does not cache resources from external domains. There
 
 For example, Google Analytics uses GET requests to send page views, each of which would be cached by the service worker without this policy. Frequently updating images, such as badges would never change.
 
-![Gem Version][gemv]{:data-ignore=""}
+![Gem Version][gemv]
 
 However, if you include resources that are hosted on another domain and don't change, you can add the `sw-cache` query parameter to the URL, e.g.
 

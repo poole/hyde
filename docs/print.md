@@ -58,7 +58,7 @@ If you have a GitHub account, fork the [hy-starter-kit](https://github.com/hydec
 
 `cd` into the directory where `_config.yml` is located and follow the steps in [Running locally](#running-locally).
 
-Alternatively, you can just [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark}.
+Alternatively, you can just [![Deploy to Netlify][dtn]][nfy]{:.no-hover.no-mark}.
 
 [src]: https://github.com/hydecorp/hy-starter-kit/archive/v8.6.0.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/hydecorp/hydejack-starter-kit
@@ -1791,7 +1791,7 @@ The current implementation does not cache resources from external domains. There
 
 For example, Google Analytics uses GET requests to send page views, each of which would be cached by the service worker without this policy. Frequently updating images, such as badges would never change.
 
-![Gem Version][gemv]{:data-ignore=""}
+![Gem Version][gemv]
 
 However, if you include resources that are hosted on another domain and don't change, you can add the `sw-cache` query parameter to the URL, e.g.
 

@@ -6,35 +6,23 @@
   {% endif %}
 
   {% assign src = include.img.src | default:include.img.path %}
-  {% capture attrs %}
+  {% capture sources %}
     src="{% include smart-url.txt url=src %}"
-    {% if include.class %}class="{{ include.class }}"{% endif %}
-    {% if include.alt %}alt="{{ include.alt }}"{% endif %}
     {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
     {% if include.sizes %}sizes="{{ include.sizes }}"{% endif %}
   {% endcapture %}
 {% else %}
-  {% capture attrs %}
+  {% capture sources %}
     src="{% include smart-url.txt url=include.img %}"
-    {% if include.class %}class="{{ include.class }}"{% endif %}
-    {% if include.alt %}alt="{{ include.alt }}"{% endif %}
   {% endcapture %}
 {% endif %}
 
-{% unless site.hydejack.no_img %}
-  <hy-img
-    {{ attrs }}
-    {% if include.property %}property="{{ include.property }}"{% endif %}
-    root-margin="512px"
-  >
-    <noscript><img data-ignore {{ attrs }}/></noscript>
-    <span class="loading" slot="loading" hidden>
-      <span class="icon-cog"></span>
-    </span>
-  </hy-img>
-{% else %}
-  <img
-    {{ attrs }}
-    {% if include.property %}property="{{ include.property }}"{% endif %}
-  />
-{% endunless %}
+<img
+  {{ sources }}
+  {% if include.alt %}alt="{{ include.alt }}"{% endif %}
+  {% if include.class %}class="{{ include.class }}"{% endif %}
+  {% if include.property %}property="{{ include.property }}"{% endif %}
+  {% if include.width %}width="{{ include.width }}"{% endif %}
+  {% if include.height %}height="{{ include.height }}"{% endif %}
+  {% if include.width and include.height %}loading="lazy"{% endif %}
+/>

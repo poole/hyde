@@ -205,7 +205,7 @@ So far Hydejack has been a decent Jekyll theme, but with v8 it really starts sta
   To get the most out of this plugin, it is recommended to provide the width and height of the image, e.g.
 
   ~~~md
-  ![Some image](assets/img/some-img.png){:data-width="800" data-height="600"}
+  ![Some image](assets/img/some-img.png){:width="800" height="600"}
   ~~~
 
   This will cause hy-img to render a placeholder of 800 by 600 `px`, preventing the document height from changing after the image has finished loading.

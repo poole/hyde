@@ -15,7 +15,7 @@ but I'd rather show you the new and improved background image.
 ## New background image
 Yes, it's an aerial shot of a beach ([so hot right now](https://duckduckgo.com/?q=ios+11+background&t=ffab&iax=images&ia=images)).
 
-![Hydejack's background image]({{ site.baseurl }}/assets/img/blog/caleb-george.jpg){:data-width="1920" data-height="1200"}
+![Hydejack's background image]({{ site.baseurl }}/assets/img/blog/caleb-george.jpg){:width="1920" height="1200"}
 Hydejack's new background image.
 {:.figure}
 
@@ -29,21 +29,21 @@ Specifically, I've straightened out the beach and rotated the boat so that it si
 
 For comparison, here is the non-euclidean mess the [original photo](https://unsplash.com/photos/AtvuPUenaeI) was. Pretty OCD, I know.
 
-![Original photo]({{ site.baseurl }}/assets/img/blog/caleb-george-old.jpg){:data-width="1920" data-height="1200"}
+![Original photo]({{ site.baseurl }}/assets/img/blog/caleb-george-old.jpg){:width="1920" height="1200"}
 The original photo before it was "straightened out" by applying Photoshop magic.
 {:.figure}
 
 ## New color palette
 I've extracted the major colors from the background image, which now form Hydejack's color palette:
 
-![Hydejacks's color palette]({{ site.baseurl }}/assets/img/blog/COLOURlovers.com-Hydejack.png){:style="border: 1px solid var(--border-color)" data-width="1024" data-height="200"}
+![Hydejacks's color palette]({{ site.baseurl }}/assets/img/blog/COLOURlovers.com-Hydejack.png){:style="border: 1px solid var(--border-color)" width="1024" height="200"}
 
 ## New logo
 Hydejack also has a new logo, which is based on the new color palette.
 It also features the best font on Google Fonts, and probably the world: [Roboto Slab](https://fonts.google.com/specimen/Roboto+Slab)
 (which is to say, I like it a lot).
 
-![Hydejack's logo]({{ site.baseurl }}/assets/icons/icon.png){:data-width="192" data-height="192"}
+![Hydejack's logo]({{ site.baseurl }}/assets/icons/icon.png){:width="192" height="192"}
 
 
 [^1]: I should mention that these are only default values. Hydejack let's you choose your own. For inspiration, I've recently added [a gallery]({{ site.baseurl }}/projects/) to the site that shows a few variations of the theme.

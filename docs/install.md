@@ -32,7 +32,7 @@ If you have a GitHub account, fork the [hy-starter-kit](https://github.com/hydec
 
 `cd` into the directory where `_config.yml` is located and follow the steps in [Running locally](#running-locally).
 
-Alternatively, you can just [![Deploy to Netlify][dtn]{:data-ignore=""}][nfy]{:.no-hover.no-mark}.
+Alternatively, you can just [![Deploy to Netlify][dtn]][nfy]{:.no-hover.no-mark}.
 
 [src]: https://github.com/hydecorp/hy-starter-kit/archive/v8.6.0.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/hydecorp/hydejack-starter-kit
