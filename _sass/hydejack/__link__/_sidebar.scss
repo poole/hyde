@@ -68,7 +68,11 @@ hy-drawer {
   a {
 //     color: #fff; 
 //     border-bottom-color: rgba(255, 255, 255, 0.2); 
-    &:hover { border-bottom-color: #fff; } 
+//     text-decoration-color: rgba(255, 255, 255, 0.2); 
+    &:hover { 
+      border-bottom-color: #fff; 
+      text-decoration-color: #fff; 
+    }
   }
 }
 

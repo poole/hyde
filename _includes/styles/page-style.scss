@@ -8,11 +8,13 @@
 .content a:not(.btn) {
   color: {{ color }};
   border-color: fade-out({{ color }}, 0.8);
+  text-decoration-color: fade-out({{ color }}, 0.8);
 }
 
 // 1
 .content a:not(.btn):hover {
   border-color: {{ color }};
+  text-decoration-color: {{ color }};
 }
 
 // 2

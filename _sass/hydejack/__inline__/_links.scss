@@ -23,23 +23,17 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 hy-push-state a, .a {
-  position: relative; 
-  padding-bottom: .15rem; 
-  border-bottom: 1px solid; 
+  text-decoration-style: solid; 
+  text-underline-offset: .5rem; 
+  text-decoration-thickness: 1px; 
 //   transition: color 1s, border-color 250ms; 
+//   transition: color 1s, border-color 250ms, text-decoration-color 250ms; 
   
 
   &.no-hover {
-    border-bottom: none; 
-    padding-bottom: 0; 
+    text-decoration-thickness: unset; 
+    text-underline-offset: unset; 
 //     transition: none; 
 //     &:hover { transition: none; } 
   }
 }
-
-/*
-img {
-  background-color: var(--gray-bg); 
-  
-}
-*/

@@ -24,7 +24,8 @@
             <img src="{{ site.logo | relative_url }}" class="avatar" alt="{{ site.short_title | default:site.title }}" data-ignore />
           </a>
         {% endif %}
-        <h2 class="h1"><a href="{{ '/' | relative_url }}">{{ site.short_title | default:site.title }}</a></h2>
+        <a class="sidebar-title" href="{{ '/' | relative_url }}"><h2 class="h1">{{ site.short_title | default:site.title }}</h2></a>
+        <hr/>
         {% assign text = site.tagline | default:site.description %}
         {% if text %}
           <p class="{% if text.size > 100 %}fine{% endif %}">

@@ -81,7 +81,11 @@ hy-drawer {
   a {
     color: #fff; // inline
     border-bottom-color: rgba(255, 255, 255, 0.2); // inline
-    &:hover { border-bottom-color: #fff; } // link
+    text-decoration-color: rgba(255, 255, 255, 0.2); // inline
+    &:hover { 
+      border-bottom-color: #fff; // link
+      text-decoration-color: #fff; // link
+    }
   }
 }
 
@@ -132,8 +136,24 @@ hy-drawer.loaded .sidebar {
     margin-bottom: 1.5rem
   }
 
-  > h2 {
-    margin-top: 0;
+  > a.sidebar-title {
+    text-decoration: none;
+    > h2 {
+      margin: 0;
+      padding-bottom: .5rem;
+    }
+
+    & + hr {
+      margin: 0 auto .5rem;
+      width: 4rem;
+      border-color: rgba(255, 255, 255, 0.2);
+      transition: border-color 250ms;
+    }
+
+    &:hover + hr {
+      border-color: rgba(255, 255, 255, 1);
+      transition: border-color 50ms;
+    }
   }
 }
 
@@ -147,7 +167,6 @@ a.sidebar-nav-item {
   font-weight: var(--font-weight-heading);
   line-height: 1.75;
   padding: .25rem;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
 }
 // >>>>>
 
