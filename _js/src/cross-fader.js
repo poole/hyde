@@ -109,13 +109,16 @@ export class CrossFader {
         const active = c.darken(0.1);
         const bodyBg = Color.hsl(tc.hue(), 12.5, 20);
         const borderColor = Color.hsl(tc.hue(), 12.5, 27.5);
+        const underlineColor = c.fade(0.5)
 
         // .content a
-        this.rules[0].style.textDecorationColor = color;
-        this.rules[0].style.borderColor = color;
+        this.rules[0].style.textDecorationColor = underlineColor;
+        this.rules[0].style.borderColor = underlineColor;
 
         // .content a:hover
         this.rules[1].style.color = color;
+        this.rules[0].style.textDecorationColor = color;
+        this.rules[0].style.borderColor = color;
 
         // :focus
         this.rules[2].style.outlineColor = color;
