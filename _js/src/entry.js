@@ -13,40 +13,26 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import "@babel/polyfill";
+import '@babel/polyfill';
 
-import "../lib/version";
-import "../lib/modernizr-custom";
-import { hasFeatures } from "./common";
+import '../lib/version';
+import '../lib/modernizr-custom';
+import { hasFeatures } from './common';
 
-const BASELINE =  [
-  "classlist",
-  "eventlistener",
-  "queryselector",
-];
+const BASELINE = ['classlist', 'eventlistener', 'queryselector'];
 
-const DARK_MODE_FEATURES = [
-  ...BASELINE,
-  "customproperties",
-];
- 
-const DRAWER_FEATURES = [
-  ...BASELINE,
-  "cssremunit",
-  "customproperties",
-  "history",
-  "matchmedia",
-  "opacity",
-];
+const DARK_MODE_FEATURES = [...BASELINE, 'customproperties'];
+
+const DRAWER_FEATURES = [...BASELINE, 'cssremunit', 'customproperties', 'history', 'matchmedia', 'opacity'];
 
 const PUSH_STATE_FEATURES = [
   ...BASELINE,
-  "cssanimations",
-  "cssremunit",
-  "documentfragment",
-  "history",
-  "matchmedia",
-  "opacity",
+  'cssanimations',
+  'cssremunit',
+  'documentfragment',
+  'history',
+  'matchmedia',
+  'opacity',
 ];
 
 if (hasFeatures(BASELINE)) {

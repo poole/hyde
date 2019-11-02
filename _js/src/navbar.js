@@ -13,8 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { fromEvent } from "rxjs";
-import { map, filter, pairwise, merge, mapTo, tap } from "rxjs/operators";
+import { fromEvent } from 'rxjs';
+import { map, filter, pairwise, merge, mapTo, tap } from 'rxjs/operators';
 
 import { hasCSSOM, getScrollTop, webComponentsReady } from './common';
 
@@ -26,29 +26,28 @@ import { hasCSSOM, getScrollTop, webComponentsReady } from './common';
 
   let offset = 0;
 
-  const tvalue = hasCSSOM
-    ? new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))])
-    : null;
+  const tvalue = hasCSSOM ? new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))]) : null;
 
-  const navbarInactive = () =>
-    !document.activeElement || !document.activeElement.classList.contains('nav-btn');
+  const navbarInactive = () => !document.activeElement || !document.activeElement.classList.contains('nav-btn');
 
-  fromEvent(document, 'scroll', { passive: true }).pipe(
-    map(getScrollTop),
-    filter(x => x >= 0),
-    pairwise(),
-    map(([prev, curr]) => prev - curr),
-    filter(navbarInactive),
-    merge(fromEvent(navbarEl, 'focus', { capture: true }).pipe(mapTo(2 * height))),
-    tap((x) => {
-      offset += x;
-      offset = Math.max(-height * 1.5, Math.min(0, offset));
-      if (hasCSSOM) {
-        tvalue[0].y.value = offset;
-        navbarEl.attributeStyleMap.set("transform", tvalue);
-      } else {
-        navbarEl.style.transform = `translateY(${offset}px)`;
-      }
-    })
-  ).subscribe();
+  fromEvent(document, 'scroll', { passive: true })
+    .pipe(
+      map(getScrollTop),
+      filter(x => x >= 0),
+      pairwise(),
+      map(([prev, curr]) => prev - curr),
+      filter(navbarInactive),
+      merge(fromEvent(navbarEl, 'focus', { capture: true }).pipe(mapTo(2 * height))),
+      tap(x => {
+        offset += x;
+        offset = Math.max(-height * 1.5, Math.min(0, offset));
+        if (hasCSSOM) {
+          tvalue[0].y.value = offset;
+          navbarEl.attributeStyleMap.set('transform', tvalue);
+        } else {
+          navbarEl.style.transform = `translateY(${offset}px)`;
+        }
+      }),
+    )
+    .subscribe();
 })();

@@ -60,7 +60,7 @@ If you have a GitHub account, fork the [hy-starter-kit](https://github.com/hydec
 
 Alternatively, you can just [![Deploy to Netlify][dtn]][nfy]{:.no-hover.no-mark}.
 
-[src]: https://github.com/hydecorp/hy-starter-kit/archive/v8.6.0.zip
+[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.0.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/hydecorp/hydejack-starter-kit
 [dtn]: https://www.netlify.com/img/deploy/button.svg
 
@@ -170,15 +170,61 @@ If you bought the PRO version, you've received a zip archive with the following 
 `upgrade`
 : Contains only the files and folders needed for upgrading form an earlier version of Hydejack (6.0.0 or above). See [Upgrade]{:.heading.flip-title} for more.
 
+`.ssh`
+: A hidden folder containing a SSH key for read-only access to the Hydejack PRO GitHub repository.
+  You can use this to install Hydejack PRO as gem-based theme.
+  See the [installation instructions](#pro-via-github-advanced) below.
+  This is for advanced users.
+
 For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-8.6.0/install/
+$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.0/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
 
+#### PRO via GitHub (advanced)
+If you know how to handle SSH keys, you can also install the PRO version as a gem-based theme via GitHub.
+The advantage of this method is that you avoid cluttering your Jekyll repository with Hydejack's source files.
+
+The downloaded zip contains a read-only key for a private GitHub repository.
+It is located at `<dowloaded zip>/.ssh/hydejack_8_pro`.
+You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
+
+~~~bash
+$ cp ~/Downloads/hydejack-pro-9.0.0-alpha.0/.ssh/hydejack_8_pro ~/.ssh/
+~~~
+
+It is required that your private key files are NOT accessible by others, e.g.:
+
+~~~bash
+$ chmod 600 ~/.ssh/hydejack_8_pro
+~~~
+
+Then add the following to `.ssh/config`:
+
+~~~
+Host hydejack
+	HostName github.com
+	IdentitiesOnly yes
+	IdentityFile ~/.ssh/hydejack_8_pro
+~~~
+
+Next, open `Gemfile` in your Jekyll repository and add:
+
+~~~ruby
+gem "jekyll-theme-hydejack-pro", git: 'git@github.com:qwtel/hydejack-pro-8.git'
+~~~
+
+In your `_config.yml`, add:
+
+~~~yml
+theme: jekyll-theme-hydejack-pro
+~~~
+
+You can now continue with [Running locally](#running-locally).
 
 ### Running locally
 Make sure you've `cd`ed into the directory where `_config.yml` is located.
@@ -226,7 +272,7 @@ especially the part about the [license change](../CHANGELOG.md#license-change)!
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: hydecorp/hydejack@v8.6.0
+remote_theme: hydecorp/hydejack@v9.0.0-alpha.0
 ```
 
 To use the latest version on the `v8` branch on each build, you can use  `hydecorp/hydejack@v8`.
@@ -278,6 +324,14 @@ Buyers of the PRO version will find the files necessary for an upgrade in the `u
 and you have to apply them again.
 Make sure you've made a backup before overwriting any files.
 {:.message}
+
+
+#### PRO via GitHub (advanced)
+If you've followed the steps [here](#pro-via-github-advanced), all you need to upgrade is:)
+
+~~~bash
+$ bundle update jekyll-theme-hydejack-pro
+~~~
 
 
 
@@ -369,7 +423,7 @@ google_fonts: Roboto+Slab:700|Noto+Sans:400,400i,700,700i
 The `google_fonts` key is the string necessary to fetch the fonts from Google.
 You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 
-![Where to get the google_fonts string](../assets/img/docs/google-fonts.png){:data-width="600" data-height="398"}
+![Where to get the google_fonts string](../assets/img/docs/google-fonts.png){:width="600" height="398"}
 
 
 #### Using safe web fonts
@@ -607,7 +661,7 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/hydecorp/hydejack/archive/v8.6.0.zip
+    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.0.zip
 ~~~
 
 
@@ -950,7 +1004,7 @@ title:  About
 ### Adding a cover page
 Hydejack 8 introduces cover pages, i.e. pages witht he sidebar opened, so that it spans the entire screen. This feature is intended for landing pages. To enable it on a page, simply add `cover: true` to the front matter.
 
-![Cover page example](../assets/img/blog/hydejack-8@0,5x.png){:data-width="960" data-height="540"}
+![Cover page example](../assets/img/blog/hydejack-8@0,5x.png){:width="960" height="540"}
 
 
 ### Customization
@@ -1274,23 +1328,23 @@ You can make an image span the full width by adding the `lead` class.
 
 Example:
 
-![Full-width image](https://placehold.it/800x100){:.lead data-width="800" data-height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 
 Markdown:
 ~~~markdown
-![Full-width image](https://placehold.it/800x100){:.lead data-width="800" data-height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 ~~~
 
 ### Adding image captions
 You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
 
-![Full-width image](https://placehold.it/800x100){:.lead data-width="800" data-height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 A caption for an image.
 {:.figure}
 
 Markdown:
 ~~~md
-![Full-width image](https://placehold.it/800x100){:.lead data-width="800" data-height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
 A caption for an image.
 {:.figure}
 ~~~
@@ -1299,7 +1353,7 @@ For better semantics, you can also use the `figure`/`figcaption` HTML5 tags:
 
 ```html
 <figure>
-  <img alt="An image with a caption" src="https://placehold.it/800x100" class="lead" data-width="800" data-height="100" />
+  <img alt="An image with a caption" src="https://placehold.it/800x100" class="lead" width="800" height="100" />
   <figcaption>A caption to an image.</figcaption>
 </figure>
 ```

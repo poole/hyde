@@ -28,7 +28,7 @@ export const hasCSSOM = 'attributeStyleMap' in Element.prototype && 'CSS' in win
 
 export const webComponentsReady = new Promise(res => {
   if ('customElements' in window) res(true);
-  else document.addEventListener("WebComponentsReady", res);
+  else document.addEventListener('WebComponentsReady', res);
 });
 
 // Takes an array of Modernizr feature tests and makes sure they all pass.
@@ -89,7 +89,7 @@ export function importTemplate(templateId) {
 export function getScrollHeight() {
   const h = document.documentElement;
   const b = document.body;
-  const sh = "scrollHeight";
+  const sh = 'scrollHeight';
   return h[sh] || b[sh];
 }
 

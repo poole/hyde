@@ -1,2 +1,2 @@
-import { default as smoothscroll } from "smoothscroll-polyfill";
+import { default as smoothscroll } from 'smoothscroll-polyfill';
 smoothscroll.polyfill();

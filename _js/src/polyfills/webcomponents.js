@@ -1,6 +1,6 @@
 import '@webcomponents/webcomponents-platform';
 import '@webcomponents/url';
-import "@webcomponents/template";
+import '@webcomponents/template';
 import '@webcomponents/custom-elements';
 
 const { customElements } = window;
@@ -10,7 +10,7 @@ let shouldFlush = false;
 let flusher = null;
 
 if (customElements['polyfillWrapFlushCallback']) {
-  customElements['polyfillWrapFlushCallback']((flush) => {
+  customElements['polyfillWrapFlushCallback'](flush => {
     flusher = flush;
     if (shouldFlush) {
       flush();
@@ -29,7 +29,7 @@ function flushAndFire() {
 
 if (document.readyState !== 'complete') {
   // this script may come between DCL and load, so listen for both, and cancel load listener if DCL fires
-  window.addEventListener('load', flushAndFire)
+  window.addEventListener('load', flushAndFire);
   window.addEventListener('DOMContentLoaded', () => {
     window.removeEventListener('load', flushAndFire);
     flushAndFire();
