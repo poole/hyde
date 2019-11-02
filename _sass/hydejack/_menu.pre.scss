@@ -24,18 +24,17 @@
 .fixed-top {
   @extend .fixed-common;
   top: 0;
-  border-bottom: 1px solid var(--border-color);
 }
 
 .fixed-bottom {
   @extend .fixed-common;
   bottom: 0;
-  border-top: 1px solid var(--border-color);
 }
 
 .navbar {
   @extend .color-transition;
   background-color: var(--body-bg);
+
   > .content {
     padding-top: 0;
     padding-bottom: 0;
@@ -45,10 +44,14 @@
 }
 
 .nav-btn-bar {
+  @extend .color-transition;
   margin: 0 -1rem 0 -1rem;
+  // border-top: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
 }
 
 .nav-btn {
+  display: inline-block;
   background: none;
   border: none;
   text-decoration: none;
