@@ -47,14 +47,11 @@
   @import "hydejack/__link__/footer";
 
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
-  @import "hydejack/__link__/mark-external";
+    @import "hydejack/__link__/mark-external";
   {% endunless %}
   {% unless site.hydejack.no_break_layout %}
-  @import "hydejack/__link__/break-layout";
+    @import "hydejack/__link__/break-layout";
   {% endunless %}
-
-  @import "syntax";
-  @import "spinner";
 
   @import "my-style";
 {% else %}
@@ -89,9 +86,6 @@
     @import "hydejack/_break-layout.pre.scss";
   {% endunless %}
 
-  @import "syntax";
-  @import "spinner";
-
   @import "my-inline";
   @import "my-style";
 
@@ -104,3 +98,7 @@
     {% include styles/page-style.scss color=color theme_color=theme_color %}
   {% endif %}
 {% endunless %}
+
+@import "spinner";
+
+@import "syntax";
