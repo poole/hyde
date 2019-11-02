@@ -87,20 +87,28 @@ ul, ol {
   padding-left: 1.25rem;
 }
 
-hr {
+hr, .hr {
   @extend .color-transition;
-  position: relative;
-  margin: 3rem 0;
   border: 0;
+  margin: 1.5rem -1rem;
   border-top: 1px solid var(--border-color);
 }
 
-.hr {
+.hr-after::after {
+  @extend .color-transition;
+  content: "";
+  display: block;
+  margin: 1.5rem -1rem;
+  border-top: 1px solid var(--border-color);
+}
+
+.hr-bottom {
   @extend .color-transition;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  padding-bottom: .75rem;
+  margin-bottom: 1.5rem;
 }
+
 // >>>>>
 
 // <<<<< LINK

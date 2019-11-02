@@ -132,14 +132,17 @@ hy-drawer {
       padding-bottom: .5rem;
     }
 
-    & + hr {
+    &::after {
+      content: '';
+      display: block;
+      border-bottom: 1px solid;
       margin: 0 auto .5rem;
       width: 4rem;
       border-color: rgba(255, 255, 255, 0.2);
       transition: border-color 250ms;
     }
 
-    &:hover + hr {
+    &:hover::after {
       border-color: rgba(255, 255, 255, 1);
       transition: border-color 50ms;
     }

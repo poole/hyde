@@ -12,7 +12,7 @@
 
   {% assign heading_tag = include.heading_tag | default:'h2' %}
   {% assign heading_id = include.heading_id %}
-  <{{ heading_tag }} {% if heading_id %}id="{{ heading_id }}"{% endif %} class="page-title hr">
+  <{{ heading_tag }} {% if heading_id %}id="{{ heading_id }}"{% endif %} class="page-title hr-bottom">
     {{ include.heading | default:author.name }}
   </{{ heading_tag }}>
 
