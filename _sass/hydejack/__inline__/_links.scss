@@ -22,7 +22,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-hy-push-state a, .a {
+hy-push-state a {
   color: var(--body-color); 
   text-decoration-style: solid; 
   text-underline-offset: .5rem; 
@@ -37,3 +37,4 @@ hy-push-state a, .a {
 //     &:hover { transition: none; } 
   }
 }
+
