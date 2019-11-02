@@ -43,6 +43,7 @@ vendor/bundle
 .bundle
 .sass-cache
 .jekyll-metadata
+.jekyll-cache
 *.gem
 _zip
 /stats.json

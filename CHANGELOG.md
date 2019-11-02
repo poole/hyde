@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 # CHANGELOG
 
 ## v8.5.2

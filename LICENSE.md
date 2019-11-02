@@ -1,3 +1,7 @@
+---
+layout: page
+---
+
 # LICENSE
 
 ## GNU GENERAL PUBLIC LICENSE

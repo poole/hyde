@@ -130,6 +130,14 @@ defaults:
     values:
       seo:
         type:          WebPage
+  - scope:
+      path:            docs
+    values:
+      layout:          page
+  - scope:
+      path:            licenses
+    values:
+      layout:          page
 
 
 # 3rd Party Integrations
@@ -265,7 +273,7 @@ include:
 # ========================================================================================
 
 plugins:
-  - jekyll-default-layout
+  # - jekyll-default-layout
   - jekyll-feed
   - jekyll-optional-front-matter
   - jekyll-paginate

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Introducing Hydejack 8
 image: /assets/img/blog/hydejack-8.png
 description: >

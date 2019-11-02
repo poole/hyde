@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Introducing Dark Mode
 image: /assets/img/blog/steve-harvey.jpg
 description: >

@@ -1,4 +1,5 @@
 ---
+layout: post
 title: Improving Hydejack's Build Speed
 image: /assets/img/blog/wade-lambert.jpg
 description: >
