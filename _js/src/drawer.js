@@ -22,7 +22,7 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
   await Promise.all([
     ...'customElements' in window ? [] : [
       import(/* webpackChunkName: "webcomponents" */ "./polyfills/webcomponents").then(() => 
-        import(/* webpackChunkName: "shady" */ "./polyfills/shady")
+        import(/* webpackChunkName: "shadydom" */ "./polyfills/shadydom")
       ),
     ],
     ...'ResizeObserver' in window ? [] : [
