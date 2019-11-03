@@ -16,8 +16,8 @@
 hy-push-state a {
   color: var(--body-color); // inline
   text-decoration-style: solid; // inline
-  text-underline-offset: .5rem; // inline
-  text-decoration-thickness: 1px; // inline
+  text-underline-offset: .35rem; // inline
+  text-decoration-thickness: 2px; // inline
   transition: color 250ms, text-decoration-color 250ms, border-color 250ms; // link
 
   // <<< link

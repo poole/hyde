@@ -12,7 +12,6 @@
 
 // 1
 .content a:not(.btn):hover {
-  color: {{ color }};
   text-decoration-color: {{ color }};
   border-color: {{ color }};
 }
