@@ -49,4 +49,10 @@ hr.dingbat::after {
   font-size: 1.5rem;
   color: var(--menu-text);
 }
+
+@media print {
+  .page {
+    margin-bottom: 0
+  }
+}
 // >>>>>
