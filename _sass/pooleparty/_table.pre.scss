@@ -70,12 +70,6 @@ table:not(.highlight) {
 }
 
 // <<<<< LINK
-@media print {
-  table:not(.highlight) {
-    width: 100%!important;
-  }
-}
-
 // CSS only Responsive Tables
 // http://dbushell.com/2016/03/04/css-only-responsive-tables/
 // by David Bushell
@@ -158,6 +152,10 @@ table.stretch-table {
   display: table;
   width: 100% !important;
   width: calc(100% + 2rem) !important;
+  @media screen and (max-width: $break-point-4) {
+    display: block!important;
+    @include scroll-table();
+  }
 }
 
 table.scroll-table {
@@ -175,6 +173,12 @@ table.flip-table {
 
   table.flip-table-small {
     @include flip-table();
+  }
+}
+
+@media print {
+  table:not(.highlight) {
+    width: 100%!important;
   }
 }
 // >>>>> LINK
