@@ -49,14 +49,28 @@
     padding-bottom: 0;
     min-height: 0;
     color: var(--menu-text);
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: 70%;
+      height: 2rem;
+      margin: auto;
+      box-shadow: 0 -0.5rem 2rem rgba(0,0,0,0.35);
+      left: 50%;
+      margin-left: -35%;
+      bottom: .1rem;
+      background: transparent;
+      z-index: -1;
+    }
   }
 }
 
 .nav-btn-bar {
   @extend .color-transition;
   margin: 0 -1rem 0 -1rem;
-  // border-top: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
+  background-color: var(--body-bg);
 }
 
 .nav-btn {
