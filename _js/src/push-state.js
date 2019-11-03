@@ -79,6 +79,7 @@ const CANONICAL_SEL = "link[rel=canonical]";
 const META_DESC_SEL = "meta[name=description]";
 const FN_SEL = "li[id^='fn:']";
 const FN_LINK_SEL = "a[href^='#fn:']";
+const HORIZONTAL_SCROLL_SEL = 'pre, table:not(.highlight), .katex-display, .break-layout';
 
 // TODO:
 const DURATION = 350;
@@ -310,6 +311,10 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
           a.addEventListener("click", e =>
             document.getElementById(e.currentTarget.hash.substr(1)).focus()
           )
+        );
+
+        Array.from(main.querySelectorAll(HORIZONTAL_SCROLL_SEL)).forEach(el => 
+          el.addEventListener('touchstart', e => el.scrollLeft > 0 && e.stopPropagation(), { passive: false })
         );
       });
 
