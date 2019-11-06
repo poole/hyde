@@ -48,4 +48,4 @@ vendor/bundle
 _zip
 /stats.json
 
-#<removed>
+/assets/js/*hydejack-*
