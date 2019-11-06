@@ -75,13 +75,6 @@ Make sure you've made a backup before overwriting any files.
 {:.message}
 
 
-### PRO via GitHub (advanced)
-If you've followed the steps [here](install.md#pro-via-github-advanced), all you need to upgrade is:
-
-~~~bash
-$ bundle update jekyll-theme-hydejack-pro
-~~~
-
 
 Continue with [Config](config.md){:.heading.flip-title}
 {:.read-more}

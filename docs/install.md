@@ -144,12 +144,6 @@ If you bought the PRO version, you've received a zip archive with the following 
 `upgrade`
 : Contains only the files and folders needed for upgrading form an earlier version of Hydejack (6.0.0 or above). See [Upgrade]{:.heading.flip-title} for more.
 
-`.ssh`
-: A hidden folder containing a SSH key for read-only access to the Hydejack PRO GitHub repository.
-  You can use this to install Hydejack PRO as gem-based theme.
-  See the [installation instructions](#pro-via-github-advanced) below.
-  This is for advanced users.
-
 For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
@@ -159,46 +153,6 @@ $ cd ~/Downloads/hydejack-pro-8.5.2/install/
 
 You can now continue with [Running locally](#running-locally).
 
-### PRO via GitHub (advanced)
-If you know how to handle SSH keys, you can also install the PRO version as a gem-based theme via GitHub.
-The advantage of this method is that you avoid cluttering your Jekyll repository with Hydejack's source files.
-
-The downloaded zip contains a read-only key for a private GitHub repository.
-It is located at `<dowloaded zip>/.ssh/hydejack_8_pro`.
-You have to copy the key file to `~/.ssh` (or wherever your SSH keys are located), e.g.:
-
-~~~bash
-$ cp ~/Downloads/hydejack-pro-8.5.2/.ssh/hydejack_8_pro ~/.ssh/
-~~~
-
-It is required that your private key files are NOT accessible by others, e.g.:
-
-~~~bash
-$ chmod 600 ~/.ssh/hydejack_8_pro
-~~~
-
-Then add the following to `.ssh/config`:
-
-~~~
-Host hydejack
-	HostName github.com
-	IdentitiesOnly yes
-	IdentityFile ~/.ssh/hydejack_8_pro
-~~~
-
-Next, open `Gemfile` in your Jekyll repository and add:
-
-~~~ruby
-gem "jekyll-theme-hydejack-pro", git: 'git@github.com:qwtel/hydejack-pro-8.git'
-~~~
-
-In your `_config.yml`, add:
-
-~~~yml
-theme: jekyll-theme-hydejack-pro
-~~~
-
-You can now continue with [Running locally](#running-locally).
 
 ## Running locally
 Make sure you've `cd`ed into the directory where `_config.yml` is located.
