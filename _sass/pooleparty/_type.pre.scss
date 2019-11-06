@@ -90,7 +90,7 @@ ul, ol {
 hr, .hr {
   @extend .color-transition;
   border: 0;
-  margin: 1.5rem -1rem;
+  margin: 1.5rem 0;
   border-top: 1px solid var(--border-color);
 }
 
@@ -98,7 +98,7 @@ hr, .hr {
   @extend .color-transition;
   content: "";
   display: block;
-  margin: 1.5rem -1rem;
+  margin: 1.5rem 0;
   border-top: 1px solid var(--border-color);
 }
 
