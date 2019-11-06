@@ -45,12 +45,11 @@
       content: "";
       position: absolute;
       display: block;
-      width: 70%;
+      width: calc(100% - 6rem);
+      left: 3rem;
       height: 5.5rem;
       margin: auto;
       box-shadow: 0 0 2rem rgba(0,0,0,0.35);
-      left: 50%;
-      margin-left: -35%;
       background: var(--body-bg);
       z-index: -1;
     }
