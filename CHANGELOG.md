@@ -4,6 +4,23 @@ layout: page
 
 # CHANGELOG
 
+## v8.6.0
+November 10 2019
+{:.heading.post-date}
+
+* Updated to Jekyll 4.0!
+* Improved font rendering in dark mode for macOS
+
+## Added
+* Added `font_code` setting to the config file
+* Added an `offline.html` page and layout that will be returned by the service worker when offline
+
+## Fixes
+* Scrolling on a code snippet, math block, or scroll table will no longer extend the drawer
+* Fixed an issue that sometimes broke the projects and list layout under Jekyll 4
+* Fixed a bug that caused the resume layout to sometimes add an empty page when printing
+* Fixed a bug related to dynamic syntax highlighting 
+
 ## v8.5.2
 August 31 2019
 {:.heading.post-date}
