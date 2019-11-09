@@ -177,6 +177,10 @@ hydejack:
   # Set to `true` if you want to disable the drawer
   no_drawer:           false
 
+  # Set to `true` if you want to disable the KaTeX support.
+  # E.g. when adding MathJax support instead.
+  no_katex:            false
+
   # Set to `true` to prevent usage of `hy-img` (lazy-loading images).
   no_img:              false
 

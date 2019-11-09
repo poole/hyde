@@ -13,6 +13,7 @@ November 10 2019
 
 ## Added
 * Added `font_code` setting to the config file
+* Added `no_katex` option to config file
 * Added an `offline.html` page and layout that will be returned by the service worker when offline
 
 ## Fixes

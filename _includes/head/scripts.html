@@ -5,5 +5,6 @@
 !function(w, d) {
   w._noPushState = {{ site.hydejack.no_push_state | default:site.disable_push_state | default:false }};
   w._noDrawer = {{ site.hydejack.no_drawer | default:site.disable_drawer | default:false }};
+  w._noKaTeX = {{ site.hydejack.no_katex | default:false }};
 }(window, document);
 </script>

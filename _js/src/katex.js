@@ -17,7 +17,7 @@ import { hasFeatures } from "./common";
 
 const REQUIREMENTS = ["classlist", "eventlistener", "queryselector"];
 
-const featuresOk = hasFeatures(REQUIREMENTS);
+const featuresOk = !window._noKaTeX && hasFeatures(REQUIREMENTS);
 let loaded;
 
 function renderKatex(el) {
