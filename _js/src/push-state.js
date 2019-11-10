@@ -271,7 +271,7 @@ import { setupFLIP } from './flip';
     )
     .subscribe();
 
-  import(/* webpackMode: "eager" */ 'hy-push-state/lib');
+  import(/* webpackMode: "eager" */ '@hydecorp/push-state');
 
   window._pushState = pushStateEl;
 })();

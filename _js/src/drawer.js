@@ -230,7 +230,7 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
     { once: true },
   );
 
-  await import(/* webpackMode: "eager" */ 'hy-drawer/lib');
+  await import(/* webpackMode: "eager" */ '@hydecorp/drawer');
 
   window._drawer = drawerEl;
 
