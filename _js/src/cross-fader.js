@@ -13,20 +13,20 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { default as Color } from "color";
-import { default as elemDataset } from "elem-dataset";
+import { default as Color } from 'color';
+import { default as elemDataset } from 'elem-dataset';
 
-import { empty, of } from "rxjs";
-import { ajax } from "rxjs/ajax";
-import { catchError, finalize, map } from "rxjs/operators";
+import { empty, of } from 'rxjs';
+import { ajax } from 'rxjs/ajax';
+import { catchError, finalize, map } from 'rxjs/operators';
 
-import { animate } from "./common";
+import { animate } from './common';
 
 const BORDER_COLOR_FADE = 0.8;
 
 // Given a dataset, generate some string we can use the check if anything has changed...
 const pseudoHash = ({ background, color, image, overlay }) =>
-  `${color}${image || background}${overlay === "" ? "overlay" : ""}`;
+  `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
 
 // Consider a URL external if either the protocol, hostname or port is different.
 function isExternal({ protocol, host }, location = window.location) {
@@ -35,13 +35,11 @@ function isExternal({ protocol, host }, location = window.location) {
 
 export class CrossFader {
   constructor(fadeDuration) {
-    const main = document.getElementById("_main");
-    const pageStyle = document.getElementById("_pageStyle");
-    const styleSheet =
-      Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) ||
-      {};
+    const main = document.getElementById('_main');
+    const pageStyle = document.getElementById('_pageStyle');
+    const styleSheet = Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) || {};
 
-    this.sidebar = document.getElementById("_sidebar");
+    this.sidebar = document.getElementById('_sidebar');
     this.fadeDuration = fadeDuration;
     this.rules = styleSheet.cssRules || styleSheet.rules;
     this.prevHash = pseudoHash(elemDataset(main));
@@ -50,21 +48,21 @@ export class CrossFader {
   }
 
   fetchImage2({ background, image }) {
-    if (background || !image || image === "" || image === "none") {
+    if (background || !image || image === '' || image === 'none') {
       return of(null);
     }
 
     const url = new URL(image, window.location);
 
     return ajax({
-      method: "GET",
-      responseType: "blob",
+      method: 'GET',
+      responseType: 'blob',
       url,
       crossDomain: isExternal(url),
-      headers: { Accept: "image/*" }
+      headers: { Accept: 'image/*' },
     }).pipe(
       map(({ response }) => URL.createObjectURL(response)),
-      catchError(() => of(image))
+      catchError(() => of(image)),
     );
   }
 
@@ -78,12 +76,12 @@ export class CrossFader {
 
     return this.fetchImage2(dataset).pipe(
       map(objectURL => {
-        const div = document.createElement("div");
-        div.classList.add("sidebar-bg");
+        const div = document.createElement('div');
+        div.classList.add('sidebar-bg');
 
         // Set overlay
-        if (image !== "none" && overlay === "") {
-          div.classList.add("sidebar-overlay");
+        if (image !== 'none' && overlay === '') {
+          div.classList.add('sidebar-overlay');
         }
 
         // Set background
@@ -98,11 +96,11 @@ export class CrossFader {
         }
 
         return [div, dataset, hash];
-      })
+      }),
     );
   }
 
-  updateStyle({ color = "#4fb1ba", themeColor = "#193747" } = {}) {
+  updateStyle({ color = '#4fb1ba', themeColor = '#193747' } = {}) {
     if (this.themeColorEl) {
       window.setTimeout(() => (this.themeColorEl.content = themeColor), 250);
     }
@@ -143,6 +141,14 @@ export class CrossFader {
         this.rules[7].style.backgroundColor = active;
         this.rules[7].style.borderColor = active;
 
+        // // body.dark-mode
+        // this.rules[8].cssRules[0].style.setProperty('--body-bg', bodyBg);
+        // this.rules[8].cssRules[0].style.setProperty('--border-color', borderColor);
+
+        // // (prefers-color-scheme: dark)
+        // this.rules[9].cssRules[0].style.setProperty('--body-bg', bodyBg);
+        // this.rules[9].cssRules[0].style.setProperty('--border-color', borderColor);
+
         // ::selection or ::-moz-selection (assuming it is last in the list)
         this.rules[this.rules.length - 1].style.backgroundColor = color;
       } catch (e) {
@@ -161,12 +167,12 @@ export class CrossFader {
 
     return animate(div, [{ opacity: 0 }, { opacity: 1 }], {
       duration: this.fadeDuration,
-      easing: "ease"
+      easing: 'ease',
     }).pipe(
       finalize(() => {
         if (prevDiv.objectURL) URL.revokeObjectURL(prevDiv.objectURL);
         prevDiv.parentNode.removeChild(prevDiv);
-      })
+      }),
     );
   }
 }

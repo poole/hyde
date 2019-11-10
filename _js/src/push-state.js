@@ -24,13 +24,9 @@
 // We include our main component, hy-push-state,
 // in both the vanilla JS and the WebComponent version (will decide later which one to use).
 // Since they share most of their code, it's not a big deal in terms of file size.
-import {
-  HyPushStateElement,
-  WEBCOMPONENT_FEATURE_TESTS,
-  Set
-} from "hy-push-state/src/webcomponent";
+import { HyPushStateElement, WEBCOMPONENT_FEATURE_TESTS, Set } from 'hy-push-state/src/webcomponent';
 
-import { fromEvent, merge, timer, zip } from "rxjs";
+import { fromEvent, merge, timer, zip } from 'rxjs';
 import {
   tap,
   exhaustMap,
@@ -42,41 +38,34 @@ import {
   startWith,
   switchMap,
   take,
-  takeUntil
-} from "rxjs/operators";
+  takeUntil,
+} from 'rxjs/operators';
 
 // Some of our own helper functions and classes.
-import {
-  animate,
-  empty,
-  hasFeatures,
-  isFirefoxIOS,
-  importTemplate,
-  webComponentsReady
-} from "./common";
-import { CrossFader } from "./cross-fader";
-import { upgradeMathBlocks } from "./katex";
-import { setupFLIP } from "./flip";
+import { animate, empty, hasFeatures, isFirefoxIOS, importTemplate, webComponentsReady } from './common';
+import { CrossFader } from './cross-fader';
+import { upgradeMathBlocks } from './katex';
+import { setupFLIP } from './flip';
 
 // ## Constants
 // A list of Modernizr feature tests that are required for the push state feature to work.
 const REQUIREMENTS = new Set([
   ...WEBCOMPONENT_FEATURE_TESTS,
-  "classlist",
-  "cssanimations",
-  "cssremunit",
-  "documentfragment",
-  "eventlistener",
-  "history",
-  "matchmedia",
-  "opacity",
-  "queryselector",
-  "requestanimationframe"
+  'classlist',
+  'cssanimations',
+  'cssremunit',
+  'documentfragment',
+  'eventlistener',
+  'history',
+  'matchmedia',
+  'opacity',
+  'queryselector',
+  'requestanimationframe',
 ]);
 
-const NAVBAR_SEL = "#_navbar > .content > .nav-btn-bar";
-const CANONICAL_SEL = "link[rel=canonical]";
-const META_DESC_SEL = "meta[name=description]";
+const NAVBAR_SEL = '#_navbar > .content > .nav-btn-bar';
+const CANONICAL_SEL = 'link[rel=canonical]';
+const META_DESC_SEL = 'meta[name=description]';
 const FN_SEL = "li[id^='fn:']";
 const FN_LINK_SEL = "a[href^='#fn:']";
 const HORIZONTAL_SCROLL_SEL = 'pre, table:not(.highlight), .katex-display, .break-layout';
@@ -91,45 +80,42 @@ const FADE_DURATION = 2000;
 const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
 
 // Details of the fade-in animation.
-const FADE_IN = [
-  { opacity: 0, transform: "translateY(-3rem)" },
-  { opacity: 1, transform: "translateY(0)" }
-];
+const FADE_IN = [{ opacity: 0, transform: 'translateY(-3rem)' }, { opacity: 1, transform: 'translateY(0)' }];
 
 // Settings as passed to the WebAnimations API.
 const SETTINGS = {
   duration: DURATION,
-  easing: "ease-out",
-  fill: "forwards"
+  easing: 'ease-out',
+  fill: 'forwards',
 };
 
 // A CSS selector for headlines with ids.
-const HEADING_SELECTOR = "h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]";
+const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
 // ## Functions
 // Takes a heading and adds a "#" link for permalinks:
 function upgradeHeading(h) {
-  const df = importTemplate("_permalink-template");
-  const a = df.querySelector(".permalink");
+  const df = importTemplate('_permalink-template');
+  const a = df.querySelector('.permalink');
   requestAnimationFrame(() => ((a.href = `#${h.id}`), h.appendChild(df)));
 }
 
 // Set up the DOM elements:
 function setupAnimationMain(pushStateEl) {
-  const animationMain = importTemplate("_animation-template");
+  const animationMain = importTemplate('_animation-template');
   pushStateEl.parentNode.insertBefore(animationMain, pushStateEl);
   return pushStateEl.previousElementSibling;
 }
 
 function setupLoading(navbarEl) {
-  const loading = importTemplate("_loading-template");
+  const loading = importTemplate('_loading-template');
   navbarEl.appendChild(loading);
   return navbarEl.lastElementChild;
 }
 
 function setupErrorPage(main, { pathname }) {
-  const error = importTemplate("_error-template");
-  const anchor = error.querySelector(".this-link");
+  const error = importTemplate('_error-template');
+  const anchor = error.querySelector('.this-link');
   if (anchor) {
     anchor.href = pathname;
     anchor.textContent = pathname;
@@ -140,7 +126,7 @@ function setupErrorPage(main, { pathname }) {
 
 function setupButton(parent, templateId, clickFn) {
   const button = importTemplate(templateId);
-  button.querySelector(".nav-btn").addEventListener("click", clickFn);
+  button.querySelector('.nav-btn').addEventListener('click', clickFn);
   parent.appendChild(button);
   return parent.lastElementChild;
 }
@@ -148,9 +134,9 @@ function setupButton(parent, templateId, clickFn) {
 // Get the FLIP type (currently 'title' or 'project') from an element.
 function getFlipType(el) {
   if (!el || !el.classList) return null;
-  if (el.classList.contains("flip-title")) return "title";
-  if (el.classList.contains("flip-project")) return "project";
-  return el.getAttribute && el.getAttribute("data-flip");
+  if (el.classList.contains('flip-title')) return 'title';
+  if (el.classList.contains('flip-project')) return 'project';
+  return el.getAttribute && el.getAttribute('data-flip');
 }
 
 function animateFadeOut({ type, main }) {
@@ -158,11 +144,7 @@ function animateFadeOut({ type, main }) {
 
   if (window._drawer && window._drawer.opened) {
     window._drawer.close();
-    return zip(
-      anim$,
-      fromEvent(window._drawer.el, "hy-drawer-transitioned").pipe(take(1)),
-      x => x
-    );
+    return zip(anim$, fromEvent(window._drawer.el, 'hy-drawer-transitioned').pipe(take(1)), x => x);
   }
 
   return anim$;
@@ -175,7 +157,7 @@ function animateFadeIn({ type, replaceEls: [main], flipType }) {
 // Before we register the WebComponent with the DOM, we set essential properties,
 // some of which depend on browser, standalone mode, etc...
 function defineWebComponent(pushStateEl) {
-  window.customElements.define("hy-push-state", HyPushStateElement);
+  window.customElements.define('hy-push-state', HyPushStateElement);
   return pushStateEl;
 }
 
@@ -186,11 +168,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
   webComponentsReady.then(() => {
     // ### Setup
     // We save some variables and setup the DOM:
-    const isStandalone =
-      !!navigator.standalone ||
-      window.matchMedia("(display-mode: standalone)").matches;
+    const isStandalone = !!navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
-    const pushStateEl = document.getElementsByTagName("hy-push-state")[0];
+    const pushStateEl = document.getElementsByTagName('hy-push-state')[0];
     const navbarEl = document.querySelector(NAVBAR_SEL);
     const canonicalEl = document.querySelector(CANONICAL_SEL);
     const metaDescEl = document.querySelector(META_DESC_SEL);
@@ -199,40 +179,36 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     const loading = setupLoading(navbarEl);
 
     if (isStandalone) {
-      setupButton(navbarEl, "_back-template", () => window.history.back());
-      setupButton(navbarEl, "_forward-template", () =>
-        window.history.forward()
-      );
+      setupButton(navbarEl, '_back-template', () => window.history.back());
+      setupButton(navbarEl, '_forward-template', () => window.history.forward());
     }
 
     // Setting up the basic event observables.
     // In case of a start event we also add the `flipType` to the context,
     // so that we can use filter based on it later.
-    const start$ = fromEvent(pushStateEl, "hy-push-state-start").pipe(
-      map(({ detail }) =>
-        Object.assign(detail, { flipType: getFlipType(detail.anchor) })
-      ),
-      share()
+    const start$ = fromEvent(pushStateEl, 'hy-push-state-start').pipe(
+      map(({ detail }) => Object.assign(detail, { flipType: getFlipType(detail.anchor) })),
+      share(),
     );
 
-    const ready$ = fromEvent(pushStateEl, "hy-push-state-ready").pipe(
+    const ready$ = fromEvent(pushStateEl, 'hy-push-state-ready').pipe(
       map(({ detail }) => detail),
-      share()
+      share(),
     );
 
-    const after$ = fromEvent(pushStateEl, "hy-push-state-after").pipe(
+    const after$ = fromEvent(pushStateEl, 'hy-push-state-after').pipe(
       map(({ detail }) => detail),
-      share()
+      share(),
     );
 
-    const progress$ = fromEvent(pushStateEl, "hy-push-state-progress").pipe(
+    const progress$ = fromEvent(pushStateEl, 'hy-push-state-progress').pipe(
       map(({ detail }) => detail),
-      share()
+      share(),
     );
 
-    const error$ = fromEvent(pushStateEl, "hy-push-state-networkerror").pipe(
+    const error$ = fromEvent(pushStateEl, 'hy-push-state-networkerror').pipe(
       map(({ detail }) => detail),
-      share()
+      share(),
     );
 
     // ### Fade main content out
@@ -240,11 +216,9 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // First we get a hold fo the current content.
     // TODO: Change hy-push-state to provide this as part of the event?
     const fadeOut$ = start$.pipe(
-      map(context =>
-        Object.assign(context, { main: document.getElementById("_main") })
-      ),
+      map(context => Object.assign(context, { main: document.getElementById('_main') })),
 
-      tap(({ main }) => (main.style.pointerEvents = "none")),
+      tap(({ main }) => (main.style.pointerEvents = 'none')),
 
       // We don't want new animations to cancel the one currently in progress, so we use `exhaustMap`.
       // If we don't animate (i.e. `popstate` event in Safari) we just return `main`.
@@ -252,33 +226,27 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
 
       // After the animation is complete, we empty the current content and scroll to the top.
       tap(({ main }) => empty.call(main)),
-      share()
+      share(),
     );
 
     // ### Show loading spinner
     // Show loading spinner --- but only when fetching takes longer than `DURATION`.
-    progress$.subscribe(() => (loading.style.display = "block"));
+    progress$.subscribe(() => (loading.style.display = 'block'));
 
     // ### Prepare showing the new content
     // The `ready` event occurs when we've received the content from the server
     // and it is parsed as a document fragment, but before we add it to the DOM.
     // This is were we can make some changes to the content without triggering repaints.
-    ready$
-      .pipe(startWith({ replaceEls: [document.getElementById("_main")] }))
-      .subscribe(({ replaceEls: [main] }) => {
-        main.classList.remove("fade-in");
+    ready$.pipe(startWith({ replaceEls: [document.getElementById('_main')] })).subscribe(({ replaceEls: [main] }) => {
+      main.classList.remove('fade-in');
 
-        // FIXME: does `requestAnimationFrame` make sense here?
-        requestAnimationFrame(() => (loading.style.display = "none"));
+      // FIXME: does `requestAnimationFrame` make sense here?
+      requestAnimationFrame(() => (loading.style.display = 'none'));
 
-        // FIXME: put on idlecallback scheduler?
-        requestIdleCallback(() =>
-          Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(
-            upgradeHeading
-          )
-        );
+      // FIXME: put on idlecallback scheduler?
+      requestIdleCallback(() => Array.from(main.querySelectorAll(HEADING_SELECTOR)).forEach(upgradeHeading));
 
-        /*
+      /*
         requestIdleCallback(() => {
           Array.from(main.querySelectorAll(pushStateEl.linkSelector)).forEach(anchor => {
             caches.match(anchor.href).then(m => {
@@ -287,14 +255,14 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
           });
         });
         */
-      });
+    });
 
     after$
       .pipe(
         startWith({
-          replaceEls: [document.getElementById("_main")],
-          documentFragment: document
-        })
+          replaceEls: [document.getElementById('_main')],
+          documentFragment: document,
+        }),
       )
       .subscribe(({ replaceEls: [main], documentFragment }) => {
         const cEl = documentFragment.querySelector(CANONICAL_SEL);
@@ -303,18 +271,14 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
         const mEl = documentFragment.querySelector(META_DESC_SEL);
         if (metaDescEl && mEl) metaDescEl.content = mEl.content;
 
-        Array.from(main.querySelectorAll(FN_SEL)).forEach(
-          li => (li.tabIndex = 0)
-        );
+        Array.from(main.querySelectorAll(FN_SEL)).forEach(li => (li.tabIndex = 0));
 
         Array.from(main.querySelectorAll(FN_LINK_SEL)).forEach(a =>
-          a.addEventListener("click", e =>
-            document.getElementById(e.currentTarget.hash.substr(1)).focus()
-          )
+          a.addEventListener('click', e => document.getElementById(e.currentTarget.hash.substr(1)).focus()),
         );
 
-        Array.from(main.querySelectorAll(HORIZONTAL_SCROLL_SEL)).forEach(el => 
-          el.addEventListener('touchstart', e => el.scrollLeft > 0 && e.stopPropagation(), { passive: false })
+        Array.from(main.querySelectorAll(HORIZONTAL_SCROLL_SEL)).forEach(el =>
+          el.addEventListener('touchstart', e => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
         );
       });
 
@@ -322,7 +286,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // `after` new content is added to the DOM, start animating it.
     const fadeIn$ = after$.pipe(
       switchMap(animateFadeIn),
-      share()
+      share(),
     );
 
     // In addition to fading the main content out,
@@ -331,7 +295,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     // work when an error occurs.
     const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
       animationMain,
-      settings: SETTINGS
+      settings: SETTINGS,
     }).pipe(share());
 
     start$
@@ -340,7 +304,7 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
           const promise = zip(timer(DURATION), fadeOut$, flip$).toPromise();
           context.transitionUntil(promise);
           return promise;
-        })
+        }),
       )
       .subscribe();
 
@@ -363,18 +327,16 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     after$
       .pipe(
         switchMap(({ replaceEls: [main] }) =>
-          zip(crossFader.fetchImage(main), fadeIn$, x => x).pipe(
-            takeUntil(start$)
-          )
+          zip(crossFader.fetchImage(main), fadeIn$, x => x).pipe(takeUntil(start$)),
         ),
 
         // Once we have both images, we take them `pairwise` and cross-fade.
         // We start with the initial sidebar image, which was part of HTML content.
         // Here we use `mergeMap`, because in edge cases there could be 3 or more images
         // being faded at the same time, but there is no reason to cancel the old ones.
-        startWith([document.querySelector(".sidebar-bg")]),
+        startWith([document.querySelector('.sidebar-bg')]),
         pairwise(),
-        mergeMap(([prev, curr]) => crossFader.fade(prev, curr))
+        mergeMap(([prev, curr]) => crossFader.fade(prev, curr)),
       )
       .subscribe();
 
@@ -389,17 +351,17 @@ if (!window._noPushState && hasFeatures(REQUIREMENTS) && !isFirefoxIOS) {
     error$
       .pipe(
         switchMap(({ url }) => {
-          loading.style.display = "none";
+          loading.style.display = 'none';
 
-          const main = document.getElementById("_main");
-          main.style.pointerEvents = "";
-          empty.call(animationMain.querySelector(".page"));
+          const main = document.getElementById('_main');
+          main.style.pointerEvents = '';
+          empty.call(animationMain.querySelector('.page'));
           empty.call(main);
 
           setupErrorPage(main, url);
 
           return animate(main, FADE_IN, SETTINGS);
-        })
+        }),
       )
       .subscribe();
 

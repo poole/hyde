@@ -36,3 +36,9 @@ hr.dingbat::after {
   color: var(--menu-text);
 }
 
+@media print {
+  .page {
+    margin-bottom: 0
+  }
+}
+

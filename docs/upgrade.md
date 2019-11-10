@@ -21,7 +21,7 @@ especially the part about the [license change](../CHANGELOG.md#license-change)!
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: hydecorp/hydejack@v8.5.2
+remote_theme: hydecorp/hydejack@v8.6.0
 ```
 
 To use the latest version on the `v8` branch on each build, you can use  `hydecorp/hydejack@v8`.
