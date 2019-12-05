@@ -133,7 +133,7 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
   // HACK: replace with something more robust. do we even need this?
   const cssLoaded = new Promise(function checkCSS(res, rej, retries = 0) {
     if (getComputedStyle(drawerEl).getPropertyValue('--hy-drawer-width')) res();
-    else if (retires > 3) rej();
+    else if (retries >= 3) rej();
     else setTimeout(() => checkCSS(res, rej, retries + 1), 300);
   });
 
