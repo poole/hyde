@@ -2,18 +2,18 @@
   {% assign srcset = null %}
 
   {% if include.img.srcset %}
-    {% capture srcset %}{% for hash in include.img.srcset %}{% assign tmp = hash[1] %}{% include smart-url.txt url=tmp %} {{ hash[0] }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
+    {% capture srcset %}{% for hash in include.img.srcset %}{% assign tmp = hash[1] %}{% include smart-url url=tmp %} {{ hash[0] }}{% unless forloop.last %},{% endunless %}{% endfor %}{% endcapture %}
   {% endif %}
 
   {% assign src = include.img.src | default:include.img.path %}
   {% capture sources %}
-    src="{% include smart-url.txt url=src %}"
+    src="{% include smart-url url=src %}"
     {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
     {% if include.sizes %}sizes="{{ include.sizes }}"{% endif %}
   {% endcapture %}
 {% else %}
   {% capture sources %}
-    src="{% include smart-url.txt url=include.img %}"
+    src="{% include smart-url url=include.img %}"
   {% endcapture %}
 {% endif %}
 
