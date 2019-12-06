@@ -1,4 +1,4 @@
-{% assign post = include.post %}
+{% assign post = page %}
 
 {% if page.related_posts %}
   {% assign related_posts = site.posts | where_exp:"post", "page.related_posts contains post.path" %}
