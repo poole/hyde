@@ -75,7 +75,7 @@ const babelPresetModern = {
 const sharedConfig = {
   entry: resolve("./_js/src/entry.js"),
   output: {
-    path: mode === 'development' ? resolve("./_site/assets/js") : resolve("./assets/js"),
+    path: resolve("./assets/js"),
     publicPath: ASSET_PATH,
   },
   resolve: {
