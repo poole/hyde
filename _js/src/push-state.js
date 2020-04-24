@@ -32,21 +32,17 @@ import { CrossFader } from './cross-fader';
 import { setupFLIP } from './flip';
 
 (async () => {
-  if ('prepend' in Element.prototype) {
-  } else {
-    await import(/* webpackChunkName: "dom4" */ './polyfills/dom4');
-  }
   await Promise.all([
+    ...('fetch' in window ? [] : [import(/* webpackChunkName: "fetch" */ './polyfills/fetch')]),
     ...('customElements' in window
       ? []
       : [import(/* webpackChunkName: "webcomponents" */ './polyfills/webcomponents')]),
-    ...('fetch' in window ? [] : [import(/* webpackChunkName: "fetch" */ './polyfills/fetch')]),
     ...('animate' in Element.prototype
       ? []
-      : [import(/* webpackChunkName: "webanimations" */ './polyfills/webanimations')]),
+      : [import(/* webpackChunkName: "webanimations" */ 'web-animations-js')]),
     ...('IntersectionObserver' in window
       ? []
-      : [import(/* webpackChunkName: "intersection-observer" */ './polyfills/intersection-observer')]),
+      : [import(/* webpackChunkName: "intersection-observer" */ 'intersection-observer')]),
     ...('scrollBehavior' in document.body.style
       ? []
       : [import(/* webpackChunkName: "smoothscroll" */ './polyfills/smoothscroll')]),

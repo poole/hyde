@@ -16,11 +16,9 @@
 import { fromEvent } from 'rxjs';
 import { map, filter, pairwise, merge, mapTo, tap } from 'rxjs/operators';
 
-import { hasCSSOM, getScrollTop, webComponentsReady } from './common';
+import { hasCSSOM, getScrollTop } from './common';
 
 (async () => {
-  await webComponentsReady;
-
   const navbarEl = document.getElementById('_navbar');
   const height = navbarEl.clientHeight;
 

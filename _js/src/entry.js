@@ -19,14 +19,12 @@ import '../lib/version';
 import '../lib/modernizr-custom';
 import { hasFeatures } from './common';
 
-const BASELINE = ['classlist', 'eventlistener', 'queryselector'];
-
-const DARK_MODE_FEATURES = [...BASELINE, 'customproperties'];
-
-const DRAWER_FEATURES = [...BASELINE, 'cssremunit', 'customproperties', 'history', 'matchmedia', 'opacity'];
-
+const BASELINE = ['classlist', 'eventlistener', 'queryselector', 'template'];
+const DARK_MODE_FEATURES = [...BASELINE, 'template', 'customproperties'];
+const DRAWER_FEATURES = [...BASELINE, 'template', 'cssremunit', 'customproperties', 'history', 'matchmedia', 'opacity'];
 const PUSH_STATE_FEATURES = [
   ...BASELINE,
+  'template',
   'cssanimations',
   'cssremunit',
   'documentfragment',
@@ -38,10 +36,10 @@ const PUSH_STATE_FEATURES = [
 if (hasFeatures(BASELINE)) {
   import(/* webpackMode: "eager" */ './katex');
   import(/* webpackMode: "eager" */ './navbar');
-  // import(/* webpackMode: "eager" */ './pro/cookies-banner');
 }
 
 // if (hasFeatures(DARK_MODE_FEATURES)) {
+//   import(/* webpackMode: "eager" */ './pro/cookies-banner');
 //   import(/* webpackMode: "eager" */ './pro/dark-mode');
 // }
 
