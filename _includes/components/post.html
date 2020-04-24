@@ -5,7 +5,7 @@
 
 <article id="post{{ post.id | replace:'/','-' }}" class="page post mb6" role="article">
   <header>
-    <h1 class="post-title">
+    <h1 class="post-title flip-project-title">
       {% unless no_link_title %}<a href="{{ post.url | relative_url }}" class="flip-title">{% endunless %}
         {{ post.title }}
       {% unless no_link_title %}</a>{% endunless %}
@@ -24,9 +24,11 @@
 
     {% assign alt = false %}
     {% unless hide_image %}{% if post.image %}
-      <div class="lead aspect-ratio sixteen-nine">
-        {% include components/hy-img.html img=post.image alt=post.title width=864 height=486 %}
-      </div>
+      {% unless no_link_title %}<a href="{{ post.url | relative_url }}" class="no-hover no-print-link {% unless post.hide_image %}flip-project{% endunless %}">{% endunless %}
+        <div class="lead aspect-ratio sixteen-nine flip-project-img">
+          {% include components/hy-img.html img=post.image alt=post.title width=864 height=486 %}
+        </div>
+      {% unless no_link_title %}</a>{% endunless %}
       {% assign alt = '' %}
     {% endif %}{% endunless %}
 
