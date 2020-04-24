@@ -11,12 +11,12 @@ November 10 2019
 * Updated to Jekyll 4.0!
 * Improved font rendering in dark mode for macOS
 
-## Added
+### Added
 * Added `font_code` setting to the config file
 * Added `no_katex` option to config file
 * Added an `offline.html` page and layout that will be returned by the service worker when offline
 
-## Fixes
+### Fixes
 * Scrolling on a code snippet, math block, or scroll table will no longer extend the drawer
 * Fixed an issue that sometimes broke the projects and list layout under Jekyll 4
 * Fixed a bug that caused the resume layout to sometimes add an empty page when printing

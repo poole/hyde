@@ -20,7 +20,7 @@ author1:
     | [PRO Features][pro]    |                | &#x2714;  | &#x2714;  |
     | [Troubleshooting]      |                |           | 1 hour    |
     | **Price**              | **Free**       | **$69**   | **$169**  |
-    || [**Download**][kit] <br/>-- or --<br/> [![Deploy to Netlify][dtn]][nfy] | [**Buy PRO**][buy]{:.btn.btn-primary.btn-lg.heading} | [**Buy PRO+**][buyp]{:.btn.btn-primary.btn-lg.heading} |
+    | | [**Download**][kit] <br/>-- or --<br/> [**Deploy to Netlify**][nfy] | [**Buy PRO**][buy]{:.btn.btn-primary.btn-lg.heading} | [**Buy PRO+**][buy]{:.btn.btn-primary.btn-lg.heading} |
     {:.stretch-table.dl-table}
 
     [features]:        /#features

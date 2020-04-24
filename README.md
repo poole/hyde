@@ -89,7 +89,6 @@ They say math is beautiful — and with **Hydejack**'s [math support][latex] it'
 Hydejack uses KaTeX to efficiently render math.
 
 
-
 ## Build an Audience
 The PRO version has built-in support for customizable [Tinyletter] newsletter subscription boxes.
 
