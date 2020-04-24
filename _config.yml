@@ -160,10 +160,10 @@ defaults:
 
 hydejack:
   # Configure the order of complementary content on blog posts
-  post_addons:         [about, newsletter, related, random]
+  post_addons:         [about, newsletter, related, random, comments]
 
   # Configure the order of complementary content on project pages
-  project_addons:      [about, newsletter, other]
+  project_addons:      [about, newsletter, other, comments]
 
   # If you do not use Google Fonts, set to `true`.
   no_google_fonts:     false

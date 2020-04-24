@@ -28,7 +28,9 @@ layout: base
   {% when 'about' %}
      {% include components/about.html %}
   {% when 'related' %}
-    {% include if-non-null try="components/related-posts.html" %}
+    {% include try="components/related-posts.html" %}
+  {% when 'comments' %}
+    {% include body/comments.html %}
   {% else %}
   {% endcase %}
 {% endfor %}
