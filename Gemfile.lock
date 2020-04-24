@@ -55,6 +55,9 @@ GEM
       execjs (~> 2.7)
     kramdown (2.2.1)
       rexml
+    kramdown-math-katex (1.0.1)
+      katex (~> 0.4)
+      kramdown (~> 2.0)
     kramdown-parser-gfm (1.1.0)
       kramdown (~> 2.0)
     liquid (4.0.3)
@@ -91,6 +94,7 @@ DEPENDENCIES
   jekyll-seo-tag
   jekyll-sitemap
   jekyll-titles-from-headings
+  kramdown-math-katex
   tzinfo-data
 
 BUNDLED WITH

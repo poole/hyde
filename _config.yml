@@ -277,7 +277,6 @@ include:
 # ========================================================================================
 
 plugins:
-  # - jekyll-default-layout
   - jekyll-feed
   - jekyll-optional-front-matter
   - jekyll-paginate
@@ -343,10 +342,8 @@ titles_from_headings:
   
 kramdown:
   footnote_backlink:   '&#x21a9;&#xfe0e;'
-  math_engine:         mathjax
-  math_engine_opts:
-    preview:           true
-    preview_as_code:   true
+  math_engine:         katex
+  math_engine_opts:    {}
 
 compress_html:
   comments:            ["<!-- ", " -->"]
