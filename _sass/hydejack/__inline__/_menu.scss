@@ -84,19 +84,33 @@
 
 .nav-btn-bar {
   @extend .color-transition;
-  margin: 0 -1rem 0 -1rem;
+  margin: 0 -1rem;
   background-color: white; // IE11
   background-color: var(--body-bg);
+  height: 5.2rem;
+
+  > :first-child, > :last-child {
+    border: none!important;
+  }
 }
 
 .nav-btn {
-  display: inline-block;
+  @extend .color-transition;
+  display: block;
+  float: left;
   background: none;
   border: none;
   text-decoration: none;
-  padding: 1.75rem 1rem;
+  padding: 1.75rem 1.15rem;
   color: var(--menu-text)!important;
+  border-right: 1px solid var(--border-color)!important;
+  border-left: 1px solid var(--border-color)!important;
+  margin-left: -1px;
   cursor: pointer;
+
+  &.fr {
+    float: right;
+  }
 }
 
 .animation-main {
