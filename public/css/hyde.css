@@ -80,7 +80,7 @@ html {
   color: #fff;
   margin-top: 0;
   font-family: "Abril Fatface", serif;
-  font-size: 3.25rem;
+  font-size: 2.25rem;
 }
 
 /* Sidebar nav */
@@ -88,9 +88,16 @@ html {
   margin-bottom: 1rem;
 }
 .sidebar-nav-item {
-  display: block;
   line-height: 1.75;
+  margin-left: 15px;
 }
+
+@media (min-width: 48em) {
+  .sidebar-nav-item {
+    display: block;
+  }
+}
+
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: underline;
@@ -98,6 +105,7 @@ a.sidebar-nav-item:focus {
 .sidebar-nav-item.active {
   font-weight: bold;
 }
+
 
 /* Sticky sidebar
  *
@@ -149,7 +157,7 @@ a.sidebar-nav-item:focus {
  */
 
 @media (min-width: 48em) {
-  .layout-reverse .sidebar {
+  . layout-reverse .sidebar {
     left: auto;
     right: 0;
   }
