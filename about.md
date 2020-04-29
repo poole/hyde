@@ -3,28 +3,17 @@ layout: page
 title: About
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+I created the website to help you on your coding journey. You will be able to create websites immediately after learning HTML.
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+It focused on beginners, and anyone who only want to create something useful but is not ready to learn lots of languages while starting out.
 
-There are currently two themes built on Poole:
+I also created this website so that I can document my journey in Web development. When I started to explore the tech world, I did not find a lot of content to help me. I am confident that you will find insightful and useful as you explore the tech world.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+It is my hope that I can explain things with the beginners mindset that will help you if you are just one step behind me.
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+## Author
+Hi there. I am Avic Ndugu. I am a tech and science enthusiast. I love building things and web development provides an opportunity to do that.
 
-## Setup
+You can connect with me on Twitter or Medium or LinkedIn.
 
-Some fun facts about the setup of this project include:
-
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
-
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
-
-Thanks for reading!
+I am also an Elementary school teacher in Kenya.
