@@ -1,0 +1,11 @@
+docs_list_title: ACME Documentation
+docs:
+
+- title: Home
+  url: /
+
+- title: Blog
+  url: /blog/
+
+- title: Projects
+  url: /projects
