@@ -13,8 +13,7 @@
     <nav class="sidebar-nav">
       <ul>
          {% for item in site.data.navlinks.docs %}
-              <a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ item.title }}</a>
-              <a class="sidebar-nav-item" href="{{ item.url }}">{{ item.title }}</a>
+              <a class="sidebar-nav-item{% if page.url == item.url %} active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
          {% endfor %}
       </ul>
     </nav>

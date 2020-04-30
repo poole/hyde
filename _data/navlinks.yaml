@@ -4,8 +4,14 @@ docs:
 - title: Home
   url: /
 
-- title: Blog
-  url: /blog/
+- title: HTML Tutorial
+  url: /practice-html/
 
 - title: Projects
   url: /projects
+
+- title: Blog
+  url: /blog/
+
+- title: About
+  url: /about

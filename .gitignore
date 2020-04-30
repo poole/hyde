@@ -41,3 +41,4 @@ validation-report.json
 node_modules
 
 _site
+.jekyll-cache/

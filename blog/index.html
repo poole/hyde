@@ -17,12 +17,9 @@ layout: default
 
     <span class="post-date">{{ post.date | date_to_string }}</span>
     {{ post.content | split:"<!-- more -->" | first | strip_html | truncate:300 }}
-    {% if post.content | size > 300 %}
         <a href="{{ post.url }}">
           <strong>Read more</strong>
         </a>
-    {% endif %}
-
   </div>
   {% endfor %}
 </div>
@@ -33,7 +30,7 @@ layout: default
 
 <div class="pagination">
   {% if paginator.next_page %}
-    <a class="pagination-item older" href="{{ site.baseurl }}page{{paginator.next_page}}">Older</a>
+    <a class="pagination-item older" href="{{ site.baseurl }}blog/page{{paginator.next_page}}">Older</a>
   {% else %}
     <span class="pagination-item older">Older</span>
   {% endif %}
