@@ -7,16 +7,6 @@ layout: page
 guid: https://learn.avicndugu.com/?page_id=586
 permalink: /html-projects-youtube-page/
 ---
-<div id="sidebar" class="sidebar">
-  <header id="masthead" class="site-header" role="banner"> 
-  
-  <div class="site-branding">
-    <h2>
-      <span style="font-size: 29px;">Stats</span>
-    </h2>
-  </div></header>
-</div>
-
 <div id="content" class="site-content">
   <div id="primary" class="content-area">
     <article id="post-583" class="post-583 page type-page status-publish hentry"> 
