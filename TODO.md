@@ -9,3 +9,5 @@
 - [ ] Update to new scaffolding
 - [ ] Update docs (new install)
 - [ ] Gallery view
+- [ ] Table of Contents
+- [ ] Fix sidebar / back button
