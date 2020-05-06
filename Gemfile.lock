@@ -9,8 +9,10 @@ GEM
       eventmachine (>= 0.12.9)
       http_parser.rb (~> 0.6.0)
     eventmachine (1.2.7)
+    eventmachine (1.2.7-x64-mingw32)
     execjs (2.7.0)
     ffi (1.12.2)
+    ffi (1.12.2-x64-mingw32)
     forwardable-extended (2.6.0)
     http_parser.rb (0.6.0)
     i18n (1.8.2)
@@ -70,7 +72,7 @@ GEM
     pathutil (0.16.2)
       forwardable-extended (~> 2.6)
     public_suffix (4.0.4)
-    rb-fsevent (0.10.3)
+    rb-fsevent (0.10.4)
     rb-inotify (0.10.1)
       ffi (~> 1.0)
     rexml (3.2.4)
@@ -78,12 +80,20 @@ GEM
     safe_yaml (1.0.5)
     sassc (2.3.0)
       ffi (~> 1.9)
+    sassc (2.3.0-x64-mingw32)
+      ffi (~> 1.9)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
+    tzinfo (2.0.2)
+      concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2020.1)
+      tzinfo (>= 1.0.0)
     unicode-display_width (1.7.0)
+    wdm (0.1.1)
 
 PLATFORMS
   ruby
+  x64-mingw32
 
 DEPENDENCIES
   jekyll (~> 4.0)
@@ -99,6 +109,7 @@ DEPENDENCIES
   jekyll-titles-from-headings
   kramdown-math-katex
   tzinfo-data
+  wdm
 
 BUNDLED WITH
-   2.0.1
+   2.1.4

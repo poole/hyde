@@ -10,13 +10,23 @@ source "https://rubygems.org"
 # Happy Jekylling!
 gem "jekyll", "~> 4.0"
 
+# IMPORTANT: The followign gem is used to compile math formulas to 
+# KaTeX during site building.
+#
+# There are a couple of things to know about this gem:
+# *  It is not supported on GitHub Pages. 
+#    You have to build the site on your machine before uploading to GitHub,
+#    or use a more permissive cloud building tool such as Netlify.
+# *  You need some kind of JavaScript runtime on your machine.
+#    Usually installing NodeJS will suffice. 
+#    For details, see <https://github.com/kramdown/math-katex#documentation>
+#
+# Sadly, the old MathJax-to-KaTeX hack I've been using in previous
+# versions of Hydejack doesn't seem to work with Jekyll 4.0 anymore.
+
+# If you're not using math on your site feel free to remove the line below:
 gem "kramdown-math-katex"
 
-# If you want to use GitHub Pages, remove the "gem "jekyll"" above and
-# uncomment the line below. To upgrade, run `bundle update github-pages`.
-# gem "github-pages", group: :jekyll_plugins
-
-# If you have any plugins, put them here!
 group :jekyll_plugins do
   # gem "jekyll-default-layout"
   gem "jekyll-feed"
@@ -31,5 +41,6 @@ group :jekyll_plugins do
   gem "jekyll-replace-img"
 end
 
-# Windows does not include zoneinfo files, so bundle the tzinfo-data gem
-gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
+# TODO
+gem 'wdm' if Gem.win_platform?
+gem "tzinfo-data" if Gem.win_platform?
