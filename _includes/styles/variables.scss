@@ -1,4 +1,4 @@
-$font-family-heading: {{ site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" }};
-$font-family:         {{ site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif"   }};
-$code-font-family:    {{ site.font_code    | default:"Menlo, Monaco, Consolas, monospace"        }};
-$theme-color:         {{ site.theme_color  | default:'#193747'                                   }};
+$font-family-heading: {{ site.font_heading                     }};
+$font-family:         {{ site.font                             }};
+$code-font-family:    {{ site.font_code                        }};
+$theme-color:         {{ site.theme_color  | default:'#193747' }};
