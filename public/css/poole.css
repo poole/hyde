@@ -107,6 +107,8 @@ h4, h5, h6 {
 p {
   margin-top: 0;
   margin-bottom: 1rem;
+  /*color: #313131;*/
+
 }
 
 strong {
@@ -460,3 +462,33 @@ a.pagination-item:hover {
     border-bottom-right-radius: 4px;
   }
 }
+
+/*User added styles*/
+/*Style for card component*/
+.card {
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.4);
+  transition: 0.3s;
+  border-radius: 5px;
+  padding:20px;
+  width: 100%;
+  margin-bottom: 30px;
+}
+.card:hover {
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.4);
+}
+
+.card-row a {
+  text-decoration: none;
+  text-align: center;
+}
+.card-row p {
+  color: #151515;
+}
+
+/*.card-row a:hover {
+  text-decoration: none;
+}*/
+
+
+
+
