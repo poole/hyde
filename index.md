@@ -4,14 +4,14 @@ title: Home
 ---
 
 <div class="card-row">
-  <a href="html-css-tutorials">
+  <a href="practice-html">
     <div class="card">
       <h2>Learn HTML</h2>
       <p>Learn the basics of HTML using a simple practical project.</p>
-      <button style="margin-bottom: 10px;">HTML & CSS tutorials</button>
+      <button style="margin-bottom: 10px;">Basic HTML Tutorial</button>
     </div>
   </a>
-  <a href="html-css-tutorials">
+  <a href="html-project-wikipedia">
     <div class="card">
       <h2>Practice HTML</h2>
       <p>Practice HTML by creating your own project.</p>
@@ -22,7 +22,7 @@ title: Home
     <div class="card">
       <h2>Publish HTML Project</h2>
       <p>Publish your HTML project online and share it with the world.</p>
-      <button>Publish on Codepen</button>
+      <button style="margin-bottom: 10px;">Publish on Codepen</button>
       <button>Publish on Github</button>
     </div>
   </a>
@@ -33,7 +33,7 @@ title: Home
     <div class="card">
       <h2>Learn CSS</h2>
       <p>Learn the basics of CSS using a simple practical project.</p>
-      <button style="margin-bottom: 10px;">HTML & CSS tutorials</button>
+      <button>Basic CSS tutorial</button>
     </div>
     </a>
   <a href="html-css-tutorials">
@@ -47,7 +47,7 @@ title: Home
     <div class="card">
       <h2>Publish CSS Project</h2>
       <p>Publish your CSS project online and share it with the world.</p>
-      <button>Publish on Codepen</button>
+      <button style="margin-bottom: 10px;">Publish on Codepen</button>
       <button>Publish on Github</button>
     </div>
   </a>
