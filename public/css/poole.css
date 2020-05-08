@@ -484,6 +484,9 @@ a.pagination-item:hover {
 .card-row p {
   color: #151515;
 }
+.card button {
+  margin-right: 15px;
+}
 
 /*.card-row a:hover {
   text-decoration: none;
