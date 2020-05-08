@@ -3,67 +3,52 @@ layout: default
 title: Home
 ---
 
-<h2 style="text-align: center;">
-  Learn HTML & CSS
-</h2>
-
-<p style="text-align: center;">
-  Learn the basics of HTML.
-</p>
-
-<div class="wp-block-image">
-  <figure class="aligncenter"><img class="wp-image-163" src="https://learn.avicndugu.com/wp-content/uploads/2019/03/on-your-mark-150x150.png" alt="on your mark" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/03/on-your-mark-150x150.png 150w, https://learn.avicndugu.com/wp-content/uploads/2019/03/on-your-mark-300x300.png 300w, https://learn.avicndugu.com/wp-content/uploads/2019/03/on-your-mark.png 640w" sizes="(max-width: 150px) 100vw, 150px" /></figure> 
-  
-  <p>
-    &nbsp;
-  </p>
+<div class="card-row">
+  <a href="html-css-tutorials">
+    <div class="card">
+      <h2>Learn HTML</h2>
+      <p>Learn the basics of HTML using a simple practical project.</p>
+      <button style="margin-bottom: 10px;">HTML & CSS tutorials</button>
+    </div>
+  </a>
+  <a href="html-css-tutorials">
+    <div class="card">
+      <h2>Practice HTML</h2>
+      <p>Practice HTML by creating your own project.</p>
+      <button>HTML Practice Projects</button>
+    </div>
+  </a>
+  <a href="html-css-tutorials">
+    <div class="card">
+      <h2>Publish HTML Project</h2>
+      <p>Publish your HTML project online and share it with the world.</p>
+      <button>Publish on Codepen</button>
+      <button>Publish on Github</button>
+    </div>
+  </a>
 </div>
 
-<p style="text-align: center;">
-  <a href="html-css-tutorials"><button style="margin-bottom: 10px;">HTML & CSS tutorials</button></a> <a href="project-based-html-css-tutorials"><button>Project-based HTML & CSS tutorials</button></a>
-</p>
-
-<h2 style="text-align: center;">
-  <a href="https://learn.avicndugu.com/practice-html/">Practice HTML skill</a>
-</h2>
-
-<p style="text-align: center;">
-  Practice the skill that you are learning.
-</p>
-
-<div class="wp-block-image">
-  <figure class="aligncenter"><img class="wp-image-164" src="https://learn.avicndugu.com/wp-content/uploads/2019/03/go-150x150.png" alt="Go" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/03/go-150x150.png 150w, https://learn.avicndugu.com/wp-content/uploads/2019/03/go-300x300.png 300w, https://learn.avicndugu.com/wp-content/uploads/2019/03/go.png 640w" sizes="(max-width: 150px) 100vw, 150px" /></figure>
+<div class="card-row">
+  <a href="html-css-tutorials">
+    <div class="card">
+      <h2>Learn CSS</h2>
+      <p>Learn the basics of CSS using a simple practical project.</p>
+      <button style="margin-bottom: 10px;">HTML & CSS tutorials</button>
+    </div>
+    </a>
+  <a href="html-css-tutorials">
+    <div class="card">
+      <h2>Practice CSS</h2>
+      <p>Practice CSS by creating your own project.</p>
+      <button>CSS Practice Projects</button>
+    </div>
+  </a>
+  <a href="html-css-tutorials">
+    <div class="card">
+      <h2>Publish CSS Project</h2>
+      <p>Publish your CSS project online and share it with the world.</p>
+      <button>Publish on Codepen</button>
+      <button>Publish on Github</button>
+    </div>
+  </a>
 </div>
-
-<p style="text-align: center;">
-  <a href="html-css-tutorials"><button style="margin-bottom: 10px;">Choose practice project</button></a> <a href="https://project-based-html-css-tutorials"><button>Build Practice project</button></a>
-</p>
-
-<h2 style="text-align: center;">
-  Build HTML & CSS projects
-</h2>
-
-<p style="text-align: center;">
-  Build meaningful, useful and fun projects.
-</p>
-
-<div class="wp-block-image">
-  <figure class="aligncenter"><img class="wp-image-164" src="https://learn.avicndugu.com/wp-content/uploads/2019/03/go-150x150.png" alt="Go" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/03/go-150x150.png 150w, https://learn.avicndugu.com/wp-content/uploads/2019/03/go-300x300.png 300w, https://learn.avicndugu.com/wp-content/uploads/2019/03/go.png 640w" sizes="(max-width: 150px) 100vw, 150px" /></figure>
-</div>
-
-<p style="text-align: center;">
-  <a href="html-css-tutorials"><button style="margin-bottom: 10px;">HTML & CSS tutorials</button></a> <a href="https://project-based-html-css-tutorials"><button>Project-based HTML & CSS tutorials</button></a>
-</p>
-
-
-<h2 style="text-align: center;">
-  Showcase your projects
-</h2>
-
-<p style="text-align: center;">
-  Share your creations online for all to see.
-</p>
-
-<p style="text-align: center;">
-  <a href="html-css-tutorials"><button style="margin-bottom: 10px;">Publish on Github</button></a> <a href="project-based-html-css-tutorials"><button>Publish on Netlify</button></a>
-</p>
