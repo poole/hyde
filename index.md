@@ -20,7 +20,7 @@ title: Home
 </div>
 
 <p style="text-align: center;">
-  <a href="http://learn.avicndugu.com/html-css-tutorials"><button style="margin-bottom: 10px;">HTML & CSS tutorials</button></a> <a href="https://learn.avicndugu.com/project-based-html-css-tutorials"><button>Project-based HTML & CSS tutorials</button></a>
+  <a href="html-css-tutorials"><button style="margin-bottom: 10px;">HTML & CSS tutorials</button></a> <a href="project-based-html-css-tutorials"><button>Project-based HTML & CSS tutorials</button></a>
 </p>
 
 <h2 style="text-align: center;">
@@ -36,7 +36,7 @@ title: Home
 </div>
 
 <p style="text-align: center;">
-  <a href="http://learn.avicndugu.com/html-css-tutorials"><button style="margin-bottom: 10px;">Choose practice project</button></a> <a href="https://learn.avicndugu.com/project-based-html-css-tutorials"><button>Build Practice project</button></a>
+  <a href="html-css-tutorials"><button style="margin-bottom: 10px;">Choose practice project</button></a> <a href="https://project-based-html-css-tutorials"><button>Build Practice project</button></a>
 </p>
 
 <h2 style="text-align: center;">
@@ -52,7 +52,7 @@ title: Home
 </div>
 
 <p style="text-align: center;">
-  <a href="http://learn.avicndugu.com/html-css-tutorials"><button style="margin-bottom: 10px;">HTML & CSS tutorials</button></a> <a href="https://learn.avicndugu.com/project-based-html-css-tutorials"><button>Project-based HTML & CSS tutorials</button></a>
+  <a href="html-css-tutorials"><button style="margin-bottom: 10px;">HTML & CSS tutorials</button></a> <a href="https://project-based-html-css-tutorials"><button>Project-based HTML & CSS tutorials</button></a>
 </p>
 
 
@@ -65,5 +65,5 @@ title: Home
 </p>
 
 <p style="text-align: center;">
-  <a href="http://learn.avicndugu.com/html-css-tutorials"><button style="margin-bottom: 10px;">Publish on Github</button></a> <a href="https://learn.avicndugu.com/project-based-html-css-tutorials"><button>Publish on Netlify</button></a>
+  <a href="html-css-tutorials"><button style="margin-bottom: 10px;">Publish on Github</button></a> <a href="project-based-html-css-tutorials"><button>Publish on Netlify</button></a>
 </p>
