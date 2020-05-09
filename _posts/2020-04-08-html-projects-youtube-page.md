@@ -45,7 +45,7 @@ permalink: /html-projects-youtube-page/
       </ol>
       
       <h2>
-        Main components of Wikipedia Webpage
+        Main components of Youtube Webpage
       </h2>
       
       <p>
@@ -54,13 +54,13 @@ permalink: /html-projects-youtube-page/
       
       <ol>
         <li>
-          You must include a title or heading on the Wikipedia page.
+          You must include a search bar on the top part of the Youtube's page.
         </li>
         <li>
-          You should include an image on the tribute page.
+          You should include an iframe of the Youtube Video on the page.
         </li>
         <li>
-          You included image must have a caption.
+          You included the title of the video.
         </li>
         <li>
           You should include a timeline of the life of the tribute in the form of a list.
