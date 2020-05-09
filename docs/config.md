@@ -94,18 +94,12 @@ You can get it from the download page at [Google Fonts](https://fonts.google.com
 ![Where to get the google_fonts string](../assets/img/docs/google-fonts.png){:width="600" height="398"}
 
 
-### Using safe web fonts
-If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead,
-set `no_google_fonts` to `true`:
+### Removing Google Fonts
+If you prefer not to use Google Fonts and remove all associated code from the site,
+remove or comment out the `google_fonts` key from the configuration.
 
-```yml
-# file: _config.yml
-hydejack:
-  no_google_fonts: true
-```
-
-In this case, `font` and `font_heading` do not have to contain more than one font.
-You may also remove the `google_fonts` key in this case.
+**NOTE**: The `no_google_fonts` parameter has been removed in v9 and no longer has any effect.
+{:.message }
 
 
 ## Choosing a blog layout

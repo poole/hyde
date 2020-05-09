@@ -440,7 +440,7 @@ Oct 27 2017
 ### Content
 * Updated documentation
 
-## Removed
+### Removed
 * Removed outdated example script in `my-scripts.html`
 
 ## v7.0.0
