@@ -16,18 +16,18 @@ permalink: /html-tags-list-for-table/
 
 <h2>List of all elements used to create a HTML table</h2>
 You can use the following HTML tags to make a table your web page.
-- table
-- thead
-- tbody
-- th
-- tr
-- td
-- tfoot
-- col
-- colspan="2"
-- rowspan="3"
-- colgroup
-- caption
+- table <code><table> </table></code>
+- thead  <code> <thead> </thead> </code> 
+- tbody  <code> <tbody> </tbody> </code>
+- th  <code> <th> </th> </code>
+- tr  <code> <tr> </tr> </code>
+- td  <code> <td> </td> </code>
+- tfoot  <code> <tfoot> </tfoot> </code>
+- col  <code> <col> </code>
+- colspan="2"  <code>  </code>
+- rowspan="3"  <code> </code>
+- colgroup  <code> <colgroup> </colgroup> </code>
+- caption  <code> <caption> </caption> </code>
 
 <h2>Function of each HTML tags used on a table</h2>
 Table containing elements and the function of HTML tags used to create a HTML table.
@@ -92,64 +92,187 @@ Table containing elements and the function of HTML tags used to create a HTML ta
 <h2>Creating Your First HTML table</h2>
 Every HTML table is contained inside <code><table></table></code> tags.
 
-Table cells
+### Table cells
 
 Each table has to have cells that contains the data. You create cells by using the <code><td></td></code> tags. Example:
+```
 <code>
-    <td>   </td>
+    <td>Your first HTML table cell</td>
+    <td>Your second HTML table cell</td>
+    <td>Your third HTML table cell</td>
+    <td>Your fourth HTML table Cell</td>
 </code>
+```
+<table>
+    <td>Your first HTML table cell</td>
+    <td>Your second HTML table cell</td>
+    <td>Your third HTML table cell</td>
+    <td>Your fourth HTML table Cell</td>
+</table>
 
-Table rows
+
+### Table rows
 
 To create rows in a HTML table, we use: <code><tr></tr></code> tags.
 Example:
-{% highlight html %}
-<code>
+
+**Code**
+```
+<table>
     <tr>
-        <td>First Item</td>
-        <td></td>
+        <td>Your first HTML table Cell</td>
+        <td>Your second HTML table Cell</td>
     </tr>
     <tr>
-        <td></td>
-        <td></td>
+        <td>Your third HTML table Cell</td>
+        <td>Your fourth HTML table Cell</td>
     </tr>
-</code>
-{% endhighlight html %}
+</table>
+```
+**Result**
+<table>
+    <tr>
+        <td>Your first HTML table Cell</td>
+        <td>Your second HTML table Cell</td>
+    </tr>
+    <tr>
+        <td>Your third HTML table Cell</td>
+        <td>Your fourth HTML table Cell</td>
+    </tr>
+</table>
 
-<h2>Basic HTML table code example</h2>
-
-
-Embed a basic HTML code
-
-
-Merge two cells in a Column HTML table
+## Basic HTML table code example
+**Code:**
 ```
 <table>
   <tr>
-    <th colspan="2">Animals</th>
+    <td>&nbsp;</td>
+    <td>Knocky</td>
+    <td>Flor</td>
+    <td>Ella</td>
+    <td>Juan</td>
   </tr>
   <tr>
-    <th colspan="2">Hippopotamus</th>
+    <td>Breed</td>
+    <td>Jack Russell</td>
+    <td>Poodle</td>
+    <td>Streetdog</td>
+    <td>Cocker Spaniel</td>
   </tr>
   <tr>
-    <td>Stallion</td>
+    <td>Age</td>
+    <td>16</td>
+    <td>9</td>
+    <td>10</td>
+    <td>5</td>
   </tr>
   <tr>
-    <th colspan="2">Crocodile</th>
+    <td>Owner</td>
+    <td>Mother-in-law</td>
+    <td>Me</td>
+    <td>Me</td>
+    <td>Sister-in-law</td>
   </tr>
   <tr>
-    <td>Rooster</td>
+    <td>Eating Habits</td>
+    <td>Eats everyone's leftovers</td>
+    <td>Nibbles at food</td>
+    <td>Hearty eater</td>
+    <td>Will eat till he explodes</td>
   </tr>
 </table>
 ```
+**Result**:
+<table>
+  <tr>
+    <td>&nbsp;</td>
+    <td>Knocky</td>
+    <td>Flor</td>
+    <td>Ella</td>
+    <td>Juan</td>
+  </tr>
+  <tr>
+    <td>Breed</td>
+    <td>Jack Russell</td>
+    <td>Poodle</td>
+    <td>Streetdog</td>
+    <td>Cocker Spaniel</td>
+  </tr>
+  <tr>
+    <td>Age</td>
+    <td>16</td>
+    <td>9</td>
+    <td>10</td>
+    <td>5</td>
+  </tr>
+  <tr>
+    <td>Owner</td>
+    <td>Mother-in-law</td>
+    <td>Me</td>
+    <td>Me</td>
+    <td>Sister-in-law</td>
+  </tr>
+  <tr>
+    <td>Eating Habits</td>
+    <td>Eats everyone's leftovers</td>
+    <td>Nibbles at food</td>
+    <td>Hearty eater</td>
+    <td>Will eat till he explodes</td>
+  </tr>
+</table>
+
+## Full feature Table Example
+
+
+## Merge two cells in a Column HTML table
+
+To merge two cells in a column, you use colspan="2". Example:
+
+**Code:**
+```
+<table>
+  <tr>
+    <th colspan="4">Animals</th>
+  </tr>
+  <tr>
+    <td colspan="2">Mammals</td>
+    <td colspan="2">Birds</td>
+  </tr>
+  <tr>
+    <td>Cow</td>
+    <td>Horse</td>
+    <td>Chicken</td>
+    <td>Ducks</td>
+  </tr>
+```
+**Result:**
+<table>
+  <tr>
+    <th colspan="4">Animals</th>
+  </tr>
+  <tr>
+    <td colspan="2">Mammals</td>
+    <td colspan="2">Birds</td>
+  </tr>
+  <tr>
+    <td>Cow</td>
+    <td>Horse</td>
+    <td>Chicken</td>
+    <td>Ducks</td>
+  </tr>
+</table>
 View the result on codepen
 
-Merge two cells in a row HTML table
-<code>
-```html5
+## Merge two cells in a row HTML table
+
+To merge two cells in a row, you use colspan="2". Example:
+
+**Code**
+```
 <table>
   <tr>
     <td>Stallion</td>
+    <td>Horse</td>
   </tr>
   <tr>
     <th rowspan="2">Chicken</th>
@@ -160,5 +283,19 @@ Merge two cells in a row HTML table
   </tr>
 </table>
 ```
+**Result**
+<table>
+  <tr>
+    <td>Stallion</td>
+    <td>Horse</td>
+  </tr>
+  <tr>
+    <th rowspan="2">Chicken</th>
+    <td>Hen</td>
+  </tr>
+  <tr>
+    <td>Rooster</td>
+  </tr>
+</table>
 
-Resources: [Table basics MDN(Mozilla Development Network)]("https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics")
+<a href="https://developer.mozilla.org/en-US/docs/Learn/HTML/Tables/Basics">Resources: Table basics MDN(Mozilla Development Network)</a>
