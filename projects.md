@@ -5,83 +5,31 @@ date: 2019-01-18T08:02:45+00:00
 author: avic
 layout: page
 guid: https://learn.avicndugu.com/?page_id=40
-content_layout:
-  - default
-page_layout:
-  - default
-page_sidebar_style:
-  - default
-show_content_top_margin:
-  - default
-page_show_goto_top_btn:
-  - default
-page_goto_top_alignment:
-  - default
-aux_title_bar_show:
-  - default
-aux_title_bar_preset:
-  - default
-aux_title_bar_enable_customize:
-  - "0"
-aux_title_bar_content_width_type:
-  - boxed
-aux_title_bar_content_section_height:
-  - auto
-aux_title_bar_title_show:
-  - "1"
-aux_title_bar_heading_bordered:
-  - "0"
-aux_title_bar_heading_boxed:
-  - "0"
-aux_title_bar_meta_enabled:
-  - "0"
-aux_title_bar_bread_enabled:
-  - "1"
-aux_title_bar_bread_bordered:
-  - "0"
-aux_title_bar_bread_sep_style:
-  - gt
-aux_title_bar_text_align:
-  - left
-aux_title_bar_overlay_pattern:
-  - none
-aux_title_bar_overlay_pattern_opacity:
-  - "0.15"
-aux_title_bar_color_style:
-  - dark
-aux_title_bar_bg_show:
-  - "0"
-aux_title_bar_bg_parallax:
-  - "0"
-aux_title_bar_bg_size:
-  - cover
-aux_custom_bg_show:
-  - "0"
-aux_custom_bg_repeat:
-  - repeat
-aux_custom_bg_attach:
-  - scroll
-aux_custom_bg_position:
-  - left top
-aux_custom_bg_size:
-  - auto
-top_slider_id:
-  - none
-aux_metafields_custom_styles:
-  - ""
 ---
-## HTML Projects
 
+## HTML Projects
 <li style="list-style-type: none;">
   <ol>
     <li>
-      <a href="https://learn.avicndugu.com/html-projects-tribute-page/">Tribute project page</a>
+      <a href="/html-projects-tribute-page/">Tribute project page</a>
     </li>
     <li>
-      Wikipedia clone project page
+      <a href="/html-project-wikipedia">Wikipedia clone project page</a>
     </li>
     <li>
-      Youtube clone project page
+        <a href="/html-projects-youtube-page">Youtube clone project page</a>
+    </li>
+    <li>
+      Documentation page.
+    </li>
+    <li>      
+      Blog page.
+    </li>
+    <li>      
+      Business page.
+    </li>
+    <li>      
+      NGO's page.
     </li>
   </ol>
 </li>
@@ -206,5 +154,3 @@ Beginner Projects
     </li>
   </ol>
 </li>
-
-&nbsp;
