@@ -16,8 +16,6 @@ Finally, If you know what you are doing, you can [fork the git repository](#via-
 
 Buyers of the PRO version should [follow these steps](#pro-version).
 
-## Table of Contents
-{:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 

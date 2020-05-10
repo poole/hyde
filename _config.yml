@@ -194,7 +194,7 @@ hydejack:
 
   # Code blocks and tables "break" the layout by spanning the full available width.
   # Set this to true if you want them to be the same width as other content.
-  no_break_layout:     false
+  no_break_layout:     true
 
   # Set to `true` if you do not want to expose your resume and projects
   # in machine-readable formats.

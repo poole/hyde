@@ -1,4 +1,8 @@
 # PRO License
+
+1. this list will be replaced by the table of contents
+{:toc .large-only}
+
 ## License Summary
 * License concerns use of [Hydejack PRO][1]
 * License does not expire

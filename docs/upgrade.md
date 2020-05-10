@@ -8,8 +8,6 @@ hide_description: true
 
 This chapter shows how to upgrade Hydejack to a newer version. The method depends on how you've installed Hydejack.
 
-## Table of Contents
-{:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 

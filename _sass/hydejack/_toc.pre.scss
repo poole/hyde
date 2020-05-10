@@ -1,0 +1,53 @@
+// Copyright (c) 2020 Florian Klampfer <https://qwtel.com/>
+//
+// This program is free software: you can redistribute it and/or modify
+// it under the terms of the GNU General Public License as published by
+// the Free Software Foundation, either version 3 of the License, or
+// (at your option) any later version.
+//
+// This program is distributed in the hope that it will be useful,
+// but WITHOUT ANY WARRANTY; without even the implied warranty of
+// MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+// GNU General Public License for more details.
+//
+// You should have received a copy of the GNU General Public License
+// along with this program.  If not, see <http://www.gnu.org/licenses/>.
+
+// <<<<< LINK
+#markdown-toc {
+  font-size: smaller;
+  padding: 0.5rem 1.5rem 1rem 3rem;
+  background: var(--gray-bg);
+  width: auto;
+  margin: 1rem -1rem;
+  border: 1px solid var(--border-color);
+}
+
+.no-break-layout #markdown-toc {
+  @media screen and (min-width: $break-point-dynamic) {
+    position: fixed;
+    width: calc(50% - 28rem);
+    right: 0;
+    top: 5.2rem;
+    max-height: calc(100vh - 5.2rem);
+    background: transparent;
+    border: none;
+    border-left: 1px solid var(--border-color);
+    // padding-top: 0.5rem;
+    margin: auto;
+    overflow: auto;
+    overscroll-behavior: contain;
+    transition: opacity 250ms ease, transform 250ms ease, border-color 1s ease;
+
+    &.toc-hide {
+      opacity: 0;
+      transform: translateX(-2rem);
+    }
+
+    &.toc-show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+}
+// >>>>>

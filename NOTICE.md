@@ -343,3 +343,6 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND 
 [CC-BY-SA-3.0]: https://creativecommons.org/licenses/by-sa/3.0/
 [CC0-1.0]: https://creativecommons.org/publicdomain/zero/1.0/deed.en
 [Unsplash]: https://unsplash.com/license
+
+* this list will be replaced by the toc
+{:toc .large-only}

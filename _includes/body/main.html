@@ -1,6 +1,6 @@
 <main
   id="_main"
-  class="content fade-in layout-{{ page.layout }}"
+  class="content layout-{{ page.layout }} {% if site.hydejack.no_break_layout %}no-break-layout{% endif %}"
   role="main"
   data-color="{{ color | escape }}"
   data-theme-color="{{ theme_color | escape }}"

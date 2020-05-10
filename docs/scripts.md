@@ -11,8 +11,6 @@ There are two ways of adding third party scripts.
 [Embedding](#embedding) is ideal for one-off scripts, e.g. `widgets.js` that is part of embedded tweets (see below).
 Adding [global scripts](#global-scripts) is for scripts that should be loaded on every page.
 
-## Table of Contents
-{:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 

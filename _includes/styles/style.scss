@@ -41,6 +41,7 @@
   @import "hydejack/__link__/sidebar";
   @import "hydejack/__link__/social";
   @import "hydejack/__link__/menu";
+  @import "hydejack/__link__/toc";
   @import "hydejack/__link__/content";
   @import "hydejack/__link__/avatar";
   @import "hydejack/__link__/katex";
@@ -49,6 +50,7 @@
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
     @import "hydejack/__link__/mark-external";
   {% endunless %}
+
   {% unless site.hydejack.no_break_layout %}
     @import "hydejack/__link__/break-layout";
   {% endunless %}
@@ -74,6 +76,7 @@
   @import "hydejack/_sidebar.pre.scss";
   @import "hydejack/_social.pre.scss";
   @import "hydejack/_menu.pre.scss";
+  @import "hydejack/_toc.pre.scss";
   @import "hydejack/_content.pre.scss";
   @import "hydejack/_avatar.pre.scss";
   @import "hydejack/_katex.pre.scss";
@@ -82,6 +85,7 @@
   {% unless site.hydejack.no_mark_external or site.no_mark_external %}
     @import "hydejack/_mark-external.pre.scss";
   {% endunless %}
+   
   {% unless site.hydejack.no_break_layout %}
     @import "hydejack/_break-layout.pre.scss";
   {% endunless %}

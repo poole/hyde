@@ -15,9 +15,7 @@ so that your content remains compatible with other Jekyll themes.
 **NOTE**: For an introduction to markdown in general, see [Mastering Markdown][mm] and [kramdown Syntax][ksyn].
 {:.message}
 
-## Table of Contents
-{:.no_toc}
-0. this unordered seed list will be replaced by toc as unordered list
+1. this list will be replaced by the table of contents
 {:toc}
 
 ## A word on building speeds
@@ -37,12 +35,31 @@ This makes it ideal for writing new posts and previewing changes, but not settin
 ## Adding a table of contents
 You can add a generated table of contents to any page by adding `{:toc}` below a list.
 
-Example: see above
-
 Markdown:
 ~~~md
-* this unordered seed list will be replaced by toc as unordered list
+* this unordered seed list will be replaced by the toc
 {:toc}
+~~~
+
+You can also create your table of contents as an ordered list (note the `1.` instead of `*`):
+
+~~~md
+1. this ordered seed list will be replaced by the toc
+{:toc}
+~~~
+
+In order for the table of contents to appear in the side bar a number of conditions has to be met:
+
+*  The width of the display has to be larger than 1665px. 
+*  The `hydejack.no_break_layout` option has to be enabled in the config file.
+   Otherwise, large code blocks or tables could overlap with the table of contents.
+
+If these conditions aren't met, the ToC will appear where the seed list is placed in the document.  
+To show the table of contents only on large displays (> 1665px) use the following:
+
+~~~md
+* this unordered seed list will be replaced by the toc 
+{:toc .large-only}
 ~~~
 
 ## Adding message boxes

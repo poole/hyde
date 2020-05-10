@@ -10,8 +10,6 @@ This documents shows how to upgrade Hydejack from previous versions (v5) in a st
 
 Unfortunately, upgrading form v5 and earlier is not straightforward. A lot of patterns and names have changed, motivated by a variety of reasons, including better integration with the rest of the Jekyll ecosystem and simplified workflows enabled by Jekyll Collections.
 
-## Table of Contents
-{:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 

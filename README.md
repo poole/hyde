@@ -143,19 +143,8 @@ The table below shows what's included in each version:
 | | [**Download**][kit] <br/>-- or --<br/> [**Deploy to Netlify**][nfy] | [**Buy PRO**][buy] |
 
 
-<script>
-Array.from(document.querySelectorAll('a[href="/blog/hydejack/2018-09-01-introducing-dark-mode/"]'))
-  .forEach(a => {
-    a.addEventListener('click', (e) => { 
-      if (!document.body.classList.contains("dark-mode")) {
-        e.preventDefault();
-        e.stopPropagation();
-        e.stopImmediatePropagation();
-        document.body.classList.add("dark-mode");
-      }
-    });
-  });
-</script>
+0. this unordered seed list will be replaced by toc as unordered list
+{:toc .large-only}
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
       You understand that using Jekyll requires technical know-how and is not comparable to Wordpress in terms of ease of use. Please use the free version to confirm that Hydejack works for you. For details, see the [PRO] license.

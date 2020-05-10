@@ -68,7 +68,6 @@ import { setupFLIP } from './flip';
   const SETTINGS = {
     duration: DURATION,
     easing: 'ease-out',
-    fill: 'forwards',
   };
 
   const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
@@ -117,8 +116,7 @@ import { setupFLIP } from './flip';
   }
 
   function animateFadeOut({ main }, drawerEl) {
-    const anim$ = animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }));
-    return anim$;
+    return animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }));
   }
 
   function animateFadeIn({ replaceEls: [main], flipType }) {
@@ -168,10 +166,11 @@ import { setupFLIP } from './flip';
   progress$.subscribe(() => (loading.style.display = 'block'));
 
   ready$.pipe(startWith({ replaceEls: [document.getElementById('_main')] })).subscribe(({ replaceEls: [main] }) => {
-    main.classList.remove('fade-in');
     main.querySelectorAll(HEADING_SELECTOR).forEach(upgradeHeading);
-
     loading.style.display = 'none';
+
+    const toc = main.querySelector('#markdown-toc');
+    if (toc) toc.classList.add('toc-hide');
 
     /*
       requestIdleCallback(() => {
@@ -248,7 +247,18 @@ import { setupFLIP } from './flip';
     )
     .subscribe();
 
-  fadeIn$.subscribe();
+  fadeIn$
+    .pipe(
+      startWith({ main: document.getElementById('_main') }),
+      tap(({ main }) => { 
+        const toc = main.querySelector('#markdown-toc');
+        if (toc) {
+          toc.classList.remove('toc-hide');
+          toc.classList.add('toc-show');
+        }
+      }),
+    )
+    .subscribe();
 
   error$
     .pipe(

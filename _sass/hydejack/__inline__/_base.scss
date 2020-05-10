@@ -58,16 +58,3 @@ html {
 
 
 // @media print { html { font-size: $root-font-size-print; } } 
-.fade-in {
-  animation-duration: 500ms;
-  animation-timing-function: ease;
-  animation-name: fade-in;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fade-in {
-  from { transform: translateY(-3rem); opacity: 0; }
-  50%  { transform: translateY(-3rem); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
-}
-

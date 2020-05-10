@@ -8,8 +8,6 @@ hide_description: true
 
 This chapter covers advanced topics, such as offline support and custom JS builds. Codings skills are recommended.
 
-## Table of Contents
-{:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 

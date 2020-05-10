@@ -11,8 +11,6 @@ Once Jekyll is running, you can start with basic configuration by adding various
 **NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
 {:.message}
 
-## Table of Contents
-{:.no_toc}
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 

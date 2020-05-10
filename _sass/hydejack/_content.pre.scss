@@ -46,6 +46,14 @@
     margin: auto;
   }
 }
+
+.large-only {
+  display: none;
+  @media screen and (min-width: $break-point-dynamic) {
+    display: block;
+  }
+}
+
 // >>>>>
 // <<< link
 .content {
