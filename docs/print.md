@@ -44,8 +44,8 @@ Finally, If you know what you are doing, you can [fork the git repository](#via-
 
 Buyers of the PRO version should [follow these steps](#pro-version).
 
-
-
+0. this unordered seed list will be replaced by toc as unordered list
+{:toc}
 
 ### Via Starter Kit
 Using the Starter Kit has the advantage of not cluttering your blog repository.
@@ -60,7 +60,7 @@ If you have a GitHub account, fork the [hy-starter-kit](https://github.com/hydec
 
 Alternatively, you can just [![Deploy to Netlify][dtn]][nfy]{:.no-hover.no-mark}.
 
-[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.2.zip
+[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.3.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/hydecorp/hydejack-starter-kit
 [dtn]: https://www.netlify.com/img/deploy/button.svg
 
@@ -174,7 +174,7 @@ For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.2/install/
+$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.3/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -215,8 +215,8 @@ and point your browser to <http://localhost:4000> to see Hydejack in action.
 ## Upgrade
 This chapter shows how to upgrade Hydejack to a newer version. The method depends on how you've installed Hydejack.
 
-
-
+0. this unordered seed list will be replaced by toc as unordered list
+{:toc}
 
 **NOTE**: Before upgrading to v7+, make sure you've read the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title},
 especially the part about the [license change](../CHANGELOG.md#license-change)!
@@ -226,7 +226,7 @@ especially the part about the [license change](../CHANGELOG.md#license-change)!
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: hydecorp/hydejack@v9.0.0-alpha.2
+remote_theme: hydecorp/hydejack@v9.0.0-alpha.3
 ```
 
 To use the latest version on the `v8` branch on each build, you can use  `hydecorp/hydejack@v8`.
@@ -291,8 +291,8 @@ Once Jekyll is running, you can start with basic configuration by adding various
 **NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
 {:.message}
 
-
-
+0. this unordered seed list will be replaced by toc as unordered list
+{:toc}
 
 
 ### Setting `url` and `baseurl`
@@ -372,18 +372,12 @@ You can get it from the download page at [Google Fonts](https://fonts.google.com
 ![Where to get the google_fonts string](../assets/img/docs/google-fonts.png){:width="600" height="398"}
 
 
-#### Using safe web fonts
-If you prefer not to use Google Fonts and use [safe web fonts](http://www.cssfontstack.com/) instead,
-set `no_google_fonts` to `true`:
+#### Removing Google Fonts
+If you prefer not to use Google Fonts and remove all associated code from the site,
+remove or comment out the `google_fonts` key from the configuration.
 
-```yml
-## file: _config.yml
-hydejack:
-  no_google_fonts: true
-```
-
-In this case, `font` and `font_heading` do not have to contain more than one font.
-You may also remove the `google_fonts` key in this case.
+**NOTE**: The `no_google_fonts` parameter has been removed in v9 and no longer has any effect.
+{:.message }
 
 
 ### Choosing a blog layout
@@ -607,7 +601,7 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.2.zip
+    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.3.zip
 ~~~
 
 
@@ -782,9 +776,6 @@ Finally, setting `always` will cause dark mode to become the default theme at al
 
 ## Basics
 This chapter covers the basics of content creation with Hydejack.
-
-### Table of Contents
-{:.no_toc}
 
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
@@ -1213,8 +1204,8 @@ so that your content remains compatible with other Jekyll themes.
 **NOTE**: For an introduction to markdown in general, see [Mastering Markdown][mm] and [kramdown Syntax][ksyn].
 {:.message}
 
-
-
+1. this list will be replaced by the table of contents
+{:toc}
 
 ### A word on building speeds
 If building speeds are a problem, try using the `--incremental` flag, e.g.
@@ -1233,12 +1224,31 @@ This makes it ideal for writing new posts and previewing changes, but not settin
 ### Adding a table of contents
 You can add a generated table of contents to any page by adding `{:toc}` below a list.
 
-Example: see above
-
 Markdown:
 ~~~md
-* this unordered seed list will be replaced by toc as unordered list
+* this unordered seed list will be replaced by the toc
 {:toc}
+~~~
+
+You can also create your table of contents as an ordered list (note the `1.` instead of `*`):
+
+~~~md
+1. this ordered seed list will be replaced by the toc
+{:toc}
+~~~
+
+In order for the table of contents to appear in the side bar a number of conditions has to be met:
+
+*  The width of the display has to be larger than 1665px. 
+*  The `hydejack.no_break_layout` option has to be enabled in the config file.
+   Otherwise, large code blocks or tables could overlap with the table of contents.
+
+If these conditions aren't met, the ToC will appear where the seed list is placed in the document.  
+To show the table of contents only on large displays (> 1665px) use the following:
+
+~~~md
+* this unordered seed list will be replaced by the toc 
+{:toc .large-only}
 ~~~
 
 ### Adding message boxes
@@ -1274,35 +1284,37 @@ You can make an image span the full width by adding the `lead` class.
 
 Example:
 
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100" loading="lazy"}
 
 Markdown:
 ~~~markdown
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100" loading="lazy"}
 ~~~
 
-### Adding image captions
-You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
+It is recommended to provide the dimension of the image via the `width` and `height` attributes, 
+so that browsers can calculate the layout before the images are loaded. Combining this with the `loading="lazy"` attribute
+allows modern browsers to load the images just-in-time as the users scrolls.
 
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
-A caption for an image.
-{:.figure}
+**NOTE**: Previous versions of Hydejack shipped with a custom JavaScript-based lazy loading solution,
+but it has been removed in v9 in favor of this more standards-based approach.
+{:.message}
+
+### Adding image captions
+You can add captions to large images by adding the `figcaption` class to the paragraph after the image:
+
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100" loading="lazy"}
+
+An optional caption for an image.
+{:.figcaption}
 
 Markdown:
 ~~~md
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100" loading="lazy"}
+
 A caption for an image.
-{:.figure}
+{:.figcaption}
 ~~~
 
-For better semantics, you can also use the `figure`/`figcaption` HTML5 tags:
-
-```html
-<figure>
-  <img alt="An image with a caption" src="https://placehold.it/800x100" class="lead" width="800" height="100" />
-  <figcaption>A caption to an image.</figcaption>
-</figure>
-```
 
 ### Adding large quotes
 You can make a quote "pop out" by adding the `lead` class.
@@ -1414,8 +1426,19 @@ to force a table to use the entire available content width. Note that stretched 
 | First body part |Second cell | Third cell      | fourth cell    |
 {:.stretch-table}
 
+An optional caption for a table
+{:.figcaption}
+
 You can add the `stretch-table` class to a markdown table by putting `{:.stretch-table}` in line directly below the table.
 To add the class to a HTML table, add the it to the `class` attribute of the `table` tag, e.g. `<table class="stretch-table">`.
+
+Just like images, you can add captions to tables by adding the `figcaption` class to the paragraph after the table.
+
+~~~md
+An optional caption for a table
+{:.figcaption}
+~~~
+
 
 ### Adding code blocks
 To add a code block without syntax highlighting, simply indent 4 spaces (regular markdown).
@@ -1436,6 +1459,9 @@ adder(2, 6);
 // > 8
 ~~~
 
+An optional caption for a code block
+{:.figcaption}
+
 Markdown:
 
     ~~~js
@@ -1449,6 +1475,9 @@ Markdown:
     adder(2, 6);
     // > 8
     ~~~
+
+    An optional caption for a code block
+    {:.figcaption}
 
 **NOTE**: DO NOT use Jekyll's `{ % highlight % } ... { % endhighlight % }` syntax, especially together with the `linenos` option.
 The generated `table` to render the line numbers does not have a CSS class or any other way of differentiating it from regular tables,
@@ -1506,6 +1535,9 @@ $$
 \end{aligned}
 $$
 
+An optional caption for a math block
+{:.figcaption}
+
 Markdown:
 
 ~~~latex
@@ -1526,6 +1558,9 @@ $$
                \end{array}\right)
 \end{aligned}
 $$
+
+An optional caption for a math block
+{:.figcaption}
 ~~~
 
 **NOTE**: KaTeX does not support the `align` and `align*` environments.
@@ -1554,8 +1589,8 @@ There are two ways of adding third party scripts.
 [Embedding](#embedding) is ideal for one-off scripts, e.g. `widgets.js` that is part of embedded tweets (see below).
 Adding [global scripts](#global-scripts) is for scripts that should be loaded on every page.
 
-
-
+0. this unordered seed list will be replaced by toc as unordered list
+{:toc}
 
 ### Embedding
 Hydejack supports embedding third party scripts directly inside markdown content. This will work in most cases, except when a script can not be loaded on a page more than once (this will occur when a user navigates to the same page twice).
@@ -1640,8 +1675,8 @@ hydejack:
 ## Build
 This chapters shows how to prepare your Hydejack site for a production build and deployment on 3rd party hosting providers.
 
-
-
+0. this unordered seed list will be replaced by toc as unordered list
+{:toc}
 
 ### Starter Kit
 If you're using the [starter kit](#via-starter-kit), all you have to do is push your repository:)
@@ -1751,8 +1786,8 @@ More on [user, organization, and project pages](https://help.github.com/articles
 ## Advanced
 This chapter covers advanced topics, such as offline support and custom JS builds. Codings skills are recommended.
 
-
-
+0. this unordered seed list will be replaced by toc as unordered list
+{:toc}
 
 ### Enabling offline support
 Hydejack v8 introduces experimental "cache as you go" offline support. This is implemented via the [Service Worker API](https://developer.mozilla.org/en-US/docs/Web/API/Service_Worker_API), a new browser standard that is now supported in the latest versions of all major browsers. However, it is a very powerful feature and should be used with a lot of care.

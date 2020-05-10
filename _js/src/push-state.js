@@ -37,9 +37,7 @@ import { setupFLIP } from './flip';
     ...('customElements' in window
       ? []
       : [import(/* webpackChunkName: "webcomponents" */ './polyfills/webcomponents')]),
-    ...('animate' in Element.prototype
-      ? []
-      : [import(/* webpackChunkName: "webanimations" */ 'web-animations-js')]),
+    ...('animate' in Element.prototype ? [] : [import(/* webpackChunkName: "webanimations" */ 'web-animations-js')]),
     ...('IntersectionObserver' in window
       ? []
       : [import(/* webpackChunkName: "intersection-observer" */ 'intersection-observer')]),
@@ -63,7 +61,10 @@ import { setupFLIP } from './flip';
 
   const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
 
-  const FADE_IN = [{ opacity: 0, transform: 'translateY(-3rem)' }, { opacity: 1, transform: 'translateY(0)' }];
+  const FADE_IN = [
+    { opacity: 0, transform: 'translateY(-3rem)' },
+    { opacity: 1, transform: 'translateY(0)' },
+  ];
 
   const SETTINGS = {
     duration: DURATION,
@@ -212,10 +213,7 @@ import { setupFLIP } from './flip';
         );
     });
 
-  const fadeIn$ = after$.pipe(
-    switchMap(animateFadeIn),
-    share(),
-  );
+  const fadeIn$ = after$.pipe(switchMap(animateFadeIn), share());
 
   const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
     animationMain,
@@ -250,7 +248,7 @@ import { setupFLIP } from './flip';
   fadeIn$
     .pipe(
       startWith({ main: document.getElementById('_main') }),
-      tap(({ main }) => { 
+      tap(({ main }) => {
         const toc = main.querySelector('#markdown-toc');
         if (toc) {
           toc.classList.remove('toc-hide');

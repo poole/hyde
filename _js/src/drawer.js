@@ -140,10 +140,7 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
   await cssLoaded;
 
   // A flag for the 3 major viewport sizes we support
-  const size$ = fromEvent(window, 'resize').pipe(
-    startWith({}),
-    map(detectSize),
-  );
+  const size$ = fromEvent(window, 'resize').pipe(startWith({}), map(detectSize));
 
   // An observable keeping track of the drawer width.
   const drawerWidth$ = size$.pipe(
