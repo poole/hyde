@@ -4,7 +4,6 @@ title: 'HTML PROJECTS: Tribute Page'
 date: 2020-04-08T09:29:49+00:00
 author: avic
 layout: page
-guid: https://learn.avicndugu.com/?page_id=573
 permalink: /html-projects-tribute-page/
 ---
 <img class="alignnone size-full" src="https://miro.medium.com/max/700/1*QMlF5qHP4J-LmHG0bFsRCA.png" alt="Tribute page screenshot" width="700" height="462" />
@@ -66,7 +65,7 @@ You must include the following parts in your completed project:
 
 The final project should look like this:
 
-<img class="aligncenter size-full wp-image-581" src="https://learn.avicndugu.com/wp-content/uploads/2020/04/screencapture-codepen-io-freeCodeCamp-full-zNqgVx-2020-04-08-12_23_43.jpg" alt="Full screen capture html only tribute page" width="1280" height="1441" srcset="https://learn.avicndugu.com/wp-content/uploads/2020/04/screencapture-codepen-io-freeCodeCamp-full-zNqgVx-2020-04-08-12_23_43.jpg 1280w, https://learn.avicndugu.com/wp-content/uploads/2020/04/screencapture-codepen-io-freeCodeCamp-full-zNqgVx-2020-04-08-12_23_43-266x300.jpg 266w, https://learn.avicndugu.com/wp-content/uploads/2020/04/screencapture-codepen-io-freeCodeCamp-full-zNqgVx-2020-04-08-12_23_43-682x768.jpg 682w, https://learn.avicndugu.com/wp-content/uploads/2020/04/screencapture-codepen-io-freeCodeCamp-full-zNqgVx-2020-04-08-12_23_43-910x1024.jpg 910w" sizes="(max-width: 1280px) 100vw, 1280px" /> 
+<img class="aligncenter size-full wp-image-581" src="/public/tribute-page-screenshot.jpg" alt="Full screen capture html only tribute page"/> 
 
 &nbsp;
 
