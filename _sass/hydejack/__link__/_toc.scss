@@ -25,24 +25,29 @@
 
 #markdown-toc {
   font-size: smaller;
-  padding: 0.5rem 1.5rem 1rem 3rem;
-  background: var(--gray-bg);
-  width: auto;
-  margin: 1rem -1rem;
-  border: 1px solid var(--border-color);
+  padding: 0 1.5rem .5rem 2.5rem;
+  margin: 2rem -1rem;
+  border-left: 1px solid var(--border-color);
+
+  &:before {
+    text-transform: uppercase;
+    font-size: smaller;
+    opacity: 0.5;
+    position: relative;
+    left: -1.5rem;
+    margin-bottom: .5rem;
+    display: inline-block;
+  }
 }
 
 .no-break-layout #markdown-toc {
   @media screen and (min-width: $break-point-dynamic) {
-    position: fixed;
+    position: absolute;
     width: calc(50% - 28rem);
     right: 0;
-    top: 5.2rem;
-    max-height: calc(100vh - 5.2rem);
+    // top: 5.2rem;
+    // max-height: calc(100vh - 5.2rem);
     background: transparent;
-    border: none;
-    border-left: 1px solid var(--border-color);
-    // padding-top: 0.5rem;
     margin: auto;
     overflow: auto;
     overscroll-behavior: contain;

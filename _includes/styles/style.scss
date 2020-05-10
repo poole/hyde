@@ -101,6 +101,10 @@
     {% assign theme_color = site.theme_color  | default:'#193747' %}
     {% include styles/page-style.scss color=color theme_color=theme_color %}
   {% endif %}
+
+  #markdown-toc:before {
+    content: "{{ site.data.strings.toc | default:'Table of Contents' }}"
+  }
 {% endunless %}
 
 @import "spinner";

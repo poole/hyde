@@ -94,7 +94,7 @@ You can get it from the download page at [Google Fonts](https://fonts.google.com
 
 ### Removing Google Fonts
 If you prefer not to use Google Fonts and remove all associated code from the site,
-remove or comment out the `google_fonts` key from the configuration.
+set the `google_fonts` key to `false`.
 
 **NOTE**: The `no_google_fonts` parameter has been removed in v9 and no longer has any effect.
 {:.message }

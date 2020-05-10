@@ -2,10 +2,12 @@
 
 A boutique Jekyll theme for hackers, nerds, and academics.  
 
+0. this unordered seed list will be replaced by toc as unordered list
 
 
 ![Screenshot](assets/img/blog/hydejack-8.png)
 Hydejack's cover page on a variety of screens.
+
 
 
 **Hydejack** is a boutique Jekyll theme for hackers, nerds, and academics, with a focus on personal sites that are meant to impress. 
@@ -142,9 +144,6 @@ The table below shows what's included in each version:
 | **Price**              | **Free**       | **$69**   | **$169**  |
 | | [**Download**][kit] <br/>-- or --<br/> [**Deploy to Netlify**][nfy] | [**Buy PRO**][buy] |
 
-
-0. this unordered seed list will be replaced by toc as unordered list
-{:toc .large-only}
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
       You understand that using Jekyll requires technical know-how and is not comparable to Wordpress in terms of ease of use. Please use the free version to confirm that Hydejack works for you. For details, see the [PRO] license.

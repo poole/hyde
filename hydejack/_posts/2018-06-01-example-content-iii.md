@@ -6,6 +6,9 @@ description: >
 image: /assets/img/blog/example-content-iii.jpg
 ---
 
+* toc
+{:toc .large-only}
+
 Hydejack offers a few additional features to markup your markdown.
 Don't worry, these are merely CSS classes added with kramdown's `{:...}` syntax,
 so that your content remains compatible with other Jekyll themes.

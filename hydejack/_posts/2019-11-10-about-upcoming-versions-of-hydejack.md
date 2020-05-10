@@ -7,6 +7,9 @@ description: >
 
 # About Upcoming Versions of Hydejack
 
+* toc
+{:toc .large-only}
+
 I think it's time to post an update on upcoming versions of Hydejack, in part to get me back into the mood for writing, as missing documentation is, as always, what's holding it up. There are currently plenty of features that would be useful to many people that simply aren't documented, including everything that is work in progress for v9. It's both the least fun and most valuable part of the business.
 
 ## Version 9

@@ -30,6 +30,7 @@ permalink:             Permalink
 permalink_icon:        content-hash
 templates:             Templates (for web app)
 present:               present
+toc:                   Table of Contents
 
 loading:               Loading…
 redirecting:           Redirecting…

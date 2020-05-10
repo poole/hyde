@@ -5,6 +5,10 @@ layout: page
 # LICENSE
 
 ## GNU GENERAL PUBLIC LICENSE
+{:.no_toc}
+
+* this list will be replaced by the toc
+{:toc .large-only}
 
 Version 3, 29 June 2007
 
@@ -624,6 +628,3 @@ reviewing courts shall apply local law that most closely approximates
 an absolute waiver of all civil liability in connection with the
 Program, unless a warranty or assumption of liability accompanies a
 copy of the Program in return for a fee.
-
-* this list will be replaced by the toc
-{:toc .large-only}
