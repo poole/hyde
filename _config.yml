@@ -340,11 +340,6 @@ titles_from_headings:
   strip_title:         true
   collections:         true
 
-replace_img:
-  re_img:      <img\s*(?<attributes>.*?)\s*/>
-  replacement: <img %<attributes>s loading="lazy" />
-  re_ignore:   data-ignore
-  
 kramdown:
   footnote_backlink:   '&#x21a9;&#xfe0e;'
   math_engine:         katex
