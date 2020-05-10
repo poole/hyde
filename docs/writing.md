@@ -95,35 +95,37 @@ You can make an image span the full width by adding the `lead` class.
 
 Example:
 
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100" loading="lazy"}
 
 Markdown:
 ~~~markdown
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100" loading="lazy"}
 ~~~
 
-## Adding image captions
-You can add captions to images by adding the `figure` class to the paragraph containing the image and a caption.
+It is recommended to provide the dimension of the image via the `width` and `height` attributes, 
+so that browsers can calculate the layout before the images are loaded. Combining this with the `loading="lazy"` attribute
+allows modern browsers to load the images just-in-time as the users scrolls.
 
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
-A caption for an image.
-{:.figure}
+**NOTE**: Previous versions of Hydejack shipped with a custom JavaScript-based lazy loading solution,
+but it has been removed in v9 in favor of this more standards-based approach.
+{:.message}
+
+## Adding image captions
+You can add captions to large images by adding the `figcaption` class to the paragraph after the image:
+
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100" loading="lazy"}
+
+An optional caption for an image.
+{:.figcaption}
 
 Markdown:
 ~~~md
-![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100"}
+![Full-width image](https://placehold.it/800x100){:.lead width="800" height="100" loading="lazy"}
+
 A caption for an image.
-{:.figure}
+{:.figcaption}
 ~~~
 
-For better semantics, you can also use the `figure`/`figcaption` HTML5 tags:
-
-```html
-<figure>
-  <img alt="An image with a caption" src="https://placehold.it/800x100" class="lead" width="800" height="100" />
-  <figcaption>A caption to an image.</figcaption>
-</figure>
-```
 
 ## Adding large quotes
 You can make a quote "pop out" by adding the `lead` class.
@@ -235,8 +237,19 @@ to force a table to use the entire available content width. Note that stretched 
 | First body part |Second cell | Third cell      | fourth cell    |
 {:.stretch-table}
 
+An optional caption for a table
+{:.figcaption}
+
 You can add the `stretch-table` class to a markdown table by putting `{:.stretch-table}` in line directly below the table.
 To add the class to a HTML table, add the it to the `class` attribute of the `table` tag, e.g. `<table class="stretch-table">`.
+
+Just like images, you can add captions to tables by adding the `figcaption` class to the paragraph after the table.
+
+~~~md
+An optional caption for a table
+{:.figcaption}
+~~~
+
 
 ## Adding code blocks
 To add a code block without syntax highlighting, simply indent 4 spaces (regular markdown).
@@ -257,6 +270,9 @@ adder(2, 6);
 // > 8
 ~~~
 
+An optional caption for a code block
+{:.figcaption}
+
 Markdown:
 
     ~~~js
@@ -270,6 +286,9 @@ Markdown:
     adder(2, 6);
     // > 8
     ~~~
+
+    An optional caption for a code block
+    {:.figcaption}
 
 **NOTE**: DO NOT use Jekyll's `{ % highlight % } ... { % endhighlight % }` syntax, especially together with the `linenos` option.
 The generated `table` to render the line numbers does not have a CSS class or any other way of differentiating it from regular tables,
@@ -327,6 +346,9 @@ $$
 \end{aligned}
 $$
 
+An optional caption for a math block
+{:.figcaption}
+
 Markdown:
 
 ~~~latex
@@ -347,6 +369,9 @@ $$
                \end{array}\right)
 \end{aligned}
 $$
+
+An optional caption for a math block
+{:.figcaption}
 ~~~
 
 **NOTE**: KaTeX does not support the `align` and `align*` environments.

@@ -25,16 +25,20 @@ code {
   font-size: .85em;
 }
 
-.pre-base {
+.figure-base {
   @extend .color-transition;
   margin-left: -1rem;
   margin-right: -1rem;
-  padding: 1rem;
-  background-color: var(--gray-bg);
 
   // Prevent code linebreaks and allow side-scrolling for better readability on mobile
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.pre-base {
+  @extend .figure-base;
+  padding: 1rem;
+  background-color: var(--gray-bg);
 
   // HACK: prevents painting for some reason
   backface-visibility: hidden;
@@ -59,9 +63,5 @@ pre > code {
   color: inherit;
   background-color: transparent;
   font-size: 1em;
-}
-
-pre, .highlight {
-  margin-bottom: 2rem;
 }
 // >>>>> LINK

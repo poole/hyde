@@ -22,18 +22,27 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+
 table:not(.highlight) {
-  
-
-  
+  @extend .figure-base;
+  border-collapse: collapse;
   display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  
+  margin-bottom: 1rem;
 
-  
+  td, th {
+    @extend .color-transition;
+    padding: .25rem .5rem;
+    border: 1px solid var(--border-color);
 
-  
+    &:first-child {
+      padding-left: 1rem;
+    }
+
+    &:last-child {
+      padding-right: 1rem;
+    }
+  }
+
   thead {
     @extend .color-transition;
     background-color: var(--body-bg);
@@ -57,9 +66,7 @@ table:not(.highlight) {
     @extend .color-transition;
     background-color: var(--gray-bg);
   }
-  
 }
-
 
 // CSS only Responsive Tables
 // http://dbushell.com/2016/03/04/css-only-responsive-tables/

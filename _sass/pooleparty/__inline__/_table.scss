@@ -22,33 +22,4 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-table:not(.highlight) {
-  
-  border-collapse: collapse;
-  margin-bottom: 2rem;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  
-
-  
-
-  
-  td, th {
-    @extend .color-transition;
-    padding: .25rem .5rem;
-    border: 1px solid var(--border-color);
-
-    &:first-child {
-      padding-left: 1rem;
-    }
-
-    &:last-child {
-      padding-right: 1rem;
-    }
-  }
-  
-
-  
-}
-
 

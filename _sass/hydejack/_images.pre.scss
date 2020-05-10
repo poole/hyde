@@ -42,6 +42,12 @@ figure, .figure {
   margin-top: -1.5rem;
 }
 
+.figcaption {
+  @extend .faded, .fine, .centered;
+  margin-top: -0.5rem;
+  margin-bottom: 2rem;
+}
+
 @keyframes fade-img {
   from { opacity: 0; }
   to   { opacity: 1; }
