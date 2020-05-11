@@ -25,7 +25,19 @@ import {
   withLatestFrom,
 } from 'rxjs/operators';
 
-import { BREAK_POINT_3, BREAK_POINT_DYNAMIC, isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getScrollTop, body, rem, getWidth } from './common';
+import {
+  BREAK_POINT_3,
+  BREAK_POINT_DYNAMIC,
+  isSafari,
+  isMobile,
+  isMobileSafari,
+  hasCSSOM,
+  webComponentsReady,
+  getScrollTop,
+  body,
+  rem,
+  getWidth,
+} from './common';
 
 (async () => {
   await Promise.all([
@@ -134,10 +146,7 @@ import { BREAK_POINT_3, BREAK_POINT_DYNAMIC, isSafari, isMobile, isMobileSafari,
   await cssLoaded;
 
   // A flag for the 3 major viewport sizes we support
-  const size$ = fromEvent(window, 'resize', { passive: true }).pipe(
-    startWith({}),
-    map(detectSize),
-  );
+  const size$ = fromEvent(window, 'resize', { passive: true }).pipe(startWith({}), map(detectSize));
 
   // An observable keeping track of the drawer width.
   const drawerWidth$ = size$.pipe(
