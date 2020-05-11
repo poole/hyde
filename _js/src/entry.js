@@ -35,6 +35,7 @@ const PUSH_STATE_FEATURES = [
 
 if (hasFeatures(BASELINE)) {
   import(/* webpackMode: "eager" */ './navbar');
+  // import(/* webpackMode: "eager" */ './pro/toc');
 }
 
 // if (hasFeatures(DARK_MODE_FEATURES)) {

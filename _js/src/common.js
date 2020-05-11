@@ -13,7 +13,11 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Observable } from 'rxjs';
+import { Observable, NEVER } from 'rxjs';
+import { switchMap } from 'rxjs/operators'
+
+export const BREAK_POINT_3 = '(min-width: 64em)';
+export const BREAK_POINT_DYNAMIC = '(min-width: 1666px)';
 
 // Check the user agent for Safari and iOS Safari, to give them some special treatment...
 const ua = navigator.userAgent.toLowerCase();
@@ -99,4 +103,38 @@ export function getScrollLeft() {
 
 export function getScrollTop() {
   return window.pageYOffset || document.body.scrollTop;
+}
+
+export const body = document.body || document.documentElement;
+export const rem = (units) => units * parseFloat(getComputedStyle(body).fontSize);
+export const getWidth = () => window.innerWidth || body.clientWidth;
+
+/**
+ * @param {HTMLElement|HTMLElement[]} els 
+ * @param {IntersectionObserverInit} [options]
+ * @returns {Observable<IntersectionObserverEntry[]>}
+ */
+export function createIntersectionObservable(els, options) {
+  return Observable.create((obs) => {
+    const observer = new IntersectionObserver(xs => obs.next(xs), options);
+
+    if (Array.isArray(els)) els.forEach(el => observer.observe(el))
+    else observer.observe(els);
+
+    return () => { 
+      if (Array.isArray(els)) els.forEach(el => observer.unobserve(el))
+      else observer.unobserve(els);
+    };
+  });
+}
+
+/**
+ * @template T
+ * @param {Observable<boolean>} p$ 
+ * @returns {(source: Observable<T>) => Observable<T>}
+ */
+export function subscribeWhen(p$) {
+  return (source) => {
+    return p$.pipe(switchMap(p => (p ? source : NEVER)));
+  };
 }

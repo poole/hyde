@@ -25,7 +25,7 @@ import {
   withLatestFrom,
 } from 'rxjs/operators';
 
-import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getScrollTop } from './common';
+import { BREAK_POINT_3, BREAK_POINT_DYNAMIC, isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getScrollTop, body, rem, getWidth } from './common';
 
 (async () => {
   await Promise.all([
@@ -46,8 +46,6 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
   // NOTE: Duplicated values from `_sass_/variables.scss`.
   const CONTENT_WIDTH_5 = 48;
   const CONTENT_MARGIN_5 = 4;
-  const BREAK_POINT_3 = '(min-width: 64em)';
-  const BREAK_POINT_DYNAMIC = '(min-width: 1666px)';
 
   const DRAWER_WIDTH = 21;
   const R_28 = CONTENT_WIDTH_5 / 2 + CONTENT_MARGIN_5;
@@ -56,12 +54,8 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
   const DESKTOP = 2;
   const LARGE_DESKTOP = 3;
 
-  const body = document.body || document.documentElement;
-  const rem = () => parseFloat(getComputedStyle(body).fontSize);
-  const getWidth = () => window.innerWidth || body.clientWidth;
-
-  const calcDrawerWidth = () => DRAWER_WIDTH * rem();
-  const calcDrawerWidthDynamic = () => body.clientWidth / 2 - R_28 * rem();
+  const calcDrawerWidth = () => rem(DRAWER_WIDTH);
+  const calcDrawerWidthDynamic = () => body.clientWidth / 2 - rem(R_28);
 
   const subscribeWhen = p$ => source => {
     if (process.env.DEBUG && !p$) throw Error();
@@ -140,7 +134,10 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
   await cssLoaded;
 
   // A flag for the 3 major viewport sizes we support
-  const size$ = fromEvent(window, 'resize').pipe(startWith({}), map(detectSize));
+  const size$ = fromEvent(window, 'resize', { passive: true }).pipe(
+    startWith({}),
+    map(detectSize),
+  );
 
   // An observable keeping track of the drawer width.
   const drawerWidth$ = size$.pipe(
@@ -151,7 +148,7 @@ import { isSafari, isMobile, isMobileSafari, hasCSSOM, webComponentsReady, getSc
         case DESKTOP:
           return calcDrawerWidth();
         case MOBILE:
-          return 0.5 * rem();
+          return rem(0.5);
       }
     }),
   );

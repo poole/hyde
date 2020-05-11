@@ -26,7 +26,7 @@
 #markdown-toc {
   font-size: smaller;
   padding: 0 1.5rem .5rem 2.5rem;
-  margin: 2rem -1rem;
+  margin: 2rem -1rem 2rem calc(-1rem + 1px);
   border-left: 1px solid var(--border-color);
 
   &:before {
@@ -35,7 +35,7 @@
     opacity: 0.5;
     position: relative;
     left: -1.5rem;
-    margin-bottom: .5rem;
+    top: -.35rem;
     display: inline-block;
   }
 }
@@ -43,15 +43,18 @@
 .no-break-layout #markdown-toc {
   @media screen and (min-width: $break-point-dynamic) {
     position: absolute;
+    z-index: 4;
     width: calc(50% - 28rem);
     right: 0;
-    // top: 5.2rem;
-    // max-height: calc(100vh - 5.2rem);
     background: transparent;
     margin: auto;
     overflow: auto;
     overscroll-behavior: contain;
     transition: opacity 250ms ease, transform 250ms ease, border-color 1s ease;
+
+    &.toc-hide, &.toc-show {
+      max-height: calc(100vh - 2rem);
+    }
 
     &.toc-hide {
       opacity: 0;
