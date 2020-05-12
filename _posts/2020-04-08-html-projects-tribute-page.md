@@ -76,10 +76,10 @@ You can read the detailed [technical requirements of the tribute page](https://w
 <li style="list-style-type: none;">
   <ol>
     <li>
-      Create a<a href="https://learn.avicndugu.com/html-project-wikipedia"> html Wikipedia page clone</a>.
+      Create a<a href="/html-project-wikipedia"> html Wikipedia page clone</a>.
     </li>
     <li>
-      Create a <a href="https://learn.avicndugu.com/html-projects-youtube-page/">html only Youtube page clone</a>.
+      Create a <a href="/html-projects-youtube-page/">html only Youtube page clone</a>.
     </li>
   </ol>
 </li>

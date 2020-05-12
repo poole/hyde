@@ -47,7 +47,7 @@ If you have used codepen.io, you will notice the similarities. Install this brow
 
 You will need the words, pictures and/or videos that will go onto your web page / html project. If you already have the content with you skip to the next step.
 
-The content can be about anything. Choose a topic and find or create the content. If you are short of ideas read [100 HTML Practice projects ideas](https://learn.avicndugu.com/100-html-practice-projects-ideas-for-beginners/) for some inspiration.
+The content can be about anything. Choose a topic and find or create the content. If you are short of ideas read [100 HTML Practice projects ideas](/100-html-practice-projects-ideas-for-beginners/) for some inspiration.
 
 If the project is private, you can copy the text and image from just anywhere.
 
