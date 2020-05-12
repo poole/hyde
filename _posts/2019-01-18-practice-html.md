@@ -20,8 +20,7 @@ Outline
   9. Header
  10. Aside
  11. footer
- 12. Intermediate html tags [tutorial]
- 13.  
+ 12. Intermediate html tags [tutorial]  
  14. Ordered list
  15. Unordered list
  16. Code
@@ -47,7 +46,7 @@ HTML was created by [Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-
 
 ## How HTML works: Introduction to HTML.
 
-**HTML is** used to describe the appearance of a document to be displayed by a internet browser.
+**HTML** is used to describe the appearance of a document to be displayed by a internet browser.
 
 HTML documents are normal text documents but with &#8216;**.html**&#8216; file name extension. Normal text files have a &#8216;**.txt**&#8216; file name extension.
 
@@ -94,35 +93,21 @@ Html element includes the opening tag, the closing tag and the content between t
 
 These are tags used to tell the browser the beginning and the end of a HTML element.
 
-Basic html elements and tags tutorial
+### Basic html elements and tags tutorial
 
-1. Basic html page
+#### 1. Basic html page
 
-<del>They help divide your html into meaningful sections.</del>
+Each HTML page contains a template that is always present in any HTML page. Further more, the tags used in the template help divide your html into meaningful sections.
 
-We have the basic template for each HTML page. Each HTML
+Each HTML page usually has the following tags:
 
-* * *
-
-<p style="text-align: center;">
-   page usually has these tags.
-</p>
-
-&nbsp;
-
-<div class="wp-block-columns has-2-columns">
-  <div class="wp-block-column">
-    <pre class="wp-block-preformatted">&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />  &lt;head&gt;<br />    &lt;title&gt;This is a title&lt;/title&gt;<br />  &lt;/head&gt;<br />  &lt;body&gt; <br />    This is a basic HTML page.<br />  &lt;/body&gt;<br />&lt;/html&gt;</pre>
-  </div>
+code:
+<pre>&lt;!DOCTYPE html&gt;<br />&lt;html&gt;<br />  &lt;head&gt;<br />    &lt;title&gt;This is a title&lt;/title&gt;<br />  &lt;/head&gt;<br />  &lt;body&gt; <br />    This is a basic HTML page.<br />  &lt;/body&gt;<br />&lt;/html&gt;
+</pre>
   
-  <div class="wp-block-column">
-    This is a basic HTML page. 
-    
-    <p>
-      &nbsp;
-    </p>
-  </div>
-</div>
+Result:
+
+This is a basic HTML page. 
 
 Anything that you want to be displayed on the HTML page is added between the body tags.
 
@@ -338,9 +323,12 @@ The <i>dog ate my homework</i> is a commonly used lie.
 
 18. Images
 
-<img src=”https://learn.avicndugu.com/wp-content/uploads/2019/03/pet-dogs.jpg”>
+<code>
+  &lt;img src="https://devpractical.com/public/03/pet-dogs.jpg"&gt;
+</code>
 
-<img class="aligncenter wp-image-235 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2019/03/pet-dogs.jpg" alt="pet dogs" width="640" height="480" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/03/pet-dogs.jpg 640w, https://learn.avicndugu.com/wp-content/uploads/2019/03/pet-dogs-300x225.jpg 300w" sizes="(max-width: 640px) 100vw, 640px" /> 
+
+<img src="/public/03/pet-dogs.jpg">
 
 ### Html Links
 
@@ -350,25 +338,44 @@ The tag used to make links are the <a href=”URL”></a> tags.
 
 The URL is the target, which page or website you want to go to.
 
-Relative path
+#### Relative path
 
-<img src=”/wp-content/uploads/2019/03/pet-dogs.jpg”>
+code:
 
-Absolute path
+&lt;a href="/projects">this is a relative link</a>
 
-Link that opens in a new tab/ window
+
+<a href="/projects">this is a relative link</a>
+
+#### Absolute path
+
+code:
+
+&lt;a href="https://devpractical.com/projects">this is an absolute link</a>
+
+Result:
+
+<a href="https://devpractical.com/projects">this is an absolute link</a>
+
+#### Link that opens in a new tab/ window
+
+
 
 ### Html comment tag
 
 Html comment tags are used to add a comment in a html document. Anything inside the comment tag is not rendered on the browser but can be seen if you check the html source code.
 
+code:
+
 <!&#8211; This is a comment that will not be visible &#8211;>
 
-Creating your first html page
+Result:
 
-A
+<!-- This is a comment that will not be visible -->
 
-Html structure tags layout elements
+
+
+## Html structure tags & elements
 
 
 
@@ -381,26 +388,39 @@ Div
 </nav>
 
 Header
+<pre>
+  &lt;header></header>
+</pre>
 
-<header>
-
-<pre>Aside<br /><br />&lt;aside&gt;<br /><br />&lt;/aside&gt;</pre>
+Aside
+<pre>
+  &lt;aside&gt;&lt;/aside&gt;</pre>
 
 footer
 
 <pre>&lt;footer&gt;<br /><br />&lt;/footer&gt;</pre>
 
-Intermediate html tags [tutorial]
+
+## Intermediate html tags
 
 Code
 
+<pre>
+  &lt;code></code>
+</pre>
+
 Pre
+
+<pre>
+  &lt;pre&gt;&lt;/pre&gt;
+</pre>
 
 Forms
 
 <pre>&lt;form&gt;<br />&lt;input type=""&gt;<br />&lt;/form&gt;</pre>
 
-Html input types
+
+### Html input types
 
 Text Inputs
 

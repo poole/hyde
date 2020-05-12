@@ -11,11 +11,9 @@ categories:
 ---
 * * *
 
-<img class="aligncenter wp-image-214 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/display-code.png" alt="Show HTML tags on browser I using HTML entities" width="784" height="418" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/display-code.png 784w, https://learn.avicndugu.com/wp-content/uploads/2019/04/display-code-300x160.png 300w, https://learn.avicndugu.com/wp-content/uploads/2019/04/display-code-768x409.png 768w" sizes="(max-width: 784px) 100vw, 784px" /> 
+<img class="aligncenter wp-image-214 size-full" src="/public/04/display-code.png" alt="Show HTML tags on browser I using HTML entities"/>
 
 Ordinarily, HTML tags are not visible to the reader on the browser. They are there but you cannot see them.
-
-<!--more-->
 
 However, through **HTML entities** you can display the HTML tags that are part of the HTML markup code that could have never be seen on a browser.
 
@@ -35,13 +33,13 @@ Entities begin with the ‘&’ followed by ‘entity name’ or ‘entity numbe
   Reserved characters in HTML
 </h4>
 
-<img class="aligncenter wp-image-208 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/special-characters-html.png" alt="Reserved characters in HTML" width="604" height="309" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/special-characters-html.png 604w, https://learn.avicndugu.com/wp-content/uploads/2019/04/special-characters-html-300x153.png 300w" sizes="(max-width: 604px) 100vw, 604px" /> 
+<img src="/public/04/special-characters-html.png" alt="Reserved characters in HTML"/> 
 
 <h4 style="text-align: center;">
   List of HTML entities
 </h4>
 
-<img class="aligncenter wp-image-207 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/other-html-entities.png" alt="Commonly used HTML entities" width="540" height="660" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/other-html-entities.png 540w, https://learn.avicndugu.com/wp-content/uploads/2019/04/other-html-entities-245x300.png 245w" sizes="(max-width: 540px) 100vw, 540px" /> 
+<img src="/public/04/other-html-entities.png" alt="Commonly used HTML entities"/>
 
 View the complete lists of HTML entities.
 
@@ -53,7 +51,7 @@ View the complete lists of HTML entities.
 
 The quickest way that I know of is to use the search and replace feature. This feature is available in all text editors.
 
-<img class="aligncenter size-full wp-image-211" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/mass-change-entities.png" alt="" width="640" height="510" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/mass-change-entities.png 640w, https://learn.avicndugu.com/wp-content/uploads/2019/04/mass-change-entities-300x239.png 300w" sizes="(max-width: 640px) 100vw, 640px" /> 
+<img src="/public/04/mass-change-entities.png" alt="changing alot of html entities" /> 
 
 To use this feature use &#8216;CTRL + H&#8217; or click on &#8216;FIND&#8217; on the menu bar and then click on replace. Add the symbol you want to replace and the entity you want to replace with.
 
@@ -76,8 +74,6 @@ HTML tags.
 
 Example.
 
-<img class="aligncenter size-full wp-image-214" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/display-code.png" alt="" width="784" height="418" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/display-code.png 784w, https://learn.avicndugu.com/wp-content/uploads/2019/04/display-code-300x160.png 300w, https://learn.avicndugu.com/wp-content/uploads/2019/04/display-code-768x409.png 768w" sizes="(max-width: 784px) 100vw, 784px" /> 
+<img src="/public/04/display-code.png" alt="preserve code formating indentation html <pre>"/> 
 
 Now go out there and share the code. If you have any question in HTML, ask in the comments below.
-
-You can read more on [HTML tags](https://learn.avicndugu.com/tutorials/).

@@ -1,17 +1,13 @@
 ---
-id: 266
 title: What html tags are used in creating forms
 date: 2019-04-21T21:46:52+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=266
 permalink: /html-tags-used-in-creating-forms/
 categories:
   - HTML
 ---
 <span style="font-weight: 400;">The html tags used in creating forms online are <strong><form> </form></strong> tags pair. These 2 html tags <strong>are</strong> the <strong>container</strong> that <strong>holds other tags</strong> that create the <strong>form fields</strong> to be filled. The tags used together with the form tags are:</span>
-
-<!--more-->
 
 <li style="list-style-type: none;">
   <ol>

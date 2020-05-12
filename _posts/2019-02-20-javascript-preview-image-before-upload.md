@@ -1,10 +1,8 @@
 ---
-id: 79
 title: Javascript preview image before upload
 date: 2019-02-20T08:20:30+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=79
 permalink: /javascript-preview-image-before-upload/
 categories:
   - Javascript
@@ -14,11 +12,7 @@ tags:
 ---
 When users are uploading images, they are not sure if they are uploading the right image. You can help them by adding image preview before upload. Fortunately, you can do this with just HTML and Javascript.
 
-<div class="wp-block-image">
-  <figure class="aligncenter is-resized"><img class="wp-image-84" src="https://learn.avicndugu.com/wp-content/uploads/2019/02/2019-02-18-132805_1280x800_scrot.png" alt="image preview before upload" width="707" height="513" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/02/2019-02-18-132805_1280x800_scrot.png 943w, https://learn.avicndugu.com/wp-content/uploads/2019/02/2019-02-18-132805_1280x800_scrot-300x218.png 300w, https://learn.avicndugu.com/wp-content/uploads/2019/02/2019-02-18-132805_1280x800_scrot-768x557.png 768w" sizes="(max-width: 707px) 100vw, 707px" /></figure>
-</div>
-
-<!--more-->
+<img src="/public/2019-02-18-132805_1280x800_scrot.png" alt="image preview before upload">
 
 ## The image upload button
 
