@@ -28,9 +28,7 @@ If I had a blog-post UI, it might have three components:
   </ol>
 </li>
 
-<img class="aligncenter wp-image-548 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2020/04/2020-04-01-174916_1280x800_scrot.png" alt="Component visualisation" width="564" height="296" srcset="https://learn.avicndugu.com/wp-content/uploads/2020/04/2020-04-01-174916_1280x800_scrot.png 564w, https://learn.avicndugu.com/wp-content/uploads/2020/04/2020-04-01-174916_1280x800_scrot-300x157.png 300w" sizes="(max-width: 564px) 100vw, 564px" /> 
-
-<!--more-->
+<img src="/public/2020-04-01-174916_1280x800_scrot.png" alt="Component visualisation" /> 
 
 ## The different kinds of React components
 

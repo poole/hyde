@@ -17,7 +17,7 @@ Sometimes, when you are learning to code, you might hit a mental roadblock when 
 
 ### 1. Steal ideas and make them better
 
-<img class="aligncenter wp-image-524 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2019/12/steal-ideas.png" alt="Steal ideas" width="320" height="256" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/12/steal-ideas.png 320w, https://learn.avicndugu.com/wp-content/uploads/2019/12/steal-ideas-300x240.png 300w" sizes="(max-width: 320px) 100vw, 320px" /> 
+<img src="/public/12/steal-ideas.png" alt="Steal ideas" /> 
 
 Look at products, websites and web apps that you normally use. You can improve on already existing ideas by:
 
@@ -45,7 +45,7 @@ Seth Godin is encourages you to [steal his ideas only if you can make them bette
 
 Notrealtwitter.com, twitter clone, is an example of stealing a web app idea for a specific reason. They explicitly state that they did not build this site to take twitter’s business but to show what is possible. They made this project as a way to prove that “By 2025, software won’t be made by coders. You will be able to make software without knowledge of programming languages.”
 
-<img class="aligncenter size-full wp-image-526" src="https://learn.avicndugu.com/wp-content/uploads/2019/12/notrealtwitter.com_.png" alt="not real twitter screenshot" width="1540" height="996" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/12/notrealtwitter.com_.png 1540w, https://learn.avicndugu.com/wp-content/uploads/2019/12/notrealtwitter.com_-300x194.png 300w, https://learn.avicndugu.com/wp-content/uploads/2019/12/notrealtwitter.com_-768x497.png 768w, https://learn.avicndugu.com/wp-content/uploads/2019/12/notrealtwitter.com_-1024x662.png 1024w" sizes="(max-width: 1540px) 100vw, 1540px" /> 
+<img class="aligncenter size-full wp-image-526" src="/public/12/notrealtwitter.com_.png" alt="not real twitter screenshot" /> 
 
 **Pros**
 

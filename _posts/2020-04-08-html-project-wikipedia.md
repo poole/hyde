@@ -34,5 +34,5 @@ The final project should look like this:
 
 ## Bonus practice
 
-  1. Create a HTML<a style="font-size: 17px; font-weight: 400;" href="https://learn.avicndugu.com/html-projects-youtube-page/"> only Youtube page clone</a><span style="font-size: 17px; font-weight: 400;">.</span>
-  2. Create a [HTML only Tribute Page](https://learn.avicndugu.com/html-projects-tribute-page/)
+  1. Create a HTML<a style="font-size: 17px; font-weight: 400;" href="/html-projects-youtube-page/"> only Youtube page clone</a><span style="font-size: 17px; font-weight: 400;">.</span>
+  2. Create a [HTML only Tribute Page](/html-projects-tribute-page/)
