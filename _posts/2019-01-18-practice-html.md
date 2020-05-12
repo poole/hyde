@@ -324,11 +324,11 @@ The <i>dog ate my homework</i> is a commonly used lie.
 18. Images
 
 <code>
-  &lt;img src="https://devpractical.com/public/03/pet-dogs.jpg"&gt;
+  &lt;img src="/https://github.com/avicndugu/hyde/blob/03/pet-dogs.jpg"&gt;
 </code>
 
 
-<img src="/public/03/pet-dogs.jpg">
+<img src="https://github.com/avicndugu/hyde/blob//public/03/pet-dogs.jpg">
 
 ### Html Links
 

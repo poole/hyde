@@ -12,7 +12,7 @@ tags:
 ---
 When users are uploading images, they are not sure if they are uploading the right image. You can help them by adding image preview before upload. Fortunately, you can do this with just HTML and Javascript.
 
-<img src="/public/2019-02-18-132805_1280x800_scrot.png" alt="image preview before upload">
+<img src="https://github.com/avicndugu/hyde/blob/public/2019-02-18-132805_1280x800_scrot.png" alt="image preview before upload">
 
 ## The image upload button
 
