@@ -146,7 +146,7 @@ It can be according to any topic of your choice. If you have a hobby or interest
 <li style="list-style-type: none;">
   <ul>
     <li>
-      Choose a topic from <a href="https://learn.avicndugu.com/100-html-practice-projects-ideas-for-beginners/">100 HTML project ideas</a> I have prepared. Read through the list and choose one topic.
+      Choose a topic from <a href="/100-html-practice-projects-ideas-for-beginners/">100 HTML project ideas</a> I have prepared. Read through the list and choose one topic.
     </li>
   </ul>
 </li>

@@ -9,7 +9,7 @@ permalink: /host-a-html-page-on-localhost/
 categories:
   - HTML
 ---
-><img class="aligncenter wp-image-571 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/IMG_20200405_174811_314-e1586098863822.jpg" alt="" width="1960" height="1945" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/IMG_20200405_174811_314-e1586098863822.jpg 1960w, https://learn.avicndugu.com/wp-content/uploads/2019/04/IMG_20200405_174811_314-e1586098863822-150x150.jpg 150w, https://learn.avicndugu.com/wp-content/uploads/2019/04/IMG_20200405_174811_314-e1586098863822-300x298.jpg 300w, https://learn.avicndugu.com/wp-content/uploads/2019/04/IMG_20200405_174811_314-e1586098863822-768x762.jpg 768w, https://learn.avicndugu.com/wp-content/uploads/2019/04/IMG_20200405_174811_314-e1586098863822-1024x1016.jpg 1024w" sizes="(max-width: 1960px) 100vw, 1960px" /> 
+<img src="/public/04/IMG_20200405_174811_314-e1586098863822.jpg" alt=""/> 
 
 <span style="font-weight: 400;">Normally when I want to <strong>view a HTML file</strong>, I just right-click it and choose to open it with a web browser. However, I wanted to run a html page using localhost. I went online, researched and found 3 methods that works.<br /> </span><!--more-->
 
@@ -78,7 +78,7 @@ Once the server is ready, accessing the localhost on a browser will display the 
 
 <span style="font-weight: 400;"> </span><span style="font-weight: 400;">There are three ways I have tried that worked for me and I will show you how in the next few section. These are:<br /> </span>
 
-## <span style="font-weight: 400;">method 1: Use python to run a simple server</span> {#python-section}
+## method 1: Use python to run a simple server {#python-section}
 
 <span style="font-weight: 400;">Python has a in-built server that you can run with a single command.</span>
 
@@ -125,7 +125,7 @@ Once the server is ready, accessing the localhost on a browser will display the 
 
 <span style="font-weight: 400;">Then on the browser type <code> localhost:6734</code> as the URL.</span>
 
-## <span style="font-weight: 400;">Method 2: Use PHP to run an inbuilt server</span> {##php-section}
+## Method 2: Use PHP to run an inbuilt server{#php-section}
 
 <span style="font-weight: 400;">Php also has an i built web server that can run your files on local host.</span>
 

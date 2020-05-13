@@ -102,7 +102,7 @@ categories:
     </div>
     
     <div dir="ltr">
-      <img class="aligncenter size-full wp-image-344" src="https://learn.avicndugu.com/wp-content/uploads/2019/07/get-method-url-string-google-search.png" alt="" width="597" height="231" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/07/get-method-url-string-google-search.png 597w, https://learn.avicndugu.com/wp-content/uploads/2019/07/get-method-url-string-google-search-300x116.png 300w" sizes="(max-width: 597px) 100vw, 597px" />
+      <img class="aligncenter size-full wp-image-344" src="/public/07/get-method-url-string-google-search.png" alt="" />
     </div>
     
     <h4 dir="ltr">

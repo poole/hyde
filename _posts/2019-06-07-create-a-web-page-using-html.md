@@ -16,7 +16,7 @@ If you have taken any tutorial on HTML you might be wondering: I know some HTML 
 
 ## The webpage itself
 
-For your first webpage, I would recommend that you make an already designed website. Remember, you are just practicing how to build webpages not design them. You can choose from this simple [html projects collection](https://learn.avicndugu.com/100-html-practice-projects-ideas-for-beginners/) I prepared. You can also checkout freeCodeCamp&#8217;s tribute page project.
+For your first webpage, I would recommend that you make an already designed website. Remember, you are just practicing how to build webpages not design them. You can choose from this simple [html projects collection](/100-html-practice-projects-ideas-for-beginners/) I prepared. You can also checkout freeCodeCamp&#8217;s tribute page project.
 
 For this tutorial we will be building this webpage.
 
@@ -55,7 +55,7 @@ If you want to create a unique webpage, you will have to:
     <li style="list-style-type: none;">
       <ul>
         <li>
-          <strong>Write the text</strong>:Write the text that will go onto your webpage. If you copied some content somewhere online,remember to copy the URL of the source. and save this in a document. If you cannot find a topic for the webpage, read article on <a href="https://learn.avicndugu.com/100-html-practice-projects-ideas-for-beginners/">100 topic ideas for your first webpage</a>.
+          <strong>Write the text</strong>:Write the text that will go onto your webpage. If you copied some content somewhere online,remember to copy the URL of the source. and save this in a document. If you cannot find a topic for the webpage, read article on <a href="/100-html-practice-projects-ideas-for-beginners/">100 topic ideas for your first webpage</a>.
         </li>
         <li>
           <strong>Download the images or copy image URL: </strong>Find some relevant and useful images. Once you have found them, download the images or copy the url of the image and save it in document.

@@ -11,7 +11,7 @@ categories:
   - HTML
   - Projects
 ---
-<img class="aligncenter size-full wp-image-403" src="https://learn.avicndugu.com/wp-content/uploads/2019/08/practice-learn-improve.jpg" alt="three dice with the words learn practice improve" width="632" height="420" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/08/practice-learn-improve.jpg 632w, https://learn.avicndugu.com/wp-content/uploads/2019/08/practice-learn-improve-300x199.jpg 300w" sizes="(max-width: 632px) 100vw, 632px" />
+<img class="aligncenter size-full wp-image-403" src="/public/08/practice-learn-improve.jpg" alt="three dice with the words learn practice improve"/>
 
 There are two steps you can use in order to improve your HTML and CSS skills:
 
@@ -91,7 +91,7 @@ Some of these projects are:
     <li style="list-style-type: none;">
       <ol>
         <li>
-          <a href="https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-tribute-page">Build a Tribute Page</a> [Freecodecamp]<img class="alignnone size-full" src="https://miro.medium.com/max/700/1*QMlF5qHP4J-LmHG0bFsRCA.png" alt="Tribute website page" width="700" height="462" />
+          <a href="/html-projects-tribute-page/">Build a Tribute Page</a> [Freecodecamp]<img class="alignnone size-full" src="https://miro.medium.com/max/700/1*QMlF5qHP4J-LmHG0bFsRCA.png" alt="Tribute website page" width="700" height="462" />
         </li>
         <li>
           <a href="https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-survey-form">Build a Survey Form</a> [Freecodecamp]

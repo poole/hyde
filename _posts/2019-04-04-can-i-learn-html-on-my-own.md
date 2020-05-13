@@ -9,13 +9,13 @@ permalink: /can-i-learn-html-on-my-own/
 categories:
   - HTML
 ---
-<span style="font-weight: 400;"><img class="aligncenter wp-image-258 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/html-code.png" alt="Beginner HTML CODE" width="512" height="216" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/html-code.png 512w, https://learn.avicndugu.com/wp-content/uploads/2019/04/html-code-300x127.png 300w" sizes="(max-width: 512px) 100vw, 512px" />Yes, you can learn HTML without having to go to a college or a boot camp. In fact, you can learn HTML at the comfort of your own home. However, you will need learning materials to enable you to learn effectively.</span>
+<img class="aligncenter wp-image-258 size-full" src="/public/04/html-code.png" alt="Beginner HTML CODE" width="512" height="216">
+Yes, you can learn HTML without having to go to a college or a boot camp. In fact, you can learn HTML at the comfort of your own home. However, you will need learning materials to enable you to learn effectively.
 
-<!--more-->
 
-<span style="font-weight: 400;">Fortunately, there are a lot of websites and online courses that can help you learn. All you will need is a computer and some internet connection. </span>You will then use these online resources for your lessons and practice. And <span style="font-weight: 400;">that is how I was able to learn HTML, CSS and Javascript.</span>
+Fortunately, there are a lot of websites and online courses that can help you learn. All you will need is a computer and some internet connection. You will then use these online resources for your lessons and practice. That is how I was able to learn HTML, CSS and Javascript.
 
-Why should you teach yourself HTML
+## Why should you teach yourself HTML
 
 <p style="padding-left: 40px;">
   a. you can <strong>easily access</strong> the resources <strong>online</strong>.<br /> b. you <strong>save your time</strong>. You study when you have the time and don&#8217;t have to commute to class.<br /> c. you <strong>save your money</strong>. The courses are available online for free or a fraction of the amount you would pay for a college course.
@@ -27,7 +27,7 @@ Why should you teach yourself HTML
 
   1. ###  <span style="font-weight: 400;">Watching Youtube video courses.</span>
 
-<img class="aligncenter size-full wp-image-260" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/youtube-html-courses.jpg" alt="" width="1280" height="800" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/youtube-html-courses.jpg 1280w, https://learn.avicndugu.com/wp-content/uploads/2019/04/youtube-html-courses-300x188.jpg 300w, https://learn.avicndugu.com/wp-content/uploads/2019/04/youtube-html-courses-768x480.jpg 768w, https://learn.avicndugu.com/wp-content/uploads/2019/04/youtube-html-courses-1024x640.jpg 1024w" sizes="(max-width: 1280px) 100vw, 1280px" /> 
+<img class="aligncenter size-full wp-image-260" src="/public/04/youtube-html-courses.jpg" alt="">
 
 <span style="font-weight: 400;">There are a lot of guys who have created great youtube channels to teach you and me how to make websites. And they teach basic and advanced HTML skills.</span>
 
@@ -50,7 +50,7 @@ There are many youtube video courses that can teach you HTML. If you learn well 
     <li style="list-style-type: none;">
       <ol>
         <li style="font-weight: 400;">
-          <span style="font-weight: 400;">A</span><a href="https://learn.avicndugu.com/practice-html/"> <span style="font-weight: 400;">short introduction course in HTML</span></a><span style="font-weight: 400;"> on this website.</span>
+          <span style="font-weight: 400;">A</span><a href="/practice-html/"> <span style="font-weight: 400;">short introduction course in HTML</span></a><span style="font-weight: 400;"> on this website.</span>
         </li>
         <li style="font-weight: 400;">
           <a href="https://learn.freecodecamp.org/responsive-web-design/basic-html-and-html5"><span style="font-weight: 400;">FreeCodeCamp HTML course</span></a>
@@ -74,7 +74,7 @@ If you can afford to pay checkout these Udemy courses.
 
 <span style="font-weight: 400;">There are some HTML video courses in local languages like <strong>Urdu</strong> and <strong>Hindi</strong>. If you have very little understanding of English but are fluent in Urdu or Hindi, there is an <a href="https://www.udemy.com/html-in-urdu-hindi-a-complete-course-with-projects/" target="_blank" rel="noopener noreferrer">Urdu HTML course</a> to start with.</span>
 
-<img class="aligncenter wp-image-262 size-full" src="https://learn.avicndugu.com/wp-content/uploads/2019/04/online-courses-logos.png" alt="online courses logos" width="396" height="133" srcset="https://learn.avicndugu.com/wp-content/uploads/2019/04/online-courses-logos.png 396w, https://learn.avicndugu.com/wp-content/uploads/2019/04/online-courses-logos-300x101.png 300w" sizes="(max-width: 396px) 100vw, 396px" /> 
+<img class="aligncenter wp-image-262 size-full" src="/public/04/online-courses-logos.png" alt="online courses logos">
 
 <ol start="3">
   <li>
@@ -110,6 +110,6 @@ When choosing a good HTML tutorial check to ensure that the course:
 
 ## <span style="font-weight: 400;">Practising what you have learnt.</span>
 
-<span style="font-weight: 400;">After you have learnt the basics of HTML, its time to practice your newly acquired skill. To practice outside of the online editing tools, you will u</span><span style="font-weight: 400;">se a text editor to write your code and a browser to view the result. Read <a href="https://learn.avicndugu.com/how-to-practice-html-offline/">how to practice HTML offline</a>, if you want to start practising HTML outside of the online tutorials.</span>
+<span style="font-weight: 400;">After you have learnt the basics of HTML, its time to practice your newly acquired skill. To practice outside of the online editing tools, you will u</span><span style="font-weight: 400;">se a text editor to write your code and a browser to view the result. Read <a href="/how-to-practice-html-offline/">how to practice HTML offline</a>, if you want to start practising HTML outside of the online tutorials.</span>
 
-<span style="font-weight: 400;">Now go and build a webpage on your computer and test it on your browser. If you are stuck on ideas for webpages, c</span><span style="font-weight: 400;">heck my post with a list of <a href="https://learn.avicndugu.com/100-html-practice-projects-ideas-for-beginners/">50 ideas of HTML projects</a> you can build.</span>
+<span style="font-weight: 400;">Now go and build a webpage on your computer and test it on your browser. If you are stuck on ideas for webpages, c</span><span style="font-weight: 400;">heck my post with a list of <a href="/100-html-practice-projects-ideas-for-beginners/">50 ideas of HTML projects</a> you can build.</span>
