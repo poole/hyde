@@ -95,14 +95,13 @@ Every HTML table is contained inside <code><table></table></code> tags.
 ### Table cells
 
 Each table has to have cells that contains the data. You create cells by using the <code><td></td></code> tags. Example:
-```
-<code>
-    <td>Your first HTML table cell</td>
-    <td>Your second HTML table cell</td>
-    <td>Your third HTML table cell</td>
-    <td>Your fourth HTML table Cell</td>
-</code>
-```
+{% highlight html linenos %}
+<td>Your first HTML table cell</td>
+<td>Your second HTML table cell</td>
+<td>Your third HTML table cell</td>
+<td>Your fourth HTML table Cell</td>
+{% endhighlight %}
+
 <table>
     <td>Your first HTML table cell</td>
     <td>Your second HTML table cell</td>
@@ -117,7 +116,7 @@ To create rows in a HTML table, we use: <code><tr></tr></code> tags.
 Example:
 
 **Code**
-```
+{% highlight html linenos %}
 <table>
     <tr>
         <td>Your first HTML table Cell</td>
@@ -128,7 +127,7 @@ Example:
         <td>Your fourth HTML table Cell</td>
     </tr>
 </table>
-```
+{% endhighlight %}
 **Result**
 <table>
     <tr>
@@ -143,7 +142,7 @@ Example:
 
 ## Basic HTML table code example
 **Code:**
-```
+{% highlight html linenos %}
 <table>
   <tr>
     <td>&nbsp;</td>
@@ -181,7 +180,7 @@ Example:
     <td>Will eat till he explodes</td>
   </tr>
 </table>
-```
+{% endhighlight %}
 **Result**:
 <table>
   <tr>
@@ -229,7 +228,7 @@ Example:
 To merge two cells in a column, you use colspan="2". Example:
 
 **Code:**
-```
+{% highlight html linenos %}
 <table>
   <tr>
     <th colspan="4">Animals</th>
@@ -244,7 +243,7 @@ To merge two cells in a column, you use colspan="2". Example:
     <td>Chicken</td>
     <td>Ducks</td>
   </tr>
-```
+{% endhighlight %}
 **Result:**
 <table>
   <tr>
@@ -268,7 +267,7 @@ View the result on codepen
 To merge two cells in a row, you use colspan="2". Example:
 
 **Code**
-```
+{% highlight html linenos %}
 <table>
   <tr>
     <td>Stallion</td>
@@ -282,7 +281,7 @@ To merge two cells in a row, you use colspan="2". Example:
     <td>Rooster</td>
   </tr>
 </table>
-```
+{% endhighlight %}
 **Result**
 <table>
   <tr>
