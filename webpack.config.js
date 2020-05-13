@@ -1,8 +1,6 @@
 const { readFileSync } = require("fs");
 const { resolve } = require("path");
 
-const rxPaths = require("rxjs/_esm5/path-mapping");
-
 const { BannerPlugin, EnvironmentPlugin } = require("webpack");
 
 const merge = require("webpack-merge");
@@ -86,7 +84,6 @@ const sharedConfig = {
     ],
     extensions: [".json", ".js"],
     symlinks: true,
-    alias: rxPaths(),
   },
   optimization: {
     splitChunks: {
