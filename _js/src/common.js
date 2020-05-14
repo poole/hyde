@@ -76,7 +76,10 @@ export function animate(el, keyframes, options) {
 
     anim.addEventListener(
       'finish',
-      e => (observer.next(e), requestAnimationFrame(() => requestAnimationFrame(observer.complete.bind(observer)))),
+      (e) => requestAnimationFrame(() => {
+        observer.next(e);
+        requestAnimationFrame(() => observer.complete());
+      }),
     );
 
     return () => {
