@@ -41,9 +41,6 @@ import { setupFLIP } from './flip';
     ...('IntersectionObserver' in window
       ? []
       : [import(/* webpackChunkName: "intersection-observer" */ 'intersection-observer')]),
-    ...('scrollBehavior' in document.body.style
-      ? []
-      : [import(/* webpackChunkName: "smoothscroll" */ './polyfills/smoothscroll')]),
   ]);
 
   await webComponentsReady;
