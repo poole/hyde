@@ -1,3 +1,5 @@
+
+
 ---
 id: 586
 title: 'HTML projects: Youtube page'
@@ -50,8 +52,7 @@ You must include the following parts in your completed project:
     You included the title of the video.
   </li>
 </ol>  The final project should look like this:
-  <img src="/public/2020/html-youtube-clone.jpg">
-<a href="https://raw.githubusercontent.com/avicndugu/practice-projects-html/master/screenshots/screencapture-dancarl857-github-io-youtube-clone-2020-04-02-13_50_56.jpg">View full size image</a>
+  <img src="https://raw.githubusercontent.com/avicndugu/practice-projects-html/master/screenshots/screencapture-ikraamg-github-io-Mint-SignUp-Replica-2020-04-02-14_16_27.jpg">View full size image</a>
 ##  Bonus practice
 <ol>
   <li>

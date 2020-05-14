@@ -7,6 +7,7 @@ layout: page
 guid: https://learn.avicndugu.com/?page_id=583
 permalink: /html-project-wikipedia/
 ---
+<img src="/public/2020/html-project-wikipedia-main-image.jpg" alt="partial screenshot of a html-only version of wikipedia page">
 ## Stats
 
   * Knowledge required: HTML only
@@ -31,8 +32,9 @@ You must include the following parts in your completed project:
   4. You should include a timeline of the life of the tribute in the form of a list.
 
 The final project should look like this:
+<img src="/public/2020/html-project-wikipedia.jpg" alt="full page screenshot of a html-only version of wikipedia page">
 
 ## Bonus practice
 
-  1. Create a HTML<a style="font-size: 17px; font-weight: 400;" href="/html-projects-youtube-page/"> only Youtube page clone</a><span style="font-size: 17px; font-weight: 400;">.</span>
-  2. Create a [HTML only Tribute Page](/html-projects-tribute-page/)
+  1. Create a<a href="/html-projects-youtube-page/"> HTML-only Youtube page clone</a>
+  2. Create a [HTML-only Tribute Page](/html-projects-tribute-page/)
