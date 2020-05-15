@@ -1,6 +1,6 @@
 ---
 id: 42
-title: HTML Practice Notes
+title: Learn HTML with Examples
 date: 2019-01-18T08:03:08+00:00
 author: avic
 layout: page
@@ -324,11 +324,11 @@ The <i>dog ate my homework</i> is a commonly used lie.
 18. Images
 
 <code>
-  &lt;img src="/https://github.com/avicndugu/hyde/blob/03/pet-dogs.jpg"&gt;
+  &lt;img src="https://devpractical.com/public/03/pet-dogs.jpg" alt="image of a two cute dogs"&gt;
 </code>
 
 
-<img src="https://github.com/avicndugu/hyde/blob//public/03/pet-dogs.jpg">
+<img src="https://devpractical.com/public/03/pet-dogs.jpg" alt="image of a two cute dogs">
 
 ### Html Links
 
