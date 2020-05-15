@@ -20,6 +20,9 @@ guid: https://learn.avicndugu.com/?page_id=40
         <a href="/html-projects-youtube-page">Youtube clone project page</a>
     </li>
     <li>
+      <a href="/html-projects-google-search-result/">Google Search Result page</a>
+    </li>
+    <li>
       Documentation page.
     </li>
     <li>      

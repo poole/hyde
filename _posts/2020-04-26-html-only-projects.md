@@ -25,6 +25,12 @@ permalink: /html-only-projects/
       <p>Create a HTML-only version of Wikipedia as you practice your HTML skills.</p>
     </div>
   </a>
+  <a href="/html-projects-google-search-result/">
+    <div class="card">
+      <h2>Google Search Result Practice Project</h2>
+      <p>Create a HTML-only version of Google search result page as you practice your HTML skills.</p>
+    </div>
+  </a>
   <a href="/html-css-tutorials">
     <div class="card">
       <h2>Documentation Practice Project</h2>

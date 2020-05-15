@@ -81,6 +81,9 @@ You can read the detailed [technical requirements of the tribute page](https://w
     <li>
       Create a <a href="/html-projects-youtube-page/">html only Youtube page clone</a>.
     </li>
+    <li>
+      Create a <a href="/html-projects-google-search-result/">HTML-only Google Search Result page</a>
+    </li>
   </ol>
 </li>
 

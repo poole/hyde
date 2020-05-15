@@ -58,6 +58,9 @@ You must include the following parts in your completed project:
     Create a <a href="/html-project-wikipedia/">HTML-only Wikipedia page</a>
   </li>
   <li>
-    Create a <a href="https://learn.avicndugu.com/html-projects-tribute-page/">HTML-only Tribute Page</a>
+    Create a <a href="/html-projects-tribute-page/">HTML-only Tribute Page</a>
+  </li>
+  <li>
+    Create a <a href="/html-projects-google-search-result/">HTML-only Google Search Result page</a>
   </li>
 </ol>
