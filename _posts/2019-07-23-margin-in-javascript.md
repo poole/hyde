@@ -131,5 +131,7 @@ The code for getting the value of right margin only:
     });
 {% endhighlight %}
 
+You can view the [full code for this article on github.](https://github.com/avicndugu/projects/blob/master/margin-in-javascript.html)
+
 ## Related Article
 1. how to [change padding in Javascript](/changing-padding-using-javascript/)
