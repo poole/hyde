@@ -12,15 +12,13 @@ categories:
 ---
 If you have taken any tutorial on HTML you might be wondering: I know some HTML but how do I make a webpage from scratch? Well, this tutorial is for you. What is a better way of doing this than making a webpage.
 
-<!--more-->
-
 ## The webpage itself
 
 For your first webpage, I would recommend that you make an already designed website. Remember, you are just practicing how to build webpages not design them. You can choose from this simple [html projects collection](/100-html-practice-projects-ideas-for-beginners/) I prepared. You can also checkout freeCodeCamp&#8217;s tribute page project.
 
 For this tutorial we will be building this webpage.
 
-<img class="aligncenter" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-youtube.png" alt="Example of practice webpage" width="677" height="1056" />  
+<img class="aligncenter" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-youtube.png" alt="Example of practice webpage"/>  
 This webpage is not fancy but it a good first project. I made it one collumn to keep things beginner friendly.
 
 ## Requirements
@@ -123,7 +121,7 @@ Once you choose a place to save the file, click save.
 
 Right click on the file and open it with a browser. You will see something like this.
 
-<img class="size-full aligncenter" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/basic-template-view.png" width="407" height="362" /> 
+<img class="size-full aligncenter" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/basic-template-view.png"/> 
 
 ### Add the text content
 
@@ -132,7 +130,7 @@ Paste it between the body tags.
 
 It will look like a blob of text with no paragraphs or headings shown below.
 
-<img class="size-full aligncenter" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-text-only.png" width="568" height="412" /> 
+<img class="size-full aligncenter" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-text-only.png"/> 
 
 ### Add the html tags.
 
@@ -140,12 +138,12 @@ First, we shall tackle the headings.
 Check which part or the text was the main heading. In our example it is &#8230;..  
 Place this text between h1 tags. Save your work and check the result on the browser.
 
-<img class="size-full aligncenter" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-heading.png" width="574" height="418" />  
+<img class="size-full aligncenter" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-heading.png" />  
 Place the other subheadings between the h2 html tags.  
 For the paragraphs of text, place each paragraph of text between the p html tag.  
 View the result on the browser.
 
-<img class="alignnone size-full" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-paragraph.png" width="657" height="449" /> 
+<img class="alignnone size-full" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-paragraph.png" /> 
 
 ### Add images
 
@@ -167,7 +165,7 @@ We are going to use the img tag (<img>).
   <img src=&#8221;https://avicndugu.github.io/practice-projects-html/cricket-eating/final/img/fried-crickets.jpg&#8221;
 </p>
 
-<img class="alignnone size-full" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-image.jpg" width="677" height="737" /> 
+<img class="alignnone size-full" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-image.jpg"/> 
 
 ### Embed a youtube video
 
@@ -183,7 +181,7 @@ Paste your code on your webpage where you want the video to be displayed.
 
 View the html page on a browser.
 
-<img class="alignnone size-full" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-youtube.jpg" width="677" height="1056" /> 
+<img class="alignnone size-full" src="https://avicndugu.github.io/practice-projects-html/cricket-eating/screenshots/with-youtube.jpg" /> 
 
 ### Additional tips
 
