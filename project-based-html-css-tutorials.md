@@ -4,82 +4,85 @@ title: 30 projects-based tutorials to practice html and css skills
 date: 2019-11-25T15:30:05+00:00
 author: avic
 layout: page
-guid: https://learn.avicndugu.com/?page_id=413
 permalink: /html-css-tutorials/
 ---
-30 courses to learn HTML and CSS through projects  
-1. Dash Assembly
+There are a lot of courses that teach HTML and CSS online. However most of them usually teach based on the features of the languages.
 
-You will be building 3 projects in this course.
+I have nothing against that teaching method. It works. But not for everyone.
 
-&nbsp;
+If you learn better by buiding products, you need a project based tutorial.
 
-2. https://www.udemy.com/learn-html-css-by-building-3-real-projects/
+I created this list of tutorials to help you along the journey as you learn by creating real world projects. 
 
-3. https://www.udemy.com/basic-html-and-css-for-beginners/
+## 1. Dash Assembly [(Website)](https://dash.generalassemb.ly/)
 
-https://www.skillshare.com/classes/Learn-HTML-CSS-by-Building-3-Projects-Launch-your-career/582773991
+Dash Assembly course teaches you HTML and CSS skills by creating 3 projects. The course takes you from knowing nothing to:
+- Building a personal website
+- Building a responsive tumblr theme
+- Creating a small business website.
+- creating a robot on the webpage using CSS  
+- Creating a Madlib game
+
+The last project, creating a Madlib game, will introduce you to the world of Javascript. This quiz project that you will be making can be played on the browser.
+
+I once taught a class of 8-12 year old on making websites based on content from this course and they really enjoyed it. They particularly loved Making the robot using CSS project.
+
+View the 5 projects you will be building on [Dash.Assembly Website](https://dash.generalassemb.ly/)
+Price: Free
+
+## 2. Build a Responsive Grid CSS Website Layout From Scratch by Brad Traversy [(Youtube)](https://www.youtube.com/watch?v=moBhzSC455o)
+
+You will be creating a grid based website theme: You can see the result of the website that you will be making on [Codepen](https://codepen.io/bradtraversy/pen/gvMGyB)
 
 
 
-Responsive Landing Page Using HTML & CSS (A Little jQuery)
+## 3. HTML and CSS for beginners: Build 3 projects from scratch[(Udemy)](https://www.udemy.com/learn-html-css-by-building-3-real-projects/)
+
+With this course, you will be building:
+- a Recipe website
+- a college website
+- a hotel business website
+
+This course is also available on [Skillshare](https://www.skillshare.com/classes/Learn-HTML-CSS-by-Building-3-Projects-Launch-your-career/582773991)
 
 
-
-Product Landing Page | Build & Deploy | HTML & CSS  
-
-
-Pluralsight Login Page Clone &#8211; HTML & CSS
+## 4. Responsive Landing Page Using HTML & CSS (A Little jQuery)[(Youtube)](https://www.youtube.com/watch?v=GJXXf3_dcng/)
 
 
+## 5. Product Landing Page Build & Deploy HTML & CSS[(Youtube)]()  
 
-Fullscreen Video Background With HTML & CSS  
+
+## 6. Pluralsight Login Page Clone HTML & CSS[(Youtube)]() 
 
 
-[Learn HTML and CSS by Examples](https://www.udemy.com/html-by-examples/) -(Udemy)
+## 7. Fullscreen Video Background With HTML & CSS[(Youtube)]() 
 
-[Build a Responsive Grid CSS Website Layout From Scratch by Brad Traversy](https://www.youtube.com/watch?v=moBhzSC455o) -(Youtube)
 
-Pure CSS Hamburger Menu & Overlay  
+## 8. Learn HTML and CSS by Examples[Udemy](https://www.udemy.com/html-by-examples/)
 
+You will be creating:
+- Digital business card
+- Responsive blog header
+- Digital restaurant menu
+
+
+## 9. Pure CSS Hamburger Menu & Overlay [(Youtube)](https://www.youtube.com/watch?v=DZg6UfS5zYg)
 
 Follow along and create this acme website project  
   
-Traversy media
 
-12. Follow along and create this acme website project  
+## 10. Follow along and create this acme website project [(Youtube)]()
   
-Traversy media
+## 11. Mobile first responsive design contact form [(Youtube)]()
 
-13. Mobile first responsive design contact form  
-  
-Traversy media
+## 12. Technical documentation page  
+You can try to replicate or use [Swift's website](https://swift.org/getting-started/) for inspiration .
 
-14. Technical documentation page  
-You can try to replicate or use it for inspiration  
-https://swift.org/getting-started/
+## 13. The Parallax Effect by Traversy media
 
-15. The Parallax Effect  
-  
-Traversy media
-
-16. CSS grid layout project by traversy media  
+## 14. CSS grid layout project by traversy media  
 
 
-17. [Lander project](https://www.eduonix.com/basic-html5-and-css-for-beginners-build-one-project)
+## 15. Lander project[Eduonix](https://www.eduonix.com/basic-html5-and-css-for-beginners-build-one-project)
+You will build a Landing page that you can use as part of you portfolio.
 
-https://stacksocial.com/sales/html-css-for-beginners-build-3-projects-from-scratch
-
-18. Project 1- MyRecipe Website
-
-19. Project 2- MyCollege Website
-
-20. Project 3- MyHotel Website
-
-[LEARN HTML & CSS BY CREATING WEBSITES](https://www.udemy.com/course/learn-html-css-by-building-3-real-projects/)
-
-24. Project 1- MyRecipe Website
-
-25. Project 2- MyCollege Website
-
-26. Project 3- MyHotel Website
