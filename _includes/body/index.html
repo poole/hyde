@@ -7,7 +7,7 @@
   prefetch
   hashchange
 >
-  {% include body/menu.html %}
+  {% include_cached body/menu.html %}
   {% if page.cover %}
     {% include body/sidebar.html %}
     {% include body/main.html %}
@@ -17,7 +17,7 @@
   {% endif %}
 </hy-push-state>
 
-{% include body/scripts.html %}
-{% include my-body.html %}
+{% include_cached body/scripts.html redirect=page.redirect %}
+{% include_cached my-body.html %}
 
-{% include templates/index.html %}
+{% include_cached templates/index.html %}

@@ -38,6 +38,7 @@ group :jekyll_plugins do
   gem "jekyll-sitemap"
   gem "jekyll-titles-from-headings"
   gem "jekyll-algolia"
+  gem "jekyll-include-cache"
 end
 
 # TODO

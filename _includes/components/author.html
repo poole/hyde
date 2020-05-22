@@ -16,7 +16,7 @@
     {{ include.heading | default:author.name }}
   </{{ heading_tag }}>
 
-  {{ .author.about | markdownify }}
+  {{ author.about | markdownify }}
 
   <div class="sidebar-social">
     {% include components/social.html author=author %}

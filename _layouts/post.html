@@ -26,7 +26,7 @@ layout: base
 {% for addon in addons %}
   {% case addon %}
   {% when 'about' %}
-     {% include components/about.html %}
+     {% include_cached components/about.html author=page.author %}
   {% when 'related' %}
     {% include try="components/related-posts.html" %}
   {% when 'comments' %}

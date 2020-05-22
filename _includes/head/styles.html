@@ -1,45 +1,15 @@
 <!--[if gt IE 8]><!---->
-
-{% assign layout       = page.layout       %}
-{% assign google_fonts = site.google_fonts %}
-
-{% if site.kramdown.math_engine == 'katex' %}{% assign has_katex = true %}{% endif %}
-
-{% capture style_url %}{% link assets/css/hydejack-9.0.0-alpha.5.css %}{% endcapture %}
-{% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
-{% capture katex_url %}{% link assets/bower_components/katex/dist/katex.min.css %}{% endcapture %}
-{% if google_fonts %}{% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts | uri_escape }}&display=swap{% endcapture %}{% endif %}
-
 {% if site.hydejack.no_inline_css or jekyll.environment == 'development' %}
-  <link rel="stylesheet" href="{{ style_url }}">
-  <link rel="stylesheet" href="{{ icons_url }}">
-  {% if has_katex    %}<link rel="stylesheet" href="{{ katex_url }}">{% endif %}
-  {% if google_fonts %}<link rel="stylesheet" href="{{ fonts_url }}">{% endif %}
+  {% include_cached head/styles-no-inline.html %}
 {% else %}
   <style>
     {% capture to_scssify %}{% include styles/inline.scss %}{% endcapture %}{{ to_scssify | scssify }}
+    {% include_cached head/css/inline %}
   </style>
-
-  <link rel="preload" as="style" href="{{ style_url }}" id="_stylePreload">
-  <link rel="preload" as="style" href="{{ icons_url }}" id="_iconsPreload">
-  {% if has_katex    %}<link rel="preload" as="style" href="{{ katex_url }}" id="_katexPreload">{% endif %}
-  {% if google_fonts %}<link rel="preload" as="style" href="{{ fonts_url }}" id="_fontsPreload">{% endif %}
-
-  <script>
-    setRel('_stylePreload');
-    setRel('_iconsPreload');
-    /*{% if has_katex    %}*/setRel('_katexPreload');/*{% endif %}*/
-    /*{% if google_fonts %}*/setRel('_fontsPreload');/*{% endif %}*/
-  </script>
-  <noscript>
-    <link rel="stylesheet" href="{{ style_url }}">
-    <link rel="stylesheet" href="{{ icons_url }}">
-    {% if has_katex    %}<link rel="stylesheet" href="{{ katex_url }}">{% endif %}
-    {% if google_fonts %}<link rel="stylesheet" href="{{ fonts_url }}">{% endif %}
-  </noscript>
+  {% include_cached head/styles-inline.html %}
 {% endif %}
 
 {% unless site.hydejack.no_page_style %}
-  {% include head/page-style.html %}
+  {% include_cached head/page-style.html color=color theme_color=theme_color %}
 {% endunless %}
 <!--<![endif]-->
