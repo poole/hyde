@@ -5,6 +5,7 @@ date: 2019-11-25T15:30:05+00:00
 author: avic
 layout: page
 guid: https://learn.avicndugu.com/?page_id=413
+permalink: /html-css-tutorials/
 ---
 30 courses to learn HTML and CSS through projects  
 1. Dash Assembly
