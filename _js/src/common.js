@@ -74,9 +74,8 @@ export function animate(el, keyframes, options) {
   return Observable.create(observer => {
     const anim = el.animate(keyframes, options);
 
-    anim.addEventListener(
-      'finish',
-      (e) => requestAnimationFrame(() => {
+    anim.addEventListener('finish', e =>
+      requestAnimationFrame(() => {
         observer.next(e);
         requestAnimationFrame(() => observer.complete());
       }),
@@ -145,20 +144,20 @@ export function subscribeWhen(p$) {
 /**
  * @template Req
  * @template Res
- * @param {Worker} worker 
- * @param {Req} message 
+ * @param {Worker} worker
+ * @param {Req} message
  * @returns {Promise<Res>}
  */
 export function postMessage(worker, message) {
   return new Promise((resolve, reject) => {
     const messageChannel = new MessageChannel();
-    messageChannel.port1.onmessage = (event) => {
+    messageChannel.port1.onmessage = event => {
       if (event.data.error) {
         reject(event.data.error);
       } else {
         resolve(event.data);
       }
     };
-    worker.postMessage(message, [messageChannel.port2]) 
+    worker.postMessage(message, [messageChannel.port2]);
   });
 }

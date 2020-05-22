@@ -3,6 +3,7 @@ layout: page
 title: Documentation
 redirect_from:
   - /docs/latest/print/
+  - /docs/print/
 sitemap: false
 ---
 
@@ -59,7 +60,7 @@ If you have a GitHub account, fork the [hy-starter-kit](https://github.com/hydec
 
 Alternatively, you can just [![Deploy to Netlify][dtn]][nfy]{:.no-hover.no-mark}.
 
-[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.5.zip
+[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.6.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/hydecorp/hydejack-starter-kit
 [dtn]: https://www.netlify.com/img/deploy/button.svg
 
@@ -173,7 +174,7 @@ For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.5/install/
+$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.6/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -225,7 +226,7 @@ especially the part about the [license change](../CHANGELOG.md#license-change)!
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: hydecorp/hydejack@v9.0.0-alpha.5
+remote_theme: hydecorp/hydejack@v9.0.0-alpha.6
 ```
 
 To use the latest version on the `v8` branch on each build, you can use  `hydecorp/hydejack@v8`.
@@ -600,7 +601,7 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.5.zip
+    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.6.zip
 ~~~
 
 
@@ -732,7 +733,7 @@ To edit the content of the newsletter box, open `_data/strings.yml`, and change 
 
 If want to use a different mailing provider you can build your own form, and insert it into `_includes/my-newsletter.html`. The file includes an example form for MailChimp, where you need to fill in `site.mailchimp.action` and `site.mailchimp.hidden_input` (you can get these from MailChimp).
 
-To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/). Note that only form, grid and utility classes are available. Check out [Forms by Example](../../forms-by-example.md){:.heading.flip-title} for more examples.
+To build a completely new from, you can use [the same CSS classes as Bootstrap](https://getbootstrap.com/docs/4.0/components/forms/). Note that only form, grid and utility classes are available. Check out [Forms by Example](../forms-by-example.md){:.heading.flip-title} for more examples.
 
 [tinyletter]: https://tinyletter.com/
 
@@ -1803,11 +1804,8 @@ To enable this feature, create the [`sw.js`][sw] file in the root of your projec
 ```js
 ---
 ---
-importScripts("{\{ '/assets/js/sw.js' | relative_url }\}?t={\{ site.time | date_to_xmlschema }\}");
+importScripts("{% raw %}{{ '/assets/js/sw.js' | relative_url }}?t={{ site.time | date_to_xmlschema }}{% endraw %}");
 ```
-
-**NOTE**: You have to remove the `\` after each `{` and before each `}`! Alternatively, you can just copy the file from [here][sw].
-{:.message}
 
 [sw]: https://github.com/hydecorp/hydejack/blob/v8/sw.js
 
