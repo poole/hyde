@@ -11,19 +11,16 @@ const ENC = "utf-8";
 const FILES = [
   "./jekyll-theme-hydejack-pro.gemspec",
   "./_data/authors.yml",
-  "./_includes/head/meta.html",
-  "./_includes/head/links.html",
-  "./_includes/head/styles.html",
-  "./_includes/header.txt",
   "./_includes/body/scripts.html",
   "./_includes/body/footer.html",
-  "./_includes/search.js",
+  "./_includes/head/styles-inline.html",
+  "./_includes/head/meta-static.html",
+  "./_includes/head/styles-no-inline.html",
+  "./_includes/header.txt",
   "./_includes/sw.js",
   "./_layouts/compress.html",
   "./_js/lib/version.js",
   "./assets/version.json",
-  "./assets/js/search.js",
-  "./assets/js/sw.js",
   "./CHANGELOG.md",
   "./download.md",
   "./README.md",
@@ -33,10 +30,10 @@ const FILES = [
 // <https://stackoverflow.com/a/45130990/870615>
 async function getFiles(dir) {
   const dirents = await readdir(dir, { withFileTypes: true });
-  const files = dirents.map((dirent) => {
+  const files = await Promise.all(dirents.map((dirent) => {
     const res = resolve(dir, dirent.name);
     return dirent.isDirectory() ? getFiles(res) : res;
-  });
+  }));
   return Array.prototype.concat(...files);
 }
 
