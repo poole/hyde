@@ -44,13 +44,12 @@
   @media screen and (min-width: $break-point-dynamic) {
     position: absolute;
     z-index: 4;
-    width: calc(50% - 28rem);
+    width: calc(50% - 28rem + 2rem);
     right: 0;
-    background: var(--body-bg);
     margin: auto;
     overflow: auto;
     overscroll-behavior: contain;
-    transition: opacity 250ms ease, transform 250ms ease, background-color 1s ease, border-color 1s ease;
+    transition: opacity 250ms ease, transform 250ms ease, border-color 1s ease;
 
     &.toc-hide {
       opacity: 0;

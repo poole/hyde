@@ -41,6 +41,7 @@ if (hasFeatures(BASELINE)) {
 // if (hasFeatures(DARK_MODE_FEATURES)) {
 //   import(/* webpackMode: "eager" */ './pro/cookies-banner');
 //   import(/* webpackMode: "eager" */ './pro/dark-mode');
+//   import(/* webpackMode: "eager" */ './pro/search');
 // }
 
 // A list of Modernizr tests that are required for the drawer to work.

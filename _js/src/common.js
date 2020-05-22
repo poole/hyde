@@ -141,3 +141,24 @@ export function subscribeWhen(p$) {
     return p$.pipe(switchMap(p => (p ? source : NEVER)));
   };
 }
+
+/**
+ * @template Req
+ * @template Res
+ * @param {Worker} worker 
+ * @param {Req} message 
+ * @returns {Promise<Res>}
+ */
+export function postMessage(worker, message) {
+  return new Promise((resolve, reject) => {
+    const messageChannel = new MessageChannel();
+    messageChannel.port1.onmessage = (event) => {
+      if (event.data.error) {
+        reject(event.data.error);
+      } else {
+        resolve(event.data);
+      }
+    };
+    worker.postMessage(message, [messageChannel.port2]) 
+  });
+}

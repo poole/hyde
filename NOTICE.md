@@ -61,24 +61,6 @@ project, which is GPL-3.0 licensed with the following copyright:
 
 A copy of the [GPL-3.0] license is provided as part of this distribution.
 
-### hy-img
-This software also uses portions of the
-`hydecorp/hy-img`
-project, which is GPL-3.0 licensed with the following copyright:
-
-> Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
-
-A copy of the [GPL-3.0] license is provided as part of this distribution.
-
-### hy-component
-This software also uses portions of the
-`hydecorp/hy-component`
-project, which is MIT licensed with the following copyright:
-
-> Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
-
-A copy of the [MIT] license is provided as part of this distribution.
-
 ### RxJS
 This software also uses portions of the
 `ReactiveX/rxjs`

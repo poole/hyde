@@ -114,7 +114,7 @@ import { setupFLIP } from './flip';
   }
 
   function animateFadeOut({ main }, drawerEl) {
-    return animate(main, FADE_OUT, SETTINGS).pipe(mapTo({ main }));
+    return animate(main, FADE_OUT, { ...SETTINGS, fill: 'forwards' }).pipe(mapTo({ main }));
   }
 
   function animateFadeIn({ replaceEls: [main], flipType }) {

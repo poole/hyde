@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<<<< INLINE
+// <<<<< LINK
 .fixed-common {
   position: fixed;
   left: 0;
@@ -33,15 +33,13 @@
 
 .navbar {
   @extend .color-transition;
-  background-color: white; // IE11
-  background-color: var(--body-bg);
 
   > .content {
     position: relative;
     padding-top: 0;
     padding-bottom: 0;
     min-height: 0;
-    color: var(--menu-text);
+    max-height: 5.2rem;
 
     &::before {
       content: "";
@@ -49,7 +47,7 @@
       display: block;
       width: calc(100% - 6rem);
       left: 3rem;
-      height: 5rem;
+      height: 5.2rem;
       margin: auto;
       box-shadow: 0 0 2rem rgba(0,0,0,0.25);
       background: var(--body-bg);
@@ -80,29 +78,33 @@
   background-color: white; // IE11
   background-color: var(--body-bg);
   height: 5.2rem;
+  display: flex;
+  position: relative;
 
   > :first-child, > :last-child {
-    border: none!important;
+    border: none;
   }
 }
 
 .nav-btn {
   @extend .color-transition;
-  display: block;
-  float: left;
   background: none;
   border: none;
   text-decoration: none;
   padding: 1.75rem 1.15rem;
-  color: var(--menu-text)!important;
-  border-right: 1px solid var(--border-color)!important;
-  border-left: 1px solid var(--border-color)!important;
+  color: var(--menu-text);
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
   margin-left: -1px;
   cursor: pointer;
 
   &.fr {
     float: right;
   }
+}
+
+.nav-span {
+  flex: 1;
 }
 
 .animation-main {
@@ -113,10 +115,10 @@
 #_navbar {
   z-index: 3;
 }
-// >>>>>
-// <<<< LINK
+
 .navbar {
-  @media print { display: none; }
   .loading { display: none; }
+  @media print { display: none; }
 }
+
 // >>>>

@@ -1,12 +1,13 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?l4t5f5');
-  src:  url('fonts/icomoon.eot?l4t5f5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?l4t5f5') format('truetype'),
-    url('fonts/icomoon.woff?l4t5f5') format('woff'),
-    url('fonts/icomoon.svg?l4t5f5#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?p6cxee');
+  src:  url('fonts/icomoon.eot?p6cxee#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?p6cxee') format('truetype'),
+    url('fonts/icomoon.woff?p6cxee') format('woff'),
+    url('fonts/icomoon.svg?p6cxee#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
@@ -281,4 +282,25 @@
 }
 .icon-key:before {
   content: "\e98d";
+}
+.icon-quill:before {
+  content: "\e907";
+}
+.icon-pen:before {
+  content: "\e908";
+}
+.icon-calendar:before {
+  content: "\e953";
+}
+.icon-leaf:before {
+  content: "\e9a4";
+}
+.icon-flag:before {
+  content: "\e9cc";
+}
+.icon-man-woman:before {
+  content: "\e9de";
+}
+.icon-cross:before {
+  content: "\ea0f";
 }

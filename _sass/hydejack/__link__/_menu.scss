@@ -23,9 +23,111 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 
+.fixed-common {
+  position: fixed;
+  left: 0;
+  width: 100%;
+  z-index: 2;
+}
+
+.fixed-top {
+  @extend .fixed-common;
+  top: 0;
+}
+
+.fixed-bottom {
+  @extend .fixed-common;
+  bottom: 0;
+}
 
 .navbar {
-  @media print { display: none; }
-  .loading { display: none; }
+  @extend .color-transition;
+
+  > .content {
+    position: relative;
+    padding-top: 0;
+    padding-bottom: 0;
+    min-height: 0;
+    max-height: 5.2rem;
+
+    &::before {
+      content: "";
+      position: absolute;
+      display: block;
+      width: calc(100% - 6rem);
+      left: 3rem;
+      height: 5.2rem;
+      margin: auto;
+      box-shadow: 0 0 2rem rgba(0,0,0,0.25);
+      background: var(--body-bg);
+      z-index: -1;
+    }
+  }
+
+  &.fixed-top {
+    > .content {
+      &::before {
+        bottom: 1px;
+      }
+    }
+  }
+
+  &.fixed-bottom {
+    > .content {
+      &::before {
+        top: 1px;
+      }
+    }
+  }
 }
+
+.nav-btn-bar {
+  @extend .color-transition;
+  margin: 0 -1rem;
+  background-color: white; // IE11
+  background-color: var(--body-bg);
+  height: 5.2rem;
+  display: flex;
+  position: relative;
+
+  > :first-child, > :last-child {
+    border: none;
+  }
+}
+
+.nav-btn {
+  @extend .color-transition;
+  background: none;
+  border: none;
+  text-decoration: none;
+  padding: 1.75rem 1.15rem;
+  color: var(--menu-text);
+  border-right: 1px solid var(--border-color);
+  border-left: 1px solid var(--border-color);
+  margin-left: -1px;
+  cursor: pointer;
+
+  &.fr {
+    float: right;
+  }
+}
+
+.nav-span {
+  flex: 1;
+}
+
+.animation-main {
+  opacity: 0;
+  pointer-events: none;
+}
+
+#_navbar {
+  z-index: 3;
+}
+
+.navbar {
+  .loading { display: none; }
+  @media print { display: none; }
+}
+
 

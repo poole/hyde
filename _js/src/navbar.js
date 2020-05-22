@@ -24,7 +24,7 @@ import { hasCSSOM, getScrollTop } from './common';
 
   let offset = 0;
 
-  const tvalue = hasCSSOM ? new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))]) : null;
+  const tv = hasCSSOM ? new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))]) : null;
 
   const navbarInactive = () => !document.activeElement || !document.activeElement.classList.contains('nav-btn');
 
@@ -38,10 +38,10 @@ import { hasCSSOM, getScrollTop } from './common';
       merge(fromEvent(navbarEl, 'focus', { capture: true }).pipe(mapTo(2 * height))),
       tap(x => {
         offset += x;
-        offset = Math.max(-height * 1.5, Math.min(0, offset));
+        offset = Math.max(-height, Math.min(0, offset));
         if (hasCSSOM) {
-          tvalue[0].y.value = offset;
-          navbarEl.attributeStyleMap.set('transform', tvalue);
+          tv[0].y.value = offset;
+          navbarEl.attributeStyleMap.set('transform', tv);
         } else {
           navbarEl.style.transform = `translateY(${offset}px)`;
         }
