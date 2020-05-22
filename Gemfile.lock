@@ -51,6 +51,8 @@ GEM
       verbal_expressions (~> 0.1.5)
     jekyll-feed (0.13.0)
       jekyll (>= 3.7, < 5.0)
+    jekyll-include-cache (0.2.0)
+      jekyll (>= 3.7, < 5.0)
     jekyll-optional-front-matter (0.3.2)
       jekyll (>= 3.0, < 5.0)
     jekyll-paginate (1.1.0)
@@ -117,6 +119,7 @@ DEPENDENCIES
   jekyll (~> 4.0)
   jekyll-algolia
   jekyll-feed
+  jekyll-include-cache
   jekyll-optional-front-matter
   jekyll-paginate
   jekyll-readme-index
