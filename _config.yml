@@ -74,7 +74,7 @@ permalink:             /:categories/:year-:month-:day-:title/
 
 # Pagination configuration (used by the `blog` layout)
 paginate:              10
-paginate_path:         /page-:num/
+paginate_path:         /:num/
 
 
 # Customizaton
@@ -105,6 +105,8 @@ font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 font_code:             Fira Code, Menlo, Monaco, Consolas, monospace;
 
 defaults:
+  # You can use this to provide a default accent color and background for
+  # all pages under a given path:
   - scope:
       path:            hyde
     values:
@@ -112,6 +114,18 @@ defaults:
       accent_image:
         background:    rgb(32,32,32)
         overlay:       false
+
+  # Don't include documents in assets in the sitemap
+  - scope:
+      path:            assets
+    values:
+      sitemap:         false
+
+  # # You can use the following to enable comments on all posts.
+  # - scope:
+  #     type:            posts
+  #   values:
+  #     comments:        true
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
@@ -153,6 +167,10 @@ defaults:
 
 # Setting a tinyletter username will enable the newsletter subscription box.
 # tinyletter:            <tinyletter_username>
+
+algolia:
+  application_id:      I2WGHWU2G4
+  index_name:          hydejack-test-1
 
 # Hydejack Settings
 # ----------------------------------------------------------------------------------------
@@ -205,7 +223,9 @@ hydejack:
   no_theme_color:      false
 
   # Set to `true` when building with the `--lsi` option
-  use_lsi:             false
+  use_lsi:             true
+
+  site_data:           true
 
   # When using Google Analytics, set to `true` to display a cookie notice banner.
   # When enabled, no user-related data will be stored until the user gives consent.
