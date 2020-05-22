@@ -1,6 +1,6 @@
 ---
 id: 413
-title: 30 projects-based tutorials to practice html and css skills
+title: 15 projects-based tutorials to practice html and css skills
 date: 2019-11-25T15:30:05+00:00
 author: avic
 layout: page
