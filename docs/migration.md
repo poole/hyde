@@ -143,4 +143,4 @@ defaults:
 ### Restoring the about page
 Hydejack now has a dedicated layout for about pages.
 To use it, open `about.md` and change the `layout` in the front matter to `about`
-and delete `{\% include about-short.html author=site.author %\}`.
+and delete `{% raw %}{% include about-short.html author=site.author %}{% endraw %}`.

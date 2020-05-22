@@ -26,11 +26,8 @@ To enable this feature, create the [`sw.js`][sw] file in the root of your projec
 ```js
 ---
 ---
-importScripts("{\{ '/assets/js/sw.js' | relative_url }\}?t={\{ site.time | date_to_xmlschema }\}");
+importScripts("{% raw %}{{ '/assets/js/sw.js' | relative_url }}?t={{ site.time | date_to_xmlschema }}{% endraw %}");
 ```
-
-**NOTE**: You have to remove the `\` after each `{` and before each `}`! Alternatively, you can just copy the file from [here][sw].
-{:.message}
 
 [sw]: https://github.com/hydecorp/hydejack/blob/v8/sw.js
 
