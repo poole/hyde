@@ -174,7 +174,24 @@ a.sidebar-nav-item:focus {
   }
 }
 
-
+/*Social share links*/
+.social-share-links {
+  text-align: center;
+}
+.social-share-links a{
+  padding: 5px 5px;
+  /*border:1.4px #bbb solid;*/
+  color: #fff;
+  text-decoration: none;
+  margin-right: 10px;
+}
+.twitter-share-button {
+  background-color: #4099ff
+}
+.fb-share-button{
+  background-color: #3b5998;
+}
+/*End of social share links*/
 
 /*
  * Themes
