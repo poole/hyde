@@ -39,13 +39,13 @@ Some of the HTML skills that you will practice while doing this project are:
 You must include the following parts in your completed project:
 <ol>
   <li>
-    You must include a search bar on the top part of the Youtube's page.
+    You must include a search bar on the top part of the Google search result page.
   </li>
   <li>
-    You should include an iframe of the Youtube Video on the page.
+    You should the search results with a clickable link on each result.
   </li>
   <li>
-    You included the title of the video.
+    You should include a list of 10 links of related result at the bottom of the page. 
   </li>
 </ol>
 
