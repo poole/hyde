@@ -1,4 +1,5 @@
 <script>{% include scripts/load-js.min.js %}{% include scripts/loadCSS.min.js %}{% include scripts/cssrelpreload.min.js %}!function(w) {
+  w._baseURL = '{{ "/assets/js/" | relative_url }}';
   w._noPushState = {{ site.hydejack.no_push_state | default:site.disable_push_state | default:false }};
   w._noDrawer =    {{ site.hydejack.no_drawer     | default:site.disable_drawer     | default:false }};
 }(window);
