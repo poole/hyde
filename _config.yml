@@ -16,7 +16,7 @@ author:
   name:           'Avic Ndugu'
   url:            https://twitter.com/avic-ndugu
 
-paginate:         5
+paginate:         25
 paginate_path:    "blog/page:num/"
 
 # Custom vars
