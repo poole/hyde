@@ -1,9 +1,9 @@
 ---
 title: 'HTML projects: Youtube page'
-date: 2020-04-08T09:35:34+00:00
+date: 2020-06-08T09:35:34+00:00
 author: avic
 layout: page
-permalink: /html-projects-youtube-page/
+permalink: /html-sign-up-form-page/
 --- 
 <img src="/public/2020/html-youtube-clone-main-image.jpg">
 <ul>
