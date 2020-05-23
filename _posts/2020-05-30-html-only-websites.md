@@ -1,9 +1,15 @@
+---
 title: 7 famous HTML-only website examples
 date: 2020-05-20
 layout: page
 permalink: /html-only-websites/
+---
+When you are starting to learn Web development, you hear about all these languages and frameworks you have to learn. Let me tell you, you don't need all of them. At first. Infact, you can create something useful with just one of the languages namely: HTML.
 
-If you have something to share with the world please share. If you want to learn HTML but don't want to learn all the languages that you hear about then don't  Just learn HTML. 
+This list of websites contains created using HTML and they still pass on their message.
+So, If you have something to share with the world please create and share it.
+
+These website focussed first on content and they pass their message despite the lack of sophisticated styling.
 
 Here are 7 website that are built with only HTML to inspire you as you begin your journey of creating the Web.
 
@@ -66,6 +72,16 @@ Daily Pageviews:    50,490
 9. http://txti.es/
 
 Has some little CSS that allows for the website content to be centered.
+
+10. https://jgthms.com/web-design-in-4-minutes/
+This is a simplified walkthrough of how to create a website that helps you focus on the important component first: your content. 
+
+Its starts out as a HTML website that ends up getting some CSS styling that make it appear better than before.
+
+It a bit simplified which makes it a good resource for beginners.
+
+
+If learn HTML will help you share it go ahead. but don't want to learn all the languages that you hear about then don't  Just learn HTML. 
 
 KEYWORDS
 Keyword ideas
