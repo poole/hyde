@@ -3,8 +3,7 @@ id: 42
 title: Learn HTML with Examples
 date: 2019-01-18T08:03:08+00:00
 author: avic
-layout: page
-guid: https://learn.avicndugu.com/?page_id=42
+layout: post
 permalink: /practice-html/
 ---
 Outline

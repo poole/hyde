@@ -1,10 +1,8 @@
 ---
-id: 460
 title: How do I learn HTML?
 date: 2019-09-07T19:35:06+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=460
 permalink: /how-do-i-learn-html/
 categories:
   - HTML

@@ -1,10 +1,8 @@
 ---
-id: 474
 title: What is the best way to practice coding?
 date: 2019-11-22T17:09:25+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=474
 permalink: /best-way-to-practice-coding/
 categories:
   - Projects

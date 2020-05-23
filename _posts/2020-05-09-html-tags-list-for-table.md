@@ -2,8 +2,7 @@
 title: HTML Tags List For Table
 date: 2020-05-09T07:35:26+00:00
 author: avic
-layout: page
-guid: https://learn.avicndugu.com/?page_id=613
+layout: post
 permalink: /html-tags-list-for-table/
 ---
 <!-- OUTLINE

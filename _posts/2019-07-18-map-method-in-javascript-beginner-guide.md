@@ -1,10 +1,8 @@
 ---
-id: 350
 title: '.map() method in javascript- Beginner guide'
 date: 2019-07-18T21:55:07+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=350
 permalink: /map-method-in-javascript-beginner-guide/
 categories:
   - Javascript

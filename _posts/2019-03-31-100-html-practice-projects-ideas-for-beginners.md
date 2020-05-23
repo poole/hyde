@@ -1,10 +1,8 @@
 ---
-id: 180
 title: 100 HTML PRACTICE PROJECTS IDEAS
 date: 2019-03-31T15:03:52+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=180
 permalink: /100-html-practice-projects-ideas-for-beginners/
 categories:
   - HTML

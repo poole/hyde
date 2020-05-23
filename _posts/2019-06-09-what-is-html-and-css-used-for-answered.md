@@ -1,10 +1,8 @@
 ---
-id: 323
 title: 'What is HTML and CSS used for? [Answered]'
 date: 2019-06-09T22:16:52+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=323
 permalink: /what-is-html-and-css-used-for-answered/
 categories:
   - CSS

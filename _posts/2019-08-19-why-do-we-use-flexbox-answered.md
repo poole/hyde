@@ -1,10 +1,8 @@
 ---
-id: 386
 title: 'Why do we use Flexbox? &#8211; Answered'
 date: 2019-08-19T11:00:31+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=386
 permalink: /why-do-we-use-flexbox-answered/
 categories:
   - CSS

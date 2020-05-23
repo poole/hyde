@@ -1,9 +1,8 @@
 ---
-id: 583
 title: 'Html Project: Wikipedia page'
 date: 2020-04-08T09:35:04+00:00
 author: avic
-layout: page
+layout: post
 permalink: /html-project-wikipedia/
 ---
 <img src="/public/2020/html-project-wikipedia-main-image.jpg" alt="partial screenshot of a html-only version of wikipedia page">

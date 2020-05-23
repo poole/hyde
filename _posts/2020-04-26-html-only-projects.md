@@ -2,7 +2,7 @@
 title: HTML-Only projects
 date: 2020-04-26T19:35:26+00:00
 author: avic
-layout: page
+layout: post
 permalink: /html-only-projects/
 ---
 

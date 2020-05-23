@@ -1,10 +1,8 @@
 ---
-id: 586
 title: 'HTML projects: Youtube page'
 date: 2020-04-08T09:35:34+00:00
 author: avic
-layout: page
-guid: https://learn.avicndugu.com/?page_id=586
+layout: post
 permalink: /html-projects-youtube-page/
 --- 
 <img src="/public/2020/html-youtube-clone-main-image.jpg">

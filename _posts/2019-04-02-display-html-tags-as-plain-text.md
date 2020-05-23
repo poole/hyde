@@ -1,10 +1,8 @@
 ---
-id: 201
 title: How to display html tags as plain text
 date: 2019-04-02T10:59:31+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=201
 permalink: /display-html-tags-as-plain-text/
 categories:
   - HTML

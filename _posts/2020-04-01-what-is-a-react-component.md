@@ -1,10 +1,8 @@
 ---
-id: 547
 title: What is a react component?
 date: 2020-04-01T15:15:16+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=547
 permalink: /what-is-a-react-component/
 categories:
   - Javascript

@@ -1,10 +1,8 @@
 ---
-id: 470
 title: What is comment tag in HTML?
 date: 2019-10-14T10:11:14+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=470
 permalink: /what-is-comment-tag-in-html/
 categories:
   - HTML

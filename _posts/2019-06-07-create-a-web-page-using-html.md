@@ -1,10 +1,8 @@
 ---
-id: 308
 title: What are the steps to create a web page using HTML?
 date: 2019-06-07T14:00:48+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=308
 permalink: /create-a-web-page-using-html/
 categories:
   - HTML

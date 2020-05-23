@@ -1,10 +1,8 @@
 ---
-id: 225
 title: Can I learn HTML on my own?
 date: 2019-04-04T09:57:55+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=225
 permalink: /can-i-learn-html-on-my-own/
 categories:
   - HTML

@@ -2,7 +2,7 @@
 title: 'HTML project: Google search result'
 date: 2020-04-08T09:35:34+00:00
 author: avic
-layout: page
+layout: post
 permalink: html-projects-google-search-result/
 ---
 <img src="/public/2020/google-search-result-main-image.jpg" alt="Partial screenshot image of HTML version google search result">

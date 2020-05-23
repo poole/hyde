@@ -1,10 +1,8 @@
 ---
-id: 520
 title: How to upload a picture to Codepen
 date: 2020-02-26T04:06:07+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=520
 permalink: /how-to-upload-a-picture-to-codepen/
 categories:
   - CSS

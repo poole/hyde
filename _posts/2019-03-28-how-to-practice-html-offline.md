@@ -1,10 +1,8 @@
 ---
-id: 151
 title: How to practice HTML offline
 date: 2019-03-28T17:21:23+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=151
 permalink: /how-to-practice-html-offline/
 categories:
   - HTML

@@ -1,10 +1,8 @@
 ---
-id: 376
 title: How can I improve my HTML and CSS skills?Answered
 date: 2019-08-11T18:12:17+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=376
 permalink: /how-can-i-improve-my-html-and-css-skills/
 categories:
   - CSS

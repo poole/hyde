@@ -1,10 +1,8 @@
 ---
-id: 562
 title: 'Learning React in 20 hours: 2nd attempt'
 date: 2020-04-05T10:56:34+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=562
 permalink: /learning-react-in-20-hours/
 categories:
   - React

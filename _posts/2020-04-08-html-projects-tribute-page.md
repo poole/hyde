@@ -1,9 +1,8 @@
 ---
-id: 573
 title: 'HTML PROJECTS: Tribute Page'
 date: 2020-04-08T09:29:49+00:00
 author: avic
-layout: page
+layout: post
 permalink: /html-projects-tribute-page/
 ---
 <img class="alignnone size-full" src="https://miro.medium.com/max/700/1*QMlF5qHP4J-LmHG0bFsRCA.png" alt="Tribute page screenshot" width="700" height="462" />

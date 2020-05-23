@@ -1,8 +1,9 @@
+---
 title: 7 famous HTML-only website examples
 date: 2020-05-20
 layout: page
 permalink: /html-only-websites/
-
+---
 If you have something to share with the world please share. If you want to learn HTML but don't want to learn all the languages that you hear about then don't  Just learn HTML. 
 
 Here are 7 website that are built with only HTML to inspire you as you begin your journey of creating the Web.

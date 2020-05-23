@@ -1,10 +1,8 @@
 ---
-id: 250
 title: How to host a HTML page on localhost
 date: 2019-04-30T17:05:54+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=250
 permalink: /host-a-html-page-on-localhost/
 categories:
   - HTML

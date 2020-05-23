@@ -1,10 +1,8 @@
 ---
-id: 515
 title: How to find great web developer project ideas
 date: 2019-12-20T11:33:36+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=515
 permalink: /how-to-come-up-with-web-developer-project-ideas/
 categories:
   - Projects

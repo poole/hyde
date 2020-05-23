@@ -1,10 +1,8 @@
 ---
-id: 338
 title: What does form do in HTML?
 date: 2019-07-13T10:08:55+00:00
 author: avic
 layout: post
-guid: https://learn.avicndugu.com/?p=338
 permalink: /what-does-form-do-in-html/
 categories:
   - HTML
