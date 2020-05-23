@@ -6,7 +6,7 @@ highlighter:      pygments
 permalink:        pretty
 
 # Setup
-title:            Practice Web Development
+title:            Dev Practical
 tagline:          'Practice HTML, CSS and Javascript'
 description:      'Practice HTML, CSS and Javascript'
 url:              https://devpractical.com
