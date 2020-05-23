@@ -1,3 +1,5 @@
+<base href="{{ '/' | relative_url }}">
+
 {% if plugins contains 'jekyll-feed' %}{% include head/feed-tag.html %}{% endif %}
 
 <link rel="shortcut icon"    href="{{ '/assets/icons/favicon.ico' | relative_url }}">
@@ -17,9 +19,6 @@
 {% comment %}<!--
   This is to avoid hard-coding URLs in JS. Note that the `dns-prefetch` clause has no effect here.
 -->{% endcomment %}
-<link rel="dns-prefetch" href="{{ '/'                     | relative_url }}" id="_baseURL">
-<link rel="dns-prefetch" href="{{ '/sw.js'                | relative_url }}" id="_hrefSW">
-<link rel="dns-prefetch" href="{{ '/assets/js/search.js'  | relative_url }}" id="_hrefSearch">
 <link rel="dns-prefetch" href="{{ '/assets/img/swipe.svg' | relative_url }}" id="_hrefSwipeSVG">
 
 {% assign disqus = site.disqus | default:site.disqus_shortname %}

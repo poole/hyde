@@ -13,13 +13,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-__webpack_public_path__ = window._baseURL;
-
 import '@babel/polyfill';
 
 import '../lib/version';
 import '../lib/modernizr-custom';
 import { hasFeatures } from './common';
+
+__webpack_public_path__ = window._baseURL;
 
 const BASELINE = ['classlist', 'eventlistener', 'queryselector', 'template'];
 const DARK_MODE_FEATURES = [...BASELINE, 'template', 'customproperties'];

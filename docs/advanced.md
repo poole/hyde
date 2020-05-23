@@ -26,7 +26,7 @@ To enable this feature, create the [`sw.js`][sw] file in the root of your projec
 ```js
 ---
 ---
-importScripts("{% raw %}{{ '/assets/js/sw.js' | relative_url }}?t={{ site.time | date_to_xmlschema }}{% endraw %}");
+importScripts("{% raw %}{{ '/assets/js/service-worker.js' | relative_url }}?t={{ site.time | date_to_xmlschema }}{% endraw %}");
 ```
 
 [sw]: https://github.com/hydecorp/hydejack/blob/v8/sw.js
