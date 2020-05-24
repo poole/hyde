@@ -168,9 +168,6 @@ defaults:
 # Setting a tinyletter username will enable the newsletter subscription box.
 # tinyletter:            <tinyletter_username>
 
-algolia:
-  application_id:      I2WGHWU2G4
-  index_name:          hydejack-test-1
 
 # Hydejack Settings
 # ----------------------------------------------------------------------------------------
