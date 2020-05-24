@@ -42,6 +42,6 @@ layout: base
     <ul class="related-posts">
     {% assign prev_date = current_date %}
   {% endif %}
-  {% include components/post-list-item.html post=post format=list_entry %}
+  {% include_cached components/post-list-item.html post=post format=list_entry %}
   {% if forloop.last %}</ul>{% endif %}
 {% endfor %}

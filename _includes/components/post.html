@@ -1,7 +1,8 @@
-{% assign post          = include.post          %}
-{% assign no_link_title = include.no_link_title %}
-{% assign no_excerpt    = include.no_excerpt    %}
-{% assign hide_image    = include.hide_image    %}
+{% assign post             = include.post             %}
+{% assign no_link_title    = include.no_link_title    %}
+{% assign no_excerpt       = include.no_excerpt       %}
+{% assign hide_image       = include.hide_image       %}
+{% assign hide_description = include.hide_description %}
 
 <article id="post{{ post.id | replace:'/','-' }}" class="page post mb6" role="article">
   <header>
@@ -26,13 +27,13 @@
     {% unless hide_image %}{% if post.image %}
       {% unless no_link_title %}<a href="{{ post.url | relative_url }}" class="no-hover no-print-link {% unless post.hide_image %}flip-project{% endunless %}">{% endunless %}
         <div class="lead aspect-ratio sixteen-nine flip-project-img">
-          {% include components/hy-img.html img=post.image alt=post.title width=864 height=486 %}
+          {% include_cached components/hy-img.html img=post.image alt=post.title width=864 height=486 %}
         </div>
       {% unless no_link_title %}</a>{% endunless %}
       {% assign alt = '' %}
     {% endif %}{% endunless %}
 
-    {% include components/message.html text=post.description hide=page.hide_description alt=alt %}
+    {% include components/message.html text=post.description hide=hide_description alt=alt %}
   </header>
 
   {% if no_excerpt %}

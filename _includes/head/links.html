@@ -1,4 +1,2 @@
 {% assign lang = page.lang | default:site.lang | default:'en' %}
 <link rel="alternate" href="{{ page.url | absolute_url }}" hreflang="{{ lang | downcase | replace:'_','-' }}">
- 
-{% include_cached head/links-static.html %}

@@ -9,15 +9,17 @@
 >
   {% include_cached body/menu.html %}
   {% if page.cover %}
-    {% include body/sidebar.html %}
+    {% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}
     {% include body/main.html %}
   {% else %}
     {% include body/main.html %}
-    {% include body/sidebar.html %}
+    {% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}
   {% endif %}
 </hy-push-state>
 
-{% include_cached body/scripts.html redirect=page.redirect %}
-{% include_cached my-body.html %}
+{% unless page.redirect %}
+  {% include_cached body/scripts.html %}
+  {% include my-body.html %}
+{% endunless %}
 
 {% include_cached templates/index.html %}

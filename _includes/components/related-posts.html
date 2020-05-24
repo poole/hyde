@@ -18,7 +18,7 @@
 
   <ul class="related-posts">
     {% for post in related_posts limit:3 %}
-      {% include components/post-list-item.html post=post %}
+      {% include_cached components/post-list-item.html post=post %}
     {% endfor %}
   </ul>
 </aside>

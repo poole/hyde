@@ -1,9 +1,10 @@
+{% assign layout = include.layout %}
+
 <!--[if gt IE 8]><!---->
 {% if site.hydejack.no_inline_css or jekyll.environment == 'development' %}
   {% include_cached head/styles-no-inline.html %}
 {% else %}
   <style>
-    {% capture to_scssify %}{% include styles/inline.scss %}{% endcapture %}{{ to_scssify | scssify }}
     {% include_cached head/css/inline %}
   </style>
   {% include_cached head/styles-inline.html %}

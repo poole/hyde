@@ -7,7 +7,7 @@
   {% capture bg_class %}sidebar-bg {% if image.overlay %}sidebar-overlay{% endif %}{% endcapture %}
 {% else %}
   {% assign bg_color = theme_color | default:site.theme_color | default:color %}
-  {% capture bg_style %}background-color:{{ bg_color }};{% if image != 'none' %}background-image:url({% include smart-url url=image %}){% endif %}{% endcapture %}
+  {% capture bg_style %}background-color:{{ bg_color }};{% if image != 'none' %}background-image:url({% include_cached smart-url url=image %}){% endif %}{% endcapture %}
   {% capture bg_class %}sidebar-bg {% if image != 'none' %}sidebar-overlay{% endif %}{% endcapture %}
 {% endif %}
 <div class="{{ bg_class }}" style="{{ bg_style }}"></div>

@@ -2,9 +2,14 @@
 {% assign font_heading = site.font_heading %}
 {% assign font         = site.font         %}
 
-{% include head/meta.html %}
-{% include head/links.html %}
+{% include        head/meta.html %}
+{% include_cached head/meta-static.html %}
+
+{% include        head/links.html %}
+{% include_cached head/links-static.html %}
+
 {% include_cached head/scripts.html %}
-{% include head/styles.html %}
+
+{% include_cached head/styles.html layout=page.layout %}
 
 {% include my-head.html %}

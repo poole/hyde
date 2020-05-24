@@ -6,7 +6,7 @@
       <li>
         <a
           {% if forloop.first %}id="_drawer--opened"{% endif %}
-          href="{% include smart-url url=url %}"
+          href="{% include_cached smart-url url=url %}"
           class="sidebar-nav-item"
           {% if node.rel %}rel="{{ node.rel }}"{% endif %}
         >
