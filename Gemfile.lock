@@ -1,6 +1,5 @@
-GIT
-  remote: https://github.com/hydecorp/jekyll-include-cache
-  revision: 52b108c7b203d57f003f9d9fab2c7980cb0dffc6
+PATH
+  remote: ../../jekyll-include-cache
   specs:
     jekyll-include-cache (0.2.0)
       jekyll (>= 3.7, < 5.0)
