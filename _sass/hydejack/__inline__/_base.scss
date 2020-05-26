@@ -25,8 +25,8 @@
 
 
 
-@media screen {
-  body::before {
+body::before {
+  @media screen {
     content: '';
     width: .5rem;
     background: var(--border-color);
@@ -37,12 +37,12 @@
   }
 
   @media (min-width: $break-point-3) {
-    body::before { width: $sidebar-width; }
+    width: $sidebar-width;
   }
 
   @media (min-width: $break-point-dynamic) {
     $r28: ($content-width-5 / 2) + $content-margin-5;
-    body::before { width: calc(50% - #{$r28}); }
+    width: calc(50% - #{$r28});
   }
 }
 
