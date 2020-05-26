@@ -180,9 +180,6 @@ hydejack:
   # Configure the order of complementary content on project pages
   project_addons:      [about, newsletter, other, comments]
 
-  # If you do not use Google Fonts, set to `true`.
-  no_google_fonts:     false
-
   # Set to `true` if you don't want to show an icon indicating external links
   no_mark_external:    true
 
@@ -196,8 +193,8 @@ hydejack:
   # E.g. when adding MathJax support instead.
   no_katex:            false
 
-  # Set to `true` to prevent usage of `hy-img` (lazy-loading images).
-  no_img:              false
+  # Set to true to disable the built-in search functionality.
+  no_search:           false
 
   # Set to `true` if you do not want parts of the css inlined in <head/>
   # This will increase site build speed dramatically!
@@ -221,8 +218,6 @@ hydejack:
 
   # Set to `true` when building with the `--lsi` option
   use_lsi:             true
-
-  site_data:           true
 
   # When using Google Analytics, set to `true` to display a cookie notice banner.
   # When enabled, no user-related data will be stored until the user gives consent.
