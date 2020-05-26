@@ -17,7 +17,7 @@ const FILES = [
   "./_includes/head/meta-static.html",
   "./_includes/head/styles-no-inline.html",
   "./_includes/header.txt",
-  "./_includes/sw.js",
+  "./_includes/js/service-worker.js",
   "./_layouts/compress.html",
   "./_js/lib/version.js",
   "./assets/version.json",
