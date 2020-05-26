@@ -194,6 +194,8 @@ hydejack:
   no_katex:            false
 
   # Set to true to disable the built-in search functionality.
+  # Note that search is disabled during local use to save on build time.
+  # Run Jekyll with the `JEKYLL_ENV` environment variable set to `production` to enable.
   no_search:           false
 
   # Set to `true` if you do not want parts of the css inlined in <head/>
@@ -246,6 +248,8 @@ hydejack:
   offline:
     enabled:           false
     cache_version:     1
+    precache_assets:
+      - /assets/img/swipe.svg
 
 
 # Collections
