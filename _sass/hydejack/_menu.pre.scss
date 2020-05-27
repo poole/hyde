@@ -50,7 +50,6 @@
       height: 5.2rem;
       margin: auto;
       box-shadow: 0 0 2rem rgba(0,0,0,0.25);
-      background: var(--body-bg);
       z-index: -1;
     }
   }
@@ -114,6 +113,7 @@
 
 #_navbar {
   z-index: 3;
+  background-color: var(--body-bg);
 }
 
 .navbar {
