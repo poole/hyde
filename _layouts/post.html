@@ -28,7 +28,7 @@ layout: base
   {% when 'about' %}
      {% include_cached components/about.html author=page.author %}
   {% when 'related' %}
-    {% include_cached if-non-null try="components/related-posts.html" %}
+    {% include if-non-null try="components/related-posts.html" %}
   {% when 'comments' %}
     {% include body/comments.html %}
   {% else %}
