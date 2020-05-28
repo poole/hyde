@@ -51,12 +51,12 @@ After learning HTML, it's time to add another skill to your tools belt. CSS is t
     </a>
 </div>
 
-You can now pick one <a href="">project-based HTML & CSS tutorial</a> and use it create a project from start to finish.
+You can now pick one <a href="/project-based-html-css-tutorials/">project-based HTML & CSS tutorial</a> and use it create a project from start to finish.
 
 <div class="card">
     <h2>Project-based HTML & CSS tutorials</h2>
     <p>Choose one project based tutorial and build the project as you learn.</p>
-    <a href="html-css-tutorials">
+    <a href="/project-based-html-css-tutorials/">
         <button>Project based HTML & CSS tutorial</button>
     </a>
 </div>
