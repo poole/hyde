@@ -19,7 +19,8 @@ author:
 paginate:         25
 paginate_path:    "blog/page:num/"
 
-include: _redirects
+include: 
+  - _redirects
 # Custom vars
 # version:          2.1.0
 
