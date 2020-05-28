@@ -253,7 +253,7 @@ Dec 18 2017
 * Added secondary `legal` nav in footer:
 
   ```yml
-  # file: _config.yml
+  # file: `_config.yml`
   legal:
     - title: Cookies Policy
       href:  /cookies-policy/
@@ -264,7 +264,7 @@ Dec 18 2017
 * The "heading permalink" can now be configured via `strings.yml`:
 
   ```yml
-  # file: _data/strings.yml
+  # file: `_data/strings.yml`
   permalink:      Permalink
   permalink_icon: icon-link
   ```
@@ -272,7 +272,7 @@ Dec 18 2017
 * Sections on resume layout can now be rearranged, e.g.:
 
   ```yml
-  # file: resume.md
+  # file: `resume.md`
   left_column:
     - work
     - volunteer
@@ -336,7 +336,7 @@ Nov 25 2017
 * Added `cookies_banner` setting:
 
   ~~~yml
-  # file: _config.yml
+  # file: `_config.yml`
   hydejack:
     cookies_banner: true
   ~~~
@@ -346,7 +346,7 @@ Nov 25 2017
   with the `cookies_banner.text` and `cookies_banner.okay` keys:
 
   ~~~yml
-  # file: _data/strings.yml
+  # file: `_data/strings.yml`
   cookies_banner:
     text: This site uses cookies.
     okay: Okay

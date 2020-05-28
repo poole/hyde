@@ -64,4 +64,19 @@ pre > code {
   background-color: transparent;
   font-size: 1em;
 }
+
+.pre-header {
+  @extend .color-transition;
+  display: block;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  border-bottom: 1px solid var(--border-color);
+  background-color: var(--gray-bg);
+  padding: 0.25rem 1rem;
+  font-family: $font-family;
+  font-size: smaller;
+}
+.pre-header + pre.highlight {
+  padding-top: .5rem;
+}
 // >>>>> LINK

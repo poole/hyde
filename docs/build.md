@@ -25,7 +25,7 @@ $ git push origin master
 Before building, make sure the following is part of your config file:
 
 ```yml
-# file: _config.yml
+# file: `_config.yml`
 compress_html:
   comments:  ["<!-- ", " -->"]
   clippings: all
@@ -61,7 +61,7 @@ To use the LSI, you first have to disable Hydejack's default behavior,
 by setting `use_lsi: true` under the `hydejack` key in your config file.
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 hydejack:
   use_lsi: true
 ~~~

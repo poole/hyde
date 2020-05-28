@@ -32,7 +32,7 @@ Now you can add content as you would in a blog post.
 To add links to the sidebar, populate the `menu` entry in `_config.yml` with a list of `title`-`url` pairs, e.g.:
 
 ```yml
-# file: _config.yml
+# file: `_config.yml`
 menu:
   - title: Blog
     url:   /blog/
@@ -59,7 +59,7 @@ Hydejack allows you to use the `list` layout to show all posts of a particular c
 Before you start, make sure your config files contains the `features_categories` and `featured_tags` collections:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 collections:
   featured_categories:
     permalink:         /:name/
@@ -125,8 +125,8 @@ For each featured category or tag, a file called `<category-name>.md` or `<tag-n
 The meta data of a category or tag is set in the files front matter, e.g.
 
 ~~~yml
+# file: `_featured_categories/hyde.md`
 ---
-# file: _featured_categories/hyde.md
 layout: list
 title:  Hyde
 slug:   hyde
@@ -160,12 +160,16 @@ About pages are a frequent use case, so Hydejack has a special layout for it. It
 To create an about page, make sure `layout` is set to `about`.
 For more on authors, see [Adding an author](config.md#adding-an-author).
 
-~~~yml
+~~~html
+<!-- file: `about.md` -->
 ---
-# file: about.md
 layout: about
 title:  About
 ---
+
+Some content
+
+<!--author-->
 ~~~
 
 
@@ -202,8 +206,8 @@ Technically, it is a modified version of the `about` layout, so it allows showin
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
 ~~~yml
+# file: `index.md`
 ---
-# file: index.md
 layout: welcome
 title:  Welcome
 cover:  true
@@ -217,8 +221,8 @@ To show the five most recent blog posts, add the `<!--posts-->` marker to the co
 The welcome layout also supports selecting specific projects and posts, by adding to the front matter, e.g.:
 
 ~~~yml
+# file: `index.md`
 ---
-# file: index.md
 selected_projects:
   - _projects/hydejack-v6.md
   - _projects/hyde-v2.md
@@ -260,7 +264,7 @@ The projects page will show all projects in a particular collection.
 First, you need to make sure that you have the `projects` collection defined in `_config.yml`:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 collections:
   projects:
     permalink: /projects/:path/
@@ -273,8 +277,8 @@ This file has the `projects` layout (mind the "s" at the end) and should have a 
 with the name of the collection as a value, e.g.:
 
 ~~~yml
+# file: `projects.md`
 ---
-# file: projects.md
 layout:          projects
 title:           Projects*
 show_collection: projects
@@ -307,8 +311,8 @@ The project's meta information is defined in the file's front matter. You can al
 A project's front matter should look like:
 
 ~~~yml
+# file: `_projects/hyde-v2.md`
 ---
-# file: _projects/hyde-v2.md
 layout:      project
 title:       Hyde v2*
 date:        2 Jan 2014
@@ -378,8 +382,8 @@ Once you have a JSON Resume, place it into `_data`.
 To render a resume page, create a new markdown file and set the layout to `resume` in the front matter:
 
 ~~~yml
+# file: `resume.md`
 ---
-# file: resume.md
 layout: resume
 title:  Resume
 description: >
@@ -395,8 +399,8 @@ You can add a specialized resume or multiple resumes by adding the resume YAML t
 E.g.:
 
 ~~~yml
+# file: `resume.md`
 ---
-# file: resume.md
 layout: resume
 title:  Resume
 description: >

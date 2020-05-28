@@ -21,7 +21,7 @@ The first order of business should be to set the correct `url` and `baseurl` val
 The `url` is the domain of your site, including the protocol (`http` or `https`). For this site, it is
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 url: https://qwtel.com
 ~~~
 
@@ -29,7 +29,7 @@ If your entire Jekyll blog is hosted in a subdirectory of your page, provide the
 e.g.
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 baseurl: /hydejack
 ~~~
 
@@ -56,7 +56,7 @@ Hydejack allows you to choose the background image of the sidebar, as well as th
 Set the fallback values in `_config.yml`, which are used should no other rule (page, category, tag, author) apply:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 accent_image: /assets/img/sidebar-bg.jpg
 accent_color: rgb(79,177,186)
 ~~~
@@ -77,7 +77,7 @@ There are three keys in `_config.yml` associated with this: `font`, `font_headin
 The defaults are:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 font:         Noto Sans, Helvetica, Arial, sans-serif
 font_heading: Roboto Slab, Helvetica, Arial, sans-serif
 google_fonts: Roboto+Slab:700|Noto+Sans:400,400i,700,700i
@@ -89,7 +89,7 @@ google_fonts: Roboto+Slab:700|Noto+Sans:400,400i,700,700i
 The `google_fonts` key is the string necessary to fetch the fonts from Google.
 You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 
-![Where to get the google_fonts string](../assets/img/docs/google-fonts.png){:width="600" height="398"}
+![Where to get the google_fonts string](../assets/img/docs/google-fonts.png){:width="600" height="398" loading="lazy"}
 
 
 ### Removing Google Fonts
@@ -118,12 +118,12 @@ title:  Home
 If you want to use the `blog` layout, you need to add `jekyll-paginate` to your `Gemfile` and to the `plugins` list in your config file:
 
 ```ruby
-# file: Gemfile
+# file: `Gemfile`
 gem "jekyll-paginate"
 ```
 
 ```yml
-# file: _config.yml
+# file: `_config.yml`
 plugins:
   - jekyll-paginate
 ```
@@ -131,9 +131,9 @@ plugins:
 You also need to add the `paginate` and `paginate_path` keys to your config file, e.g.
 
 ~~~yml
-# file: _config.yml
-paginate:      5
-paginate_path: '/page-:num/'
+# file: `_config.yml`
+paginate:      10
+paginate_path: '/:num/'
 ~~~
 
 The `blog` layout needs to be applied to a file with the `.html` file extension
@@ -141,8 +141,8 @@ and the `paginate_path` needs to match the path to the `index.html` file.
 To match the `paginate_path` above, put a `index.html` with the following front matter in the root directory:
 
 ~~~yml
+# file: `index.html`
 ---
-# file: index.html
 layout: blog
 title: Blog
 ---
@@ -157,39 +157,28 @@ If you want to use the blog layout at a URL like `/my-blog/`, create the followi
 ~~~
 ├── my-blog
 │   └── index.html
-├── !my-blog.md
 └── _config.yml
 ~~~
 
-You can use the same `index.html` as before:
+You can use the same `index.html` as before and place it in the subdirectory.
 
 ~~~yml
+# file: `my-blog/index.html`
 ---
-# file: my-blog/index.html
 layout: blog
 title: Blog
 ---
 ~~~
 
-(Optional) If you want to add a link to the blog in the sidebar, DO NOT add the `menu` key to the front matter of `my-blog/index.html`. Instead, create a new markdown file called `!my-blog.md` with `menu` and `permalink` keys:
+In your config file, make sure the `paginate_path` matches the name of the subdirectory:
 
 ~~~yml
----
-# file: !my-blog.md
-title: My Blog
-menu: true
-permalink: /my-blog/
-sitemap: false
----
+# file: `_config.yml`
+paginate:      10
+paginate_path: /my-blog/:num/
 ~~~
 
-Finally, in your config file, make sue the `paginate_path` matches the `permalink`:
-
-~~~yml
-# file: _config.yml
-paginate:      5
-paginate_path: /my-blog/page-:num/
-~~~
+To add an entry in the sidebar to your blog directory, see [Adding an entry to the sidebar](./basics.md#adding-an-entry-to-the-sidebar).
 
 
 ## Adding an author
@@ -197,7 +186,7 @@ At a bare minimum, you should add an `author` key with a `name` and `email` sub-
 (used by the [feed plugin](https://github.com/jekyll/jekyll-feed)) to to your config file:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 author:
   name:  Florian Klampfer
   email: mail@qwtel.com
@@ -206,7 +195,7 @@ author:
 If you would like the author to be displayed in the about section below a post or project\*, add an `about` key and provide markdown content. I recommend using the YAML pipe `|` syntax, so you can include multiple paragraphs:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 author:
   name:  Florian Klampfer
   email: mail@qwtel.com
@@ -223,12 +212,12 @@ If you'd like for the author's picture to appear in addition the about text (see
 To use the plugin, add it to your `Gemfile` and the list of `plugins` in your config file:
 
 ```ruby
-# file: Gemfile
+# file: `Gemfile`
 gem "jekyll-avatar"
 ```
 
 ```yml
-# file: _config.yml
+# file: `_config.yml`
 plugins:
   - jekyll-avatar
 ```
@@ -242,7 +231,7 @@ See [Adding social media icons](#adding-social-media-icons) for more.
 To set an image manually, you have to provide an URL to the author's `picture` key:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 author:
   picture:  /assets/img/me.jpg
 ~~~
@@ -251,7 +240,7 @@ If you'd like to provide multiple versions for screens with different pixel dens
 you can provide `path` and `srcset` keys instead:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 author:
   picture:
     path:   /assets/img/me.jpg
@@ -276,7 +265,7 @@ You can add a link to a social network by adding an entry to the `social` key in
 It consists of the name of the social network as key and your username within that network as value, e.g.
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 author:
   social:
     twitter: qwtel
@@ -289,7 +278,7 @@ You can also follow the steps [here](advanced.md) to add your own social media i
 You can change the order in which the icons appear by moving lines up or down, e.g.
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 author:
   social:
     github:  qwtel # now github appears first
@@ -302,7 +291,7 @@ see the included [`authors.yml`](https://github.com/hydecorp/hydejack/blob/v8/_d
 Should providing a username not produce a correct link for some reason, you can provide a complete URL instead, e.g.
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 author:
   social:
     youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
@@ -316,7 +305,7 @@ author:
 If you'd like to add an email <span class="icon-mail"></span>, RSS <span class="icon-rss2"></span>, or download <span class="icon-box-add"></span> icon to the list, add the `email`, `rss`, or `download` key, e.g.:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 author:
   social:
     email:    mail@qwtel.com
@@ -329,7 +318,7 @@ author:
 Hydejack supports comments via [Disqus](https://disqus.com/). Before you can add comments to a page you need to register and add your site to Disqus' admin console. Once you have obtained your "Disqus shortname", you include it in your config file:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 disqus: <disqus shortname>
 ~~~
 
@@ -347,7 +336,7 @@ You can enable comments for entire classes of pages by using [front matter defau
 E.g. to enable comments on all posts, add to your config file:
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 defaults:
   - scope:
       type: posts
@@ -362,7 +351,7 @@ defaults:
 Enabling Google Analytics is as simple as setting the `google_analytics` key.
 
 ~~~yml
-# file: _config.yml
+# file: `_config.yml`
 google_analytics: UA-XXXXXXXX-X
 ~~~
 
@@ -386,7 +375,7 @@ You may also use this feature to translate the theme into different languages.
 In this case you should also set the `lang` key to your config file, e.g.
 
 ```yml
-# file: _config.yml
+# file: `_config.yml`
 lang: cc-ll
 ```
 
@@ -399,6 +388,7 @@ You may also change the strings used for formatting dates and times (look out fo
 If you have pages for contact data, privacy policy, cookie policy, etc. you can add links to them in the footer by listing them under the `legal` key in your config file as follows:
 
 ```yml
+# file: `_config.yml`
 legal:
   - title: Impress
     url:  /impress/
@@ -445,7 +435,7 @@ To enable showing newsletter subscription boxes below each post and project,
 provide your [Tinyletter] username to the `tinyletter` key in the config file.
 
 ```yml
-# file: _config.yml
+# file: `_config.yml`
 tinyletter:  <tinyletter username>
 ```
 
@@ -464,6 +454,7 @@ Buyers of the PRO version have access to a dark-themed version of Hydejack.
 Dark mode can be enabled in `config.yml` under the `hydejack` key and has three settings and two adjustments:
 
 ```yml
+# file: `_config.yml`
 hydejack:
   dark_mode:
     dynamic: true

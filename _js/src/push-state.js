@@ -51,6 +51,8 @@ import { setupFLIP } from './flip';
   const FN_SEL = "li[id^='fn:']";
   const FN_LINK_SEL = "a[href^='#fn:']";
   const HORIZONTAL_SCROLL_SEL = 'pre, table:not(.highlight), .katex-display, .break-layout';
+  const CODE_BLOCK_SEL = 'pre.highlight > code';
+  const CODE_TITLE_REX = /(?:title|file):\s*['"`](.*)['"`]/i;
 
   const DURATION = 350;
 
@@ -169,6 +171,27 @@ import { setupFLIP } from './flip';
 
     const toc = main.querySelector('#markdown-toc');
     if (toc) toc.classList.add('toc-hide');
+      
+    Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
+      .map(el => el.children[0])
+      .filter(el => el && CODE_TITLE_REX.test(el.innerText))
+      .forEach(el => {
+        const [, fileName] = CODE_TITLE_REX.exec(el.innerText);
+
+        // Remove element before making changes
+        const code = el.parentNode;
+        code.removeChild(el);
+
+        // Remove newline
+        code.childNodes[0].splitText(1);
+        code.removeChild(code.childNodes[0]);
+
+        // Update DOM
+        el.innerText = fileName;
+        el.classList.add('pre-header');
+        const container = code.parentNode.parentNode;
+        container.insertBefore(el, container.firstChild);
+      });
 
     /*
       requestIdleCallback(() => {

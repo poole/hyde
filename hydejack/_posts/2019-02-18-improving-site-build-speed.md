@@ -75,7 +75,7 @@ Note that the old way of doing things still works if you upgrade to 8.3. Only wh
 Hydejack's default settings are fine for small personal blogs of around 100 pages. However, when building large sites with 1,000 pages or more, build time becomes an issue. The following settings will help, but can't overcome the inherent limitations of Jekyll.
 
 ```yml
-# file: _config.yml
+# file: `_config.yml`
 hydejack:
   no_inline_css: true
   no_page_style: true
