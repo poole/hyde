@@ -19,6 +19,7 @@
   padding: 0 1.5rem .5rem 2.5rem;
   margin: 2rem -1rem 2rem calc(-1rem + 1px);
   border-left: 1px solid var(--border-color);
+  transition: opacity 250ms ease, transform 250ms ease, border-color 1s ease;
 
   &:before {
     text-transform: uppercase;
@@ -40,7 +41,6 @@
     margin: auto;
     overflow: auto;
     overscroll-behavior: contain;
-    transition: opacity 250ms ease, transform 250ms ease, border-color 1s ease;
 
     &.toc-hide {
       opacity: 0;
