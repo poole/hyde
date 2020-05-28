@@ -4,7 +4,7 @@ title: 15 projects-based tutorials to practice html and css skills
 date: 2019-11-25T15:30:05+00:00
 author: avic
 layout: page
-permalink: /html-css-tutorials/
+permalink: /project-based-html-css-tutorials/
 ---
 There are a lot of courses that teach HTML and CSS online. However most of them usually teach based on the features of the languages.
 
