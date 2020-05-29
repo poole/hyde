@@ -8,7 +8,7 @@ docs:
   url: /practice-html/
 
 - title: Projects
-  url: /projects
+  url: /projects/
 
 - title: Blog
   url: /blog/
@@ -17,4 +17,7 @@ docs:
   url: /resources/
 
 - title: About
-  url: /about
+  url: /about/
+
+- title: Search
+  url: /search/
