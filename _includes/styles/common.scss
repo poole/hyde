@@ -1,0 +1,23 @@
+html { font-family: $font-family; }
+h1, h2, h3, h4, h5, h6, .f1, .f2, .f3, .f4, .f5, .f6, .heading { font-family: $font-family-heading; }
+
+#markdown-toc:before {
+  content: "{{ site.data.strings.toc | default:'Table of Contents' }}"
+}
+
+{% if site.hydejack.no_page_style %}
+  {% assign color       = site.accent_color | default:'#4fb1ba' %}
+  {% assign theme_color = site.theme_color  | default:'#193747' %}
+  {% include_cached styles/page-style.scss color=color theme_color=theme_color %}
+{% endif %}
+
+{% if site.hydejack.no_drawer %}
+  @media (min-width: $break-point-3) {
+    #_menu {
+      display: none;
+    }
+    .nav-btn-bar > :nth-child(2) {
+      border: none;
+    }
+  }
+{% endif %}
