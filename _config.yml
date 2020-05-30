@@ -108,7 +108,7 @@ defaults:
   # You can use this to provide a default accent color and background for
   # all pages under a given path:
   - scope:
-      path:            hyde
+      path:            hyde/
     values:
       accent_color:    rgb(38,139,210)
       accent_image:
@@ -117,7 +117,7 @@ defaults:
 
   # Don't include documents in assets in the sitemap
   - scope:
-      path:            assets
+      path:            assets/
     values:
       sitemap:         false
 
