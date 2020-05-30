@@ -115,7 +115,7 @@ import { setupFLIP } from './flip';
     return el.getAttribute && el.getAttribute('data-flip');
   }
 
-  function animateFadeOut({ main }, drawerEl) {
+  function animateFadeOut({ main }) {
     return animate(main, FADE_OUT, { ...SETTINGS, fill: 'forwards' }).pipe(mapTo({ main }));
   }
 
@@ -156,9 +156,12 @@ import { setupFLIP } from './flip';
 
   const fadeOut$ = start$.pipe(
     map(context => Object.assign(context, { main: document.getElementById('_main') })),
-    tap(({ main }) => (main.style.pointerEvents = 'none')),
+    tap(({ main }) => { main.style.pointerEvents = 'none' }),
+    window._noDrawer && drawerEl.classList.contains('cover') ? tap(() => {
+      drawerEl.classList.remove('cover')
+      drawerEl.parentNode.appendChild(drawerEl);
+    }) : _ => _,
     exhaustMap(ctx => animateFadeOut(ctx, drawerEl)),
-
     tap(({ main }) => empty.call(main)),
     share(),
   );
