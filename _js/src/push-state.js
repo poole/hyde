@@ -125,8 +125,8 @@ import { setupFLIP } from './flip';
 
   const isStandalone = !!navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
 
-  const pushStateEl = document.getElementsByTagName('hy-push-state')[0];
-  const drawerEl = document.getElementsByTagName('hy-drawer')[0];
+  const pushStateEl = document.querySelector('hy-push-state');
+  const drawerEl = document.querySelector('hy-drawer');
   const navbarEl = document.querySelector(NAVBAR_SEL);
   const canonicalEl = document.querySelector(CANONICAL_SEL);
   const metaDescEl = document.querySelector(META_DESC_SEL);

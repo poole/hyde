@@ -6,7 +6,7 @@ it will only run on the initial page.
 The snippet below will run the code on every `hy-push-state-load` event instead.
 -->
 <script>
-  document.getElementsByTagName('hy-push-state')[0].addEventListener('hy-push-state-load', function (e) {
+  document.getElementById('_pushState').addEventListener('hy-push-state-load', function (e) {
     function e(e){
       (console.error?console.error:console.log).call(console,e)
     }
@@ -53,3 +53,13 @@ The snippet below will run the code on every `hy-push-state-load` event instead.
   });
 </script>
 {% endcomment %}
+
+<script>
+  document.getElementById('_pushState').addEventListener('hy-push-state-load', function (e) {
+    Array.prototype.forEach.call(document.querySelectorAll('.gumroad-button'), function(btn) {
+      var lgo = document.createElement('span');
+      lgo.className += 'gumroad-button-logo';
+      btn.insertBefore(lgo, btn.childNodes[0]);
+    });
+  });
+</script>

@@ -111,7 +111,7 @@ import {
       : MOBILE;
 
   // First we get hold of some DOM elements.
-  const drawerEl = document.getElementsByTagName('hy-drawer')[0];
+  const drawerEl = document.getElementById('_drawer');
   const sidebarEl = document.getElementById('_sidebar');
   const contentEl = sidebarEl.querySelector('.sidebar-sticky');
 
