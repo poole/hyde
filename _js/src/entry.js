@@ -22,35 +22,30 @@ import { hasFeatures } from './common';
 __webpack_public_path__ = window._baseURL;
 
 const BASELINE = ['classlist', 'eventlistener', 'queryselector', 'template'];
-const DARK_MODE_FEATURES = [...BASELINE, 'template', 'customproperties'];
-const DRAWER_FEATURES = [...BASELINE, 'template', 'cssremunit', 'customproperties', 'history', 'matchmedia', 'opacity'];
-const PUSH_STATE_FEATURES = [
-  ...BASELINE,
-  'template',
-  'cssanimations',
-  'cssremunit',
-  'documentfragment',
-  'history',
-  'matchmedia',
-  'opacity',
-];
+const DARK_MODE_FEATURES = ['customproperties'];
+const DRAWER_FEATURES = ['customproperties', 'history', 'matchmedia', 'opacity'];
+const PUSH_STATE_FEATURES = ['history', 'matchmedia', 'opacity', 'cssanimations', 'cssremunit', 'documentfragment'];
+const TOC_FEATURES = ['matchmedia', 'cssremunit']
 
 if (hasFeatures(BASELINE)) {
-  import(/* webpackMode: "eager" */ './navbar');
-  // import(/* webpackMode: "eager" */ './pro/toc');
-}
+  if (!window._noNavbar) import(/* webpackChunkName: "navbar" */ './navbar');
+  // if (!window._noSearch) import(/* webpackChunkName: "search" */ './pro/search');
 
-// if (hasFeatures(DARK_MODE_FEATURES)) {
-//   import(/* webpackMode: "eager" */ './pro/cookies-banner');
-//   import(/* webpackMode: "eager" */ './pro/dark-mode');
-//   import(/* webpackMode: "eager" */ './pro/search');
-// }
+  // if (hasFeatures(DARK_MODE_FEATURES)) {
+  //   import(/* webpackMode: "eager" */ './pro/cookies-banner');
+  //   import(/* webpackMode: "eager" */ './pro/dark-mode');
+  // }
 
-// A list of Modernizr tests that are required for the drawer to work.
-if (!window._noDrawer && hasFeatures(DRAWER_FEATURES)) {
-  import(/* webpackChunkName: "drawer" */ './drawer');
-}
+  // A list of Modernizr tests that are required for the drawer to work.
+  if (!window._noDrawer && hasFeatures(DRAWER_FEATURES)) {
+    import(/* webpackChunkName: "drawer" */ './drawer');
+  }
 
-if (!window._noPushState && hasFeatures(PUSH_STATE_FEATURES)) {
-  import(/* webpackChunkName: "push-state" */ './push-state');
+  if (!window._noPushState && hasFeatures(PUSH_STATE_FEATURES)) {
+    import(/* webpackChunkName: "push-state" */ './push-state');
+  }
+
+  // if (!window.noToc && hasFeatures(TOC_FEATURES)) {
+  //   import(/* webpackChunkName: "toc" */ './pro/toc');
+  // }
 }

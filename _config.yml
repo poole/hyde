@@ -189,6 +189,15 @@ hydejack:
   # Set to `true` if you want to disable the drawer
   no_drawer:           false
 
+  # Set to `true` if you don't to use the auto-hiding (JavaScript based) navbar.
+  # Note that this will not hide the navbar completely, only replace it with a static one.
+  # Use custom css to hide completely, e.g. `#_navbar { display: none }`.
+  no_navbar:           false
+
+  # Set to `true` to disable the dynamic (JavaScript based) aspect of the Table of Contents.
+  # I.e. it will not stick to the right column on large screens.
+  no_toc:              false
+
   # Set to `true` if you want to disable the KaTeX support.
   # E.g. when adding MathJax support instead.
   no_katex:            false

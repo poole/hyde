@@ -2,5 +2,8 @@
   w._baseURL = '{{ "/assets/js/" | relative_url }}';
   w._noPushState = {{ site.hydejack.no_push_state | default:site.disable_push_state | default:false }};
   w._noDrawer = {{    site.hydejack.no_drawer     | default:site.disable_drawer     | default:false }};
+  w._noNavbar = {{    site.hydejack.no_navbar     | default:false }};
+  w._noToc = {{       site.hydejack.no_toc        | default:false }};
+  w._noSearch = {{    site.hydejack.no_search     | default:false }};
 }(window);
 </script>
