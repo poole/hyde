@@ -7,10 +7,10 @@ description: >
 
 # About Upcoming Versions of Hydejack
 
+I think it's time to post an update on upcoming versions of Hydejack, in part to get me back into the mood for writing. Missing documentation is, as always, what's holding up the release. There are currently plenty of features that would be useful to many people that simply aren't documented, including everything that is work in progress for v9. It's both the least fun and most valuable part of the project.
+
 * toc
 {:toc .large-only}
-
-I think it's time to post an update on upcoming versions of Hydejack, in part to get me back into the mood for writing, as missing documentation is, as always, what's holding it up. There are currently plenty of features that would be useful to many people that simply aren't documented, including everything that is work in progress for v9. It's both the least fun and most valuable part of the business.
 
 ## Version 9
 Version 9 is the next "major" version of Hydejack, that will once again alter its design. The reason for this is that with the current style for hyperlinks, the choice of accent colors is quite limited, as some might look good on white background, but be barely legible on dark background and vice-versa. Instead of solving this in the most complicated way possible through some advanced color arithmetic (assuming that's what it's called), I've opted to reduce the use of the accent color instead. You can see a work-in-progress on [my personal site](https://qwtel.com/). I have to say I'm quite please with the results.
