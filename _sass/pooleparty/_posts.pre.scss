@@ -32,7 +32,7 @@
     }
 
     @media screen and (min-width: $break-point-dynamic) {
-      > .lead + .message, > a.flip-project + .message {
+      > .lead + .message, > a.no-hover + .message {
         position: absolute;
         right: -25rem;
         width: 22rem;
