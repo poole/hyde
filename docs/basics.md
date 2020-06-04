@@ -259,8 +259,11 @@ featured: true
   i.e. it will apply to the entire page.
 
 
-## Adding a projects page*
-The projects page will show all projects in a particular collection.
+## Projects*
+
+### Adding a projects page
+The projects page will show all projects of a particular collection.
+
 First, you need to make sure that you have the `projects` collection defined in `_config.yml`:
 
 ~~~yml
@@ -294,7 +297,7 @@ featured:        true
   (for the link that directs back to the projects page).
 
 `show_collection`
-: The name of the collection you want display on this page. Defaults to `projects`.
+: The name of the collection you want display on this page. Defaults to `projects`. See [Organizing Projects](#organizing-projects) for detail on how to handle multiple project collections.
 
 `featured`
 : Optional. When `true`, project thumbnails will span the full width, instead of only half.
@@ -302,7 +305,7 @@ featured:        true
   i.e. it will apply to the entire page.
 
 
-## Adding a project*
+### Adding a project
 Projects are organized using [Jekyll Collections](https://jekyllrb.com/docs/collections/).
 Each project generates an entry on the projects layout ([Demo][projects]) as well as its own detail page ([Demo][project]).
 
@@ -366,6 +369,41 @@ featured:    false
 `featured`
 : Optional. When `true`, the project preview will span the full content width. You can use this for projects that should receive more attention. You can set/override this for an entire page, by setting `featured` in the front matter (applies to the `projects` and `welcome` layout).
 
+### Organizing Projects
+If you want to organize your projects using categories or tags, similar to the way you do with posts, the best way is to achieve this is via multiple collections. Categories and tags are reserved for posts, and adding them to collections has no effect.
+
+The default config file comes with one projects collection predefined, but we can easily add additional collections like so:
+
+~~~yml
+# file: `config.yml`
+collections:
+  # The default projects collection
+  projects:
+    permalink:         /projects/:path/
+    output:            true
+
+  # Our new projects collection
+  other_projects:
+    # Make sure the permalink path is different!
+    permalink:         /other-projects/:path/
+    output:            true
+~~~
+
+Create a new folder in the top level directory that follows the naming convention `_<collection name>`. In our case the name is `_other_projects`.
+In it, create collection items as [shown above](#adding-a-project).
+
+This is enough to render the project pages. To render them all on a single page, create a projects page as [described above](#adding-a-projects-page) with the `show_collection` key set to our new collection, e.g.:
+
+```yaml
+# file: "other-collection.md"
+---
+layout: projects
+title: Other Projects*
+show_collection: other_projects # !!
+---
+```
+
+Note that the file name matches the `other-projects` path in the `permalink` we've defined above. This is to ensure that the directories match up.
 
 ## Adding a resume*
 Hydejack's PRO version features a generalized resume layout.

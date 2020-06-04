@@ -8,12 +8,68 @@ layout: page
 * this list will be replaced by the toc
 {:toc .large-only}
 
+## v9.0.0
+
+* Using `no_drawer: true` is now working properly on cover pages when `no_push_state: false` is set.
+* The `blog` layout now works without pagination, simply showing all posts on a single page when the `jekyll-pagination` plugin is not found.
+* Code blocks can now have file names / titles by making the first line of the code block a comment (in whatever langauge you're using) of the format `File: "yourfile.ext"`. 
+* The `projects`, `resume`, and `grid` layout now make better use of large screens, buy letting content expand to the right of the screen. Restore the previous , set `no_break_columns` in front matter.
+* Drastically improved build times through the use of `jekyll-include-cache`. Most of the previous tips for [improving page build speed](2019-02-18-improving-site-build-speed.md) should now be obsolute.
+* Removed smooth scroll polyfill for Safari/Webkit as it has caused problems with sticky content.
+*  Added Search Functionality
+
+   Hydejack now has its own built-in search solution, that integrates well with the existing page style and the new navbar. 
+   
+   The solution is entirely browser-based which means it even works while offline and doesn't depend on an 3rd party. This works, because Hydejack is designed for personal sites that generally have less than 1000 pages. In my testing, Jekyll build times have been a problem long before search query times.
+   
+   The results of the search are surprisingly good, but have only been tested in English and (somewhat) German. For better language support, I might build an integration with Algolia at some point, which has the best results, but requires stable internet connection and an API key. I'd be interested to hear about problems with search in other languages to determine if this is necessary.
+
+* Reduced the amount of pixels cached by the `will-change` optimization and fixed the corresponding warning in Firefox.
+*  Figure captions can now be added to code blocks, math blocks, and tables in addition to just images.
+
+*  Added Table of Contents that is prettier, sticky, and dynamic.
+
+   Adding a table of contents is part of kramdown and can be done in all versions of Hydejack. However, v9 adds a dynamic version that will stick to the 3rd column on large screens and highlight the current section. 
+   
+   Note that the `hydejack.no_break_layout` option has to be set to enable this (otherwise the ToC would overlap with code blocks, math blocks, etc).
+
+* The navbar buttons were made to look more like buttons
+* The order of the comment section relative to the about and related posts sections can now be customized via the `hydejack.post_addons` and `hydejack.project_addons` keys. See the example `_config.yml` for more.
+*  Clicking the image in the `blog` layout will now navigate to the blog post. In the PRO version it will do so with the classic "move image in place" animation.
+*  Math support had to be revamped, because the old solution stopped working with Jekyll 4.
+
+   Math support is now an opt-in feature and requires a JavaScript environment for building. Usually installing NodeJS will suffice.
+   Unfortunately, this means math is no longer supported on GitHub Pages (unless you build locally of course), but on the flip side
+   JavaScript is no longer required on the client-side as KaTeX is pre-rendered during site building.
+
+* Dark mode colors have been toned down a bit
+* Added `grid` layout in PRO version that mirrors the `projects` layout, but for posts. If you've set `image`s for your posts, it will give your blog a more modern look.
+* Grouping projects by year is now an opt-in feature. Use `grouped: true` in the front matter to enable. The same applies to the new `grid` layout.
+* Changed the style of footnote links on small screens to make them easier to click.
+* The amount of whitespace has been reduced. Previously it had been increased but it felt too much.
+*  Added a scroll-linked navbar that disappears when scrolling down and re-appears when scrolling up.
+* The permalink style has been changed to use "#" instead of an icon. The old style change be restored through customization.
+* The link style has been changed to make picking accent colors easier for dark mode
+* hy-img has been removed and replaced with browser's native `loading=lazy` attribute
+* Improved IE 11 compatibility
+* Now serving separate JavaScript files for old and new browsers, allowing it to take advantage of many new language features.
+* JavaScript files are now chunked, so that only what is needed is loaded on demand.
+* hy-drawer and hy-push-state have been rewritten in TypeScript and LitHTML, fixing many bugs in the process.
+* Updated to Jekyll 4.1
+* Horizontal scrolling on a code block, math black, or table will no longer accidentially open the drawer.
+* Improved dark mode text rendering on macOS
+* Hydejack now has a dedicated offline page that will be shown when the client is offline and tries to open a page that hasn't been cached. The content of the page can be customized by creating `offline.md` file in the root, similar to `404.md`.
+* The code font can now be customized in the config file via the `font_code` key.
+
 ## v8.6.0
 November 10 2019
 {:.heading.post-date}
 
 * Updated to Jekyll 4.0!
 * Improved font rendering in dark mode for macOS
+
+NOTE: This will likely be the last release on the v8 track, barring any serious issues.
+Development has moved to v9
 
 ### Added
 * Added `font_code` setting to the config file
