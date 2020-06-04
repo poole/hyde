@@ -22,7 +22,24 @@
   }
 
   > header {
+    position: relative;
     margin-bottom: 2rem;
+
+    > .message {
+      background: transparent;
+      font-style: italic;
+      border-left: 1px solid var(--border-color);
+    }
+
+    @media screen and (min-width: $break-point-dynamic) {
+      > .lead + .message, > a.flip-project + .message {
+        position: absolute;
+        right: -25rem;
+        width: 22rem;
+        bottom: 0;
+        margin-bottom: 0;
+      }
+    }
   }
 }
 

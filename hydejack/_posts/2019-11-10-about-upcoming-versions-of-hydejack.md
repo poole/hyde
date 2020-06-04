@@ -2,7 +2,7 @@
 layout: post
 image: /assets/img/blog/grid.jpg
 description: >
-  I think it's time to post an update on upcoming versions of Hydejack, in part to get me back into the mood for writing, as missing documentation is, as always, what's holding it up.
+  It's time to post an update on upcoming versions of Hydejack, in part to get me back into the mood for writing, as missing documentation is what's holding it up.
 ---
 
 # About Upcoming Versions of Hydejack
