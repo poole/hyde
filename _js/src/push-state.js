@@ -196,6 +196,15 @@ import { setupFLIP } from './flip';
         container.insertBefore(el, container.firstChild);
       });
 
+    if ('complete' in HTMLImageElement.prototype) {
+      main.querySelectorAll('img[width][height][loading=lazy]').forEach((el) => {
+        if (!el.complete) {
+          el.style.opacity = 0;
+          el.addEventListener('load', () => { el.style.opacity = 1 }, { once: true });
+        }
+      });
+    }
+
     /*
       requestIdleCallback(() => {
         main.querySelectorAll(pushStateEl.linkSelector).forEach(anchor => {

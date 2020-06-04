@@ -54,8 +54,12 @@ figure, .figure {
   margin-bottom: 2rem;
 }
 
-@keyframes fade-img {
-  from { opacity: 0; }
-  to   { opacity: 1; }
+img[width][height][loading=lazy] {
+  transition: opacity 500ms ease;
 }
+
+// @keyframes fade-img {
+//   from { opacity: 0; }
+//   to   { opacity: 1; }
+// }
 
