@@ -25,7 +25,7 @@ const BASELINE = ['classlist', 'eventlistener', 'queryselector', 'template'];
 const DARK_MODE_FEATURES = ['customproperties'];
 const DRAWER_FEATURES = ['customproperties', 'history', 'matchmedia', 'opacity'];
 const PUSH_STATE_FEATURES = ['history', 'matchmedia', 'opacity', 'cssanimations', 'cssremunit', 'documentfragment'];
-const TOC_FEATURES = ['matchmedia', 'cssremunit']
+const TOC_FEATURES = ['matchmedia', 'cssremunit'];
 
 if (hasFeatures(BASELINE)) {
   if (!window._noNavbar) import(/* webpackChunkName: "navbar" */ './navbar');

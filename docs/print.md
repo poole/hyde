@@ -60,7 +60,7 @@ If you have a GitHub account, fork the [hy-starter-kit](https://github.com/hydec
 
 Alternatively, you can just [![Deploy to Netlify][dtn]][nfy]{:.no-hover.no-mark}.
 
-[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.9.zip
+[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.10.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/hydecorp/hydejack-starter-kit
 [dtn]: https://www.netlify.com/img/deploy/button.svg
 
@@ -174,7 +174,7 @@ For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.9/install/
+$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.10/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -226,7 +226,7 @@ especially the part about the [license change](../CHANGELOG.md#license-change)!
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: hydecorp/hydejack@v9.0.0-alpha.9
+remote_theme: hydecorp/hydejack@v9.0.0-alpha.10
 ```
 
 To use the latest version on the `v8` branch on each build, you can use  `hydecorp/hydejack@v8`.
@@ -301,7 +301,7 @@ The first order of business should be to set the correct `url` and `baseurl` val
 The `url` is the domain of your site, including the protocol (`http` or `https`). For this site, it is
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 url: https://qwtel.com
 ~~~
 
@@ -309,7 +309,7 @@ If your entire Jekyll blog is hosted in a subdirectory of your page, provide the
 e.g.
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 baseurl: /hydejack
 ~~~
 
@@ -336,7 +336,7 @@ Hydejack allows you to choose the background image of the sidebar, as well as th
 Set the fallback values in `_config.yml`, which are used should no other rule (page, category, tag, author) apply:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 accent_image: /assets/img/sidebar-bg.jpg
 accent_color: rgb(79,177,186)
 ~~~
@@ -357,7 +357,7 @@ There are three keys in `_config.yml` associated with this: `font`, `font_headin
 The defaults are:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 font:         Noto Sans, Helvetica, Arial, sans-serif
 font_heading: Roboto Slab, Helvetica, Arial, sans-serif
 google_fonts: Roboto+Slab:700|Noto+Sans:400,400i,700,700i
@@ -369,7 +369,7 @@ google_fonts: Roboto+Slab:700|Noto+Sans:400,400i,700,700i
 The `google_fonts` key is the string necessary to fetch the fonts from Google.
 You can get it from the download page at [Google Fonts](https://fonts.google.com) after you've selected one or more fonts:
 
-![Where to get the google_fonts string](../assets/img/docs/google-fonts.png){:width="600" height="398"}
+![Where to get the google_fonts string](../assets/img/docs/google-fonts.png){:width="600" height="398" loading="lazy"}
 
 
 #### Removing Google Fonts
@@ -398,12 +398,12 @@ title:  Home
 If you want to use the `blog` layout, you need to add `jekyll-paginate` to your `Gemfile` and to the `plugins` list in your config file:
 
 ```ruby
-## file: Gemfile
+## file: `Gemfile`
 gem "jekyll-paginate"
 ```
 
 ```yml
-## file: _config.yml
+## file: `_config.yml`
 plugins:
   - jekyll-paginate
 ```
@@ -411,9 +411,9 @@ plugins:
 You also need to add the `paginate` and `paginate_path` keys to your config file, e.g.
 
 ~~~yml
-## file: _config.yml
-paginate:      5
-paginate_path: '/page-:num/'
+## file: `_config.yml`
+paginate:      10
+paginate_path: '/:num/'
 ~~~
 
 The `blog` layout needs to be applied to a file with the `.html` file extension
@@ -421,8 +421,8 @@ and the `paginate_path` needs to match the path to the `index.html` file.
 To match the `paginate_path` above, put a `index.html` with the following front matter in the root directory:
 
 ~~~yml
+## file: `index.html`
 ---
-## file: index.html
 layout: blog
 title: Blog
 ---
@@ -437,39 +437,28 @@ If you want to use the blog layout at a URL like `/my-blog/`, create the followi
 ~~~
 ├── my-blog
 │   └── index.html
-├── !my-blog.md
 └── _config.yml
 ~~~
 
-You can use the same `index.html` as before:
+You can use the same `index.html` as before and place it in the subdirectory.
 
 ~~~yml
+## file: `my-blog/index.html`
 ---
-## file: my-blog/index.html
 layout: blog
 title: Blog
 ---
 ~~~
 
-(Optional) If you want to add a link to the blog in the sidebar, DO NOT add the `menu` key to the front matter of `my-blog/index.html`. Instead, create a new markdown file called `!my-blog.md` with `menu` and `permalink` keys:
+In your config file, make sure the `paginate_path` matches the name of the subdirectory:
 
 ~~~yml
----
-## file: !my-blog.md
-title: My Blog
-menu: true
-permalink: /my-blog/
-sitemap: false
----
+## file: `_config.yml`
+paginate:      10
+paginate_path: /my-blog/:num/
 ~~~
 
-Finally, in your config file, make sue the `paginate_path` matches the `permalink`:
-
-~~~yml
-## file: _config.yml
-paginate:      5
-paginate_path: /my-blog/page-:num/
-~~~
+To add an entry in the sidebar to your blog directory, see [Adding an entry to the sidebar](./basics.md#adding-an-entry-to-the-sidebar).
 
 
 ### Adding an author
@@ -477,7 +466,7 @@ At a bare minimum, you should add an `author` key with a `name` and `email` sub-
 (used by the [feed plugin](https://github.com/jekyll/jekyll-feed)) to to your config file:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 author:
   name:  Florian Klampfer
   email: mail@qwtel.com
@@ -486,7 +475,7 @@ author:
 If you would like the author to be displayed in the about section below a post or project\*, add an `about` key and provide markdown content. I recommend using the YAML pipe `|` syntax, so you can include multiple paragraphs:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 author:
   name:  Florian Klampfer
   email: mail@qwtel.com
@@ -503,12 +492,12 @@ If you'd like for the author's picture to appear in addition the about text (see
 To use the plugin, add it to your `Gemfile` and the list of `plugins` in your config file:
 
 ```ruby
-## file: Gemfile
+## file: `Gemfile`
 gem "jekyll-avatar"
 ```
 
 ```yml
-## file: _config.yml
+## file: `_config.yml`
 plugins:
   - jekyll-avatar
 ```
@@ -522,7 +511,7 @@ See [Adding social media icons](#adding-social-media-icons) for more.
 To set an image manually, you have to provide an URL to the author's `picture` key:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 author:
   picture:  /assets/img/me.jpg
 ~~~
@@ -531,7 +520,7 @@ If you'd like to provide multiple versions for screens with different pixel dens
 you can provide `path` and `srcset` keys instead:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 author:
   picture:
     path:   /assets/img/me.jpg
@@ -556,7 +545,7 @@ You can add a link to a social network by adding an entry to the `social` key in
 It consists of the name of the social network as key and your username within that network as value, e.g.
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 author:
   social:
     twitter: qwtel
@@ -569,7 +558,7 @@ You can also follow the steps [here](#advanced) to add your own social media ico
 You can change the order in which the icons appear by moving lines up or down, e.g.
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 author:
   social:
     github:  qwtel # now github appears first
@@ -582,7 +571,7 @@ see the included [`authors.yml`](https://github.com/hydecorp/hydejack/blob/v8/_d
 Should providing a username not produce a correct link for some reason, you can provide a complete URL instead, e.g.
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 author:
   social:
     youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
@@ -596,12 +585,12 @@ author:
 If you'd like to add an email <span class="icon-mail"></span>, RSS <span class="icon-rss2"></span>, or download <span class="icon-box-add"></span> icon to the list, add the `email`, `rss`, or `download` key, e.g.:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.9.zip
+    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.10.zip
 ~~~
 
 
@@ -609,7 +598,7 @@ author:
 Hydejack supports comments via [Disqus](https://disqus.com/). Before you can add comments to a page you need to register and add your site to Disqus' admin console. Once you have obtained your "Disqus shortname", you include it in your config file:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 disqus: <disqus shortname>
 ~~~
 
@@ -627,7 +616,7 @@ You can enable comments for entire classes of pages by using [front matter defau
 E.g. to enable comments on all posts, add to your config file:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 defaults:
   - scope:
       type: posts
@@ -642,7 +631,7 @@ defaults:
 Enabling Google Analytics is as simple as setting the `google_analytics` key.
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 google_analytics: UA-XXXXXXXX-X
 ~~~
 
@@ -666,7 +655,7 @@ You may also use this feature to translate the theme into different languages.
 In this case you should also set the `lang` key to your config file, e.g.
 
 ```yml
-## file: _config.yml
+## file: `_config.yml`
 lang: cc-ll
 ```
 
@@ -679,6 +668,7 @@ You may also change the strings used for formatting dates and times (look out fo
 If you have pages for contact data, privacy policy, cookie policy, etc. you can add links to them in the footer by listing them under the `legal` key in your config file as follows:
 
 ```yml
+## file: `_config.yml`
 legal:
   - title: Impress
     url:  /impress/
@@ -725,7 +715,7 @@ To enable showing newsletter subscription boxes below each post and project,
 provide your [Tinyletter] username to the `tinyletter` key in the config file.
 
 ```yml
-## file: _config.yml
+## file: `_config.yml`
 tinyletter:  <tinyletter username>
 ```
 
@@ -744,6 +734,7 @@ Buyers of the PRO version have access to a dark-themed version of Hydejack.
 Dark mode can be enabled in `config.yml` under the `hydejack` key and has three settings and two adjustments:
 
 ```yml
+## file: `_config.yml`
 hydejack:
   dark_mode:
     dynamic: true
@@ -801,7 +792,7 @@ Now you can add content as you would in a blog post.
 To add links to the sidebar, populate the `menu` entry in `_config.yml` with a list of `title`-`url` pairs, e.g.:
 
 ```yml
-## file: _config.yml
+## file: `_config.yml`
 menu:
   - title: Blog
     url:   /blog/
@@ -828,7 +819,7 @@ Hydejack allows you to use the `list` layout to show all posts of a particular c
 Before you start, make sure your config files contains the `features_categories` and `featured_tags` collections:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 collections:
   featured_categories:
     permalink:         /:name/
@@ -894,8 +885,8 @@ For each featured category or tag, a file called `<category-name>.md` or `<tag-n
 The meta data of a category or tag is set in the files front matter, e.g.
 
 ~~~yml
+## file: `_featured_categories/hyde.md`
 ---
-## file: _featured_categories/hyde.md
 layout: list
 title:  Hyde
 slug:   hyde
@@ -929,12 +920,16 @@ About pages are a frequent use case, so Hydejack has a special layout for it. It
 To create an about page, make sure `layout` is set to `about`.
 For more on authors, see [Adding an author](#adding-an-author).)
 
-~~~yml
+~~~html
+<!-- file: `about.md` -->
 ---
-## file: about.md
 layout: about
 title:  About
 ---
+
+Some content
+
+<!--author-->
 ~~~
 
 
@@ -971,8 +966,8 @@ Technically, it is a modified version of the `about` layout, so it allows showin
 You can create a welcome page by creating a new markdown file and setting the layout to `welcome` in the front matter.
 
 ~~~yml
+## file: `index.md`
 ---
-## file: index.md
 layout: welcome
 title:  Welcome
 cover:  true
@@ -986,8 +981,8 @@ To show the five most recent blog posts, add the `<!--posts-->` marker to the co
 The welcome layout also supports selecting specific projects and posts, by adding to the front matter, e.g.:
 
 ~~~yml
+## file: `index.md`
 ---
-## file: index.md
 selected_projects:
   - _projects/hydejack-v6.md
   - _projects/hyde-v2.md
@@ -1024,12 +1019,15 @@ featured: true
   i.e. it will apply to the entire page.
 
 
-### Adding a projects page*
-The projects page will show all projects in a particular collection.
+### Projects*
+
+#### Adding a projects page
+The projects page will show all projects of a particular collection.
+
 First, you need to make sure that you have the `projects` collection defined in `_config.yml`:
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 collections:
   projects:
     permalink: /projects/:path/
@@ -1042,8 +1040,8 @@ This file has the `projects` layout (mind the "s" at the end) and should have a 
 with the name of the collection as a value, e.g.:
 
 ~~~yml
+## file: `projects.md`
 ---
-## file: projects.md
 layout:          projects
 title:           Projects*
 show_collection: projects
@@ -1059,7 +1057,7 @@ featured:        true
   (for the link that directs back to the projects page).
 
 `show_collection`
-: The name of the collection you want display on this page. Defaults to `projects`.
+: The name of the collection you want display on this page. Defaults to `projects`. See [Organizing Projects](#organizing-projects) for detail on how to handle multiple project collections.
 
 `featured`
 : Optional. When `true`, project thumbnails will span the full width, instead of only half.
@@ -1067,7 +1065,7 @@ featured:        true
   i.e. it will apply to the entire page.
 
 
-### Adding a project*
+#### Adding a project
 Projects are organized using [Jekyll Collections](https://jekyllrb.com/docs/collections/).
 Each project generates an entry on the projects layout ([Demo][projects]) as well as its own detail page ([Demo][project]).
 
@@ -1076,8 +1074,8 @@ The project's meta information is defined in the file's front matter. You can al
 A project's front matter should look like:
 
 ~~~yml
+## file: `_projects/hyde-v2.md`
 ---
-## file: _projects/hyde-v2.md
 layout:      project
 title:       Hyde v2*
 date:        2 Jan 2014
@@ -1131,6 +1129,41 @@ featured:    false
 `featured`
 : Optional. When `true`, the project preview will span the full content width. You can use this for projects that should receive more attention. You can set/override this for an entire page, by setting `featured` in the front matter (applies to the `projects` and `welcome` layout).
 
+#### Organizing Projects
+If you want to organize your projects using categories or tags, similar to the way you do with posts, the best way is to achieve this is via multiple collections. Categories and tags are reserved for posts, and adding them to collections has no effect.
+
+The default config file comes with one projects collection predefined, but we can easily add additional collections like so:
+
+~~~yml
+## file: `config.yml`
+collections:
+  # The default projects collection
+  projects:
+    permalink:         /projects/:path/
+    output:            true
+
+  # Our new projects collection
+  other_projects:
+    # Make sure the permalink path is different!
+    permalink:         /other-projects/:path/
+    output:            true
+~~~
+
+Create a new folder in the top level directory that follows the naming convention `_<collection name>`. In our case the name is `_other_projects`.
+In it, create collection items as [shown above](#adding-a-project).
+
+This is enough to render the project pages. To render them all on a single page, create a projects page as [described above](#adding-a-projects-page) with the `show_collection` key set to our new collection, e.g.:
+
+```yaml
+## file: "other-collection.md"
+---
+layout: projects
+title: Other Projects*
+show_collection: other_projects # !!
+---
+```
+
+Note that the file name matches the `other-projects` path in the `permalink` we've defined above. This is to ensure that the directories match up.
 
 ### Adding a resume*
 Hydejack's PRO version features a generalized resume layout.
@@ -1147,8 +1180,8 @@ Once you have a JSON Resume, place it into `_data`.
 To render a resume page, create a new markdown file and set the layout to `resume` in the front matter:
 
 ~~~yml
+## file: `resume.md`
 ---
-## file: resume.md
 layout: resume
 title:  Resume
 description: >
@@ -1164,8 +1197,8 @@ You can add a specialized resume or multiple resumes by adding the resume YAML t
 E.g.:
 
 ~~~yml
+## file: `resume.md`
 ---
-## file: resume.md
 layout: resume
 title:  Resume
 description: >
@@ -1445,9 +1478,12 @@ To add a code block without syntax highlighting, simply indent 4 spaces (regular
 For code blocks with code highlighting, use `~~~<language>`. This syntax is also supported by GitHub.
 For more information and a list of supported languages, see [Rouge](http://rouge.jneen.net/).
 
+You can give each code block a title, by making the first line in the block a comment of the form `Title: "<my title>"`.
+
 Example:
 
 ~~~js
+// title: "code-block.js"
 // Example can be run directly in your JavaScript console
 
 // Create a function that takes two arguments and returns the sum of those
@@ -1465,6 +1501,7 @@ An optional caption for a code block
 Markdown:
 
     ~~~js
+    // title: "code-block.js"
     // Example can be run directly in your JavaScript console
 
     // Create a function that takes two arguments and returns the sum of those
@@ -1617,7 +1654,7 @@ If you have scripts that should be included on every page you can add them globa
 opening (or creating) `_includes/my-scripts.html` and adding them like you normally would:
 
 ```html
-<!-- file: _includes/my-scripts.html -->
+<!-- file: `_includes/my-scripts.html` -->
 <script
   src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
   integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
@@ -1630,9 +1667,9 @@ opening (or creating) `_includes/my-scripts.html` and adding them like you norma
 When embedding scripts globally you might want to run some init code after each page load. However, the problem with push state-based page loads is that the `load` event won't fire again. Luckily, Hydejack's push state component exposes an event that you can listen to instead.
 
 ```html
-<!-- file: _includes/my-scripts.html -->
+<!-- file: `_includes/my-scripts.html` -->
 <script>
-  document.getElementsByTagName('hy-push-state')[0].addEventListener('hy-push-state-load', function() {
+  document.getElementById('_pushState').addEventListener('hy-push-state-load', function() {
     // <your init code>
   });
 </script>
@@ -1661,7 +1698,7 @@ If you can't make an external script work with Hydejack's push state approach to
 you can disable push state by adding to your config file:
 
 ```yml
-## file: _config.yml
+## file: `_config.yml`
 hydejack:
   no_push_state: true
 ```
@@ -1692,7 +1729,7 @@ $ git push origin master
 Before building, make sure the following is part of your config file:
 
 ```yml
-## file: _config.yml
+## file: `_config.yml`
 compress_html:
   comments:  ["<!-- ", " -->"]
   clippings: all
@@ -1728,7 +1765,7 @@ To use the LSI, you first have to disable Hydejack's default behavior,
 by setting `use_lsi: true` under the `hydejack` key in your config file.
 
 ~~~yml
-## file: _config.yml
+## file: `_config.yml`
 hydejack:
   use_lsi: true
 ~~~

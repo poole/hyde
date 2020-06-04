@@ -156,11 +156,15 @@ import { setupFLIP } from './flip';
 
   const fadeOut$ = start$.pipe(
     map(context => Object.assign(context, { main: document.getElementById('_main') })),
-    tap(({ main }) => { main.style.pointerEvents = 'none' }),
-    window._noDrawer && drawerEl.classList.contains('cover') ? tap(() => {
-      drawerEl.classList.remove('cover')
-      drawerEl.parentNode.appendChild(drawerEl);
-    }) : _ => _,
+    tap(({ main }) => {
+      main.style.pointerEvents = 'none';
+    }),
+    window._noDrawer && drawerEl.classList.contains('cover')
+      ? tap(() => {
+          drawerEl.classList.remove('cover');
+          drawerEl.parentNode.appendChild(drawerEl);
+        })
+      : _ => _,
     exhaustMap(ctx => animateFadeOut(ctx, drawerEl)),
     tap(({ main }) => empty.call(main)),
     share(),
@@ -174,7 +178,7 @@ import { setupFLIP } from './flip';
 
     const toc = main.querySelector('#markdown-toc');
     if (toc) toc.classList.add('toc-hide');
-      
+
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
       .map(el => el.children[0])
       .filter(el => el && CODE_TITLE_REX.test(el.innerText))
@@ -197,10 +201,16 @@ import { setupFLIP } from './flip';
       });
 
     if ('complete' in HTMLImageElement.prototype) {
-      main.querySelectorAll('img[width][height][loading=lazy]').forEach((el) => {
+      main.querySelectorAll('img[width][height][loading=lazy]').forEach(el => {
         if (!el.complete) {
           el.style.opacity = 0;
-          el.addEventListener('load', () => { el.style.opacity = 1 }, { once: true });
+          el.addEventListener(
+            'load',
+            () => {
+              el.style.opacity = 1;
+            },
+            { once: true },
+          );
         }
       });
     }

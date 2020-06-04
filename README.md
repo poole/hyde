@@ -176,7 +176,7 @@ The table below shows what's included in each version:
 [docs]: docs/README.md
 [ofln]: docs/advanced.md#enabling-offline-support
 
-[kit]: https://github.com/hydecorp/hydejack-starter-kit/archive/v9.0.0-alpha.9.zip
+[kit]: https://github.com/hydecorp/hydejack-starter-kit/archive/v9.0.0-alpha.10.zip
 [src]: https://github.com/hydecorp/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/NATYVLYT
