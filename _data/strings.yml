@@ -66,6 +66,7 @@ error:
 
 # Separators
 # ---------------------------------------------------------------------------------------
+posted:                'Posted'
 colon:                 ':'
 separator:             '|'
 category_start:        'in '
