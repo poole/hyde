@@ -18,9 +18,13 @@
     "dev": "npm run watch & npm run serve",
     "prepare": "npm run test && npm run clean && npm run build",
     "resume": "json2yaml _data/resume.json > _data/resume.yml",
-    "preversion": "sed -i '' 's:/assets/js/\\*hydejack-\\*:#<removed>:' .gitignore",
+    "preversion": "npm run preversion:js && npm run preversion:css",
+    "preversion:js": "sed -i '' 's:/assets/js/\\*hydejack-\\*:#<removed/js>:' .gitignore",
+    "preversion:css": "sed -i '' 's:/_sass/\\*/__\\*__/\\*:#<removed/css>:' .gitignore",
     "version": ".scripts/version.js && .scripts/gen-print-doc.js && npm run format && npm run build && git add .",
-    "postversion": "sed -i '' 's:#<removed>:/assets/js/*hydejack-*:' .gitignore && git rm --cached assets/js/*hydejack-* && git add . && git ci -m 'Restore pre-version .gitignore'"
+    "postversion": "(npm run postversion:js && npm run postversion:css) && git add . && git ci -m 'Restore pre-version .gitignore'",
+    "postversion:js": "sed -i '' 's:#<removed/js>:/assets/js/*hydejack-*:' .gitignore && git rm --cached assets/js/*hydejack-*",
+    "postversion:css": "sed -i '' 's:#<removed/css>:/_sass/*/__*__/*:' .gitignore && git rm --cached _sass/*/__*__/*"
   },
   "config": {
     "port": 4000

@@ -1,15 +1,9 @@
 #!/usr/bin/env node
 
-const { promisify } = require("util");
 const { basename, dirname, format, relative, resolve } = require("path");
-const fs = require("fs");
+const { readdir, stat, readFile, writeFile, mkdir } = require("fs").promises;
 
 const dedent = require("dedent");
-
-const readdir = promisify(fs.readdir);
-const stat = promisify(fs.stat);
-const readFile = promisify(fs.readFile);
-const writeFile = promisify(fs.writeFile);
 
 const ENC = "utf-8";
 
@@ -68,6 +62,10 @@ async function getFiles(dir) {
         const path = relative(resolve(), dirname(file));
         const header = genHeader([path, basename(file)].join("/"));
 
+        await Promise.all([
+          mkdir(resolve(dir, "__inline__"), { recursive: true }),
+          mkdir(resolve(dir, "__link__"), { recursive: true }),
+        ]);
         return Promise.all([
           writeFile(resolve(dir, "__inline__", filename), header + "\n\n" + inline, ENC),
           writeFile(resolve(dir, "__link__", filename), header + "\n\n" + defer, ENC),
