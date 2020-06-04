@@ -14,6 +14,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // <<<<< LINK
+$navbar-height: 5rem;
+
 .fixed-common {
   position: fixed;
   left: 0;
@@ -39,15 +41,16 @@
     padding-top: 0;
     padding-bottom: 0;
     min-height: 0;
-    max-height: 5.2rem;
+    max-height: $navbar-height;
 
+    $shadow-padding: 3rem;
     &::before {
       content: "";
       position: absolute;
       display: block;
-      width: calc(100% - 6rem);
-      left: 3rem;
-      height: 5.2rem;
+      width: calc(100% - #{$shadow-padding * 2});
+      height: $navbar-height;
+      left: $shadow-padding;
       margin: auto;
       box-shadow: 0 0 2rem rgba(0,0,0,0.25);
       z-index: -1;
@@ -76,7 +79,7 @@
   margin: 0 -1rem;
   background-color: white; // IE11
   background-color: var(--body-bg);
-  height: 5.2rem;
+  height: $navbar-height;
   display: flex;
   position: relative;
 
@@ -90,16 +93,16 @@
   background: none;
   border: none;
   text-decoration: none;
-  padding: 1.75rem 1.15rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 3.25rem;
+  height: $navbar-height;
   color: var(--menu-text);
   border-right: 1px solid var(--border-color);
   border-left: 1px solid var(--border-color);
   margin-left: -1px;
   cursor: pointer;
-
-  &.fr {
-    float: right;
-  }
 }
 
 .nav-span {
