@@ -34,8 +34,7 @@ function isExternal({ protocol, host }, location = window.location) {
 export class CrossFader {
   constructor(fadeDuration) {
     const main = document.getElementById('_main');
-    const pageStyle = document.getElementById('_pageStyle');
-    const styleSheet = Array.from(document.styleSheets).find(ss => ss.ownerNode === pageStyle) || {};
+    const styleSheet = Array.from(document.styleSheets).find(s => s.ownerNode && s.ownerNode.id === '_pageStyle') || {};
 
     this.sidebar = document.getElementById('_sidebar');
     this.fadeDuration = fadeDuration;
