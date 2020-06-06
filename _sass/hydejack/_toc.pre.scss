@@ -41,7 +41,7 @@
     // <<< inline
     position: absolute;
     z-index: 4;
-    width: calc(50% - 27rem);
+    width: calc(50% - #{$r28 - 2rem});
     right: 0;
     margin: auto;
     overflow: auto;
