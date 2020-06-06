@@ -1,5 +1,5 @@
 ---
-title: How to display html tags as plain text
+title: How to display html tags as plain text in HTML
 date: 2019-04-02T10:59:31+00:00
 author: avic
 layout: post
@@ -15,14 +15,14 @@ Ordinarily, HTML tags are not visible to the reader on the browser. They are the
 
 However, through **HTML entities** you can display the HTML tags that are part of the HTML markup code that could have never be seen on a browser.
 
-To do this, you need to replace `<` with  ` &lt;`  or  `&60;` and   `>`   with ` &gt;` or  `&62;`.
+You can show HTML tags by replacing `<` with  ` &lt;`  or  `&60;` and   `>`   with ` &gt;` or  `&62;` on each HTML tag.
 
 **Example**  
-So if you want to display: `<p> This is a paragraph </p>` on the browser, you write it as:  `&lt;p&gt;` This is a paragraph <p&gt.
+So if you want to display: `<p> This is a paragraph </p>` on the browser, you write it as:  `&lt;p&gt;` This is a paragraph `&lt;p&gt;`.
 
 ## How to show HTML tags: HTML entities
 
-HTML has some characters that make up the language they are the reserved character. The **reserved characters** in HTML are < , > , &#8221; and &. The browser will never display them since they have some meaning in HTML.  
+HTML has some special characters that make up the language; they are the reserved character. The **reserved characters** in HTML are < , > , &#8221; and &. The browser will never display them since they have some meaning in HTML.  
 HTML entities are pieces of text used to **display reserved characters**, invisible characters(like space) and other non-keyboard characters.
 
 Entities begin with the ‘&’ followed by ‘entity name’ or ‘entity number’ and end with the ‘;’ ie. &entity-name; or &entity-number;
@@ -73,5 +73,12 @@ HTML tags.
 Example.
 
 <img src="/public/04/display-code.png" alt="preserve code formating indentation html <pre>"/> 
+
+### Can I use <plaintext> HTML tag.
+
+Yes, previously, plaintext HTML tag was used to show HTML tags on a webpage.
+
+However, the plaintext HTML tag is deprecated since HTML version 2. That means they were remove from the official HTML language and may not work as expected.
+
 
 Now go out there and share the code. If you have any question in HTML, ask in the comments below.
