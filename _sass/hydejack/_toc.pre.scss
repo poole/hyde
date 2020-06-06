@@ -26,10 +26,11 @@
   &:before {
     text-transform: uppercase;
     font-size: smaller;
+    letter-spacing: .025rem;
     opacity: 0.5;
     position: relative;
     left: -1.5rem;
-    top: -.25rem;
+    top: 0;
     display: inline-block;
     margin-bottom: .25rem;
   }

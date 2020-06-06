@@ -27,15 +27,30 @@
 
     > .message {
       background: transparent;
-      font-style: italic;
+      font-size: smaller;
+      color: var(--body-color);
       border-left: 1px solid var(--border-color);
+      padding: 1.5rem 1rem 0 1rem;
+      margin-top: .5rem;
+      position: relative;
+
+      &:before {
+        letter-spacing: .025rem;
+        font-size: smaller;
+        text-transform: uppercase;
+        font-style: normal;
+        color: var(--body-color);
+        opacity: .5;
+        position: absolute;
+        top: 0;
+      }
     }
 
-    @media screen and (min-width: $break-point-dynamic) {
-      > .lead + .message, > a.no-hover + .message {
+    > .lead + .message, > a.no-hover + .message {
+      @media screen and (min-width: $break-point-dynamic) {
         position: absolute;
-        right: -25rem;
-        width: 22rem;
+        right: -23rem;
+        width: 21rem;
         bottom: 0;
         margin-bottom: 0;
       }

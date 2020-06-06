@@ -31,6 +31,7 @@ permalink_icon:        content-hash
 templates:             Templates (for web app)
 present:               present
 toc:                   Table of Contents
+description:           Description
 search:                Search
 search_placeholder:    Type something
 
