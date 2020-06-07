@@ -46,7 +46,7 @@ h1, h2, h3, h4, h5, h6, .f1, .f2, .f3, .f4, .f5, .f6, .heading { font-family: $f
 .content {
   h1, .h1 {
     @media screen and (min-width: $break-point-5) {
-      width: calc(100% + 50vw - 36rem);
+      width: calc(100% + 50vw - 40rem);
       font-size: 3rem;
       line-height: 1.2;
     }
