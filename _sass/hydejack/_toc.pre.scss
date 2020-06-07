@@ -15,19 +15,14 @@
 
 #markdown-toc {
   // <<< inline
-  font-size: smaller;
+  @extend .note;
   padding: 0 1.5rem .5rem 2.5rem;
   margin: 2rem -1rem 2rem calc(-1rem + 1px);
-  border-left: 1px solid var(--border-color);
   // >>>
   transition: opacity 250ms ease, transform 250ms ease, border-color 1s ease; // link
 
   // <<< inline
   &:before {
-    text-transform: uppercase;
-    font-size: smaller;
-    letter-spacing: .025rem;
-    opacity: 0.5;
     position: relative;
     left: -1.5rem;
     top: 0;

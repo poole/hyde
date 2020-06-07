@@ -23,4 +23,26 @@
   margin-left: -1rem;
   margin-right: -1rem;
 }
+
+.note {
+  @extend .message;
+  background: transparent;
+  font-size: smaller;
+  color: var(--body-color);
+  border-left: 1px solid var(--border-color);
+  padding: 1.5rem 1rem 0 1rem;
+  margin-top: .5rem;
+  position: relative;
+
+  &:before {
+    letter-spacing: .025rem;
+    font-size: smaller;
+    text-transform: uppercase;
+    font-style: normal;
+    color: var(--body-color);
+    opacity: .5;
+    position: absolute;
+    top: 0;
+  }
+}
 // >>>>>

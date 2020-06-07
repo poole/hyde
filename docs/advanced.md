@@ -78,8 +78,8 @@ Other things to note are that the implementation will always cache the pages lis
 ## Adding a custom social media icon
 Hydejack includes a number of social media icons by default (in fact, everything that is provided by [IcoMoon](https://icomoon.io/)), but since the landscape is always changing, it is likely that a platform that is important to you will be missing at some point.
 
-**NOTE**: You can add any platform by simply providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used.
-{:.message}
+You can add any platform by simply providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used.
+{:.note}
 
 ### Creating the icon font
 In order to add a custom social media icon you have to use the [IcoMoon App](https://icomoon.io/app/) (free) to create a custom icon webfont. However, it is important that the generated font include all icons already in use by Hydejack. For this purpose, find the `selection.json` in [`assets/icomoon/selection.json`](https://github.com/hydecorp/hydejack/blob/v6/assets/icomoon/selection.json) and upload it to the app via "Import Icons".
@@ -186,9 +186,9 @@ to your config file.
 ## Building the JavaScript
 In order to build the JavaScript you need to have [node.js](https://nodejs.org/en/) installed. Specifically, the `npm` command needs to be available, which is part of node.js.
 
-**NOTE**: Building the JavaScript is optional! Hydejack comes with a pre-built, minified `hydejack.js` file
+Building the JavaScript is optional! Hydejack comes with a pre-built, minified `hydejack.js` file
 that you can find in part of the theme's `assets`.
-{:.message}
+{:.note}
 
 Before you start, make sure you've copied the following files:
 * `_js/`

@@ -92,8 +92,8 @@ Posts can also be assigned to a category based on their position within the fold
 
 This will place "Welcome to Jekyll" in the categories `jekyll` and `update`.
 
-**NOTE**: This is now the preferred way of assigning categories in Hydejack, as it makes URLs correspond more naturally to the underlying folder structure.
-{:.message}
+This is now the preferred way of assigning categories in Hydejack, as it makes URLs correspond more naturally to the underlying folder structure.
+{:.note}
 
 Whether you use this method or not, categories will always be part of a posts URL, while tags will not.
 
@@ -429,8 +429,8 @@ description: >
 ---
 ~~~
 
-**NOTE**: You can download the final `resume.json` (minified) from the assets folder. When running locally, you can find it at `_site/assets/resume.json`.
-{:.message}
+You can download the final `resume.json` (minified) from the assets folder. When running locally, you can find it at `_site/assets/resume.json`.
+{:.note}
 
 ### Adding a specialized resume or multiple resumes
 You can add a specialized resume or multiple resumes by adding the resume YAML to the front matter under the `resume` key.

@@ -72,8 +72,8 @@ You'll want to move your static assets there.
     ~~~
 
 
-**NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for the changes to take effect.
-{:.message}
+When making changes to `_config.yml`, it is necessary to restart the Jekyll process for the changes to take effect.
+{:.note}
 
 
 ### Restoring the tags

@@ -15,8 +15,8 @@ so that your content remains compatible with other Jekyll themes.
 1. this list will be replaced by the table of contents
 {:toc}
 
-**NOTE**: For an introduction to markdown in general, see [Mastering Markdown][mm] and [kramdown Syntax][ksyn].
-{:.message}
+For an introduction to markdown in general, see [Mastering Markdown][mm] and [kramdown Syntax][ksyn].
+{:.note}
 
 ## A word on building speeds
 If building speeds are a problem, try using the `--incremental` flag, e.g.
@@ -62,19 +62,21 @@ To show the table of contents only on large displays (> 1665px) use the followin
 {:toc .large-only}
 ~~~
 
-## Adding message boxes
-You can add a message box by adding the `message` class to a paragraph.
+## Adding notes
+You can add a note by adding the `note` class to a paragraph.
 
 Example:
 
-**NOTE**: You can add a message box.
-{:.message}
+You can add a note.
+{:.note}
 
 Markdown:
 ~~~markdown
-**NOTE**: You can add a message box.
-{:.message}
+You can add a note.
+{:.note}
 ~~~
+
+Edit the `note` key in `_data/strings.yml` to change the wording of the label.
 
 ## Adding large text
 You can add large text by adding the `lead` class to the paragraph.
@@ -106,9 +108,9 @@ It is recommended to provide the dimension of the image via the `width` and `hei
 so that browsers can calculate the layout before the images are loaded. Combining this with the `loading="lazy"` attribute
 allows modern browsers to load the images just-in-time as the users scrolls.
 
-**NOTE**: Previous versions of Hydejack shipped with a custom JavaScript-based lazy loading solution,
+Previous versions of Hydejack shipped with a custom JavaScript-based lazy loading solution,
 but it has been removed in v9 in favor of this more standards-based approach.
-{:.message}
+{:.note}
 
 ## Adding image captions
 You can add captions to large images by adding the `figcaption` class to the paragraph after the image:
@@ -206,8 +208,8 @@ Unlike the other approach, this will keep the table head (now the first column) 
 You can enable this behavior by adding `flip-table` or `flip-table-small` to the CSS classes of the table.
 The `-small` version will only enable scrolling on "small" screens (< 1080px wide).
 
-**NOTE**: This approach only works on simple tables that have a single `tbody` and an optional `thead`.
-{:.message}
+This approach only works on simple tables that have a single `tbody` and an optional `thead`.
+{:.note}
 
 Example:
 
@@ -294,14 +296,14 @@ Markdown:
     An optional caption for a code block
     {:.figcaption}
 
-**NOTE**: DO NOT use Jekyll's `{ % highlight % } ... { % endhighlight % }` syntax, especially together with the `linenos` option.
+DO NOT use Jekyll's `{ % highlight % } ... { % endhighlight % }` syntax, especially together with the `linenos` option.
 The generated `table` to render the line numbers does not have a CSS class or any other way of differentiating it from regular tables,
 so that the styles above apply, resulting in a broken page.
 What's more, the output from `highlight` tags isn't even valid HTML, nesting `pre` tags inside `pre` tags,
 which will in break the site during minification.
 You can read more about it [here](https://github.com/penibelst/jekyll-compress-html/issues/71) and
 [here](https://github.com/jekyll/jekyll/issues/4432).
-{:.message}
+{:.note}
 
 ## Adding math
 Hydejack supports [math blocks][ksynmath] via [KaTeX][katex].
@@ -378,9 +380,9 @@ An optional caption for a math block
 {:.figcaption}
 ~~~
 
-**NOTE**: KaTeX does not support the `align` and `align*` environments.
+KaTeX does not support the `align` and `align*` environments.
 Instead, `aligned` should be used, e.g. `\begin{aligned} ... \end{aligned}`.
-{:.message}
+{:.note}
 
 Continue with [Scripts](scripts.md){:.heading.flip-title}
 {:.read-more}

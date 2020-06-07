@@ -11,9 +11,9 @@ This chapter shows how to upgrade Hydejack to a newer version. The method depend
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
-**NOTE**: Before upgrading to v7+, make sure you've read the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title},
+Before upgrading to v7+, make sure you've read the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title},
 especially the part about the [license change](../CHANGELOG.md#license-change)!
-{:.message}
+{:.note}
 
 ## Via Starter Kit
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
@@ -48,10 +48,10 @@ Generally, you'll want to copy these files and folders:
 and merge them with your existing folder. However, you'll also want to check out `_data` and `_config.yml` for any changes
 and read latest entries to the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title}.
 
-**NOTE**: If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
+If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
 and you have to apply them again.
 Make sure you've made a backup before overwriting any files.
-{:.message}
+{:.note}
 
 
 ## Via git
@@ -67,10 +67,10 @@ $ git pull hydejack master
 ## PRO Version
 Buyers of the PRO version will find the files necessary for an upgrade in the `upgrade` folder of the downloaded zip archive.
 
-**NOTE**: If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
+If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
 and you have to apply them again.
 Make sure you've made a backup before overwriting any files.
-{:.message}
+{:.note}
 
 
 

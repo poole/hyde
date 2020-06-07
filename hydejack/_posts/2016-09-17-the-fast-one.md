@@ -9,9 +9,9 @@ This major release increases page load speed dramatically.
 The page now scores roughly 90/100 on [Google's PageSpeed Insights][gpsi] (up from ~50) and
 has a high score on similar tools.
 
-**NOTE**: This post is outdated and only included for legacy reasons.
+This post is outdated and only included for legacy reasons.
 See the [Documentation][docs]{:.heading.flip-title} for up-to-date instructions.
-{:.message}
+{:.note}
 
 Most importantly, the critical rendering path is no longer blocked by loading styles or scripts,
 meaning the site becomes visible faster.

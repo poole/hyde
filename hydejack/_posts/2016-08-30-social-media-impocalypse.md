@@ -19,9 +19,9 @@ It also breaks things, hence a new major release number.
 
 <!--more-->
 
-**NOTE**: This post is outdated and only included for legacy reasons.
+This post is outdated and only included for legacy reasons.
 See the [Documentation][docs]{:.heading.flip-title} for up-to-date instructions.
-{:.message}
+{:.note}
 
 ## New features
 * Added *a lot* of social media icons, configurable via `_config.yml`.

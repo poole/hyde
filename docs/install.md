@@ -25,8 +25,8 @@ Additionally, it allows you to publish your site on GitHub Pages with a single `
 
 If you have a GitHub account, fork the [hy-starter-kit](https://github.com/hydecorp/hy-starter-kit) repository. Otherwise [download the source files][src] and unzip them somewhere on your machine.
 
-**NOTE**: In addition to the docs here, you can follow the quick start guide in the Starter Kit.
-{:.message}
+In addition to the docs here, you can follow the quick start guide in the Starter Kit.
+{:.note}
 
 `cd` into the directory where `_config.yml` is located and follow the steps in [Running locally](#running-locally).
 
@@ -57,10 +57,10 @@ Your site's root dir should look something like this
 └── index.md
 ~~~
 
-**NOTE**: Hydejack works with Jekyll's default `config.yml`, but it is recommended that you replace it with
+Hydejack works with Jekyll's default `config.yml`, but it is recommended that you replace it with
 [Hydejack's default config file](https://github.com/hydecorp/hydejack/blob/v8/_config.yml).
 It contains the names of all config options known to Hydejack and provides sensible defaults (like minifying HTML and CSS in production builds).
-{:.message}
+{:.note}
 
 Next, you'll want to add `jekyll-theme-hydejack` as a dependency by adding the following line to the `Gemfile`.
 
@@ -160,8 +160,8 @@ Before running for the first time, dependencies need to be fetched from [RubyGem
 $ bundle install
 ~~~
 
-**NOTE**: If you are missing the `bundle` command, you can install Bundler by running `gem install bundler`.
-{:.message}
+If you are missing the `bundle` command, you can install Bundler by running `gem install bundler`.
+{:.note}
 
 Now you can run Jekyll on your local machine:
 

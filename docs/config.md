@@ -8,8 +8,8 @@ hide_description: true
 
 Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`. Besides these descriptions, you can also read the [annotated config file](https://github.com/hydecorp/hydejack/blob/v8/_config.yml).
 
-**NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
-{:.message}
+When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
+{:.note}
 
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
@@ -61,9 +61,9 @@ accent_image: /assets/img/sidebar-bg.jpg
 accent_color: rgb(79,177,186)
 ~~~
 
-**NOTE**: I recommend using a blurred image in order for the text to remain readable.
+I recommend using a blurred image in order for the text to remain readable.
 If you save a blurred image as JPG, it will also drastically reduce its file size.
-{:.message}
+{:.note}
 
 The `accent_image` property also accepts the special value `none` which will remove the default image.
 
@@ -96,8 +96,8 @@ You can get it from the download page at [Google Fonts](https://fonts.google.com
 If you prefer not to use Google Fonts and remove all associated code from the site,
 set the `google_fonts` key to `false`.
 
-**NOTE**: The `no_google_fonts` parameter has been removed in v9 and no longer has any effect.
-{:.message }
+The `no_google_fonts` parameter has been removed in v9 and no longer has any effect.
+{:.note }
 
 
 ## Choosing a blog layout
@@ -258,8 +258,8 @@ The keys of the `srcset` hash will be used as image descriptors. For more inform
 ### Adding social media icons
 Hydejack supports a variety of social media icons out of the box. These are defined on a per-author basis, so make sure you've followed the steps in [Adding an author](#adding-an-author).
 
-**NOTE**: If you are using the gem-based version of Hydejack, download [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml) and put it into `_data` in the root directory. This is necessary because gem-based themes do not support including `_data`.
-{:.message}
+If you are using the gem-based version of Hydejack, download [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml) and put it into `_data` in the root directory. This is necessary because gem-based themes do not support including `_data`.
+{:.note}
 
 You can add a link to a social network by adding an entry to the `social` key in to an author.
 It consists of the name of the social network as key and your username within that network as value, e.g.
@@ -297,8 +297,8 @@ author:
     youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
 ~~~
 
-**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic](advanced.md).
-{:.message}
+You can add any platform, even if it's not defined in [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic](advanced.md).
+{:.note}
 
 
 ### Adding an email, RSS icon or download icon
@@ -426,8 +426,8 @@ Additionally, you can provide tiles for Window 10:
 
 If you don't want to use PNGs, or want to use different resolutions, you have to provide your own `assets/manifest.json` (and `assets/ieconfig.xml` when supporting Window 10). For more on web app manifests, see [MDN](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json).
 
-**NOTE**: In any case, Hydejack expects a `assets/icons/icon.png` file for use as `apple-touch-icon` and a `assets/icons/favicon.ico` for use as `shortcut icon`.
-{:.message}
+In any case, Hydejack expects a `assets/icons/icon.png` file for use as `apple-touch-icon` and a `assets/icons/favicon.ico` for use as `shortcut icon`.
+{:.note}
 
 
 ## Enabling newsletter boxes*

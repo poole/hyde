@@ -67,8 +67,8 @@ menu:
     url:   /about/
 ```
 
-Note that the old way of doing things still works if you upgrade to 8.3. Only when you set the `menu` key will Hydejack switch to the new behavior.
-{:.message}
+The old way of doing things still works if you upgrade to 8.3. Only when you set the `menu` key will Hydejack switch to the new behavior.
+{:.note}
 
 
 ## Conclusion

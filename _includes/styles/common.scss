@@ -1,11 +1,17 @@
 html { font-family: $font-family; }
 h1, h2, h3, h4, h5, h6, .f1, .f2, .f3, .f4, .f5, .f6, .heading { font-family: $font-family-heading; }
 
-#markdown-toc:before {
-  content: "{{ site.data.strings.toc | default:'Table of Contents' }}"
+.note:before {
+  content: "{{ site.data.strings.note | default:'Note' }}";
 }
-.page > header > .message:before {
-  content: "{{ site.data.strings.description | default:'Description' }}"
+.page > header > .note:before {
+  content: "{{ site.data.strings.description | default:'Description' }}";
+}
+#markdown-toc:before {
+  content: "{{ site.data.strings.toc | default:'Table of Contents' }}";
+}
+.layout-resume .note:before {
+  content: "{{ site.data.strings.resume.summary | default:'Summary' }}";
 }
 
 {% if site.hydejack.no_page_style %}

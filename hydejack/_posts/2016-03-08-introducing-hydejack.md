@@ -24,9 +24,9 @@ Features include:
 
 <!--more-->
 
-**NOTE**: This post is outdated and only included for legacy reasons.
+This post is outdated and only included for legacy reasons.
 See the [Documentation][docs]{:.heading.flip-title} for up-to-date instructions.
-{:.message}
+{:.note}
 
 ## Download
 Hydejack is developed on and hosted with GitHub. Head to the [GitHub repository](https://github.com/hydecorp/hydejack)

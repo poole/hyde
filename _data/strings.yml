@@ -31,6 +31,7 @@ permalink_icon:        content-hash
 templates:             Templates (for web app)
 present:               present
 toc:                   Table of Contents
+note:                  Note
 description:           Description
 search:                Search
 search_placeholder:    Type something
@@ -134,6 +135,7 @@ resume:
   skills:              Skills
   level:               Level
   interests:           Interests
+  summary:             Summary
   keywords:            Keywords
   icons:
     fallback:          icon-link

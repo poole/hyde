@@ -25,28 +25,7 @@
     position: relative;
     margin-bottom: 2rem;
 
-    > .message {
-      background: transparent;
-      font-size: smaller;
-      color: var(--body-color);
-      border-left: 1px solid var(--border-color);
-      padding: 1.5rem 1rem 0 1rem;
-      margin-top: .5rem;
-      position: relative;
-
-      &:before {
-        letter-spacing: .025rem;
-        font-size: smaller;
-        text-transform: uppercase;
-        font-style: normal;
-        color: var(--body-color);
-        opacity: .5;
-        position: absolute;
-        top: 0;
-      }
-    }
-
-    > .lead + .message, > a.no-hover + .message {
+    > .lead + .note, > a.no-hover + .note {
       @media screen and (min-width: $break-point-dynamic) {
         position: absolute;
         right: -23rem;
