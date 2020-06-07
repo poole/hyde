@@ -110,6 +110,14 @@ import {
   const sidebarEl = document.getElementById('_sidebar');
   const contentEl = sidebarEl.querySelector('.sidebar-sticky');
 
+  document.getElementById('_menu').addEventListener('click', e => {
+    e.preventDefault();
+    e.stopPropagation();
+    drawerEl.toggle();
+  });
+
+  sidebarEl.querySelectorAll('a[href^="/"]').forEach(el => el.addEventListener('click', () => drawerEl.close()));
+
   if (isSafari) drawerEl.setAttribute('threshold', 0);
   if (!isMobile) drawerEl.setAttribute('mouseevents', '');
 
@@ -190,13 +198,13 @@ import {
 
   // Start the drawer in `opened` state when the cover class is present,
   // and the user hasn't started scrolling already.
-  const opened = drawerEl.classList.contains('cover') && scrollTop <= 0;
-  // !(history.state && history.state.closedOnce);
+  const opened = drawerEl.classList.contains('cover') && scrollTop <= 0 && !(history.state && history.state.closedOnce);
 
-  // if (!opened) {
-  //   if (!history.state) history.replaceState({}, document.title);
-  //   history.state.closedOnce = true;
-  // }
+  if (!opened) {
+    if (!history.state) history.replaceState({}, document.title);
+    history.state.closedOnce = true;
+    drawerEl.removeAttribute('opened')
+  }
 
   const opened$ = fromEvent(drawerEl, 'hy-drawer-transitioned').pipe(
     map(e => e.detail),
@@ -204,8 +212,8 @@ import {
     tap(opened => {
       if (!opened) {
         removeIcon();
-        // if (!history.state) history.replaceState({}, document.title);
-        // history.state.closedOnce = true;
+        if (!history.state) history.replaceState({}, document.title);
+        history.state.closedOnce = true;
       }
     }),
     startWith(opened),
