@@ -41,6 +41,9 @@ export const webComponentsReady = new Promise(res => {
   else document.addEventListener('WebComponentsReady', res);
 });
 
+export const once = (el, eventName) => new Promise(res => el.addEventListener(eventName, res, { once: true }));
+export const timeout = t => new Promise(res => setTimeout(res, t));
+
 // Takes an array of Modernizr feature tests and makes sure they all pass.
 export function hasFeatures(features) {
   if (!window.Modernizr) return true;
