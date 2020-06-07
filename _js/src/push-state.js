@@ -312,7 +312,7 @@ import { setupFLIP } from './flip';
 
         setupErrorPage(main, url);
 
-        return animate(main, FADE_IN, SETTINGS);
+        return animate(main, FADE_IN, { ...SETTINGS, fill: 'forwards' });
       }),
     )
     .subscribe();
