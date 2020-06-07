@@ -28,6 +28,8 @@ import {
 import {
   BREAK_POINT_3,
   BREAK_POINT_DYNAMIC,
+  DRAWER_WIDTH,
+  R_28,
   isSafari,
   isMobile,
   isMobileSafari,
@@ -54,13 +56,6 @@ import {
   ]);
 
   await webComponentsReady;
-
-  // NOTE: Duplicated values from `_sass_/variables.scss`.
-  const CONTENT_WIDTH_5 = 48;
-  const CONTENT_MARGIN_5 = 4;
-
-  const DRAWER_WIDTH = 21;
-  const R_28 = CONTENT_WIDTH_5 / 2 + CONTENT_MARGIN_5;
 
   const MOBILE = 1;
   const DESKTOP = 2;
