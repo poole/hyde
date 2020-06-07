@@ -194,10 +194,6 @@ hydejack:
   # Use custom css to hide completely, e.g. `#_navbar { display: none }`.
   no_navbar:           false
 
-  # Set to `true` to disable the dynamic (JavaScript based) aspect of the Table of Contents.
-  # I.e. it will not stick to the right column on large screens.
-  no_toc:              false
-
   # Set to `true` if you want to disable the KaTeX support.
   # E.g. when adding MathJax support instead.
   no_katex:            false
@@ -218,6 +214,17 @@ hydejack:
   # Code blocks and tables "break" the layout by spanning the full available width.
   # Set this to true if you want them to be the same width as other content.
   no_break_layout:     true
+
+  # Set to `true` to disable the dynamic Table of Contents on large screens.
+  no_toc:              false
+
+  # When set to `true`, will not extend the content in the "third column" on large screens.
+  # Instead, all content will remains within the center column.
+  # Note that this will not affect the Table of Contents, use `no_toc` instead.
+  no_third_column:     false
+
+  # Set to `true` if you don't like oversized headlines on large screens.
+  no_large_headings:   false
 
   # Set to `true` if you do not want to expose your resume and projects
   # in machine-readable formats.

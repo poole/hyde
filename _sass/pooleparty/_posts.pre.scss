@@ -24,16 +24,6 @@
   > header {
     position: relative;
     margin-bottom: 2rem;
-
-    > .lead + .note, > a.no-hover + .note {
-      @media screen and (min-width: $break-point-dynamic) {
-        position: absolute;
-        right: -23rem;
-        width: 21rem;
-        bottom: 0;
-        margin-bottom: 0;
-      }
-    }
   }
 }
 
