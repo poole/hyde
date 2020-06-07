@@ -136,6 +136,11 @@ dt, strong {
   font-weight: var(--font-weight-bold);
 }
 
+dt:after{
+  content: " :";
+  color: var(--menu-text);
+}
+
 dd {
   margin-bottom: .5rem;
 }
