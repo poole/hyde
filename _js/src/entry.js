@@ -45,7 +45,7 @@ if (hasFeatures(BASELINE)) {
     import(/* webpackChunkName: "push-state" */ './push-state');
   }
 
-  // if (!window.noToc && hasFeatures(TOC_FEATURES)) {
+  // if (!window._noToc && hasFeatures(TOC_FEATURES)) {
   //   import(/* webpackChunkName: "toc" */ './pro/toc');
   // }
 }
