@@ -68,7 +68,7 @@ img, video {
   a:not(.no-print-link)::after {
     content: " (" attr(href) ") ";
     color: var(--gray);
-    font-size: .83em;
+    font-size: smaller;
   }
 }
 // >>>>> LINK
