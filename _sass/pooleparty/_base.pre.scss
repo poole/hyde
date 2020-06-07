@@ -67,7 +67,7 @@ img, video {
 @media print {
   a:not(.no-print-link)::after {
     content: " (" attr(href) ") ";
-    color: var(--text-muted);
+    color: var(--gray);
     font-size: .83em;
   }
 }
