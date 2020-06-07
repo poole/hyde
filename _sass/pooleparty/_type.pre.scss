@@ -19,7 +19,7 @@
 
 .f1 {
   @extend .heading;
-  font-size: 1.8rem;
+  font-size: 1.7rem;
   line-height: 1.35;
 }
 
@@ -61,14 +61,18 @@ h6, .h6 { @extend .f6; }
 .content {
   h1, .h1 {
     > a { text-decoration: none }
-    @media screen and (min-width: $break-point-3) {
+    @media screen and (min-width: $break-point-1) {
+      font-size: 2rem;
+      line-height: 1.3;
+    }
+    @media screen and (min-width: $break-point-5) {
+      width: calc(100% + 50vw - 36rem);
       font-size: 3rem;
       line-height: 1.2;
     }
-    @media screen and (min-width: $break-point-dynamic) {
+    @media screen and (min-width: $break-point-font-large) {
       font-size: 4rem;
       line-height: 1.1;
-      width: calc(100% + 50vw - 36rem);
     }
   }
 }
