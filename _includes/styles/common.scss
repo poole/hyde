@@ -32,6 +32,7 @@ h1, h2, h3, h4, h5, h6, .f1, .f2, .f3, .f4, .f5, .f6, .heading { font-family: $f
   > .lead + .note, 
   > a.no-hover + .note {
     @media screen and (min-width: $break-point-dynamic) {
+      font-size: smaller;
       position: absolute;
       right: -25rem;
       width: 23rem;

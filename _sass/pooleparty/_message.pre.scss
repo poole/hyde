@@ -27,7 +27,6 @@
 .note {
   @extend .message;
   background: transparent;
-  font-size: smaller;
   color: var(--body-color);
   border-left: 1px solid var(--border-color);
   padding: 1.5rem 1rem 0 1rem;
@@ -36,7 +35,7 @@
 
   &:before {
     letter-spacing: .025rem;
-    font-size: smaller;
+    font-size: 0.667rem;
     text-transform: uppercase;
     font-style: normal;
     color: var(--gray);
