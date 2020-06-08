@@ -21,11 +21,11 @@ $body-color: #333;
 $body-bg: #fff;
 $border-color: #ebebeb;
 
-$root-font-size: 16px;
-$root-font-size-medium: 17px;
-$root-font-size-large: 18px;
-$root-font-size-print: 9pt;
+$root-font-size: 15px;
+$root-font-size-medium: 16px;
+$root-font-size-large: 17px;
 $root-line-height: 1.75;
+$root-font-size-print: 9pt;
 
 $font-weight: 400;
 $font-weight-bold: 700;
@@ -34,7 +34,7 @@ $font-weight-heading: 700;
 // Note: Do not change the unit types of these variables
 $content-width: 38rem;
 $content-width-2: 46rem;
-$content-width-5: 52rem;
+$content-width-5: 54rem;
 
 $content-margin-3: 3rem;
 $content-margin-5: 4rem;
@@ -54,8 +54,8 @@ $break-point-font-large: 124em;
 // The sidebar width starts adjusting dynamically when the content is at the center of the window.
 // This is the case when the window size has a `min-width` of content area + twice the sidebar (left, right):
 //
-// $break-point-dynamic: $content-width-5 + (2 * $content-margin-5) + (2 * $sidebar-width); // = 102rem
+// $break-point-dynamic: $content-width-5 + (2 * $content-margin-5) + (2 * $sidebar-width); // = 104rem
 //
 // HACK: Since Chrome doesn't treat rem values in media queries correctly,
 // we hard-code the pixel value for the values above.
-$break-point-dynamic: 1734px; // = 102 * 17px
+$break-point-dynamic: 1664px; // = 104 * 16px
