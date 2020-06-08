@@ -18,12 +18,12 @@ import { switchMap } from 'rxjs/operators';
 
 const style = getComputedStyle(document.body);
 
-export const BREAK_POINT_3 = `(min-width: ${style.getPropertyValue("--break-point-3")})`;
-export const BREAK_POINT_DYNAMIC = `(min-width: ${style.getPropertyValue("--break-point-dynamic")})`;
-export const CONTENT_WIDTH_5 = parseFloat(style.getPropertyValue("--content-width-5"));
-export const CONTENT_MARGIN_5 = parseFloat(style.getPropertyValue("--content-margin-5"));
-export const DRAWER_WIDTH = parseFloat(style.getPropertyValue("--sidebar-width"));
-export const R_28 = parseFloat(style.getPropertyValue("--r28"));
+export const BREAK_POINT_3 = `(min-width: ${style.getPropertyValue('--break-point-3')})`;
+export const BREAK_POINT_DYNAMIC = `(min-width: ${style.getPropertyValue('--break-point-dynamic')})`;
+export const CONTENT_WIDTH_5 = parseFloat(style.getPropertyValue('--content-width-5'));
+export const CONTENT_MARGIN_5 = parseFloat(style.getPropertyValue('--content-margin-5'));
+export const DRAWER_WIDTH = parseFloat(style.getPropertyValue('--sidebar-width'));
+export const R_28 = parseFloat(style.getPropertyValue('--r28'));
 
 // Check the user agent for Safari and iOS Safari, to give them some special treatment...
 const ua = navigator.userAgent.toLowerCase();

@@ -48,5 +48,5 @@ vendor
 _zip
 /stats.json
 
-/assets/js/*hydejack-*
-/_sass/*/__*__/*
+#<removed/js>
+#<removed/css>

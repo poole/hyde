@@ -11,18 +11,18 @@ Here you should be able to find everything you need to know to accomplish the mo
 Should you think something is missing, [please let me know](mailto:mail@qwtel.com).
 Should you discover a mistake in the docs (or a bug in general) feel free to [open an issue](https://github.com/hydecorp/hydejack/issues) on GitHub.
 
-**NOTE**: While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable running shell commands and editing text files.
-{:.message}
+While this manual tries to be beginner-friendly, as a user of Jekyll it is assumed that you are comfortable running shell commands and editing text files.
+{:.note}
 
 Buyers of the PRO version can jump straight to [installation for PRO buyers](#pro-version),)
 or [upgrades for PRO buyers](#pro-version).)
 
 
 
-**NOTE**: This document was created using Hydejack's print layout.
+This document was created using Hydejack's print layout.
 If you prefer to read it the documentation in your browser,
 you can find it [here]({{ site.baseurl }}{% link docs/README.md %}).
-{:.message}
+{:.note}
 
 ## Table of Contents
 {:.no_toc}
@@ -53,14 +53,14 @@ Additionally, it allows you to publish your site on GitHub Pages with a single `
 
 If you have a GitHub account, fork the [hy-starter-kit](https://github.com/hydecorp/hy-starter-kit) repository. Otherwise [download the source files][src] and unzip them somewhere on your machine.
 
-**NOTE**: In addition to the docs here, you can follow the quick start guide in the Starter Kit.
-{:.message}
+In addition to the docs here, you can follow the quick start guide in the Starter Kit.
+{:.note}
 
 `cd` into the directory where `_config.yml` is located and follow the steps in [Running locally](#running-locally).
 
 Alternatively, you can just [![Deploy to Netlify][dtn]][nfy]{:.no-hover.no-mark}.
 
-[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.11.zip
+[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.12.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/hydecorp/hydejack-starter-kit
 [dtn]: https://www.netlify.com/img/deploy/button.svg
 
@@ -85,10 +85,10 @@ Your site's root dir should look something like this
 └── index.md
 ~~~
 
-**NOTE**: Hydejack works with Jekyll's default `config.yml`, but it is recommended that you replace it with
+Hydejack works with Jekyll's default `config.yml`, but it is recommended that you replace it with
 [Hydejack's default config file](https://github.com/hydecorp/hydejack/blob/v8/_config.yml).
 It contains the names of all config options known to Hydejack and provides sensible defaults (like minifying HTML and CSS in production builds).
-{:.message}
+{:.note}
 
 Next, you'll want to add `jekyll-theme-hydejack` as a dependency by adding the following line to the `Gemfile`.
 
@@ -174,7 +174,7 @@ For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.11/install/
+$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.12/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).
@@ -188,8 +188,8 @@ Before running for the first time, dependencies need to be fetched from [RubyGem
 $ bundle install
 ~~~
 
-**NOTE**: If you are missing the `bundle` command, you can install Bundler by running `gem install bundler`.
-{:.message}
+If you are missing the `bundle` command, you can install Bundler by running `gem install bundler`.
+{:.note}
 
 Now you can run Jekyll on your local machine:
 
@@ -218,15 +218,15 @@ This chapter shows how to upgrade Hydejack to a newer version. The method depend
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
 
-**NOTE**: Before upgrading to v7+, make sure you've read the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title},
+Before upgrading to v7+, make sure you've read the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title},
 especially the part about the [license change](../CHANGELOG.md#license-change)!
-{:.message}
+{:.note}
 
 ### Via Starter Kit
 When using the Starter Kit, upgrading Hydejack is as simple as setting the `remote_theme` key in `config.yml` to the desired version.
 
 ```yml
-remote_theme: hydecorp/hydejack@v9.0.0-alpha.11
+remote_theme: hydecorp/hydejack@v9.0.0-alpha.12
 ```
 
 To use the latest version on the `v8` branch on each build, you can use  `hydecorp/hydejack@v8`.
@@ -255,10 +255,10 @@ Generally, you'll want to copy these files and folders:
 and merge them with your existing folder. However, you'll also want to check out `_data` and `_config.yml` for any changes
 and read latest entries to the [CHANGELOG](../CHANGELOG.md){:.heading.flip-title}.
 
-**NOTE**: If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
+If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
 and you have to apply them again.
 Make sure you've made a backup before overwriting any files.
-{:.message}
+{:.note}
 
 
 ### Via git
@@ -274,10 +274,10 @@ $ git pull hydejack master
 ### PRO Version
 Buyers of the PRO version will find the files necessary for an upgrade in the `upgrade` folder of the downloaded zip archive.
 
-**NOTE**: If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
+If you've modified any of Hydejack's internal files, your changes will most likely be overwritten
 and you have to apply them again.
 Make sure you've made a backup before overwriting any files.
-{:.message}
+{:.note}
 
 
 
@@ -288,8 +288,8 @@ Make sure you've made a backup before overwriting any files.
 ## Config
 Once Jekyll is running, you can start with basic configuration by adding various entries to `_config.yml`. Besides these descriptions, you can also read the [annotated config file](https://github.com/hydecorp/hydejack/blob/v8/_config.yml).
 
-**NOTE**: When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
-{:.message}
+When making changes to `_config.yml`, it is necessary to restart the Jekyll process for changes to take effect.
+{:.note}
 
 0. this unordered seed list will be replaced by toc as unordered list
 {:toc}
@@ -341,9 +341,9 @@ accent_image: /assets/img/sidebar-bg.jpg
 accent_color: rgb(79,177,186)
 ~~~
 
-**NOTE**: I recommend using a blurred image in order for the text to remain readable.
+I recommend using a blurred image in order for the text to remain readable.
 If you save a blurred image as JPG, it will also drastically reduce its file size.
-{:.message}
+{:.note}
 
 The `accent_image` property also accepts the special value `none` which will remove the default image.
 
@@ -376,8 +376,8 @@ You can get it from the download page at [Google Fonts](https://fonts.google.com
 If you prefer not to use Google Fonts and remove all associated code from the site,
 set the `google_fonts` key to `false`.
 
-**NOTE**: The `no_google_fonts` parameter has been removed in v9 and no longer has any effect.
-{:.message }
+The `no_google_fonts` parameter has been removed in v9 and no longer has any effect.
+{:.note }
 
 
 ### Choosing a blog layout
@@ -538,8 +538,8 @@ The keys of the `srcset` hash will be used as image descriptors. For more inform
 #### Adding social media icons
 Hydejack supports a variety of social media icons out of the box. These are defined on a per-author basis, so make sure you've followed the steps in [Adding an author](#adding-an-author).
 
-**NOTE**: If you are using the gem-based version of Hydejack, download [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml) and put it into `_data` in the root directory. This is necessary because gem-based themes do not support including `_data`.
-{:.message}
+If you are using the gem-based version of Hydejack, download [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml) and put it into `_data` in the root directory. This is necessary because gem-based themes do not support including `_data`.
+{:.note}
 
 You can add a link to a social network by adding an entry to the `social` key in to an author.
 It consists of the name of the social network as key and your username within that network as value, e.g.
@@ -577,8 +577,8 @@ author:
     youtube: https://www.youtube.com/channel/UCu0PYX_kVANdmgIZ4bw6_kA
 ~~~
 
-**NOTE**: You can add any platform, even if it's not defined in [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic](#advanced).
-{:.message}
+You can add any platform, even if it's not defined in [`social.yml`](https://github.com/hydecorp/hydejack/blob/v8/_data/social.yml), by providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used when no icon is available. Supplying your own icons is an [advanced topic](#advanced).
+{:.note}
 
 
 #### Adding an email, RSS icon or download icon
@@ -590,7 +590,7 @@ author:
   social:
     email:    mail@qwtel.com
     rss:      {{ site.url }}{{ site.baseurl }}/feed.xml # make sure you provide an absolute URL
-    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.11.zip
+    download: https://github.com/hydecorp/hydejack/archive/v9.0.0-alpha.12.zip
 ~~~
 
 
@@ -706,8 +706,8 @@ Additionally, you can provide tiles for Window 10:
 
 If you don't want to use PNGs, or want to use different resolutions, you have to provide your own `assets/manifest.json` (and `assets/ieconfig.xml` when supporting Window 10). For more on web app manifests, see [MDN](https://developer.mozilla.org/en-US/Add-ons/WebExtensions/manifest.json).
 
-**NOTE**: In any case, Hydejack expects a `assets/icons/icon.png` file for use as `apple-touch-icon` and a `assets/icons/favicon.ico` for use as `shortcut icon`.
-{:.message}
+In any case, Hydejack expects a `assets/icons/icon.png` file for use as `apple-touch-icon` and a `assets/icons/favicon.ico` for use as `shortcut icon`.
+{:.note}
 
 
 ### Enabling newsletter boxes*
@@ -852,8 +852,8 @@ Posts can also be assigned to a category based on their position within the fold
 
 This will place "Welcome to Jekyll" in the categories `jekyll` and `update`.
 
-**NOTE**: This is now the preferred way of assigning categories in Hydejack, as it makes URLs correspond more naturally to the underlying folder structure.
-{:.message}
+This is now the preferred way of assigning categories in Hydejack, as it makes URLs correspond more naturally to the underlying folder structure.
+{:.note}
 
 Whether you use this method or not, categories will always be part of a posts URL, while tags will not.
 
@@ -1189,8 +1189,8 @@ description: >
 ---
 ~~~
 
-**NOTE**: You can download the final `resume.json` (minified) from the assets folder. When running locally, you can find it at `_site/assets/resume.json`.
-{:.message}
+You can download the final `resume.json` (minified) from the assets folder. When running locally, you can find it at `_site/assets/resume.json`.
+{:.note}
 
 #### Adding a specialized resume or multiple resumes
 You can add a specialized resume or multiple resumes by adding the resume YAML to the front matter under the `resume` key.
@@ -1237,8 +1237,8 @@ so that your content remains compatible with other Jekyll themes.
 1. this list will be replaced by the table of contents
 {:toc}
 
-**NOTE**: For an introduction to markdown in general, see [Mastering Markdown][mm] and [kramdown Syntax][ksyn].
-{:.message}
+For an introduction to markdown in general, see [Mastering Markdown][mm] and [kramdown Syntax][ksyn].
+{:.note}
 
 ### A word on building speeds
 If building speeds are a problem, try using the `--incremental` flag, e.g.
@@ -1284,19 +1284,21 @@ To show the table of contents only on large displays (> 1665px) use the followin
 {:toc .large-only}
 ~~~
 
-### Adding message boxes
-You can add a message box by adding the `message` class to a paragraph.
+### Adding notes
+You can add a note by adding the `note` class to a paragraph.
 
 Example:
 
-**NOTE**: You can add a message box.
-{:.message}
+You can add a note.
+{:.note}
 
 Markdown:
 ~~~markdown
-**NOTE**: You can add a message box.
-{:.message}
+You can add a note.
+{:.note}
 ~~~
+
+Edit the `note` key in `_data/strings.yml` to change the wording of the label.
 
 ### Adding large text
 You can add large text by adding the `lead` class to the paragraph.
@@ -1328,9 +1330,9 @@ It is recommended to provide the dimension of the image via the `width` and `hei
 so that browsers can calculate the layout before the images are loaded. Combining this with the `loading="lazy"` attribute
 allows modern browsers to load the images just-in-time as the users scrolls.
 
-**NOTE**: Previous versions of Hydejack shipped with a custom JavaScript-based lazy loading solution,
+Previous versions of Hydejack shipped with a custom JavaScript-based lazy loading solution,
 but it has been removed in v9 in favor of this more standards-based approach.
-{:.message}
+{:.note}
 
 ### Adding image captions
 You can add captions to large images by adding the `figcaption` class to the paragraph after the image:
@@ -1428,8 +1430,8 @@ Unlike the other approach, this will keep the table head (now the first column) 
 You can enable this behavior by adding `flip-table` or `flip-table-small` to the CSS classes of the table.
 The `-small` version will only enable scrolling on "small" screens (< 1080px wide).
 
-**NOTE**: This approach only works on simple tables that have a single `tbody` and an optional `thead`.
-{:.message}
+This approach only works on simple tables that have a single `tbody` and an optional `thead`.
+{:.note}
 
 Example:
 
@@ -1516,14 +1518,14 @@ Markdown:
     An optional caption for a code block
     {:.figcaption}
 
-**NOTE**: DO NOT use Jekyll's `{ % highlight % } ... { % endhighlight % }` syntax, especially together with the `linenos` option.
+DO NOT use Jekyll's `{ % highlight % } ... { % endhighlight % }` syntax, especially together with the `linenos` option.
 The generated `table` to render the line numbers does not have a CSS class or any other way of differentiating it from regular tables,
 so that the styles above apply, resulting in a broken page.
 What's more, the output from `highlight` tags isn't even valid HTML, nesting `pre` tags inside `pre` tags,
 which will in break the site during minification.
 You can read more about it [here](https://github.com/penibelst/jekyll-compress-html/issues/71) and
 [here](https://github.com/jekyll/jekyll/issues/4432).
-{:.message}
+{:.note}
 
 ### Adding math
 Hydejack supports [math blocks][ksynmath] via [KaTeX][katex].
@@ -1600,9 +1602,9 @@ An optional caption for a math block
 {:.figcaption}
 ~~~
 
-**NOTE**: KaTeX does not support the `align` and `align*` environments.
+KaTeX does not support the `align` and `align*` environments.
 Instead, `aligned` should be used, e.g. `\begin{aligned} ... \end{aligned}`.
-{:.message}
+{:.note}
 
 
 
@@ -1893,8 +1895,8 @@ Other things to note are that the implementation will always cache the pages lis
 ### Adding a custom social media icon
 Hydejack includes a number of social media icons by default (in fact, everything that is provided by [IcoMoon](https://icomoon.io/)), but since the landscape is always changing, it is likely that a platform that is important to you will be missing at some point.
 
-**NOTE**: You can add any platform by simply providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used.
-{:.message}
+You can add any platform by simply providing a complete URL. However, a fallback icon <span class="icon-link"></span> will be used.
+{:.note}
 
 #### Creating the icon font
 In order to add a custom social media icon you have to use the [IcoMoon App](https://icomoon.io/app/) (free) to create a custom icon webfont. However, it is important that the generated font include all icons already in use by Hydejack. For this purpose, find the `selection.json` in [`assets/icomoon/selection.json`](https://github.com/hydecorp/hydejack/blob/v6/assets/icomoon/selection.json) and upload it to the app via "Import Icons".
@@ -2001,9 +2003,9 @@ to your config file.
 ### Building the JavaScript
 In order to build the JavaScript you need to have [node.js](https://nodejs.org/en/) installed. Specifically, the `npm` command needs to be available, which is part of node.js.
 
-**NOTE**: Building the JavaScript is optional! Hydejack comes with a pre-built, minified `hydejack.js` file
+Building the JavaScript is optional! Hydejack comes with a pre-built, minified `hydejack.js` file
 that you can find in part of the theme's `assets`.
-{:.message}
+{:.note}
 
 Before you start, make sure you've copied the following files:
 * `_js/`

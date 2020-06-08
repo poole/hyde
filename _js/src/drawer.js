@@ -203,7 +203,7 @@ import {
   if (!opened) {
     if (!history.state) history.replaceState({}, document.title);
     history.state.closedOnce = true;
-    drawerEl.removeAttribute('opened')
+    drawerEl.removeAttribute('opened');
   }
 
   const opened$ = fromEvent(drawerEl, 'hy-drawer-transitioned').pipe(
