@@ -19,8 +19,8 @@
 
 .f1 {
   @extend .heading;
-  font-size: 1.7rem;
-  line-height: 1.35;
+  font-size: 2rem;
+  line-height: 1.3;
 }
 
 .f2 {
@@ -58,11 +58,17 @@ h4, .h4 { @extend .f4; }
 h5, .h5 { @extend .f5; }
 h6, .h6 { @extend .f6; }
 
-h1, .h1 {
-  > a { text-decoration: none }
-  @media screen and (min-width: $break-point-1) {
-    font-size: 2rem;
-    line-height: 1.3;
+.content {
+  h1, .h1 {
+    > a { text-decoration: none }
+    @media screen and (max-width: $break-point-1) {
+      font-size: 1.7rem;
+      line-height: 1.35;
+    }
+    @media screen and (min-width: $break-point-5) {
+      font-size: 2.4rem;
+      line-height: 1.25;
+    }
   }
 }
 
