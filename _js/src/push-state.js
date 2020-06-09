@@ -102,11 +102,10 @@ import { setupFLIP } from './flip';
     return main.lastElementChild;
   }
 
-  function setupButton(parent, templateId, clickFn) {
-    const button = importTemplate(templateId);
+  function importButton() {
+    const button = importTemplate('_back-template');
     const buttonEl = button.children[0];
-    button.querySelector('.nav-btn').addEventListener('click', clickFn);
-    parent.insertBefore(button, parent.querySelector('.nav-span'));
+    button.querySelector('.nav-btn').addEventListener('click', () => window.history.back());
     return buttonEl;
   }
 
@@ -138,8 +137,11 @@ import { setupFLIP } from './flip';
   const standalone = !!navigator.standalone || standaloneMQ.matches;
   const standalone$ = fromMediaQuery(standaloneMQ).pipe(map(e => e.matches), startWith(standalone));
 
-  const backBtnEl = setupButton(navbarEl, '_back-template', () => window.history.back());
-  standalone$.pipe(tap(matches => (matches ? show : hide).call(backBtnEl))).subscribe();
+  const backBtnEl = importButton();
+  standalone$.pipe(tap(matches => {
+    if (matches) navbarEl.prepend(backBtnEl);
+    else if (backBtnEl.parentNode === navbarEl) navbarEl.removeChild(backBtnEl);
+  })).subscribe();
 
   const fromEventX = (eventName, mapFn) =>
     fromEvent(pushStateEl, eventName).pipe(

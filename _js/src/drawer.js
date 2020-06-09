@@ -71,7 +71,7 @@ import {
   // to avoid triggering both gestures.
   function getRange(drawerWidth, size) {
     if (size >= DESKTOP) return [0, drawerWidth];
-    if (isMobileSafari && !navigator.standalone) return [35, 150];
+    if (isMobileSafari) return [35, 150];
     return [0, 150];
   }
 
