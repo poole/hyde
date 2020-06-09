@@ -140,7 +140,10 @@ resume:
   icons:
     fallback:          icon-link
     location:          icon-location
-    email:             icon-mail2
+    born:              icon-quill
+    citizenship:       icon-flag
+    maritalStatus:     icon-man-woman
+    email:             icon-envelop
     phone:             icon-phone
     website:           icon-home3
     work:              icon-briefcase
