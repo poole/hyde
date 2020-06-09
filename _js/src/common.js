@@ -162,10 +162,10 @@ export function subscribeWhen(p$) {
  * @returns {Observable<MediaQueryListEvent>}
  */
 export function fromMediaQuery(mql) {
-  return Observable.create((o) => {
+  return Observable.create(o => {
     const l = o.next.bind(o);
     mql.addListener(l);
-    return () => mql.removeListener(l)
+    return () => mql.removeListener(l);
   });
 }
 

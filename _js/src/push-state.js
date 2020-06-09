@@ -135,13 +135,20 @@ import { setupFLIP } from './flip';
 
   const standaloneMQ = window.matchMedia(MQ_STANDALONE);
   const standalone = !!navigator.standalone || standaloneMQ.matches;
-  const standalone$ = fromMediaQuery(standaloneMQ).pipe(map(e => e.matches), startWith(standalone));
+  const standalone$ = fromMediaQuery(standaloneMQ).pipe(
+    map(e => e.matches),
+    startWith(standalone),
+  );
 
   const backBtnEl = importButton();
-  standalone$.pipe(tap(matches => {
-    if (matches) navbarEl.prepend(backBtnEl);
-    else if (backBtnEl.parentNode === navbarEl) navbarEl.removeChild(backBtnEl);
-  })).subscribe();
+  standalone$
+    .pipe(
+      tap(matches => {
+        if (matches) navbarEl.prepend(backBtnEl);
+        else if (backBtnEl.parentNode === navbarEl) navbarEl.removeChild(backBtnEl);
+      }),
+    )
+    .subscribe();
 
   const fromEventX = (eventName, mapFn) =>
     fromEvent(pushStateEl, eventName).pipe(

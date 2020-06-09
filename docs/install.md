@@ -32,7 +32,7 @@ In addition to the docs here, you can follow the quick start guide in the Starte
 
 Alternatively, you can just [![Deploy to Netlify][dtn]][nfy]{:.no-hover.no-mark}.
 
-[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.12.zip
+[src]: https://github.com/hydecorp/hy-starter-kit/archive/v9.0.0-alpha.13.zip
 [nfy]: https://app.netlify.com/start/deploy?repository=https://github.com/hydecorp/hydejack-starter-kit
 [dtn]: https://www.netlify.com/img/deploy/button.svg
 
@@ -146,7 +146,7 @@ For new installations only the `install` folder is relevant.
 Unzip the archive somewhere on your machine, then `cd` *into* the `install` folder, e.g.
 
 ~~~bash
-$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.12/install/
+$ cd ~/Downloads/hydejack-pro-9.0.0-alpha.13/install/
 ~~~
 
 You can now continue with [Running locally](#running-locally).

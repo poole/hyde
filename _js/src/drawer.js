@@ -149,18 +149,12 @@ import {
 
   // An observable keeping track of the distance between
   // the middle point of the screen and the middle point of the drawer.
-  const distance$ = combineLatest(peekWidth$, viewWidth$)
-    .pipe(map(([drawerWidth, viewWidth]) => viewWidth / 2 - drawerWidth / 2));
+  const distance$ = combineLatest(peekWidth$, viewWidth$).pipe(
+    map(([drawerWidth, viewWidth]) => viewWidth / 2 - drawerWidth / 2),
+  );
 
   const t$ = merge(
-    distance$.pipe(
-      map(() => drawerEl.opacity !== undefined 
-          ? 1 - drawerEl.opacity 
-          : opened 
-            ? 0 
-            : 1
-      ),
-    ),
+    distance$.pipe(map(() => (drawerEl.opacity !== undefined ? 1 - drawerEl.opacity : opened ? 0 : 1))),
     fromEvent(drawerEl, 'hy-drawer-move').pipe(
       map(({ detail: { opacity } }) => {
         return 1 - opacity;
