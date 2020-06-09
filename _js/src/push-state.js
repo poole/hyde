@@ -172,7 +172,7 @@ import { setupFLIP } from './flip';
     share(),
   );
 
-  progress$.subscribe(() => (loading.style.display = 'block'));
+  progress$.subscribe(() => (loading.style.display = 'flex'));
 
   ready$.pipe(startWith({ replaceEls: [document.getElementById('_main')] })).subscribe(({ replaceEls: [main] }) => {
     main.querySelectorAll(HEADING_SELECTOR).forEach(upgradeHeading);
