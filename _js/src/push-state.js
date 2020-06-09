@@ -27,7 +27,7 @@ import {
   takeUntil,
 } from 'rxjs/operators';
 
-import { animate, empty, importTemplate, webComponentsReady } from './common';
+import { animate, empty, importTemplate, webComponentsReady, show, hide, fromMediaQuery } from './common';
 import { CrossFader } from './cross-fader';
 import { setupFLIP } from './flip';
 
@@ -53,6 +53,7 @@ import { setupFLIP } from './flip';
   const HORIZONTAL_SCROLL_SEL = 'pre, table:not(.highlight), .katex-display, .break-layout';
   const CODE_BLOCK_SEL = 'pre.highlight > code';
   const CODE_TITLE_REX = /(?:title|file):\s*['"`](.*)['"`]/i;
+  const MQ_STANDALONE = '(display-mode: standalone)';
 
   const DURATION = 350;
 
@@ -103,9 +104,10 @@ import { setupFLIP } from './flip';
 
   function setupButton(parent, templateId, clickFn) {
     const button = importTemplate(templateId);
+    const buttonEl = button.children[0];
     button.querySelector('.nav-btn').addEventListener('click', clickFn);
-    parent.appendChild(button);
-    return parent.lastElementChild;
+    parent.insertBefore(button, parent.querySelector('.nav-span'));
+    return buttonEl;
   }
 
   function getFlipType(el) {
@@ -123,8 +125,6 @@ import { setupFLIP } from './flip';
     return animate(main, FADE_IN, SETTINGS).pipe(mapTo({ main, flipType }));
   }
 
-  const isStandalone = !!navigator.standalone || window.matchMedia('(display-mode: standalone)').matches;
-
   const pushStateEl = document.querySelector('hy-push-state');
   const drawerEl = document.querySelector('hy-drawer');
   const navbarEl = document.querySelector(NAVBAR_SEL);
@@ -134,10 +134,12 @@ import { setupFLIP } from './flip';
   const animationMain = setupAnimationMain(pushStateEl);
   const loading = setupLoading(navbarEl);
 
-  if (isStandalone) {
-    setupButton(navbarEl, '_back-template', () => window.history.back());
-    setupButton(navbarEl, '_forward-template', () => window.history.forward());
-  }
+  const standaloneMQ = window.matchMedia(MQ_STANDALONE);
+  const standalone = !!navigator.standalone || standaloneMQ.matches;
+  const standalone$ = fromMediaQuery(standaloneMQ).pipe(map(e => e.matches), startWith(standalone));
+
+  const backBtnEl = setupButton(navbarEl, '_back-template', () => window.history.back());
+  standalone$.pipe(tap(matches => (matches ? show : hide).call(backBtnEl))).subscribe();
 
   const fromEventX = (eventName, mapFn) =>
     fromEvent(pushStateEl, eventName).pipe(
