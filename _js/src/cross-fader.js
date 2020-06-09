@@ -110,9 +110,11 @@ export class CrossFader {
 
         // .content a
         this.rules[0].style.textDecorationColor = underlineColor;
+        this.rules[0].style.borderColor = underlineColor;
 
         // .content a:hover
         this.rules[1].style.textDecorationColor = color;
+        this.rules[1].style.borderColor = color;
 
         // :focus
         this.rules[2].style.outlineColor = color;

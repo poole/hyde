@@ -7,11 +7,13 @@
 // 0
 .content a:not(.btn) {
   text-decoration-color: fade-out({{ color }}, 0.5);
+  border-color: fade-out({{ color }}, 0.5);
 }
 
 // 1
 .content a:not(.btn):hover {
   text-decoration-color: {{ color }};
+  border-color: {{ color }};
 }
 
 // 2
