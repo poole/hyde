@@ -91,7 +91,7 @@ html {
 }
 .sidebar-nav-item {
   line-height: 1.75;
-  margin-left: 15px;
+  margin-right: 15px;
 }
 
 @media (min-width: 48em) {
