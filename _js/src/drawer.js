@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { fromEvent, merge, NEVER } from 'rxjs';
+import { fromEvent, merge, NEVER, combineLatest, Observable } from 'rxjs';
 import {
   distinctUntilChanged,
   map,
@@ -28,17 +28,14 @@ import {
 import {
   BREAK_POINT_3,
   BREAK_POINT_DYNAMIC,
-  DRAWER_WIDTH,
-  R_28,
   isSafari,
   isMobile,
   isMobileSafari,
   hasCSSOM,
   webComponentsReady,
   getScrollTop,
-  body,
-  rem,
-  getWidth,
+  getViewWidth,
+  fromMediaQuery,
 } from './common';
 
 (async () => {
@@ -60,9 +57,6 @@ import {
   const MOBILE = 1;
   const DESKTOP = 2;
   const LARGE_DESKTOP = 3;
-
-  const calcDrawerWidth = () => rem(DRAWER_WIDTH);
-  const calcDrawerWidthDynamic = () => body.clientWidth / 2 - rem(R_28);
 
   const subscribeWhen = p$ => source => {
     if (process.env.DEBUG && !p$) throw Error();
@@ -149,32 +143,30 @@ import {
   await cssLoaded;
 
   // A flag for the 3 major viewport sizes we support
-  const size$ = fromEvent(window, 'resize', { passive: true }).pipe(startWith({}), map(detectSize));
+  const size$ = merge(
+    fromMediaQuery(window.matchMedia(BREAK_POINT_3)),
+    fromMediaQuery(window.matchMedia(BREAK_POINT_DYNAMIC)),
+  ).pipe(startWith({}), map(detectSize));
 
-  // An observable keeping track of the drawer width.
-  const drawerWidth$ = size$.pipe(
-    map(size => {
-      switch (size) {
-        case LARGE_DESKTOP:
-          return calcDrawerWidthDynamic();
-        case DESKTOP:
-          return calcDrawerWidth();
-        case MOBILE:
-          return rem(0.5);
-      }
-    }),
-  );
+  // An observable keeping track of the drawer (peek) width.
+  const peekWidth$ = fromEvent(drawerEl, 'peek-width-change').pipe(map(e => e.detail));
+
+  // An observable keeping track the viewport width
+  const viewWidth$ = fromEvent(window, 'resize', { passive: true }).pipe(startWith({}), map(getViewWidth));
 
   // An observable keeping track of the distance between
   // the middle point of the screen and the middle point of the drawer.
-  const distance$ = drawerWidth$.pipe(map(drawerWidth => getWidth() / 2 - drawerWidth / 2));
+  const distance$ = combineLatest(peekWidth$, viewWidth$)
+    .pipe(map(([drawerWidth, viewWidth]) => viewWidth / 2 - drawerWidth / 2));
 
   const t$ = merge(
     distance$.pipe(
-      map(() => {
-        const t = drawerEl.opacity !== undefined ? 1 - drawerEl.opacity : opened ? 0 : 1;
-        return t;
-      }),
+      map(() => drawerEl.opacity !== undefined 
+          ? 1 - drawerEl.opacity 
+          : opened 
+            ? 0 
+            : 1
+      ),
     ),
     fromEvent(drawerEl, 'hy-drawer-move').pipe(
       map(({ detail: { opacity } }) => {
@@ -246,7 +238,7 @@ import {
   ).subscribe();
 
   // Keeping the drawer updated.
-  drawerWidth$
+  peekWidth$
     .pipe(
       withLatestFrom(size$),
       map(args => getRange(...args)),

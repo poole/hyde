@@ -118,7 +118,7 @@ export function getScrollTop() {
 
 export const body = document.body || document.documentElement;
 export const rem = units => units * parseFloat(getComputedStyle(body).fontSize);
-export const getWidth = () => window.innerWidth || body.clientWidth;
+export const getViewWidth = () => window.innerWidth || body.clientWidth;
 
 /**
  * @param {HTMLElement|HTMLElement[]} els
