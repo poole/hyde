@@ -41,6 +41,13 @@ export const webComponentsReady = new Promise(res => {
   else document.addEventListener('WebComponentsReady', res);
 });
 
+// FIXME: Replace with something more robust!?
+export const stylesheetReady = new Promise(function checkCSS(res, rej, retries = 30) {
+  if (getComputedStyle(document.querySelector('hy-drawer')).getPropertyValue('--hy-drawer-width')) res(true);
+  else if (retries <= 0) rej(Error('Stylesheet not loaded within 10 seconds'));
+  else setTimeout(() => checkCSS(res, rej, retries - 1), 1000 / 3);
+});
+
 export const once = (el, eventName) => new Promise(res => el.addEventListener(eventName, res, { once: true }));
 export const timeout = t => new Promise(res => setTimeout(res, t));
 

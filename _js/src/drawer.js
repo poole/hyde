@@ -33,6 +33,7 @@ import {
   isMobileSafari,
   hasCSSOM,
   webComponentsReady,
+  stylesheetReady,
   getScrollTop,
   getViewWidth,
   fromMediaQuery,
@@ -53,6 +54,7 @@ import {
   ]);
 
   await webComponentsReady;
+  await stylesheetReady;
 
   const MOBILE = 1;
   const DESKTOP = 2;
@@ -132,15 +134,6 @@ import {
       contentEl.style.opacity = opacity;
     }
   };
-
-  // HACK: replace with something more robust. do we even need this?
-  const cssLoaded = new Promise(function checkCSS(res, rej, retries = 0) {
-    if (getComputedStyle(drawerEl).getPropertyValue('--hy-drawer-width')) res();
-    else if (retries >= 10) rej();
-    else setTimeout(() => checkCSS(res, rej, retries + 1), 300);
-  });
-
-  await cssLoaded;
 
   // A flag for the 3 major viewport sizes we support
   const size$ = merge(
