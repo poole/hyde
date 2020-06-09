@@ -22,54 +22,52 @@ The main domain holding the website is: [http://info.cern.ch/](http://info.cern.
 
 ## 2. X.COM [Link](http://x.com)
 X.COM was a Financial company owned by Elon Musk that later became Paypal after a series of acquisition and mergers.
-It is famously because the only character it contain on the website is an X only. 
+The company later formed payal and now the only character contained on the website is an X only. 
 
 Gets an estimate of 281.86K page views per month.
 Has Alexa ranking of #150,985
 
 ## 3. The mother****website.com [Website](http://motherfuckingwebsite.com/)
-It is a bit rough on the edges but hey it's passes its message.
+Its a fairly know website in the developer world. In fact there are other website created in response to this website message.
 
-Daily Unique Visitors:  1,670
-Daily Pageviews:    3,340
+It's language is a bit rough on the edges but hey it's passes its message.
 
-Alexa ranking #544,847
+Daily Unique Visitors: 1,670
+Daily Pageviews: 3,340
+Alexa ranking: #544,847
 
 
 ## 4. Toad.com [Website](http://www.toad.com/)
+This website is a fairly old one and it uses just a little bit of CSS to align the website to the middle.
 
-Daily Unique Visitors:  94
-Daily Pageviews:    188
-    Alexa ranking #10,392,051
+Daily Unique Visitors:94
+Daily Pageviews:188
+Alexa ranking #10,392,051
 
 ## 5. https://html-revolution.org/
+This is a website that is part of a  movement to discourage creation of bloated websites.
 
-None: 7 months old
+It's about 7 months old.
 
 
 ## 6. Marc Seitz portfolio [Website](https://mfts.io/)
+This website is created by Marc Seitz as part of his portfolio.
+His website is part of the HTML revolution.
 
-Marc Seitz
-Hi, I'm Marc, and I am software engineer, product guy, and lifelong learner. I choose breadth over depth.
+## 7. [Fluffbucket](http://www.fluffbucket.co.uk/howto/htmlonlypg.htm)
+This website uses tables to achieve this layout. This was a practice used some years ago when CSS did not have good enough layout feature.
 
-Websites With a little CSS
-
-No traffic content.
-Part of HTML revolution.
-
-## 7. http://www.fluffbucket.co.uk/howto/htmlonlypg.htm
+Currently, it is considered a bad practice to use table for layout.
 
 
+## 8.[ACME](http://acme.com)
 
-## 8. http://acme.com
-
-has a little css to give the background some color and to align some images.
-
+This website has some little css to give the background some color and to align some images.
 
 Daily Unique Visitors:  10,098
 Daily Pageviews:    50,490
 
-## 9. http://txti.es/
+## 9. [Txti.es](http://txti.es/)
 
 Has some little CSS that allows for the website content to be centered.
 
@@ -82,21 +80,3 @@ It a bit simplified which makes it a good resource for beginners.
 
 
 If learn HTML will help you share it go ahead. but don't want to learn all the languages that you hear about then don't  Just learn HTML. 
-
-KEYWORDS
-Keyword ideas
-100-1k
-html only websites
-
-10-100
-html css only websites
-html5 only website
-best html only websites
-website with only html
-websites with only html and css
-html only website examples
-websites using html and css only
-html only site
-website with html and css only
-html and css only websites
-
