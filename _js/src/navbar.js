@@ -22,6 +22,7 @@ import { hasCSSOM, getScrollTop, stylesheetReady } from './common';
   await stylesheetReady;
 
   const navbarEl = document.getElementById('_navbar');
+  // FIXME: update when size changes
   const height = navbarEl.clientHeight;
 
   let offset = 0;

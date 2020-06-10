@@ -29,8 +29,6 @@ hy-push-state a {
   &.no-hover {
     text-decoration-thickness: unset; // inline
     text-underline-offset: unset; // inline
-    transition: none; // link
-    &:hover { transition: none; } // link
   }
 }
 
