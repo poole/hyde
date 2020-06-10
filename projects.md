@@ -1,13 +1,19 @@
 ---
-id: 40
-title: Web Development Projects
+title: Web Development Projects for Practice
 date: 2019-01-18T08:02:45+00:00
 author: avic
 layout: page
-guid: https://learn.avicndugu.com/?page_id=40
 ---
 
+A list of Web Development projects you can create even if you only know HTML.
+
+<hr/>
+
 ## HTML Projects
+
+A lot of people struggle with finding projects that they can complete using just HTML.
+The first approach is to find pure HTML projects. If that is what you need, you can use the projects listed under HTML projects.
+
 <li style="list-style-type: none;">
   <ol>
     <li>
@@ -23,33 +29,39 @@ guid: https://learn.avicndugu.com/?page_id=40
       <a href="/html-projects-google-search-result/">Google Search Result page</a>
     </li>
     <li>
-      Documentation page.
+      Documentation page.(coming soon)
     </li>
     <li>      
-      Blog page.
+      Blog page.(coming soon)
     </li>
     <li>      
-      Business page.
+      Business page.(coming soon)
     </li>
     <li>      
-      NGO's page.
+      NGO's page.(coming soon)
     </li>
   </ol>
 </li>
 
-## CSS Projects
+The second approach is to pick a project that will require both HTML and CSS skills.
 
-<li style="list-style-type: none;">
-  <ol>
-    <li>
-      Pluralsight login/ signup page clone
-    </li>
-  </ol>
-</li>
+Then, use your HTML skills to add the correct HTML markup and content to your webpage. Don't bother with the making the webpage look great(styling). That will require some CSS knowledge.
 
-## Javascript Projects
+Later, you can learn some CSS, and then style the website look pretty.
 
-Beginner Projects
+## HTML and CSS Projects
+1. [A tribute page](https://codepen.io/freeCodeCamp/full/zNqgVx)
+2. [An Online Survey Form](https://codepen.io/freeCodeCamp/full/VPaoNP)
+3. [A product landing page](https://codepen.io/freeCodeCamp/full/RKRbwL)  
+4. [A technical documentation page](https://codepen.io/freeCodeCamp/full/NdrKKL)
+5. [Your portfolio website](https://learn.freecodecamp.org/responsive-web-design/responsive-web-design-projects/build-a-personal-portfolio-webpage/)
+6. [Google.com Homepage](https://www.theodinproject.com/courses/web-development-101/lessons/html-css#assignment)
+7. [Google Search Result page](https://www.theodinproject.com/courses/web-development-101/lessons/html-css#difficult-version-optional-build-the-googlecom-search-results-pagehttpswwwgooglecomsearchqbuildthiswebpage)
+8. [Pluralsight signup page clone](https://app.pluralsight.com/id?) ([View screenshot](/public/2020/pluralsight-screenshot.jpg))
+  
+## Beginner Javascript Projects
+
+Once you have some Javascript knowledge under your belt, you can attempt some of the following Javascript projects:
 
 <li style="list-style-type: none;">
   <ol>
@@ -157,3 +169,8 @@ Beginner Projects
     </li>
   </ol>
 </li>
+
+### Sources
+1. Thanks Florinpop for the [Javascript projects collection](https://github.com/florinpop17/app-ideas/blob/master/README.md). You can also visit his [website](https://www.florin-pop.com/)
+2. Freecodecamp: I highly recommend Freecodecamp's curricullum for anyone who wants to learn HTML, CSS and Javascript.
+3. The Odin Project: They also have a curricullum that tackles Frontend and Backend web development.
