@@ -426,11 +426,56 @@ layout: resume
 title:  Resume
 description: >
   A short description of the page for search engines (~150 characters long).
+hide_description: true 
 ---
 ~~~
 
 You can download the final `resume.json` (minified) from the assets folder. When running locally, you can find it at `_site/assets/resume.json`.
 {:.note}
+
+### Changing the layout
+You can customize the layout of the resume by rearranging the entries in the `left_column` and `right_columns` keys in the front matter, e.g.
+
+~~~yml
+# file: `resume.md`
+---
+layout: resume
+left_column:
+  - work
+  - volunteer
+  - education
+  - awards
+  - publications
+  - references
+right_column:
+  - languages
+  - skills
+  - interests
+---
+~~~
+
+### Skill level icons
+By default, the layout will replace certain keywords with star icons. The keywords are as follows:
+
+| Icon | Skills | Languages |
+|--|--|--|
+| <span class="icon-star-full"></span><span class="icon-star-full"></span><span class="icon-star-full"></span>    | 3/3, Master, Expert, Senior, Professional | 5/5, Native or bilingual proficiency, Native speaker |
+| <span class="icon-star-full"></span><span class="icon-star-full"></span><span class="icon-star-half"></span>    |                                           | 4/5, Full professional proficiency |
+| <span class="icon-star-full"></span><span class="icon-star-full"></span><span class="icon-star-empty"></span>   | 2/3, Intermediate, Advanced, Amateur      | 3/5, Professional working proficiency |
+| <span class="icon-star-full"></span><span class="icon-star-half"></span><span class="icon-star-empty"></span>   |                                           | 2/5, Limited working proficiency |
+| <span class="icon-star-full"></span><span class="icon-star-empty"></span><span class="icon-star-empty"></span>  | 1/3, Beginner, Novice, Junior             | 1/5, Elementary proficiency |
+| <span class="icon-star-empty"></span><span class="icon-star-empty"></span><span class="icon-star-empty"></span> | 0/3                                       | 0/5, No proficiency |
+
+If a keyword is not recognized, the provided text will be spelled out  instead. To disable icons and always spell out the text,  set `no_skill_icons` and/or `no_langauge_icons` to `true`.
+
+~~~yml
+# file: `resume.md`
+---
+layout: resume
+no_language_icons: true
+no_skill_icons: true
+---
+~~~
 
 ### Adding a specialized resume or multiple resumes
 You can add a specialized resume or multiple resumes by adding the resume YAML to the front matter under the `resume` key.
