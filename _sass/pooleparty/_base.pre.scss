@@ -18,7 +18,7 @@
   // -webkit-tap-highlight-color: transparent; // link
 }
 
-// <<<<< INLINE
+// <<< INLINE
 html,
 body {
   margin: 0;
@@ -61,9 +61,15 @@ img, video {
     height: auto;
   }
 }
-// >>>>> INLINE
+// >>> INLINE
 
-// <<<<< LINK
+// <<< LINK
+@media (display-mode: standalone) {
+  body {
+    overscroll-behavior-y: contain;
+  }
+}
+
 @media print {
   a:not(.no-print-link)::after {
     content: " (" attr(href) ") ";
@@ -71,4 +77,4 @@ img, video {
     font-size: smaller;
   }
 }
-// >>>>> LINK
+// >>> LINK
