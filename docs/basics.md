@@ -160,7 +160,7 @@ About pages are a frequent use case, so Hydejack has a special layout for it. It
 To create an about page, make sure `layout` is set to `about`.
 For more on authors, see [Adding an author](config.md#adding-an-author).
 
-~~~html
+~~~md
 <!-- file: `about.md` -->
 ---
 layout: about
@@ -178,6 +178,21 @@ Hydejack 8 introduces cover pages, i.e. pages witht he sidebar opened, so that i
 
 ![Cover page example](../assets/img/blog/hydejack-8@0,5x.png){:width="960" height="540"}
 
+## Adding related posts to a post
+You can choose which posts will appear in the "Related Posts" section below a post by adding the `related_posts` key to the front matter of a post
+
+~~~yml
+# file: `category/_posts/2020-02-01-some-post.md`
+---
+layout: post
+related_posts:
+  # Specify via the path in the file system
+  - category/_posts/2020-01-01-other-post.md
+  # Can also use the url of the post,
+  # but this will break when changing the `permalink` setting!
+  - /blog/category/2020-01-02-other-other-post/
+---
+~~~
 
 ## Customization
 ### Adding custom CSS
@@ -214,9 +229,10 @@ cover:  true
 ---
 ~~~
 
-Without further configuration, the welcome page will just look like a regular page.
-To show the two most recent projects, add the `<!--projects-->` marker to the content.
-To show the five most recent blog posts, add the `<!--posts-->` marker to the content.
+Without further configuration, the welcome page will just look like a regular page. However, it can be enhanced through the use of markers:
+- To show the two most recent projects, add the `<!--projects-->` marker to the content
+- To show the four most recent blog posts, add the `<!--posts-->` marker to the content
+- (To show the five most recent blog posts in list form, add the `<!--posts_list-->` marker to the content)
 
 The welcome layout also supports selecting specific projects and posts, by adding to the front matter, e.g.:
 
@@ -225,33 +241,35 @@ The welcome layout also supports selecting specific projects and posts, by addin
 ---
 selected_projects:
   - _projects/hydejack-v6.md
-  - _projects/hyde-v2.md
-more_projects: projects.md
+  - /projects/hyde-v2/
+projects_page: projects.md
 selected_posts:
   - _posts/2017-05-03-javascripten.md
-  - _posts/2012-02-07-example-content.md
-more_posts: posts.md
-featured: true
+  - /blog/2012-02-07-example-content/
+posts_page: /blog/
+featured: false
 ---
 ~~~
 
 `selected_projects`
-: A list of paths to project files that should be displayed below the main content of the page.
-  The paths are relative to the main directory with no leading `./`.
-  If no paths are provided, the two most recent projects will be used.
+: A list of paths to projects that should be featured in the `<!--projects-->` marker.
+  Either provide paths relative to the main directory with no leading `/`,
+  or URLs according to the schema defined in `permalink`.
 
-`more_projects`
-: The path to the main projects page.
-  The path is relative to the main directory with no leading `./`.
+`projects_page`
+: The path to the main projects page
+  Either a path relative to the main directory with no leading `./`,
+  or a URL according to the schema defined in `permalink`.
 
 `selected_projects`
-: A list of paths to blog posts that should be featured on the welcome page.
-  The paths are relative to the main directory with no leading `./`.
-  If no paths are provided, the five most recent posts will be used.
+: A list of paths to blog posts that should be featured in the `<!--posts-->` or `<!--posts_list-->` marker.
+  Either provide paths relative to the main directory with no leading `/`,
+  or URLs according to the schema defined in `permalink`.
 
-`more_posts`
+`posts_page`
 : The path to the main posts page.
-  The path is relative to the main directory with no leading `./`.
+  Either a path relative to the main directory with no leading `./`,
+  or a URL according to the schema defined in `permalink`.
 
 `featured`
 : Optional. When `true`, project thumbnails will span the full width instead of half.
