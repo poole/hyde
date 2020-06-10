@@ -58,4 +58,4 @@ $break-point-font-large: 124em;
 //
 // HACK: Since Chrome doesn't treat rem values in media queries correctly,
 // we hard-code the pixel value for the values above.
-$break-point-dynamic: 1664px; // = 104 * 16px
+$break-point-dynamic: (54 + (2 * 4) + (2 * 21)) * 16px;
