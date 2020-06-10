@@ -44,7 +44,7 @@ layout: page
 
 * Dark mode colors have been toned down a bit
 * Added `grid` layout in PRO version that mirrors the `projects` layout, but for posts. If you've set `image`s for your posts, it will give your blog a more modern look.
-* Grouping projects by year is now an opt-in feature. Use `grouped: true` in the front matter to enable. The same applies to the new `grid` layout.
+* Grouping projects by year can now be disabled. Use `no_groups: true` in the front matter. This also applies to the new `grid` layout and the old `list` layout.
 * Changed the style of footnote links on small screens to make them easier to click.
 * The amount of whitespace has been reduced. Previously it had been increased but it felt too much.
 *  Added a scroll-linked navbar that disappears when scrolling down and re-appears when scrolling up.

@@ -26,14 +26,15 @@ layout: page
 {% assign list_entry    = date_formats.list_entry    | default:"%d %b" %}
 
 {% assign prev_date = 0 %}
+{% if page.no_groups %}<ul class="related-posts">{% endif %}
 {% for post in posts %}
   {% assign current_date = post.date | date:list_group_by %}
-  {% if current_date != prev_date %}
+  {% unless page.no_groups %}{% if current_date != prev_date %}
     {% unless forloop.first %}</ul>{% endunless %}
     <h2 id="{{ list_group_by | slugify }}-{{ current_date | slugify }}" class="hr-bottom">{{ current_date }}</h2>
     <ul class="related-posts">
     {% assign prev_date = current_date %}
-  {% endif %}
+  {% endif %}{% endunless %}
   {% include_cached components/post-list-item.html post=post format=list_entry %}
   {% if forloop.last %}</ul>{% endif %}
 {% endfor %}
