@@ -430,6 +430,26 @@ In any case, Hydejack expects a `assets/icons/icon.png` file for use as `apple-t
 {:.note}
 
 
+## Adding a cookies banner*
+
+~~~yml
+# file: `_config.yml`
+hydejack:
+  cookies_banner: true
+~~~
+
+Enabling this setting will show a notice at the top of the page to new visitors.
+You can change the wording of the notice in `_data/strings.yml`
+with the `cookies_banner.text` and `cookies_banner.okay` keys:
+
+~~~yml
+# file: `_data/strings.yml`
+cookies_banner:
+  text: This site uses cookies. [Markdown allowed](/cookies-policy/)!
+  okay: Okay
+~~~
+
+
 ## Enabling newsletter boxes*
 To enable showing newsletter subscription boxes below each post and project,
 provide your [Tinyletter] username to the `tinyletter` key in the config file.

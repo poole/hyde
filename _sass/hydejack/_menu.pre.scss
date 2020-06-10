@@ -81,6 +81,7 @@ $navbar-height: 5rem;
   background-color: var(--body-bg);
   height: $navbar-height;
   display: flex;
+  align-items: center;
   position: relative;
 
   > :first-child, > :last-child {
