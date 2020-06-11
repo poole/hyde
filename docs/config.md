@@ -51,9 +51,7 @@ For for information on the types of pages you can host on GitHub, see the
 
 ## Changing accent colors and sidebar images
 Hydejack allows you to choose the background image of the sidebar, as well as the accent color
-(color of the links, selection and focus outline, etc...) on a per-page, per-category, per-tag, per-author and global basis.
-
-Set the fallback values in `_config.yml`, which are used should no other rule (page, category, tag, author) apply:
+(color of the links, selection and focus outline, etc...).
 
 ~~~yml
 # file: `_config.yml`
@@ -67,9 +65,30 @@ If you save a blurred image as JPG, it will also drastically reduce its file siz
 
 The `accent_image` property also accepts the special value `none` which will remove the default image.
 
-Hydejack also has a `theme_color` property. When set, it will change the background color of the sidebar, as well as set the `theme_color` property in the Web App Manifest. In some browsers, such as Chrome on Android, this will change the color of the browser's UI components.
-The property can be overridden on a per-page basis, by setting it in the front matter.
+Note that these values can be overwritte on a per-page basis, i.e. you can create a unique look for each page.
+You can also apply a certain look all posts in a category via [front matter defaults][fmd], e.g.:
 
+```yml
+# file: `_config.yml`
+defaults:
+  - scope:
+      path:         hydejack/
+    values:
+      accent_image: /assets/img/hydejack-bg.jpg
+      accent_color: rgb(38,139,210)
+```
+
+### Theme color
+Hydejack also supports the `theme_color` property. When set, it will change the background color of the sidebar, as well as set the `theme_color` property in the [Web App Manifest][wam]. In some browsers, such as Chrome on Android, this will change the color of the browser's UI components.
+
+~~~yml
+# file: `_config.yml`
+theme_color:  rgb(25,55,71)
+~~~
+
+Just like `accent_*` properties, the theme color can be overridden on a per-page basis by setting it in the front matter.
+
+[wam]: https://web.dev/add-manifest/#theme-color
 
 ## Changing fonts
 Hydejack lets you configure the font of regular text and headlines, and it has built-in support for Google Fonts.

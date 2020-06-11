@@ -144,12 +144,14 @@ defaults:
     values:
       seo:
         type:          WebPage
+
   - scope:
-      path:            docs
+      path:            docs/
     values:
       layout:          page
+
   - scope:
-      path:            licenses
+      path:            licenses/
     values:
       layout:          page
 
@@ -239,7 +241,7 @@ hydejack:
 
   # When using Google Analytics, set to `true` to display a cookie notice banner.
   # When enabled, no user-related data will be stored until the user gives consent.
-  cookies_banner:      false
+  cookies_banner:      true
 
   # Set to `true` if you would like to add a "Powered by Hydejack" link in the footer.
   # Note that this setting has no effect when using the free version.
