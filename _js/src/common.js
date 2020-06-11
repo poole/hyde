@@ -13,8 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Observable, NEVER } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { Observable } from 'rxjs';
+export { getScrollHeight, getScrollLeft, getScrollTop, createIntersectionObservable, subscribeWhen, fromMediaQuery } from '@hydecorp/component'
 
 const style = getComputedStyle(document.body);
 
@@ -108,66 +108,10 @@ export function importTemplate(templateId) {
   return template && document.importNode(template.content, true);
 }
 
-export function getScrollHeight() {
-  const h = document.documentElement;
-  const b = document.body;
-  const sh = 'scrollHeight';
-  return h[sh] || b[sh];
-}
-
-export function getScrollLeft() {
-  return window.pageXOffset || document.body.scrollLeft;
-}
-
-export function getScrollTop() {
-  return window.pageYOffset || document.body.scrollTop;
-}
-
 export const body = document.body || document.documentElement;
 export const rem = units => units * parseFloat(getComputedStyle(body).fontSize);
 export const getViewWidth = () => window.innerWidth || body.clientWidth;
-
-/**
- * @param {HTMLElement|HTMLElement[]} els
- * @param {IntersectionObserverInit} [options]
- * @returns {Observable<IntersectionObserverEntry[]>}
- */
-export function createIntersectionObservable(els, options) {
-  return Observable.create(obs => {
-    const observer = new IntersectionObserver(xs => obs.next(xs), options);
-
-    if (Array.isArray(els)) els.forEach(el => observer.observe(el));
-    else observer.observe(els);
-
-    return () => {
-      if (Array.isArray(els)) els.forEach(el => observer.unobserve(el));
-      else observer.unobserve(els);
-    };
-  });
-}
-
-/**
- * @template T
- * @param {Observable<boolean>} p$
- * @returns {(source: Observable<T>) => Observable<T>}
- */
-export function subscribeWhen(p$) {
-  return source => {
-    return p$.pipe(switchMap(p => (p ? source : NEVER)));
-  };
-}
-
-/**
- * @param {MediaQueryList} mql
- * @returns {Observable<MediaQueryListEvent>}
- */
-export function fromMediaQuery(mql) {
-  return Observable.create(o => {
-    const l = o.next.bind(o);
-    mql.addListener(l);
-    return () => mql.removeListener(l);
-  });
-}
+export const getViewHeight = () => window.innerHeight || body.clientHeight;
 
 /**
  * @template Req

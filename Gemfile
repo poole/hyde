@@ -23,7 +23,6 @@ gem "jekyll", "~> 4.1"
 #
 # Sadly, the old MathJax-to-KaTeX hack I've been using in previous
 # versions of Hydejack doesn't seem to work with Jekyll 4.0 anymore.
-
 # If you're not using math on your site feel free to remove the line below:
 gem "kramdown-math-katex"
 
@@ -34,13 +33,11 @@ group :jekyll_plugins do
   gem "jekyll-readme-index"
   gem "jekyll-redirect-from"
   gem "jekyll-relative-links"
-  gem "jekyll-seo-tag"
+  gem "jekyll-seo-tag", git: "https://github.com/hydecorp/jekyll-seo-tag"
   gem "jekyll-sitemap"
   gem "jekyll-titles-from-headings"
-  gem "jekyll-include-cache", path: '../../jekyll-include-cache'
-  # gem "jekyll-include-cache", git: 'https://github.com/hydecorp/jekyll-include-cache'
+  gem "jekyll-include-cache", git: "https://github.com/hydecorp/jekyll-include-cache"
 end
 
-# TODO
 gem 'wdm' if Gem.win_platform?
 gem "tzinfo-data" if Gem.win_platform?
