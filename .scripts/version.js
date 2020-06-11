@@ -10,7 +10,6 @@ const ENC = "utf-8";
 
 const FILES = [
   "./jekyll-theme-hydejack-pro.gemspec",
-  "./_data/authors.yml",
   "./_includes/body/scripts.html",
   "./_includes/body/footer.html",
   "./_includes/head/styles-inline.html",
@@ -21,10 +20,6 @@ const FILES = [
   "./_layouts/compress.html",
   "./_js/lib/version.js",
   "./assets/version.json",
-  "./CHANGELOG.md",
-  "./download.md",
-  "./README.md",
-  "./thank-you.md",
 ].map(f => resolve(f));
 
 // <https://stackoverflow.com/a/45130990/870615>
@@ -42,12 +37,13 @@ async function getFiles(dir) {
     const prev = vPrev.replace(/\./g, "\\.");
     const prevRegExp = new RegExp(prev, "g");
 
-    const args = await Promise.all([
-      getFiles("./hyde/_posts"),
-      getFiles("./hydejack/_posts"),
-      getFiles("./_projects"),
-      getFiles("./docs"),
-    ]);
+    // const args = await Promise.all([
+    //   getFiles("./hyde/_posts"),
+    //   getFiles("./hydejack/_posts"),
+    //   getFiles("./_projects"),
+    //   getFiles("./docs"),
+    // ]);
+    const args = [];
       
     const files = Array.prototype.concat.call(FILES, ...args);
 
@@ -58,10 +54,10 @@ async function getFiles(dir) {
         .map(async ([f, p]) => {
           const content = await p;
 
-          if (f.includes("CHANGELOG")) {
-            const pattern = new RegExp(`([^v])${prev}`, "g");
-            return [f, content.replace(pattern, `$1${vNext}`)];
-          }
+          // if (f.includes("CHANGELOG")) {
+          //   const pattern = new RegExp(`([^v])${prev}`, "g");
+          //   return [f, content.replace(pattern, `$1${vNext}`)];
+          // }
 
           return [f, content.replace(prevRegExp, vNext)];
         })

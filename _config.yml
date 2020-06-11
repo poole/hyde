@@ -4,7 +4,7 @@
 # IMPORTANT: Set the URL of your site.
 # Set to https://<username>.github.io when hosting on GitHub Pages
 # (unless you are using a custom domain).
-url:                   https://domain.tld
+# url:                   https://hydejack.com
 
 # IMPORTANT: Set The "base URL" of your site.
 # When your site sits in a subdirectory, set to /<name of directory>
@@ -12,7 +12,7 @@ url:                   https://domain.tld
 # Use the empty string '' otherwise.
 # For GitHub project sites, this is usually the name of the project,
 # e.g. `/hydejack`.
-baseurl:               ''
+# baseurl:               ''
 
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
@@ -47,16 +47,18 @@ author:
   # Used by `jekyll-seo-tag`:
   # twitter:             <username>
 
-# Add links to the sidebar.
-menu:
-  - title:             Hydejack
-    url:               /hydejack/
-  - title:             Hyde
-    url:               /hyde/
-  - title:             Documentation
-    url:               /docs/
-  - title:             About
-    url:               /about/
+# # Add links to the sidebar.
+# menu:
+#   - title:             Blog
+#     url:               /blog/
+#   - title:             Projects*
+#     url:               /projects/
+#   - title:             Résumé*
+#     url:               /resume/
+#   - title:             Documentation
+#     url:               /docs/
+#   - title:             Download
+#     url:               /download/
 
 # Add links to the footer.
 # Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
@@ -67,14 +69,14 @@ menu:
   #   url:               /cookies-policy/
 
 # This text will appear in a `<small>` tag in the footer of every page.
-copyright:             © 2018. All rights reserved.
+copyright:             © 2020. All rights reserved.
 
-# Format of the permalinks
-permalink:             /:categories/:year-:month-:day-:title/
+# # Format of the permalinks
+# permalink:             /:categories/:year-:month-:day-:title/
 
-# Pagination configuration (used by the `blog` layout)
-paginate:              10
-paginate_path:         /:num/
+# # Pagination configuration (used by the `blog` layout)
+# paginate:              10
+# paginate_path:         /blog/:num/
 
 
 # Customizaton
@@ -105,15 +107,15 @@ font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 font_code:             Fira Code, Menlo, Monaco, Consolas, monospace;
 
 defaults:
-  # You can use this to provide a default accent color and background for
-  # all pages under a given path:
-  - scope:
-      path:            hyde/
-    values:
-      accent_color:    rgb(38,139,210)
-      accent_image:
-        background:    rgb(32,32,32)
-        overlay:       false
+  # # You can use this to provide a default accent color and background for
+  # # all pages under a given path:
+  # - scope:
+  #     path:            hyde/
+  #   values:
+  #     accent_color:    rgb(38,139,210)
+  #     accent_image:
+  #       background:    rgb(32,32,32)
+  #       overlay:       false
 
   # Don't include documents in assets in the sitemap
   - scope:
@@ -144,16 +146,6 @@ defaults:
     values:
       seo:
         type:          WebPage
-
-  - scope:
-      path:            docs/
-    values:
-      layout:          page
-
-  - scope:
-      path:            licenses/
-    values:
-      layout:          page
 
 
 # 3rd Party Integrations
@@ -276,66 +268,46 @@ hydejack:
       - /assets/img/swipe.svg
 
 
-# Collections
-# ========================================================================================
-
-collections:
-  featured_categories:
-    permalink:         /:name/
-    output:            true
-
-  featured_tags:
-    permalink:         /tag-:name/
-    output:            true
-
-  projects:
-    permalink:         /projects/:path/
-    output:            true
-
-
 # File inclusion/exclusion
 # ========================================================================================
 
-exclude:
-  - vendor
-  - Gemfile
-  - Gemfile.lock
-  - node_modules
-  - package.json
-  - package-lock.json
-  - webpack.config.js
-  - "*.gemspec"
-  - _js
-  - _plugins
-  - .sass-cache
-include:
-  - LICENSE.md
-  - .well-known
+# exclude:
+#   - Gemfile
+#   - Gemfile.lock
+#   - vendor
+#   - package.json
+#   - package-lock.json
+#   - node_modules
+#   - webpack.config.js
+#   - "*.gemspec"
+#   - _js
+#   - _plugins
+#   - .jekyll-cache
+#   - .sass-cache
+#   - .bundle
+# include:
+#   - LICENSE.md
+#   - .well-known
 
 
-# Plugins
-# ========================================================================================
+# # Plugins
+# # ========================================================================================
 
-plugins:
-  - jekyll-feed
-  - jekyll-optional-front-matter
-  - jekyll-paginate
-  - jekyll-readme-index
-  - jekyll-redirect-from
-  - jekyll-relative-links
-  - jekyll-seo-tag
-  - jekyll-sitemap
-  - jekyll-titles-from-headings
-  - jekyll-include-cache
+# plugins:
+#   - jekyll-feed
+#   - jekyll-optional-front-matter
+#   - jekyll-paginate
+#   - jekyll-readme-index
+#   - jekyll-redirect-from
+#   - jekyll-relative-links
+#   - jekyll-seo-tag
+#   - jekyll-sitemap
+#   - jekyll-titles-from-headings
+#   - jekyll-include-cache
 
-# Theme
-# ---------------------------------------------------------------------------------------
 
-# theme: jekyll-theme-hydejack
-# remote_theme: qwtel/hydejack@gem
-
-# SEO Tag
-# ---------------------------------------------------------------------------------------
+# # SEO Tag
+# # ---------------------------------------------------------------------------------------
 
 # Where you proof that you own this site (used by jekyll-seo-tag)
 # google_site_verification: <verification-id>
