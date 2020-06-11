@@ -10,7 +10,7 @@ let shouldFlush = false;
 let flusher = null;
 
 if (customElements['polyfillWrapFlushCallback']) {
-  customElements['polyfillWrapFlushCallback'](flush => {
+  customElements['polyfillWrapFlushCallback']((flush) => {
     flusher = flush;
     if (shouldFlush) {
       flush();

@@ -14,7 +14,14 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { Observable } from 'rxjs';
-export { getScrollHeight, getScrollLeft, getScrollTop, createIntersectionObservable, subscribeWhen, fromMediaQuery } from '@hydecorp/component'
+export {
+  getScrollHeight,
+  getScrollLeft,
+  getScrollTop,
+  createIntersectionObservable,
+  subscribeWhen,
+  fromMediaQuery,
+} from '@hydecorp/component';
 
 const style = getComputedStyle(document.body);
 
@@ -36,7 +43,7 @@ export const isFirefoxIOS = ua.indexOf('fxios') > 0 && ua.indexOf('safari') > 0;
 
 export const hasCSSOM = 'attributeStyleMap' in Element.prototype && 'CSS' in window && CSS.number;
 
-export const webComponentsReady = new Promise(res => {
+export const webComponentsReady = new Promise((res) => {
   if ('customElements' in window) res(true);
   else document.addEventListener('WebComponentsReady', res);
 });
@@ -48,13 +55,13 @@ export const stylesheetReady = new Promise(function checkCSS(res, rej, retries =
   else setTimeout(() => checkCSS(res, rej, retries - 1), 1000 / 3);
 });
 
-export const once = (el, eventName) => new Promise(res => el.addEventListener(eventName, res, { once: true }));
-export const timeout = t => new Promise(res => setTimeout(res, t));
+export const once = (el, eventName) => new Promise((res) => el.addEventListener(eventName, res, { once: true }));
+export const timeout = (t) => new Promise((res) => setTimeout(res, t));
 
 // Takes an array of Modernizr feature tests and makes sure they all pass.
 export function hasFeatures(features) {
   if (!window.Modernizr) return true;
-  return [...features].every(feature => {
+  return [...features].every((feature) => {
     const hasFeature = window.Modernizr[feature];
     if (!hasFeature && process.env.DEBUG) console.warn(`Feature '${feature}' missing!`);
     return hasFeature;
@@ -87,10 +94,10 @@ export function empty() {
 // An observable wrapper for the WebAnimations API.
 // Will return an observable that emits once when the animation finishes.
 export function animate(el, keyframes, options) {
-  return Observable.create(observer => {
+  return Observable.create((observer) => {
     const anim = el.animate(keyframes, options);
 
-    anim.addEventListener('finish', e =>
+    anim.addEventListener('finish', (e) =>
       requestAnimationFrame(() => {
         observer.next(e);
         requestAnimationFrame(() => observer.complete());
@@ -109,7 +116,7 @@ export function importTemplate(templateId) {
 }
 
 export const body = document.body || document.documentElement;
-export const rem = units => units * parseFloat(getComputedStyle(body).fontSize);
+export const rem = (units) => units * parseFloat(getComputedStyle(body).fontSize);
 export const getViewWidth = () => window.innerWidth || body.clientWidth;
 export const getViewHeight = () => window.innerHeight || body.clientHeight;
 
@@ -123,7 +130,7 @@ export const getViewHeight = () => window.innerHeight || body.clientHeight;
 export function postMessage(worker, message) {
   return new Promise((resolve, reject) => {
     const messageChannel = new MessageChannel();
-    messageChannel.port1.onmessage = event => {
+    messageChannel.port1.onmessage = (event) => {
       if (event.data.error) {
         reject(event.data.error);
       } else {

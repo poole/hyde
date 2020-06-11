@@ -34,12 +34,12 @@ import { hasCSSOM, getScrollTop, stylesheetReady } from './common';
   fromEvent(document, 'scroll', { passive: true })
     .pipe(
       map(getScrollTop),
-      filter(x => x >= 0),
+      filter((x) => x >= 0),
       pairwise(),
       map(([prev, curr]) => prev - curr),
       filter(navbarInactive),
       merge(fromEvent(navbarEl, 'focus', { capture: true }).pipe(mapTo(2 * height))),
-      tap(x => {
+      tap((x) => {
         offset += x;
         offset = Math.max(-height, Math.min(0, offset));
         if (hasCSSOM) {

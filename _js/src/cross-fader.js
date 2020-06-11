@@ -34,7 +34,8 @@ function isExternal({ protocol, host }, location = window.location) {
 export class CrossFader {
   constructor(fadeDuration) {
     const main = document.getElementById('_main');
-    const styleSheet = Array.from(document.styleSheets).find(s => s.ownerNode && s.ownerNode.id === '_pageStyle') || {};
+    const styleSheet =
+      Array.from(document.styleSheets).find((s) => s.ownerNode && s.ownerNode.id === '_pageStyle') || {};
 
     this.sidebar = document.getElementById('_sidebar');
     this.fadeDuration = fadeDuration;
@@ -72,7 +73,7 @@ export class CrossFader {
     if (hash === this.prevHash) return empty();
 
     return this.fetchImage2(dataset).pipe(
-      map(objectURL => {
+      map((objectURL) => {
         const div = document.createElement('div');
         div.classList.add('sidebar-bg');
 

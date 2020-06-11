@@ -84,9 +84,9 @@ export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, setting
             }),
           ),
           fadeIn$,
-          x => x,
+          (x) => x,
         ).pipe(
-          tap(title => {
+          tap((title) => {
             if (title) title.style.opacity = 1;
             animationMain.style.opacity = 0;
           }),

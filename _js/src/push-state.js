@@ -136,14 +136,14 @@ import { setupFLIP } from './flip';
   const standaloneMQ = window.matchMedia(MQ_STANDALONE);
   const standalone = !!navigator.standalone || standaloneMQ.matches;
   const standalone$ = fromMediaQuery(standaloneMQ).pipe(
-    map(e => e.matches),
+    map((e) => e.matches),
     startWith(standalone),
   );
 
   const backBtnEl = importButton();
   standalone$
     .pipe(
-      tap(matches => {
+      tap((matches) => {
         if (matches) navbarEl.prepend(backBtnEl);
         else if (backBtnEl.parentNode === navbarEl) navbarEl.removeChild(backBtnEl);
       }),
@@ -153,11 +153,11 @@ import { setupFLIP } from './flip';
   const fromEventX = (eventName, mapFn) =>
     fromEvent(pushStateEl, eventName).pipe(
       map(({ detail }) => detail),
-      mapFn ? map(mapFn) : _ => _,
+      mapFn ? map(mapFn) : (_) => _,
       share(),
     );
 
-  const start$ = fromEventX('hy-push-state-start', detail =>
+  const start$ = fromEventX('hy-push-state-start', (detail) =>
     Object.assign(detail, { flipType: getFlipType(detail.anchor) }),
   );
   const ready$ = fromEventX('hy-push-state-ready');
@@ -166,7 +166,7 @@ import { setupFLIP } from './flip';
   const error$ = fromEventX('hy-push-state-networkerror');
 
   const fadeOut$ = start$.pipe(
-    map(context => Object.assign(context, { main: document.getElementById('_main') })),
+    map((context) => Object.assign(context, { main: document.getElementById('_main') })),
     tap(({ main }) => {
       main.style.pointerEvents = 'none';
     }),
@@ -175,8 +175,8 @@ import { setupFLIP } from './flip';
           drawerEl.classList.remove('cover');
           drawerEl.parentNode.appendChild(drawerEl);
         })
-      : _ => _,
-    exhaustMap(ctx => animateFadeOut(ctx, drawerEl)),
+      : (_) => _,
+    exhaustMap((ctx) => animateFadeOut(ctx, drawerEl)),
     tap(({ main }) => empty.call(main)),
     share(),
   );
@@ -191,9 +191,9 @@ import { setupFLIP } from './flip';
     if (toc) toc.classList.add('toc-hide');
 
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
-      .map(el => el.children[0])
-      .filter(el => el && CODE_TITLE_REX.test(el.innerText))
-      .forEach(el => {
+      .map((el) => el.children[0])
+      .filter((el) => el && CODE_TITLE_REX.test(el.innerText))
+      .forEach((el) => {
         const [, fileName] = CODE_TITLE_REX.exec(el.innerText);
 
         // Remove element before making changes
@@ -212,7 +212,7 @@ import { setupFLIP } from './flip';
       });
 
     if ('complete' in HTMLImageElement.prototype) {
-      main.querySelectorAll('img[width][height][loading=lazy]').forEach(el => {
+      main.querySelectorAll('img[width][height][loading=lazy]').forEach((el) => {
         if (!el.complete) {
           el.style.opacity = 0;
           el.addEventListener(
@@ -251,18 +251,18 @@ import { setupFLIP } from './flip';
       const mEl = documentFragment.querySelector(META_DESC_SEL);
       if (metaDescEl && mEl) metaDescEl.content = mEl.content;
 
-      main.querySelectorAll(FN_SEL).forEach(li => (li.tabIndex = 0));
+      main.querySelectorAll(FN_SEL).forEach((li) => (li.tabIndex = 0));
 
       main
         .querySelectorAll(FN_LINK_SEL)
-        .forEach(a =>
-          a.addEventListener('click', e => document.getElementById(e.currentTarget.hash.substr(1)).focus()),
+        .forEach((a) =>
+          a.addEventListener('click', (e) => document.getElementById(e.currentTarget.hash.substr(1)).focus()),
         );
 
       main
         .querySelectorAll(HORIZONTAL_SCROLL_SEL)
-        .forEach(el =>
-          el.addEventListener('touchstart', e => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
+        .forEach((el) =>
+          el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
         );
     });
 
@@ -275,7 +275,7 @@ import { setupFLIP } from './flip';
 
   start$
     .pipe(
-      switchMap(context => {
+      switchMap((context) => {
         const promise = zip(timer(DURATION), fadeOut$, flip$).toPromise();
         context.transitionUntil(promise);
         return promise;
@@ -291,7 +291,9 @@ import { setupFLIP } from './flip';
 
   after$
     .pipe(
-      switchMap(({ replaceEls: [main] }) => zip(crossFader.fetchImage(main), fadeIn$, x => x).pipe(takeUntil(start$))),
+      switchMap(({ replaceEls: [main] }) =>
+        zip(crossFader.fetchImage(main), fadeIn$, (x) => x).pipe(takeUntil(start$)),
+      ),
       startWith([document.querySelector('.sidebar-bg')]),
       pairwise(),
       mergeMap(([prev, curr]) => crossFader.fade(prev, curr)),

@@ -60,9 +60,9 @@ import {
   const DESKTOP = 2;
   const LARGE_DESKTOP = 3;
 
-  const subscribeWhen = p$ => source => {
+  const subscribeWhen = (p$) => (source) => {
     if (process.env.DEBUG && !p$) throw Error();
-    return p$.pipe(switchMap(p => (p ? source : NEVER)));
+    return p$.pipe(switchMap((p) => (p ? source : NEVER)));
   };
 
   // Determines the range from which to draw the drawer in pixels, counted from the left edge.
@@ -106,13 +106,13 @@ import {
   const sidebarEl = document.getElementById('_sidebar');
   const contentEl = sidebarEl.querySelector('.sidebar-sticky');
 
-  document.getElementById('_menu').addEventListener('click', e => {
+  document.getElementById('_menu').addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
     drawerEl.toggle();
   });
 
-  sidebarEl.querySelectorAll('a[href^="/"]').forEach(el => el.addEventListener('click', () => drawerEl.close()));
+  sidebarEl.querySelectorAll('a[href^="/"]').forEach((el) => el.addEventListener('click', () => drawerEl.close()));
 
   if (isSafari) drawerEl.setAttribute('threshold', 0);
   if (!isMobile) drawerEl.setAttribute('mouseevents', '');
@@ -142,7 +142,7 @@ import {
   ).pipe(startWith({}), map(detectSize));
 
   // An observable keeping track of the drawer (peek) width.
-  const peekWidth$ = fromEvent(drawerEl, 'peek-width-change').pipe(map(e => e.detail));
+  const peekWidth$ = fromEvent(drawerEl, 'peek-width-change').pipe(map((e) => e.detail));
 
   // An observable keeping track the viewport width
   const viewWidth$ = fromEvent(window, 'resize', { passive: true }).pipe(startWith({}), map(getViewWidth));
@@ -186,9 +186,9 @@ import {
   }
 
   const opened$ = fromEvent(drawerEl, 'hy-drawer-transitioned').pipe(
-    map(e => e.detail),
+    map((e) => e.detail),
     distinctUntilChanged(),
-    tap(opened => {
+    tap((opened) => {
       if (!opened) {
         removeIcon();
         if (!history.state) history.replaceState({}, document.title);
@@ -221,15 +221,15 @@ import {
 
   t$.pipe(
     withLatestFrom(size$, distance$),
-    tap(args => updateSidebar(...args)),
+    tap((args) => updateSidebar(...args)),
   ).subscribe();
 
   // Keeping the drawer updated.
   peekWidth$
     .pipe(
       withLatestFrom(size$),
-      map(args => getRange(...args)),
-      tap(range => {
+      map((args) => getRange(...args)),
+      tap((range) => {
         drawerEl.range = range;
       }),
     )
@@ -239,8 +239,8 @@ import {
   fromEvent(document, 'wheel', { passive: false })
     .pipe(
       subscribeWhen(opened$),
-      filter(e => e.deltaY > 0),
-      tap(e => {
+      filter((e) => e.deltaY > 0),
+      tap((e) => {
         if (drawerEl.translateX > 0) e.preventDefault();
       }),
       throttleTime(500),
