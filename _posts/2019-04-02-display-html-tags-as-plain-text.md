@@ -74,7 +74,7 @@ Example.
 
 <img src="/public/04/display-code.png" alt="preserve code formating indentation html <pre>"/> 
 
-### Can I use <plaintext> HTML tag.
+### Can I use &lt;plaintext&gt; HTML tag.
 
 Yes, previously, plaintext HTML tag was used to show HTML tags on a webpage.
 
