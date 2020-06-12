@@ -5,7 +5,7 @@
 A boutique Jekyll theme for hackers, nerds, and academics.  
 
 
-0. this unordered seed list will be replaced by toc as unordered list
+
 
 
 ![Screenshot](assets/img/blog/hydejack-8.png)
