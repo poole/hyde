@@ -1,19 +1,6 @@
 # Config
 # ========================================================================================
 
-# IMPORTANT: Set the URL of your site.
-# Set to https://<username>.github.io when hosting on GitHub Pages
-# (unless you are using a custom domain).
-# url:                   https://hydejack.com
-
-# IMPORTANT: Set The "base URL" of your site.
-# When your site sits in a subdirectory, set to /<name of directory>
-# (with leading /, but without the < >).
-# Use the empty string '' otherwise.
-# For GitHub project sites, this is usually the name of the project,
-# e.g. `/hydejack`.
-# baseurl:               ''
-
 # Language of your content in 2-letter code, e.g.: en, de.
 # You may also provide a location, e.g.: en-us, de_AT.
 lang:                  en
@@ -21,66 +8,24 @@ lang:                  en
 # The title of your blog. Used in the sidebar and the browser tab.
 title:                 Hydejack
 
-# A short description (~150 chars) of the page used for the meta description tag.
-# Can use markdown, but no more than one paragraph (enforced by `>`)
-description:           >
-  "Best Jekyll Theme by a Mile".
-  **Hydejack** is your presence on the web, featuring a blog, portfolio, and resume.
-
-# A shorter description for the sidebar.
-tagline:               >
-  "Best Jekyll Theme by a Mile".
-  Open `_config.yml` to edit this text.
-
-# A list of keywords for your blog
-keywords:              []
-
 # A (square) logo for your site.
 # If provided, it will be shown at the top of the sidebar.
 # It also used by the `jekyll-seo-tag` plugin.
 logo:                  /assets/icons/icon.png
 
-# This should be the same author as first entry in `_data/authors.yml`.
-author:
-  name:                <firstname> <lastname>
-  email:               <mail@domain.tld>
-  # Used by `jekyll-seo-tag`:
-  # twitter:             <username>
-
-# # Add links to the sidebar.
-# menu:
-#   - title:             Blog
-#     url:               /blog/
-#   - title:             Projects*
-#     url:               /projects/
-#   - title:             Résumé*
-#     url:               /resume/
-#   - title:             Documentation
-#     url:               /docs/
-#   - title:             Download
-#     url:               /download/
-
-# Add links to the footer.
-# Typically you'll want to link to your cookie- or privacy policy (if appliable), etc..
-# legal:
-  # - title:             Impress
-  #   url:               /impress/
-  # - title:             Cookies Policy
-  #   url:               /cookies-policy/
-
 # This text will appear in a `<small>` tag in the footer of every page.
 copyright:             © 2020. All rights reserved.
 
-# # Format of the permalinks
+# # Format of the blog posting URLs
 # permalink:             /:categories/:year-:month-:day-:title/
 
 # # Pagination configuration (used by the `blog` layout)
 # paginate:              10
-# paginate_path:         /blog/:num/
+# paginate_path:         /:num/
 
 
 # Customizaton
-# ========================================================================================
+# ----------------------------------------------------------------------------------------
 
 # Sidebar image and theme color of the site.
 accent_image:          /assets/img/sidebar-bg.jpg
@@ -107,27 +52,11 @@ font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 font_code:             Fira Code, Menlo, Monaco, Consolas, monospace;
 
 defaults:
-  # # You can use this to provide a default accent color and background for
-  # # all pages under a given path:
-  # - scope:
-  #     path:            hyde/
-  #   values:
-  #     accent_color:    rgb(38,139,210)
-  #     accent_image:
-  #       background:    rgb(32,32,32)
-  #       overlay:       false
-
   # Don't include documents in assets in the sitemap
   - scope:
       path:            assets/
     values:
       sitemap:         false
-
-  # # You can use the following to enable comments on all posts.
-  # - scope:
-  #     type:            posts
-  #   values:
-  #     comments:        true
 
   # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
   # but we want them to be `WebPage`s:
@@ -146,21 +75,6 @@ defaults:
     values:
       seo:
         type:          WebPage
-
-
-# 3rd Party Integrations
-# ----------------------------------------------------------------------------------------
-
-# Set your Google Analytics id to receive `pageview` events.
-# To remove Google Anaylics from your page, remove the line below.
-# google_analytics:      UA-XXXXXXXX-X
-
-# Setting a disqus shortname will enable the comment section on
-# pages with `comments: true` in the front matter.
-# disqus:                <disqus_shortname>
-
-# Setting a tinyletter username will enable the newsletter subscription box.
-# tinyletter:            <tinyletter_username>
 
 
 # Hydejack Settings
@@ -266,74 +180,6 @@ hydejack:
     cache_version:     1
     precache_assets:
       - /assets/img/swipe.svg
-
-
-# File inclusion/exclusion
-# ========================================================================================
-
-# exclude:
-#   - Gemfile
-#   - Gemfile.lock
-#   - vendor
-#   - package.json
-#   - package-lock.json
-#   - node_modules
-#   - webpack.config.js
-#   - "*.gemspec"
-#   - _js
-#   - _plugins
-#   - .jekyll-cache
-#   - .sass-cache
-#   - .bundle
-# include:
-#   - LICENSE.md
-#   - .well-known
-
-
-# # Plugins
-# # ========================================================================================
-
-# plugins:
-#   - jekyll-feed
-#   - jekyll-optional-front-matter
-#   - jekyll-paginate
-#   - jekyll-readme-index
-#   - jekyll-redirect-from
-#   - jekyll-relative-links
-#   - jekyll-seo-tag
-#   - jekyll-sitemap
-#   - jekyll-titles-from-headings
-#   - jekyll-include-cache
-
-
-# # SEO Tag
-# # ---------------------------------------------------------------------------------------
-
-# Where you proof that you own this site (used by jekyll-seo-tag)
-# google_site_verification: <verification-id>
-# -- or --
-# webmaster_verifications:
-#   google:              <verification-id>
-#   bing:                <verification-id>
-#   alexa:               <verification-id>
-#   yandex:              <verification-id>
-
-# Used for Twitter cards
-# twitter:
-#   username:            <shortname>
-
-# Used for Facebook open graph
-# facebook:
-#   app_id:              <id>
-#   publisher:           <id>
-#   admins:              <id>
-
-# Used on index and about sites
-# social:
-#   name:                <firstname> <lastname>
-#   links:
-#     - https://twitter.com/<username>
-#     - https://github.com/<username>
 
 
 # Other Plugins
