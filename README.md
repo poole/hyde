@@ -105,6 +105,8 @@ The PRO version has built-in support for customizable [Tinyletter] newsletter su
 If you are using a different service like MailChimp, you can build a custom newsletter subscription box using [Custom Forms][forms].
 
 
+
+
 ## A Personal Site That Won't Disappear
 **Hydejack** is 100% built on Open Source software, and is Open Source itself, save for parts of the PRO version. The PRO version is a one-time payment that gives you the right to use it forever.
 
