@@ -19,7 +19,6 @@ const FILES = [
   "./_includes/js/service-worker.js",
   "./_layouts/compress.html",
   "./_js/lib/version.js",
-  "./assets/version.json",
 ].map(f => resolve(f));
 
 // <https://stackoverflow.com/a/45130990/870615>
@@ -79,6 +78,8 @@ async function getFiles(dir) {
     );
 
     await Promise.all([pUnlink, pFiles, pJSCSS]);
+
+    await writeFile('./assets/version.json', JSON.stringify({ version: vNext, prevVersion: vPrev }, null, 2));
 
     process.exit(0);
   } catch (e) {
