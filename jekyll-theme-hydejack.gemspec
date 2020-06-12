@@ -10,7 +10,7 @@ Gem::Specification.new do |spec|
   spec.homepage      = "https://hydejack.com/"
   spec.license       = "GPL-3.0"
 
-  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(assets|_layouts|_includes|_sass|LICENSE|README|NOTICE|CHANGELOG|config.yml)}i) }
+  spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(assets|_layouts|_includes|_sass|_config.yml|README|LICENSE|NOTICE|CHANGELOG)}i) }
 
   spec.required_ruby_version = "~> 2.6"
 
