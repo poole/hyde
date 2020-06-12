@@ -1,8 +1,12 @@
+
+
 # Hydejack
 
 A boutique Jekyll theme for hackers, nerds, and academics.  
 
+
 0. this unordered seed list will be replaced by toc as unordered list
+
 
 ![Screenshot](assets/img/blog/hydejack-8.png)
 
@@ -42,7 +46,7 @@ The table below shows what's included in each version:
 | License                | [GPL-3.0][lic] | [PRO]     | [PRO]     |
 | Source                 | [GitHub][src]  | Included  | Included  |
 | **Price**              | **Free**       | **$69**   | **$169**  |
-| | [**Download**][kit] <br/>-- or --<br/> [**Deploy to Netlify**][nfy] | [**Buy PRO**][buy] |
+| | [**Download**][kit] <br/>-- or --<br/> [**Deploy to Netlify**][nfy] | [**Buy PRO**][buy] | [**Buy PRO+**][buy] |
 
 
 
@@ -146,7 +150,7 @@ The table below shows what's included in each version:
 | License                | [GPL-3.0][lic] | [PRO]     | [PRO]     |
 | Source                 | [GitHub][src]  | Included  | Included  |
 | **Price**              | **Free**       | **$69**   | **$169**  |
-| | [**Download**][kit] <br/>-- or --<br/> [**Deploy to Netlify**][nfy] | [**Buy PRO**][buy] |
+| | [**Download**][kit] <br/>-- or --<br/> [**Deploy to Netlify**][nfy] | [**Buy PRO**][buy] | [**Buy PRO+**][buy] |
 
 
 [^1]: You MAY open an issue on GitHub, but no response and/or fix is guaranteed.
@@ -176,7 +180,7 @@ The table below shows what's included in each version:
 [docs]: docs/README.md
 [ofln]: docs/advanced.md#enabling-offline-support
 
-[kit]: https://github.com/hydecorp/hydejack-starter-kit/archive/v9.0.0-alpha.13.zip
+[kit]: https://github.com/hydecorp/hydejack-starter-kit/archive/v9.0.0-beta.0.zip
 [src]: https://github.com/hydecorp/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://app.simplegoods.co/i/NATYVLYT

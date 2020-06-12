@@ -1,12 +1,10 @@
----
-layout: page
----
+
 
 # CHANGELOG
-{:.no_toc}
 
-* this list will be replaced by the toc
-{:toc .large-only}
+
+
+
 
 ## v9.0.0
 
@@ -63,7 +61,7 @@ layout: page
 
 ## v8.6.0
 November 10 2019
-{:.heading.post-date}
+
 
 * Updated to Jekyll 4.0!
 * Improved font rendering in dark mode for macOS
@@ -84,7 +82,7 @@ Development has moved to v9
 
 ## v8.5.2
 August 31 2019
-{:.heading.post-date}
+
 
 * Fixed breaking builds due to name collision when upgrading to 8.5
   This is caused when using both `_plugins/jekyll-replace-imgs` and the new `jekyll-replace-img` ruby gem.
@@ -95,13 +93,13 @@ August 31 2019
 
 ## v8.5.1
 Aug 1 2019
-{:.heading.post-date}
+
 
 * Fixed minification bug
 
 ## v8.5.0
 Aug 1 2019
-{:.heading.post-date}
+
 
 ### Changed
 * [PRO] The theme now matches the operating system's dark mode.
@@ -128,7 +126,7 @@ Aug 1 2019
 
 ## v8.4.0
 Mar 9 2019
-{:.heading.post-date}
+
 
 * Added support for `noindex` property in the front matter
 * Fixed ordering of selected projects/post in welcome layout
@@ -136,7 +134,7 @@ Mar 9 2019
 
 ## v8.3.0
 Feb 18 2019
-{:.heading.post-date}
+
 
 This version adds new options to increase production build speed. Read [this post](hydejack/_posts/2019-02-18-improving-site-build-speed.md) for details.
 
@@ -150,7 +148,7 @@ This version adds new options to increase production build speed. Read [this pos
 
 ## v8.2.0
 Feb 1 2019
-{:.heading.post-date}
+
 
 * Added support for custom `related_posts`
 * Removed footer from print layout
@@ -161,7 +159,7 @@ Feb 1 2019
 
 ## v8.1.1
 Sep 1 2018
-{:.heading.post-date}
+
 
 ### Fixes
 * Fixed an issue that prevented the drawer from working on iOS 10.
@@ -171,7 +169,7 @@ Sep 1 2018
 
 ## v8.1.0
 Aug 18 2018
-{:.heading.post-date}
+
 
 This release adds Dark Mode for Hydejack PRO customers.
 
@@ -204,7 +202,7 @@ As software licenses go, nobody is stopping you from using the old code, but upd
 
 ## v8.0.0
 Jul 16 2018
-{:.heading.post-date}
+
 
 So far Hydejack has been a decent Jekyll theme, but with v8 it really starts stand out among the competition: Beautiful and unique landing pages, lazy-loading images, and experimental offline support are just the most prominent new features.
 
@@ -257,7 +255,7 @@ So far Hydejack has been a decent Jekyll theme, but with v8 it really starts sta
 ### Added
 * Pages can now have the `cover` key in the front matter.
   When set to `true`, the sidebar will be opened when visiting the page directly.
-  E.g. <https://hydejack.com/>{:.no-push-state}
+  E.g. <https://hydejack.com/>
 
 * Added a `_plugin` that automatically replaces `<img>` tags with lazy-loading `<hy-img>` tags. If you don't want images to load lazily, delete or rename the `_plugins` folder.
   Note that this plugin will never run when building the site on GitHub Pages.
@@ -265,7 +263,7 @@ So far Hydejack has been a decent Jekyll theme, but with v8 it really starts sta
   To get the most out of this plugin, it is recommended to provide the width and height of the image, e.g.
 
   ~~~md
-  ![Some image](assets/img/some-img.png){:width="800" height="600"}
+  ![Some image](assets/img/some-img.png)
   ~~~
 
   This will cause hy-img to render a placeholder of 800 by 600 `px`, preventing the document height from changing after the image has finished loading.
@@ -276,9 +274,9 @@ So far Hydejack has been a decent Jekyll theme, but with v8 it really starts sta
 * Added the `figure` CSS class, which allows images to have nicer-looking captions. E.g.
 
   ~~~md
-  ![An image with a caption](https://placehold.it/800x50){:.lead}
+  ![An image with a caption](https://placehold.it/800x50)
   A caption to an image.
-  {:.figure}
+  
   ~~~
 
 * Clicking on a footnote will give its corresponding text a subtle highlight.
@@ -293,7 +291,7 @@ So far Hydejack has been a decent Jekyll theme, but with v8 it really starts sta
 
 ## v7.5.1
 Apr 2 2018
-{:.heading.post-date}
+
 
 ### Changed
 * Moved from browserify to webpack
@@ -303,7 +301,7 @@ Apr 2 2018
 
 ## v7.5.0
 Dec 18 2017
-{:.heading.post-date}
+
 
 ### Added
 * Added secondary `legal` nav in footer:
@@ -357,7 +355,7 @@ Dec 18 2017
 
 ## v7.4.2
 Dec 1 2017
-{:.heading.post-date}
+
 
 ### Fixed
 * Dramatically improved resume print layout.
@@ -367,7 +365,7 @@ Dec 1 2017
 
 ## v7.4.1
 Nov 27 2017
-{:.heading.post-date}
+
 
 ### Fixed
 * Fixed storing user-related data before accepting cookies.
@@ -381,7 +379,7 @@ Nov 27 2017
 
 ## v7.4.0
 Nov 25 2017
-{:.heading.post-date}
+
 
 ### Added
 * Allow markdown in copyright string
@@ -424,7 +422,7 @@ Nov 25 2017
 
 ## v7.3.0
 Nov 17 2017
-{:.heading.post-date}
+
 
 ### Added
 * Allow markdown content on `projects` layout.
@@ -438,7 +436,7 @@ Nov 17 2017
 
 ## v7.2.0
 Nov 13 2017
-{:.heading.post-date}
+
 
 ### Added
 * Added `_sass/my-variables.scss` file, which you can use to selectively override SCSS variables.
@@ -460,14 +458,14 @@ Nov 13 2017
 
 ## v7.1.1
 Nov 3 2017
-{:.heading.post-date}
+
 
 ### Fixes
 * Fix IE11 feature detection
 
 ## v7.1.0
 Nov 2 2017
-{:.heading.post-date}
+
 
 ### Changed
 * Renamed `no_description` to `hide_description`.
@@ -490,7 +488,7 @@ Nov 2 2017
 
 ## v7.0.1
 Oct 27 2017
-{:.heading.post-date}
+
 
 ### Fixes
 * Removed readme files from `assets` that would show up as pages when building on GitHub Pages [#42](https://github.com/hydecorp/hydejack/issues/42).
@@ -505,13 +503,13 @@ Oct 27 2017
 
 ## v7.0.0
 Oct 24 2017
-{:.heading.post-date}
+
 
 ### License Change
 The *free version* of Hydejack is now [GPL-3.0] licensed, which is a more restrictive license than MIT (but still *Open Source*).
 This was necessary because the two major components that make up Hydejack,
-[hy-push-state](https://hydecorp.github.io/hy-push-state/){:.external} and
-[hy-drawer](https://hydecorp.github.io/hy-drawer/){:.external},
+[hy-push-state](https://hydecorp.github.io/hy-push-state/) and
+[hy-drawer](https://hydecorp.github.io/hy-drawer/),
 are now GPL licensed in turn.
 
 How will this affect you?
@@ -738,7 +736,7 @@ That being said, you should be aware of these (small) breaking changes:
 * Category and tag pages can now have arbitrary content (to be shown *above* the list).
 
 * Links can now be marked for FLIP animations by adding the `flip-title` class. Use this for links that have
-  the exact same text as the title of the page they are linking, e.g. `[NOTICE](NOTICE.md){:.heading.flip-title}`.
+  the exact same text as the title of the page they are linking, e.g. `[NOTICE](NOTICE.md)`.
 
 
 ### Performance
@@ -804,7 +802,7 @@ That being said, you should be aware of these (small) breaking changes:
 
 ## v6.6.1
 Aug 10 2017
-{:.heading.post-date}
+
 
 * Fixed sending incorrect paths to Google Analytics.
   In previous versions, Hydejack would always send the URL of the initial page for all subsequent page views.
@@ -813,7 +811,7 @@ Aug 10 2017
 
 ## v6.6.0
 Aug 7 2017
-{:.heading.post-date}
+
 
 * Dependencies from external domains have been removed
   (with the exception of those that are explicitly defined and optional: Google Analytics, Google Fonts and Disqus).
@@ -832,7 +830,7 @@ Aug 7 2017
 
 ## v6.5.0
 Jul 27 2017
-{:.heading.post-date}
+
 
 This maintenance release includes various quality-of-life improvements when using the gem-based version of the theme.
 
@@ -928,13 +926,13 @@ To remove the border radius, open (or create) `_sass/my-inline.scss` and add the
 
 ## v6.4.1
 Jun 23 2017
-{:.heading.post-date}
+
 
 * Fix invalid color hex
 
 ## v6.4.0
 Jun 21 2017
-{:.heading.post-date}
+
 
 In this release I've added a "Other Projects" section to the bottom of each project page,
 making it easier for users to navigate through your collection and discover other projects.
@@ -969,7 +967,7 @@ Specifically, the semantics of the resume layout have been improved.
 
 ## v6.3.0
 Jun 6 2017
-{:.heading.post-date}
+
 
 This release makes including third party plugins easier.
 Until now, the push state approach to loading new pages has been interfering with embedded `script` tags.
@@ -995,7 +993,7 @@ If an issue can't be resolved, there's now the option to disable push state by s
 
 ## v6.2.0
 May 29 2017
-{:.heading.post-date}
+
 
 * Changed default color and image
 * Updated demo content
@@ -1007,14 +1005,14 @@ May 29 2017
 
 ## v6.1.1
 May 23 2017
-{:.heading.post-date}
+
 
 * Add support for `lang` in front matter and `_config.yml`.
 * Add support for `keywords` in front matter and `_config.yml`.
 
 ## v6.1.0
 May 15 2017
-{:.heading.post-date}
+
 
 * Updated JS dependencies
 * Added version history and licenses to documentation
@@ -1022,7 +1020,7 @@ May 15 2017
 
 ## v6.0.0 (JavaScripten)
 May 3 2017
-{:.heading.post-date}
+
 
 Hydejack has always featured a JavaScript-heavy sidebar, but other than that, JS has been used sparingly. This changes with this release, which adds a ton of (optional) code that changes the feel of the theme dramatically.
 
@@ -1069,7 +1067,7 @@ See the [the migration guide][migration] for instructions on how to upgrade.
 
 ## v5.3.0
 Oct 1 2016
-{:.heading.post-date}
+
 
 a11y improvements
 - Use HTML5 semantics tags + roles
@@ -1082,13 +1080,13 @@ Math support improvements
 
 ## v5.2.0
 Sep 29 2016
-{:.heading.post-date}
+
 
 Prevent structural FOUC
 
 ## v5.1.0
 Sep 28 2016
-{:.heading.post-date}
+
 
 Cross-browser compatibility improvements:
 - Added features tests
@@ -1097,7 +1095,7 @@ Cross-browser compatibility improvements:
 
 ## v5.0.0 (The Fast One)
 Sep 16 2016
-{:.heading.post-date}
+
 
 This major release increases page load speed dramatically. The page now scores roughly 90/100 on [Google's PageSpeed Insights](https://developers.google.com/speed/pagespeed/insights/?url=http%3A%2F%2Fqwtel.com%2Fhydejack%2F) (up from ~50) and has a high score on similar tools.
 
@@ -1125,13 +1123,13 @@ Not strictly part of the release, but the images have been blurred to increase t
 
 ## v4.0.1
 Sep 11 2016
-{:.heading.post-date}
+
 
 Fix per-page color and image
 
 ## v4.0.0 (Social Media Impocalypse)
 Aug 30 2016
-{:.heading.post-date}
+
 
 ### Breaking
 - Structure of `_config.yml` has changed
@@ -1157,7 +1155,7 @@ Aug 30 2016
 
 ## v3.0.0 (Hydejack)
 May 7 2016
-{:.heading.post-date}
+
 
 Hydejack is a pretentious two-column [Jekyll](http://jekyllrb.com) theme, stolen by [`@qwtel`](https://twitter.com/qwtel) from [Hyde](http://hyde.getpoole.com). You could say it was.. [hydejacked](http://media3.giphy.com/media/makedRIckZBW8/giphy.gif).
 
@@ -1176,11 +1174,11 @@ Features include:
 
 ## v2.0.0 (Hyde)
 Jan 2 2014
-{:.heading.post-date}
+
 
 ## v1.0.0 (Hyde)
 Oct 15 2013
-{:.heading.post-date}
+
 
 [tag]: http://www.minddust.com/post/tags-and-categories-on-github-pages/
 [migration]: docs/upgrade.md
