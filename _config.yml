@@ -51,31 +51,6 @@ font_heading:          Roboto Slab, Helvetica, Arial, sans-serif
 # The font used for code blocks. Expects a string that is a valid CSS font-family value.
 font_code:             Fira Code, Menlo, Monaco, Consolas, monospace;
 
-defaults:
-  # Don't include documents in assets in the sitemap
-  - scope:
-      path:            assets/
-    values:
-      sitemap:         false
-
-  # `jekyll-seo-tag` will mark collection outputs as `BlogPosting`,
-  # but we want them to be `WebPage`s:
-  - scope:
-      type:            projects
-    values:
-      seo:
-        type:          WebPage
-  - scope:
-      type:            featured_categories
-    values:
-      seo:
-        type:          WebPage
-  - scope:
-      type:            featured_tags
-    values:
-      seo:
-        type:          WebPage
-
 
 # Hydejack Settings
 # ----------------------------------------------------------------------------------------
@@ -198,11 +173,6 @@ relative_links:
 titles_from_headings:
   strip_title:         true
   collections:         true
-
-kramdown:
-  footnote_backlink:   '&#x21a9;&#xfe0e;'
-  math_engine:         katex
-  math_engine_opts:    {}
 
 compress_html:
   comments:            ["<!-- ", " -->"]
