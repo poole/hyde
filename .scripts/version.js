@@ -9,7 +9,7 @@ const vNext = require("../package.json").version;
 const ENC = "utf-8";
 
 const FILES = [
-  "./jekyll-theme-hydejack-pro.gemspec",
+  "./jekyll-theme-hydejack.gemspec",
   "./_includes/body/scripts.html",
   "./_includes/body/footer.html",
   "./_includes/head/styles-inline.html",
