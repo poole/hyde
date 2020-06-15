@@ -80,40 +80,38 @@ import { setupFLIP } from './flip';
   }
 
   function setupAnimationMain(pushStateEl) {
-    const animationMain = importTemplate('_animation-template');
-    pushStateEl.parentNode.insertBefore(animationMain, pushStateEl);
-    return pushStateEl.previousElementSibling;
+    pushStateEl?.parentNode?.insertBefore(importTemplate('_animation-template'), pushStateEl);
+    return pushStateEl?.previousElementSibling;
   }
 
   function setupLoading(navbarEl) {
-    const loading = importTemplate('_loading-template');
-    navbarEl.appendChild(loading);
-    return navbarEl.lastElementChild;
+    navbarEl?.appendChild(importTemplate('_loading-template'));
+    return navbarEl?.lastElementChild;
   }
 
-  function setupErrorPage(main, { pathname }) {
+  function setupErrorPage(main, url) {
+    const { pathname } = url
     const error = importTemplate('_error-template');
-    const anchor = error.querySelector('.this-link');
+    const anchor = error?.querySelector('.this-link');
     if (anchor) {
       anchor.href = pathname;
       anchor.textContent = pathname;
     }
-    main.appendChild(error);
-    return main.lastElementChild;
+    main?.appendChild(error);
+    return main?.lastElementChild;
   }
 
-  function importButton() {
+  function importBackButton() {
     const button = importTemplate('_back-template');
-    const buttonEl = button.children[0];
-    button.querySelector('.nav-btn').addEventListener('click', () => window.history.back());
+    const buttonEl = button?.children[0];
+    button?.querySelector('.nav-btn')?.addEventListener('click', () => window.history.back());
     return buttonEl;
   }
 
   function getFlipType(el) {
-    if (!el || !el.classList) return null;
-    if (el.classList.contains('flip-title')) return 'title';
-    if (el.classList.contains('flip-project')) return 'project';
-    return el.getAttribute && el.getAttribute('data-flip');
+    if (el?.classList.contains('flip-title')) return 'title';
+    if (el?.classList.contains('flip-project')) return 'project';
+    return el?.getAttribute?.('data-flip');
   }
 
   function animateFadeOut({ main }) {
@@ -125,6 +123,8 @@ import { setupFLIP } from './flip';
   }
 
   const pushStateEl = document.querySelector('hy-push-state');
+  if (!pushStateEl) return;
+
   const drawerEl = document.querySelector('hy-drawer');
   const navbarEl = document.querySelector(NAVBAR_SEL);
   const canonicalEl = document.querySelector(CANONICAL_SEL);
@@ -133,22 +133,23 @@ import { setupFLIP } from './flip';
   const animationMain = setupAnimationMain(pushStateEl);
   const loading = setupLoading(navbarEl);
 
-  const standaloneMQ = window.matchMedia(MQ_STANDALONE);
-  const standalone = !!navigator.standalone || standaloneMQ.matches;
-  const standalone$ = fromMediaQuery(standaloneMQ).pipe(
-    map((e) => e.matches),
-    startWith(standalone),
-  );
-
-  const backBtnEl = importButton();
-  standalone$
-    .pipe(
-      tap((matches) => {
-        if (matches) navbarEl.prepend(backBtnEl);
-        else if (backBtnEl.parentNode === navbarEl) navbarEl.removeChild(backBtnEl);
-      }),
-    )
-    .subscribe();
+  const backBtnEl = importBackButton();
+  if (navbarEl && backBtnEl) {
+    const standaloneMQ = window.matchMedia(MQ_STANDALONE);
+    const standalone = !!navigator.standalone || standaloneMQ.matches;
+    const standalone$ = fromMediaQuery(standaloneMQ).pipe(
+      map((e) => e.matches),
+      startWith(standalone),
+    );
+    standalone$
+      .pipe(
+        tap((matches) => {
+          if (matches) navbarEl.prepend(backBtnEl);
+          else if (backBtnEl.parentNode === navbarEl) navbarEl.removeChild(backBtnEl);
+        }),
+      )
+      .subscribe();
+  }
 
   const fromEventX = (eventName, mapFn) =>
     fromEvent(pushStateEl, eventName).pipe(
@@ -170,29 +171,29 @@ import { setupFLIP } from './flip';
     tap(({ main }) => {
       main.style.pointerEvents = 'none';
     }),
-    window._noDrawer && drawerEl.classList.contains('cover')
+    window._noDrawer && drawerEl?.classList.contains('cover')
       ? tap(() => {
           drawerEl.classList.remove('cover');
-          drawerEl.parentNode.appendChild(drawerEl);
+          drawerEl.parentNode?.appendChild(drawerEl);
         })
       : (_) => _,
-    exhaustMap((ctx) => animateFadeOut(ctx, drawerEl)),
+    exhaustMap(animateFadeOut),
     tap(({ main }) => empty.call(main)),
     share(),
   );
 
-  progress$.subscribe(() => (loading.style.display = 'flex'));
+  progress$.subscribe(() => { if (loading) loading.style.display = 'flex' });
 
   ready$.pipe(startWith({ replaceEls: [document.getElementById('_main')] })).subscribe(({ replaceEls: [main] }) => {
     main.querySelectorAll(HEADING_SELECTOR).forEach(upgradeHeading);
-    loading.style.display = 'none';
+    if (loading) loading.style.display = 'none';
 
     const toc = main.querySelector('#markdown-toc');
     if (toc) toc.classList.add('toc-hide');
 
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
       .map((el) => el.children[0])
-      .filter((el) => el && CODE_TITLE_REX.test(el.innerText))
+      .filter((el) => CODE_TITLE_REX.test(el?.innerText))
       .forEach((el) => {
         const [, fileName] = CODE_TITLE_REX.exec(el.innerText);
 
@@ -214,12 +215,10 @@ import { setupFLIP } from './flip';
     if ('complete' in HTMLImageElement.prototype) {
       main.querySelectorAll('img[width][height][loading=lazy]').forEach((el) => {
         if (!el.complete) {
-          el.style.opacity = 0;
+          el.style.opacity = '0';
           el.addEventListener(
             'load',
-            () => {
-              el.style.opacity = 1;
-            },
+            () => { el.style.opacity = '' },
             { once: true },
           );
         }
@@ -256,7 +255,7 @@ import { setupFLIP } from './flip';
       main
         .querySelectorAll(FN_LINK_SEL)
         .forEach((a) =>
-          a.addEventListener('click', (e) => document.getElementById(e.currentTarget.hash.substr(1)).focus()),
+          a.addEventListener('click', (e) => document.getElementById(e.currentTarget.getAttribute('href').substr(1))?.focus()),
         );
 
       main
@@ -287,24 +286,26 @@ import { setupFLIP } from './flip';
   fadeOut$.subscribe();
   flip$.subscribe();
 
-  const crossFader = new CrossFader(FADE_DURATION);
-
-  after$
-    .pipe(
-      switchMap(({ replaceEls: [main] }) =>
-        zip(crossFader.fetchImage(main), fadeIn$, (x) => x).pipe(takeUntil(start$)),
-      ),
-      startWith([document.querySelector('.sidebar-bg')]),
-      pairwise(),
-      mergeMap(([prev, curr]) => crossFader.fade(prev, curr)),
-    )
-    .subscribe();
+  const sidebarBg = document.querySelector('.sidebar-bg');
+  if (sidebarBg) {
+    const crossFader = new CrossFader(FADE_DURATION);
+    after$
+      .pipe(
+        switchMap(({ replaceEls: [main] }) =>
+          zip(crossFader.fetchImage(main), fadeIn$).pipe(map(([x]) => x), takeUntil(start$)),
+        ),
+        startWith([sidebarBg]),
+        pairwise(),
+        mergeMap(([prev, curr]) => crossFader.fade(prev, curr)),
+      )
+      .subscribe();
+  }
 
   fadeIn$
     .pipe(
       startWith({ main: document.getElementById('_main') }),
       tap(({ main }) => {
-        const toc = main.querySelector('#markdown-toc');
+        const toc = main?.querySelector('#markdown-toc');
         if (toc) {
           toc.classList.remove('toc-hide');
           toc.classList.add('toc-show');
@@ -316,11 +317,11 @@ import { setupFLIP } from './flip';
   error$
     .pipe(
       switchMap(({ url }) => {
-        loading.style.display = 'none';
+        if (loading) loading.style.display = 'none';
 
         const main = document.getElementById('_main');
-        main.style.pointerEvents = '';
-        empty.call(animationMain.querySelector('.page'));
+        if (main) main.style.pointerEvents = '';
+        empty.call(animationMain?.querySelector('.page'));
         empty.call(main);
 
         setupErrorPage(main, url);

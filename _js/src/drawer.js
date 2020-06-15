@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { fromEvent, merge, NEVER, combineLatest, Observable } from 'rxjs';
+import { fromEvent, merge, NEVER, combineLatest } from 'rxjs';
 import {
   distinctUntilChanged,
   map,
@@ -76,22 +76,22 @@ import {
   }
 
   // The functions below add an svg graphic to the sidebar
-  // that incidate that the sidebar can be drawn using touch gestures.
-  function setupIcon() {
+  // that indicate that the sidebar can be drawn using touch gestures.
+  function setupIcon(drawerEl) {
     const img = document.getElementById('_hrefSwipeSVG');
     if (img) {
       const svg = document.createElement('img');
       svg.id = '_swipe';
       svg.src = img.href;
       svg.alt = 'Swipe image';
-      svg.addEventListener('click', () => window._drawer.close());
-      document.getElementById('_sidebar').appendChild(svg);
+      svg.addEventListener('click', () => drawerEl.close());
+      document.getElementById('_sidebar')?.appendChild(svg);
     }
   }
 
   function removeIcon() {
     const svg = document.getElementById('_swipe');
-    if (svg) svg.parentNode.removeChild(svg);
+    svg?.parentNode?.removeChild(svg);
   }
 
   const detectSize = () =>
@@ -104,9 +104,11 @@ import {
   // First we get hold of some DOM elements.
   const drawerEl = document.getElementById('_drawer');
   const sidebarEl = document.getElementById('_sidebar');
-  const contentEl = sidebarEl.querySelector('.sidebar-sticky');
+  const contentEl = sidebarEl?.querySelector('.sidebar-sticky');
+  if (!drawerEl || !sidebarEl || !contentEl) return;
 
-  document.getElementById('_menu').addEventListener('click', (e) => {
+
+  document.getElementById('_menu')?.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();
     drawerEl.toggle();
@@ -114,12 +116,12 @@ import {
 
   sidebarEl.querySelectorAll('a[href^="/"]').forEach((el) => el.addEventListener('click', () => drawerEl.close()));
 
-  if (isSafari) drawerEl.setAttribute('threshold', 0);
+  if (isSafari) drawerEl.setAttribute('threshold', '0');
   if (!isMobile) drawerEl.setAttribute('mouseevents', '');
 
-  const [tValue, oValue] = !hasCSSOM
-    ? [null, null]
-    : [new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))]), CSS.number(1)];
+  const [tValue, oValue] = hasCSSOM
+    ? [new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))]), CSS.number(1)]
+    : [null, null];
 
   const updateSidebar = (t, size, distance) => {
     const value = distance * t;
@@ -206,7 +208,7 @@ import {
     () => {
       drawerEl.classList.add('loaded');
 
-      setupIcon();
+      setupIcon(drawerEl);
 
       if (drawerHeight && scrollTop >= drawerHeight) {
         window.scrollTo(0, scrollTop - drawerHeight);

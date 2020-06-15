@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 export {
   getScrollHeight,
   getScrollLeft,
@@ -51,7 +51,9 @@ export const webComponentsReady = new Promise((res) => {
 
 // FIXME: Replace with something more robust!?
 export const stylesheetReady = new Promise(function checkCSS(res, rej, retries = 30) {
-  if (getComputedStyle(document.querySelector('hy-drawer')).getPropertyValue('--hy-drawer-width')) res(true);
+  const drawerEl = document.querySelector('hy-drawer');
+  if (!drawerEl) res(true);
+  else if (getComputedStyle(drawerEl).getPropertyValue('--hy-drawer-width')) res(true);
   else if (retries <= 0) rej(Error('Stylesheet not loaded within 10 seconds'));
   else setTimeout(() => checkCSS(res, rej, retries - 1), 1000 / 3);
 });
@@ -89,21 +91,29 @@ export const unhide = unshow;
 
 // Same as `el.innerHTML = ''`, but not quite so hacky.
 export function empty() {
-  while (this.firstChild) this.removeChild(this.firstChild);
+  while (this?.firstChild) this.removeChild(this.firstChild);
 }
 
-// An observable wrapper for the WebAnimations API.
-// Will return an observable that emits once when the animation finishes.
-export function animate(el, keyframes, options) {
-  return Observable.create((observer) => {
-    const anim = el.animate(keyframes, options);
+/**
+ * An observable wrapper for the WebAnimations API.
+ * Will return an observable that emits once when the animation finishes.
+ * @param {HTMLElement|null} el
+ * @param {AnimationKeyFrame | AnimationKeyFrame[] | null} effect 
+ * @param {number|AnimationEffectTiming} timing 
+ * @returns {Observable<Event>}
+ */
+export function animate(el, effect, timing) {
+  if (!el) return of(new CustomEvent('finish'));
 
-    anim.addEventListener('finish', (e) =>
-      requestAnimationFrame(() => {
-        observer.next(e);
-        requestAnimationFrame(() => observer.complete());
-      }),
-    );
+  return Observable.create((observer) => {
+    const anim = el.animate(effect, timing);
+
+    anim.addEventListener('finish', (e) => {
+      // requestAnimationFrame(() => {
+      observer.next(e);
+      setTimeout(() => observer.complete(), 0);
+      // }),
+    });
 
     return () => {
       if (anim.playState !== 'finished') anim.cancel();
@@ -111,6 +121,10 @@ export function animate(el, keyframes, options) {
   });
 }
 
+/**
+ * @param {string} templateId 
+ * @returns {HTMLElement|null}
+ */
 export function importTemplate(templateId) {
   const template = document.getElementById(templateId);
   return template && document.importNode(template.content, true);
@@ -122,11 +136,11 @@ export const getViewWidth = () => window.innerWidth || body.clientWidth;
 export const getViewHeight = () => window.innerHeight || body.clientHeight;
 
 /**
- * @template Req
- * @template Res
+ * @template Q
+ * @template S
  * @param {Worker} worker
- * @param {Req} message
- * @returns {Promise<Res>}
+ * @param {Q} message
+ * @returns {Promise<S>}
  */
 export function postMessage(worker, message) {
   return new Promise((resolve, reject) => {

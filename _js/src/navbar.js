@@ -22,6 +22,8 @@ import { hasCSSOM, getScrollTop, stylesheetReady } from './common';
   await stylesheetReady;
 
   const navbarEl = document.getElementById('_navbar');
+  if (!navbarEl) return;
+
   // FIXME: update when size changes
   const height = navbarEl.clientHeight;
 
@@ -29,7 +31,7 @@ import { hasCSSOM, getScrollTop, stylesheetReady } from './common';
 
   const tv = hasCSSOM ? new CSSTransformValue([new CSSTranslate(CSS.px(0), CSS.px(0))]) : null;
 
-  const navbarInactive = () => !document.activeElement || !document.activeElement.classList.contains('nav-btn');
+  const checkNavbarInactive = () => !document.activeElement?.classList.contains('nav-btn');
 
   fromEvent(document, 'scroll', { passive: true })
     .pipe(
@@ -37,7 +39,7 @@ import { hasCSSOM, getScrollTop, stylesheetReady } from './common';
       filter((x) => x >= 0),
       pairwise(),
       map(([prev, curr]) => prev - curr),
-      filter(navbarInactive),
+      filter(checkNavbarInactive),
       merge(fromEvent(navbarEl, 'focus', { capture: true }).pipe(mapTo(2 * height))),
       tap((x) => {
         offset += x;
