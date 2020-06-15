@@ -21,6 +21,7 @@ export {
   createIntersectionObservable,
   subscribeWhen,
   fromMediaQuery,
+  fetchRx,
 } from '@hydecorp/component';
 
 const style = getComputedStyle(document.body);

@@ -17,10 +17,9 @@ import { default as Color } from 'color';
 import { default as elemDataset } from 'elem-dataset';
 
 import { empty, of } from 'rxjs';
-import { ajax } from 'rxjs/ajax';
-import { catchError, finalize, map } from 'rxjs/operators';
+import { catchError, finalize, map, switchMap } from 'rxjs/operators';
 
-import { animate } from './common';
+import { animate, fetchRx } from './common';
 
 // Given a dataset, generate some string we can use the check if anything has changed...
 const pseudoHash = ({ background, color, image, overlay }) =>
@@ -30,6 +29,8 @@ const pseudoHash = ({ background, color, image, overlay }) =>
 function isExternal({ protocol, host }, location = window.location) {
   return protocol !== location.protocol || host !== location.host;
 }
+
+const objectURLs = new WeakMap();
 
 export class CrossFader {
   constructor(fadeDuration) {
@@ -50,16 +51,15 @@ export class CrossFader {
       return of(null);
     }
 
-    const url = new URL(image, window.location);
+    const url = new URL(image, window.location.origin);
 
-    return ajax({
+    return fetchRx(url.href, {
       method: 'GET',
-      responseType: 'blob',
-      url,
-      crossDomain: isExternal(url),
       headers: { Accept: 'image/*' },
+      ...isExternal(url) ? { mode: 'cors' } : {},
     }).pipe(
-      map(({ response }) => URL.createObjectURL(response)),
+      switchMap(r => r.blob()),
+      map(blob => URL.createObjectURL(blob)),
       catchError(() => of(image)),
     );
   }
@@ -89,7 +89,7 @@ export class CrossFader {
           div.style.backgroundColor = color;
           if (objectURL) {
             div.style.backgroundImage = `url(${objectURL})`;
-            div.objectURL = objectURL; // HACK: Store objectURL on DOM node for later revocation
+            objectURLs.set(div, objectURL); // HACK: Store objectURL on DOM node for later revocation
           }
         }
 
@@ -160,7 +160,7 @@ export class CrossFader {
       easing: 'ease',
     }).pipe(
       finalize(() => {
-        if (prevDiv.objectURL) URL.revokeObjectURL(prevDiv.objectURL);
+        if (objectURLs.has(prevDiv)) URL.revokeObjectURL(objectURLs.get(prevDiv));
         prevDiv.parentNode.removeChild(prevDiv);
       }),
     );
