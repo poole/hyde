@@ -107,7 +107,6 @@ import {
   const contentEl = sidebarEl?.querySelector('.sidebar-sticky');
   if (!drawerEl || !sidebarEl || !contentEl) return;
 
-
   document.getElementById('_menu')?.addEventListener('click', (e) => {
     e.preventDefault();
     e.stopPropagation();

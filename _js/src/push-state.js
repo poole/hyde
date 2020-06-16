@@ -90,7 +90,7 @@ import { setupFLIP } from './flip';
   }
 
   function setupErrorPage(main, url) {
-    const { pathname } = url
+    const { pathname } = url;
     const error = importTemplate('_error-template');
     const anchor = error?.querySelector('.this-link');
     if (anchor) {
@@ -182,7 +182,9 @@ import { setupFLIP } from './flip';
     share(),
   );
 
-  progress$.subscribe(() => { if (loading) loading.style.display = 'flex' });
+  progress$.subscribe(() => {
+    if (loading) loading.style.display = 'flex';
+  });
 
   ready$.pipe(startWith({ replaceEls: [document.getElementById('_main')] })).subscribe(({ replaceEls: [main] }) => {
     main.querySelectorAll(HEADING_SELECTOR).forEach(upgradeHeading);
@@ -218,7 +220,9 @@ import { setupFLIP } from './flip';
           el.style.opacity = '0';
           el.addEventListener(
             'load',
-            () => { el.style.opacity = '' },
+            () => {
+              el.style.opacity = '';
+            },
             { once: true },
           );
         }
@@ -255,7 +259,9 @@ import { setupFLIP } from './flip';
       main
         .querySelectorAll(FN_LINK_SEL)
         .forEach((a) =>
-          a.addEventListener('click', (e) => document.getElementById(e.currentTarget.getAttribute('href').substr(1))?.focus()),
+          a.addEventListener('click', (e) =>
+            document.getElementById(e.currentTarget.getAttribute('href').substr(1))?.focus(),
+          ),
         );
 
       main
@@ -292,7 +298,10 @@ import { setupFLIP } from './flip';
     after$
       .pipe(
         switchMap(({ replaceEls: [main] }) =>
-          zip(crossFader.fetchImage(main), fadeIn$).pipe(map(([x]) => x), takeUntil(start$)),
+          zip(crossFader.fetchImage(main), fadeIn$).pipe(
+            map(([x]) => x),
+            takeUntil(start$),
+          ),
         ),
         startWith([sidebarBg]),
         pairwise(),

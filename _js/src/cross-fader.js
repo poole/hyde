@@ -56,10 +56,10 @@ export class CrossFader {
     return fetchRx(url.href, {
       method: 'GET',
       headers: { Accept: 'image/*' },
-      ...isExternal(url) ? { mode: 'cors' } : {},
+      ...(isExternal(url) ? { mode: 'cors' } : {}),
     }).pipe(
-      switchMap(r => r.blob()),
-      map(blob => URL.createObjectURL(blob)),
+      switchMap((r) => r.blob()),
+      map((blob) => URL.createObjectURL(blob)),
       catchError(() => of(image)),
     );
   }

@@ -98,8 +98,8 @@ export function empty() {
  * An observable wrapper for the WebAnimations API.
  * Will return an observable that emits once when the animation finishes.
  * @param {HTMLElement|null} el
- * @param {AnimationKeyFrame | AnimationKeyFrame[] | null} effect 
- * @param {number|AnimationEffectTiming} timing 
+ * @param {AnimationKeyFrame | AnimationKeyFrame[] | null} effect
+ * @param {number|AnimationEffectTiming} timing
  * @returns {Observable<Event>}
  */
 export function animate(el, effect, timing) {
@@ -122,7 +122,7 @@ export function animate(el, effect, timing) {
 }
 
 /**
- * @param {string} templateId 
+ * @param {string} templateId
  * @returns {HTMLElement|null}
  */
 export function importTemplate(templateId) {
