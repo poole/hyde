@@ -1,11 +1,11 @@
 ---
-title: 'HTML projects: Youtube page'
-date: 2020-06-08T09:35:34+00:00
+title: 'HTML project: Sign up page'
+date: 2020-06-05
 author: avic
 layout: page
 permalink: /html-sign-up-form-page/
 --- 
-<img src="/public/2020/html-youtube-clone-main-image.jpg">
+<img src="https://raw.githubusercontent.com/avicndugu/practice-projects-html/master/screenshots/screencapture-ikraamg-github-io-Mint-SignUp-Replica-2020-04-02-14_16_27.jpg">
 <ul>
   <li>
     Knowledge required: HTML only
@@ -14,7 +14,7 @@ permalink: /html-sign-up-form-page/
     Difficulty: Beginner friendly.
   </li>
   <li>
-    Estimate project completion time: 2 hours
+    Estimate project completion time: 4 hours
   </li>
 </ul>
 
@@ -25,36 +25,45 @@ permalink: /html-sign-up-form-page/
 </p>
 <ol>
   <li>
-    Adding different types of text like headings, lists, and links to a website.
+    Adding a company's logo image and relevant buttons.
+  </li>
+  <li>
+    Adding input elements to collect user information during sign up.
+  </li>
+  <li>
+    Adding different types of text like headings, paragraphs and links to a webpage.
   </li>
   <li>
     Changing emphasis on text using bold and italics.
   </li>
-  <li>
-    Adding an image on a web page and image captions.
-  </li>
 </ol>
 
-## Main components of Youtube Webpage 
+## Main components of Sign up form Webpage 
 You must include the following parts in your completed project:
 <ol>
   <li>
-    You must include a search bar on the top part of the Youtube's page.
+    You must include a logo on the top part of the signup page.
   </li>
   <li>
-    You should include an iframe of the Youtube Video on the page.
+    You should include atleast two inputs: one for the email and the other one for password. You can add additional ones for name and phone number.
   </li>
   <li>
-    You included the title of the video.
+    You must also include a submit button that is used to send the information to a server.
   </li>
-</ol>  The final project should look like this:
-  <img src="https://raw.githubusercontent.com/avicndugu/practice-projects-html/master/screenshots/screencapture-ikraamg-github-io-Mint-SignUp-Replica-2020-04-02-14_16_27.jpg">View full size image</a>
+  <li>
+    You must include some links to another page of the website e.g. privacy policy or login page.
+  </li>
+</ol>
+
+  The final project should look like this:
+  <a href="https://raw.githubusercontent.com/avicndugu/practice-projects-html/master/screenshots/screencapture-ikraamg-github-io-Mint-SignUp-Replica-2020-04-02-14_16_27.jpg">View full size image</a>
+
 ##  Bonus practice
 <ol>
   <li>
     Create a <a href="/html-project-wikipedia/">HTML-only Wikipedia page</a>
   </li>
   <li>
-    Create a <a href="https://learn.avicndugu.com/html-projects-tribute-page/">HTML-only Tribute Page</a>
+    Create a <a href="/html-projects-tribute-page/">HTML-only Tribute Page</a>
   </li>
 </ol>
