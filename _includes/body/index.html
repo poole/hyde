@@ -6,14 +6,10 @@
   duration="250"
   hashchange
 >
+  {% if page.cover %}{% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}{% endif %}
   {% include_cached body/menu.html %}
-  {% if page.cover %}
-    {% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}
-    {% include body/main.html %}
-  {% else %}
-    {% include body/main.html %}
-    {% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}
-  {% endif %}
+  {% include body/main.html %}
+  {% unless page.cover %}{% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}{% endunless %}
 </hy-push-state>
 
 {% unless page.redirect %}
