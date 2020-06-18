@@ -7,3 +7,7 @@
   w._noSearch = {{    site.hydejack.no_search     | default:false }};
 }(window);
 </script>
+
+{% if site.kramdown.math_engine == 'mathjax' %}
+<script async src="{{ 'assets/bower_components/MathJax/es5/tex-mml-chtml.js' | relative_url }}"></script>
+{% endif %}

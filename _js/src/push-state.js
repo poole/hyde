@@ -25,6 +25,7 @@ import {
   startWith,
   switchMap,
   takeUntil,
+  concatMap,
 } from 'rxjs/operators';
 
 import { animate, empty, importTemplate, webComponentsReady, show, hide, fromMediaQuery } from './common';
@@ -50,7 +51,7 @@ import { setupFLIP } from './flip';
   const META_DESC_SEL = 'meta[name=description]';
   const FN_SEL = "li[id^='fn:']";
   const FN_LINK_SEL = "a[href^='#fn:']";
-  const HORIZONTAL_SCROLL_SEL = 'pre, table:not(.highlight), .katex-display, .break-layout';
+  const HORIZONTAL_SCROLL_SEL = 'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
   const CODE_BLOCK_SEL = 'pre.highlight > code';
   const CODE_TITLE_REX = /(?:title|file):\s*['"`](.*)['"`]/i;
   const MQ_STANDALONE = '(display-mode: standalone)';
@@ -246,30 +247,32 @@ import { setupFLIP } from './flip';
         replaceEls: [document.getElementById('_main')],
         documentFragment: document,
       }),
+      tap(({ replaceEls: [main], documentFragment }) => {
+        const cEl = documentFragment.querySelector(CANONICAL_SEL);
+        if (canonicalEl && cEl) canonicalEl.href = cEl.href;
+
+        const mEl = documentFragment.querySelector(META_DESC_SEL);
+        if (metaDescEl && mEl) metaDescEl.content = mEl.content;
+
+        main.querySelectorAll(FN_SEL).forEach((li) => (li.tabIndex = 0));
+
+        main
+          .querySelectorAll(FN_LINK_SEL)
+          .forEach((a) =>
+            a.addEventListener('click', (e) =>
+              document.getElementById(e.currentTarget.getAttribute('href').substr(1))?.focus(),
+            ),
+          );
+
+        main
+          .querySelectorAll(HORIZONTAL_SCROLL_SEL)
+          .forEach((el) =>
+            el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
+          );
+      }),
+      'MathJax' in window ? concatMap(() => MathJax.typesetPromise()) : _ => _,
     )
-    .subscribe(({ replaceEls: [main], documentFragment }) => {
-      const cEl = documentFragment.querySelector(CANONICAL_SEL);
-      if (canonicalEl && cEl) canonicalEl.href = cEl.href;
-
-      const mEl = documentFragment.querySelector(META_DESC_SEL);
-      if (metaDescEl && mEl) metaDescEl.content = mEl.content;
-
-      main.querySelectorAll(FN_SEL).forEach((li) => (li.tabIndex = 0));
-
-      main
-        .querySelectorAll(FN_LINK_SEL)
-        .forEach((a) =>
-          a.addEventListener('click', (e) =>
-            document.getElementById(e.currentTarget.getAttribute('href').substr(1))?.focus(),
-          ),
-        );
-
-      main
-        .querySelectorAll(HORIZONTAL_SCROLL_SEL)
-        .forEach((el) =>
-          el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
-        );
-    });
+    .subscribe();
 
   const fadeIn$ = after$.pipe(switchMap(animateFadeIn), share());
 

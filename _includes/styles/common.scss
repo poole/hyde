@@ -58,3 +58,9 @@ h1, h2, h3, h4, h5, h6, .f1, .f2, .f3, .f4, .f5, .f6, .heading { font-family: $f
   }
 }
 {% endunless %}
+
+{% unless site.hydejack.no_break_layout %}
+  .katex-display > .katex, mjx-container[jax][display="true"] { 
+    text-align: left;
+  }
+{% endunless %}

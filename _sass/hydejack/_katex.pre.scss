@@ -15,10 +15,9 @@
 
 // <<<<< LINK
 article {
-  .katex-display {
+  .katex-display, mjx-container[jax][display="true"] {
     @extend .pre-base;
     padding: 2rem;
-    & > .katex { text-align: left; }
   }
 }
 // >>>>>
