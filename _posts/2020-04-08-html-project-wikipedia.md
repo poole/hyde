@@ -1,6 +1,6 @@
 ---
 title: 'Html Project: Wikipedia page'
-date: 2020-04-08T09:35:04+00:00
+date: 2020-05-08T09:35:04+00:00
 author: avic
 layout: post
 permalink: /html-project-wikipedia/
@@ -37,3 +37,4 @@ The final project should look like this:
   1. Create a<a href="/html-projects-youtube-page/"> HTML-only Youtube page clone</a>
   2. Create a [HTML-only Tribute Page](/html-projects-tribute-page/)
   3. Create a [HTML-only Google Search Result page](/html-projects-google-search-result/)
+  4. Create a <a href="/html-sign-up-form-page/">HTML-only Signup form page</a>

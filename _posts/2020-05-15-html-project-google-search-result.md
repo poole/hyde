@@ -64,4 +64,7 @@ The final project should look like this:
   <li>
     Create a <a href="/html-projects-youtube-page/">HTML only Youtube page</a>
   </li>
+  <li>
+    Create a <a href="/html-sign-up-form-page/">HTML only signup form</a>
+  </li>
 </ol>

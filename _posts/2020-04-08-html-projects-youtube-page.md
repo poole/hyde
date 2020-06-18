@@ -61,4 +61,8 @@ You must include the following parts in your completed project:
   <li>
     Create a <a href="/html-projects-google-search-result/">HTML-only Google Search Result page</a>
   </li>
+  <li>
+    Create a <a href="/html-sign-up-form-page/">HTML-only Signup form page</a>
+  </li>
+
 </ol>

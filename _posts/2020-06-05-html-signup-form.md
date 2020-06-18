@@ -1,5 +1,5 @@
 ---
-title: 'HTML project: Sign up page'
+title: 'HTML project: Signup Form page'
 date: 2020-06-05
 author: avic
 layout: page
@@ -66,4 +66,10 @@ You must include the following parts in your completed project:
   <li>
     Create a <a href="/html-projects-tribute-page/">HTML-only Tribute Page</a>
   </li>
+  <li>
+      Create a <a href="/html-projects-youtube-page/">html only Youtube page clone</a>.
+  </li>
+  <li>
+      Create a <a href="/html-projects-google-search-result/">HTML-only Google Search Result page</a>
+    </li>
 </ol>
