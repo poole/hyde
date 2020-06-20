@@ -6,5 +6,5 @@ vendor
 .jekyll-cache
 *.gem
 
-#<removed/js>
-#<removed/css>
+/assets/js/*hydejack-*
+/_sass/*/__*__/*
