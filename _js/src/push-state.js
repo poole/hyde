@@ -51,7 +51,8 @@ import { setupFLIP } from './flip';
   const META_DESC_SEL = 'meta[name=description]';
   const FN_SEL = "li[id^='fn:']";
   const FN_LINK_SEL = "a[href^='#fn:']";
-  const HORIZONTAL_SCROLL_SEL = 'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
+  const HORIZONTAL_SCROLL_SEL =
+    'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
   const CODE_BLOCK_SEL = 'pre.highlight > code';
   const CODE_TITLE_REX = /(?:title|file):\s*['"`](.*)['"`]/i;
   const MQ_STANDALONE = '(display-mode: standalone)';
@@ -270,7 +271,7 @@ import { setupFLIP } from './flip';
             el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
           );
       }),
-      'MathJax' in window ? concatMap(() => MathJax.typesetPromise()) : _ => _,
+      'MathJax' in window ? concatMap(() => MathJax.typesetPromise()) : (_) => _,
     )
     .subscribe();
 
