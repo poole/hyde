@@ -1,8 +1,10 @@
+
+
+{% assign assets_url = "/assets/" | relative_url %}
 <hy-push-state
   id="_pushState"
   replace-selector="#_main"
-  link-selector="a[href]:not([href*='/assets/']):not(.external):not(.no-push-state)"
-  script-selector="script:not([type^='math/tex'])"
+  link-selector="a[href]:not([href^='{{ assets_url }}']):not(.external):not(.no-push-state)"
   duration="250"
   hashchange
 >
