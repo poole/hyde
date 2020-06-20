@@ -57,9 +57,9 @@ import { setupFLIP } from './flip';
   const CODE_TITLE_REX = /(?:title|file):\s*['"`](.*)['"`]/i;
   const MQ_STANDALONE = '(display-mode: standalone)';
 
-  const DURATION = 350;
-
-  const FADE_DURATION = 2000;
+  const DURATION = 400;
+  const CROSS_FADE_DURATION = 2000;
+  const IMG_FADE_DURATION = 500;
 
   const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
 
@@ -222,9 +222,7 @@ import { setupFLIP } from './flip';
           el.style.opacity = '0';
           el.addEventListener(
             'load',
-            () => {
-              el.style.opacity = '';
-            },
+            () => el.animate([{ opacity: 0 }, { opacity: 1 }], { fill: 'forwards', duration: IMG_FADE_DURATION, easing: 'ease' }),
             { once: true },
           );
         }
@@ -298,7 +296,7 @@ import { setupFLIP } from './flip';
 
   const sidebarBg = document.querySelector('.sidebar-bg');
   if (sidebarBg) {
-    const crossFader = new CrossFader(FADE_DURATION);
+    const crossFader = new CrossFader(CROSS_FADE_DURATION);
     after$
       .pipe(
         switchMap(({ replaceEls: [main] }) =>

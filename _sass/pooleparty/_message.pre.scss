@@ -44,5 +44,9 @@
     position: absolute;
     top: 0;
   }
+
+  &[title]:before {
+    content: attr(title)!important;
+  }
 }
 // >>>>>

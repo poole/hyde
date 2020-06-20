@@ -31,11 +31,11 @@
 
 // <<< inline
 .content .avatar {
+  @extend .color-transition;
   float: right;
   box-sizing: content-box;
   border: 1rem solid var(--body-bg);
   transition: border-color 1s ease;
-  margin-left: .5rem;
   margin-top: -1.5rem;
   margin-right: -1rem;
 }

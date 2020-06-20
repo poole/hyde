@@ -44,13 +44,3 @@ figure, .figure {
   margin-top: -0.5rem;
   margin-bottom: 2rem;
 }
-
-img[width][height][loading=lazy] {
-  transition: opacity 500ms ease;
-}
-
-// @keyframes fade-img {
-//   from { opacity: 0; }
-//   to   { opacity: 1; }
-// }
-// >>>
