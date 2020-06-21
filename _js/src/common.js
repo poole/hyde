@@ -155,3 +155,28 @@ export function postMessage(worker, message) {
     worker.postMessage(message, [messageChannel.port2]);
   });
 }
+
+const promisifyLoad = loadFn => href => new Promise(r => loadFn(href).addEventListener('load', r));
+
+/** @type {(href: string) => Promise<Event>} */
+export const loadJS = promisifyLoad(window.loadJS);
+
+/** @type {(href: string) => Promise<Event>} */
+export const loadCSS = promisifyLoad(window.loadCSS);
+
+/**
+ * @param {HTMLElement[]} els 
+ * @param {IntersectionObserverInit} [options]
+ * @returns {Promise<IntersectionObserverEntry>}
+ */
+export function intersectOnce(els, options) {
+  return new Promise((res) => {
+    const io = new IntersectionObserver((entries) => {
+      if (entries.some(x => x.isIntersecting)) {
+        els.forEach(el => io.unobserve(el));
+        res(entries.find(x => x.isIntersecting));
+      }
+    }, options);
+    els.forEach(el => io.observe(el));
+  })
+}

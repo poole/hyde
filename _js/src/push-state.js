@@ -28,7 +28,7 @@ import {
   concatMap,
 } from 'rxjs/operators';
 
-import { animate, empty, importTemplate, webComponentsReady, show, hide, fromMediaQuery } from './common';
+import { animate, empty, importTemplate, webComponentsReady, fromMediaQuery, intersectOnce, loadCSS } from './common';
 import { CrossFader } from './cross-fader';
 import { setupFLIP } from './flip';
 
@@ -245,6 +245,8 @@ import { setupFLIP } from './flip';
       */
   });
 
+  /** @type {Promise|null} */
+  let katexPromise = null;
   after$
     .pipe(
       startWith({
@@ -252,9 +254,9 @@ import { setupFLIP } from './flip';
         documentFragment: document,
       }),
       tap(({ replaceEls: [main], documentFragment }) => {
+        // TODO: Move into hy-push-state
         const cEl = documentFragment.querySelector(CANONICAL_SEL);
         if (canonicalEl && cEl) canonicalEl.href = cEl.href;
-
         const mEl = documentFragment.querySelector(META_DESC_SEL);
         if (metaDescEl && mEl) metaDescEl.content = mEl.content;
 
@@ -273,6 +275,13 @@ import { setupFLIP } from './flip';
           .forEach((el) =>
             el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
           );
+
+        const katexHref = document.getElementById('_katexPreload')?.href;
+        if (!katexPromise && katexHref) {
+          intersectOnce(main.querySelectorAll('.katex'), { rootMargin: '1440px' }).then(() => { 
+            katexPromise = loadCSS(katexHref) 
+          });
+        }
       }),
       'MathJax' in window ? concatMap(() => MathJax.typesetPromise()) : (_) => _,
     )
