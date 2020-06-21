@@ -156,7 +156,7 @@ export function postMessage(worker, message) {
   });
 }
 
-const promisifyLoad = loadFn => href => new Promise(r => loadFn(href).addEventListener('load', r));
+const promisifyLoad = (loadFn) => (href) => new Promise((r) => loadFn(href).addEventListener('load', r));
 
 /** @type {(href: string) => Promise<Event>} */
 export const loadJS = promisifyLoad(window.loadJS);
@@ -165,18 +165,18 @@ export const loadJS = promisifyLoad(window.loadJS);
 export const loadCSS = promisifyLoad(window.loadCSS);
 
 /**
- * @param {ArrayLike<Element>} els 
+ * @param {ArrayLike<Element>} els
  * @param {IntersectionObserverInit} [options]
  * @returns {Promise<IntersectionObserverEntry>}
  */
 export function intersectOnce(els, options) {
   return new Promise((res) => {
     const io = new IntersectionObserver((entries) => {
-      if (entries.some(x => x.isIntersecting)) {
-        els.forEach(el => io.unobserve(el));
-        res(entries.find(x => x.isIntersecting));
+      if (entries.some((x) => x.isIntersecting)) {
+        els.forEach((el) => io.unobserve(el));
+        res(entries.find((x) => x.isIntersecting));
       }
     }, options);
-    els.forEach(el => io.observe(el));
-  })
+    els.forEach((el) => io.observe(el));
+  });
 }

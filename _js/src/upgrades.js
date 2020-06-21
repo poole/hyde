@@ -11,7 +11,7 @@ import { concatMap } from 'rxjs/operators';
   ]);
 
   await stylesheetReady;
-  
+
   const FN_SEL = "li[id^='fn:']";
   const FN_LINK_SEL = "a[href^='#fn:']";
   const HORIZONTAL_SCROLL_SEL =
@@ -26,8 +26,19 @@ import { concatMap } from 'rxjs/operators';
 
   function ready(fn, opts) {
     if (pushStateEl && !window._noPushState) {
-      pushStateEl.addEventListener('hy-push-state-ready', ({ detail: { replaceEls: [main] } }) => fn(main), opts);
-      document.addEventListener('DOMContentLoaded', () => () => fn(document.getElementById('_main')), { ...opts, once: true });
+      pushStateEl.addEventListener(
+        'hy-push-state-ready',
+        ({
+          detail: {
+            replaceEls: [main],
+          },
+        }) => fn(main),
+        opts,
+      );
+      document.addEventListener('DOMContentLoaded', () => () => fn(document.getElementById('_main')), {
+        ...opts,
+        once: true,
+      });
     } else {
       fn(document.getElementById('_main'));
     }
@@ -47,7 +58,7 @@ import { concatMap } from 'rxjs/operators';
     main.querySelectorAll(HEADING_SELECTOR).forEach((h) => {
       const df = importTemplate('_permalink-template');
       const a = df.querySelector('.permalink');
-      a.href = `#${h.id}`; 
+      a.href = `#${h.id}`;
       h.appendChild(df);
     });
 
@@ -98,7 +109,7 @@ import { concatMap } from 'rxjs/operators';
     //     if (m) requestAnimationFrame(() => anchor.classList.add("visited"));
     //   });
     // });
-  })
+  });
 
   /** @type {Promise<{}>|null} */
   let katexPromise = null;
@@ -131,15 +142,15 @@ import { concatMap } from 'rxjs/operators';
 
     const katexHref = document.getElementById('_katexPreload')?.href;
     if (!katexPromise && katexHref) {
-      intersectOnce(main.querySelectorAll('.katex'), { rootMargin: '1440px' }).then(() => { 
-        katexPromise = loadCSS(katexHref) 
+      intersectOnce(main.querySelectorAll('.katex'), { rootMargin: '1440px' }).then(() => {
+        katexPromise = loadCSS(katexHref);
       });
     }
   });
 
   if (pushStateEl && !window._noPushState) {
-    fromEvent(pushStateEl, 'after').pipe(
-      'MathJax' in window ? concatMap(() => MathJax.typesetPromise()) : (_) => _,
-    ).subscribe();
+    fromEvent(pushStateEl, 'after')
+      .pipe('MathJax' in window ? concatMap(() => MathJax.typesetPromise()) : (_) => _)
+      .subscribe();
   }
 })();

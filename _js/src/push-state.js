@@ -166,16 +166,20 @@ import { setupFLIP } from './flip';
   );
 
   if (loadingEl) {
-    progress$.subscribe(() => { loadingEl.style.display = 'flex'; });
-    ready$.subscribe(() => { loadingEl.style.display = 'none'; });
+    progress$.subscribe(() => {
+      loadingEl.style.display = 'flex';
+    });
+    ready$.subscribe(() => {
+      loadingEl.style.display = 'none';
+    });
   }
 
   const fadeIn$ = after$.pipe(
-    switchMap(context => {
+    switchMap((context) => {
       const p = animateFadeIn(context).toPromise();
       context.transitionUntil(p);
       return p;
-    }), 
+    }),
     share(),
   );
 
