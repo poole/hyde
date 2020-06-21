@@ -222,7 +222,12 @@ import { setupFLIP } from './flip';
           el.style.opacity = '0';
           el.addEventListener(
             'load',
-            () => el.animate([{ opacity: 0 }, { opacity: 1 }], { fill: 'forwards', duration: IMG_FADE_DURATION, easing: 'ease' }),
+            () =>
+              el.animate([{ opacity: 0 }, { opacity: 1 }], {
+                fill: 'forwards',
+                duration: IMG_FADE_DURATION,
+                easing: 'ease',
+              }),
             { once: true },
           );
         }
