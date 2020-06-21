@@ -88,10 +88,11 @@ async function getFiles(dir) {
     await writeFile('./assets/version.json', JSON.stringify({ version: vNext, prevVersion: vPrev }, null, 2));
 
     try { 
-      const siteVersion = resolve('../.scripts/version.js')
-      await access(siteVersion, fs.constants.X_OK);
-      await exec(siteVersion);
-    } catch {}
+      await access('../.scripts/version.js', fs.constants.X_OK);
+      await exec('../.scripts/version.js');
+    } catch (e) { 
+      console.warn(e)
+    }
 
     process.exit(0);
   } catch (e) {
