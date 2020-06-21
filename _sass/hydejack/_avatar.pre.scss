@@ -19,13 +19,13 @@
   height: 7rem;
   border-radius: 100%;
   overflow: hidden;
+  display: inline-block;
+  img { width: 100%; }
   // >>>
 
   // <<< link
-  display: inline-block;
   position: relative;
   z-index: 1;
-  img { width: 100%; }
   // >>>
 }
 

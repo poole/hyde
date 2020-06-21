@@ -13,9 +13,9 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<<<< LINK
 $navbar-height: 5rem;
 
+// <<< inline
 .fixed-common {
   position: fixed;
   left: 0;
@@ -32,17 +32,21 @@ $navbar-height: 5rem;
   @extend .fixed-common;
   bottom: 0;
 }
+// >>>
 
 .navbar {
-  @extend .color-transition;
+  @extend .color-transition; // inline
 
   > .content {
+    // <<< inline
     position: relative;
     padding-top: 0;
     padding-bottom: 0;
     min-height: 0;
     max-height: $navbar-height;
+    // >>>
 
+    // <<< link
     $shadow-padding: 3rem;
     &::before {
       content: "";
@@ -55,8 +59,10 @@ $navbar-height: 5rem;
       box-shadow: 0 0 2rem rgba(0,0,0,0.25);
       z-index: -1;
     }
+    // >>>
   }
 
+  // <<< link
   &.fixed-top {
     > .content {
       &::before {
@@ -72,8 +78,10 @@ $navbar-height: 5rem;
       }
     }
   }
+  // >>>
 }
 
+// <<< inline
 .nav-btn-bar {
   @extend .color-transition;
   margin: 0 -1rem;
@@ -104,7 +112,9 @@ $navbar-height: 5rem;
   border-left: 1px solid var(--border-color);
   margin-left: -1px;
 }
+// >>>
 
+// <<< link
 a.nav-btn, button.nav-btn {
   cursor: pointer;
   &:hover, &:focus {
@@ -130,5 +140,4 @@ a.nav-btn, button.nav-btn {
   .loading { display: none; }
   @media print { display: none; }
 }
-
-// >>>>
+// >>>
