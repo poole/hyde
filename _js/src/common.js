@@ -165,7 +165,7 @@ export const loadJS = promisifyLoad(window.loadJS);
 export const loadCSS = promisifyLoad(window.loadCSS);
 
 /**
- * @param {HTMLElement[]} els 
+ * @param {ArrayLike<Element>} els 
  * @param {IntersectionObserverInit} [options]
  * @returns {Promise<IntersectionObserverEntry>}
  */

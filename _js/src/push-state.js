@@ -28,7 +28,7 @@ import {
   concatMap,
 } from 'rxjs/operators';
 
-import { animate, empty, importTemplate, webComponentsReady, fromMediaQuery, intersectOnce, loadCSS } from './common';
+import { animate, empty, importTemplate, webComponentsReady, fromMediaQuery } from './common';
 import { CrossFader } from './cross-fader';
 import { setupFLIP } from './flip';
 
@@ -47,19 +47,10 @@ import { setupFLIP } from './flip';
   await webComponentsReady;
 
   const NAVBAR_SEL = '#_navbar > .content > .nav-btn-bar';
-  const CANONICAL_SEL = 'link[rel=canonical]';
-  const META_DESC_SEL = 'meta[name=description]';
-  const FN_SEL = "li[id^='fn:']";
-  const FN_LINK_SEL = "a[href^='#fn:']";
-  const HORIZONTAL_SCROLL_SEL =
-    'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
-  const CODE_BLOCK_SEL = 'pre.highlight > code';
-  const CODE_TITLE_REX = /(?:title|file):\s*['"`](.*)['"`]/i;
   const MQ_STANDALONE = '(display-mode: standalone)';
 
   const DURATION = 400;
   const CROSS_FADE_DURATION = 2000;
-  const IMG_FADE_DURATION = 500;
 
   const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
 
@@ -72,14 +63,6 @@ import { setupFLIP } from './flip';
     duration: DURATION,
     easing: 'ease-out',
   };
-
-  const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
-
-  function upgradeHeading(h) {
-    const df = importTemplate('_permalink-template');
-    const a = df.querySelector('.permalink');
-    requestAnimationFrame(() => ((a.href = `#${h.id}`), h.appendChild(df)));
-  }
 
   function setupAnimationMain(pushStateEl) {
     pushStateEl?.parentNode?.insertBefore(importTemplate('_animation-template'), pushStateEl);
@@ -129,11 +112,9 @@ import { setupFLIP } from './flip';
 
   const drawerEl = document.querySelector('hy-drawer');
   const navbarEl = document.querySelector(NAVBAR_SEL);
-  const canonicalEl = document.querySelector(CANONICAL_SEL);
-  const metaDescEl = document.querySelector(META_DESC_SEL);
 
   const animationMain = setupAnimationMain(pushStateEl);
-  const loading = setupLoading(navbarEl);
+  const loadingEl = setupLoading(navbarEl);
 
   const backBtnEl = importBackButton();
   if (navbarEl && backBtnEl) {
@@ -184,110 +165,19 @@ import { setupFLIP } from './flip';
     share(),
   );
 
-  progress$.subscribe(() => {
-    if (loading) loading.style.display = 'flex';
-  });
+  if (loadingEl) {
+    progress$.subscribe(() => { loadingEl.style.display = 'flex'; });
+    ready$.subscribe(() => { loadingEl.style.display = 'none'; });
+  }
 
-  ready$.pipe(startWith({ replaceEls: [document.getElementById('_main')] })).subscribe(({ replaceEls: [main] }) => {
-    main.querySelectorAll(HEADING_SELECTOR).forEach(upgradeHeading);
-    if (loading) loading.style.display = 'none';
-
-    const toc = main.querySelector('#markdown-toc');
-    if (toc) toc.classList.add('toc-hide');
-
-    Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
-      .map((el) => el.children[0])
-      .filter((el) => CODE_TITLE_REX.test(el?.innerText))
-      .forEach((el) => {
-        const [, fileName] = CODE_TITLE_REX.exec(el.innerText);
-
-        // Remove element before making changes
-        const code = el.parentNode;
-        code.removeChild(el);
-
-        // Remove newline
-        code.childNodes[0].splitText(1);
-        code.removeChild(code.childNodes[0]);
-
-        // Update DOM
-        el.innerText = fileName;
-        el.classList.add('pre-header');
-        const container = code.parentNode.parentNode;
-        container.insertBefore(el, container.firstChild);
-      });
-
-    if ('complete' in HTMLImageElement.prototype) {
-      main.querySelectorAll('img[width][height][loading=lazy]').forEach((el) => {
-        if (!el.complete) {
-          el.style.opacity = '0';
-          el.addEventListener(
-            'load',
-            () =>
-              el.animate([{ opacity: 0 }, { opacity: 1 }], {
-                fill: 'forwards',
-                duration: IMG_FADE_DURATION,
-                easing: 'ease',
-              }),
-            { once: true },
-          );
-        }
-      });
-    }
-
-    /*
-      requestIdleCallback(() => {
-        main.querySelectorAll(pushStateEl.linkSelector).forEach(anchor => {
-          caches.match(anchor.href).then(m => {
-            if (m) requestAnimationFrame(() => anchor.classList.add("visited"));
-          });
-        });
-      });
-      */
-  });
-
-  /** @type {Promise|null} */
-  let katexPromise = null;
-  after$
-    .pipe(
-      startWith({
-        replaceEls: [document.getElementById('_main')],
-        documentFragment: document,
-      }),
-      tap(({ replaceEls: [main], documentFragment }) => {
-        // TODO: Move into hy-push-state
-        const cEl = documentFragment.querySelector(CANONICAL_SEL);
-        if (canonicalEl && cEl) canonicalEl.href = cEl.href;
-        const mEl = documentFragment.querySelector(META_DESC_SEL);
-        if (metaDescEl && mEl) metaDescEl.content = mEl.content;
-
-        main.querySelectorAll(FN_SEL).forEach((li) => (li.tabIndex = 0));
-
-        main
-          .querySelectorAll(FN_LINK_SEL)
-          .forEach((a) =>
-            a.addEventListener('click', (e) =>
-              document.getElementById(e.currentTarget.getAttribute('href').substr(1))?.focus(),
-            ),
-          );
-
-        main
-          .querySelectorAll(HORIZONTAL_SCROLL_SEL)
-          .forEach((el) =>
-            el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
-          );
-
-        const katexHref = document.getElementById('_katexPreload')?.href;
-        if (!katexPromise && katexHref) {
-          intersectOnce(main.querySelectorAll('.katex'), { rootMargin: '1440px' }).then(() => { 
-            katexPromise = loadCSS(katexHref) 
-          });
-        }
-      }),
-      'MathJax' in window ? concatMap(() => MathJax.typesetPromise()) : (_) => _,
-    )
-    .subscribe();
-
-  const fadeIn$ = after$.pipe(switchMap(animateFadeIn), share());
+  const fadeIn$ = after$.pipe(
+    switchMap(context => {
+      const p = animateFadeIn(context).toPromise();
+      context.transitionUntil(p);
+      return p;
+    }), 
+    share(),
+  );
 
   const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
     animationMain,
@@ -342,7 +232,7 @@ import { setupFLIP } from './flip';
   error$
     .pipe(
       switchMap(({ url }) => {
-        if (loading) loading.style.display = 'none';
+        if (loadingEl) loadingEl.style.display = 'none';
 
         const main = document.getElementById('_main');
         if (main) main.style.pointerEvents = '';

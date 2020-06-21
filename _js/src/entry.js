@@ -28,6 +28,8 @@ const PUSH_STATE_FEATURES = ['history', 'matchmedia', 'opacity', 'cssanimations'
 const TOC_FEATURES = ['matchmedia', 'cssremunit'];
 
 if (hasFeatures(BASELINE)) {
+  import(/* webpackMode: "eager" */ './upgrades');
+
   if (!window._noNavbar) import(/* webpackChunkName: "navbar" */ './navbar');
   // if (!window._noSearch) import(/* webpackChunkName: "search" */ './pro/search');
 
