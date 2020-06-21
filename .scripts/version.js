@@ -1,7 +1,10 @@
 #!/usr/bin/env node
 
 const { resolve } = require("path");
-const { readdir, rename, unlink, readFile, writeFile } = require("fs").promises;
+const fs = require('fs');
+const { readdir, rename, unlink, readFile, writeFile, access } = fs.promises;
+const { promisify } = require('util');
+const exec = promisify(require('child_process').exec);
 
 const vPrev = require("../assets/version.json").version;
 const vNext = require("../package.json").version;
@@ -20,12 +23,16 @@ const FILES = [
   "./_js/lib/version.js",
 ].map(f => resolve(f));
 
-// <https://stackoverflow.com/a/45130990/870615>
+/**
+ * @param {string} dir 
+ * @returns {Promise<string[]>}
+ * @see https://stackoverflow.com/a/45130990/870615
+ */
 async function getFiles(dir) {
   const dirents = await readdir(dir, { withFileTypes: true });
   const files = await Promise.all(dirents.map((dirent) => {
     const res = resolve(dir, dirent.name);
-    return dirent.isDirectory() ? getFiles(res) : res;
+    return dirent.isDirectory() ? getFiles(res) : [res];
   }));
   return Array.prototype.concat(...files);
 }
@@ -79,6 +86,12 @@ async function getFiles(dir) {
     await Promise.all([pUnlink, pFiles, pJSCSS]);
 
     await writeFile('./assets/version.json', JSON.stringify({ version: vNext, prevVersion: vPrev }, null, 2));
+
+    try { 
+      const siteVersion = resolve('../.scripts/version.js')
+      await access(siteVersion, fs.constants.X_OK);
+      await exec(siteVersion);
+    } catch {}
 
     process.exit(0);
   } catch (e) {
