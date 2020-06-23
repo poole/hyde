@@ -13,19 +13,23 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { default as Color } from 'color';
-import { default as elemDataset } from 'elem-dataset';
-
 import { empty, of } from 'rxjs';
 import { catchError, finalize, map, switchMap } from 'rxjs/operators';
 
 import { animate, fetchRx } from './common';
 
-// Given a dataset, generate some string we can use the check if anything has changed...
-const pseudoHash = ({ background, color, image, overlay }) =>
-  `${color}${image || background}${overlay === '' ? 'overlay' : ''}`;
+const RE_URL = /url\(['"]?(.*?)['"]?\)/iu
 
-// Consider a URL external if either the protocol, hostname or port is different.
+const calcHash = (doc) => {
+  const sidebarBg = doc.querySelector('.sidebar-bg');
+  return [sidebarBg?.classList.toString(), sidebarBg?.style.backgroundImage, sidebarBg?.style.backgroundColor].join('-');
+}
+
+/**
+ * Consider a URL external if either the protocol, hostname or port is different.
+ * @param {URL} param0 
+ * @param {Location=} location 
+ */
 function isExternal({ protocol, host }, location = window.location) {
   return protocol !== location.protocol || host !== location.host;
 }
@@ -33,25 +37,25 @@ function isExternal({ protocol, host }, location = window.location) {
 const objectURLs = new WeakMap();
 
 export class CrossFader {
+  /** @param {number} fadeDuration */
   constructor(fadeDuration) {
     const main = document.getElementById('_main');
-    const styleSheet =
-      Array.from(document.styleSheets).find((s) => s.ownerNode && s.ownerNode.id === '_pageStyle') || {};
 
     this.sidebar = document.getElementById('_sidebar');
     this.fadeDuration = fadeDuration;
-    this.rules = styleSheet.cssRules || styleSheet.rules;
-    this.prevHash = pseudoHash(elemDataset(main));
-
+    this.prevHash = calcHash(main);
     this.themeColorEl = document.querySelector('meta[name="theme-color"]');
   }
 
-  fetchImage2({ background, image }) {
-    if (background || !image || image === '' || image === 'none') {
-      return of(null);
+  /** @param {Document} newDocument */
+  fetchImage2(newDocument) {
+    const { backgroundImage = '' } = newDocument.querySelector('.sidebar-bg')?.style ?? {};
+    const result = RE_URL.exec(backgroundImage);
+    if (!result) {
+      return of('');
     }
 
-    const url = new URL(image, window.location.origin);
+    const url = new URL(result[1], window.location.origin);
 
     return fetchRx(url.href, {
       method: 'GET',
@@ -60,71 +64,61 @@ export class CrossFader {
     }).pipe(
       switchMap((r) => r.blob()),
       map((blob) => URL.createObjectURL(blob)),
-      catchError(() => of(image)),
+      catchError(() => of(url.href)),
     );
   }
 
-  fetchImage(main) {
-    const dataset = elemDataset(main);
-    const { background, color, image, overlay } = dataset;
-
-    // HACK: Using `dataset` here to store some intermediate data
-    const hash = pseudoHash(dataset);
+  /** @param {Document} newDocument */
+  fetchImage(newDocument) {
+    const hash = calcHash(newDocument);
     if (hash === this.prevHash) return empty();
 
-    return this.fetchImage2(dataset).pipe(
+    return this.fetchImage2(newDocument).pipe(
       map((objectURL) => {
-        const div = document.createElement('div');
-        div.classList.add('sidebar-bg');
+        /** @type {HTMLDivElement} */
+        const div = newDocument.querySelector('.sidebar-bg') ?? document.createElement('div');
 
-        // Set overlay
-        if (image !== 'none' && overlay === '') {
-          div.classList.add('sidebar-overlay');
+        if (objectURL) {
+          div.style.backgroundImage = `url(${objectURL})`;
+          objectURLs.set(div, objectURL);
         }
 
-        // Set background
-        if (background) {
-          div.style.background = background;
-        } else {
-          div.style.backgroundColor = color;
-          if (objectURL) {
-            div.style.backgroundImage = `url(${objectURL})`;
-            objectURLs.set(div, objectURL); // HACK: Store objectURL on DOM node for later revocation
-          }
-        }
-
-        return [div, dataset, hash];
+        return [div, hash, newDocument];
       }),
     );
   }
 
-  updateStyle({ color = '#4fb1ba', themeColor = '#193747' } = {}) {
+  /** @param {Document} newDocument */
+  updateStyle(newDocument) {
     if (this.themeColorEl) {
-      window.setTimeout(() => (this.themeColorEl.content = themeColor), 250);
+      const themeColor = newDocument.head.querySelector('meta[name="theme-color"]')?.content;
+      if (themeColor) {
+        window.setTimeout(() => { 
+          if (this.themeColorEl) { 
+            this.themeColorEl.content = themeColor;
+          } 
+        }, 250);
+      }
     }
 
-    if (this.rules) {
-      try {
-        const { style } = document.documentElement;
-
-        const accentColor = Color(color);
-        const accentColorFaded = accentColor.fade(0.5);
-        const accentColorDarkened = accentColor.darken(0.075);
-
-        style.setProperty("--accent-color", color);
-        style.setProperty('--accent-color-faded', accentColorFaded.toString());
-        style.setProperty('--accent-color-darkened', accentColorDarkened.toString());
-        style.setProperty("--theme-color", themeColor);
-      } catch (e) {
-        if (process.env.DEBUG) console.error(e);
-      }
+    try {
+      const pageStyle = document.getElementById('_pageStyle');
+      const newPageStyle = newDocument.getElementById('_pageStyle');
+      if (!newPageStyle) return;
+      pageStyle?.parentNode?.replaceChild(newPageStyle, pageStyle);
+    } catch (e) {
+      if (process.env.DEBUG) console.error(e);
     }
   }
 
-  fade([prevDiv], [div, dataset, hash]) {
-    prevDiv.parentNode.insertBefore(div, prevDiv.nextElementSibling);
+  /**
+   * @param {[HTMLDivElement]} param0 
+   * @param {[HTMLDListElement, string, Document]} param1 
+   */
+  fade([prevDiv], [div, hash, newDocument]) {
+    prevDiv?.parentNode?.insertBefore(div, prevDiv.nextElementSibling);
 
-    this.updateStyle(dataset);
+    this.updateStyle(newDocument);
 
     // Only update the prev hash after we're actually in the fade stage
     this.prevHash = hash;
@@ -135,7 +129,7 @@ export class CrossFader {
     }).pipe(
       finalize(() => {
         if (objectURLs.has(prevDiv)) URL.revokeObjectURL(objectURLs.get(prevDiv));
-        prevDiv.parentNode.removeChild(prevDiv);
+        prevDiv?.parentNode?.removeChild(prevDiv);
       }),
     );
   }

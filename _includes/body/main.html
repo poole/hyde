@@ -2,16 +2,7 @@
   id="_main"
   class="content layout-{{ page.layout }} {% if site.hydejack.no_break_layout %}{% unless site.hydejack.no_toc %}no-break-layout{% endunless %}{% endif %}"
   role="main"
-  data-color="{{ color | escape }}"
-  data-theme-color="{{ theme_color | escape }}"
-  {% unless image.background %}
-    data-image="{% if image == 'none' %}none{% else %}{% capture tmp %}{% include_cached smart-url url=image %}{% endcapture %}{{ tmp | escape }}{% endif %}"
-    {% if image != 'none' %}data-overlay{% endif %}
-  {% else %}
-    data-background="{{ image.background | escape }}"
-    {% if image.overlay %}data-overlay{% endif %}
-  {% endunless %}
-  >
+>
   {{ content }}
   {% include_cached body/footer.html %}
 </main>

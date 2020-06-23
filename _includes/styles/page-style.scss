@@ -1,6 +1,3 @@
-// These styles interact with JavsScript!
-// Their ordering MUST NOT be changed. See `_js/cross-fader.js`!
-
 {% assign color       = include.color       | default:'#4fb1ba' %}
 {% assign theme_color = include.theme_color | default:'#193747' %}
 

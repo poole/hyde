@@ -25,7 +25,6 @@ import {
   startWith,
   switchMap,
   takeUntil,
-  concatMap,
 } from 'rxjs/operators';
 
 import { animate, empty, importTemplate, webComponentsReady, fromMediaQuery } from './common';
@@ -207,8 +206,8 @@ import { setupFLIP } from './flip';
     const crossFader = new CrossFader(CROSS_FADE_DURATION);
     after$
       .pipe(
-        switchMap(({ replaceEls: [main] }) =>
-          zip(crossFader.fetchImage(main), fadeIn$).pipe(
+        switchMap(({ document }) =>
+          zip(crossFader.fetchImage(document), fadeIn$).pipe(
             map(([x]) => x),
             takeUntil(start$),
           ),
