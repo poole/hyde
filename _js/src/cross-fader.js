@@ -105,42 +105,16 @@ export class CrossFader {
 
     if (this.rules) {
       try {
-        const c = Color(color);
-        const active = c.darken(0.1);
-        const underlineColor = c.fade(0.5);
+        const { style } = document.documentElement;
 
-        // .content a
-        this.rules[0].style.textDecorationColor = underlineColor;
-        this.rules[0].style.borderColor = underlineColor;
+        const accentColor = Color(color);
+        const accentColorFaded = accentColor.fade(0.5);
+        const accentColorDarkened = accentColor.darken(0.075);
 
-        // .content a:hover
-        this.rules[1].style.textDecorationColor = color;
-        this.rules[1].style.borderColor = color;
-
-        // :focus
-        this.rules[2].style.outlineColor = color;
-
-        // .btn-primary
-        this.rules[3].style.backgroundColor = color;
-        this.rules[3].style.borderColor = color;
-
-        // .btn-primary:focus
-        this.rules[4].style.boxShadow = `0 0 0 3px ${c.fade(0.5)}`;
-
-        // .btn-primary:hover
-        this.rules[5].style.backgroundColor = active;
-        this.rules[5].style.borderColor = active;
-
-        // .btn-primary:disabled
-        this.rules[6].style.backgroundColor = color;
-        this.rules[6].style.borderColor = color;
-
-        // .btn-primary:active
-        this.rules[7].style.backgroundColor = active;
-        this.rules[7].style.borderColor = active;
-
-        // ::selection or ::-moz-selection (assuming it is last in the list)
-        this.rules[this.rules.length - 1].style.backgroundColor = color;
+        style.setProperty("--accent-color", color);
+        style.setProperty('--accent-color-faded', accentColorFaded.toString());
+        style.setProperty('--accent-color-darkened', accentColorDarkened.toString());
+        style.setProperty("--theme-color", themeColor);
       } catch (e) {
         if (process.env.DEBUG) console.error(e);
       }

@@ -77,4 +77,18 @@ img, video {
     font-size: smaller;
   }
 }
+
+:focus {
+  outline-color: var(--accent-color)!important;
+}
+
+::selection {
+  color: #fff;
+  background: var(--accent-color);
+}
+
+::-moz-selection {
+  color: #fff;
+  background: var(--accent-color);
+}
 // >>> LINK

@@ -32,6 +32,19 @@ hy-push-state a {
   }
 }
 
+.content a:not(.btn):not(.no-hover) {
+  // <<< inline
+  text-decoration-color: var(--accent-color-faded);
+  border-color: var(--accent-color-faded);
+  // >>>
+  // <<< link
+  &:hover {
+    text-decoration-color: var(--accent-color);
+    border-color: var(--accent-color);
+  }
+  // >>>
+}
+
 // <<< link
 a.btn {
   text-decoration: none;

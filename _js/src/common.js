@@ -24,7 +24,7 @@ export {
   fetchRx,
 } from '@hydecorp/component';
 
-const style = getComputedStyle(document.body);
+const style = getComputedStyle(document.documentElement);
 
 export const BREAK_POINT_3 = `(min-width: ${style.getPropertyValue('--break-point-3')})`;
 export const BREAK_POINT_DYNAMIC = `(min-width: ${style.getPropertyValue('--break-point-dynamic')})`;

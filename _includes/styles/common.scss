@@ -20,6 +20,22 @@ h1, h2, h3, h4, h5, h6, .f1, .f2, .f3, .f4, .f5, .f6, .heading { font-family: $f
   {% include_cached styles/page-style.scss color=color theme_color=theme_color %}
 {% endif %}
 
+{% if site.hydejack.dark_mode.dynamic %}
+@media screen {
+  body.dark-mode {
+    --body-bg: var(--dark-mode-body-bg);
+    --border-color: var(--dark-mode-border-color);
+  }
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  body {
+    --body-bg: var(--dark-mode-body-bg);
+    --border-color: var(--dark-mode-border-color);
+  }
+}
+{% endif %}
+
 {% if site.hydejack.no_drawer %}
   @media (min-width: $break-point-3) {
     #_menu { display: none }
