@@ -220,19 +220,6 @@ import { setupFLIP } from './flip';
       .subscribe();
   }
 
-  fadeIn$
-    .pipe(
-      startWith({ main: document.getElementById('_main') }),
-      tap(({ main }) => {
-        const toc = main?.querySelector('#markdown-toc');
-        if (toc) {
-          toc.classList.remove('toc-hide');
-          toc.classList.add('toc-show');
-        }
-      }),
-    )
-    .subscribe();
-
   error$
     .pipe(
       switchMap(({ url }) => {
