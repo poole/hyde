@@ -30,12 +30,7 @@
       font-size: smaller;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      opacity: 0.33;
-      transition: opacity 500ms;
-    }
-    &:hover::after, &:focus::after {
-      opacity: 1;
-      transition: opacity 100ms;
+      color: var(--menu-text);
     }
   }
 }
