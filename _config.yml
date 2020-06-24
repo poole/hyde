@@ -16,14 +16,14 @@ hydejack:
   post_addons:         [about, newsletter, related, random, comments]
   project_addons:      [about, newsletter, other, comments]
 
-  no_mark_external:    true
+  no_mark_external:    false
   no_push_state:       false
   no_drawer:           false
   no_navbar:           false
   no_search:           false
   no_inline_css:       false
   no_page_style:       false
-  no_break_layout:     true
+  no_break_layout:     false
   no_toc:              false
   no_third_column:     false
   no_large_headings:   false

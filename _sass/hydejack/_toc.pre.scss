@@ -32,12 +32,12 @@
   // >>>
 }
 
-.no-break-layout #markdown-toc {
+body:not(.no-toc) #markdown-toc {
   @media screen and (min-width: $break-point-dynamic) {
     // <<< inline
     position: absolute;
     z-index: 4;
-    width: calc(50% - #{$half-content - 2rem});
+    width: calc(50% - #{$half-content});
     right: 0;
     margin: auto;
     overflow: auto;

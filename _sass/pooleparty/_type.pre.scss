@@ -73,6 +73,22 @@ h6, .h6 { @extend .f6; }
   }
 }
 
+body:not(.no-large-headings) {
+  .content {
+    h1, .h1 {
+      @media screen and (min-width: $break-point-dynamic) {
+        width: calc(100% + 50vw - 32rem);
+        font-size: 3rem;
+        line-height: 1.2;
+      }
+      @media screen and (min-width: $break-point-font-large) {
+        font-size: 4rem;
+        line-height: 1.1;
+      }
+    }
+  }
+}
+
 h1, h2, h3, .h1, .h2, .h3 {
   margin: 3rem 0 1rem;
 }

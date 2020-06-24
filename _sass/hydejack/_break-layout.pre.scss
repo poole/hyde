@@ -13,8 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<<<< LINK
-pre, table:not(.highlight), .katex-display, .break-layout  {
+// <<< LINK
+pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"] {
   $pad: $content-padding * 2;
 
   @media screen {
@@ -37,19 +37,28 @@ pre, table:not(.highlight), .katex-display, .break-layout  {
     width: calc(100vw - #{$x});
   }
 
-  @media screen and (min-width: $break-point-4) {
-    $x: $content-width-2 + $sidebar-width + $content-margin-3 - $pad;
-    width: calc(100% + 100vw - #{$x});
-  }
-
   @media screen and (min-width: $break-point-5) {
     $x: $content-width-5 + $sidebar-width + $content-margin-5 - $pad;
     width: calc(100% + 100vw - #{$x});
   }
 
   @media screen and (min-width: $break-point-dynamic) {
-    $x: ($content-width-5 / 2) - $pad;
-    width: calc(100% + 50vw - #{$x});
+    width: calc(100% + #{$content-margin-5 + 2rem});
   }
 }
-// >>>>>
+
+body:not(.no-break-layout) {
+  .katex-display > .katex, mjx-container[jax][display="true"] { 
+    text-align: left!important;
+  }
+}
+
+body.no-toc:not(.no-break-layout) {
+  pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"] {
+    @media screen and (min-width: $break-point-dynamic) {
+      $x: ($content-width-5 / 2) - ($content-padding * 2);
+      width: calc(100% + 50vw - #{$x});
+    }
+  }
+}
+// >>>

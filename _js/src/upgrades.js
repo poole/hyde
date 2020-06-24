@@ -76,7 +76,7 @@ import { concatMap } from 'rxjs/operators';
 
         // Update DOM
         el.innerText = fileName;
-        el.classList.add('pre-header');
+        el.classList.add('pre-header', 'break-layout');
         const container = code.parentNode.parentNode;
         container.insertBefore(el, container.firstChild);
       });

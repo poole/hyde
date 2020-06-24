@@ -169,6 +169,13 @@ hy-drawer.loaded .sidebar {
   display: inline-block;
   margin-bottom: .5rem;
 }
+
+#_main.no-drawer {
+  @media (min-width: $break-point-3) {
+    #_menu { display: none }
+    .nav-btn-bar > :nth-child(2) { border: none }
+  }
+}
 // >>>
 
 // <<< LINK
