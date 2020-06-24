@@ -1,6 +1,7 @@
 import { importTemplate, intersectOnce, loadCSS, stylesheetReady } from './common';
 import { fromEvent } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
+import { createElement } from 'create-element-x/library';
 
 (async () => {
   await Promise.all([
@@ -17,7 +18,7 @@ import { concatMap } from 'rxjs/operators';
   const HORIZONTAL_SCROLL_SEL =
     'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
   const CODE_BLOCK_SEL = 'pre.highlight > code';
-  const CODE_TITLE_REX = /(?:title|file):\s*['"`](.*)['"`]/i;
+  const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/i;
   const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
   const IMG_FADE_DURATION = 500;
@@ -61,24 +62,37 @@ import { concatMap } from 'rxjs/operators';
     if (toc) toc.classList.add('toc-hide');
 
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
-      .map((el) => el.children[0])
-      .filter((el) => CODE_TITLE_REX.test(el?.innerText))
+      .map((code) => code.children[0])
       .forEach((el) => {
-        const [, fileName] = CODE_TITLE_REX.exec(el.innerText);
+        const result = CODE_TITLE_RE.exec(el?.innerText);
+        if (!result) return;
+        const [, fileName] = result;
+
+        const code = el.parentNode;
+
+        // Remove the first line
+        const child0 = el.childNodes[0];
+        const nli = child0.wholeText.indexOf('\n');
+        if (nli > -1) {
+          const restNode = child0.splitText(nli);
+          code.insertBefore(restNode, code.firstChild);
+        }
 
         // Remove element before making changes
-        const code = el.parentNode;
         code.removeChild(el);
 
         // Remove newline
         code.childNodes[0].splitText(1);
         code.removeChild(code.childNodes[0]);
 
-        // Update DOM
-        el.innerText = fileName;
-        el.classList.add('pre-header', 'break-layout');
         const container = code.parentNode.parentNode;
-        container.insertBefore(el, container.firstChild);
+        const header = createElement('div', { class: 'pre-header break-layout' }, 
+          createElement('small', { class: 'icon-file-empty' }),
+          ' ',
+          fileName,
+        );
+
+        container.insertBefore(header, container.firstChild);
       });
 
     if ('complete' in HTMLImageElement.prototype) {

@@ -70,11 +70,13 @@ pre > code {
   display: block;
   margin-left: -1rem;
   margin-right: -1rem;
+  padding: 0.5rem 1rem 0.25rem;
   border-bottom: 1px solid var(--border-color);
-  background-color: var(--gray-bg);
-  padding: 0.25rem 1rem;
-  font-family: $font-family;
+  font-family: var(--code-font-family);
+  font-style: normal!important;
   font-size: smaller;
+  color: var(--gray)!important;
+  background-color: var(--gray-bg);
 }
 .pre-header + pre.highlight {
   padding-top: .5rem;
