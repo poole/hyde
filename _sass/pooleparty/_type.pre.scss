@@ -14,6 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 .heading {
+  font-family: var(--font-family-heading);
   font-weight: var(--font-weight-heading);
 }
 
@@ -50,7 +51,7 @@
   font-size: 1rem;
 }
 
-// <<<<< INLINE
+// <<< INLINE
 h1, .h1 { @extend .f1; }
 h2, .h2 { @extend .f2; }
 h3, .h3 { @extend .f3; }
@@ -238,4 +239,4 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
     break-after: avoid-page;
   }
 }
-// >>>>> LINK
+// >>> LINK

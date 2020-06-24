@@ -14,8 +14,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 html {
-  // --font-family: #{$font-family};
-  // --font-family-heading: #{$font-family-heading};
+  --font-family: #{$font-family};
+  --font-family-heading: #{$font-family-heading};
   --code-font-family: #{$code-font-family};
 
   --gray: #{$gray};
@@ -26,11 +26,11 @@ html {
   --body-bg: #{$body-bg};
   --border-color: #{$border-color};
 
-  // --root-font-size: #{$root-font-size};
-  // --root-font-size-medium: #{$root-font-size-medium};
-  // --root-font-size-large: #{$root-font-size-large};
-  // --root-font-size-print: #{$root-font-size-print};
-  // --root-line-height: #{$root-line-height};
+  --root-font-size: #{$root-font-size};
+  --root-font-size-medium: #{$root-font-size-medium};
+  --root-font-size-large: #{$root-font-size-large};
+  --root-font-size-print: #{$root-font-size-print};
+  --root-line-height: #{$root-line-height};
 
   --font-weight: #{$font-weight};
   --font-weight-bold: #{$font-weight-bold};
@@ -42,8 +42,6 @@ html {
 
   // --content-margin-3: #{$content-margin-3};
   --content-margin-5: #{$content-margin-5};
-
-  // --content-padding: #{$content-padding};
 
   --sidebar-width: #{$sidebar-width};
   --half-content: #{$half-content};

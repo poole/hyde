@@ -26,8 +26,9 @@ body {
 }
 
 html {
-  font-size: $root-font-size;
-  line-height: $root-line-height;
+  font-family: var(--font-family);
+  font-size: var(--root-font-size);
+  line-height: var(--root-line-height);
 }
 
 body {
