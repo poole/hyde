@@ -22,6 +22,7 @@ export {
   subscribeWhen,
   fromMediaQuery,
   fetchRx,
+  filterWhen,
 } from '@hydecorp/component';
 
 const style = getComputedStyle(document.documentElement);
