@@ -49,4 +49,12 @@ hy-push-state a {
 a.btn {
   text-decoration: none;
 }
+
+@media print {
+  a:not(.no-print-link)::after {
+    content: " (" attr(href) ") ";
+    color: var(--gray);
+    font-size: 62%;
+  }
+}
 // >>>

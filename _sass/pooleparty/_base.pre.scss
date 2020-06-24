@@ -71,14 +71,6 @@ img, video {
   }
 }
 
-@media print {
-  a:not(.no-print-link)::after {
-    content: " (" attr(href) ") ";
-    color: var(--gray);
-    font-size: smaller;
-  }
-}
-
 :focus {
   outline-color: var(--accent-color)!important;
 }
