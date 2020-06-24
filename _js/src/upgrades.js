@@ -23,6 +23,7 @@ import { concatMap } from 'rxjs/operators';
   const IMG_FADE_DURATION = 500;
 
   const pushStateEl = document.querySelector('hy-push-state');
+  await pushStateEl?.initialized;
 
   function ready(fn, opts) {
     if (pushStateEl && !window._noPushState) {
@@ -35,21 +36,15 @@ import { concatMap } from 'rxjs/operators';
         }) => fn(main),
         opts,
       );
-      document.addEventListener('DOMContentLoaded', () => () => fn(document.getElementById('_main')), {
-        ...opts,
-        once: true,
-      });
-    } else {
-      fn(document.getElementById('_main'));
     }
+    fn(document.getElementById('_main'));
   }
 
   function load(fn, opts) {
     if (pushStateEl && !window._noPushState) {
       pushStateEl.addEventListener('hy-push-state-load', () => fn(document.getElementById('_main')), opts);
-    } else {
-      fn(document.getElementById('_main'));
     }
+    fn(document.getElementById('_main'));
   }
 
   ready((main) => {
