@@ -13,10 +13,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { fromEvent, animationFrameScheduler } from 'rxjs';
-import { map, filter, pairwise, merge, mapTo, tap, observeOn } from 'rxjs/operators';
+import { fromEvent, animationFrameScheduler, timer, merge } from 'rxjs';
+import { map, filter, pairwise, merge as mergeWith, mapTo, tap, observeOn, switchMap, startWith, share } from 'rxjs/operators';
 
-import { hasCSSOM, getScrollTop, stylesheetReady } from './common';
+import { hasCSSOM, getScrollTop, stylesheetReady, filterWhen } from './common';
 
 (async () => {
   await stylesheetReady;
@@ -33,15 +33,35 @@ import { hasCSSOM, getScrollTop, stylesheetReady } from './common';
 
   const checkNavbarInactive = () => !document.activeElement?.classList.contains('nav-btn');
 
+  const hashchange$ = fromEvent(window, 'hashchange').pipe(
+    filter(e => new URL(e.newURL).hash !== ''),
+    share(),
+  );
+
+  // To disable the navbar while the "scroll into view" animation is active.
+  const notScrollIntoView$ = hashchange$.pipe(
+    switchMap(() => timer(1000).pipe(mapTo(true), startWith(false))),
+    startWith(true),
+  );
+
+  // Certain events should make the navbar "jump" to a new position.
+  const jump$ = merge(
+    // Focusing any navbar element should show the navbar to enable keyboard-only interaction.
+    fromEvent(navbarEl, 'focus', { capture: true }).pipe(mapTo(2 * height)),
+    // Scrolling to a certain headline should hide the navbar to prevent hiding it.
+    hashchange$.pipe(mapTo(-2 * height)),
+  );
+
   fromEvent(document, 'scroll', { passive: true })
     .pipe(
+      filterWhen(notScrollIntoView$),
       observeOn(animationFrameScheduler),
       map(getScrollTop),
       filter((x) => x >= 0),
       pairwise(),
       map(([prev, curr]) => prev - curr),
       filter(checkNavbarInactive),
-      merge(fromEvent(navbarEl, 'focus', { capture: true }).pipe(mapTo(2 * height))),
+      mergeWith(jump$),
       tap((x) => {
         offset += x;
         offset = Math.max(-height, Math.min(0, offset));
