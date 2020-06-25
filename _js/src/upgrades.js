@@ -18,7 +18,7 @@ import { createElement } from 'create-element-x/library';
   const HORIZONTAL_SCROLL_SEL =
     'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
   const CODE_BLOCK_SEL = 'pre.highlight > code';
-  const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/i;
+  const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/ui;
   const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
   const IMG_FADE_DURATION = 500;

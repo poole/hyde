@@ -18,7 +18,7 @@ import { catchError, finalize, map, switchMap } from 'rxjs/operators';
 
 import { animate, fetchRx } from './common';
 
-const RE_URL = /url\(['"]?(.*?)['"]?\)/iu
+const RE_URL = /url\s*\(['"]?(([^'"\\]|\\.)*)['"]?\)/u;
 
 const calcHash = (doc) => {
   const sidebarBg = doc.querySelector('.sidebar-bg');
