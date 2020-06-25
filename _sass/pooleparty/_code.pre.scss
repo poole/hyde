@@ -70,15 +70,16 @@ pre > code {
   display: block;
   margin-left: -1rem;
   margin-right: -1rem;
-  padding: 0.5rem 1rem 0.25rem;
+  padding: 0.4rem 1rem 0.25rem;
   border-bottom: 1px solid var(--border-color);
-  font-family: var(--code-font-family);
   font-style: normal!important;
   font-size: smaller;
   color: var(--gray)!important;
   background-color: var(--gray-bg);
+  .lang { color: var(--menu-text) }
 }
+
 .pre-header + pre.highlight {
-  padding-top: .5rem;
+  padding-top: .75rem;
 }
 // >>>>> LINK

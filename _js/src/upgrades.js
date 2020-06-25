@@ -3,6 +3,8 @@ import { fromEvent } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
 import { createElement } from 'create-element-x/library';
 
+import LANG from './languages.json';
+
 (async () => {
   await Promise.all([
     ...('animate' in Element.prototype ? [] : [import(/* webpackChunkName: "webanimations" */ 'web-animations-js')]),
@@ -26,6 +28,8 @@ import { createElement } from 'create-element-x/library';
   const pushStateEl = document.querySelector('hy-push-state');
   await pushStateEl?.initialized;
 
+  /** @param {(param0: HTMLElement|null) => void} fn 
+   *  @param {any=} opts */
   function ready(fn, opts) {
     if (pushStateEl && !window._noPushState) {
       pushStateEl.addEventListener(
@@ -41,6 +45,8 @@ import { createElement } from 'create-element-x/library';
     fn(document.getElementById('_main'));
   }
 
+  /** @param {(param0: HTMLElement|null) => void} fn 
+   *  @param {any=} opts */
   function load(fn, opts) {
     if (pushStateEl && !window._noPushState) {
       pushStateEl.addEventListener('hy-push-state-load', () => fn(document.getElementById('_main')), opts);
@@ -86,10 +92,21 @@ import { createElement } from 'create-element-x/library';
         code.removeChild(code.childNodes[0]);
 
         const container = code.parentNode.parentNode;
+
+        // Language
+        const highlighter = container.parentNode;
+        const [, lang] = highlighter.classList.value.match(/language-(\w*)/) ?? [];
+        const language = LANG[lang];
+
         const header = createElement('div', { class: 'pre-header break-layout' }, 
-          createElement('small', { class: 'icon-file-empty' }),
-          ' ',
-          fileName,
+          createElement('span', { class: 'file' },
+            createElement('small', { class: 'icon-file-empty' }),
+            ' ',
+            fileName,
+          ),
+          !language ? null : createElement('small', { class: 'fr lang' },
+            language,
+          ),
         );
 
         container.insertBefore(header, container.firstChild);
