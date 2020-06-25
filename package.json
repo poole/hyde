@@ -51,7 +51,7 @@
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
     "@hydecorp/drawer": "^1.0.0-alpha.5",
-    "@hydecorp/push-state": "^1.0.0-alpha.5",
+    "@hydecorp/push-state": "^1.0.0-alpha.6",
     "@juggle/resize-observer": "^3.2.0",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/shadycss": "^1.10.0",
