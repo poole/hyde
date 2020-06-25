@@ -13,8 +13,8 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { fromEvent, animationFrameScheduler, timer, merge } from 'rxjs';
-import { map, filter, pairwise, merge as mergeWith, mapTo, tap, observeOn, switchMap, startWith, share } from 'rxjs/operators';
+import { fromEvent, timer, merge } from 'rxjs';
+import { map, filter, pairwise, merge as mergeWith, mapTo, tap, switchMap, startWith, share } from 'rxjs/operators';
 
 import { hasCSSOM, getScrollTop, stylesheetReady, filterWhen } from './common';
 
@@ -55,7 +55,6 @@ import { hasCSSOM, getScrollTop, stylesheetReady, filterWhen } from './common';
   fromEvent(document, 'scroll', { passive: true })
     .pipe(
       filterWhen(notScrollIntoView$),
-      observeOn(animationFrameScheduler),
       map(getScrollTop),
       filter((x) => x >= 0),
       pairwise(),
