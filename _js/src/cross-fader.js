@@ -22,13 +22,15 @@ const RE_URL = /url\s*\(['"]?(([^'"\\]|\\.)*)['"]?\)/u;
 
 const calcHash = (doc) => {
   const sidebarBg = doc.querySelector('.sidebar-bg');
-  return [sidebarBg?.classList.toString(), sidebarBg?.style.backgroundImage, sidebarBg?.style.backgroundColor].join('-');
-}
+  return [sidebarBg?.classList.toString(), sidebarBg?.style.backgroundImage, sidebarBg?.style.backgroundColor].join(
+    '-',
+  );
+};
 
 /**
  * Consider a URL external if either the protocol, hostname or port is different.
- * @param {URL} param0 
- * @param {Location=} location 
+ * @param {URL} param0
+ * @param {Location=} location
  */
 function isExternal({ protocol, host }, location = window.location) {
   return protocol !== location.protocol || host !== location.host;
@@ -93,10 +95,10 @@ export class CrossFader {
     if (this.themeColorEl) {
       const themeColor = newDocument.head.querySelector('meta[name="theme-color"]')?.content;
       if (themeColor) {
-        window.setTimeout(() => { 
-          if (this.themeColorEl) { 
+        window.setTimeout(() => {
+          if (this.themeColorEl) {
             this.themeColorEl.content = themeColor;
-          } 
+          }
         }, 250);
       }
     }
@@ -112,8 +114,8 @@ export class CrossFader {
   }
 
   /**
-   * @param {[HTMLDivElement]} param0 
-   * @param {[HTMLDListElement, string, Document]} param1 
+   * @param {[HTMLDivElement]} param0
+   * @param {[HTMLDListElement, string, Document]} param1
    */
   fade([prevDiv], [div, hash, newDocument]) {
     prevDiv?.parentNode?.insertBefore(div, prevDiv.nextElementSibling);

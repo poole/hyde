@@ -34,8 +34,8 @@ import { hasCSSOM, getScrollTop, stylesheetReady, filterWhen } from './common';
   const checkNavbarInactive = () => !document.activeElement?.classList.contains('nav-btn');
 
   const hashchange$ = fromEvent(window, 'hashchange').pipe(
-    map(e => new URL(e.newURL).hash),
-    filter(hash => hash !== '' && hash !== '#_search-input'),
+    map((e) => new URL(e.newURL).hash),
+    filter((hash) => hash !== '' && hash !== '#_search-input'),
     share(),
   );
 

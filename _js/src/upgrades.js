@@ -20,7 +20,7 @@ import LANG from './languages.json';
   const HORIZONTAL_SCROLL_SEL =
     'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
   const CODE_BLOCK_SEL = 'pre.highlight > code';
-  const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/ui;
+  const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/iu;
   const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
   const IMG_FADE_DURATION = 500;
@@ -28,7 +28,7 @@ import LANG from './languages.json';
   const pushStateEl = document.querySelector('hy-push-state');
   await pushStateEl?.initialized;
 
-  /** @param {(param0: HTMLElement|null) => void} fn 
+  /** @param {(param0: HTMLElement|null) => void} fn
    *  @param {any=} opts */
   function ready(fn, opts) {
     if (pushStateEl && !window._noPushState) {
@@ -45,7 +45,7 @@ import LANG from './languages.json';
     fn(document.getElementById('_main'));
   }
 
-  /** @param {(param0: HTMLElement|null) => void} fn 
+  /** @param {(param0: HTMLElement|null) => void} fn
    *  @param {any=} opts */
   function load(fn, opts) {
     if (pushStateEl && !window._noPushState) {
@@ -98,15 +98,11 @@ import LANG from './languages.json';
         const [, lang] = highlighter.classList.value.match(/language-(\w*)/) ?? [];
         const language = LANG[lang];
 
-        const header = createElement('div', { class: 'pre-header break-layout' }, 
-          createElement('span', { class: 'file' },
-            createElement('small', { class: 'icon-file-empty' }),
-            ' ',
-            fileName,
-          ),
-          !language ? null : createElement('small', { class: 'fr lang' },
-            language,
-          ),
+        const header = createElement(
+          'div',
+          { class: 'pre-header break-layout' },
+          createElement('span', { class: 'file' }, createElement('small', { class: 'icon-file-empty' }), ' ', fileName),
+          !language ? null : createElement('small', { class: 'fr lang' }, language),
         );
 
         container.insertBefore(header, container.firstChild);
@@ -166,22 +162,24 @@ import LANG from './languages.json';
         el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
       );
 
-    Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
-      .forEach(code => {
-        const sw = code.parentElement?.scrollWidth;
-        Array.from(code.querySelectorAll('.c1'))
-          .filter(c1 => c1.innerText.includes('!!'))
-          .forEach(c1 => {
-            const hl = createElement('span', { class: 'highlight-code-line', style: `width: ${sw ? `${sw}px` : '100%'}` })
-            const hasContent = c1.innerText?.match(/[\p{L}|\d]/u);
-            if (!hasContent) {
-              c1.parentElement?.replaceChild(hl, c1);
-            } else {
-              c1.innerText = c1.innerText.replace('!!', '');
-              c1.parentElement?.insertBefore(hl, c1);
-            }
-          })
-      });
+    Array.from(main.querySelectorAll(CODE_BLOCK_SEL)).forEach((code) => {
+      const sw = code.parentElement?.scrollWidth;
+      Array.from(code.querySelectorAll('.c1'))
+        .filter((c1) => c1.innerText.includes('!!'))
+        .forEach((c1) => {
+          const hl = createElement('span', {
+            class: 'highlight-code-line',
+            style: `width: ${sw ? `${sw}px` : '100%'}`,
+          });
+          const hasContent = c1.innerText?.match(/[\p{L}|\d]/u);
+          if (!hasContent) {
+            c1.parentElement?.replaceChild(hl, c1);
+          } else {
+            c1.innerText = c1.innerText.replace('!!', '');
+            c1.parentElement?.insertBefore(hl, c1);
+          }
+        });
+    });
 
     const katexHref = document.getElementById('_katexPreload')?.href;
     if (!katexPromise && katexHref) {
