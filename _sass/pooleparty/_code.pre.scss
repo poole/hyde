@@ -54,8 +54,9 @@ pre {
   @extend .pre-base;
   margin-top: 0;
   display: block;
-  line-height: 1.4;
+  line-height: 1.5;
   font-size: .85em;
+  position: relative;
 }
 
 pre > code {
@@ -63,6 +64,19 @@ pre > code {
   color: inherit;
   background-color: transparent;
   font-size: 1em;
+
+  .highlight-code-line {
+    @extend .color-transition;
+    &:before { content: ' ' }
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    background: var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    opacity: 0.33;
+    z-index: -1;
+  }
 }
 
 .pre-header {

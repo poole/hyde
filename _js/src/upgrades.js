@@ -166,6 +166,23 @@ import LANG from './languages.json';
         el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
       );
 
+    Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
+      .forEach(code => {
+        const sw = code.parentElement?.scrollWidth;
+        Array.from(code.querySelectorAll('.c1'))
+          .filter(c1 => c1.innerText.includes('!!'))
+          .forEach(c1 => {
+            const hl = createElement('span', { class: 'highlight-code-line', style: `width: ${sw ? `${sw}px` : '100%'}` })
+            const hasContent = c1.innerText?.match(/[\p{L}|\d]/u);
+            if (!hasContent) {
+              c1.parentElement?.replaceChild(hl, c1);
+            } else {
+              c1.innerText = c1.innerText.replace('!!', '');
+              c1.parentElement?.insertBefore(hl, c1);
+            }
+          })
+      });
+
     const katexHref = document.getElementById('_katexPreload')?.href;
     if (!katexPromise && katexHref) {
       intersectOnce(main.querySelectorAll('.katex'), { rootMargin: '1440px' }).then(() => {
