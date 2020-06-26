@@ -14,16 +14,13 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { Observable, of } from 'rxjs';
-export {
-  getScrollHeight,
-  getScrollLeft,
-  getScrollTop,
-  createIntersectionObservable,
-  subscribeWhen,
-  fromMediaQuery,
-  fetchRx,
-  filterWhen,
-} from '@hydecorp/component';
+
+// HACK: Temporary MS Edge fix
+// TODO: Move rx-element into separate file or module
+export { getScrollHeight, getScrollLeft, getScrollTop } from '@hydecorp/component/lib/util';
+export { fromMediaQuery, fetchRx } from '@hydecorp/component/lib/creators';
+export { subscribeWhen, filterWhen } from '@hydecorp/component/lib/operators';
+export { createIntersectionObservable } from '@hydecorp/component/lib/observers';
 
 const style = getComputedStyle(document.documentElement);
 

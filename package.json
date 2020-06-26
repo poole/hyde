@@ -16,7 +16,6 @@
     "watch:css": "npm run build:css && onchange '_sass/**/*.scss' -e '_sass/**/__*/*' -- npm run build:css '{{changed}}'",
     "serve": "bundle exec jekyll serve --port=$npm_package_config_port --host=0.0.0.0",
     "dev": "npm run watch & npm run serve",
-    "prepare": "npm run test && npm run clean && npm run build",
     "preversion": "npm run preversion:js && npm run preversion:css",
     "preversion:js": "sed -i '' 's:/assets/js/\\*hydejack-\\*:#<removed/js>:' .gitignore",
     "preversion:css": "sed -i '' 's:/_sass/\\*/__\\*__/\\*:#<removed/css>:' .gitignore",
@@ -49,6 +48,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.10.1",
+    "@hydecorp/component": "^1.0.0-alpha.2",
     "@hydecorp/drawer": "^1.0.0-alpha.5",
     "@hydecorp/push-state": "^1.0.0-alpha.6",
     "@juggle/resize-observer": "^3.2.0",
