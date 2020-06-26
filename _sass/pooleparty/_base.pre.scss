@@ -76,12 +76,6 @@ img, video {
 }
 
 ::selection {
-  color: #fff;
-  background: var(--accent-color);
-}
-
-::-moz-selection {
-  color: #fff;
-  background: var(--accent-color);
+  background: var(--accent-color-faded);
 }
 // >>> LINK
