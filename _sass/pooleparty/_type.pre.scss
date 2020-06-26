@@ -61,7 +61,7 @@ h6, .h6 { @extend .f6; }
 
 .content {
   h1, .h1 {
-    > a { text-decoration: none }
+    > a { text-decoration: none; border-bottom: none; }
     @media screen and (max-width: $break-point-1) {
       font-size: 1.7rem;
       line-height: 1.35;

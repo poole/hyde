@@ -15,31 +15,48 @@
 
 hy-push-state a {
   color: var(--body-color); // inline
-  text-decoration-style: solid; // inline
-  text-underline-offset: .35rem; // inline
-  text-decoration-thickness: 2px; // inline
-  transition: color 250ms, text-decoration-color 250ms, border-color 250ms; // link
+
+  // <<< inline
+  @supports not ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+    text-decoration: none; 
+    border-bottom: 2px solid;
+  }
+
+  @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+    text-decoration-style: solid;
+    text-underline-offset: .35rem;
+    text-decoration-thickness: 2px;
+  }
+  // >>>
 
   // <<< link
+  transition: color 250ms, text-decoration-color 250ms, border-color 250ms;
   &:hover {
     transition: color 50ms, text-decoration-color 50ms, border-color 50ms;
   }
   // >>>
 
+  // <<< inline
   &.no-hover {
-    text-decoration-thickness: unset; // inline
-    text-underline-offset: unset; // inline
+    border-bottom: none;
+    text-decoration-thickness: unset;
+    text-underline-offset: unset;
   }
+  // >>>
 }
 
 .content a:not(.btn):not(.no-hover) {
   // <<< inline
-  text-decoration-color: var(--accent-color-faded);
+  @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+    text-decoration-color: var(--accent-color-faded);
+  }
   border-color: var(--accent-color-faded);
   // >>>
   // <<< link
   &:hover {
-    text-decoration-color: var(--accent-color);
+    @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+      text-decoration-color: var(--accent-color);
+    }
     border-color: var(--accent-color);
   }
   // >>>
