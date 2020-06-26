@@ -1,9 +1,9 @@
 import { importTemplate, intersectOnce, loadCSS, stylesheetReady } from './common';
 import { fromEvent } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
-import { createElement } from 'create-element-x/library';
+// import { createElement } from 'create-element-x/library';
 
-import LANG from './languages.json';
+// import LANG from './languages.json';
 
 (async () => {
   await Promise.all([
@@ -19,8 +19,8 @@ import LANG from './languages.json';
   const FN_LINK_SEL = "a[href^='#fn:']";
   const HORIZONTAL_SCROLL_SEL =
     'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
-  const CODE_BLOCK_SEL = 'pre.highlight > code';
-  const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/iu;
+  // const CODE_BLOCK_SEL = 'pre.highlight > code';
+  // const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/iu;
   const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
   const IMG_FADE_DURATION = 500;
@@ -67,6 +67,7 @@ import LANG from './languages.json';
     const toc = main.querySelector('#markdown-toc');
     if (toc) toc.classList.add('toc-hide');
 
+    /*
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
       .map((code) => code.children[0])
       .forEach((el) => {
@@ -107,11 +108,13 @@ import LANG from './languages.json';
 
         container.insertBefore(header, container.firstChild);
       });
+    */
 
     if ('complete' in HTMLImageElement.prototype) {
       main.querySelectorAll('img[width][height][loading=lazy]').forEach((el) => {
         if (!el.complete) {
           el.style.opacity = '0';
+          // TODO: replace with loading spinner
           el.addEventListener(
             'load',
             () =>
@@ -162,6 +165,7 @@ import LANG from './languages.json';
         el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
       );
 
+    /*
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL)).forEach((code) => {
       const sw = code.parentElement?.scrollWidth;
       Array.from(code.querySelectorAll('.c1'))
@@ -180,6 +184,7 @@ import LANG from './languages.json';
           }
         });
     });
+    */
 
     const katexHref = document.getElementById('_katexPreload')?.href;
     if (!katexPromise && katexHref) {
