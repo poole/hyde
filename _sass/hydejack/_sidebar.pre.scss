@@ -17,6 +17,7 @@ hy-drawer {
   width: 100%; // inline
   position: relative; // inline
   overflow: hidden; // inline
+  display: block; // inline
   z-index: 4; // inline
 
   @media screen {
