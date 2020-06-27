@@ -20,11 +20,18 @@ import { animate, fetchRx } from './common';
 
 const RE_URL = /url\s*\(['"]?(([^'"\\]|\\.)*)['"]?\)/u;
 
+/** @param {Document} doc */
 const calcHash = (doc) => {
   const sidebarBg = doc.querySelector('.sidebar-bg');
-  return [sidebarBg?.classList.toString(), sidebarBg?.style.backgroundImage, sidebarBg?.style.backgroundColor].join(
-    '-',
-  );
+  const pageStyle = doc.querySelector('#_pageStyle');
+  // const rule = Array.from(pageStyle?.sheet?.rules ?? []).find(r => r.selectorText === 'html');
+  // const accentColor = rule?.style.getPropertyValue('--accent-color') ?? '';
+  // const themeColor = rule?.style.getPropertyValue('--theme-color') ?? '';
+  return [
+    pageStyle?.innerText?.trim(),
+    sidebarBg?.classList,
+    sidebarBg?.style.backgroundImage,
+  ].join('\n');
 };
 
 /**
@@ -41,11 +48,9 @@ const objectURLs = new WeakMap();
 export class CrossFader {
   /** @param {number} fadeDuration */
   constructor(fadeDuration) {
-    const main = document.getElementById('_main');
-
     this.sidebar = document.getElementById('_sidebar');
     this.fadeDuration = fadeDuration;
-    this.prevHash = calcHash(main);
+    this.prevHash = calcHash(document);
     this.themeColorEl = document.querySelector('meta[name="theme-color"]');
   }
 
