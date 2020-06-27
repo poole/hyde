@@ -1,1 +1,0 @@
-{"version":3,"sources":["webpack:///./_js/src/polyfills/fetch.js"],"names":[],"mappings":";;;;;;;;;;AAAA;AAAA;AAAA;AAAA;AAAA","file":"LEGACY-fetch-hydejack-9.0.0-rc.js","sourcesContent":["import 'whatwg-fetch';\nimport 'abortcontroller-polyfill/dist/polyfill-patch-fetch';\n"],"sourceRoot":""}
