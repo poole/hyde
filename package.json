@@ -64,9 +64,7 @@
     "create-element-x": "^1.1.1",
     "dom4": "^2.1.5",
     "intersection-observer": "^0.10.0",
-    "lit-element": "^2.3.1",
     "lit-html": "^1.2.1",
-    "regenerator-runtime": "^0.13.5",
     "rxjs": "^7.0.0-beta.0",
     "web-animations-js": "^2.3.2",
     "whatwg-fetch": "^3.0.0"
