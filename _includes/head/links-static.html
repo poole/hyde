@@ -1,9 +1,9 @@
 {% if plugins contains 'jekyll-feed' %}{% include head/feed-tag.html %}{% endif %}
 
-<link rel="shortcut icon"    href="{{ '/assets/icons/favicon.ico' | relative_url }}">
-<link rel="apple-touch-icon" href="{{ '/assets/icons/icon.png'    | relative_url }}">
+<link rel="shortcut icon"    href="{% link assets/icons/favicon.ico %}">
+<link rel="apple-touch-icon" href="{% link assets/icons/icon.png %}">
 
-<link rel="manifest" href="{{ '/assets/manifest.json' | relative_url }}">
+<link rel="manifest" href="{% link assets/manifest.json %}">
 
 {% if site.google_fonts %}
   <link rel="dns-prefetch" href="https://fonts.googleapis.com">
@@ -14,7 +14,7 @@
   <link rel="dns-prefetch" href="https://www.google-analytics.com">
 {% endif %}
 
-<link rel="preload" href="{{ '/assets/img/swipe.svg' | relative_url }}" as="image" id="_hrefSwipeSVG">
+<link rel="preload" href="{% link assets/img/swipe.svg %}" as="image" id="_hrefSwipeSVG">
 
 {% if site.kramdown.math_engine == 'katex' %}
   {% capture katex_url %}{% link assets/bower_components/katex/dist/katex.min.css %}{% endcapture %}

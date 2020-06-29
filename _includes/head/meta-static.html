@@ -9,7 +9,7 @@
 <meta name="apple-mobile-web-app-status-bar-style" content="default">
 
 <meta name="application-name" content="{{ site.title }}">
-<meta name="msapplication-config" content="{{ '/assets/ieconfig.xml' | relative_url }}">
+<meta name="msapplication-config" content="{% link assets/ieconfig.xml %}">
 
 {% unless site.hydejack.no_theme_color %}
   <meta name="theme-color" content="{{ theme_color | default:'#193747' }}">
