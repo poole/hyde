@@ -26,7 +26,6 @@ import { concatMap } from 'rxjs/operators';
   const IMG_FADE_DURATION = 500;
 
   const pushStateEl = document.querySelector('hy-push-state');
-  await pushStateEl?.initialized;
 
   /** @param {(param0: HTMLElement|null) => void} fn
    *  @param {any=} opts */
