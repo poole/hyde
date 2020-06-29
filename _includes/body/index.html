@@ -6,7 +6,7 @@
   replace-selector="#_main"
   link-selector="a[href]:not([href^='{{ assets_url }}']):not(.external):not(.no-push-state)"
   script-selector="script"
-  duration="250"
+  duration="500"
   hashchange
 >
   {% if page.cover %}{% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}{% endif %}

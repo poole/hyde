@@ -48,20 +48,13 @@ import { setupFLIP } from './flip';
   const NAVBAR_SEL = '#_navbar > .content > .nav-btn-bar';
   const MQ_STANDALONE = '(display-mode: standalone)';
 
-  const DURATION = 400;
   const CROSS_FADE_DURATION = 2000;
 
   const FADE_OUT = [{ opacity: 1 }, { opacity: 0 }];
-
   const FADE_IN = [
     { opacity: 0, transform: 'translateY(-3rem)' },
     { opacity: 1, transform: 'translateY(0)' },
   ];
-
-  const SETTINGS = {
-    duration: DURATION,
-    easing: 'ease-out',
-  };
 
   function setupAnimationMain(pushStateEl) {
     pushStateEl?.parentNode?.insertBefore(importTemplate('_animation-template'), pushStateEl);
@@ -98,16 +91,22 @@ import { setupFLIP } from './flip';
     return el?.getAttribute?.('data-flip');
   }
 
-  function animateFadeOut({ main }) {
-    return animate(main, FADE_OUT, { ...SETTINGS, fill: 'forwards' }).pipe(mapTo({ main }));
-  }
-
-  function animateFadeIn({ replaceEls: [main], flipType }) {
-    return animate(main, FADE_IN, SETTINGS).pipe(mapTo({ main, flipType }));
-  }
-
   const pushStateEl = document.querySelector('hy-push-state');
   if (!pushStateEl) return;
+
+  const duration = Number(pushStateEl.getAttribute('duration')) || 350;
+  const settings = {
+    duration: duration,
+    easing: 'ease',
+  };
+
+  const animateFadeOut = ({ main }) => (
+    animate(main, FADE_OUT, { ...settings, fill: 'forwards' }).pipe(mapTo({ main }))
+  );
+
+  const animateFadeIn = ({ replaceEls: [main], flipType }) => (
+    animate(main, FADE_IN, settings).pipe(mapTo({ main, flipType }))
+  )
 
   const drawerEl = document.querySelector('hy-drawer');
   const navbarEl = document.querySelector(NAVBAR_SEL);
@@ -184,13 +183,13 @@ import { setupFLIP } from './flip';
 
   const flip$ = setupFLIP(start$, ready$, merge(fadeIn$, error$), {
     animationMain,
-    settings: SETTINGS,
+    settings: settings,
   }).pipe(share());
 
   start$
     .pipe(
       switchMap((context) => {
-        const promise = zip(timer(DURATION), fadeOut$, flip$).toPromise();
+        const promise = zip(timer(duration), fadeOut$, flip$).toPromise();
         context.transitionUntil(promise);
         return promise;
       }),
@@ -231,7 +230,7 @@ import { setupFLIP } from './flip';
 
         setupErrorPage(main, url);
 
-        return animate(main, FADE_IN, { ...SETTINGS, fill: 'forwards' });
+        return animate(main, FADE_IN, { ...settings, fill: 'forwards' });
       }),
     )
     .subscribe();

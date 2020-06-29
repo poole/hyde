@@ -107,10 +107,10 @@ export function animate(el, effect, timing) {
     const anim = el.animate(effect, timing);
 
     anim.addEventListener('finish', (e) => {
-      // requestAnimationFrame(() => {
       observer.next(e);
-      setTimeout(() => observer.complete(), 0);
-      // }),
+      requestAnimationFrame(() => {
+        requestAnimationFrame(() => observer.complete());
+      });
     });
 
     return () => {
