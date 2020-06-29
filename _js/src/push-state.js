@@ -100,13 +100,10 @@ import { setupFLIP } from './flip';
     easing: 'ease',
   };
 
-  const animateFadeOut = ({ main }) => (
-    animate(main, FADE_OUT, { ...settings, fill: 'forwards' }).pipe(mapTo({ main }))
-  );
+  const animateFadeOut = ({ main }) => animate(main, FADE_OUT, { ...settings, fill: 'forwards' }).pipe(mapTo({ main }));
 
-  const animateFadeIn = ({ replaceEls: [main], flipType }) => (
-    animate(main, FADE_IN, settings).pipe(mapTo({ main, flipType }))
-  )
+  const animateFadeIn = ({ replaceEls: [main], flipType }) =>
+    animate(main, FADE_IN, settings).pipe(mapTo({ main, flipType }));
 
   const drawerEl = document.querySelector('hy-drawer');
   const navbarEl = document.querySelector(NAVBAR_SEL);
