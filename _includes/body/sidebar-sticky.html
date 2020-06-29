@@ -2,7 +2,7 @@
   <div class="sidebar-about">
     {% if site.logo %}
       <a class="no-hover" href="{{ '/' | relative_url }}" tabindex="-1">
-        <img src="{{ site.logo | relative_url }}" class="avatar" alt="{{ site.short_title | default:site.title }}" width="120" height="120" loading="lazy" />
+        <img src="{% include_cached smart-url url=site.logo %}" class="avatar" alt="{{ site.short_title | default:site.title }}" width="120" height="120" loading="lazy" />
       </a>
     {% endif %}
     <a class="sidebar-title" href="{{ '/' | relative_url }}"><h2 class="h1">{{ site.short_title | default:site.title }}</h2></a>
