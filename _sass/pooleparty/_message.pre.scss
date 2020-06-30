@@ -24,7 +24,7 @@
   margin-right: -1rem;
 }
 
-.note {
+.note-sm {
   @extend .message;
   background: transparent;
   color: var(--body-color);
@@ -48,5 +48,10 @@
   &[title]:before {
     content: attr(title)!important;
   }
+}
+
+.note {
+  @extend .note-sm;
+  font-size: 1rem;
 }
 // >>>>>

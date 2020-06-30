@@ -29,10 +29,9 @@
 
 body:not(.no-third-column) {
   .page > header {
-    > .lead + .note, 
-    > a.no-hover + .note {
+    > .lead + .note-sm, 
+    > a.no-hover + .note-sm {
       @media screen and (min-width: $break-point-dynamic) {
-        font-size: smaller;
         position: absolute;
         right: -25rem;
         width: 21rem;
