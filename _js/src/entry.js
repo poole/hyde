@@ -19,7 +19,7 @@ import '../lib/version';
 import '../lib/modernizr-custom';
 import { hasFeatures } from './common';
 
-__webpack_public_path__ = window._baseURL;
+__webpack_public_path__ = window._publicPath;
 
 const BASELINE = ['classlist', 'eventlistener', 'queryselector', 'template'];
 const DARK_MODE_FEATURES = ['customproperties'];
