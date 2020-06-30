@@ -18,7 +18,7 @@ import { catchError, finalize, map, switchMap } from 'rxjs/operators';
 
 import { animate, fetchRx } from './common';
 
-const RE_URL = /url\s*\(['"]?(([^'"\\]|\\.)*)['"]?\)/u;
+const RE_CSS_URL = /url\s*\(['"]?(([^'"\\]|\\.)*)['"]?\)/u;
 
 /** @param {Document} doc */
 const calcHash = (doc) => {
@@ -53,7 +53,7 @@ export class CrossFader {
   /** @param {Document} newDocument */
   fetchImage2(newDocument) {
     const { backgroundImage = '' } = newDocument.querySelector('.sidebar-bg')?.style ?? {};
-    const result = RE_URL.exec(backgroundImage);
+    const result = RE_CSS_URL.exec(backgroundImage);
     if (!result) {
       return of('');
     }
