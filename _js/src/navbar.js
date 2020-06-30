@@ -14,7 +14,7 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 import { fromEvent, timer, merge } from 'rxjs';
-import { map, filter, pairwise, merge as mergeWith, mapTo, tap, switchMap, startWith, share } from 'rxjs/operators';
+import { map, filter, pairwise, merge as mergeWith, mapTo, tap, switchMap, startWith, share, debounceTime } from 'rxjs/operators';
 
 import { hasCSSOM, getScrollTop, stylesheetReady, filterWhen } from './common';
 
@@ -40,8 +40,9 @@ import { hasCSSOM, getScrollTop, stylesheetReady, filterWhen } from './common';
   );
 
   // To disable the navbar while the "scroll into view" animation is active.
+  // Wait for 50ms after scrolling has stopped before unlocking the navbar.
   const notScrollIntoView$ = hashchange$.pipe(
-    switchMap(() => timer(1000).pipe(mapTo(true), startWith(false))),
+    switchMap(() => fromEvent(document, 'scroll').pipe(debounceTime(50), mapTo(true), startWith(false))),
     startWith(true),
   );
 
