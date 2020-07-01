@@ -3,6 +3,7 @@ title: How to practice HTML offline
 date: 2019-03-28T17:21:23+00:00
 author: avic
 layout: post
+description: You can practice HTML offline by using a browser and a text editor. You will also need an offline reference guide like a book, website, or video.
 permalink: /how-to-practice-html-offline/
 categories:
   - HTML
@@ -14,6 +15,7 @@ A quick note. HTML is written in text files. You don’t need internet to view H
 <!--more-->
 
 ### Outline
+You can use my 4 steps to be able to practice our html skills offline
 
   1. Tools needed: a browser and a text editor.
   2. Content creation.

@@ -3,6 +3,7 @@ title: Can I learn HTML on my own?
 date: 2019-04-04T09:57:55+00:00
 author: avic
 layout: post
+description: Yes, you can learn HTML without having to go to a college or a boot camp. In fact, you can learn HTML at the comfort of your own home.
 permalink: /can-i-learn-html-on-my-own/
 categories:
   - HTML

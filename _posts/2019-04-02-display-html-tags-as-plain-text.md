@@ -3,6 +3,7 @@ title: How to display html tags as plain text in HTML
 date: 2019-04-02T10:59:31+00:00
 author: avic
 layout: post
+description: You can use HTML entities to show HTML tags as plain text. HTML entities are special characters used to display HTML markup code that you would not normally see on a browser. 
 permalink: /display-html-tags-as-plain-text/
 categories:
   - HTML

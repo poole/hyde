@@ -3,6 +3,7 @@ title: How to host a HTML page on localhost
 date: 2019-04-30T17:05:54+00:00
 author: avic
 layout: post
+description: You will learn how to use Python, PHP and NODEJS host a HTML page on localhost. You don't need to know any of these three languages to run a HTML page on local host.
 permalink: /host-a-html-page-on-localhost/
 categories:
   - HTML
