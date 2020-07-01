@@ -1,4 +1,4 @@
-import { importTemplate, intersectOnce, loadCSS, stylesheetReady } from './common';
+import { importTemplate, intersectOnce, loadCSS, stylesheetReady, once } from './common';
 import { fromEvent } from 'rxjs';
 import { concatMap, tap } from 'rxjs/operators';
 // import { createElement } from 'create-element-x/library';
@@ -193,24 +193,26 @@ import { concatMap, tap } from 'rxjs/operators';
     }
   });
 
-  if (pushStateEl) {
-    const mathJax2To3 = () =>
-      document.querySelectorAll('script[type^="math/tex"]').forEach((el) => {
+  const mathJaxEl = document.getElementById('_MathJax');
+  if (pushStateEl && mathJaxEl) {
+    const mathJax2To3 = ({ detail: { replaceEls: [mainEl] } }) => {
+      mainEl.querySelectorAll('script[type="math/tex; mode=display"]').forEach((el) => {
         el.outerHTML = el.innerText.replace('% <![CDATA[', '\\[').replace('%]]>', '\\]');
       });
+      mainEl.querySelectorAll('script[type="math/tex"]').forEach((el) => {
+        el.outerHTML = `\\(${el.innerText}\\)`;
+      });
+    }
 
-    mathJax2To3();
-    if ('MathJax' in window && MathJax.version?.split('.')[0] === '3') MathJax.typesetPromise();
+    mathJax2To3({ detail: { replaceEls: [document] } });
+
+    if (!('MathJax' in window)) await once(mathJaxEl, 'load')
+
+    await MathJax.typesetPromise();
 
     if (!window._noPushState) {
-      fromEvent(pushStateEl, 'after')
-        .pipe(
-          tap(mathJax2To3),
-          'MathJax' in window && MathJax.version?.split('.')[0] === '3'
-            ? concatMap(() => MathJax.typesetPromise())
-            : (_) => _,
-        )
-        .subscribe();
+      pushStateEl.addEventListener('ready', e => mathJax2To3(e));
+      fromEvent(pushStateEl, 'after').pipe(concatMap(() => MathJax.typesetPromise())).subscribe();
     }
   }
 })();
