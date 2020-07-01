@@ -1,6 +1,6 @@
 {% assign google_fonts = site.google_fonts %}
-{% capture style_url %}{% link assets/css/hydejack-9.0.0-rc.3.css %}{% endcapture %}
-{% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
+{% capture style_url %}{{ 'assets/css/hydejack-9.0.0-rc.3.css' | relative_url }}{% endcapture %}
+{% capture icons_url %}{{ 'assets/icomoon/style.css' | relative_url }}{% endcapture %}
 {% if google_fonts %}{% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts | uri_escape }}&display=swap{% endcapture %}{% endif %}
 
 <link rel="preload" as="style" href="{{ style_url }}" id="_stylePreload">
