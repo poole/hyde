@@ -26,7 +26,7 @@
     Adding a table of contents is part of kramdown and can be done in all versions of Hydejack. 
     However, v9 adds a dynamic version that will stick to the 3rd column on large screens and highlight the current section. 
    
-    Note that the `hydejack.no_break_layout` option has to be set to enable this (otherwise the ToC would overlap with code blocks, math blocks, etc).
+    Note that this will reduce the amount of space freed up by the `no_break_layout: false` setting (otherwise the ToC would overlap with code blocks, math blocks, etc).
 
 *   Added a scroll-linked navbar that disappears when scrolling down and re-appears when scrolling up.
 
@@ -47,20 +47,22 @@
 *   Drastically improved build times through the use of `jekyll-include-cache`. 
     Most of the previous tips on [improving page build speed](hydejack/_posts/2019-02-18-improving-site-build-speed.md) should now be obsolete.
 
+*   Added `grid` layout in PRO version that mirrors the `projects` layout, but for posts. 
+    If you've set `image`s for your posts, it will give your blog a more modern look.
+
 ### Minor
-* Added print and download buttons to `resume` layout. [Read more](docs/basics.md#downloads).
+* CSS variables are now configurable via `_data/variables.yml`. While there are other ways to change them, this has the broadest reach across HTML (`img[sizes]` attribute!), CSS and JS.
+* Many JS content features (such as `#` heading links) now work even when `hydejack.no_push_state` is enabled.
 * Linking to posts in the `home` and `post` layout now accept either paths or URLs. [Read more](docs/basics.md#adding-related-posts-to-a-post).
 * The star icons in the resume layout can now be disabled via `no_skill_icons` and `no_language_icons`.
 * Resume layout now supports the following keys: `born`, `citizenship`, and `maritalStatus`.
 * PRO only: Added `hide_dates` option to disable showing blog post dates.
 * The `blog` layout now works without pagination, simply showing all posts on a single page when the `jekyll-pagination` plugin is not found.
-* Code blocks can now have file names / titles by making the first line of the code block a comment (in whatever language you're using) of the format `File: "yourfile.ext"`. 
 * The `projects`, `resume`, and `grid` layout now make better use of large screens, by letting content expand to the right of the screen. Restore the previous , set `no_break_columns` in front matter.
 * Removed smooth scroll polyfill for Safari/Webkit as it has caused problems with sticky content.
-* Figure captions can now be added to code blocks, math blocks, and tables in addition to just images.
+* Figure captions can now be added to code blocks, math blocks, and tables in addition to just images using the `.figcaption` CSS class.
 * The order of the comment section relative to the about and related posts sections can now be customized via the `hydejack.post_addons` and `hydejack.project_addons` keys. See the example `_config.yml` for more.
 * Clicking the image in the `blog` layout will now navigate to the blog post. In the PRO version it will do so with the classic "move image in place" animation.
-* Added `grid` layout in PRO version that mirrors the `projects` layout, but for posts. If you've set `image`s for your posts, it will give your blog a more modern look.
 * Grouping projects by year can now be disabled. Use `no_groups: true` in the front matter. This also applies to the new `grid` layout and the old `list` layout.
 * hy-img has been removed and replaced with browser's native `loading=lazy` attribute
 * Now serving separate JavaScript files for old and new browsers, allowing it to take advantage of many new language features.
@@ -94,7 +96,6 @@
 * The menu icon is now hidden when the drawer is disabled.
 * Using `no_drawer: true` is now working properly on cover pages when `no_push_state: false` is set.
 * Reduced the amount of pixels cached by the `will-change` optimization and fixed the corresponding warning in Firefox.
-* Improved IE 11 compatibility
 
 
 ## v8.5.2
