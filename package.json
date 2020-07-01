@@ -1,6 +1,6 @@
 {
   "name": "hydejack",
-  "version": "9.0.0-rc.2",
+  "version": "9.0.0-rc.3",
   "description": "The best Jekyll theme by a mile",
   "scripts": {
     "clean": "rm -f assets/js/hydejack-*.js",
