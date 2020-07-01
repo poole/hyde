@@ -198,7 +198,9 @@ import { concatMap, tap } from 'rxjs/operators';
       document.querySelectorAll('script[type^="math/tex"]').forEach((el) => {
         el.outerHTML = el.innerText.replace('% <![CDATA[', '\\[').replace('%]]>', '\\]');
       });
+
     mathJax2To3();
+    if ('MathJax' in window && MathJax.version?.split('.')[0] === '3') MathJax.typesetPromise()
 
     if (!window._noPushState) {
       fromEvent(pushStateEl, 'after')
