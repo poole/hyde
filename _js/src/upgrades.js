@@ -200,7 +200,7 @@ import { concatMap, tap } from 'rxjs/operators';
       });
 
     mathJax2To3();
-    if ('MathJax' in window && MathJax.version?.split('.')[0] === '3') MathJax.typesetPromise()
+    if ('MathJax' in window && MathJax.version?.split('.')[0] === '3') MathJax.typesetPromise();
 
     if (!window._noPushState) {
       fromEvent(pushStateEl, 'after')
