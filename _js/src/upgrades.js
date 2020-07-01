@@ -1,6 +1,6 @@
 import { importTemplate, intersectOnce, loadCSS, stylesheetReady } from './common';
 import { fromEvent } from 'rxjs';
-import { concatMap } from 'rxjs/operators';
+import { concatMap, tap } from 'rxjs/operators';
 // import { createElement } from 'create-element-x/library';
 
 // import LANG from './languages.json';
@@ -193,9 +193,17 @@ import { concatMap } from 'rxjs/operators';
     }
   });
 
-  if (pushStateEl && !window._noPushState) {
-    fromEvent(pushStateEl, 'after')
-      .pipe('MathJax' in window ? concatMap(() => MathJax.typesetPromise()) : (_) => _)
-      .subscribe();
+  if (pushStateEl) {
+    const mathJax2To3 = () => document.querySelectorAll('script[type^="math/tex"]').forEach(el => { el.outerHTML = el.innerText.replace('% <![CDATA[', '\\[').replace('%]]>', '\\]') });
+    mathJax2To3();
+
+    if (!window._noPushState) {
+      fromEvent(pushStateEl, 'after').pipe(
+        tap(mathJax2To3),
+        'MathJax' in window && MathJax.version?.split('.')[0] === '3' 
+          ? concatMap(() => MathJax.typesetPromise()) 
+          : (_) => _
+      ).subscribe();
+    }
   }
 })();
