@@ -194,16 +194,21 @@ import { concatMap, tap } from 'rxjs/operators';
   });
 
   if (pushStateEl) {
-    const mathJax2To3 = () => document.querySelectorAll('script[type^="math/tex"]').forEach(el => { el.outerHTML = el.innerText.replace('% <![CDATA[', '\\[').replace('%]]>', '\\]') });
+    const mathJax2To3 = () =>
+      document.querySelectorAll('script[type^="math/tex"]').forEach((el) => {
+        el.outerHTML = el.innerText.replace('% <![CDATA[', '\\[').replace('%]]>', '\\]');
+      });
     mathJax2To3();
 
     if (!window._noPushState) {
-      fromEvent(pushStateEl, 'after').pipe(
-        tap(mathJax2To3),
-        'MathJax' in window && MathJax.version?.split('.')[0] === '3' 
-          ? concatMap(() => MathJax.typesetPromise()) 
-          : (_) => _
-      ).subscribe();
+      fromEvent(pushStateEl, 'after')
+        .pipe(
+          tap(mathJax2To3),
+          'MathJax' in window && MathJax.version?.split('.')[0] === '3'
+            ? concatMap(() => MathJax.typesetPromise())
+            : (_) => _,
+        )
+        .subscribe();
     }
   }
 })();
