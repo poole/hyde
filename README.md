@@ -185,25 +185,25 @@ The table below shows what's included in each version:
 *[FLIP]: First-Last-Invert-Play. A coding technique to achieve performant page transition animations.
 
 
-[blog]: /blog/
-[portfolio]: projects.md
-[resume]: resume.md
-[download]: download.md
-[welcome]: README.md
-[forms]: forms-by-example.md
+[blog]: https://hydejack.com/blog/
+[portfolio]: https://hydejack.com/projects/
+[resume]: https://hydejack.com/resume/
+[download]: https://hydejack.com/download/
+[welcome]: https://hydejack.com/
+[forms]: https://hydejack.com/forms-by-example/
 
-[features]: #features
-[news]: README.md#build-an-audience
-[syntax]: README.md#syntax-highlighting
-[latex]: #beautiful-math
-[dark]: hydejack/_posts/2018-09-01-introducing-dark-mode.md
-[search]: #_search-input
-[grid]: _featured_categories/hydejack.md
+[features]: https://hydejack.com/#features
+[news]: https://hydejack.com/#build-an-audience
+[syntax]: https://hydejack.com/#syntax-highlighting
+[latex]: https://hydejack.com/#beautiful-math
+[dark]: https://hydejack.com/blog/hydejack/2018-09-01-introducing-dark-mode/
+[search]: https://hydejack.com/#_search-input
+[grid]: https://hydejack.com/blog/hydejack/
 
 [lic]: LICENSE.md
 [pro]: licenses/PRO.md
-[docs]: docs/README.md
-[ofln]: docs/advanced.md#enabling-offline-support
+[docs]: https://hydejack.com/docs/
+[ofln]: https://hydejack.com/docs/advanced/#enabling-offline-support
 
 [kit]: https://github.com/hydecorp/hydejack-starter-kit/archive/v9.0.0-rc.6.zip
 [src]: https://github.com/hydecorp/hydejack
