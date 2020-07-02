@@ -3,6 +3,7 @@ title: 100 HTML PRACTICE PROJECTS IDEAS
 date: 2019-03-31T15:03:52+00:00
 author: avic
 layout: post
+description: Create real world projects using projects based HTML and CSS tutorials. Choose one of the 15 projects and follow the tutorial to created it.
 permalink: /100-html-practice-projects-ideas-for-beginners/
 categories:
   - HTML
