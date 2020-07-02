@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<<<< INLINE
+// <<< INLINE
 .page {
   margin-bottom: 3em;
 
@@ -53,8 +53,8 @@ body:not(.no-third-column) {
   margin-bottom: 1rem;
   color: var(--gray);
 }
-// >>>>>
-// <<<<< LINK
+// >>>
+// <<< LINK
 hr.dingbat {
   border: 0;
   &:after{
@@ -71,4 +71,4 @@ hr.dingbat {
     margin-bottom: 0
   }
 }
-// >>>>>
+// >>>
