@@ -3,6 +3,7 @@ title: 9 steps to creating a web page using HTML [Illustrated guide]
 date: 2019-06-07T14:00:48+00:00
 author: avic
 layout: post
+description: Follow these 9 steps and create your first one page HTML website. You will be able to add  pictures, a youtube video and publish the web page online.
 permalink: /create-a-web-page-using-html/
 categories:
   - HTML
