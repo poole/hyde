@@ -57,6 +57,8 @@
 
   @import "my-style";
 {% else %}
+  @import "html";
+
   @import "pooleparty/_base.pre.scss";
   @import "pooleparty/_type.pre.scss";
   @import "pooleparty/_table.pre.scss";
