@@ -1,6 +1,7 @@
 ---
 layout: default
 title: Home
+description: Choose from the list practical projects to learn & practice HTML and CSS. Learn how to create a project from zero to publishing it online.
 ---
 Welcome to **DevPractical.com**. You will find a collection of HTML, CSS and Javascript **tutorials** and **projects**.
 
