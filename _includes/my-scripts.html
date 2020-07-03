@@ -6,7 +6,7 @@ it will only run on the initial page.
 The snippet below will run the code on every `hy-push-state-load` event instead.
 -->
 <script>
-  document.getElementsByTagName('hy-push-state')[0].addEventListener('hy-push-state-load', function (e) {
+  document.getElementById('_pushState').addEventListener('hy-push-state-load', function (e) {
     function e(e){
       (console.error?console.error:console.log).call(console,e)
     }

@@ -15,10 +15,9 @@
 
 // <<<<< INLINE
 .content {
-  position: relative;
   margin-left: auto;
   margin-right: auto;
-  padding: 6rem $content-padding 12rem;
+  padding: 8rem $content-padding 12rem;
 
   @media screen {
     padding-left: $content-padding + .5rem;
@@ -46,10 +45,19 @@
     margin: auto;
   }
 }
+
+.large-only {
+  display: none;
+  @media screen and (min-width: $break-point-dynamic) {
+    display: block;
+  }
+}
+
 // >>>>>
 // <<< link
 .content {
   @media print {
+    padding-top: 3rem;
     padding-bottom: 1rem;
   }
 }

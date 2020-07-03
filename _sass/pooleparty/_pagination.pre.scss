@@ -13,12 +13,12 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<<<< LINK
+// <<< LINK
 .pagination {
   @extend .color-transition;
   width: calc(100% + 2rem);
   margin: 0 -1rem 1rem;
-  color: var(--text-muted);
+  color: var(--gray);
   text-align: center;
 
   > ul {
@@ -39,6 +39,7 @@
 
   > a, > a:hover, > a:focus {
     border-color: var(--border-color)!important;
+    text-decoration: none;
   }
 
   &:first-child > * {
@@ -46,7 +47,7 @@
   }
 
   // Only provide a hover state for linked pagination items
-  > a:hover, a:focus {
+  > a:hover, > a:focus {
     background-color: var(--gray-bg);
     border-bottom: 1px solid var(--border-color);
   }
@@ -78,4 +79,4 @@
     }
   }
 }
-// >>>>> LINK
+// >>> LINK

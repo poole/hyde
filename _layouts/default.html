@@ -27,20 +27,20 @@ layout: base
 
   {{ content }}
 
-  <hr class="dingbat"/>
+  <hr class="dingbat related"/>
 
   {% if site.posts.size > 0 %}
-    <h2 class="hr">{{ strings.posts | default:"Posts" }}</h2>
+    <h2 class="hr-bottom">{{ strings.posts | default:"Posts" }}</h2>
     <ul class="related-posts">
       {% for post in site.posts limit:5 %}
-        {% include components/post-list-item.html post=post %}
+        {% include_cached components/post-list-item.html post=post %}
       {% endfor %}
     </ul>
   {% endif %}
 
   {% assign pages = site.html_pages | where:"layout","page" | where_exp:"page","page.sitemap != false" %}
   {% if pages.size > 0 %}
-    <h2 class="hr">{{ strings.pages | default:"Pages" }}</h2>
+    <h2 class="hr-bottom">{{ strings.pages | default:"Pages" }}</h2>
     <ul class="related-posts">
       {% for page in pages limit:5 %}
         {% if page.layout == 'page' %}

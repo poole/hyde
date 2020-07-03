@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<<<< INLINE
+// <<< INLINE
 .page {
   margin-bottom: 3em;
 
@@ -22,7 +22,23 @@
   }
 
   > header {
-    margin-bottom: 2rem;
+    position: relative;
+    margin-bottom: 1.5rem;
+  }
+}
+
+body:not(.no-third-column) {
+  .page > header {
+    > .lead + .note-sm, 
+    > a.no-hover + .note-sm {
+      @media screen and (min-width: $break-point-dynamic) {
+        position: absolute;
+        right: -25rem;
+        width: 21rem;
+        bottom: 0;
+        margin-bottom: 0;
+      }
+    }
   }
 }
 
@@ -31,22 +47,28 @@
 
 // Meta data line below post title
 .post-date {
+  @extend .h4;
   display: block;
   margin-top: -0.5rem;
   margin-bottom: 1rem;
-  color: var(--text-muted);
+  color: var(--gray);
 }
-// >>>>>
-// <<<<< LINK
+// >>>
+// <<< LINK
 hr.dingbat {
   border: 0;
+  &:after{
+    content: "\2756";
+    display: block;
+    text-align: center;
+    font-size: 1.5rem;
+    color: var(--menu-text);
+  }
 }
 
-hr.dingbat::after {
-  content: "\2756";
-  display: block;
-  text-align: center;
-  font-size: 1.5rem;
-  color: var(--menu-text);
+@media print {
+  .page {
+    margin-bottom: 0
+  }
 }
-// >>>>>
+// >>>

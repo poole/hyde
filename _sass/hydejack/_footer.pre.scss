@@ -14,21 +14,19 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // <<<<< LINK
-main > footer {
+main > footer.content {
   position: absolute;
   bottom: 0;
-  left: .5rem;
+  left: 0;
   right: 0;
-  padding: 0 1rem;
-  color: var(--text-muted);
+  color: var(--gray);
   text-align: center;
+  min-height: 0;
+  padding-top: 0;
+  padding-bottom: 2rem;
 
   > p {
     margin-bottom: 0;
-  }
-
-  @media screen and (min-width: $break-point-3) {
-    left: 0;
   }
 
   @media print {

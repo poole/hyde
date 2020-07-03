@@ -22,18 +22,23 @@ code {
   @extend .color-transition;
   padding: .25em .5em;
   background-color: var(--gray-bg);
-  font-size: .85em;
+  font-size: smaller;
 }
 
-.pre-base {
+.figure-base {
+  @extend .color-transition;
   margin-left: -1rem;
   margin-right: -1rem;
-  padding: 1rem;
-  background-color: var(--gray-bg);
 
   // Prevent code linebreaks and allow side-scrolling for better readability on mobile
   overflow-x: auto;
   -webkit-overflow-scrolling: touch;
+}
+
+.pre-base {
+  @extend .figure-base;
+  padding: 1rem;
+  background-color: var(--gray-bg);
 
   // HACK: prevents painting for some reason
   backface-visibility: hidden;
@@ -49,8 +54,9 @@ pre {
   @extend .pre-base;
   margin-top: 0;
   display: block;
-  line-height: 1.4;
+  line-height: 1.5;
   font-size: .85em;
+  position: relative;
 }
 
 pre > code {
@@ -58,9 +64,36 @@ pre > code {
   color: inherit;
   background-color: transparent;
   font-size: 1em;
+
+  .highlight-code-line {
+    @extend .color-transition;
+    &:before { content: ' ' }
+    position: absolute;
+    left: 0;
+    display: inline-block;
+    width: 100%;
+    background: var(--border-color);
+    border-left: 3px solid var(--accent-color);
+    opacity: 0.33;
+    z-index: -1;
+  }
 }
 
-pre, .highlight {
-  margin-bottom: 2rem;
+.pre-header {
+  @extend .color-transition;
+  display: block;
+  margin-left: -1rem;
+  margin-right: -1rem;
+  padding: 0.4rem 1rem 0.25rem;
+  border-bottom: 1px solid var(--border-color);
+  font-style: normal!important;
+  font-size: smaller;
+  color: var(--gray)!important;
+  background-color: var(--gray-bg);
+  .lang { color: var(--menu-text) }
+}
+
+.pre-header + pre.highlight {
+  padding-top: .75rem;
 }
 // >>>>> LINK

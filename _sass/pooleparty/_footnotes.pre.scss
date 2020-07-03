@@ -21,8 +21,10 @@ a[href^="#fnref:"] {
   margin-left: .1rem;
   font-weight: var(--font-weight-bold);
 
-  @media screen and (max-width: 73.5em) {
+  @media screen and (max-width: $break-point-4) {
     font-weight: normal;
+    &::before { content: "["; }
+    &::after  { content: "]"; }
   }
 }
 
@@ -33,9 +35,6 @@ sup {
     @media screen and (max-width: $break-point-4) {
       vertical-align: baseline;
       font-size: inherit;
-
-      > a::before { content: "["; }
-      > a::after  { content: "]"; }
     }
   }
 }
@@ -45,7 +44,7 @@ sup {
   margin-top: 5rem;
 
   > ol {
-    color: var(--text-muted);
+    color: var(--gray);
 
     > li {
       padding: .5rem;

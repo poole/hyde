@@ -13,51 +13,10 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-$gray: #888;
+$gray: #777;
 $gray-bg: rgba(0,0,0,.025);
 $gray-text: #666;
 $menu-text: #bbb;
 $body-color: #333;
 $body-bg: #fff;
 $border-color: #ebebeb;
-
-$root-font-size: 16px;
-$root-font-size-medium: 17px;
-$root-font-size-large: 18px;
-$root-font-size-print: 11pt;
-$root-line-height: 1.75;
-
-$font-weight: 400;
-$font-weight-bold: 700;
-$font-weight-heading: 400;
-
-$code-font-family: Menlo, Monaco, Consolas, monospace;
-
-// Breakpoints and content width. All units must be in rem!
-// NOTE: Duplicated values from `_js/src/drawer.js`.
-$content-width: 38rem;
-$content-width-2: 42rem;
-$content-width-5: 48rem;
-
-$content-margin-3: 3rem;
-$content-margin-5: 4rem;
-
-$content-padding: 1rem;
-
-$sidebar-width: 21rem;
-
-$break-point-1: 42em;
-$break-point-2: 54em;
-$break-point-3: 64em;
-$break-point-4: 72em;
-$break-point-5: 88em;
-$break-point-font-large: 124em;
-
-// The sidebar width starts adjusting dynamically when the content is at the center of the window.
-// This is the case when the window size has a `min-width` of content area + twice the sidebar (left, right):
-//
-// $break-point-dynamic: $content-width-5 + (2 * $content-margin-5) + (2 * $sidebar-width); // = 98rem
-//
-// HACK: Since Chrome doesn't treat rem values in media queries correctly,
-// we hard-code the pixel value for the values above.
-$break-point-dynamic: 1666px; // = 98 * 17px

@@ -13,35 +13,65 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-hy-push-state a, .a {
-  position: relative; // inline
-  padding-bottom: .15rem; // inline
-  border-bottom: 1px solid; // inline
-  transition: color 1s, border-color 250ms; // link
+hy-push-state a {
+  color: var(--body-color); // inline
 
+  // <<< inline
+  @supports not ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+    text-decoration: none; 
+    border-bottom: 2px solid;
+  }
+
+  @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+    text-decoration-style: solid;
+    text-underline-offset: .35rem;
+    text-decoration-thickness: 2px;
+  }
+  // >>>
+
+  // <<< link
+  transition: color 250ms, text-decoration-color 250ms, border-color 250ms;
+  &:hover {
+    transition: color 50ms, text-decoration-color 50ms, border-color 50ms;
+  }
+  // >>>
+
+  // <<< inline
+  &.no-hover {
+    border-bottom: none;
+    text-decoration-thickness: unset;
+    text-underline-offset: unset;
+  }
+  // >>>
+}
+
+.content a:not(.btn):not(.no-hover) {
+  // <<< inline
+  @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+    text-decoration-color: var(--accent-color-faded);
+  }
+  border-color: var(--accent-color-faded);
+  // >>>
   // <<< link
   &:hover {
-    text-decoration: none;
-    transition: color 1s, border-color 50ms;
+    @supports ((text-decoration-thickness: initial) and (text-underline-offset: initial)) {
+      text-decoration-color: var(--accent-color);
+    }
+    border-color: var(--accent-color);
   }
   // >>>
+}
 
-  &.no-hover {
-    border-bottom: none; // inline
-    padding-bottom: 0; // inline
-    transition: none; // link
-    &:hover { transition: none; } // link
+// <<< link
+a.btn {
+  text-decoration: none;
+}
+
+@media print {
+  a:not(.no-print-link)::after {
+    content: " (" attr(href) ") ";
+    color: var(--gray);
+    font-size: 62%;
   }
 }
-
-/*
-img {
-  background-color: var(--gray-bg); // inline
-
-  // <<< link
-  background-position: center;
-  background-repeat: no-repeat;
-  background-image: url('data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPHN2ZyB3aWR0aD0iMTYwIiBoZWlnaHQ9IjkwIiB2aWV3Qm94PSIwIDAgMTYwIDkwIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPgogIDxnIHRyYW5zZm9ybT0ibWF0cml4KDAuMDQ4ODI4LCAwLCAwLCAwLjA0Nzk5MSwgNTQuOTk5OTczLCAyMC40MjgxNDgpIj4KICAgIDxwYXRoIGQ9Ik05NTkuODg0IDEyOGMwLjA0MCAwLjAzNCAwLjA4MiAwLjA3NiAwLjExNiAwLjExNnY3NjcuNzdjLTAuMDM0IDAuMDQwLTAuMDc2IDAuMDgyLTAuMTE2IDAuMTE2aC04OTUuNzdjLTAuMDQwLTAuMDM0LTAuMDgyLTAuMDc2LTAuMTE0LTAuMTE2di03NjcuNzcyYzAuMDM0LTAuMDQwIDAuMDc2LTAuMDgyIDAuMTE0LTAuMTE0aDg5NS43N3pNOTYwIDY0aC04OTZjLTM1LjIgMC02NCAyOC44LTY0IDY0djc2OGMwIDM1LjIgMjguOCA2NCA2NCA2NGg4OTZjMzUuMiAwIDY0LTI4LjggNjQtNjR2LTc2OGMwLTM1LjItMjguOC02NC02NC02NHYweiIgc3R5bGU9ImZpbGw6IHJnYigyMjEsIDIyMSwgMjIxKTsiLz4KICAgIDxwYXRoIGQ9Ik04MzIgMjg4YzAgNTMuMDIwLTQyLjk4IDk2LTk2IDk2cy05Ni00Mi45OC05Ni05NiA0Mi45OC05NiA5Ni05NiA5NiA0Mi45OCA5NiA5NnoiIHN0eWxlPSJmaWxsOiByZ2IoMjIxLCAyMjEsIDIyMSk7Ii8+CiAgICA8cGF0aCBkPSJNODk2IDgzMmgtNzY4di0xMjhsMjI0LTM4NCAyNTYgMzIwaDY0bDIyNC0xOTJ6IiBzdHlsZT0iZmlsbDogcmdiKDIyMSwgMjIxLCAyMjEpOyIvPgogIDwvZz4KPC9zdmc+');
-  // >>>
-}
-*/
+// >>>

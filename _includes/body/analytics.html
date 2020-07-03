@@ -21,7 +21,7 @@
       ga('create', '{{ site.google_analytics }}', 'auto');
     /*{% endif %}*/
 
-    var pushStateEl = d.getElementsByTagName('hy-push-state')[0];
+    var pushStateEl = d.getElementById('_pushState');
     var timeoutId;
     pushStateEl.addEventListener('hy-push-state-load', function() {
       w.clearTimeout(timeoutId);

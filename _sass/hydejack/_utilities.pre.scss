@@ -18,12 +18,15 @@
 .mb4 { margin-bottom: 4rem }
 .mb6 { margin-bottom: 6rem }
 .mt0 { margin-top: 0 }
+.mt1 { margin-top: 1rem }
 .mt2 { margin-top: 2rem }
 .mt3 { margin-top: 3rem }
 .mt4 { margin-top: 4rem }
 .pb0 { padding-bottom: 0 }
 
 .sixteen-nine { @include aspect-ratio(16, 9); }
+.sixteen-ten { @include aspect-ratio(16, 10); }
+.four-three { @include aspect-ratio(4, 3); }
 
 .sr-only {
   display: none; // inline

@@ -5,9 +5,9 @@
       {% assign url = node.url | default: node.href %}
       <li>
         <a
-          {% if forloop.first %}id="_navigation"{% endif %}
-          href="{% include smart-url.txt url=url %}"
-          class="sidebar-nav-item{% if page.url contains url %} active{% endif %}"
+          {% if forloop.first %}id="_drawer--opened"{% endif %}
+          href="{% include_cached smart-url url=url %}"
+          class="sidebar-nav-item"
           {% if node.rel %}rel="{{ node.rel }}"{% endif %}
         >
           {{ node.name | default:node.title }}
@@ -25,7 +25,7 @@
           <a
             {% if forloop.first %}id="_navigation"{% endif %}
             href="{{ node.url | relative_url }}"
-            class="sidebar-nav-item{% if page.url contains node.url %} active{% endif %}"
+            class="sidebar-nav-item"
             {% if node.rel %}rel="{{ node.rel }}"{% endif %}
             >
             {{ node.title }}

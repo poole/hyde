@@ -13,30 +13,88 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<<<< INLINE
-h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6 {
+.heading {
+  font-family: var(--font-family-heading);
   font-weight: var(--font-weight-heading);
-  margin: 5rem 0 1rem;
 }
 
-h1, .h1 {
+.f1 {
+  @extend .heading;
   font-size: 2rem;
   line-height: 1.3;
 }
 
-h2, .h2 {
+.f2 {
+  @extend .heading;
   font-size: 1.5rem;
   line-height: 1.4;
 }
 
-h3, .h3 {
-  font-size: 1.17em;
+.f3 {
+  @extend .heading;
+  font-size: 1.2em;
   line-height: 1.5;
 }
 
-h4, h5, h6, .h4, .h5, .h6 {
+.f4 {
+  @extend .heading;
+  font-size: 1.08rem;
+}
+
+.f5 {
+  @extend .heading;
+  font-size: 1.04rem;
+}
+
+.f6 {
+  @extend .heading;
   font-size: 1rem;
-  margin-bottom: 0.5rem;
+}
+
+// <<< INLINE
+h1, .h1 { @extend .f1; }
+h2, .h2 { @extend .f2; }
+h3, .h3 { @extend .f3; }
+h4, .h4 { @extend .f4; }
+h5, .h5 { @extend .f5; }
+h6, .h6 { @extend .f6; }
+
+.content {
+  h1, .h1 {
+    > a { text-decoration: none; border-bottom: none; }
+    @media screen and (max-width: $break-point-1) {
+      font-size: 1.7rem;
+      line-height: 1.35;
+    }
+    @media screen and (min-width: $break-point-5) {
+      font-size: 2.4rem;
+      line-height: 1.25;
+    }
+  }
+}
+
+body:not(.no-large-headings) {
+  .content {
+    h1, .h1 {
+      @media screen and (min-width: $break-point-dynamic) {
+        width: calc(100% + 50vw - 32rem);
+        font-size: 3rem;
+        line-height: 1.2;
+      }
+      @media screen and (min-width: $break-point-font-large) {
+        font-size: 4rem;
+        line-height: 1.1;
+      }
+    }
+  }
+}
+
+h1, h2, h3, .h1, .h2, .h3 {
+  margin: 3rem 0 1rem;
+}
+
+h4, h5, h6, .h4, .h5, .h6 {
+  margin: 2rem 0 .5rem;
 }
 
 p {
@@ -60,20 +118,28 @@ ul, ol {
   padding-left: 1.25rem;
 }
 
-hr {
+hr, .hr {
   @extend .color-transition;
-  position: relative;
-  margin: 3rem 0;
   border: 0;
+  margin: 1rem 0;
   border-top: 1px solid var(--border-color);
 }
 
-.hr {
+.hr-after::after {
+  @extend .color-transition;
+  content: "";
+  display: block;
+  margin: 1rem 0;
+  border-top: 1px solid var(--border-color);
+}
+
+.hr-bottom {
   @extend .color-transition;
   border-bottom: 1px solid var(--border-color);
-  padding-bottom: 1rem;
-  margin-bottom: 2rem;
+  padding-bottom: .75rem;
+  margin-bottom: 1rem;
 }
+
 // >>>>>
 
 // <<<<< LINK
@@ -91,6 +157,11 @@ h5 + h6, .h5 + .h6, h5 + .h6, .h5 + h6 {
 
 dt, strong {
   font-weight: var(--font-weight-bold);
+}
+
+dt:after{
+  content: " :";
+  color: var(--menu-text);
 }
 
 dd {
@@ -112,7 +183,7 @@ blockquote {
   @extend .color-transition;
   padding: .5rem 1rem;
   margin: .8rem 0;
-  color: var(--text-muted);
+  color: var(--gray);
   border-left: .25rem solid var(--border-color);
 
   &.lead {
@@ -132,12 +203,12 @@ blockquote {
 }
 
 .fine {
-  font-size: .83em;
+  font-size: smaller;
 }
 
 .faded {
   @extend .color-transition;
-  color: var(--text-muted);
+  color: var(--gray);
 }
 
 .centered {
@@ -149,22 +220,9 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   position: relative;
 
   > .permalink {
-    @media screen {
-      border-bottom: none;
-      opacity: 0;
-      width: 1.5rem;
-      text-align: center;
-      float: right;
-      transition: opacity 400ms;
-      will-change: opacity;
-    }
-
-    @media screen and (min-width: $break-point-1 + 2em) {
-      float: none;
-      position: absolute;
-      top: 0;
-      left: -1.75rem;
-    }
+    text-decoration: none;
+    opacity: 0;
+    transition: opacity 400ms;
 
     @media print {
       display: none;
@@ -182,6 +240,13 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   }
 }
 
+.content-hash::before {
+  content: '#'
+}
+.content-json::before {
+  content: '{}'
+}
+
 @media print {
   h1, h2, h3, h4, h5, h6, .h1, .h2, .h3, .h4, .h5, .h6, dt {
     page-break-inside: avoid;
@@ -190,4 +255,4 @@ h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
     break-after: avoid-page;
   }
 }
-// >>>>> LINK
+// >>> LINK

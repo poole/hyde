@@ -18,7 +18,7 @@
   // -webkit-tap-highlight-color: transparent; // link
 }
 
-// <<<<< INLINE
+// <<< INLINE
 html,
 body {
   margin: 0;
@@ -26,8 +26,9 @@ body {
 }
 
 html {
-  font-size: $root-font-size;
-  line-height: $root-line-height;
+  font-family: var(--font-family);
+  font-size: var(--root-font-size);
+  line-height: var(--root-line-height);
 }
 
 body {
@@ -42,9 +43,10 @@ p {
   @extend .color-transition;
 }
 
-// No `:visited` state is required by default (browsers will use `a`)
-a {
-  text-decoration: none;
+.content img, .img,
+.content video, .video {
+  max-width: 100%;
+  height: auto;
 }
 
 .lead {
@@ -52,23 +54,28 @@ a {
   margin-right: -1rem;
 }
 
-.content img, .img,
-.content video, .video {
-  max-width: 100%;
-
+img, video {
   &.lead {
+    display: block;
     max-width: calc(100% + 2rem);
     width: calc(100% + 2rem);
+    height: auto;
   }
 }
-// >>>>> INLINE
+// >>> INLINE
 
-// <<<<< LINK
-@media print {
-  a:not(.no-print-link)::after {
-    content: " (" attr(href) ") ";
-    color: var(--text-muted);
-    font-size: .83em;
+// <<< LINK
+@media (display-mode: standalone) {
+  body {
+    overscroll-behavior-y: contain;
   }
 }
-// >>>>> LINK
+
+:focus {
+  outline-color: var(--accent-color)!important;
+}
+
+::selection {
+  background: var(--accent-color-faded);
+}
+// >>> LINK

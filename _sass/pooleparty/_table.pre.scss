@@ -13,20 +13,13 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
+// <<<<< LINK
 table:not(.highlight) {
-  // <<< inline
+  @extend .figure-base;
   border-collapse: collapse;
-  margin-bottom: 2rem;
-  margin-left: -1rem;
-  // >>>
-
-  // <<< link
   display: block;
-  overflow-x: auto;
-  -webkit-overflow-scrolling: touch;
-  // >>>
+  margin-bottom: 1rem;
 
-  // <<< inline
   td, th {
     @extend .color-transition;
     padding: .25rem .5rem;
@@ -40,9 +33,7 @@ table:not(.highlight) {
       padding-right: 1rem;
     }
   }
-  // >>>
 
-  // <<< link
   thead {
     @extend .color-transition;
     background-color: var(--body-bg);
@@ -65,14 +56,6 @@ table:not(.highlight) {
   tbody tr:nth-child(odd) th {
     @extend .color-transition;
     background-color: var(--gray-bg);
-  }
-  // >>>
-}
-
-// <<<<< LINK
-@media print {
-  table:not(.highlight) {
-    width: 100%!important;
   }
 }
 
@@ -158,6 +141,10 @@ table.stretch-table {
   display: table;
   width: 100% !important;
   width: calc(100% + 2rem) !important;
+  @media screen and (max-width: $break-point-4) {
+    display: block!important;
+    @include scroll-table();
+  }
 }
 
 table.scroll-table {
@@ -175,6 +162,12 @@ table.flip-table {
 
   table.flip-table-small {
     @include flip-table();
+  }
+}
+
+@media print {
+  table:not(.highlight) {
+    width: 100%!important;
   }
 }
 // >>>>> LINK

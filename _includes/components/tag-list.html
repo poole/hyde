@@ -11,7 +11,11 @@
   {% for tag_slug in tags %}
     {% capture iter_separator %}{% if forloop.last %}{{ end_with }}{% else %}{{ separator }}{% endif %}{% endcapture %}
 
-    {% assign tag = meta | where: "slug", tag_slug | first %}
+    {% if major >= 4 and minor >= 1 %}
+      {% assign tag = meta | find: "slug", tag_slug %}
+    {% else %}
+      {% assign tag = meta | where: "slug", tag_slug | first %}
+    {% endif %}
 
     {% if tag %}
       {% capture content_temp %}{{ content }}<a href="{{ tag.url | relative_url }}" class="flip-title">{{ tag.title }}</a>{{ iter_separator }}{% endcapture %}

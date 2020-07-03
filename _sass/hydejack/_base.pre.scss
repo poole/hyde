@@ -28,8 +28,8 @@ hy-push-state, hy-drawer {
 // >>>>>
 
 // <<<<< INLINE
-@media screen {
-  body::before {
+body::before {
+  @media screen {
     content: '';
     width: .5rem;
     background: var(--border-color);
@@ -40,39 +40,23 @@ hy-push-state, hy-drawer {
   }
 
   @media (min-width: $break-point-3) {
-    body::before { width: $sidebar-width; }
+    width: $sidebar-width;
   }
 
   @media (min-width: $break-point-dynamic) {
-    $r28: ($content-width-5 / 2) + $content-margin-5;
-    body::before { width: calc(50% - #{$r28}); }
+    width: calc(50% - #{$half-content});
   }
 }
 
 html {
   @media screen and (min-width: $break-point-1) {
-    font-size: $root-font-size-medium;
+    font-size: var(--root-font-size-medium);
   }
 
   @media screen and (min-width: $break-point-font-large) {
-    font-size: $root-font-size-large;
+    font-size: var(--root-font-size-large);
   }
 }
 // >>>>>
 
-@media print { html { font-size: $root-font-size-print; } } // link
-
-// <<<<< INLINE
-.fade-in {
-  animation-duration: 500ms;
-  animation-timing-function: ease;
-  animation-name: fade-in;
-  animation-fill-mode: forwards;
-}
-
-@keyframes fade-in {
-  from { transform: translateY(-3rem); opacity: 0; }
-  50%  { transform: translateY(-3rem); opacity: 0; }
-  to   { transform: translateY(0);     opacity: 1; }
-}
-// >>>>>
+@media print { html { font-size: var(--root-font-size-print); } } // link

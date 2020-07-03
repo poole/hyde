@@ -41,7 +41,6 @@
     "commit": "96c3c62bc1d4f5359761f6a7eb5927cddad9b682"
   },
   "_source": "https://github.com/Khan/KaTeX.git",
-  "_target": "0.10.2",
-  "_originalSource": "katex",
-  "_direct": true
+  "_target": "^0.10.2",
+  "_originalSource": "katex"
 }

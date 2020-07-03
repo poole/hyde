@@ -1,18 +1,19 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?l4t5f5');
-  src:  url('fonts/icomoon.eot?l4t5f5#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?l4t5f5') format('truetype'),
-    url('fonts/icomoon.woff?l4t5f5') format('woff'),
-    url('fonts/icomoon.svg?l4t5f5#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?2kl1l8');
+  src:  url('fonts/icomoon.eot?2kl1l8#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?2kl1l8') format('truetype'),
+    url('fonts/icomoon.woff?2kl1l8') format('woff'),
+    url('fonts/icomoon.svg?2kl1l8#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
+  font-display: block;
 }
 
 [class^="icon-"], [class*=" icon-"] {
   /* use !important to prevent issues with browser extensions that change fonts */
   font-family: 'icomoon' !important;
-  speak: none;
+  speak: never;
   font-style: normal;
   font-weight: normal;
   font-variant: normal;
@@ -267,12 +268,6 @@
 .icon-mail2:before {
   content: "\ea84";
 }
-.icon-sun:before {
-  content: "\e9d4";
-}
-.icon-contrast:before {
-  content: "\e9d5";
-}
 .icon-brightness-contrast:before {
   content: "\e9d6";
 }
@@ -281,4 +276,28 @@
 }
 .icon-key:before {
   content: "\e98d";
+}
+.icon-quill:before {
+  content: "\e907";
+}
+.icon-flag:before {
+  content: "\e9cc";
+}
+.icon-man-woman:before {
+  content: "\e9de";
+}
+.icon-cross:before {
+  content: "\ea0f";
+}
+.icon-file-empty:before {
+  content: "\e924";
+}
+.icon-printer:before {
+  content: "\e954";
+}
+.icon-user-plus:before {
+  content: "\e973";
+}
+.icon-file-pdf:before {
+  content: "\eadf";
 }

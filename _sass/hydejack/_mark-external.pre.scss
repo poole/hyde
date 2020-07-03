@@ -16,7 +16,7 @@
 // <<< link
 @media screen {
   a.external,
-  a[href*="//"]:not(.no-mark-external):not(.no-mark),
+  a[href*="://"]:not(.no-mark-external):not(.no-mark),
   a.no-push-state:not(.no-mark-external):not(.no-mark) {
     &::after {
       content: "\00A0\ea7e";
@@ -30,12 +30,7 @@
       font-size: smaller;
       -webkit-font-smoothing: antialiased;
       -moz-osx-font-smoothing: grayscale;
-      opacity: 0.33;
-      transition: opacity 500ms;
-    }
-    &:hover::after, &:focus::after {
-      opacity: 1;
-      transition: opacity 100ms;
+      color: var(--menu-text);
     }
   }
 }

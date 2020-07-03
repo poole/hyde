@@ -15,7 +15,7 @@ Example code for using Matamo as alternative analytics solution.
   _paq.push(['setTrackerUrl', u+'piwik.php']);
   _paq.push(['setSiteId', '{{site.matomo_analytics.site_id}}']);
 
-  var pushStateEl = document.getElementsByTagName('hy-push-state')[0];
+  var pushStateEl = document.getElementById('_pushState');
   var timeStartLoadPage, referer, timeItTookToLoadPage;
 
   pushStateEl.addEventListener('hy-push-state-start', function() {

@@ -13,20 +13,41 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import "@babel/polyfill";
-import "intersection-observer";
-import { default as ResizeObserver } from "resize-observer-polyfill";
-import "web-animations-js";
-import { default as smoothscroll } from "smoothscroll-polyfill";
-import "../lib/webcomponents";
-import "../lib/modernizr-custom";
-import "../lib/request-idle-callback";
-import "../lib/version";
+import '@babel/polyfill';
 
-import "./images";
-import "./drawer";
-import "./push-state";
-import "./katex";
+import '../lib/version';
+import '../lib/modernizr-custom';
+import { hasFeatures } from './common';
 
-window.ResizeObserver = window.ResizeObserver || ResizeObserver;
-smoothscroll.polyfill();
+__webpack_public_path__ = window._publicPath;
+
+const BASELINE = ['classlist', 'eventlistener', 'queryselector', 'template'];
+const DARK_MODE_FEATURES = ['customproperties'];
+const DRAWER_FEATURES = ['customproperties', 'history', 'matchmedia', 'opacity'];
+const PUSH_STATE_FEATURES = ['history', 'matchmedia', 'opacity', 'cssanimations', 'cssremunit', 'documentfragment'];
+const TOC_FEATURES = ['matchmedia', 'cssremunit'];
+
+if (hasFeatures(BASELINE)) {
+  import(/* webpackMode: "eager" */ './upgrades');
+
+  if (!window._noNavbar) import(/* webpackChunkName: "navbar" */ './navbar');
+  // if (!window._noSearch) import(/* webpackChunkName: "search" */ './pro/search');
+
+  // if (hasFeatures(DARK_MODE_FEATURES)) {
+  //   import(/* webpackMode: "eager" */ './pro/cookies-banner');
+  //   import(/* webpackMode: "eager" */ './pro/dark-mode');
+  // }
+
+  // A list of Modernizr tests that are required for the drawer to work.
+  if (!window._noDrawer && hasFeatures(DRAWER_FEATURES)) {
+    import(/* webpackChunkName: "drawer" */ './drawer');
+  }
+
+  if (!window._noPushState && hasFeatures(PUSH_STATE_FEATURES)) {
+    import(/* webpackChunkName: "push-state" */ './push-state');
+  }
+
+  // if (!window._noToc && hasFeatures(TOC_FEATURES)) {
+  //   import(/* webpackChunkName: "toc" */ './pro/toc');
+  // }
+}

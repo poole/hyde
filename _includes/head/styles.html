@@ -1,41 +1,12 @@
 <!--[if gt IE 8]><!---->
-{% capture style_url %}{% link assets/css/hydejack-8.5.2.css %}{% endcapture %}
-{% capture icons_url %}{% link assets/icomoon/style.css %}{% endcapture %}
-{% capture fonts_url %}https://fonts.googleapis.com/css?family={{ google_fonts }}&display=swap{% endcapture %}
-
-{% assign font_heading = site.font_heading | default:"Roboto Slab, Helvetica, Arial, sans-serif" %}
-{% assign font         = site.font         | default:"Noto Sans, Helvetica, Arial, sans-serif" %}
-
-{% assign layout = page.layout %}
-{% assign no_google_fonts = site.hydejack.no_google_fonts or site.no_google_fonts %}
-
 {% if site.hydejack.no_inline_css or jekyll.environment == 'development' %}
-  <link rel="stylesheet" href="{{ style_url | relative_url }}">
-  <link rel="stylesheet" href="{{ icons_url | relative_url }}">
-  {% unless no_google_fonts %}
-    <link rel="stylesheet" href="{{ fonts_url }}">
-  {% endunless %}
+  {% include_cached head/styles-no-inline.html %}
 {% else %}
-  <style>
-    {% capture to_scssify %}{% include styles/inline.scss %}{% endcapture %}{{ to_scssify | scssify }}
-  </style>
-
-  <link rel="preload" as="style" href="{{ style_url | relative_url }}" id="_stylePreload">
-  <link rel="preload" as="style" href="{{ icons_url | relative_url }}" id="_iconsPreload">
-  {% unless no_google_fonts %}
-    <link rel="preload" as="style" href="{{ fonts_url }}" id="_fontsPreload">
-  {% endunless %}
-
-  <script>setRel('_stylePreload');setRel('_iconsPreload');/*{% unless no_google_fonts %}*/setRel('_fontsPreload');/*{% endunless %}*/</script>
-  <noscript>
-    <link rel="stylesheet" href="{{ style_url | relative_url }}">
-    <link rel="stylesheet" href="{{ icons_url | relative_url }}">
-    {% unless no_google_fonts %}
-      <link rel="stylesheet" href="{{ fonts_url }}">
-    {% endunless %}
-  </noscript>
+  {% include_cached head/styles-layout.html layout=include.layout %}
+  {% include_cached head/styles-inline.html %}
 {% endif %}
+
 {% unless site.hydejack.no_page_style %}
-  {% include head/page-style.html %}
+  {% include_cached head/page-style.html color=include.color theme_color=include.theme_color %}
 {% endunless %}
 <!--<![endif]-->
