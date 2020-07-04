@@ -9,8 +9,14 @@ Gem::Specification.new do |spec|
   spec.summary       = %q{"A boutique Jekyll theme for hackers, nerds, and academics"}
   spec.homepage      = "https://hydejack.com/"
   spec.license       = "GPL-3.0"
-  spec.metadata      = { "source_code_uri" => "https://github.com/hydecorp/hydejack",
-                         "github_repo" => "ssh://github.com/hydecorp/hydejack" }
+  spec.metadata = {
+    "bug_tracker_uri"   => "https://github.com/hydecorp/hydejack/issues",
+    "changelog_uri"     => "https://hydejack.com/changelog/",
+    "documentation_uri" => "https://hydejack.com/docs/",
+    "homepage_uri"      => "https://hydejack.com/",
+    "source_code_uri"   => "https://github.com/hydecorp/hydejack/",
+    "github_repo"       => "ssh://github.com/hydecorp/hydejack"
+  }
 
   spec.files         = `git ls-files -z`.split("\x0").select { |f| f.match(%r{^(assets|_layouts|_includes|_sass|_config.yml|README|LICENSE|NOTICE|CHANGELOG)}i) }
 
