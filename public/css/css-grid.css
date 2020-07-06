@@ -1,0 +1,17 @@
+/*layout content and sidebar*/
+@media (min-width: 48em) {
+    .content {
+        display: grid;
+        grid-template-columns: auto 220px;
+        grid-column-gap: 35px;
+    }
+}
+
+@media (min-width: 64em) {
+    .content {
+        display: grid;
+        grid-template-columns: auto 300px;
+        grid-column-gap: 45px;
+    }
+}
+/*End of layout content and sidebar*/

@@ -5,11 +5,16 @@
 
   <body>
 
-    {% include sidebar.html %}
+    {% include navbar.html %}
 
-    <div class="content container">
-      {{ content }}
+    <div class="content">
+        <main class="main">
+            {{ content }}
+        </main>
+
+        {% include sidebar.html %}
+    
     </div>
-
+    
   </body>
 </html>
