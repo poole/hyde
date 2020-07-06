@@ -1,0 +1,14 @@
+docs_list_title: Footer links
+docs:
+
+- title: Blog
+  url: /blog/
+
+- title: Resources
+  url: /resources/
+
+- title: About
+  url: /about/
+
+- title: Search
+  url: /search/
