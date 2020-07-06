@@ -26,9 +26,16 @@ Appropriate credit as per Creative Commons licenses.
 
 | Work                                                   | License        | Changes
 |:-------------------------------------------------------|:---------------|:-
-| [Photo][ph] by [Caleb George][cg]                      | [Unsplash]     | Rearranged objects, Filled in content, blurred
+| Photo by [Jeremy Bishop][jb]                           | [Unsplash]     | Liquify filter, blur
+| Photo by [Caleb George][cg]                            | [Unsplash]     | Liquify filter, patch tool, blur
 | [IcoMoon Icons Free Version][11] by [Keyamoon][12]     | [CC-BY-SA-4.0] | None
 | [Touch-161562.svg][41]                                 | [CC0-1.0]      | Composition
+
+[jb]: https://unsplash.com/photos/1braZySlEKA
+[cg]: https://unsplash.com/photos/AtvuPUenaeI
+[11]: https://icomoon.io/#icons-icomoon
+[12]: http://keyamoon.com/
+[41]: https://commons.wikimedia.org/wiki/File:Touch-161562.svg
 
 
 ## Licenses
@@ -270,14 +277,6 @@ Redistribution and use in source and binary forms, with or without modification,
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT OWNER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 
-
-[11]: https://icomoon.io/#icons-icomoon
-[12]: http://keyamoon.com/
-[21]: https://commons.wikimedia.org/wiki/File:Jacques_Louis_David_-_Bonaparte_franchissant_le_Grand_Saint-Bernard,_20_mai_1800_-_Google_Art_Project.jpg
-[31]: https://commons.wikimedia.org/wiki/File:Mandel_zoom_08_satellite_antenna.jpg
-[41]: https://commons.wikimedia.org/wiki/File:Touch-161562.svg
-[ph]: https://unsplash.com/photos/AtvuPUenaeI?utm_source=unsplash&utm_medium=referral&utm_content=creditCopyText
-[cg]: http://www.caleb-morris.com/
 
 [MIT]: licenses/MIT.md
 [GPL-3.0]: licenses/GPL-3.0.md
