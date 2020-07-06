@@ -12,7 +12,7 @@
 }
 
 {% if site.hydejack.no_page_style %}
-  {% assign color       = site.accent_color | default:'#4fb1ba' %}
-  {% assign theme_color = site.theme_color  | default:'#193747' %}
+  {% assign color       = site.accent_color | default:'rgb(79,177,186)' %}
+  {% assign theme_color = site.theme_color  | default:'rgb(8,46,57)' %}
   {% include_cached styles/page-style.scss color=color theme_color=theme_color %}
 {% endif %}
