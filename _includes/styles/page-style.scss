@@ -1,5 +1,5 @@
-{% assign color       = include.color       | default:'#4fb1ba' %}
-{% assign theme_color = include.theme_color | default:'#193747' %}
+{% assign color       = include.color       %}
+{% assign theme_color = include.theme_color %}
 
 html {
   --accent-color: {{ color }};

@@ -15,10 +15,10 @@
 
 /*{% assign vars = site.data.variables %}*/
 
-$font-family:         {{ vars.font         | default:site.font                             }};
-$font-family-heading: {{ vars.font_heading | default:site.font_heading                     }};
-$code-font-family:    {{ vars.font_code    | default:site.font_code                        }};
-$theme-color:         {{ vars.theme_color  | default:site.theme_color | default:'#193747'  }};
+$font-family:         {{ vars.font         | default:site.font                                 }};
+$font-family-heading: {{ vars.font_heading | default:site.font_heading                         }};
+$code-font-family:    {{ vars.font_code    | default:site.font_code                            }};
+$theme-color:         {{ vars.theme_color  | default:site.theme_color | default:'rgb(8,46,57)' }};
 
 $root-font-size:        {{ vars.root_font_size        | default:15 }}px;
 $root-font-size-medium: {{ vars.root_font_size_medium | default:16 }}px;

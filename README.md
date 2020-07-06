@@ -8,7 +8,7 @@ A boutique Jekyll theme for hackers, nerds, and academics.
 
 
 
-![Screenshot](https://hydejack.com/assets/img/blog/hydejack-8.png)
+![Screenshot](https://hydejack.com/assets/img/blog/hydejack-9.jpg)
 
 Hydejack's cover page on a variety of screens.
 
@@ -21,6 +21,12 @@ It includes a blog that is suitable for both prose and technical documentation, 
 > Your complete presence on the web — A [blog], [portfolio], and [resume].
 
 
+
+## A Personal Site That Won't Disappear
+
+**Hydejack** is 100% built on Open Source software, and is Open Source itself, save for parts of the PRO version. The PRO version is a one-time payment that gives you the right to use it forever.
+
+Hydejack is all static sites. _HTML_. All you need is a web server --- any web server --- to have a professional web presence that lasts a lifetime.
 
 ## Download
 
@@ -48,12 +54,12 @@ The table below shows what's included in each version:
 | No Hydejack Branding          |                | &#x2714;            |
 | License                       | [GPL-3.0][lic] | [PRO]               |
 | Source                        | [GitHub][src]  | Included            |
-| __Price__ / Upgrade           | __Free__       | __$79__ / $29 [^3]  |
+| __Price__ / Upgrade           | __Free__       | __$99__ / $39 [^3]  |
 | | [__Download__][kit] <br/>-- or --<br/> [__Deploy to Netlify__][nfy] | [__Buy PRO__][buy] |
 
 
 
-## A Free Blogging Theme
+
 **Hydejack** started out as a free blogging theme for Jekyll — and continues to be so.
 
 <!--posts-->
@@ -79,7 +85,7 @@ Write all content with Markdown. __Hydejack__ gives you [additional CSS classes]
 
 
 ## Just Markup
-**Hydejack** boasts a plethora of modern JavaScript, but make no mistake: It's still a _plain old web page_ at its core. It works without JavaScript, and you can even view it in a text-based browser like `w3m`:
+**Hydejack** boasts a plethora of modern JavaScript, but make no mistake: It's still a _plain old web page_ at its core. It works without JavaScript and you can even view it in a text-based browser like `w3m`:
 
 ![w3m Screenshot](https://hydejack.com/assets/img/blog/w3m.png)
 
@@ -102,19 +108,13 @@ Code blocks can have a filename and a caption.
 
 
 ## Beautiful Math
-They say math is beautiful — and with **Hydejack**'s [math support][maths] it's guaranteed to also look beautiful:
+They say math is beautiful — and with **Hydejack**'s [math support][math] it's guaranteed to also look beautiful:
 
 ![Math example](https://hydejack.com/assets/img/blog/example-content-iii.jpg)
 
 Hydejack uses KaTeX to efficiently render math.
 
 
-[maths]: docs/writing.md#adding-math
-
-
-## A Personal Site That Won't Disappear
-
-**Hydejack** is 100% built on Open Source software, and is Open Source itself, save for parts of the PRO version. The PRO version is a one-time payment that gives you the right to use it forever.
 
 
 ## Build an Audience
@@ -171,16 +171,14 @@ The table below shows what's included in each version:
 | No Hydejack Branding          |                | &#x2714;            |
 | License                       | [GPL-3.0][lic] | [PRO]               |
 | Source                        | [GitHub][src]  | Included            |
-| __Price__ / Upgrade           | __Free__       | __$79__ / $29 [^3]  |
+| __Price__ / Upgrade           | __Free__       | __$99__ / $39 [^3]  |
 | | [__Download__][kit] <br/>-- or --<br/> [__Deploy to Netlify__][nfy] | [__Buy PRO__][buy] |
-
-
 
 [^1]: Actual page load speed depends on your hosting provider, resolution of embedded images and usage of 3rd party plugins.
 
 [^2]: Large screens (> 1664px width) only.
 
-[^3]: Upgrades from v8: Find your discount code in the latest zip download.
+[^3]: Upgrading from Hydejack 8? Find your discount code in the latest zip download!
 
 *[FLIP]: First-Last-Invert-Play. A coding technique to achieve performant page transition animations.
 
@@ -204,8 +202,9 @@ The table below shows what's included in each version:
 [pro]: licenses/PRO.md
 [docs]: https://hydejack.com/docs/
 [ofln]: https://hydejack.com/docs/advanced/#enabling-offline-support
+[math]: https://hydejack.com/docs/writing/#adding-math
 
-[kit]: https://github.com/hydecorp/hydejack-starter-kit/archive/v9.0.0-rc.6.zip
+[kit]: https://github.com/hydecorp/hydejack-starter-kit/archive/v9.0.1.zip
 [src]: https://github.com/hydecorp/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://gum.co/nuOluY
