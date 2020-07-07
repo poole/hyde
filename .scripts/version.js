@@ -15,8 +15,9 @@ const FILES = [
   "./jekyll-theme-hydejack.gemspec",
   "./_includes/body/scripts.html",
   "./_includes/body/footer.html",
-  "./_includes/head/styles-inline.html",
   "./_includes/head/meta-static.html",
+  "./_includes/head/links-static.html",
+  "./_includes/head/styles-inline.html",
   "./_includes/head/styles-no-inline.html",
   "./_includes/header.txt",
   "./_layouts/compress.html",
@@ -74,7 +75,7 @@ async function getFiles(dir) {
 
     const pUnlink = Promise.all(
       (await getFiles('./assets/js'))
-        .filter(f => f.includes(vPrev))
+        .filter(f => f.match(/assets\/js\/*hydejack-*/i))
         .map(unlink)
     );
 
