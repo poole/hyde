@@ -8,7 +8,7 @@ A boutique Jekyll theme for hackers, nerds, and academics.
 
 
 
-![Screenshot](https://hydejack.com/assets/img/blog/hydejack-9.jpg)
+![Screenshot](https://hydejack.com/assets/img/blog/hydejack-8.jpg)
 
 Hydejack's cover page on a variety of screens.
 
