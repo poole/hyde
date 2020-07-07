@@ -204,7 +204,7 @@ The table below shows what's included in each version:
 [ofln]: https://hydejack.com/docs/advanced/#enabling-offline-support
 [math]: https://hydejack.com/docs/writing/#adding-math
 
-[kit]: https://github.com/hydecorp/hydejack-starter-kit/archive/v9.0.1.zip
+[kit]: https://github.com/hydecorp/hydejack-starter-kit/releases
 [src]: https://github.com/hydecorp/hydejack
 [gem]: https://rubygems.org/gems/jekyll-theme-hydejack
 [buy]: https://gum.co/nuOluY
