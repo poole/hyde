@@ -14,7 +14,7 @@
           <p>
             <a href="{{ post.url }}">
               {{ post.title }}
-              <!-- <small>{{ post.date | date_to_string }}</small> -->
+              <small>{{ post.date | date_to_string }}</small>
             </a>
           </p>
         </li>
@@ -22,23 +22,3 @@
     </ul>
   </div>
 </aside>
-
-<!-- <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1>
-        <a href="{{ site.baseurl }}">
-          {{ site.title }}
-        </a>
-      </h1>
-
-    </div>
-
-    <nav class="sidebar-nav">
-       {% for item in site.data.navlinks.docs %}
-            <a class="sidebar-nav-item{% if page.url == item.url %} active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
-       {% endfor %}
-    </nav>
-  </div>
-</div>
- -->
