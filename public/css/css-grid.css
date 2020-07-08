@@ -5,6 +5,9 @@
         grid-template-columns: auto 220px;
         grid-column-gap: 35px;
     }
+    .main {
+        border-right: 1px solid #ccc;
+    }
 }
 
 @media (min-width: 64em) {
@@ -12,6 +15,9 @@
         display: grid;
         grid-template-columns: auto 300px;
         grid-column-gap: 45px;
+    }
+    .main {
+        border-right: 1px solid #ccc;
     }
 }
 /*End of layout content and sidebar*/
