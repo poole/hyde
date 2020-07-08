@@ -1,23 +1,14 @@
 docs_list_title: ACME Documentation
 docs:
 
-- title: Home
-  url: /
-
-- title: HTML Tutorial
+- title: learn
   url: /practice-html/
 
 - title: Projects
   url: /projects/
 
+- title: Tools
+  url: /resources/ 
+
 - title: Blog
   url: /blog/
-
-- title: Resources
-  url: /resources/
-
-- title: About
-  url: /about/
-
-- title: Search
-  url: /search/

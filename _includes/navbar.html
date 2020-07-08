@@ -1,0 +1,16 @@
+<header>
+    <div class="about">
+        <a href="/">
+            <h1>{{ site.title }}</h1>
+        </a>
+    </div>
+    <nav>
+        <ul>
+            {% for item in site.data.navlinks.docs %}
+                <li>
+                    <a class="sidebar-nav-item{% if page.url == item.url %} active{% endif %}" href="{{ item.url }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+</header>

@@ -55,11 +55,10 @@ html {
  */
 
 .sidebar {
+  padding: 1rem 0rem;
   text-align: center;
-  padding: 2rem 1rem;
-  color: rgba(255,255,255,.5);
-  background-color: #202020;
 }
+
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
@@ -68,41 +67,51 @@ html {
     bottom: 0;
     width: 18rem;
     text-align: left;
+    background-color: #202020;
+
   }
 }
 
 /* Sidebar links */
 .sidebar a {
-  color: #fff;
+  /*color:#202020;*/
 }
 
+
+
 /* About section */
-.sidebar-about h1 {
-  color: #fff;
-  margin-top: 0;
+.sidebar-about h1 a{
+  color:#202020;
+  margin-top: 0 0 10px 0;
   font-family: "Abril Fatface", serif;
   font-size: 2.25rem;
+  text-decoration: none;
 }
 
 /* Sidebar nav */
-.sidebar-nav {
-  margin-bottom: 1rem;
-  padding:0;
-}
 .sidebar-nav-item {
   line-height: 1.75;
-  margin-right: 15px;
+  padding:7.5px 10px;
+  border-radius: 5px;
+  color:#202020;
+  /*background-color: #000;*/
+  margin:5px;
 }
 
 @media (min-width: 48em) {
+  .sidebar-about h1 a{
+    color:rgba(255,255,255,1);
+  }
   .sidebar-nav-item {
     display: block;
+    color:rgba(255,255,255,1);
   }
 }
 
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: underline;
+  background-color: #ccc;
 }
 .sidebar-nav-item.active {
   font-weight: bold;
