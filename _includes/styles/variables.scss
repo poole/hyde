@@ -23,7 +23,7 @@ $theme-color:         {{ vars.theme_color  | default:site.theme_color | default:
 $root-font-size:        {{ vars.root_font_size        | default:15 }}px;
 $root-font-size-medium: {{ vars.root_font_size_medium | default:16 }}px;
 $root-font-size-large:  {{ vars.root_font_size_large  | default:17 }}px;
-$root-font-size-print:  {{ vars.root_font_size_print  | default:9  }}pt;
+$root-font-size-print:  {{ vars.root_font_size_print  | default:8  }}pt;
 $root-line-height:      {{ vars.root_line_height      | default:1.75 }};
 
 $font-weight:         {{ vars.font_weight         | default:400 }};
