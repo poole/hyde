@@ -1,19 +1,26 @@
 <aside class="aside">
-    <section>
-        <h3>About</h3>
-        <p>Learn HTML</p>
-        <p>Learn CSS </p>
-        <p>Practice HTML</p>
-        <p>Practice CSS</p>
-        <p>
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-            quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-            consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-            cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
+  <section>
+    <h3>About</h3>
+    <p><a href="">Learn HTML</a></p>
+    <p><a href="">Learn CSS </a></p>
+    <p><a href="">Practice HTML</a></p>
+    <p><a href="">Practice CSS</a></p>
     </section>
+  <div class="related">
+  <h2>Recent Posts</h2>
+    <ul class="related-posts">
+      {% for post in site.related_posts limit:5 %}
+        <li>
+          <p>
+            <a href="{{ post.url }}">
+              {{ post.title }}
+              <!-- <small>{{ post.date | date_to_string }}</small> -->
+            </a>
+          </p>
+        </li>
+      {% endfor %}
+    </ul>
+  </div>
 </aside>
 
 <!-- <div class="sidebar">
