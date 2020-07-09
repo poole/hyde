@@ -1,6 +1,3 @@
-# Dependencies
-highlighter:      pygments
-
 # Permalinks
 permalink:        pretty
 
