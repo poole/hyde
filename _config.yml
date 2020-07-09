@@ -8,7 +8,7 @@ permalink:        pretty
 title:            Matt Corich
 tagline:          'Lead Developer'
 description:      'fillin some stuff here'
-url:              http://kea.zone
+url:              http://www.kea.zone
 baseurl:          /
 
 author:
@@ -18,7 +18,6 @@ author:
 paginate:         5
 
 # Custom vars
-version:          2.1.0
 
 github:
   repo:           https://github.com/korich
