@@ -50,6 +50,7 @@ nav li {
   display:inline;
   line-height: 1.75;
   margin-right: 15px;
+  font-size: 16px;
 }
 @media (min-width: 48em) {
   nav li {
