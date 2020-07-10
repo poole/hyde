@@ -31,7 +31,7 @@ body::before {
   @media screen {
     content: '';
     width: .5rem;
-    background: var(--border-color);
+    background: var(--gray-bg);
     position: fixed;
     left: 0;
     top: 0;
