@@ -34,18 +34,21 @@
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
-@media (min-width: 48em) {
+@media (min-width: 48rem) {
   html {
     font-size: 16px;
   }
 }
-@media (min-width: 58em) {
+@media (min-width: 64rem) {
   html {
-    font-size: 20px;
+    font-size: 16px;
   }
 }
-
-
+@media (min-width: 80rem) {
+  html {
+    font-size: 16px;
+  }
+}
 /*
  * Sidebar
  *
@@ -55,18 +58,38 @@ html {
 
 .sidebar {
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 2rem 2rem 2rem 2rem;
   color: rgba(255,255,255,.5);
   background-color: #202020;
 }
-@media (min-width: 48em) {
+@media (min-width: 48rem) {
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
-    text-align: left;
+    width: 24rem;
+    text-align: right;
+  }
+}
+@media (min-width: 64rem) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 24rem;
+    text-align: right;
+  }
+}
+@media (min-width: 96rem) {
+  .sidebar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    width: 44rem;
+    text-align: right;
   }
 }
 
@@ -79,13 +102,15 @@ html {
 .sidebar-about h1 {
   color: #fff;
   margin-top: 0;
-  font-family: "Abril Fatface", serif;
+  font-family: 'Average', serif;
+  font-weight: bold;
   font-size: 3.25rem;
 }
 
 /* Sidebar nav */
 .sidebar-nav {
-  margin-bottom: 1rem;
+  padding-left: 0;
+  list-style: none;
 }
 .sidebar-nav-item {
   display: block;
@@ -105,7 +130,7 @@ a.sidebar-nav-item:focus {
  * contents to the bottom of the sidebar in tablets and up.
  */
 
-@media (min-width: 48em) {
+@media (min-width: 48rem) {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
@@ -123,20 +148,26 @@ a.sidebar-nav-item:focus {
 
 .content {
   padding-top:    4rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
 }
 
-@media (min-width: 48em) {
+@media (min-width: 48rem) {
   .content {
-    max-width: 38rem;
-    margin-left: 20rem;
+    max-width: 44rem;
+    margin-left: 26rem;
     margin-right: 2rem;
   }
 }
 
-@media (min-width: 64em) {
+@media (min-width: 64rem) {
   .content {
-    margin-left: 22rem;
+    margin-left: 26rem;
+    margin-right: 4rem;
+  }
+}
+@media (min-width: 96rem) {
+  .content {
+    margin-left: 46rem;
     margin-right: 4rem;
   }
 }
@@ -148,21 +179,27 @@ a.sidebar-nav-item:focus {
  * Flip the orientation of the page by placing the `.sidebar` on the right.
  */
 
-@media (min-width: 48em) {
+@media (min-width: 48rem) {
   .layout-reverse .sidebar {
     left: auto;
     right: 0;
   }
   .layout-reverse .content {
     margin-left: 2rem;
-    margin-right: 20rem;
+    margin-right: 26rem;
   }
 }
 
-@media (min-width: 64em) {
+@media (min-width: 64rem) {
   .layout-reverse .content {
     margin-left: 4rem;
-    margin-right: 22rem;
+    margin-right: 26rem;
+  }
+}
+@media (min-width: 96rem) {
+  .layout-reverse .content {
+    margin-left: 4rem;
+    margin-right: 46rem;
   }
 }
 
@@ -246,5 +283,14 @@ a.sidebar-nav-item:focus {
 }
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
+  color: #8f5536;
+}
+
+/* Brown */
+.theme-long-qian .sidebar {
+  background-color: #8f5536;
+}
+.theme-long-qian .content a,
+.theme-long-qian .related-posts li a:hover {
   color: #8f5536;
 }

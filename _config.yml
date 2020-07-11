@@ -1,26 +1,40 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdown
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
 #relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            25b3nk
+tagline:          'Personal Blog'
+description:      'Personal Blog'
+url:              https://25b3nk.github.io
 baseurl:          /
+name:             Bhaskar         
 
 author:
   name:           'Mark Otto'
   url:            https://twitter.com/mdo
 
+twitter_username: csbenk
+linkedin_username: bhaskar-chakradhar
+
 paginate:         5
 
-# Custom vars
-version:          2.1.0
-
 github:
-  repo:           https://github.com/poole/hyde
+    username:         25b3nk
+    url:              https://github.com/25b3nk
+    repo:             https://github.com/25b3nk/25b3nk.github.io
+
+# Custom vars
+
+hyde_version:         2.1.0
+hyde_url:             http://hyde.getpoole.com
+hyde_repo:            https://github.com/poole/hyde
+
+gems:
+  - jekyll-seo-tag
+  - jekyll-paginate
+  - jekyll-gist

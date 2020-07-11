@@ -26,9 +26,25 @@
         {% endif %}
       {% endfor %}
 
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a>
-      <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+      <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}/archive/v{{ site.version }}.zip">Download</a> -->
+      <!-- <a class="sidebar-nav-item" href="{{ site.github.repo }}">GitHub project</a> -->
+      <!-- <span class="sidebar-nav-item">Currently v{{ site.version }}</span> -->
+      <!-- social buttons -->
+      {% if site.github.url %}
+      <a href="https://github.com/{{site.github.username}}" target="_blank" style="text-decoration:none">
+        <i class="fa fa-fw fa-github"></i>
+      </a>
+      {% endif %}
+      {% if site.twitter_username %}
+      <a href="https://www.twitter.com/{{ site.twitter_username }}" target="_blank" style="text-decoration:none">
+        <i class="fa fa-fw fa-twitter"></i>
+      </a>
+      {% endif %}
+      {% if site.linkedin_username %}
+      <a href="https://linkedin.com/in/{{ site.linkedin_username }}" target="_blank" style="text-decoration:none">
+        <i class="fa fa-fw fa-linkedin"></i>
+      </a>
+      {% endif %}
     </nav>
 
     <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
