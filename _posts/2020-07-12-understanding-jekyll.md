@@ -2,7 +2,7 @@
 layout: post
 title: Understanding Jekyll while creating my GitHub Page
 description: Few pointers from setting up a Jekyll Website
-tags: Jekyll blog
+tags: jekyll blog
 ---
 
 ### Tips
