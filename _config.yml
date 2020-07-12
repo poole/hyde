@@ -38,3 +38,5 @@ gems:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-gist
+
+theme: jekyll-theme-hacker
