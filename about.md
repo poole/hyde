@@ -64,3 +64,8 @@ Key responsibilities and achievements:
   * Eyede Ltd (Feb 2005 - Jan 2006)
   * BrowserCRM (Jun 2004 – Feb 2005)
   * The SYSDOC Group (Jun 2001 – Jun 2004)
+  
+## Education
+EIT, Napier— Bachelor of Computing Systems (1999 - 2002)
+
+
