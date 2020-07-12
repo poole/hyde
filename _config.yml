@@ -28,12 +28,6 @@ github:
     url:              https://github.com/25b3nk
     repo:             https://github.com/25b3nk/25b3nk.github.io
 
-# Custom vars
-
-hyde_version:         2.1.0
-hyde_url:             http://hyde.getpoole.com
-hyde_repo:            https://github.com/poole/hyde
-
 gems:
   - jekyll-seo-tag
   - jekyll-paginate
