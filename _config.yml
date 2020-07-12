@@ -11,7 +11,7 @@ title:            25b3nk
 tagline:          'Personal Blog'
 description:      'Personal Blog'
 url:              https://25b3nk.github.io
-baseurl:          /
+base_url:          /
 name:             Bhaskar         
 
 author:
