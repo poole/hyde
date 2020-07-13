@@ -33,4 +33,6 @@ gems:
   - jekyll-paginate
   - jekyll-gist
 
+google_analytics: UA-172513311-1
+
 #theme: jekyll-theme-hacker
