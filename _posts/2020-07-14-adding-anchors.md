@@ -1,6 +1,7 @@
 ---
 layout: post
 title: Adding anchors to my posts
+description: Anchor links provide good way to share an important segment in a post as a link.
 tags: jekyll blog
 ---
 
