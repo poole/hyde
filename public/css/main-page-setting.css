@@ -8,7 +8,7 @@ html {
 
 @media (min-width: 48em) {
   html {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 
@@ -27,6 +27,10 @@ body {
   overflow-wrap: break-word;
 }
 
+a {
+  color: #02781c;
+}
+
 .aside {
   padding: 1rem 1rem;
 }
@@ -39,7 +43,12 @@ body {
 /*styling nav bar*/
 header {
     text-align: center;
+    /*background-color: #39b54a;*/
 }
+
+/*header {
+    border-bottom: 1px solid #ddd;
+}*/
 
 .about a, nav li a {
     text-decoration: none;
@@ -50,8 +59,12 @@ nav li {
   display:inline;
   line-height: 1.75;
   margin-right: 15px;
-  font-size: 16px;
 }
+
+nav li:hover {
+  border-bottom: 5px solid #02781c;
+}
+
 @media (min-width: 48em) {
   nav li {
     margin-right: 40px;
@@ -239,7 +252,7 @@ tbody tr:nth-child(odd) th {
 /*Own button styling*/
 button, input[type="button"], input[type="reset"], input[type="submit"] {
   -webkit-appearance: button;
-  background-color: #333;
+  background-color: #02781c;
   border: 0;
   color: #fff;
   cursor: pointer;
@@ -482,3 +495,17 @@ text-align: center;
   background-color: #3b5998;
 }
 /*End of social share links*/
+
+
+/*Blog page styles*/
+.posts > div > a {
+  text-decoration: none;
+}
+
+.posts > div > a > strong {
+  color: #02781c;
+}
+
+.posts > div > h2 > a {
+  text-decoration: none;
+}
