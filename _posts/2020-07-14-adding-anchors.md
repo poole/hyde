@@ -1,7 +1,7 @@
 ---
 layout: post
 title: Adding anchors to my posts
-tags: linux
+tags: jekyll blog
 ---
 
 ### 1. Download the javascripts required to enable anchors
