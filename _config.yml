@@ -28,7 +28,7 @@ github:
     url:              https://github.com/25b3nk
     repo:             https://github.com/25b3nk/25b3nk.github.io
 
-gems:
+plugins:
   - jekyll-seo-tag
   - jekyll-paginate
   - jekyll-gist
