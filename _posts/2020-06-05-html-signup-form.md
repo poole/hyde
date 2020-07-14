@@ -2,7 +2,7 @@
 title: 'HTML project: Signup Form page'
 date: 2020-06-05
 author: avic
-layout: page
+layout: post
 permalink: /html-sign-up-form-page/
 --- 
 <img src="https://raw.githubusercontent.com/avicndugu/practice-projects-html/master/screenshots/screencapture-ikraamg-github-io-Mint-SignUp-Replica-2020-04-02-14_16_27.jpg">

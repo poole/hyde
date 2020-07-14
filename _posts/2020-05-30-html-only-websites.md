@@ -1,7 +1,7 @@
 ---
 title: 10 famous HTML-only website examples
 date: 2020-05-30
-layout: page
+layout: post
 permalink: /html-only-websites/
 ---
 When you are starting to learn Web development, you hear about all these languages and frameworks you have to learn. Let me tell you, you don't need all of them. At first. Infact, you can create something useful with just one of the languages namely: HTML.
