@@ -18,4 +18,5 @@ tags: maths blog
 
 
 #### References
-1. [YouTube Video with beautiful representation](https://youtu.be/PFDu9oVAE-g)
+1. [YouTube Video about Eigen Values & Vectors with beautiful representation](https://youtu.be/PFDu9oVAE-g)
+2. [YouTube playlist of wonderful visual representation of linear algebra which includes the above video](https://www.youtube.com/playlist?list=PLZHQObOWTQDPD3MizzM2xVFitgF8hE_ab)
