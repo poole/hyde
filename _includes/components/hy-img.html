@@ -10,7 +10,7 @@
   {% capture sources %}
     src="{% include_cached smart-url url=src %}"
     {% if srcset %}srcset="{{ srcset | strip }}"{% endif %}
-    {% if include.sizes %}sizes="{{ include.sizes }}"{% endif %}
+    {% if include.sizes %}sizes="{{ include.sizes | replace:' ', '' }}"{% endif %}
   {% endcapture %}
 {% else %}
   {% capture sources %}
