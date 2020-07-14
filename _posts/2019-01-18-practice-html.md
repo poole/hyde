@@ -6,6 +6,7 @@ author: avic
 layout: post
 permalink: /practice-html/
 ---
+
 Outline
 
   1. What is HTML?
