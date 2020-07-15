@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-// <<<<< LINK
+// <<< LINK
 body {
   /* Prevent side-scrolling on mobile */
   display: block;
@@ -25,14 +25,13 @@ hy-push-state, hy-drawer {
   display: block;
   overflow: hidden;
 }
-// >>>>>
-
-// <<<<< INLINE
+// >>>
+// <<< INLINE
 body::before {
   @media screen {
     content: '';
     width: .5rem;
-    background: var(--border-color);
+    background: var(--gray-bg);
     position: fixed;
     left: 0;
     top: 0;
@@ -57,6 +56,15 @@ html {
     font-size: var(--root-font-size-large);
   }
 }
-// >>>>>
+// >>>
+// <<< LINK
+@media print { 
+  html { 
+    font-size: var(--root-font-size-print);
+  } 
+}
 
-@media print { html { font-size: var(--root-font-size-print); } } // link
+@page { 
+  margin: 16mm;
+} 
+// >>>

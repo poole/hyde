@@ -16,20 +16,14 @@
 #markdown-toc {
   // <<< inline
   @extend .note-sm;
-  padding: 0 1.5rem .5rem 2.5rem;
   margin: 2rem -1rem 2rem calc(-1rem + 1px);
+  padding-left: 2.5rem;
+  padding-bottom: .5rem;
   // >>>
   transition: opacity 300ms ease, transform 300ms ease, border-color 1s ease; // link
-
-  // <<< inline
   &:before {
-    position: relative;
-    left: -1.5rem;
-    top: -.25rem;
-    display: inline-block;
-    margin-bottom: .25rem;
+    left: 1rem;
   }
-  // >>>
 }
 
 body:not(.no-toc) #markdown-toc {

@@ -1,6 +1,6 @@
 {
   "name": "hydejack",
-  "version": "9.0.3",
+  "version": "9.0.4",
   "description": "The best Jekyll theme by a mile",
   "scripts": {
     "clean": "rm -f assets/js/hydejack-*.js",
@@ -31,8 +31,8 @@
   "license": "GPL-3.0",
   "private": true,
   "devDependencies": {
-    "@babel/core": "^7.10.3",
-    "@babel/preset-env": "^7.10.3",
+    "@babel/core": "^7.10.4",
+    "@babel/preset-env": "^7.10.4",
     "babel-loader": "^8.1.0",
     "dedent": "^0.7.0",
     "json2yaml": "^1.1.0",
@@ -43,14 +43,14 @@
     "uglifyjs": "^2.4.11",
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
-    "webpack-merge": "^4.2.2",
-    "yargs": "^15.3.1"
+    "webpack-merge": "^5.0.9",
+    "yargs": "^15.4.1"
   },
   "dependencies": {
-    "@babel/polyfill": "^7.10.1",
+    "@babel/polyfill": "^7.10.4",
     "@hydecorp/component": "^1.0.0-alpha.3",
     "@hydecorp/drawer": "^1.0.0-alpha.6",
-    "@hydecorp/push-state": "^1.0.0-alpha.7",
+    "@hydecorp/push-state": "^1.0.0-alpha.8",
     "@juggle/resize-observer": "^3.2.0",
     "@webcomponents/custom-elements": "^1.4.1",
     "@webcomponents/shadycss": "^1.10.0",
@@ -65,9 +65,9 @@
     "dom4": "^2.1.5",
     "intersection-observer": "^0.10.0",
     "lit-html": "^1.2.1",
-    "rxjs": "^7.0.0-beta.0",
+    "rxjs": "^7.0.0-beta.2",
     "web-animations-js": "^2.3.2",
-    "whatwg-fetch": "^3.0.0"
+    "whatwg-fetch": "^3.2.0"
   },
   "repository": {
     "type": "git",
