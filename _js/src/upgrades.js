@@ -24,6 +24,12 @@ import { concatMap, tap } from 'rxjs/operators';
   const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
   const IMG_FADE_DURATION = 500;
+  const IMG_KEYFRAMES = [{ opacity: 0 }, { opacity: 1 }];
+  const IMG_SETTINGS = {
+    fill: 'forwards',
+    duration: IMG_FADE_DURATION,
+    easing: 'ease',
+  };
 
   const pushStateEl = document.querySelector('hy-push-state');
 
@@ -52,6 +58,8 @@ import { concatMap, tap } from 'rxjs/operators';
     }
     fn(document.getElementById('_main'));
   }
+
+  let init = true;
 
   ready((main) => {
     if (!main) return;
@@ -111,21 +119,12 @@ import { concatMap, tap } from 'rxjs/operators';
 
     if ('complete' in HTMLImageElement.prototype) {
       main.querySelectorAll('img[width][height][loading=lazy]').forEach((el) => {
-        if (!el._loaded) {
-          el.style.opacity = '0';
-          // TODO: replace with loading spinner
-          el.addEventListener(
-            'load',
-            () =>
-              el.animate([{ opacity: 0 }, { opacity: 1 }], {
-                fill: 'forwards',
-                duration: IMG_FADE_DURATION,
-                easing: 'ease',
-              }),
-            { once: true },
-          );
-        }
+        if (init && el.complete) return;
+        el.style.opacity = '0';
+        // TODO: replace with loading spinner
+        el.addEventListener('load', () => el.animate(IMG_KEYFRAMES, IMG_SETTINGS), { once: true });
       });
+      init = false;
     }
 
     // main.querySelectorAll(pushStateEl.linkSelector).forEach(anchor => {
