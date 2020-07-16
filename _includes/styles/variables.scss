@@ -46,6 +46,8 @@ $break-point-3: {{ vars.break_point_3 | default:64 }}em;
 $break-point-4: {{ vars.break_point_4 | default:72 }}em;
 $break-point-5: {{ vars.break_point_5 | default:86 }}em;
 
+$border-radius: {{ vars.border_radius | default:0.5 }}rem;
+
 $break-point-font-large: {{ vars.break_point_font_large | default:124 }}em;
 
 $content-margin-3: 3rem;
