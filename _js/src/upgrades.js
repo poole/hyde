@@ -1,7 +1,7 @@
 import { importTemplate, intersectOnce, loadCSS, stylesheetReady, once } from './common';
 import { fromEvent } from 'rxjs';
-import { concatMap, tap } from 'rxjs/operators';
-// import { createElement } from 'create-element-x/library';
+import { concatMap } from 'rxjs/operators';
+import { createElement } from 'create-element-x/library';
 
 // import LANG from './languages.json';
 
@@ -19,8 +19,8 @@ import { concatMap, tap } from 'rxjs/operators';
   const FN_LINK_SEL = "a[href^='#fn:']";
   const HORIZONTAL_SCROLL_SEL =
     'pre, table:not(.highlight), .katex-display, .break-layout, mjx-container[jax="CHTML"][display="true"]';
-  // const CODE_BLOCK_SEL = 'pre.highlight > code';
-  // const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/iu;
+  const CODE_BLOCK_SEL = 'pre.highlight > code';
+  const CODE_TITLE_RE = /(?:title|file):\s*['"`](([^'"`\\]|\\.)*)['"`]/iu;
   const HEADING_SELECTOR = 'h1[id], h2[id], h3[id], h4[id], h5[id], h6[id]';
 
   const IMG_FADE_DURATION = 500;
@@ -74,7 +74,6 @@ import { concatMap, tap } from 'rxjs/operators';
     const toc = main.querySelector('#markdown-toc');
     if (toc) toc.classList.add('toc-hide');
 
-    /*
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
       .map((code) => code.children[0])
       .forEach((el) => {
@@ -102,20 +101,19 @@ import { concatMap, tap } from 'rxjs/operators';
         const container = code.parentNode.parentNode;
 
         // Language
-        const highlighter = container.parentNode;
-        const [, lang] = highlighter.classList.value.match(/language-(\w*)/) ?? [];
-        const language = LANG[lang];
+        // const highlighter = container.parentNode;
+        // const [, lang] = highlighter.classList.value.match(/language-(\w*)/) ?? [];
+        // const language = LANG[lang];
 
         const header = createElement(
           'div',
           { class: 'pre-header break-layout' },
           createElement('span', { class: 'file' }, createElement('small', { class: 'icon-file-empty' }), ' ', fileName),
-          !language ? null : createElement('small', { class: 'fr lang' }, language),
+          // !language ? null : createElement('small', { class: 'fr lang' }, language),
         );
 
         container.insertBefore(header, container.firstChild);
       });
-    */
 
     if ('complete' in HTMLImageElement.prototype) {
       main.querySelectorAll('img[width][height][loading=lazy]').forEach((el) => {

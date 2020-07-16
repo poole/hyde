@@ -1,4 +1,4 @@
-// Copyright (c) 2017 Florian Klampfer <https://qwtel.com/>
+// Copyright (c) 2020 Florian Klampfer <https://qwtel.com/>
 //
 // This program is free software: you can redistribute it and/or modify
 // it under the terms of the GNU General Public License as published by
@@ -56,7 +56,7 @@ pre {
   margin-top: 0;
   display: block;
   line-height: 1.5;
-  font-size: .85em;
+  font-size: .83em;
   position: relative;
 }
 
@@ -73,28 +73,33 @@ pre > code {
     left: 0;
     display: inline-block;
     width: 100%;
-    background: var(--border-color);
-    border-left: 3px solid var(--accent-color);
-    opacity: 0.33;
+    background: var(--gray-bg);
+    border-left: .25rem solid var(--accent-color);
+    // opacity: 0.33;
     z-index: -1;
   }
 }
 
 .pre-header {
   @extend .color-transition;
+  @extend .figure-base;
+  border-bottom-left-radius: 0;
+  border-bottom-right-radius: 0;
   display: block;
   margin-left: -1rem;
   margin-right: -1rem;
-  padding: 0.4rem 1rem 0.25rem;
+  padding: 0.5rem 1rem 0.25rem;
   border-bottom: 1px solid var(--border-color);
-  font-style: normal!important;
-  font-size: smaller;
+  font-family: var(--code-font-family);
+  font-size: 0.83em;
   color: var(--gray)!important;
   background-color: var(--gray-bg);
-  .lang { color: var(--menu-text) }
+  // .lang { color: var(--menu-text) }
 }
 
 .pre-header + pre.highlight {
-  padding-top: .75rem;
+  border-top-left-radius: 0;
+  border-top-right-radius: 0;
+  padding-top: .5rem;
 }
 // >>>>> LINK
