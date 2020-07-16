@@ -7,7 +7,7 @@
         <a
           {% if forloop.first %}id="_drawer--opened"{% endif %}
           href="{% include_cached smart-url url=url %}"
-          class="sidebar-nav-item"
+          class="sidebar-nav-item {% if node.external  %}external{% endif %}"
           {% if node.rel %}rel="{{ node.rel }}"{% endif %}
         >
           {{ node.name | default:node.title }}
@@ -33,7 +33,7 @@
         </li>
       {% else %}
         <li>
-          <a href="{{ node.redirect_to }}" class="sidebar-nav-item external" >{{ node.title }}</a>
+          <a href="{{ node.redirect_to }}" class="sidebar-nav-item external">{{ node.title }}</a>
         </li>
       {% endunless %}
     {% endfor %}
