@@ -75,7 +75,7 @@ I have a list with the first-task's labels and I needed to add `-1` as class (_t
 
 #### Command
 ```
-sed -i -E 's/(,.+$)/, -1 \1/' val_old.list > val_new.list
+sed -E 's/(,.+$)/, -1 \1/' val_old.list > val_new.list
 ```
 
 __Input list__
