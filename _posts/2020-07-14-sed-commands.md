@@ -1,9 +1,9 @@
 ---
 layout: post
-title: Useful sed commands
+title: Useful linux sed commands
 description: <b>sed</b> is a powerful command line editor in linux. I will be listing a few examples of its use.
 tags: linux
-last_modified: 2020-07-14 21:30:00 +0000
+last_modified: 2020-07-20 21:30:00 +0000
 ---
 
 ### To remove the string at the end of each line till a character appears.
