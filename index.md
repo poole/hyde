@@ -5,6 +5,11 @@ description: Choose from the list practical projects to learn & practice HTML an
 ---
 We have **tutorials** and **projects** meant to help you build and customize websites in your own style. 
 <h2>HTML and CSS Learning guides</h2>
+You can use the HTML and CSS guide to help you learn the important parts of creating websites.
+
+We deliberately chose the minimal things you need to learn.
+
+You don't  need to get overwhelmed by all the things everyone tell you must learn.
 <div class="card">
     <h3>Learn HTML guide</h3>
     <p>If you are just starting out, I recommend you start by learning HTML basics with a lot of examples.</p>
@@ -30,6 +35,7 @@ We have **tutorials** and **projects** meant to help you build and customize web
 </div>
 
 <h2>Learn & Practice publishing HTML and CSS website projects</h2>
+You will not run out of ideas of projects you can build thanks to our list of project ideas, project-based tutorials.
 <div class="card">
     <h3>HTML Practice Projects</h3>
     <p>By now, you should be confident enough to attempt building a project on your own. Pick a project from <a href="/html-only-projects">HTML-only projects</a> and build it. You can always search online for solutions incase you get stuck.</p>
