@@ -28,6 +28,7 @@ Learn the skills that will make you a CSS Ninja using the following 5 tutorials.
 <h3>Create your First HTML Project</h3>
 If you already have HTML basics skill, The next step is to follow along the <a href="create-a-web-page-using-html">9 steps for creating your first HTML project</a>.
 Practice HTML by creating your first HTML project(Step by step tutorial).
+
 <a href="/create-a-web-page-using-html/">      
   <button>Create a HTML Project</button>
 </a>
@@ -36,9 +37,10 @@ Practice HTML by creating your first HTML project(Step by step tutorial).
 You will not run out of ideas of projects you can build thanks to our list of project ideas, project-based tutorials.
 <hr/>
 <h3>HTML Practice Projects</h3>
-By now, you should be confident enough to attempt building a project on your own. Pick a project from <a href="/html-only-projects">HTML-only projects</a> and build it. You can always search online for solutions incase you get stuck.</p>
+By now, you should be confident enough to attempt building a project on your own. Pick a project from <a href="/html-only-projects">HTML-only projects</a> and build it. You can always search online for solutions incase you get stuck.
 
-Pick a project from the list of HTML only projects and build it from scratch.</p>
+Pick a project from the list of HTML only projects and build it from scratch.
+
 <a href="html-only-projects">
    <button>HTML-only Projects</button>
 </a>
@@ -47,6 +49,7 @@ Pick a project from the list of HTML only projects and build it from scratch.</p
 Once the project is complete, you might want to share it with the world. You have to find a suitable home for your project to live. Two such places are <a href="https://github.com/">Github</a> and <a href="https://codepen.io">Codepen</a>.
 
 Publish your HTML project online and share it with the world.
+
 <a href="https://codepen.io/">
   <button style="margin-bottom: 10px;">Publish on Codepen</button>
 </a>
@@ -57,6 +60,7 @@ Publish your HTML project online and share it with the world.
 <h3>Project-based HTML & CSS tutorials</h3>
 You can now pick one <a href="/project-based-html-css-tutorials/">project-based HTML & CSS tutorial</a> and use it create a project from start to finish.
 Choose one project based tutorial and build the project as you learn.
+
 <a href="/project-based-html-css-tutorials/">
   <button>Project based HTML & CSS tutorial</button>
 </a>
