@@ -19,11 +19,11 @@ If you are just starting out, I recommend you start by learning HTML basics with
   <button style="margin-bottom: 10px;">Basic HTML Tutorial</button>
 </a>
 
-<h2>Learn CSS guide</h2>
+<h3>Learn CSS guide</h3>
 After learning HTML, it's time to add another skill to your tools belt. CSS is the next language in line. CSS will help you make your website look amazing.
 Learn the skills that will make you a CSS Ninja using the following 5 tutorials.
 
-<a href="best-css-tutorials">
+<a href="/best-css-tutorials">
    <button>Best CSS tutorials</button>
 </a>
 <hr/>
