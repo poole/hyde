@@ -12,14 +12,14 @@ We deliberately chose the minimal things you need to learn.
 You don't  need to get overwhelmed by all the things everyone tell you must learn.
 <div class="card">
     <h3>Learn HTML guide</h3>
-    <p>If you are just starting out, I recommend you start by learning HTML basics with a lot of examples.</p>
+    If you are just starting out, I recommend you start by learning HTML basics with a lot of examples.
     <a href="practice-html">      
         <button style="margin-bottom: 10px;">Basic HTML Tutorial</button>
     </a>
 </div>
 <div class="card">
     <h2>Learn CSS guide</h2>
-    <p>After learning HTML, it's time to add another skill to your tools belt. CSS is the next language in line. CSS will help you make your website look amazing.</p>
+    After learning HTML, it's time to add another skill to your tools belt. CSS is the next language in line. CSS will help you make your website look amazing.
     <p>Learn the skills that will make you a CSS Ninja using the following 5 tutorials.</p>
     <a href="best-css-tutorials">
         <button>Best CSS tutorials</button>
@@ -27,7 +27,7 @@ You don't  need to get overwhelmed by all the things everyone tell you must lear
 </div>
 <div class="card">
     <h3>Create your First HTML Project</h3>
-    <p>If you already have HTML basics skill, The next step is to follow along the <a href="create-a-web-page-using-html">9 steps for creating your first HTML project</a>.</p>
+    If you already have HTML basics skill, The next step is to follow along the <a href="create-a-web-page-using-html">9 steps for creating your first HTML project</a>.
     <p>Practice HTML by creating your first HTML project(Step by step tutorial).</p>
     <a href="/create-a-web-page-using-html/">      
         <button>Create a HTML Project</button>
