@@ -1,10 +1,9 @@
 ---
 layout: default
-title: Home
+title: Want to Learn & Practice building HTML and CSS websites?
 description: Choose from the list practical projects to learn & practice HTML and CSS. Learn how to create a project from zero to publishing it online.
 ---
-Welcome to **DevPractical.com**. You will find a collection of HTML, CSS and Javascript **tutorials** and **projects**.
-
+We have **tutorials** and **projects** meant to help you build and customize websites in your own style. 
 <div class="card">
     <h2>Learn HTML</h2>
     <p>If you are just starting out, I recommend you start by learning HTML basics with a lot of examples.</p>
