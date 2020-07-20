@@ -11,16 +11,18 @@ You can use the HTML and CSS guide to help you learn the important parts of crea
 We deliberately chose the minimal things you need to learn.
 
 You don't  need to get overwhelmed by all the things everyone tell you must learn.
-<hr/>
+
 <h3>Learn HTML guide</h3>
 If you are just starting out, I recommend you start by learning HTML basics with a lot of examples.
+
 <a href="practice-html">      
   <button style="margin-bottom: 10px;">Basic HTML Tutorial</button>
 </a>
-<hr/>
+
 <h2>Learn CSS guide</h2>
 After learning HTML, it's time to add another skill to your tools belt. CSS is the next language in line. CSS will help you make your website look amazing.
 Learn the skills that will make you a CSS Ninja using the following 5 tutorials.
+
 <a href="best-css-tutorials">
    <button>Best CSS tutorials</button>
 </a>
