@@ -3,6 +3,7 @@ layout: default
 title: Want to Learn & Practice building HTML and CSS websites?
 description: Choose from the list practical projects to learn & practice HTML and CSS. Learn how to create a project from zero to publishing it online.
 ---
+<h1>Want to Learn & Practice building HTML and CSS websites?</h1>
 We have **tutorials** and **projects** meant to help you build and customize websites in your own style. 
 <hr/>
 <h2>HTML and CSS Learning guides</h2>
