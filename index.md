@@ -4,17 +4,24 @@ title: Want to Learn & Practice building HTML and CSS websites?
 description: Choose from the list practical projects to learn & practice HTML and CSS. Learn how to create a project from zero to publishing it online.
 ---
 We have **tutorials** and **projects** meant to help you build and customize websites in your own style. 
+<h2>HTML and CSS Learning guides</h2>
 <div class="card">
-    <h2>Learn HTML</h2>
+    <h3>Learn HTML guide</h3>
     <p>If you are just starting out, I recommend you start by learning HTML basics with a lot of examples.</p>
     <a href="practice-html">      
         <button style="margin-bottom: 10px;">Basic HTML Tutorial</button>
     </a>
 </div>
-
-
 <div class="card">
-    <h2>Create your First HTML Project</h2>
+    <h2>Learn CSS guide</h2>
+    <p>After learning HTML, it's time to add another skill to your tools belt. CSS is the next language in line. CSS will help you make your website look amazing.</p>
+    <p>Learn the skills that will make you a CSS Ninja using the following 5 tutorials.</p>
+    <a href="best-css-tutorials">
+        <button>Best CSS tutorials</button>
+    </a>
+</div>
+<div class="card">
+    <h3>Create your First HTML Project</h3>
     <p>If you already have HTML basics skill, The next step is to follow along the <a href="create-a-web-page-using-html">9 steps for creating your first HTML project</a>.</p>
     <p>Practice HTML by creating your first HTML project(Step by step tutorial).</p>
     <a href="/create-a-web-page-using-html/">      
@@ -22,17 +29,17 @@ We have **tutorials** and **projects** meant to help you build and customize web
     </a>
 </div>
 
+<h2>Learn & Practice publishing HTML and CSS website projects</h2>
 <div class="card">
-    <h2>HTML Practice Projects</h2>
+    <h3>HTML Practice Projects</h3>
     <p>By now, you should be confident enough to attempt building a project on your own. Pick a project from <a href="/html-only-projects">HTML-only projects</a> and build it. You can always search online for solutions incase you get stuck.</p>
     <p> Pick a project from the list of HTML only projects and build it from scratch.</p>
     <a href="html-only-projects">
         <button>HTML-only Projects</button>
     </a>
 </div>
-
 <div class="card">
-    <h2>Publish HTML Project</h2>
+    <h3>Publish HTML Project</h3>
     <p>Once the project is complete, you might want to share it with the world. You have to find a suitable home for your project to live. Two such places are <a href="https://github.com/">Github</a> and <a href="https://codepen.io">Codepen</a>.</p>
     <p>Publish your HTML project online and share it with the world.</p>
     <a href="https://codepen.io/">
@@ -44,17 +51,7 @@ We have **tutorials** and **projects** meant to help you build and customize web
 </div>
 
 <div class="card">
-    <h2>Learn CSS</h2>
-    <p>After learning HTML, it's time to add another skill to your tools belt. CSS is the next language in line. CSS will help you make your website look amazing.</p>
-    <p>Learn the skills that will make you a CSS Ninja using the following 5 tutorials.</p>
-    <a href="best-css-tutorials">
-        <button>Best CSS tutorials</button>
-    </a>
-</div>
-
-
-<div class="card">
-    <h2>Project-based HTML & CSS tutorials</h2>
+    <h3>Project-based HTML & CSS tutorials</h3>
     <p>You can now pick one <a href="/project-based-html-css-tutorials/">project-based HTML & CSS tutorial</a> and use it create a project from start to finish.</p>
     <p>Choose one project based tutorial and build the project as you learn.</p>
     <a href="/project-based-html-css-tutorials/">
