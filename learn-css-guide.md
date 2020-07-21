@@ -1,7 +1,7 @@
 ---
 layout: page
-title: 'Learn CSS Guide: Focus on the most important parts of HTML and CSS'
-description: Put your focus on the important parts of CSS by following along this CSS guide. Stop being overwhelmed by all the things you should learn.
+title: 'Learn CSS Guide: Focus on the important parts of CSS'
+description:  Stop being overwhelmed by all the things to be learnt in CSS. Put your focus on the important parts of CSS by following along this CSS guide.
 ---
 1. How CSS works: Concepts you will need to first understand
     - CSS Selectors: How to select different HTML elements so that you can apply different styles on them.
