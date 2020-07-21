@@ -1,5 +1,5 @@
 ---
-layout: default
+layout: page
 title: Learn HTML Guide
 ---
 ## List of things you should be able to accomplish when learning HTML.
@@ -9,10 +9,8 @@ title: Learn HTML Guide
     At the first stage, you should be able to add text to the webpage using a text editor and view the result on the browser. You can also familiarise with the basic HTML tags that are included in every webpage.
 
 2. Format text as heading, paragraph, list, superscripts, subscripts, etc.
-    
     You can then move on to using markup to label text as headings and other markups styles.
 3. Add emphasis on text using bold or italics.
-
     You will learn how to add bold and italics using various methods.
 4. Add links to a webpage.
 5. Add Images and videos to a webpage.
