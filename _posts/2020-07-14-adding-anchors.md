@@ -3,6 +3,7 @@ layout: post
 title: Adding anchors to my posts
 description: Anchor links provide good way to share an important segment in a post as a link.
 tags: jekyll blog
+last_modified: 2020-07-21 17:30:00 +0000
 ---
 
 ### 1. Download the javascripts required to enable anchors
@@ -28,4 +29,4 @@ layout: default
 
 
 ### References
-1. [Blog](https://blog.briandrupieski.com/generate-anchors-in-jekyll-blog-post)
+1. [Blog on generating anchors](https://blog.briandrupieski.com/generate-anchors-in-jekyll-blog-post)
