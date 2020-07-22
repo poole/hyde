@@ -8,7 +8,7 @@ last_modified: 2020-07-22 17:30:00 +0000
 
 ## Background
 Understanding linear algebra has never been this easy as watching and learning from __[`3blue1brown`](https://www.3blue1brown.com/){:target="_blank"}__. The YouTube series is just perfect with its superb animations which helps one build intuition.
-`Vectors` are basically line drawn from origin to a point in the coordinate system. One needs to understand what basis of a coordinate system is and how the change of basis affects the vectors. Then we need learn that matrix multiplication with a vector is basically `linear transformation` of the vector. One could also say that, the final vector of this transformation is the vector in current coordinate system, if the initial vector was the vector defined in the coordinate system defined by the linear transformation matrix. Here we can take the columns of the matrix as basis of the _other_ coordinate system.
+`Vectors` are basically line drawn from origin to a point in the coordinate system. One needs to understand what `basis` of a coordinate system is and how the change of basis affects the vectors. Then we need learn that matrix multiplication with a vector is basically `linear transformation` of the vector. One could also say that, the final vector of this transformation is the vector in current coordinate system, if the initial vector was the vector defined in the coordinate system defined by the linear transformation matrix. Here we can take the columns of the matrix as basis of the _other_ coordinate system.
 Basic properties of linear transformation:<br>
 
 $$
@@ -86,8 +86,24 @@ Solving the above equation we get the _eigen values_, which we use to get the _e
 Sometimes we could also get only a _single_ eigen vector, for example, shear transform $$\left( \begin{array}{c}1 & 1 \\0 & 1 \\ \end{array} \right)$$.
 
 Sometimes we can also get _infinite_ number of eigen vectors, for example, $$\left( \begin{array}{c}3 & 0 \\0 & 3 \\ \end{array} \right)$$, here the all the vectors are scaled by $$3$$.
+
+Sometimes we could also _not_ get any eigen vector, for example, roatation by $$90^o$$ transform $$\left( \begin{array}{c}0 & 1 \\-1 & 0 \\ \end{array} \right)$$.
+
 ## Applications
 
+### Eigen Decompostition or Diagonalisation
+
+Say the transformation matrix is a `diagonal matrix`, i.e, all the elements _except_ diagonal elements are zero, then we can conclude that the basis are eigen vectors and the values of diagonal elements are the eigen values corresponding to those eigen vectors. Important take here is that, the transformation does not change the line of the basis vectors, which make them eigen vectors also.
+So, if say we have a transformation matrix that is not diagonal, we can choose the basis vectors such a way that these basis vectors do not change their line after the transformation. And, we know that eigen vectors are the vectors that do not change direction when applied transformation. So, if we shift our basis to these eigen vectors, the corresponding transformation matrix in this new coordinate system formed by these basis will be diagonal matrix, as it would just stretch the basis(eigen) vectors, and not change its direction. But not all transformation matrix can have eigen vectors enough to `span` all the vectors. We saw that shear transform has only one eigen vector, due to which we cannot apply the above technique to diagonalise the matrix.
+When we change the basis, the new transformation is defined by $$A^{-1} M A$$, where $$M$$ is the transformation matrix in current coordinate system and $$A$$ is the matrix formed by the new basis in the order, where $$x$$ and $$y$$ are transformed.
+>
+Since, the transformation on the eigen vectors used as basis will always have the eigen vectors in line but stretched by their corresponding eigen values, the new transformation matrix will be diagonal matrix with eigen values as diagonal elements.
+
+Why is diagonal matrix so important? Because if you multiply a diagonal matrix by itself, and continue multiplying, we can generalise the final matrix based on the starting matrix. Example:<br>
+
+$$ \left( \begin{array}{c} a & 0 \\ 0 & d \\ \end{array} \right) \left( \begin{array}{c} a & 0 \\ 0 & d \\ \end{array} \right) = \left( \begin{array}{c} a^2 & 0 \\ 0 & d^2 \\ \end{array} \right) \\$$
+
+So, if $$A$$ is a diagonal matrix, $$A^n$$ is simply the diagonal elements raised to the power of $$n$$. Because of this we use eigen decomposition to calculate the diagonal matrix for a given transformation matrix $$M$$. If $$D$$ is the diagonal matrix, then $$M = A D A^{-1}$$, where $$A$$ is the matrix formed by the eigen vectors.
 
 #### References
 1. [YouTube Video about Eigen Values & Vectors with beautiful representation](https://youtu.be/PFDu9oVAE-g)
