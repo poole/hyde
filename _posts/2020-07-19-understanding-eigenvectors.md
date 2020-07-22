@@ -3,7 +3,7 @@ layout: post
 title: Understanding Eigen Values and Eigen Vectors
 description: Basics of what eigenvectors and eigenvalues are.
 tags: maths blog
-last_modified: 2020-07-20 17:30:00 +0000
+last_modified: 2020-07-22 17:30:00 +0000
 ---
 
 ## Background
@@ -83,9 +83,9 @@ $$
 
 Solving the above equation we get the _eigen values_, which we use to get the _eigen vector(s)_ $$\vec{v}$$. Remember that if we do not get a real solution for $$\lambda$$, then there are _no_ eigen vectors in the real plane.
 
-Sometimes we could also get _single_ eigen vector, for example, shear transform $$\left( \begin{array}{c}1 & 1 \\0 & 1 \\ \end{array} \right)$$.
+Sometimes we could also get only a _single_ eigen vector, for example, shear transform $$\left( \begin{array}{c}1 & 1 \\0 & 1 \\ \end{array} \right)$$.
 
-Sometimes we can also get _infinite_ number of eigen vectors, for example, $$\left( \begin{array}{c}3 & 0 \\0 & 2 \\ \end{array} \right)$$, here the $$x-axis$$ is scaled by $$3$$ and $$y-axis$$ is scaled by $$2$$.
+Sometimes we can also get _infinite_ number of eigen vectors, for example, $$\left( \begin{array}{c}3 & 0 \\0 & 3 \\ \end{array} \right)$$, here the all the vectors are scaled by $$3$$.
 ## Applications
 
 
