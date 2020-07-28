@@ -90,11 +90,94 @@ pre > code {
   margin-right: -1rem;
   padding: 0.5rem 1rem 0.25rem;
   border-bottom: 1px solid var(--border-color);
-  font-family: var(--code-font-family);
   font-size: 0.83em;
   color: var(--gray)!important;
   background-color: var(--gray-bg);
-  // .lang { color: var(--menu-text) }
+  height: 2rem;
+
+  > .file {
+    font-family: var(--code-font-family);
+    display: inline-block;
+    padding: .3rem 1rem .2rem;
+  }
+
+}
+
+.highlight { position: relative; }
+.highlight > button {
+  background: none;
+  border: none;
+  border-left: 1px solid var(--border-color);
+  border-bottom: 1px solid var(--border-color);
+  padding-left: 1rem;
+  padding-right: 1rem;
+  color: var(--menu-text);
+  border-bottom-right-radius: 0;
+  border-bottom-left-radius: 0;
+  border-top-left-radius: 0;
+  position: absolute;
+  right: -1rem;
+  top: 0;
+  height: 2rem;
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    background: var(--gray-bg);
+  }
+
+  &.copy-success {
+    > .icon-copy {
+      animation-name: icon-copy;
+      animation-duration: 1.5s;
+      animation-timing-function: ease;
+    }
+    > .icon-checkmark {
+      animation-name: icon-checkmark;
+      animation-duration: 1.5s;
+      animation-timing-function: ease;
+    }
+  }
+  > .icon-copy { 
+    display: inline-block;
+  }
+  > .icon-checkmark {
+    position: absolute;
+
+    top: 50%;
+    margin-top: -3em;
+
+    left: 0;
+    right: 0;
+    text-align: center;
+  }
+}
+
+@keyframes icon-checkmark {
+  0% {
+    transform: translateY(0);
+  }
+  15%, 85% {
+    transform: translateY(2.5em);
+  }
+  100% {
+    transform: translateY(5em);
+  }
+}
+
+@keyframes icon-copy {
+  0% {
+    transform: translateY(0);
+  }
+  15% {
+    transform: translateY(2.5em);
+  }
+  15.01%, 85% {
+    transform: translateY(-2.5em);
+  }
+  100% {
+    transform: translateY(0);
+  }
 }
 
 .pre-header + pre.highlight {

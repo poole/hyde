@@ -1,10 +1,10 @@
 @font-face {
   font-family: 'icomoon';
-  src:  url('fonts/icomoon.eot?2kl1l8');
-  src:  url('fonts/icomoon.eot?2kl1l8#iefix') format('embedded-opentype'),
-    url('fonts/icomoon.ttf?2kl1l8') format('truetype'),
-    url('fonts/icomoon.woff?2kl1l8') format('woff'),
-    url('fonts/icomoon.svg?2kl1l8#icomoon') format('svg');
+  src:  url('fonts/icomoon.eot?y5s1on');
+  src:  url('fonts/icomoon.eot?y5s1on#iefix') format('embedded-opentype'),
+    url('fonts/icomoon.ttf?y5s1on') format('truetype'),
+    url('fonts/icomoon.woff?y5s1on') format('woff'),
+    url('fonts/icomoon.svg?y5s1on#icomoon') format('svg');
   font-weight: normal;
   font-style: normal;
   font-display: block;
@@ -269,10 +269,10 @@
   content: "\ea84";
 }
 .icon-brightness-contrast:before {
-  content: "\e9d6";
+  content: "\1f506";
 }
 .icon-search:before {
-  content: "\e986";
+  content: "\1f50d";
 }
 .icon-key:before {
   content: "\e98d";
@@ -287,7 +287,7 @@
   content: "\e9de";
 }
 .icon-cross:before {
-  content: "\ea0f";
+  content: "\274e";
 }
 .icon-file-empty:before {
   content: "\e924";
@@ -300,4 +300,10 @@
 }
 .icon-file-pdf:before {
   content: "\eadf";
+}
+.icon-copy:before {
+  content: "\1f4cb";
+}
+.icon-checkmark:before {
+  content: "\2705";
 }

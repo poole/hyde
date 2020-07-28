@@ -5,6 +5,12 @@ import { createElement } from 'create-element-x/library';
 
 // import LANG from './languages.json';
 
+const toggleClass = (element, ...cls) => {
+  element.classList.remove(...cls);
+  void element.offsetWidth;
+  element.classList.add(...cls);
+};
+
 (async () => {
   await Promise.all([
     ...('animate' in Element.prototype ? [] : [import(/* webpackChunkName: "webanimations" */ 'web-animations-js')]),
@@ -73,6 +79,22 @@ import { createElement } from 'create-element-x/library';
 
     const toc = main.querySelector('#markdown-toc');
     if (toc) toc.classList.add('toc-hide');
+
+    if ('clipboard' in navigator) {
+      Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
+        .forEach((el) => {
+          const container = el?.parentNode?.parentNode;
+          const writeText = async () => {
+            await navigator.clipboard.writeText(el.innerText);
+            toggleClass(copyBtn, 'copy-success');
+          };
+          const copyBtn = createElement('button', { class: 'fr', onClick: writeText },
+            createElement('small', { class: 'icon-copy', title: 'Copy' }),
+            createElement('small', { class: 'icon-checkmark', title: 'Done' }),
+          );
+          container?.appendChild(copyBtn);
+        });
+    }
 
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL))
       .map((code) => code.children[0])
