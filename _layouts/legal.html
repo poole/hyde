@@ -1,5 +1,5 @@
 ---
-# Copyright (c) 2018 Florian Klampfer <https://qwtel.com/>
+# Copyright (c) 2020 Florian Klampfer <https://qwtel.com/>
 #
 # This program is free software: you can redistribute it and/or modify
 # it under the terms of the GNU General Public License as published by
@@ -17,7 +17,7 @@
 layout: base
 ---
 
-<article class="page mb6" role="article">
+<article class="page" role="article">
   <header>
     <h1 class="page-title">{{ page.title }}</h1>
     {% include components/message.html text=page.description hide=page.hide_description %}
@@ -25,6 +25,3 @@ layout: base
 
   {{ content }}
 </article>
-
-{% include components/dingbat.html %}
-{% include body/comments.html %}

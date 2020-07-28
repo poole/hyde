@@ -17,7 +17,7 @@
 layout: base
 ---
 
-<article class="page" role="article">
+<article class="page mb6" role="article">
   {% if content contains "<!--author-->" %}
     {% assign plugins = site.plugins | default:site.gems %}
     {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
@@ -41,3 +41,6 @@ layout: base
 
   {{ content }}
 </article>
+
+{% include components/dingbat.html %}
+{% include body/comments.html %}
