@@ -27,7 +27,7 @@ import {
   takeUntil,
 } from 'rxjs/operators';
 
-import { animate, empty, importTemplate, webComponentsReady, fromMediaQuery } from './common';
+import { animate, empty, importTemplate, webComponentsReady } from './common';
 import { CrossFader } from './cross-fader';
 import { setupFLIP } from './flip';
 
@@ -46,7 +46,6 @@ import { setupFLIP } from './flip';
   await webComponentsReady;
 
   const NAVBAR_SEL = '#_navbar > .content > .nav-btn-bar';
-  const MQ_STANDALONE = '(display-mode: standalone)';
 
   const CROSS_FADE_DURATION = 2000;
 
@@ -78,13 +77,6 @@ import { setupFLIP } from './flip';
     return main?.lastElementChild;
   }
 
-  function importBackButton() {
-    const button = importTemplate('_back-template');
-    const buttonEl = button?.children[0];
-    button?.querySelector('.nav-btn')?.addEventListener('click', () => window.history.back());
-    return buttonEl;
-  }
-
   function getFlipType(el) {
     if (el?.classList.contains('flip-title')) return 'title';
     if (el?.classList.contains('flip-project')) return 'project';
@@ -110,24 +102,6 @@ import { setupFLIP } from './flip';
 
   const animationMain = setupAnimationMain(pushStateEl);
   const loadingEl = setupLoading(navbarEl);
-
-  const backBtnEl = importBackButton();
-  if (navbarEl && backBtnEl) {
-    const standaloneMQ = window.matchMedia(MQ_STANDALONE);
-    const standalone = !!navigator.standalone || standaloneMQ.matches;
-    const standalone$ = fromMediaQuery(standaloneMQ).pipe(
-      map((e) => e.matches),
-      startWith(standalone),
-    );
-    standalone$
-      .pipe(
-        tap((matches) => {
-          if (matches) navbarEl.prepend(backBtnEl);
-          else if (backBtnEl.parentNode === navbarEl) navbarEl.removeChild(backBtnEl);
-        }),
-      )
-      .subscribe();
-  }
 
   const fromEventX = (eventName, mapFn) =>
     fromEvent(pushStateEl, eventName).pipe(
