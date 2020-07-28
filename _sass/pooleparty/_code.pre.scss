@@ -80,7 +80,8 @@ pre > code {
   }
 }
 
-.foo {
+.pre-header-common {
+  @extend .color-transition;
   height: 2rem;
   border: none;
   border-bottom: 1px solid var(--border-color);
@@ -92,9 +93,8 @@ div.highlight {
   position: relative;
 
   > .pre-header {
-    @extend .color-transition;
     @extend .figure-base;
-    @extend .foo;
+    @extend .pre-header-common;
     display: block;
     font-size: smaller;
     color: var(--gray)!important;
@@ -107,18 +107,21 @@ div.highlight {
   }
 
   > button {
-    @extend .foo;
+    @extend .pre-header-common;
     position: absolute;
     top: 0;
     right: -1rem;
     color: var(--menu-text);
     background: none;
     border-left: 1px solid var(--border-color);
+    border-right: 1px solid var(--border-color);
     border-top-left-radius: 0;
     padding-left: 1rem;
     padding-right: 1rem;
     overflow: hidden;
     cursor: pointer;
+    opacity: 0;
+    transition: opacity 300ms;
 
     &:hover {
       background: var(--gray-bg);
@@ -150,8 +153,28 @@ div.highlight {
       text-align: center;
     }
   }
+
+  &:hover > button {
+    opacity: 1;
+    transition: opacity 100ms;
+  }
+
+  > .pre-header ~ pre.highlight {
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    padding-top: .65rem;
+  }
+
+  > .pre-header ~ button {
+    opacity: 1;
+  }
 }
 
+body.no-break-layout {
+  div.highlight > button {
+    border-right: none;
+  }
+}
 
 @keyframes icon-checkmark {
   0% {
@@ -178,11 +201,5 @@ div.highlight {
   100% {
     transform: translateY(0);
   }
-}
-
-.pre-header + pre.highlight {
-  border-top-left-radius: 0;
-  border-top-right-radius: 0;
-  padding-top: .65rem;
 }
 // >>>>> LINK

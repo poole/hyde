@@ -88,7 +88,7 @@ const toggleClass = (element, ...cls) => {
             await navigator.clipboard.writeText(el.innerText);
             toggleClass(copyBtn, 'copy-success');
           };
-          const copyBtn = createElement('button', { class: 'fr', onClick: writeText },
+          const copyBtn = createElement('button', { onClick: writeText },
             createElement('small', { class: 'icon-copy', title: 'Copy' }),
             createElement('small', { class: 'icon-checkmark', title: 'Done' }),
           );
