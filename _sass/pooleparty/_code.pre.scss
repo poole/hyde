@@ -80,78 +80,78 @@ pre > code {
   }
 }
 
-.pre-header {
-  @extend .color-transition;
-  @extend .figure-base;
+.foo {
+  height: 2rem;
+  border: none;
+  border-bottom: 1px solid var(--border-color);
   border-bottom-left-radius: 0;
   border-bottom-right-radius: 0;
-  display: block;
-  margin-left: -1rem;
-  margin-right: -1rem;
-  padding: 0.5rem 1rem 0.25rem;
-  border-bottom: 1px solid var(--border-color);
-  font-size: 0.83em;
-  color: var(--gray)!important;
-  background-color: var(--gray-bg);
-  height: 2rem;
-
-  > .file {
-    font-family: var(--code-font-family);
-    display: inline-block;
-    padding: .3rem 1rem .2rem;
-  }
-
 }
 
-.highlight { position: relative; }
-.highlight > button {
-  background: none;
-  border: none;
-  border-left: 1px solid var(--border-color);
-  border-bottom: 1px solid var(--border-color);
-  padding-left: 1rem;
-  padding-right: 1rem;
-  color: var(--menu-text);
-  border-bottom-right-radius: 0;
-  border-bottom-left-radius: 0;
-  border-top-left-radius: 0;
-  position: absolute;
-  right: -1rem;
-  top: 0;
-  height: 2rem;
-  cursor: pointer;
-  overflow: hidden;
+div.highlight {
+  position: relative;
 
-  &:hover {
-    background: var(--gray-bg);
+  > .pre-header {
+    @extend .color-transition;
+    @extend .figure-base;
+    @extend .foo;
+    display: block;
+    font-size: smaller;
+    color: var(--gray)!important;
+    background-color: var(--gray-bg);
+
+    > * {
+      display: inline-block;
+      padding: .25rem 1rem;
+    }
   }
 
-  &.copy-success {
-    > .icon-copy {
-      animation-name: icon-copy;
-      animation-duration: 1.5s;
-      animation-timing-function: ease;
+  > button {
+    @extend .foo;
+    position: absolute;
+    top: 0;
+    right: -1rem;
+    color: var(--menu-text);
+    background: none;
+    border-left: 1px solid var(--border-color);
+    border-top-left-radius: 0;
+    padding-left: 1rem;
+    padding-right: 1rem;
+    overflow: hidden;
+    cursor: pointer;
+
+    &:hover {
+      background: var(--gray-bg);
+    }
+
+    &.copy-success {
+      > .icon-copy {
+        animation-name: icon-copy;
+        animation-duration: 1.5s;
+        animation-timing-function: ease;
+      }
+      > .icon-checkmark {
+        animation-name: icon-checkmark;
+        animation-duration: 1.5s;
+        animation-timing-function: ease;
+      }
+    }
+    > .icon-copy { 
+      display: inline-block;
     }
     > .icon-checkmark {
-      animation-name: icon-checkmark;
-      animation-duration: 1.5s;
-      animation-timing-function: ease;
+      position: absolute;
+
+      top: 50%;
+      margin-top: -3em;
+
+      left: 0;
+      right: 0;
+      text-align: center;
     }
   }
-  > .icon-copy { 
-    display: inline-block;
-  }
-  > .icon-checkmark {
-    position: absolute;
-
-    top: 50%;
-    margin-top: -3em;
-
-    left: 0;
-    right: 0;
-    text-align: center;
-  }
 }
+
 
 @keyframes icon-checkmark {
   0% {
@@ -183,6 +183,6 @@ pre > code {
 .pre-header + pre.highlight {
   border-top-left-radius: 0;
   border-top-right-radius: 0;
-  padding-top: .5rem;
+  padding-top: .65rem;
 }
 // >>>>> LINK

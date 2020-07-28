@@ -130,7 +130,7 @@ const toggleClass = (element, ...cls) => {
         const header = createElement(
           'div',
           { class: 'pre-header break-layout' },
-          createElement('span', { class: 'file' }, createElement('small', { class: 'icon-file-empty' }), ' ', fileName),
+          createElement('span', {}, createElement('small', { class: 'icon-file-empty' }), ' ', fileName),
           // !language ? null : createElement('small', { class: 'fr lang' }, language),
         );
 
