@@ -1,5 +1,5 @@
 ---
-title: Web Development Projects for Practice
+title: Practical web development projects for beginners
 date: 2019-01-18T08:02:45+00:00
 author: avic
 layout: page
@@ -135,31 +135,31 @@ Once you have some Javascript knowledge under your belt, you can attempt some of
     <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Lorem-Ipsum-Generator.md">Lorem Ipsum Generator</a>: Generate lorem ipsum placeholder text
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Notes-App.md">Notes App</a>Create an online note pad
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Notes-App.md">Notes App: </a>Create an online note pad
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Pearson-Regression-App.md">Pearson Regression</a>Calculate the correlation coefficient for two sets of data
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Pearson-Regression-App.md">Pearson Regression: </a>Calculate the correlation coefficient for two sets of data
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Pomodoro-Clock.md">Pomodoro Clock</a>Task timer to aid personal productivity
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Pomodoro-Clock.md">Pomodoro Clock: </a>Task timer to aid personal productivity
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Product-Landing-Page.md">Product Landing Page</a>Showcase product details for possible buyers
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Product-Landing-Page.md">Product Landing Page: </a>Showcase product details for possible buyers
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Quiz-App.md">Quiz App</a>Test your knowledge by answering questions
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Quiz-App.md">Quiz App: </a>Test your knowledge by answering questions
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Recipe-App.md">Recipe App</a>Recipe
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Recipe-App.md">Recipe App: </a>Recipe
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Random-Meal-Generator.md">Random Meal Generator</a>Generate random meals
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Random-Meal-Generator.md">Random Meal Generator: </a>Generate random meals
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Roman-to-Decimal-Converter.md">Roman to Decimal Converter</a>Convert Roman to Decimal numbers
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Roman-to-Decimal-Converter.md">Roman to Decimal Converter: </a>Convert Roman to Decimal numbers
   </li>
   <li>
-    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Slider-Design.md">Slider Design</a>Display images using a slider control
+    <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Slider-Design.md">Slider Design: </a>Display images using a slider control
   </li>
   <li>
     <a href="https://github.com/florinpop17/app-ideas/blob/master/Projects/1-Beginner/Word-Frequency-App.md">Word Frequency:</a> Calculate word frequency in a block.
