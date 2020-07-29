@@ -57,6 +57,11 @@ header {
     text-decoration: none;
 }
 
+nav ul {
+    display: flex;
+    justify-content: center;
+}
+
 nav li {
   list-style: none;
   display:inline;
