@@ -59,14 +59,16 @@ header {
 
 nav ul {
     display: flex;
-    justify-content: center;
+    justify-content: space-evenly;
+    /*list-style-type: none;*/
+    padding-inline-start: 0px;
 }
 
 nav li {
   list-style: none;
   display:inline;
   line-height: 1.75;
-  margin-right: 15px;
+  /*margin-right: 15px;*/
 }
 
 nav li:hover {
