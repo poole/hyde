@@ -60,7 +60,6 @@ header {
 nav ul {
     display: flex;
     justify-content: space-evenly;
-    /*list-style-type: none;*/
     padding-inline-start: 0px;
 }
 
@@ -68,18 +67,25 @@ nav li {
   list-style: none;
   display:inline;
   line-height: 1.75;
-  /*margin-right: 15px;*/
 }
 
 nav li:hover {
   border-bottom: 5px solid #02781c;
 }
 
+
 @media (min-width: 48em) {
-  nav li {
-    margin-right: 40px;
-  }
+    nav ul {
+        justify-content: center;
+    }
+    nav li {
+        padding-left:10px;
+        padding-right: 10px;
+        margin-right: 10px;
+        margin-left: 10px;
+    }
 }
+
 /*End of styling nav bar*/
 
 
