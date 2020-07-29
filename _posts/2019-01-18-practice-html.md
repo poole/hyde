@@ -9,42 +9,31 @@ permalink: /practice-html/
 
 Outline
 
-  1. What is HTML?
-  2. History of HTML
-  3. How HTML works: Introduction to HTML
-  4. HTML text editors
-  5. Headings
-  6. Paragraphs
-  7. Text formatin
-  8. Div
-  9. Header
- 10. Aside
- 11. footer
- 12. Intermediate html tags [tutorial]  
- 14. Ordered list
- 15. Unordered list
- 16. Code
- 17. Pre
- 18. Forms
- 19. Html input
- 20. Text Inputs
- 21. Radio input
- 22. Submit button
- 23. Blockquotes
- 24. Video
- 25. Audio
- 26. Embed
- 27. Canvas
+1. <a href="#what-html">What is HTML? </a>
+2. <a href="#how-html">How HTML works: Introduction to HTML </a> 
+3. <a href="#html-editors">Tools for writing HTML</a>
+4. <a href="#basic-tags">Basic html elements and tags tutorial</a>
+    <br>
+   <span class="table-of-content">- Basic HTML Template
+    <a href="#html-heading">- Headings</a>
+    <a href="#html-paragraph">- Paragraphs</a>
+  </span>
+5. <a href="#html-text">Other text formating using HTML</a>
+6. <a href="#html-div">Creating sections using Div </a>
+7. Creating sections using HTML5 Semantic tags
+  <br>
+   <span class="table-of-content">- Header - Aside  - footer</span>
+9. <a href="#html-advanced">Intermediate html tags [tutorial]</a>
+  <br>
+   <span class="table-of-content"> - Ordered list - Unordered list - Code - Pre - Forms - Html Input - Text Input - Radio input - Submit button - Blockquotes - Video - Audio - Embed - Canvas</span>
 
-## What is html?
+<h2 id="what-html">What is html?</h2>
 
 HTML is the short form for Hyper Text Markup Language. It helps us to display text, links, pictures, sounds and videos correctly on a webpage. Every time you visit a website through you should know that HTML is involved.
 
-## History of html
-
 HTML was created by [Tim Berners-Lee](https://en.wikipedia.org/wiki/Tim_Berners-Lee) to share documents across the internet. It has evolved. You can now be able to share images, videos, and even play games on the internet.
 
-## How HTML works: Introduction to HTML.
+<h2 id="how-html">How HTML works: Introduction to HTML.</h2>
 
 **HTML** is used to describe the appearance of a document to be displayed by a internet browser.
 
@@ -58,7 +47,7 @@ To view the html code itself, you can right click on the webpage and click on vi
 
 To edit the HTML, you need to use a text editor.
 
-## **HTML Text Editors**
+<h2 id="html-editors">HTML Text Editors</h2>
 
 HTML text editors allow you to create and edit HTML files. There are many text editors you can use. Some of them are:
 
@@ -93,7 +82,7 @@ Html element includes the opening tag, the closing tag and the content between t
 
 These are tags used to tell the browser the beginning and the end of a HTML element.
 
-### Basic html elements and tags tutorial
+<h2 id="basic-tags">Basic html elements and tags tutorial</h2>
 
 #### 1. Basic html page
 
@@ -115,7 +104,8 @@ Anything that you want to be displayed on the HTML page is added between the bod
 
 ## HTML Text Tags
 
-### 1. Headings
+   1. <h3 id="html-heading"> Headings: Creating Headings using HTML</h3>
+
 
 There are 6 type of heading with h1 being used as the title of the post or article for SEO purposes.
 
@@ -379,7 +369,7 @@ Result:
 
 
 
-Div
+<h3 id="html-div">Div </h3>
 
 <pre>&lt;div&gt;<br /><br />&lt;/div&gt;</pre>
 
@@ -387,21 +377,26 @@ Div
 
 </nav>
 
-Header
+### Header
 <pre>
-  &lt;header></header>
+  &lt;header>
+
+  </header>
 </pre>
 
-Aside
+### Aside
 <pre>
-  &lt;aside&gt;&lt;/aside&gt;</pre>
+  &lt;aside&gt;
 
-footer
+  &lt;/aside&gt;
+</pre>
+
+### footer
 
 <pre>&lt;footer&gt;<br /><br />&lt;/footer&gt;</pre>
 
 
-## Intermediate html tags
+<h2 id="html-advanced">Intermediate html tags</h2>
 
 Code
 

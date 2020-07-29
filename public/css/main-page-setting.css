@@ -529,3 +529,10 @@ text-align: center;
 .posts > div > h2 > a {
   text-decoration: none;
 }
+
+.table-of-content {
+    display:inline;
+}
+.table-of-content a {
+    padding-right: 10px;
+}
