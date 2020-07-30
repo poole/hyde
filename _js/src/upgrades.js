@@ -39,6 +39,8 @@ const toggleClass = (element, ...cls) => {
 
   const pushStateEl = document.querySelector('hy-push-state');
 
+  const CODE_LINE_HEIGHT = 1.5;
+
   /** @param {(param0: HTMLElement|null) => void} fn
    *  @param {any=} opts */
   function ready(fn, opts) {
@@ -183,16 +185,13 @@ const toggleClass = (element, ...cls) => {
         el.addEventListener('touchstart', (e) => el.scrollLeft > 0 && e.stopPropagation(), { passive: false }),
       );
 
-    /*
     Array.from(main.querySelectorAll(CODE_BLOCK_SEL)).forEach((code) => {
-      const sw = code.parentElement?.scrollWidth;
-      Array.from(code.querySelectorAll('.c1'))
+      Array.from(code.querySelectorAll('span[class^="c"]'))
         .filter((c1) => c1.innerText.includes('!!'))
         .forEach((c1) => {
-          const hl = createElement('span', {
-            class: 'highlight-code-line',
-            style: `width: ${sw ? `${sw}px` : '100%'}`,
-          });
+          const [, n] = c1.innerText.match(/!!\s*(\d+)/) || [, '1'];
+          const hl = createElement('span', { class: '__hl', style: `height: ${Number(n) * CODE_LINE_HEIGHT}em` });
+          c1.innerText = c1.innerText.replace(`!!${n}`, '!!');
           const hasContent = c1.innerText?.match(/[\p{L}|\d]/u);
           if (!hasContent) {
             c1.parentElement?.replaceChild(hl, c1);
@@ -202,7 +201,6 @@ const toggleClass = (element, ...cls) => {
           }
         });
     });
-    */
 
     const katexHref = document.getElementById('_katexPreload')?.href;
     if (!katexPromise && katexHref) {
