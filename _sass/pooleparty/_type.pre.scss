@@ -202,7 +202,7 @@ blockquote {
   font-weight: var(--font-weight-heading);
 }
 
-.fine {
+.fine, .smaller {
   font-size: smaller;
 }
 
@@ -214,7 +214,6 @@ blockquote {
 .centered {
   text-align: center;
 }
-
 
 h1[id], h2[id], h3[id], h4[id], h5[id], h6[id] {
   position: relative;
