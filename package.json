@@ -44,6 +44,7 @@
     "webpack": "^4.43.0",
     "webpack-cli": "^3.3.12",
     "webpack-merge": "^5.0.9",
+    "worker-plugin": "^4.0.3",
     "yargs": "^15.4.1"
   },
   "dependencies": {
@@ -64,7 +65,9 @@
     "create-element-x": "^1.1.1",
     "dom4": "^2.1.5",
     "intersection-observer": "^0.10.0",
+    "kv-storage-polyfill": "^2.0.0",
     "lit-html": "^1.2.1",
+    "minisearch": "^2.4.1",
     "rxjs": "^7.0.0-beta.2",
     "web-animations-js": "^2.3.2",
     "whatwg-fetch": "^3.2.0"

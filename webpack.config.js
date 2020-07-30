@@ -2,6 +2,7 @@ const { readFileSync } = require("fs");
 const { resolve } = require("path");
 
 const { BannerPlugin, EnvironmentPlugin } = require("webpack");
+const WorkerPlugin = require('worker-plugin');
 
 const { merge } = require("webpack-merge");
 const { argv: { mode } } = require("yargs");
@@ -17,7 +18,7 @@ const envConfig = (() => {
     case "production":
       return {
         devtool: false,
-        plugins: [new BannerPlugin({ banner, raw: true }), new EnvironmentPlugin({ 
+        plugins: [new WorkerPlugin({ globalObject: 'self' }), new BannerPlugin({ banner, raw: true }), new EnvironmentPlugin({ 
           DEBUG: false ,
           ASSET_PATH,
         })],
@@ -26,7 +27,7 @@ const envConfig = (() => {
     default:
       return {
         devtool: "source-map",
-        plugins: [new EnvironmentPlugin({ 
+        plugins: [new WorkerPlugin({ globalObject: 'self' }), new EnvironmentPlugin({ 
           DEBUG: true,
           ASSET_PATH,
          })],
