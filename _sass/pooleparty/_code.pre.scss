@@ -69,16 +69,16 @@ pre > code {
   background-color: transparent;
   font-size: 1em;
 
-  .__hl {
-    @extend .color-transition;
-    display: inline-block;
-    position: absolute;
-    left: -1rem;
-    right: -1rem;
-    background: var(--accent-color-highlight);
-    border-left: .25rem solid var(--accent-color-faded);
-    z-index: -1;
-  }
+  // .__hl {
+  //   @extend .color-transition;
+  //   display: inline-block;
+  //   position: absolute;
+  //   left: -1rem;
+  //   right: -1rem;
+  //   background: var(--accent-color-highlight);
+  //   border-left: .25rem solid var(--accent-color-faded);
+  //   z-index: -1;
+  // }
 }
 
 .pre-header-common {
