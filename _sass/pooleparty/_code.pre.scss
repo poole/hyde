@@ -27,9 +27,9 @@ code {
 
 .figure-base {
   @extend .color-transition;
+  @extend .border-radius;
   margin-left: -1rem;
   margin-right: -1rem;
-  border-radius: $border-radius;
 
   // Prevent code linebreaks and allow side-scrolling for better readability on mobile
   overflow-x: auto;

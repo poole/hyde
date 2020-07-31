@@ -47,3 +47,9 @@
   border: 1px solid var(--border-color); // inline
   transition: border-color 1s ease; // link
 }
+
+.border-radius {
+  @media (min-width: $break-point-1) {
+    border-radius: $border-radius;
+  }
+}
