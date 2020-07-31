@@ -39,6 +39,7 @@ code {
 .pre-base {
   @extend .figure-base;
   padding: 1rem;
+  margin-bottom: 1.5rem;
   background-color: var(--gray-bg);
 
   // HACK: prevents painting for some reason

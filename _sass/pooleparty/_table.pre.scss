@@ -19,7 +19,7 @@ table:not(.rouge-table) {
   border-collapse: collapse;
   border-radius: 0!important;
   display: block;
-  margin-bottom: 1em;
+  margin-bottom: 1.5rem;
 
   td, th {
     @extend .color-transition;
