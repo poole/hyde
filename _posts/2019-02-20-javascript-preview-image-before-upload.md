@@ -3,7 +3,7 @@ title: Javascript preview image before upload
 date: 2019-02-20T08:20:30+00:00
 author: avic
 layout: post
-description: Use element.style.margin to change the margin of an individual element. You can target the top, bottom, right and left margin individually using marginTop, marginBottom, marginRight and marginLeft respectively.
+description: Use JavaScript to create a simple image preview so that users can check the images before uploading to your server.
 permalink: /javascript-preview-image-before-upload/
 categories:
   - Javascript
