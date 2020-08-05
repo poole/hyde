@@ -4,6 +4,7 @@ title: Changing padding using javascript
 date: 2019-02-16T10:27:45+00:00
 author: avic
 layout: post
+description: Use element.style.padding to change the padding of an individual element. You can target the top,bottom, right and left padding individually using paddingTop, padding bottom, padding right and padding left respectively.
 guid: https://learn.avicndugu.com/?p=65
 permalink: /changing-padding-using-javascript/
 categories:
