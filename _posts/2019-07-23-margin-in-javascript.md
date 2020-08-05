@@ -3,7 +3,7 @@ title: 'How to get and set margin in Javascript'
 date: 2019-07-23T18:10:09+00:00
 author: avic
 layout: page
-description: Use element.style.padding to change the padding of an individual element. You can target the top,bottom, right and left padding individually using paddingTop, padding bottom, padding right and padding left respectively.
+description: Use element.style.margin to change the margin of an individual element. You can target the top, bottom, right and left margin individually using marginTop, marginBottom, marginRight and marginLeft respectively.
 permalink: /margin-in-javascript/
 categories:
   - Javascript
