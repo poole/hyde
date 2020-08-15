@@ -11,6 +11,7 @@
     STORAGE_KEY: 'mini-search{{ "/" | relative_url }}',
     INDEX_KEY: 'index--{{ site.time | date_to_xmlschema }}',
   };
+  w._clapButton = {% if site.clap_button or jekyll.environment != 'production' %}true{% else %}false{% endif %};
 }(window);
 </script>
 
