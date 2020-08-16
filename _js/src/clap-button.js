@@ -32,5 +32,5 @@ import {
   await webComponentsReady;
   await stylesheetReady;
 
-  import(/* webpackMode: "eager" */ '@hydecorp/clap-button');
+  import(/* webpackMode: "eager" */ '@getclaps/button');
 })();
