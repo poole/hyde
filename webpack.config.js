@@ -30,6 +30,7 @@ const envConfig = (() => {
         plugins: [new WorkerPlugin({ globalObject: 'self' }), new EnvironmentPlugin({ 
           DEBUG: true,
           ASSET_PATH,
+          GET_CLAPS_API: 'http://localhost:8787',
          })],
       };
   }
