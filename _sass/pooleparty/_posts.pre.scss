@@ -55,6 +55,18 @@ body:not(.no-third-column) {
 }
 // >>>
 // <<< LINK
+clap-button {
+  margin-left: auto;
+  margin-right: auto;
+  --clap-button-color: var(--accent-color);
+}
+
+clap-button + p.message {
+  margin: -2rem auto 0;
+  max-width: 32rem;
+  font-size: smaller
+}
+
 hr.dingbat {
   border: 0;
   &:after{
