@@ -14,8 +14,8 @@
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
 // {% assign vars         = site.data.variables %}
-// {% assign ui_font      = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",        "Roboto",      "Oxygen",      "Ubuntu",           "Cantarell",        "Fira Sans", "Droid Sans",      "Helvetica Neue",              sans-serif' %}
-// {% assign ui_font_code = 'system-ui-monospace,                          "Liberation Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "DejaVu Sans Mono", "Fira Code", "Droid Sans Mono", "Menlo", "Consolas", "Monaco", monospace;' %}
+// {% assign ui_font      = 'system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", Arial, sans-serif' %}
+// {% assign ui_font_code = 'ui-monospace, Menlo, Monaco, "Cascadia Mono", "Segoe UI Mono", "Roboto Mono", "Oxygen Mono", "Ubuntu Monospace", "Source Code Pro", "Fira Code", "Droid Sans Mono", "DejaVu Sans Mono", "Courier New", monospace' %}
 
 $font-family:         {{ vars.font         | default:site.font         | default:ui_font        }};
 $font-family-heading: {{ vars.font_heading | default:site.font_heading | default:ui_font        }};
