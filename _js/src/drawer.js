@@ -113,7 +113,9 @@ import {
     drawerEl.toggle();
   });
 
-  sidebarEl.querySelectorAll('a[href^="/"]:not(.external)').forEach((el) => el.addEventListener('click', () => drawerEl.close()));
+  sidebarEl
+    .querySelectorAll('a[href^="/"]:not(.external)')
+    .forEach((el) => el.addEventListener('click', () => drawerEl.close()));
 
   if (isSafari) drawerEl.setAttribute('threshold', '0');
   if (!isMobile) drawerEl.setAttribute('mouseevents', '');
