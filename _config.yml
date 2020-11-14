@@ -10,7 +10,7 @@ permalink:        pretty
 title:            Divyanka Chaudhari
 tagline:          'Undergraduate'
 description:      'I'm a Computer Science & Engineering sophomore at IIT Delhi. This is my personal website.'
-url:              http://hyde.getpoole.com
+url:              https://iceberry25.github.io/
 baseurl:          /
 
 author:
@@ -20,7 +20,7 @@ author:
 paginate:         5
 
 # Custom vars
-version:          2.1.0
+version:          0.1.1
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/Iceberry25/
