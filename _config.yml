@@ -9,7 +9,7 @@ highlighter:      pygments
 # Setup
 title:            Divyanka
 tagline:          'Student'
-description:      'Hi, I am Divyanka Chaudhari. I am a Computer Science Sophomore at <a href="https://www.cse.iitd.ernet.in/" target="_blank">IIT Delhi</a> and this is my personal website.'
+description:      'Hi, I am Divyanka. I am a Computer Science Sophomore at <a href="https://www.cse.iitd.ernet.in/" target="_blank">IIT Delhi</a> and this is my personal website.'
 url:              https://divyankachaudhari.github.io/
 baseurl:          /
 
