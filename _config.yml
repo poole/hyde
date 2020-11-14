@@ -10,7 +10,7 @@ highlighter:      pygments
 title:            Divyanka
 tagline:          'Student'
 description:      'Hi, I'm Divyanka Chaudhari. I'm a Computer Science Sophomore at IIT Delhi and this is my personal website.'
-url:              http://hyde.getpoole.com
+url:              https://divyankachaudhari.github.io/
 baseurl:          /
 
 author:
