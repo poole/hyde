@@ -9,18 +9,18 @@ highlighter:      pygments
 # Setup
 title:            Divyanka
 tagline:          'Student'
-description:      'A brazen dcd safsd awrfrwfwqfrtwo-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+description:      'Hi, I'm Divyanka. I'm a Computer Sciennce Sophomore at <a href="https://www.cse.iitd.ernet.in/" target="_blank">IIT Delhi</a> and this is my personal website. Made by <a href="https://github.com/divyankachaudhari" target="_blank">@divyankachaudhari</a>.'
 url:              https://divyankachaudhari.github.io/
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Divyanka Chaudhari'
+  url:            https://divyankachaudhari.github.io/
 
 paginate:         5
 
 # Custom vars
-version:          2.1.0
+# version:          2.1.0
 
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/divyankachaudhari
