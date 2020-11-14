@@ -1,6 +1,6 @@
 # Dependencies
-# markdown:         redcarpet
-# highlighter:      pygments
+markdown:         redcarpet
+highlighter:      pygments
 
 # Permalinks
 #permalink:        pretty
@@ -9,7 +9,7 @@
 # Setup
 title:            Divyanka
 tagline:          'Student'
-description:      'Hi, I'm Divyanka. I'm a Computere Science Sophomore at IIT Delhi and this is my personal website.'
+description:      'A brazen dcd safsd awrfrwfwqfrtwo-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
 url:              https://divyankachaudhari.github.io/
 baseurl:          /
 
