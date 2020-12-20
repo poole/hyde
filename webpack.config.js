@@ -18,20 +18,28 @@ const envConfig = (() => {
     case "production":
       return {
         devtool: false,
-        plugins: [new WorkerPlugin({ globalObject: 'self' }), new BannerPlugin({ banner, raw: true }), new EnvironmentPlugin({ 
-          DEBUG: false ,
-          ASSET_PATH,
-        })],
+        plugins: [
+          new WorkerPlugin({ globalObject: 'self' }),
+          new BannerPlugin({ banner, raw: true }),
+          new EnvironmentPlugin({
+            DEBUG: false,
+            ASSET_PATH,
+            GET_CLAPS_API: 'https://stage-worker.getclaps.dev',
+          }),
+        ],
       };
 
     default:
       return {
         devtool: "source-map",
-        plugins: [new WorkerPlugin({ globalObject: 'self' }), new EnvironmentPlugin({ 
-          DEBUG: true,
-          ASSET_PATH,
-          GET_CLAPS_API: 'http://localhost:8787',
-         })],
+        plugins: [
+          new WorkerPlugin({ globalObject: 'self' }),
+          new EnvironmentPlugin({
+            DEBUG: true,
+            ASSET_PATH,
+            GET_CLAPS_API: 'http://localhost:8787',
+          }),
+        ],
       };
   }
 })()
