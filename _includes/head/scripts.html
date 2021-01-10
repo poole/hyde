@@ -12,8 +12,7 @@
     INDEX_KEY: 'index--{{ site.time | date_to_xmlschema }}',
   };
   w._clapButton = {% if site.clap_button or jekyll.environment != 'production' %}true{% else %}false{% endif %};
-}(window);
-</script>
+}(window);</script>
 
 {% if site.kramdown.math_engine == 'mathjax' %}
 <script async src="{{ 'assets/bower_components/MathJax/es5/tex-mml-chtml.js' | relative_url }}" id="_MathJax"></script>
