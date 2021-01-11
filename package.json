@@ -41,7 +41,7 @@
     "onchange": "^7.1.0",
     "prettier": "^2.2.1",
     "re-template-tag": "^2.0.1",
-    "uglifyjs": "^2.4.11",
+    "uglify-js": "^3.12.4",
     "webpack": "^4.44.2",
     "webpack-cli": "^4.2.0",
     "webpack-merge": "^5.7.2",
