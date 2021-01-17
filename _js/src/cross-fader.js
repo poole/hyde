@@ -13,7 +13,7 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { empty, of } from 'rxjs';
+import { EMPTY, of } from 'rxjs';
 import { catchError, finalize, map, switchMap } from 'rxjs/operators';
 
 import { animate, fetchRx } from './common';
@@ -74,7 +74,7 @@ export class CrossFader {
   /** @param {Document} newDocument */
   fetchImage(newDocument) {
     const hash = calcHash(newDocument);
-    if (hash === this.prevHash) return empty();
+    if (hash === this.prevHash) return EMPTY;
 
     return this.fetchImage2(newDocument).pipe(
       map((objectURL) => {

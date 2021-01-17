@@ -18,7 +18,7 @@ import {
   map,
   filter,
   pairwise,
-  merge as mergeWith,
+  mergeWith,
   mapTo,
   tap,
   switchMap,
