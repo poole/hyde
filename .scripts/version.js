@@ -75,7 +75,7 @@ async function getFiles(dir) {
 
     const pUnlink = Promise.all(
       (await getFiles('./assets/js'))
-        .filter(f => f.match(/assets\/js\/*hydejack-*/i))
+        .filter(f => f.match(/assets\/js\/(.*)hydejack-(.*)/i))
         .map(unlink)
     );
 
