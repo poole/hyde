@@ -36,6 +36,7 @@
   }
 
   @media screen and (min-width: $break-point-5) {
+    padding-top: 9rem;
     margin-left: $sidebar-width + $content-margin-5;
     margin-right: $content-margin-5;
     max-width: $content-width-5;
