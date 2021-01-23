@@ -26,8 +26,8 @@ code {
 }
 
 .figure-base {
+  @include border-radius();
   @extend .color-transition;
-  @extend .border-radius;
   margin-left: -1rem;
   margin-right: -1rem;
 
@@ -98,9 +98,12 @@ div.highlight {
     @extend .figure-base;
     @extend .pre-header-common;
     display: block;
-    font-size: smaller;
     color: var(--gray)!important;
     background-color: var(--gray-bg);
+
+    > span {
+      font-size: smaller;
+    }
 
     > * {
       display: inline-block;

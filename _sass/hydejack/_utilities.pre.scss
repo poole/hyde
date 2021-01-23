@@ -49,7 +49,5 @@
 }
 
 .border-radius {
-  @media (min-width: $break-point-1) {
-    border-radius: $border-radius;
-  }
+  @include border-radius();
 }
