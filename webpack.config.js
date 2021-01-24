@@ -24,7 +24,7 @@ const envConfig = (() => {
           new EnvironmentPlugin({
             DEBUG: false,
             ASSET_PATH,
-            GET_CLAPS_API: 'https://stage-worker.getclaps.dev',
+            GET_CLAPS_API: 'https://worker.getclaps.dev',
           }),
         ],
       };
