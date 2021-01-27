@@ -50,7 +50,7 @@
   },
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
-    "@getclaps/button": "^1.0.0-alpha.13",
+    "@getclaps/button": "^1.0.0-alpha.17",
     "@hydecorp/component": "^1.0.0-alpha.5",
     "@hydecorp/drawer": "^1.0.0-alpha.9",
     "@hydecorp/push-state": "^1.0.0-alpha.11",
