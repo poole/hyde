@@ -9,10 +9,11 @@
   duration="500"
   hashchange
 >
-  {% if page.cover %}{% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}{% endif %}
+  {% capture sidebar %}{% include_cached body/sidebar.html cover=page.cover invert=page.invert_sidebar theme_color=page.theme_color image=image color=color %}{% endcapture %}
+  {% if page.cover %}{{ sidebar }}{% endif %}
   {% include_cached body/menu.html %}
   {% include body/main.html %}
-  {% unless page.cover %}{% include_cached body/sidebar.html cover=page.cover theme_color=page.theme_color image=image color=color %}{% endunless %}
+  {% unless page.cover %}{{ sidebar }}{% endunless %}
 </hy-push-state>
 
 {% unless page.redirect %}

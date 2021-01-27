@@ -22,12 +22,13 @@ const RE_CSS_URL = /url\s*\(['"]?(([^'"\\]|\\.)*)['"]?\)/u;
 
 /** @param {Document} doc */
 const calcHash = (doc) => {
-  const sidebarBg = doc.querySelector('.sidebar-bg');
-  const pageStyle = doc.querySelector('#_pageStyle');
+  const sidebar = doc.getElementById('_sidebar');
+  const sidebarBg = sidebar?.querySelector('.sidebar-bg');
+  const pageStyle = doc.getElementById('_pageStyle');
   // const rule = Array.from(pageStyle?.sheet?.rules ?? []).find(r => r.selectorText === 'html');
   // const accentColor = rule?.style.getPropertyValue('--accent-color') ?? '';
   // const themeColor = rule?.style.getPropertyValue('--theme-color') ?? '';
-  return [pageStyle?.innerText?.trim(), sidebarBg?.classList, sidebarBg?.style.backgroundImage].join('\n');
+  return [pageStyle?.innerText?.trim(), sidebar?.classList, sidebarBg?.classList, sidebarBg?.style.backgroundImage].join('\n');
 };
 
 /**
@@ -93,6 +94,9 @@ export class CrossFader {
 
   /** @param {Document} newDocument */
   updateStyle(newDocument) {
+    const classList = newDocument.getElementById('_sidebar')?.classList;
+    if (classList) this.sidebar.setAttribute('class', classList);
+
     if (this.themeColorEl) {
       const themeColor = newDocument.head.querySelector('meta[name="theme-color"]')?.content;
       if (themeColor) {
