@@ -21,8 +21,11 @@
 
   @media screen {
     padding-left: $content-padding + .5rem;
-    max-width: $content-width;
     min-height: 100vh;
+  }
+
+  @media screen and (min-width: $break-point-1) {
+    max-width: $content-width;
   }
 
   @media screen and (min-width: $break-point-2) {
