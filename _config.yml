@@ -33,6 +33,7 @@ hydejack:
   cookies_banner:      true
   advertise:           true
   hide_dates:          false
+  hide_last_modified:  false
 
   dark_mode:
     always:            false

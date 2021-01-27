@@ -21,6 +21,19 @@
       {% assign tag_separator      = site.data.strings.tag_separator      | default:", "  %}
       {% include components/tag-list.html tags=post.categories meta=site.featured_categories start_with=category_start separator=category_separator %}
       {% include components/tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
+      {% unless site.hydejack.hide_dates or site.hydejack.hide_last_modified or page.hide_last_modified %}
+        {% if post.last_modified_at %}
+          {% assign d1 = post.date             | date:"%Y-%m-%d" %}
+          {% assign d2 = post.last_modified_at | date:"%Y-%m-%d" %}
+          {% if d1 != d2 %}
+            <span class="fr">
+              <span>{{ site.data.strings.last_modified_at | default:"Updated:" }}</span>
+              {% assign last_modified_at_format = site.data.strings.date_formats.last_modified_at | default:post_format %}
+              <time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date:last_modified_at_format }}</time>
+            </span>
+          {% endif %}
+        {% endif %}
+      {% endunless %}
     </div>
 
     {% assign alt = false %}
