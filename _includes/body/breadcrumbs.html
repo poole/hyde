@@ -1,0 +1,15 @@
+<div id="breadcrumbs" class="screen-only">
+  {% assign crumbs = page.url | remove:'/index.html' | split: '/' %}
+  <a href="{{ '/' | relative_url }}">{{ data.strings.breadcrumbs_home | default:'home' }}</a>
+  {% for crumb in crumbs offset: 1 %}
+    {% if forloop.last %}
+      <span>{{ data.strings.breadcrumbs_separator | default:'/' }}</span>
+      <span>{{ crumbs | reverse | first }}</span>
+    {% else %}
+      <span>{{ data.strings.breadcrumbs_separator | default:'/' }}</span>
+      {% assign crumb_limit = forloop.index | plus: 1 %}
+      {% capture href %}{% for crumb in crumbs limit: crumb_limit %}{{ crumb | append: '/' }}{% endfor %}{% endcapture %}
+      <a href="{{ href | relative_url }}">{{ crumb }}</a>
+    {% endif %}
+  {% endfor %}
+</div>
