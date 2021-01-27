@@ -21,23 +21,6 @@ body {
   overflow-x: hidden;
 }
 
-#breadcrumbs {
-  position: absolute;
-  margin-top: -1.667rem;
-  font-size: .667rem;
-  color: var(--menu-text);
-  text-transform: uppercase;
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  width: calc(100% - 2rem);
-  a {
-    color: var(--gray);
-    text-decoration: none;
-    border-bottom: none;
-  }
-}
-
 hy-push-state, hy-drawer {
   display: block;
   overflow: hidden;
@@ -71,6 +54,28 @@ html {
 
   @media screen and (min-width: $break-point-font-large) {
     font-size: var(--root-font-size-large);
+  }
+}
+
+#breadcrumbs {
+  > ul {
+    @extend .ellipsis;
+    height: 1rem;
+    margin: -1.5rem 0 .5rem;
+    padding: 0;
+    font-size: .667rem;
+    color: var(--menu-text);
+    text-transform: uppercase;
+    width: 100%;
+    list-style: none;
+    > li { 
+      display: inline; 
+      a {
+        color: var(--gray);
+        text-decoration: none;
+        border-bottom: none;
+      }
+    }
   }
 }
 // >>>

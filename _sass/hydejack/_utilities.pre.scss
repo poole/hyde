@@ -23,6 +23,8 @@
 .mt3 { margin-top: 3rem }
 .mt4 { margin-top: 4rem }
 .pb0 { padding-bottom: 0 }
+.ml1 { margin-left: 1rem }
+.mr1 { margin-right: 1rem }
 
 .sixteen-nine { @include aspect-ratio(16, 9); }
 .sixteen-ten { @include aspect-ratio(16, 10); }
@@ -41,6 +43,12 @@
   clip: rect(0,0,0,0);
   border: 0;
   // >>>
+}
+
+.ellipsis {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 .border {

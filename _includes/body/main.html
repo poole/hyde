@@ -3,7 +3,7 @@
   class="content layout-{{ page.layout }}"
   role="main"
 >
-  {% unless site.hydejack.no_breadcrumbs or page.no_breadcrumbs %}{% include body/breadcrumbs.html %}{% endunless %}
+  {% unless site.hydejack.no_breadcrumbs %}{% include body/breadcrumbs.html url=page.url %}{% endunless %}
   {{ content }}
   {% include_cached body/footer.html %}
 </main>

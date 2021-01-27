@@ -52,10 +52,19 @@ body:not(.no-third-column) {
 // Meta data line below post title
 .post-date {
   @extend .h4;
-  display: block;
+  display: flex;
+  justify-content: space-between;
+  white-space: nowrap;
   margin-top: -.6rem;
-  margin-bottom: 1.2rem;
+  height: 1.85rem;
+  margin-bottom: 1rem;
   color: var(--gray);
+
+  [class^="icon-"] { 
+    display: inline-block; 
+    font-size: smaller;
+    margin-right: .25rem;
+  }
 }
 // >>>
 // <<< LINK
