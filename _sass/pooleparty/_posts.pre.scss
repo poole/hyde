@@ -25,6 +25,10 @@
     position: relative;
     margin-bottom: 1.5rem;
   }
+  
+  .aspect-ratio.sixteen-nine.lead { 
+    @extend .border-radius;
+  }
 }
 
 body:not(.no-third-column) {
