@@ -212,11 +212,7 @@ const toggleClass = (element, ...cls) => {
 
   const mathJaxEl = document.getElementById('_MathJax');
   if (pushStateEl && mathJaxEl) {
-    const mathJax2To3 = ({
-      detail: {
-        replaceEls: [mainEl],
-      },
-    }) => {
+    const mathJax2To3 = ({ detail: { replaceEls: [mainEl] } }) => {
       mainEl.querySelectorAll('script[type="math/tex; mode=display"]').forEach((el) => {
         el.outerHTML = el.innerText.replace('% <![CDATA[', '\\[').replace('%]]>', '\\]');
       });
@@ -232,7 +228,7 @@ const toggleClass = (element, ...cls) => {
     await MathJax.typesetPromise();
 
     if (!window._noPushState) {
-      pushStateEl.addEventListener('ready', (e) => mathJax2To3(e));
+      pushStateEl.addEventListener('ready', mathJax2To3);
       fromEvent(pushStateEl, 'after')
         .pipe(concatMap(() => MathJax.typesetPromise()))
         .subscribe();

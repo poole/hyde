@@ -35,6 +35,7 @@
     "@babel/core": "^7.12.10",
     "@babel/preset-env": "^7.12.11",
     "babel-loader": "^8.2.2",
+    "bower": "^1.8.12",
     "dedent": "^0.7.0",
     "json2yaml": "^1.1.0",
     "null-loader": "^4.0.1",

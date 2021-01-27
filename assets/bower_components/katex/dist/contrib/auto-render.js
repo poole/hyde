@@ -229,6 +229,14 @@ var auto_render_splitWithDelimiters = function splitWithDelimiters(text, delimit
 
 var auto_render_renderMathInText = function renderMathInText(text, optionsCopy) {
   var data = auto_render_splitWithDelimiters(text, optionsCopy.delimiters);
+
+  if (data.length === 1 && data[0].type === 'text') {
+    // There is no formula in the text.
+    // Let's return null which means there is no need to replace
+    // the current text node with a new one.
+    return null;
+  }
+
   var fragment = document.createDocumentFragment();
 
   for (var i = 0; i < data.length; i++) {
@@ -271,8 +279,11 @@ var renderElem = function renderElem(elem, optionsCopy) {
     if (childNode.nodeType === 3) {
       // Text node
       var frag = auto_render_renderMathInText(childNode.textContent, optionsCopy);
-      i += frag.childNodes.length - 1;
-      elem.replaceChild(frag, childNode);
+
+      if (frag) {
+        i += frag.childNodes.length - 1;
+        elem.replaceChild(frag, childNode);
+      }
     } else if (childNode.nodeType === 1) {
       (function () {
         // Element node
@@ -323,7 +334,7 @@ var renderMathInElement = function renderMathInElement(elem, options) {
     right: "\\]",
     display: true
   }];
-  optionsCopy.ignoredTags = optionsCopy.ignoredTags || ["script", "noscript", "style", "textarea", "pre", "code"];
+  optionsCopy.ignoredTags = optionsCopy.ignoredTags || ["script", "noscript", "style", "textarea", "pre", "code", "option"];
   optionsCopy.ignoredClasses = optionsCopy.ignoredClasses || [];
   optionsCopy.errorCallback = optionsCopy.errorCallback || console.error; // Enable sharing of global macros defined via `\gdef` between different
   // math elements within a single call to `renderMathInElement`.

@@ -124,12 +124,13 @@
   line-height: 1.2;
   text-indent: 0;
   text-rendering: auto;
+  border-color: currentColor;
 }
 .katex * {
   -ms-high-contrast-adjust: none !important;
 }
 .katex .katex-version::after {
-  content: "0.10.2";
+  content: "0.12.0";
 }
 .katex .katex-mathml {
   position: absolute;
@@ -170,7 +171,7 @@
 .katex .texttt {
   font-family: KaTeX_Typewriter;
 }
-.katex .mathdefault {
+.katex .mathnormal {
   font-family: KaTeX_Math;
   font-style: italic;
 }
@@ -232,6 +233,7 @@
 .katex .vlist-t {
   display: inline-table;
   table-layout: fixed;
+  border-collapse: collapse;
 }
 .katex .vlist-r {
   display: table-row;
@@ -262,6 +264,26 @@
   font-size: 1px;
   width: 2px;
   min-width: 2px;
+}
+.katex .vbox {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  align-items: baseline;
+}
+.katex .hbox {
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  width: 100%;
+}
+.katex .thinbox {
+  display: inline-flex;
+  flex-direction: row;
+  width: 0;
+  max-width: 0;
 }
 .katex .msupsub {
   text-align: left;
@@ -332,10 +354,6 @@
 .katex .sqrt > .root {
   margin-left: 0.27777778em;
   margin-right: -0.55555556em;
-}
-.katex .sizing,
-.katex .fontsize-ensurer {
-  display: inline-block;
 }
 .katex .sizing.reset-size1.size1,
 .katex .fontsize-ensurer.reset-size1.size1 {
@@ -872,12 +890,7 @@
 }
 .katex .mtable .vertical-separator {
   display: inline-block;
-  margin: 0 -0.025em;
-  border-right: 0.05em solid;
   min-width: 1px;
-}
-.katex .mtable .vs-dashed {
-  border-right: 0.05em dashed;
 }
 .katex .mtable .arraycolsep {
   display: inline-block;
@@ -1017,5 +1030,6 @@
 }
 .katex-display.fleqn > .katex {
   text-align: left;
+  padding-left: 2em;
 }
 
