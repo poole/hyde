@@ -13,13 +13,19 @@
 // You should have received a copy of the GNU General Public License
 // along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-import { of, zip } from 'rxjs';
+import { Observable, of, zip } from 'rxjs';
 import { tap, finalize, filter, map, switchMap } from 'rxjs/operators';
 
 import { animate, empty } from '../common';
 
 const TITLE_SELECTOR = '.page-title, .post-title';
 
+/**
+ * @param {Observable<any>} start$ 
+ * @param {Observable<any>} ready$ 
+ * @param {Observable<any>} fadeIn$ 
+ * @param {any} opts 
+ */
 export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, settings }) {
   if (!animationMain) return start$;
 
@@ -84,8 +90,8 @@ export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, setting
             }),
           ),
           fadeIn$,
-          (x) => x,
         ).pipe(
+          map(([x]) => x),
           tap((title) => {
             if (title) title.style.opacity = 1;
             animationMain.style.opacity = 0;

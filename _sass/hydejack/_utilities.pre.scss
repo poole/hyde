@@ -45,6 +45,12 @@
   // >>>
 }
 
+.clearfix {
+  content: "";
+  display: table;
+  clear: both;
+}
+
 .ellipsis {
   white-space: nowrap;
   overflow: hidden;
@@ -58,4 +64,8 @@
 
 .border-radius {
   @include border-radius();
+}
+
+.fallback-img {
+  @include fallback-image();
 }
