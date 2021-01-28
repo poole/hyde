@@ -52,9 +52,9 @@
   "dependencies": {
     "@babel/polyfill": "^7.12.1",
     "@getclaps/button": "^1.0.0-alpha.17",
-    "@hydecorp/component": "^1.0.0-alpha.5",
-    "@hydecorp/drawer": "^1.0.0-alpha.9",
-    "@hydecorp/push-state": "^1.0.0-alpha.11",
+    "@hydecorp/component": "^1.0.0-alpha.7",
+    "@hydecorp/drawer": "^1.0.0-alpha.10",
+    "@hydecorp/push-state": "^1.0.0-alpha.12",
     "@juggle/resize-observer": "^3.2.0",
     "@webcomponents/custom-elements": "^1.4.3",
     "@webcomponents/shadycss": "^1.10.2",
@@ -72,7 +72,7 @@
     "kv-storage-polyfill": "^2.0.0",
     "lit-html": "^1.3.0",
     "minisearch": "^3.0.2",
-    "rxjs": "^7.0.0-beta.5",
+    "rxjs": "^7.0.0-beta.9",
     "web-animations-js": "^2.3.2",
     "whatwg-fetch": "^3.5.0"
   },
