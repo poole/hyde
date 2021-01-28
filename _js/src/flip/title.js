@@ -98,6 +98,9 @@ export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, setting
           }),
           finalize(() => {
             animationMain.style.opacity = 0;
+
+            const page = animationMain.querySelector('.page');
+            empty.call(page);
           }),
         ),
       ),
