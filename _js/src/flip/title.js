@@ -21,10 +21,10 @@ import { animate, empty } from '../common';
 const TITLE_SELECTOR = '.page-title, .post-title';
 
 /**
- * @param {Observable<any>} start$ 
- * @param {Observable<any>} ready$ 
- * @param {Observable<any>} fadeIn$ 
- * @param {any} opts 
+ * @param {Observable<any>} start$
+ * @param {Observable<any>} ready$
+ * @param {Observable<any>} fadeIn$
+ * @param {any} opts
  */
 export function setupFLIPTitle(start$, ready$, fadeIn$, { animationMain, settings }) {
   if (!animationMain) return start$;

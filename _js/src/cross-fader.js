@@ -28,7 +28,12 @@ const calcHash = (doc) => {
   // const rule = Array.from(pageStyle?.sheet?.rules ?? []).find(r => r.selectorText === 'html');
   // const accentColor = rule?.style.getPropertyValue('--accent-color') ?? '';
   // const themeColor = rule?.style.getPropertyValue('--theme-color') ?? '';
-  return [pageStyle?.innerText?.trim(), sidebar?.classList, sidebarBg?.classList, sidebarBg?.style.backgroundImage].join('\n');
+  return [
+    pageStyle?.innerText?.trim(),
+    sidebar?.classList,
+    sidebarBg?.classList,
+    sidebarBg?.style.backgroundImage,
+  ].join('\n');
 };
 
 /**
