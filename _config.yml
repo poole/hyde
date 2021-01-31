@@ -22,7 +22,7 @@ hydejack:
   no_search:           false
   no_inline_css:       false
   no_page_style:       false
-  no_break_layout:     false
+  no_break_layout:     true
   no_toc:              false
   no_third_column:     false
   no_large_headings:   false
