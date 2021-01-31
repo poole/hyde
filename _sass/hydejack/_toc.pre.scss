@@ -21,9 +21,7 @@
   padding-bottom: .5rem;
   // >>>
   transition: opacity 300ms ease, transform 300ms ease, border-color 1s ease; // link
-  &:before {
-    left: 1rem;
-  }
+  &:before { left: 1rem; }
 }
 
 body:not(.no-toc) #markdown-toc {
@@ -31,14 +29,14 @@ body:not(.no-toc) #markdown-toc {
     // <<< inline
     position: absolute;
     z-index: 4;
-    width: calc(50% - #{$half-content});
+    width: 20.5rem;
     right: 0;
     margin: auto;
     overflow: auto;
     // >>>
-    overscroll-behavior: contain; // link
-
     // <<< link
+    overscroll-behavior: contain;
+
     &.toc-hide {
       opacity: 0;
       transform: translateX(-2rem);
@@ -57,3 +55,11 @@ body:not(.no-toc) #markdown-toc {
     // >>>
   }
 }
+
+// <<< inline
+body.no-break-layout:not(.no-toc) #markdown-toc {
+  @media screen and (min-width: $break-point-dynamic) {
+    width: calc(50% - #{$half-content});
+  }
+}
+// >>>
