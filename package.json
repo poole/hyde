@@ -20,7 +20,8 @@
     "preversion:js": "sed -i '' 's:/assets/js/\\*hydejack-\\*:#<removed/js>:' .gitignore",
     "preversion:css": "sed -i '' 's:/_sass/\\*/__\\*__/\\*:#<removed/css>:' .gitignore",
     "version": ".scripts/version.js && npm run format && npm run build && git add .",
-    "postversion": "(npm run postversion:js && npm run postversion:css) && git add . && git ci -m 'Restore pre-version .gitignore'",
+    "postversion": "(npm run postversion:js && npm run postversion:css) && git add . && git ci -m 'Restore pre-version .gitignore' && npm run postversion:forward",
+    "postversion:forward": "git branch -f v9 v$npm_package_version",
     "postversion:js": "sed -i '' 's:#<removed/js>:/assets/js/*hydejack-*:' .gitignore && git rm --cached assets/js/*hydejack-*",
     "postversion:css": "sed -i '' 's:#<removed/css>:/_sass/*/__*__/*:' .gitignore && git rm --cached _sass/*/__*__/*"
   },
