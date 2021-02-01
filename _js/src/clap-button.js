@@ -29,7 +29,7 @@ import { webComponentsReady, stylesheetReady } from './common';
   await webComponentsReady;
   await stylesheetReady;
 
-  if (process.env.GET_CLAPS_API) window.GET_CLAPS_API = process.env.GET_CLAPS_API;
+  if (process.env.GET_CLAPS_API && !window.GET_CLAPS_API) window.GET_CLAPS_API = process.env.GET_CLAPS_API;
 
   import(/* webpackMode: "eager" */ '@getclaps/button');
 })();
