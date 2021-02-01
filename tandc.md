@@ -20,6 +20,7 @@ hidden: true
   * Can be at any massage location in lower hutt
   * Only valid for weekends and public holidays
   * Parling is paid for 
-  * Other conditions may apply [^1]
+  * Other conditions may apply [^2]
 
-[^1]: Ada and Matt may make purchases or rent a mall car while event is taking place.
+[^1]: Ada and Co may make purchases or rent a mall car while event is taking place
+[^2]: Ada and Co may make purchases or rent a mall car while event is taking place
