@@ -1,6 +1,7 @@
 ---
 layout: page
-title: 
+title: Terms and Conditions
+hidden: true
 ---
 
 # Terms and Conditions
