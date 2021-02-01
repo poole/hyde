@@ -1,6 +1,7 @@
 ---
 layout: page
 title: About
+hidden: true
 ---
 
 # Matthew Corich
