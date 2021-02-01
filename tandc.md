@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Terms and Conditions
-hidden: true
+hidden: false
 ---
 
 ## Sleep In Vouchers
