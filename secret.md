@@ -10,9 +10,7 @@ When we met I did not know what a wonderful woman you were, every da
 
 You always put Ada and me first we have talked and when I asked Ada, “Do you think mummy should do some stuff just for her?” Ada said “yesssss” so we have made you some special vouchers.
 
-Thank you for everything you do.Love Matt and Ada
-
-Thank you for eveything you do.
+Thank you for everything you do.
 
 Love 
 Matt and Ada
