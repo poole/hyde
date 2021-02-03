@@ -6,9 +6,11 @@ hidden: true
 
 To Mel 
 
-When we met I did not know what a wonderful woman you were, every day I spend with you I love you more and more. You are an amazing partner and the best mum I have ever known.
+When we met I did not know what a wonderful woman you were every day I spend with you I love you more and more 
 
-You always put Ada and me first we have talked and when I asked Ada, “Do you think mummy should do some stuff just for her?” Ada said “yesssss” so we have made you some special vouchers.
+You are an amazing partner and the best mum I have ever known.
+
+You always put Ada and me first we have talked and when I asked Ada “Do you think mummy should do some stuff just for her?” Ada said “yesssss so we have made you some special vouchers.
 
 Thank you for everything you do.
 
