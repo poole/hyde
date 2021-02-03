@@ -10,9 +10,14 @@ When we met I did not know what a wonderful woman you were every day�
 
 You are an amazing partner and the best mum I have ever known.
 
-You always put Ada and me first we have talked and when I asked Ada “Do you think mummy should do some stuff just for her?” Ada said “yesssss so we have made you some special vouchers.
+You always put Ada and me first so we talked: 
+
+Matt - “Do you think mummy should do some stuff just for her?" 
+Ada - “yesssss" 
+
+So we have made you some special vouchers.
 
 Thank you for everything you do.
 
 Love 
-Matt and Ada
+Matt
