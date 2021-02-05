@@ -27,7 +27,7 @@
         {% include components/tag-list.html tags=post.categories meta=site.featured_categories start_with=category_start separator=category_separator %}
         {% include components/tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
       </span>
-      {% unless site.hydejack.hide_dates or site.hydejack.hide_last_modified or page.hide_last_modified %}
+      {% unless site.hydejack.hide_dates or site.hydejack.hide_last_modified or post.hide_last_modified %}
         {% if post.last_modified_at %}
           {% assign d1 = post.date             | date:"%Y-%m-%d" %}
           {% assign d2 = post.last_modified_at | date:"%Y-%m-%d" %}
