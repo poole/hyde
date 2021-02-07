@@ -33,14 +33,15 @@
     "/static",
     "/website"
   ],
-  "version": "0.12.0",
-  "_release": "0.12.0",
+  "version": "0.11.1",
+  "_release": "0.11.1",
   "_resolution": {
     "type": "version",
-    "tag": "v0.12.0",
-    "commit": "211b18d528fe7c59659f9b6cc66109c3140ac35b"
+    "tag": "v0.11.1",
+    "commit": "88db1231b2183e179fce45f5734a56de8a8326e3"
   },
   "_source": "https://github.com/Khan/KaTeX.git",
-  "_target": "^0.12.0",
-  "_originalSource": "katex"
+  "_target": "0.11",
+  "_originalSource": "katex",
+  "_direct": true
 }

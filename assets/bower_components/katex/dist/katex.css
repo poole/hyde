@@ -124,13 +124,12 @@
   line-height: 1.2;
   text-indent: 0;
   text-rendering: auto;
-  border-color: currentColor;
 }
 .katex * {
   -ms-high-contrast-adjust: none !important;
 }
 .katex .katex-version::after {
-  content: "0.12.0";
+  content: "0.11.1";
 }
 .katex .katex-mathml {
   position: absolute;
@@ -171,7 +170,7 @@
 .katex .texttt {
   font-family: KaTeX_Typewriter;
 }
-.katex .mathnormal {
+.katex .mathdefault {
   font-family: KaTeX_Math;
   font-style: italic;
 }
@@ -233,7 +232,6 @@
 .katex .vlist-t {
   display: inline-table;
   table-layout: fixed;
-  border-collapse: collapse;
 }
 .katex .vlist-r {
   display: table-row;
@@ -264,26 +262,6 @@
   font-size: 1px;
   width: 2px;
   min-width: 2px;
-}
-.katex .vbox {
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  align-items: baseline;
-}
-.katex .hbox {
-  display: -ms-inline-flexbox;
-  display: inline-flex;
-  -ms-flex-direction: row;
-  flex-direction: row;
-  width: 100%;
-}
-.katex .thinbox {
-  display: inline-flex;
-  flex-direction: row;
-  width: 0;
-  max-width: 0;
 }
 .katex .msupsub {
   text-align: left;
@@ -1030,6 +1008,5 @@
 }
 .katex-display.fleqn > .katex {
   text-align: left;
-  padding-left: 2em;
 }
 
