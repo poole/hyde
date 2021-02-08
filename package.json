@@ -72,6 +72,7 @@
     "lit-html": "^1.3.0",
     "minisearch": "^3.0.2",
     "rxjs": "^7.0.0-beta.9",
+    "tippy.js": "^6.2.7",
     "web-animations-js": "^2.3.2",
     "whatwg-fetch": "^3.5.0"
   },

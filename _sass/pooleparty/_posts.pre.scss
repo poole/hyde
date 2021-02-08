@@ -54,11 +54,14 @@ body:not(.no-third-column) {
   @extend .h4;
   display: flex;
   justify-content: space-between;
-  white-space: nowrap;
   margin-top: -.6rem;
   height: 2rem;
   margin-bottom: .85rem;
   color: var(--gray);
+
+  > .ellipsis {
+    cursor: pointer;
+  }
 
   [class^="icon-"] { 
     display: inline-block; 

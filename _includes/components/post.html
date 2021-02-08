@@ -13,19 +13,24 @@
     </h1>
 
     <div class="post-date">
-      <span>
-        {% unless site.hydejack.hide_dates %}
-          {% assign post_format = site.data.strings.date_formats.post | default:"%d %b %Y" %}
+      {% capture foobar %}
+        {%- unless site.hydejack.hide_dates -%}
+          {%- assign post_format = site.data.strings.date_formats.post | default:"%d %b %Y" -%}
           <time datetime="{{ post.date | date_to_xmlschema }}">{{ post.date | date:post_format }}</time>
-        {% else %}
-          {{ site.data.strings.posted | default:"Posted" }}
-        {% endunless %}
-        {% assign category_start     = site.data.strings.category_start     | default:"in " %}
-        {% assign tag_start          = site.data.strings.tag_start          | default:"on " %}
-        {% assign category_separator = site.data.strings.category_separator | default:" / " %}
-        {% assign tag_separator      = site.data.strings.tag_separator      | default:", "  %}
-        {% include components/tag-list.html tags=post.categories meta=site.featured_categories start_with=category_start separator=category_separator %}
-        {% include components/tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator %}
+        {%- else -%}
+          {{- site.data.strings.posted | default:"Posted" -}}
+        {%- endunless -%}
+        {{ ' ' }}
+        {%- assign category_start     = site.data.strings.category_start     | default:"in " -%}
+        {%- assign tag_start          = site.data.strings.tag_start          | default:"on " -%}
+        {%- include components/tag-list.html tags=post.categories meta=site.featured_categories start_with=category_start separator=category_separator -%}
+        {{ ' ' }}
+        {%- assign category_separator = site.data.strings.category_separator | default:" / " -%}
+        {%- assign tag_separator      = site.data.strings.tag_separator      | default:", "  -%}
+        {%- include components/tag-list.html tags=post.tags meta=site.featured_tags start_with=tag_start separator=tag_separator -%}
+      {% endcapture %}
+      <span class="ellipsis mr1">
+        {{ foobar }}
       </span>
       {% unless site.hydejack.hide_dates or site.hydejack.hide_last_modified or post.hide_last_modified %}
         {% if post.last_modified_at %}
@@ -33,16 +38,17 @@
           {% assign d2 = post.last_modified_at | date:"%Y-%m-%d" %}
           {% if d1 != d2 %}
             {% assign label = site.data.strings.last_modified_at | default:"Last modified at" %}
-            <span class="ellipsis ml1" title="{{ label }}">
+            {% assign last_modified_at_format = site.data.strings.date_formats.last_modified_at | default:"%Y-%m-%d" %}
+            <span class="ellipsis" data-tippy-content="{{ label }}{{ site.data.strings.colon }} {{ post.last_modified_at | date:last_modified_at_format }}">
               <span class="sr-only">{{ label }}{{ site.data.strings.colon }}</span>
               <span class="{{ site.data.strings.last_modified_icon | default:'icon-history' }}"></span>
-              {% assign last_modified_at_format = site.data.strings.date_formats.last_modified_at | default:"%Y-%m-%d" %}
               <time datetime="{{ post.last_modified_at | date_to_xmlschema }}">{{ post.last_modified_at | date:last_modified_at_format }}</time>
             </span>
           {% endif %}
         {% endif %}
       {% endunless %}
     </div>
+
     {% assign alt = false %}
     {% unless hide_image %}{% if post.image %}
       {% unless no_link_title %}<a href="{{ post.url | relative_url }}" class="no-hover no-print-link {% unless post.hide_image %}flip-project{% endunless %}" tabindex="-1">{% endunless %}

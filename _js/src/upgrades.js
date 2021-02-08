@@ -2,6 +2,7 @@ import { importTemplate, intersectOnce, loadCSS, stylesheetReady, once } from '.
 import { fromEvent } from 'rxjs';
 import { concatMap } from 'rxjs/operators';
 import { createElement } from 'create-element-x/library';
+import tippy from 'tippy.js';
 
 // import LANG from './languages.json';
 
@@ -71,6 +72,39 @@ const toggleClass = (element, ...cls) => {
 
   ready((main) => {
     if (!main) return;
+
+    tippy(main.querySelectorAll('.post-date > .ellipsis'), {
+      trigger: 'click',
+      touch: true,
+      interactive: true,
+      allowHTML: true,
+      maxWidth: 'none',
+      placement: 'bottom-start',
+      offset: 0,
+      content: el => el.innerHTML,
+      onTrigger(instance, event) {
+        if (event.target.tagName === 'A') {
+          instance._hideOnce = true;
+        }
+      },
+      onShow(instance) {
+        if (instance._hideOnce) {
+          return instance._hideOnce = false;
+        }
+      },
+    });
+
+    tippy(main.querySelectorAll('abbr[title]'), {
+      trigger: 'click',
+      touch: true,
+      maxWidth: 500,
+      content: el => el.getAttribute('title'),
+    });
+
+    tippy(main.querySelectorAll('.sidebar-social [title]'), {
+      touch: true,
+      content: el => el.getAttribute('title'),
+    });
 
     main.querySelectorAll(HEADING_SELECTOR).forEach((h) => {
       const df = importTemplate('_permalink-template');
