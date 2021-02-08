@@ -81,7 +81,7 @@ const toggleClass = (element, ...cls) => {
       maxWidth: 'none',
       placement: 'bottom-start',
       offset: 0,
-      content: el => el.innerHTML,
+      content: (el) => el.innerHTML,
       onTrigger(instance, event) {
         if (event.target.tagName === 'A') {
           instance._hideOnce = true;
@@ -89,7 +89,7 @@ const toggleClass = (element, ...cls) => {
       },
       onShow(instance) {
         if (instance._hideOnce) {
-          return instance._hideOnce = false;
+          return (instance._hideOnce = false);
         }
       },
     });
@@ -98,12 +98,12 @@ const toggleClass = (element, ...cls) => {
       trigger: 'click',
       touch: true,
       maxWidth: 500,
-      content: el => el.getAttribute('title'),
+      content: (el) => el.getAttribute('title'),
     });
 
     tippy(main.querySelectorAll('.sidebar-social [title]'), {
       touch: true,
-      content: el => el.getAttribute('title'),
+      content: (el) => el.getAttribute('title'),
     });
 
     main.querySelectorAll(HEADING_SELECTOR).forEach((h) => {
