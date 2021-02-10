@@ -10,7 +10,7 @@ permalink:        pretty
 title:            Sunny's Tech Note
 tagline:          ''
 description:      'Life is a marathon not a sprint.'
-url:              https://www.ssjlin9999.com
+url:              
 baseurl:          /
 
 author:
@@ -22,7 +22,8 @@ paginate:         5
 # Custom vars
 version:          0.1.0
 
-gems:		  [jekyll-paginate]
-plugins: 	  [jekyll-paginate]
+gems:		          [jekyll-paginate]
+plugins: 	        [jekyll-paginate]
+
 github:
-  repo:           https://github.com/ssjlin9999
+  repo:           https://github.com/ssjlin9999/ssjlin9999
