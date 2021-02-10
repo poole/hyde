@@ -1,26 +1,28 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+imarkdown:        redcarpet
+highlighter:      rouge
 
 # Permalinks
 permalink:        pretty
-relative_permalinks: true
+# relative_permalinks: true
 
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
-url:              http://hyde.getpoole.com
+title:            Sunny's Tech Note
+tagline:          ''
+description:      'Life is a marathon not a sprint.'
+url:              https://www.ssjlin9999.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Sunny Lin'
+  url:            
 
 paginate:         5
 
 # Custom vars
-version:          2.1.0
+version:          0.1.0
 
+gems:		  [jekyll-paginate]
+plugins: 	  [jekyll-paginate]
 github:
-  repo:           https://github.com/poole/hyde
+  repo:           https://github.com/ssjlin9999
