@@ -17,11 +17,6 @@
 layout: compress
 ---
 
-{% assign version = jekyll.version | split:'.' %}
-{% assign major = v[0] %}
-{% assign minor = v[1] %}
-{% assign patch = v[2] %}
-
 {% assign plugins = site.plugins | default:site.gems %}
 
 {% assign author = site.data.authors[page.author] | default:site.data.authors.first[1] | default:site.author %}
