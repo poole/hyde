@@ -17,7 +17,8 @@ $namespace-prefix: 'tippy';
   font-weight: normal!important;
   a { 
     @extend .heading; 
-    text-underline-offset: 0.15rem;
+    text-decoration: none;
+    border: none;
   }
 }
 
