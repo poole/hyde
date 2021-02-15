@@ -1,5 +1,6 @@
 {% if site.clap_button or jekyll.environment != 'production' %}
   <clap-button class="mb6" {% if include.hidden == true %}hidden{% endif %}></clap-button>
+  {% if include.hidden == true %}<hr class="dingbat related mb6" />{% endif %}
   {% unless site.clap_button %}
     <p class="message centered border-radius" {% if include.hidden == true %}hidden{% endif %}>
       <span style="display:block;margin-bottom:.5rem;">This is a preview of <a href="https://getclaps.app">Clap Button</a>, a new feedback and analytics tools for Hydejack, built by yours truly.</span>
