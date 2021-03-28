@@ -6,8 +6,11 @@
 <link rel="manifest" href="{{ '/assets/site.webmanifest' | relative_url }}">
 
 {% if site.google_fonts %}
-  <link rel="dns-prefetch" href="https://fonts.googleapis.com">
-  <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  {%- capture google_fonts_url %}{{ site.google_fonts_url | default:'https://fonts.googleapis.com' }}{%- endcapture -%}
+  <link rel="dns-prefetch" href="{{ google_fonts_url }}">
+  {%- if google_fonts_url == 'https://fonts.googleapis.com' -%}
+    <link rel="dns-prefetch" href="https://fonts.gstatic.com">
+  {%- endif -%}
 {% endif %}
 
 {% if site.google_analytics %}
