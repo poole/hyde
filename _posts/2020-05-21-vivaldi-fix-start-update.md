@@ -8,4 +8,4 @@ categories: Vivaldi
 Nortn AV can block vivadi browser from starting on machines - sometimes with company laptops.
 As a work around create a shortcut of Vivaldi with flag `--no-sandbox`
 
-![shortcut window](/assets/img/vivaldi-shortcuts.png)
+<!-- ![shortcut window](/assets/img/vivaldi-shortcuts.png) -->
