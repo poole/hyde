@@ -23,8 +23,7 @@ meta:
   _wpas_done_12858665: '1'
   publicize_twitter_user: ajo_mathew
   _wpas_done_22216010: '1'
-permalink: "/2020/06/08/uninstall-az-powershell-module-forcefully-and-completely/"
-author: Ajo Mathew
+author: ajo_mathew
 ---
 
 I'm mostly using powershell to address Azure automation activitites be it from running from local or from Azure itself. The most painful task encountered is about upgrading powershell Az modules and keeping them work with VsCode.

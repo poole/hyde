@@ -22,7 +22,7 @@ meta:
   _publicize_done_12865681: '1'
   _wpas_done_12858665: '1'
   publicize_twitter_user: ajo_mathew
-author: Ajo Mathew
+author: ajo_mathew
 permalink: "/2018/05/08/linux-log-rotate-and-archive-rotated-file/"
 ---
 I was checking an article on how to upload archived logs to azure blob.
