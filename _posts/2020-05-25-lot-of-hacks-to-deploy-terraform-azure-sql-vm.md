@@ -31,7 +31,7 @@ meta:
   publicize_linkedin_url: ''
   _publicize_done_21581598: '1'
   _wpas_done_22216010: '1'
-author: Ajo Mathew
+author: ajo_mathew
 permalink: "/2020/05/25/lot-of-hacks-to-deploy-terraform-azure-sql-vm/"
 excerpt: 'This post gives you a method to join ARM template and #terraform to deploy
   a SQL VM in #Azure'
