@@ -3,7 +3,7 @@ layout: post
 title: 'Fix dual booting windows and ubuntu time issue'
 data: 2020-09-13 06:31:31 +0530
 categories: linux
-author: Ajo Mathew
+author: ajo_mathew
 ---
 # Option One: Make Linux Use Local Time
 
