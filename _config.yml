@@ -1,15 +1,15 @@
 # Setup
-title:            Hyde
-tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="https://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+title:            'Cloud Blog'
+tagline:          'A Blog on Cloud,Deployment and Devops'
+description:      'Everything I've experienced and experimented on cloud and Deployments'
 url:              https://blog.ajomathew.dev
 baseurl:          ''
 paginate:         5
 
 # About and contact
 author:
-  name:           'Mark Otto'
-  url:            https://twitter.com/mdo
+  name:           'Ajo Mathew'
+  url:            https://twitter.com/ajo.mathew
 
 # Gems
 plugins:
