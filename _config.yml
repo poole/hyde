@@ -1,7 +1,7 @@
 # Setup
 title:            'Cloud Blog'
 tagline:          'A Blog on Cloud,Deployment and Devops'
-description:      'Everything I've experienced and experimented on cloud and Deployments'
+description:      "Everything I've experienced and experimented on cloud and Deployments"
 url:              https://blog.ajomathew.dev
 baseurl:          ''
 paginate:         5
