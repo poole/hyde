@@ -10,6 +10,15 @@ layout: null
 <changefreq>monthly</changefreq>
     <priority>0.7</priority>
 </url>
+
+<url>
+  <loc>
+  {{ site.url }}/about.html</loc>
+  <lastmod>2020-09-13T00:00:00+00:00</lastmod>
+  <changefreq>monthly</changefreq>
+      <priority>0.7</priority>
+  </url>
+
   {% for post in site.posts %}
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
