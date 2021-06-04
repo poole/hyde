@@ -3,6 +3,13 @@ layout: null
 ---
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns:xsi="https://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="https://www.sitemaps.org/schemas/sitemap/0.9 https://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd" xmlns="https://www.sitemaps.org/schemas/sitemap/0.9">
+<url>
+<loc>
+{{ site.url }}/index.html</loc>
+<lastmod>2020-09-13T00:00:00+00:00</lastmod>
+<changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+</url>
   {% for post in site.posts %}
   <url>
     <loc>{{ site.url }}{{ site.baseurl }}{{ post.url }}</loc>
