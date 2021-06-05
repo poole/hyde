@@ -6,6 +6,9 @@ categories: linux
 tag: linux, local time, timedatectl
 excerpt: Dual booting windows and linux can show different time in linux and windows. This post shows a fix to that.
 author: ajo_mathew
+tag:
+    - Linux
+    - timedatectl
 ---
 # Option One: Make Linux Use Local Time
 

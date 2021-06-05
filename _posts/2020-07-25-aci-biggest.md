@@ -4,6 +4,11 @@ title: 'Azure Container Groups for hosting ?'
 data: 2020-07-25 06:31:31 +0530
 categories: azure
 author: ajo_mathew
+excerpt: Some limitations of Azure Container instances
+tag:
+    - ACI
+    - Azure
+    - Azure container instances
 ---
 
 Few days ago I was in need of a quick and easy option to host few containers with Azure for one of my Demos. I didn't want to go with the headache of having an AKS or VM with docker installed. So I picked ACI ( Azure Container Instance ) with an nginx vm for reverse proxy - Since this was to be presented quick we we went the dirty way.

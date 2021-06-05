@@ -8,9 +8,12 @@ published: true
 password: ''
 status: publish
 categories: []
-tags:
+excerpt: How to log rotate and upload files Azure blob
+tag:
 - logrotate
 - tar
+- Azure
+- Blob
 meta:
   timeline_notification: '1525798482'
   _rest_api_published: '1'

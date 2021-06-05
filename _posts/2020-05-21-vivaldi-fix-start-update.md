@@ -4,6 +4,9 @@ title: "Fix Vivaldi browser start up issue"
 date: 2020-05-21 06:31:31 +0530
 categories: Vivaldi
 author: ajo_mathew
+tag:
+    - Vivaldi
+excerpt: Fix to allow vivaldi work after updating
 ---
 
 Nortn AV can block vivadi browser from starting on machines - sometimes with company laptops.

@@ -10,7 +10,7 @@ status: publish
 categories:
 - Scripts
 - VSCode
-tags:
+tag:
 - Azure
 - Powershell
 meta:
