@@ -8,7 +8,7 @@
 <meta property="og:url" content="{{ site.url }}{{ page.url }}">
 
 {% if page.summary %}
-<meta name="description" content="{{ page.summary | escape }}">
+<meta name="description" content="{% if page.excerpt %}{{ page.excerpt | strip_html | strip_newlines | truncate: 140 }}{% else %}{{ site.description }}{% endif %}" />
 {% endif %}
 {%if page.tags %}
 <meta name="keywords" content="{{ page.tags | join: ', ' | escape }}"/>
