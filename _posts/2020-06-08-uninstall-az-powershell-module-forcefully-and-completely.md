@@ -8,8 +8,7 @@ published: true
 password: ''
 status: publish
 categories:
-- Scripts
-- VSCode
+- Azure
 tag:
 - Azure
 - Powershell
