@@ -2,7 +2,7 @@
 layout: post
 title: "SendGrid SMTP using Powershell and REST API"
 date: 2020-05-15 06:31:31 +0530
-categories: Sendgrid SMTP REST API
+categories: SMTP
 author: ajo_mathew
 tag:
     - sendgrid
