@@ -7,7 +7,8 @@ parent_id: '0'
 published: true
 password: ''
 status: publish
-categories: Linux
+categories:
+  - Linux
 excerpt: How to log rotate and upload files Azure blob
 tag:
 - logrotate
