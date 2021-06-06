@@ -5,6 +5,7 @@ description:      'Everything I have experienced and experimented on cloud and D
 url:              https://blog.ajomathew.dev
 baseurl:          ''
 paginate:         5
+permalink: /:categories/:year/:month/:day/:title:output_ext
 
 # About and contact
 author:
