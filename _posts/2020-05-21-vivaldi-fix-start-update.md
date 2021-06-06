@@ -2,7 +2,7 @@
 layout: post
 title: "Fix Vivaldi browser start up issue"
 date: 2020-05-21 06:31:31 +0530
-categories: Vivaldi
+categories: browser
 author: ajo_mathew
 tag:
     - Vivaldi
