@@ -8,7 +8,7 @@ parent_id: '0'
 published: true
 password: ''
 status: publish
-categories: []
+categories: azure
 tags:
 - Azure
 - azurerm
