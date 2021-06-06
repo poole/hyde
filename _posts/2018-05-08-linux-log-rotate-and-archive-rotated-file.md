@@ -26,7 +26,6 @@ meta:
   _wpas_done_12858665: '1'
   publicize_twitter_user: ajo_mathew
 author: ajo_mathew
-permalink: "/2018/05/08/linux-log-rotate-and-archive-rotated-file/"
 ---
 I was checking an article on how to upload archived logs to azure blob.
 As initial set up I've updated logrotate.conf(`/etc/logrotate.conf`) with below settings.
