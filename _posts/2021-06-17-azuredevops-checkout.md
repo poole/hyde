@@ -1,6 +1,6 @@
 ---
 layout: post
-title: 'AzureDevOps | CI - Pipeline failing on checkout'
+title: 'Azure DevOps | CI - Pipeline failing on checkout'
 data: 2021-06-17 06:31:31 +0530
 categories: azure-devops
 author: ajo_mathew
