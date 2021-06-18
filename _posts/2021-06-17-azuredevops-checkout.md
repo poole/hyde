@@ -24,7 +24,7 @@ error: cannot lock ref 'refs/remotes/origin/release': there is a non-empty direc
 
 ```
 
-I tried clearning the checkout dir in my custom Azure DevOps build agent. After a lot of banging my head against the wall. I found the root cause.
+I tried clearning the checkout dir in my custom Azure DevOps build agent. After a lot of searching. I found the root cause.
 
 > I was playing with branching stratagy and created a new `releaes` branch. The name of the branch was `release`
 
