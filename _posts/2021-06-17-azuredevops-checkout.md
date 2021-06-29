@@ -13,7 +13,7 @@ tag:
     - tips
 ---
 
-I had configured CI build for every pull request, which started failing all of a sudden with below sets of error
+I configured CI build for every pull request, which started failing suddenly with the below sets of errors.
 
 ``` bash
 error: cannot lock ref 'refs/remotes/origin/release': there is a non-empty directory '.git/refs/remotes/origin/release' blocking reference 'refs/remotes/origin/release'
@@ -24,9 +24,9 @@ error: cannot lock ref 'refs/remotes/origin/release': there is a non-empty direc
 
 ```
 
-I tried clearning the checkout dir in my custom Azure DevOps build agent. After a lot of searching. I found the root cause.
+I tried cleaning the checkout dir in my custom Azure DevOps build agent. After a lot of searching. I found the root cause.
 
-> I was playing with branching stratagy and created a new `releaes` branch. The name of the branch was `release`
+> I was playing with branching strategy and created a new `release` branch. The name of the branch was `release`
 
 This was causing conflict when the CI build runs.
 
