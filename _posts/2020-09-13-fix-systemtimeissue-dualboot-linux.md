@@ -18,4 +18,4 @@ To force Linux use local time should fix the issue by running below command
 timedatectl set-local-rtc 1 --adjust-system-clock
 ```
 
-Reference (Link)[https://www.howtogeek.com/323390/how-to-fix-windows-and-linux-showing-different-times-when-dual-booting/] to read more on it
+Reference [Link](https://www.howtogeek.com/323390/how-to-fix-windows-and-linux-showing-different-times-when-dual-booting/) to read more on it
