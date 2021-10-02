@@ -18,5 +18,5 @@ title: About
 </p>
 
  My journey with Cloud started with AWS and now reached Azure. Most of the things posted here will be about cloud and deployments. Pardon the old posts from college days 😉
-
+{% twitter https://twitter.com/ajo.mathew maxwidth=500 limit=5 %}
 This site is based on Jekyll static site generator and theme [Hyde](https://hyde.getpoole.com/) v3 of poole butler
