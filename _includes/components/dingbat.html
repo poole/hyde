@@ -1,13 +1,6 @@
-{% if site.clap_button or jekyll.environment != 'production' %}
+{% if site.clap_button %}
   <clap-button class="mb6" {% if include.hidden == true %}hidden{% endif %}></clap-button>
   {% if include.hidden == true %}<hr class="dingbat related mb6" />{% endif %}
-  {% unless site.clap_button %}
-    <p class="message centered border-radius" {% if include.hidden == true %}hidden{% endif %}>
-      <span style="display:block;margin-bottom:.5rem;">This is a preview of <a href="https://getclaps.app">Clap Button</a>, a new feedback and analytics tools for Hydejack, built by yours truly.</span>
-      <span style="display:block;margin-bottom:.5rem;">You can try it out on <code>localhost</code> for free, but it will be removed (together with this message) when building with <code>JEKYLL_ENV=production</code>.</span>
-      <span style="display:block;margin-bottom:.5rem;">To use Clap Button on your site, get a <a href="https://getclaps.app#pricing">subscription</a><br/>and set <code>clap_button: true</code> in your config file.</span>
-    </p>
-  {% endunless %}
 {% else %}
   <hr class="dingbat related mb6" />
 {% endif %}
