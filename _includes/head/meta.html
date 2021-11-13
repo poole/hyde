@@ -16,3 +16,7 @@
   <meta http-equiv="refresh" content="0; url={{ page.redirect.to }}">
   <title>{{ site.data.strings.redirecting | default:"Redirecting..." }}</title>
 {% endunless %}
+
+{% unless site.hydejack.no_theme_color %}
+  <meta name="theme-color" content="{{ theme_color | default:'rgb(8,46,57)' }}">
+{% endunless %}
