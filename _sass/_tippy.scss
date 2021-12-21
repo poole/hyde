@@ -19,6 +19,9 @@ $namespace-prefix: 'tippy';
     @extend .heading; 
     text-decoration: none;
     border: none;
+    &:after  {
+      color: var(--body-color)!important;
+    }
   }
 }
 
