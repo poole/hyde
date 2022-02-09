@@ -5,7 +5,7 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
-  {% for entry in dictionary %}
+  {% for entry in site.dictionary %}
   <li>
     <h3>
       <a href="{{ entry.url | absolute_url }}">
