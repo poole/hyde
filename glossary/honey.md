@@ -1,6 +1,6 @@
 ---
 title: Honey
-layout: Definition
+layout: definition
 brief: Sweet fluid made by honeybees.
 ---
 This is more about honey.
