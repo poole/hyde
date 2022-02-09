@@ -18,3 +18,7 @@ plugins:
 
 # Custom vars
 version:          3.0.0
+
+collections:
+  glossary:
+    output :true
