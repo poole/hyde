@@ -12,7 +12,7 @@ relativepath: {{ site.glossary.relative_path }} <br>
 absoluteurl: {{ absolute_url }} <br>
 Page.url: {{ page.url }} <br>
 label: {{ site.glossary.label }} <br>
-
+size: {{ site.collections | size }} <br>
 See also: <br>
 {% for entry in page.see_also %}
 file: {{ entry.file }} <br>
