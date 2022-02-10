@@ -6,3 +6,7 @@ layout: default
   <h1 class="page-title">{{ page.title }}</h1>
   {{ content }}
 </div>
+See also: <br>
+{% for entry in page.see_also %}
+<a href="{{ entry.file | absolute_url }}">{{ entry.title }}</a></h1>
+{% endfor %}
