@@ -16,5 +16,5 @@ absoluteurl: {{ absolute_url }} <br>
 label: {{ site.glossary.label }} <br>
 <a href="{{ entry.file | absolute_url }}">{{ entry.title }}</a></h1> <br>
 
-<a href="{{ entry.file | site.glossary.directory | absolute_url }}">{{ entry.title }}</a></h1> <br>
+<a href="{{ entry.file | absolute_url }}">{{ entry.title }}</a></h1> <br>
 {% endfor %}
