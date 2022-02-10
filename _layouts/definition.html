@@ -8,5 +8,11 @@ layout: default
 </div>
 See also: <br>
 {% for entry in page.see_also %}
+file: entry.file <br>
+directory: site.glossary.directory <br>
+relativepath: site.glossary.relative_path <br>
+absoluteurl: absolute_url <br>
+prepend: {{ entry.file | prepend:  site.glossary.directory | prepend:  absolute_url }} <br>
+
 <a href="{{ entry.file | prepend:  site.glossary.directory | prepend:  absolute_url }}">{{ entry.title }}</a></h1>
 {% endfor %}
