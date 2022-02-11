@@ -11,7 +11,7 @@ directory: {{ site.glossary.directory }} <br>
 relativepath: {{ site.glossary.relative_path }} <br>
 absoluteurl: {{ absolute_url }} <br>
 Page.url: {{ page.url }} <br>
-label: {{ site.collections.glossary.label }} <br>
+label: {{ site.collections.first.label }} <br>
 size: {{ site.collections | size }} <br>
 See also: <br>
 {% for entry in page.see_also %}
@@ -21,9 +21,9 @@ relativepath: {{ site.glossary.relative_path }} <br>
 absoluteurl: {{ absolute_url }} <br>
 Page.url: {{ page.url }} <br>
 label: {{ site.glossary.label }} <br>
-test: {{ site.url }} {{ site.baseurl }}/glossary{{ entry.file }}<br>
+test: {{ site.url }}{{ site.baseurl }}/glossary{{ entry.file }}.html<br>
 
-<a href="{{ site.url }}{{ site.baseurl }}/glossary{{ entry.file }}">{{ entry.title }}</a> <br>
+<a href="{{ site.url }}{{ site.baseurl }}/glossary{{ entry.file }}.html">{{ entry.title }}</a> <br>
 
 <a href="{{ entry.file | absolute_url }}">{{ entry.title }}</a> <br>
 {% endfor %}

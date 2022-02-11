@@ -4,8 +4,8 @@ layout: definition
 brief: Sweet fluid made by honeybees.
 see_also: 
   - title: Hive Tool
-    file: /hivetool.md
+    file: hivetool
   - title: Smoker
-    file: /smoker.md  
+    file: smoker
 ---
 This is more about honey.
