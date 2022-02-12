@@ -6,6 +6,7 @@ layout: default
   <h1 class="page-title">{{ page.title }}</h1>
   {{ content }}
 </div>
+<!--- 
 file: {{ entry.file }} <br>
 directory: {{ site.glossary.directory }} <br>
 relativepath: {{ site.glossary.relative_path }} <br>
@@ -13,8 +14,10 @@ absoluteurl: {{ absolute_url }} <br>
 Page.url: {{ page.url }} <br>
 label: {{ site.glossary.label }} <br>
 size: {{ site.collections | size }} <br>
+--->
 See also: <br>
 {% for entry in page.see_also %}
+<!---
 file: {{ entry.file }} <br>
 directory: {{ site.glossary.directory }} <br>
 relativepath: {{ site.glossary.relative_path }} <br>
@@ -22,8 +25,7 @@ absoluteurl: {{ absolute_url }} <br>
 Page.url: {{ page.url }} <br>
 label: {{ site.glossary.label }} <br>
 test: {{ site.url }}{{ site.baseurl }}/glossary/{{ entry.file }}.html<br>
-
+---> 
 <a href="{{ site.url }}{{ site.baseurl }}/glossary/{{ entry.file }}.html">{{ entry.title }}</a> <br>
 
-<a href="{{ entry.file | absolute_url }}">{{ entry.title }}</a> <br>
 {% endfor %}
