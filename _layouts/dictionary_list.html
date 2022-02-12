@@ -11,8 +11,9 @@ layout: default
       <dt><a href="{{ entry.url | absolute_url }}">{{ entry.title }}</a><dt>
         <dd><small>{{ entry.brief }}</small></dd>
     {% else %}   
-    <dt>{{ entry.title }}<dt>
+      <dt>{{ entry.title }}<dt>
       <dd><small>{{ entry.brief }}</small></dd> 
+    {% endif %}  
   {% endfor %}
 </dl>
   {{ content }}
