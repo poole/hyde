@@ -7,7 +7,8 @@ layout: default
   <span class="post-date">{{ page.date | date_to_string }}</span>
   <dl>
   {% for entry in site.glossary %}
-    {% if entry.content | number_of_words > 0 %}
+  {% assign word_count = entry.content | number_of_words %}
+    {% if word_count > 0 %}
       <dt><a href="{{ entry.url | absolute_url }}">{{ entry.title }}</a><dt>
         <dd><small>{{ entry.brief }}</small></dd>
     {% else %}   
