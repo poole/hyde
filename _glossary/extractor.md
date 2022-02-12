@@ -8,4 +8,3 @@ see_also:
   - title: Honey
     file: honey 
 ---
-Stuff about extractors.
