@@ -26,6 +26,6 @@ Page.url: {{ page.url }} <br>
 label: {{ site.glossary.label }} <br>
 test: {{ site.url }}{{ site.baseurl }}/glossary/{{ entry.file }}.html<br>
 ---> 
-<a href="{{ site.url }}{{ site.baseurl }}/glossary/{{ entry.title | slice: 0 }}/{{ entry.file }}.html">{{ entry.title }}</a> <br>
+<a href="{{ site.url }}{{ site.baseurl }}/glossary/{{ entry.file | slice: 0 }}/{{ entry.file }}.html">{{ entry.title }}</a> <br>
 
 {% endfor %}
