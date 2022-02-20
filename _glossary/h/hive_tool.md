@@ -1,7 +1,7 @@
 ---
-title: HiveTool
+title: Hive tool
 layout: definition
-brief: Tool used by beekeeper while performaing a hive inspection.
+brief: Tool used by beekeeper while performing a hive inspection.
 see_also: 
   - title: Smoker
     file: smoker
