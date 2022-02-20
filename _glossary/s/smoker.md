@@ -4,7 +4,7 @@ layout: definition
 brief: Metal container with smoldering fuel that beekeepers use to smoke bees.
 see_also: 
   - title: Hive Tool
-    file: hivetool
+    file: hive_tool
   - title: Honey
     file: honey 
 ---
