@@ -52,4 +52,66 @@ steps:
 
 ```
 
-And this is my actual `main.yaml`
+And this is my actual `main.yaml` looks like
+
+```yaml
+stages:
+  - stage: deployLogAnalytics
+    displayName: "Deploying Basic component - OMS"
+    pool:
+      name: DP-DevTest
+    jobs:
+      - job:
+        displayName: "Deploy Standard Components"
+        variables:
+          - group: 'Test-Infra-Pipeline'
+        steps:
+          - template: .\templates\deployARM.yaml
+            parameters:
+              azRMConnection: $(serviceConnection)
+              subscriptionID: $(subscriptionID)
+              resourceGroupName: $(resourceGroup)
+              deploymentLocation: $(deploymentLocation)
+              armTemplateFilePath: $(Build.Repository.LocalPath)\ARMTemplates\AzureLogAnalytics\logAnalytics.json
+              armTemplateParameterFilePath: $(Build.Repository.LocalPath)\ARMTemplates\AzureLogAnalytics\logAnalytics.parameters.json
+              overrideParameters: -envId $(envId) -vnetName $(vnetName) -subnetName $(subnetName) -networkResourceGroup $(networkResourceGroup)
+
+```
+Variable `serviceConnection` is defined in Variable groups and referenced by pipeline yaml file. While the pipeline runs it does not transform to actual value.
+
+Azure DevOps is unable to parse the variable `$(serviceConnection)` but directly pass the value to task. This issue or similar reported as a bug in [github](https://github.com/microsoft/azure-pipelines-tasks/issues/14365)
+
+As a work around we have to hard code the connection string name in our main or azure-pipeline yaml file as shown below 
+
+
+And this is my actual `main.yaml` looks like
+
+```yaml
+variables:
+  - group: 'Pipeline-vars'
+  - name: serviceConnection
+    value: $[replace(replace(eq(variables['azServiceConnection'],'prod'), 'True', 'prod-connection'), 'False', 'dev-connection')]
+
+stages:
+  - stage: deployLogAnalytics
+    displayName: "Deploying Basic component - OMS"
+    pool:
+      name: DP-DevTest
+    jobs:
+      - job:
+        displayName: "Deploy Standard Components"
+        variables:
+          - group: 'Test-Infra-Pipeline'
+        steps:
+          - template: .\templates\deployARM.yaml
+            parameters:
+              azRMConnection: $(serviceConnection)
+              subscriptionID: $(subscriptionID)
+              resourceGroupName: $(resourceGroup)
+              deploymentLocation: $(deploymentLocation)
+              armTemplateFilePath: $(Build.Repository.LocalPath)\ARMTemplates\AzureLogAnalytics\logAnalytics.json
+              armTemplateParameterFilePath: $(Build.Repository.LocalPath)\ARMTemplates\AzureLogAnalytics\logAnalytics.parameters.json
+              overrideParameters: -envId $(envId) -vnetName $(vnetName) -subnetName $(subnetName) -networkResourceGroup $(networkResourceGroup)
+
+```
+
