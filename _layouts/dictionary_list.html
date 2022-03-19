@@ -5,6 +5,7 @@ layout: default
 <div class="post">
   <h1 class="post-title">{{ page.title }}</h1>
   <span class="post-date">{{ page.date | date_to_string }}</span>
+  {{ content }}
   <dl>
   {% for entry in site.glossary %}
   {% assign word_count = entry.content | number_of_words %}
@@ -17,7 +18,6 @@ layout: default
     {% endif %}  
   {% endfor %}
 </dl>
-  {{ content }}
 </div>
 
 
