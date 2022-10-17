@@ -1,15 +1,12 @@
-# Permalinks
-permalink:        pretty
+# Site settings
+title:
+email:
+description: > # this means to ignore newlines until "baseurl:"
+baseurl: "" # the subpath of your site, e.g. /blog/
+url: "" # the base hostname & protocol for your site
 
-# Setup
-title:            Ada & Co
-tagline:          'Fun Stuff'
-description:      'Cool stuff for cool people'
-url:              http://www.kea.zone
-baseurl:          /
+twitter_username:
+github_username:
 
-author:
-  name:           'Matt Corich'
-  url:            https://www.linkedin.com/in/mattcorich/
-
-paginate:         5
+# Build settings
+markdown: kramdown
