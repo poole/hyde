@@ -13,6 +13,12 @@ description:      'A brazen two-column <a href="http://jekyllrb.com" target="_bl
 url:              https://cal1pers.github.io
 baseurl:          /skybeam/
 
+# Plugins
+plugins:
+  [
+    jekyll-paginate
+  ]
+
 author:
   name:           'Mark Otto'
   url:            https://twitter.com/mdo
