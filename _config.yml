@@ -14,10 +14,10 @@ url:              https://cal1pers.github.io
 baseurl:          /skybeam/
 
 # Plugins
-plugins:
-  [
-    jekyll-paginate
-  ]
+#plugins:
+ # [
+ #   jekyll-paginate
+ # ]
 
 author:
   name:           'Mark Otto'
