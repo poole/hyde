@@ -9,7 +9,7 @@ permalink:        pretty
 # Setup
 title:            Skybeam
 tagline:          'A Poem Archive.'
-description:      "This is Calvin's new poem site. Below is an index of every poem. <br> Or you can simply scroll. Poems are sorted from newest to oldest. Enjoy."
+description:      "This is Calvin's new poem site. Poems are sorted from latest to oldest. Below is an index of every poem, or you can simply scroll. Enjoy."
 url:              https://cal1pers.github.io
 baseurl:          /skybeam/
 
