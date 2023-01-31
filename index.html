@@ -7,6 +7,7 @@ title: Home
   {% assign post_list = site.posts %}
   {% for post in post_list %}
   <div class="post" id="{% post.title %}">
+  {% endfor %}
     <h1 class="post-title">
       <!--a href="{{ post.url }}"-->
         {{ post.title }}
