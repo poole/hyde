@@ -1,34 +1,36 @@
 <div class="sidebar">
-  <div class="container sidebar-sticky">
-    <div class="sidebar-about">
-      <h1>
-        <a href="{{ site.baseurl }}">
-          {{ site.title }}
-        </a>
-      </h1>
-      <p class="lead">{{ site.description }}</p>
+    <div class="container sidebar-sticky">
+        <div class="sidebar-about">
+            <h1>
+                <a href="{{ site.baseurl }}">
+                    {{ site.title }}
+                </a>
+            </h1>
+            <p class="lead">{{ site.description }}</p>
+        </div>
+
+        <div id="sidebar-bottom">
+            <!--nav class="sidebar-nav"-->
+
+            {% comment %}
+            The code below dynamically generates a sidebar nav of pages with
+            `layout: page` in the front-matter. See readme for usage.
+            {% endcomment %}
+
+            <ul class="poem-list">
+                {% assign post_list = site.posts %}
+                {% for node in post_list %}
+                    {% if node.title != null %}
+                       {% if node.layout == "post" %}
+                            <li><a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a></li>
+                        {% endif %}
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
+            <!--/nav-->
+
+            <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+        </div>
     </div>
-
-    <!--nav class="sidebar-nav"-->
-
-      {% comment %}
-        The code below dynamically generates a sidebar nav of pages with
-        `layout: page` in the front-matter. See readme for usage.
-      {% endcomment %}
-
-      <ul class="poem-list">
-      {% assign post_list = site.posts %}
-      {% for node in post_list %}
-        {% if node.title != null %}
-          {% if node.layout == "post" %}
-            <li><a class="sidebar-nav-item{% if page.url == node.url %} active{% endif %}" href="{{ node.url }}">{{ node.title }}</a></li>
-          {% endif %}
-        {% endif %}
-      {% endfor %}
-      </ul>
-      <span class="sidebar-nav-item">Currently v{{ site.version }}</span>
-    <!--/nav-->
-
-    <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
-  </div>
 </div>
