@@ -99,6 +99,14 @@ a.sidebar-nav-item:focus {
   font-weight: bold;
 }
 
+/* Sidebar scroll menu */
+.poem-list {
+  height: 25%;
+  width: 80%;
+  overflow: hidden;
+  overflow-y: scroll;
+}
+
 /* Sticky sidebar
  *
  * Add the `sidebar-sticky` class to the sidebar's container to affix it the
