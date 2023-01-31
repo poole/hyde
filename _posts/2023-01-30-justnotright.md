@@ -3,41 +3,26 @@ layout: post
 title: just not right.
 ---
 
-It's just not right.
+It's just not right. <br>
+It's just not there. <br>
+I reach into my head and all is bare. <br>
 
-It's just not there.
+I don't wanna fight. <br>
+I don’t wanna think. <br>
+Into these feelings I will sink. <br>
 
-I reach into my head and all is bare.
+Any more and I just might. <br>
+Any more and I just will. <br>
+Going past the line, and in for the kill. <br>
 
+Myself tells me to look for the light. <br>
+Myself tells me to look for the dark. <br>
+Why would I trust myself when myself can’t make a mark? <br>
 
-I don't wanna fight.
+NOTHING IS REAL <br>
+NOTHING I CAN FEEL <br>
+TO NOTHING I WILL KNEEL <br>
+FOR NOTHING IS ALL I KNOW <br>
+INTO NOTHING IS WHERE I’LL GO. <br> 
 
-I don’t wanna think.
-
-Into these feelings I will sink.
-
-
-Any more and I just might.
-
-Any more and I just will.
-
-Going past the line, and in for the kill.
-
-
-Myself tells me to look for the light.
-
-Myself tells me to look for the dark.
-
-Why would I trust myself when myself can’t make a mark?
-
-
-NOTHING IS REAL
-
-NOTHING I CAN FEEL
-
-TO NOTHING I WILL KNEEL
-
-FOR NOTHING IS ALL I KNOW
-
-INTO NOTHING IS WHERE I’LL GO.
 
