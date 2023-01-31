@@ -101,8 +101,8 @@ a.sidebar-nav-item:focus {
 
 /* Sidebar scroll menu */
 .poem-list {
-  height: 25%;
-  width: 80%;
+  height: 35vh;
+  width: 100%;
   overflow: hidden;
   overflow-y: scroll;
 }
