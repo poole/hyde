@@ -22,7 +22,7 @@ I fucking get it. <br>
 But you don’t hear me talking trash about all your favorite things.
 
 IF YOU DON’T UNDERSTAND THEN LEAVE IT THERE. <br>
-DON’T KEEP BERATING IT AS IF THAT WILL SOMEHOW BAKE IT BETTER. <br>
+DON’T KEEP BERATING IT AS IF THAT WILL SOMEHOW MAKE IT BETTER. <br>
 DIRECT YOUR ANGER TO SOMETHING MORE MEANINGFUL.
 
 It's like if I like anything I'm instantly placed in a stereotype. <br>
