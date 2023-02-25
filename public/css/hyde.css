@@ -107,7 +107,7 @@ a.sidebar-nav-item:focus {
   overflow: hidden;
   overflow-y: scroll;
   scrollbar-color: #73e600 transparent;
-  scrollbar-width: auto;
+  scrollbar-width: thin;
 }
 
 /* Sticky sidebar
