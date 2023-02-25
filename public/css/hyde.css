@@ -94,6 +94,7 @@ html {
 a.sidebar-nav-item:hover,
 a.sidebar-nav-item:focus {
   text-decoration: underline;
+  text-decoration-color: #73e600;
 }
 .sidebar-nav-item.active {
   font-weight: bold;
@@ -105,8 +106,8 @@ a.sidebar-nav-item:focus {
   width: 100%;
   overflow: hidden;
   overflow-y: scroll;
-  scrollbar-color: #73e600;
-  scrollbar-width: thin;
+  scrollbar-color: #73e600 transparent;
+  scrollbar-width: auto;
 }
 
 /* Sticky sidebar
