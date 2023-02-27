@@ -11,11 +11,11 @@ tag:
     - Azure Network Service Tags
 ---
 
-My Client got a requirement to block internet access inside a Subnet \ Vnet only using NSG and allow exception to Azure Portal.
+My Client got a requirement to block internet access inside a Subnet \ Vnet only using NSG and allow connection only to Azure Portal.
 
-Client is using Azure Private Endpoints to enable private access to Azure Storage , Databricks and other services.
+Client is using Azure Private Endpoints to enable private access to Azure Storage , Databricks and other services hence other resource access from within the VMs inside VM is working as expected.
 
-A requirement from security team is to lock Azure Vnet & Subnet from internet and enable only direct Portal access.
+The requirement from security team is to lock Azure Vnet & Subnet from internet and enable only direct Portal access.
 
 Azure Documentation on Service Tags never mention about `AzurePortal` service tag but I was able to find it while checking outboud NSG rule.
 
