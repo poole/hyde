@@ -25,7 +25,7 @@ Azure Service Tag combinations used with priority
 
  * AzurePortal (400)
  * AzureActiveDirectory (410)
- * AzureFrontDoor.Backend (420)
+ * -AzureFrontDoor.Backend- (420) Not necessory
  * AzureTrafficManager (430)
  * AzureFrontDoor.Frontend (440)
  * AzureResourceManager (450)
@@ -35,7 +35,7 @@ With Priority 500 I have set up a rule to block all internet access from Virtual
 |Priority | Name | Port | Pritocol | Source | Destination | Action |
 | 400 | AzurePortal | All | All| Virtualnetwork(Tag) | AzurePortal(tag) | Allow|
 | 410 | AzureActiveDirectory | All | All| Virtualnetwork(Tag) | AzureActiveDirectory(tag) | Allow|
-| 420 | AzureFrontDoor.Backend | All | All| Virtualnetwork(Tag) | AzureFrontDoor.Backend(tag) | Allow|
+| 420 | -AzureFrontDoor.Backend- | All | All| Virtualnetwork(Tag) | AzureFrontDoor.Backend(tag) | Allow|
 | 430 | AzureTrafficManager | All | All| Virtualnetwork(Tag) | AzureTrafficManager(tag) | Allow|
 | 440 | AzureFrontDoor.Frontend | All | All| Virtualnetwork(Tag) | AzureFrontDoor.Frontend(tag) | Allow|
 | 450 | AzureResourceManager | All | All| Virtualnetwork(Tag) | AzureResourceManager(tag) | Allow|
