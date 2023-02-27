@@ -1,10 +1,10 @@
 ---
 layout: post
-title: 'Use Azure NSG and Azure Service Tags to allow connection only to Azure Portal'
+title: 'Use Azure NSG and Azure Service Tags to block internet and allow to Azure Portal'
 data: 2023-02-27 06:31:31 +0530
 categories: Azure
 author: ajo_mathew
-excerpt: Azure NSG and Azure Service Tags to block all connection except to Azure Portal
+excerpt: Azure NSG and Azure Service Tags to block all connection except to Azure Portal, this is an undocumented feature available with Azure
 tag:
     - Azure
     - NSG
