@@ -9,12 +9,12 @@ relative_permalinks: true
 # Setup
 title:            Hyde
 tagline:          'A Jekyll theme'
-description:      'A brazen two-column <a href="http://jekyllrb.com" target="_blank">Jekyll</a> theme that pairs a prominent sidebar with uncomplicated content. Made by <a href="https://twitter.com/mdo" target="_blank">@mdo</a>.'
+description:      'Check'
 url:              http://hyde.getpoole.com
 baseurl:          /
 
 author:
-  name:           'Mark Otto'
+  name:           'Priyanka Rao'
   url:            https://twitter.com/mdo
 
 paginate:         5
