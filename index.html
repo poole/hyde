@@ -33,7 +33,7 @@ title: Home
   {% if paginator.next_page %}
     <a class="pagination-item older" href="{{ paginator.next_page_path | absolute_url }}">Older</a>
   {% else %}
-    <span class="pagination-item older">Older</span>
+    <span class="pagination-item older">Previous</span>
   {% endif %}
   {% if paginator.previous_page %}
     {% if paginator.page == 2 %}
@@ -42,6 +42,6 @@ title: Home
       <a class="pagination-item newer" href="{{ paginator.previous_page_path | absolute_url }}">Newer</a>
     {% endif %}
   {% else %}
-    <span class="pagination-item newer">Newer</span>
+    <span class="pagination-item newer">Next</span>
   {% endif %}
 </div>
