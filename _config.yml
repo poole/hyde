@@ -1,9 +1,9 @@
 # Setup
-title:            ' ☁💻 Blog'
+title:            'Ajo Mathews Blog'
 tagline:          'A Blog on Cloud,Deployment and Devops'
 description:      'Everything I have experienced and experimented on cloud and Deployments - Made by <a href="https://twitter.com/ajo.mathew" target="_blank">@Ajo Mathew</a>.'
 url:              https://blog.ajomathew.dev
-baseurl:          ''
+baseurl:          'ajomathew.dev'
 paginate:         5
 permalink: /:categories/:year/:month/:day/:title:output_ext
 
