@@ -69,6 +69,8 @@ html {
     text-align: left;
   }
 }
+
+/* Don't show the sidebar in print or when saved as PDF */
 @media print { 
   .sidebar { 
     display: none;
