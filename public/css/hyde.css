@@ -43,7 +43,7 @@ html {
   html {
     font-size: 20px;
   }
-}
+}   
 
 
 /*
@@ -67,6 +67,11 @@ html {
     bottom: 0;
     width: 18rem;
     text-align: left;
+  }
+}
+@media print { 
+  .sidebar { 
+    display: none;
   }
 }
 
