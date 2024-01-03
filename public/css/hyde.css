@@ -70,6 +70,13 @@ html {
   }
 }
 
+/* Don't show the sidebar in print or when saved as PDF */
+@media print { 
+  .sidebar { 
+    display: none;
+  }
+}
+
 /* Sidebar links */
 .sidebar a {
   color: #fff;
