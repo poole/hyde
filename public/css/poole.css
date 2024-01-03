@@ -377,9 +377,9 @@ tbody tr:nth-child(odd) th {
   color: inherit;
 }
 
-/* Don't show the sidebar in print or when saved as PDF */
+/* Don't show the related posts in print or when saved as PDF */
 @media print { 
-  .sidebar { 
+  .related { 
     display: none;
   }
 }
