@@ -1,30 +1,32 @@
 ---
 layout: page
-title: About
+title: About Me
 ---
 
-<p class="message">
-  Hey there! This page is included as an example. Feel free to customize it for your own use upon downloading. Carry on!
-</p>
+After years of experience as a Test Lead working on test strategy, planning, test management etc. I started working in cloud first, CI/CD projects and really enjoyed the more technical aspect to these projects.
 
-In the novel, *The Strange Case of Dr. Jeykll and Mr. Hyde*, Mr. Poole is Dr. Jekyll's virtuous and loyal butler. Similarly, Poole is an upstanding and effective butler that helps you build Jekyll themes. It's made by [@mdo](https://twitter.com/mdo).
+To further my knowledge and skills I joined a tech consultancy to gain hands on experience of test engineering, including automation, test tools, CI/CD, Non Functional testing and more.
 
-There are currently two themes built on Poole:
+Working in successful, productive agile teams in CI/CD projects has given me a great insight into how automated testing fits into an effective project delivery, the role quality and testing plays in this and a technical understanding of the tools and technology involved.
 
-* [Hyde](http://hyde.getpoole.com)
-* [Lanyon](http://lanyon.getpoole.com)
+<script src="https://platform.linkedin.com/badges/js/profile.js" async defer type="text/javascript"></script>
 
-Learn more and contribute on [GitHub](https://github.com/poole).
+<div class="badge-base LI-profile-badge" data-locale="en_US" data-size="medium" data-theme="dark" data-type="VERTICAL" data-vanity="daniel-phillips-ba99161b8" data-version="v1"><a class="badge-base__link LI-simple-link" href="https://uk.linkedin.com/in/daniel-phillips-ba99161b8?trk=profile-badge">daniel.phillips@testiotech.com</a><br></div>
 
-## Setup
+<style>
+  .badge-container {
+    margin-top: 10px; /* Adjust as needed */
+  }
+</style>
 
-Some fun facts about the setup of this project include:
+## About the Testio Tech blog
 
-* Built for [Jekyll](http://jekyllrb.com)
-* Developed on GitHub and hosted for free on [GitHub Pages](https://pages.github.com)
-* Coded with [Sublime Text 2](http://sublimetext.com), an amazing code editor
-* Designed and developed while listening to music like [Blood Bros Trilogy](https://soundcloud.com/maddecent/sets/blood-bros-series)
+One of the interesting challenges of working in software testing is keeping up to date with the pace of change in our industry- for example disruption from AI, new or evolving test tools, certifications and so on. This blog will cover some of the ways I stay on top of these changes, I hope it will be useful for others.
 
-Have questions or suggestions? Feel free to [open an issue on GitHub](https://github.com/poole/issues/new) or [ask me on Twitter](https://twitter.com/mdo).
+Finally, as I'm based in Wales the word 'Testio' is a slang/informal word for testing in Welsh (emphasis on informal) so its a bi-lingual blog title!
 
-Thanks for reading!
+## Contact Me
+
+<a href="mailto:daniel.phillips@testiotech.com"><img src="/images/email2.webp"  alt="email2" width="70" height="70"></a>
+
+<a href="https://uk.linkedin.com/in/daniel-phillips-ba99161b"><img src="/images/linkedin3.webp"  alt="LI icon - small" width="70" height="70"></a>

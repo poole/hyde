@@ -8,18 +8,43 @@ layout: default
   {{ content }}
 </div>
 
+<script
+  src="https://giscus.app/client.js"
+  data-repo="dp2020-dev/dp2020-dev.github.io"
+  data-repo-id="R_kgDOLyzHLg"
+  data-category="Announcements"
+  data-category-id="DIC_kwDOLyzHLs4Cf-JE"
+  data-mapping="pathname"
+  data-strict="0"
+  data-reactions-enabled="1"
+  data-emit-metadata="0"
+  data-input-position="bottom"
+  data-theme="preferred_color_scheme"
+  data-lang="en"
+  crossorigin="anonymous"
+  async
+></script>
+
 <div class="related">
   <h2>Related Posts</h2>
   <ul class="related-posts">
     {% for post in site.related_posts limit:3 %}
-      <li>
-        <h3>
-          <a href="{{ post.url }}">
-            {{ post.title }}
-            <small>{{ post.date | date_to_string }}</small>
-          </a>
-        </h3>
-      </li>
+    <li>
+      <h3>
+        <a href="{{ post.url }}">
+          {{ post.title }}
+          <small>{{ post.date | date_to_string }}</small>
+        </a>
+      </h3>
+    </li>
     {% endfor %}
   </ul>
+
+  <!-- Cloudflare Web Analytics -->
+  <script
+    defer
+    src="https://static.cloudflareinsights.com/beacon.min.js"
+    data-cf-beacon='{"token": "3a11c431cd8a4d7cabd32f8fff284953"}'
+  ></script>
+  <!-- End Cloudflare Web Analytics -->
 </div>
