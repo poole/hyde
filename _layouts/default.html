@@ -3,12 +3,24 @@
 
   {% include head.html %}
 
+  <style>
+    .home-active {
+      color: black;
+      font-weight: bold;
+    }
+  </style>
+
   <body>
 
     {% include sidebar.html %}
 
     <div class="content container">
       {{ content }}
+    </div>
+
+    <div class="footer">
+      <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+      <p>The MoNA research group and Data Science Platform hold sole responsibility for the content and maintenance of this external website.</p>
     </div>
 
   </body>

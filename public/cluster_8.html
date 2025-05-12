@@ -1,0 +1,343 @@
+<html>
+    <head>
+        <meta charset="utf-8">
+        
+            <script>function neighbourhoodHighlight(params) {
+  // console.log("in nieghbourhoodhighlight");
+  allNodes = nodes.get({ returnType: "Object" });
+  // originalNodes = JSON.parse(JSON.stringify(allNodes));
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    highlightActive = true;
+    var i, j;
+    var selectedNode = params.nodes[0];
+    var degrees = 2;
+
+    // mark all nodes as hard to read.
+    for (let nodeId in allNodes) {
+      // nodeColors[nodeId] = allNodes[nodeId].color;
+      allNodes[nodeId].color = "rgba(200,200,200,0.5)";
+      if (allNodes[nodeId].hiddenLabel === undefined) {
+        allNodes[nodeId].hiddenLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+    var connectedNodes = network.getConnectedNodes(selectedNode);
+    var allConnectedNodes = [];
+
+    // get the second degree nodes
+    for (i = 1; i < degrees; i++) {
+      for (j = 0; j < connectedNodes.length; j++) {
+        allConnectedNodes = allConnectedNodes.concat(
+          network.getConnectedNodes(connectedNodes[j])
+        );
+      }
+    }
+
+    // all second degree nodes get a different color and their label back
+    for (i = 0; i < allConnectedNodes.length; i++) {
+      // allNodes[allConnectedNodes[i]].color = "pink";
+      allNodes[allConnectedNodes[i]].color = "rgba(150,150,150,0.75)";
+      if (allNodes[allConnectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[allConnectedNodes[i]].label =
+          allNodes[allConnectedNodes[i]].hiddenLabel;
+        allNodes[allConnectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // all first degree nodes get their own color and their label back
+    for (i = 0; i < connectedNodes.length; i++) {
+      // allNodes[connectedNodes[i]].color = undefined;
+      allNodes[connectedNodes[i]].color = nodeColors[connectedNodes[i]];
+      if (allNodes[connectedNodes[i]].hiddenLabel !== undefined) {
+        allNodes[connectedNodes[i]].label =
+          allNodes[connectedNodes[i]].hiddenLabel;
+        allNodes[connectedNodes[i]].hiddenLabel = undefined;
+      }
+    }
+
+    // the main node gets its own color and its label back.
+    // allNodes[selectedNode].color = undefined;
+    allNodes[selectedNode].color = nodeColors[selectedNode];
+    if (allNodes[selectedNode].hiddenLabel !== undefined) {
+      allNodes[selectedNode].label = allNodes[selectedNode].hiddenLabel;
+      allNodes[selectedNode].hiddenLabel = undefined;
+    }
+  } else if (highlightActive === true) {
+    // console.log("highlightActive was true");
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      // allNodes[nodeId].color = "purple";
+      allNodes[nodeId].color = nodeColors[nodeId];
+      // delete allNodes[nodeId].color;
+      if (allNodes[nodeId].hiddenLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].hiddenLabel;
+        allNodes[nodeId].hiddenLabel = undefined;
+      }
+    }
+    highlightActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    // console.log("Nothing was selected");
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        // console.log(allNodes[nodeId]);
+        // allNodes[nodeId].color = {};
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function filterHighlight(params) {
+  allNodes = nodes.get({ returnType: "Object" });
+  // if something is selected:
+  if (params.nodes.length > 0) {
+    filterActive = true;
+    let selectedNodes = params.nodes;
+
+    // hiding all nodes and saving the label
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = true;
+      if (allNodes[nodeId].savedLabel === undefined) {
+        allNodes[nodeId].savedLabel = allNodes[nodeId].label;
+        allNodes[nodeId].label = undefined;
+      }
+    }
+
+    for (let i=0; i < selectedNodes.length; i++) {
+      allNodes[selectedNodes[i]].hidden = false;
+      if (allNodes[selectedNodes[i]].savedLabel !== undefined) {
+        allNodes[selectedNodes[i]].label = allNodes[selectedNodes[i]].savedLabel;
+        allNodes[selectedNodes[i]].savedLabel = undefined;
+      }
+    }
+
+  } else if (filterActive === true) {
+    // reset all nodes
+    for (let nodeId in allNodes) {
+      allNodes[nodeId].hidden = false;
+      if (allNodes[nodeId].savedLabel !== undefined) {
+        allNodes[nodeId].label = allNodes[nodeId].savedLabel;
+        allNodes[nodeId].savedLabel = undefined;
+      }
+    }
+    filterActive = false;
+  }
+
+  // transform the object into an array
+  var updateArray = [];
+  if (params.nodes.length > 0) {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  } else {
+    for (let nodeId in allNodes) {
+      if (allNodes.hasOwnProperty(nodeId)) {
+        updateArray.push(allNodes[nodeId]);
+      }
+    }
+    nodes.update(updateArray);
+  }
+}
+
+function selectNode(nodes) {
+  network.selectNodes(nodes);
+  neighbourhoodHighlight({ nodes: nodes });
+  return nodes;
+}
+
+function selectNodes(nodes) {
+  network.selectNodes(nodes);
+  filterHighlight({nodes: nodes});
+  return nodes;
+}
+
+function highlightFilter(filter) {
+  let selectedNodes = []
+  let selectedProp = filter['property']
+  if (filter['item'] === 'node') {
+    let allNodes = nodes.get({ returnType: "Object" });
+    for (let nodeId in allNodes) {
+      if (allNodes[nodeId][selectedProp] && filter['value'].includes((allNodes[nodeId][selectedProp]).toString())) {
+        selectedNodes.push(nodeId)
+      }
+    }
+  }
+  else if (filter['item'] === 'edge'){
+    let allEdges = edges.get({returnType: 'object'});
+    // check if the selected property exists for selected edge and select the nodes connected to the edge
+    for (let edge in allEdges) {
+      if (allEdges[edge][selectedProp] && filter['value'].includes((allEdges[edge][selectedProp]).toString())) {
+        selectedNodes.push(allEdges[edge]['from'])
+        selectedNodes.push(allEdges[edge]['to'])
+      }
+    }
+  }
+  selectNodes(selectedNodes)
+}</script>
+            <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/dist/vis-network.min.css" integrity="sha512-WgxfT5LWjfszlPHXRmBWHkV2eceiWTOBvrKCNbdgDYTHrT2AeLCGbF4sZlZw3UMN3WtL0tGUoIAKsu8mllg/XA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+            <script src="https://cdnjs.cloudflare.com/ajax/libs/vis-network/9.1.2/dist/vis-network.min.js" integrity="sha512-LnvoEWDFrqGHlHmDD2101OrLcbsfkrzoSpvtSQtxK3RMnRV0eOkhhBN2dXHKRrUU8p2DGRTk35n4O8nWSVe1mQ==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
+            
+            
+            
+            
+            
+            
+
+        
+<center>
+<h1></h1>
+</center>
+
+<!-- <link rel="stylesheet" href="../node_modules/vis/dist/vis.min.css" type="text/css" />
+<script type="text/javascript" src="../node_modules/vis/dist/vis.js"> </script>-->
+        <link
+          href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/css/bootstrap.min.css"
+          rel="stylesheet"
+          integrity="sha384-eOJMYsd53ii+scO/bJGFsiCZc+5NDVN2yr8+0RDqr0Ql0h+rP48ckxlpbzKgwra6"
+          crossorigin="anonymous"
+        />
+        <script
+          src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta3/dist/js/bootstrap.bundle.min.js"
+          integrity="sha384-JEW9xMcG8R+pH31jmWH6WWP0WintQrMb4s7ZOdauHnUtxwoG2vI5DkLtS3qm9Ekf"
+          crossorigin="anonymous"
+        ></script>
+
+
+        <center>
+          <h1></h1>
+        </center>
+        <style type="text/css">
+
+             #mynetwork {
+                 width: 100%;
+                 height: 1000px;
+                 background-color: white;
+                 border: 1px solid lightgray;
+                 position: relative;
+                 float: left;
+             }
+
+             
+
+             
+
+             
+        </style>
+    </head>
+
+
+    <body>
+        <div class="card" style="width: 100%">
+            
+            
+            <div id="mynetwork" class="card-body"></div>
+        </div>
+
+        
+        
+
+        <script type="text/javascript">
+
+              // initialize global variables.
+              var edges;
+              var nodes;
+              var allNodes;
+              var allEdges;
+              var nodeColors;
+              var originalNodes;
+              var network;
+              var container;
+              var options, data;
+              var filter = {
+                  item : '',
+                  property : '',
+                  value : []
+              };
+
+              
+
+              
+
+              // This method is responsible for drawing the graph, returns the drawn network
+              function drawGraph() {
+                  var container = document.getElementById('mynetwork');
+
+                  
+
+                  // parsing and collecting nodes and edges from the python
+                  nodes = new vis.DataSet([{"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Ruminococcus_E bromii_B", "label": "Ruminococcus_E bromii_B", "shape": "dot", "size": 48}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Huma fecal", "label": "Huma fecal", "shape": "dot", "size": 39}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "United Kingdom: London", "label": "United Kingdom: London", "shape": "dot", "size": 61}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Sweden", "label": "Sweden", "shape": "dot", "size": 24}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "China: Shanghai", "label": "China: Shanghai", "shape": "dot", "size": 63}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Human feces", "label": "Human feces", "shape": "dot", "size": 59}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Ruminococcus_E", "label": "Ruminococcus_E", "shape": "dot", "size": 30}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Human host-associated", "label": "Human host-associated", "shape": "dot", "size": 54}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Denmark", "label": "Denmark", "shape": "dot", "size": 54}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Wastewater", "label": "Wastewater", "shape": "dot", "size": 28}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Germany", "label": "Germany", "shape": "dot", "size": 39}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Washington University at St. Louis, Missouri, USA", "label": "Washington University at St. Louis, Missouri, USA", "shape": "dot", "size": 39}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "raw primary sludge", "label": "raw primary sludge", "shape": "dot", "size": 24}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "USA: Maryland: Natonal Institute of Health", "label": "USA: Maryland: Natonal Institute of Health", "shape": "dot", "size": 56}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Human gut", "label": "Human gut", "shape": "dot", "size": 56}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "China: Beijing, Peking Union Medical College", "label": "China: Beijing, Peking Union Medical College", "shape": "dot", "size": 59}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "China: Hangzhou", "label": "China: Hangzhou", "shape": "dot", "size": 30}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Human fecal", "label": "Human fecal", "shape": "dot", "size": 70}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Human", "label": "Human", "shape": "dot", "size": 56}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "USA: Baltimore", "label": "USA: Baltimore", "shape": "dot", "size": 59}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Italy", "label": "Italy", "shape": "dot", "size": 24}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Host-associated", "label": "Host-associated", "shape": "dot", "size": 59}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Germany: Freiburg", "label": "Germany: Freiburg", "shape": "dot", "size": 28}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Prevotella", "label": "Prevotella", "shape": "dot", "size": 26}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Prevotella sp002265625", "label": "Prevotella sp002265625", "shape": "dot", "size": 21}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Prevotella copri", "label": "Prevotella copri", "shape": "dot", "size": 37}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Prevotella copri_A", "label": "Prevotella copri_A", "shape": "dot", "size": 39}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Ruminiclostridium_E siraeum", "label": "Ruminiclostridium_E siraeum", "shape": "dot", "size": 37}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Alistipes putredinis", "label": "Alistipes putredinis", "shape": "dot", "size": 32}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "RC9 sp000433355", "label": "RC9 sp000433355", "shape": "dot", "size": 33}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Lachnospira eligens_B", "label": "Lachnospira eligens_B", "shape": "dot", "size": 28}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "UBA1691", "label": "UBA1691", "shape": "dot", "size": 26}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Anaerostipes hadrus", "label": "Anaerostipes hadrus", "shape": "dot", "size": 32}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Ruminococcus_D bicirculans", "label": "Ruminococcus_D bicirculans", "shape": "dot", "size": 30}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "UBA11524 sp000437595", "label": "UBA11524 sp000437595", "shape": "dot", "size": 30}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Agathobacter rectale", "label": "Agathobacter rectale", "shape": "dot", "size": 48}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Ruminococcus_E sp003526955", "label": "Ruminococcus_E sp003526955", "shape": "dot", "size": 30}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "UBA1417 sp003531055", "label": "UBA1417 sp003531055", "shape": "dot", "size": 24}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "PeH17 sp000435055", "label": "PeH17 sp000435055", "shape": "dot", "size": 32}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "UBA1394 sp900066845", "label": "UBA1394 sp900066845", "shape": "dot", "size": 33}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Acetatifactor sp900066565", "label": "Acetatifactor sp900066565", "shape": "dot", "size": 35}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Akkermansia muciniphila", "label": "Akkermansia muciniphila", "shape": "dot", "size": 32}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Parabacteroides distasonis", "label": "Parabacteroides distasonis", "shape": "dot", "size": 39}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Dialister invisus", "label": "Dialister invisus", "shape": "dot", "size": 32}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Gemmiger sp003476825", "label": "Gemmiger sp003476825", "shape": "dot", "size": 35}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Bifidobacterium longum", "label": "Bifidobacterium longum", "shape": "dot", "size": 30}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Eubacterium_F sp003491505", "label": "Eubacterium_F sp003491505", "shape": "dot", "size": 26}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Blautia_A wexlerae", "label": "Blautia_A wexlerae", "shape": "dot", "size": 39}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Collinsella", "label": "Collinsella", "shape": "dot", "size": 39}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "USA: Boston", "label": "USA: Boston", "shape": "dot", "size": 33}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "USA: Wisconsin", "label": "USA: Wisconsin", "shape": "dot", "size": 30}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "ER4", "label": "ER4", "shape": "dot", "size": 28}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Dialister sp000434475", "label": "Dialister sp000434475", "shape": "dot", "size": 24}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Dialister", "label": "Dialister", "shape": "dot", "size": 24}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Goat feces", "label": "Goat feces", "shape": "dot", "size": 26}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Western lowland gorilla individual fecal", "label": "Western lowland gorilla individual fecal", "shape": "dot", "size": 24}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "USA: California", "label": "USA: California", "shape": "dot", "size": 26}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Alistipes", "label": "Alistipes", "shape": "dot", "size": 26}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "CAG", "label": "CAG", "shape": "dot", "size": 24}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Erysipelatoclostridium sp000752095", "label": "Erysipelatoclostridium sp000752095", "shape": "dot", "size": 21}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Canada: Alberta", "label": "Canada: Alberta", "shape": "dot", "size": 24}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Eastern black-and-white colobus group fecal", "label": "Eastern black-and-white colobus group fecal", "shape": "dot", "size": 24}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Austria: Vienna", "label": "Austria: Vienna", "shape": "dot", "size": 24}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "Mouse cecum", "label": "Mouse cecum", "shape": "dot", "size": 24}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Butyrivibrio_A sp000431815", "label": "Butyrivibrio_A sp000431815", "shape": "dot", "size": 33}, {"color": "#fc8d59", "font": {"color": "#555555"}, "id": "Acutalibacteraceae", "label": "Acutalibacteraceae", "shape": "dot", "size": 24}, {"color": "#97c2fc", "font": {"color": "#555555"}, "id": "Tanzania", "label": "Tanzania", "shape": "dot", "size": 24}, {"color": "#ffffbf", "font": {"color": "#555555"}, "id": "rumen", "label": "rumen", "shape": "dot", "size": 24}]);
+                  edges = new vis.DataSet([{"from": "Ruminococcus_E bromii_B", "label": "", "to": "Huma fecal", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Sweden", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Human feces", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Denmark", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Wastewater", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Germany", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Washington University at St. Louis, Missouri, USA", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "raw primary sludge", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Human gut", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Human fecal", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Human", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "USA: Baltimore", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Italy", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Host-associated", "width": 1}, {"from": "Ruminococcus_E bromii_B", "label": "", "to": "Germany: Freiburg", "width": 1}, {"from": "Prevotella", "label": "", "to": "Prevotella sp002265625", "width": 1}, {"from": "Prevotella", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "Prevotella", "label": "", "to": "Prevotella copri_A", "width": 1}, {"from": "Denmark", "label": "", "to": "Ruminiclostridium_E siraeum", "width": 1}, {"from": "Denmark", "label": "", "to": "Alistipes putredinis", "width": 1}, {"from": "Denmark", "label": "", "to": "RC9 sp000433355", "width": 1}, {"from": "Denmark", "label": "", "to": "Lachnospira eligens_B", "width": 1}, {"from": "Denmark", "label": "", "to": "UBA1691", "width": 1}, {"from": "Denmark", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "Denmark", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "Denmark", "label": "", "to": "UBA11524 sp000437595", "width": 1}, {"from": "Denmark", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "Denmark", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "Denmark", "label": "", "to": "UBA1417 sp003531055", "width": 1}, {"from": "Denmark", "label": "", "to": "PeH17 sp000435055", "width": 1}, {"from": "Denmark", "label": "", "to": "UBA1394 sp900066845", "width": 1}, {"from": "Denmark", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "Denmark", "label": "", "to": "Akkermansia muciniphila", "width": 1}, {"from": "Denmark", "label": "", "to": "Parabacteroides distasonis", "width": 1}, {"from": "Denmark", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Denmark", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "Denmark", "label": "", "to": "Dialister invisus", "width": 1}, {"from": "Denmark", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "Denmark", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "Denmark", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "Denmark", "label": "", "to": "Blautia_A wexlerae", "width": 1}, {"from": "Denmark", "label": "", "to": "Collinsella", "width": 1}, {"from": "UBA1394 sp900066845", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "UBA1394 sp900066845", "label": "", "to": "Human host-associated", "width": 1}, {"from": "UBA1394 sp900066845", "label": "", "to": "Human gut", "width": 1}, {"from": "UBA1394 sp900066845", "label": "", "to": "USA: Boston", "width": 1}, {"from": "UBA1394 sp900066845", "label": "", "to": "Human fecal", "width": 1}, {"from": "USA: Wisconsin", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "USA: Wisconsin", "label": "", "to": "Ruminiclostridium_E siraeum", "width": 1}, {"from": "USA: Wisconsin", "label": "", "to": "Collinsella", "width": 1}, {"from": "USA: Wisconsin", "label": "", "to": "Parabacteroides distasonis", "width": 1}, {"from": "USA: Wisconsin", "label": "", "to": "ER4", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "Dialister", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "USA: Baltimore", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "Human feces", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "Human", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "Host-associated", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "Human fecal", "width": 1}, {"from": "Dialister sp000434475", "label": "", "to": "Human gut", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "Human fecal", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "Human gut", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "Human feces", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "Human", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "Host-associated", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "Germany", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "USA: Baltimore", "width": 1}, {"from": "Akkermansia muciniphila", "label": "", "to": "USA: Boston", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "Human feces", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "USA: Baltimore", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "Human fecal", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "Human gut", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "Host-associated", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "Human", "width": 1}, {"from": "Lachnospira eligens_B", "label": "", "to": "Germany", "width": 1}, {"from": "USA: Boston", "label": "", "to": "UBA1417 sp003531055", "width": 1}, {"from": "USA: Boston", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "USA: Boston", "label": "", "to": "Ruminiclostridium_E siraeum", "width": 1}, {"from": "USA: Boston", "label": "", "to": "Parabacteroides distasonis", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "Human feces", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "USA: Baltimore", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "Human fecal", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "Human host-associated", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "Germany", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "Human gut", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "Host-associated", "width": 1}, {"from": "UBA11524 sp000437595", "label": "", "to": "Human", "width": 1}, {"from": "Collinsella", "label": "", "to": "Goat feces", "width": 1}, {"from": "Collinsella", "label": "", "to": "Washington University at St. Louis, Missouri, USA", "width": 1}, {"from": "Collinsella", "label": "", "to": "Western lowland gorilla individual fecal", "width": 1}, {"from": "Collinsella", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "Collinsella", "label": "", "to": "Host-associated", "width": 1}, {"from": "Collinsella", "label": "", "to": "Human feces", "width": 1}, {"from": "Collinsella", "label": "", "to": "Human", "width": 1}, {"from": "Collinsella", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "Collinsella", "label": "", "to": "Human fecal", "width": 1}, {"from": "Collinsella", "label": "", "to": "USA: Baltimore", "width": 1}, {"from": "Collinsella", "label": "", "to": "Germany", "width": 1}, {"from": "Collinsella", "label": "", "to": "USA: California", "width": 1}, {"from": "Collinsella", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Collinsella", "label": "", "to": "Huma fecal", "width": 1}, {"from": "Collinsella", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Collinsella", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "Human gut", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "Human feces", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "Alistipes", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "Human fecal", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "Host-associated", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "Human", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "Germany", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Alistipes putredinis", "label": "", "to": "USA: Baltimore", "width": 1}, {"from": "Washington University at St. Louis, Missouri, USA", "label": "", "to": "CAG", "width": 1}, {"from": "Washington University at St. Louis, Missouri, USA", "label": "", "to": "UBA1691", "width": 1}, {"from": "Washington University at St. Louis, Missouri, USA", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "Washington University at St. Louis, Missouri, USA", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "Washington University at St. Louis, Missouri, USA", "label": "", "to": "ER4", "width": 1}, {"from": "Washington University at St. Louis, Missouri, USA", "label": "", "to": "Alistipes", "width": 1}, {"from": "Washington University at St. Louis, Missouri, USA", "label": "", "to": "UBA1417 sp003531055", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "UBA1691", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Ruminiclostridium_E siraeum", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "UBA1417 sp003531055", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Prevotella sp002265625", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "PeH17 sp000435055", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "ER4", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Dialister invisus", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Blautia_A wexlerae", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Prevotella copri_A", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Parabacteroides distasonis", "width": 1}, {"from": "USA: Baltimore", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "Canada: Alberta", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "Canada: Alberta", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "Human", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "Human gut", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "Human feces", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "Germany", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "Eastern black-and-white colobus group fecal", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "Human fecal", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "Ruminiclostridium_E siraeum", "label": "", "to": "Host-associated", "width": 1}, {"from": "Western lowland gorilla individual fecal", "label": "", "to": "ER4", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Germany", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Austria: Vienna", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Human", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "China: Shanghai", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Mouse cecum", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "USA: Maryland: Natonal Institute of Health", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Host-associated", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Human gut", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Human fecal", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "Human feces", "width": 1}, {"from": "Parabacteroides distasonis", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "ER4", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "PeH17 sp000435055", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "UBA1417 sp003531055", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Dialister invisus", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Prevotella sp002265625", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Alistipes", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Blautia_A wexlerae", "width": 1}, {"from": "USA: Maryland: Natonal Institute of Health", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "UBA1417 sp003531055", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "UBA1417 sp003531055", "label": "", "to": "Human feces", "width": 1}, {"from": "UBA1417 sp003531055", "label": "", "to": "Human host-associated", "width": 1}, {"from": "UBA1417 sp003531055", "label": "", "to": "Human", "width": 1}, {"from": "UBA1417 sp003531055", "label": "", "to": "Human fecal", "width": 1}, {"from": "UBA1417 sp003531055", "label": "", "to": "Huma fecal", "width": 1}, {"from": "Wastewater", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "Wastewater", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "Wastewater", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "Sweden", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Blautia_A wexlerae", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "PeH17 sp000435055", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "RC9 sp000433355", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Prevotella copri_A", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "ER4", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Dialister invisus", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Prevotella sp002265625", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Butyrivibrio_A sp000431815", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "China: Shanghai", "label": "", "to": "UBA1691", "width": 1}, {"from": "Dialister", "label": "", "to": "Dialister invisus", "width": 1}, {"from": "UBA1691", "label": "", "to": "Human host-associated", "width": 1}, {"from": "UBA1691", "label": "", "to": "Human feces", "width": 1}, {"from": "UBA1691", "label": "", "to": "Huma fecal", "width": 1}, {"from": "UBA1691", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "UBA1691", "label": "", "to": "Human fecal", "width": 1}, {"from": "UBA1691", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "UBA1691", "label": "", "to": "Host-associated", "width": 1}, {"from": "UBA1691", "label": "", "to": "Acutalibacteraceae", "width": 1}, {"from": "Acutalibacteraceae", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Prevotella copri_A", "label": "", "to": "Host-associated", "width": 1}, {"from": "Prevotella copri_A", "label": "", "to": "Human gut", "width": 1}, {"from": "Prevotella copri_A", "label": "", "to": "Human feces", "width": 1}, {"from": "Prevotella copri_A", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Prevotella copri_A", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Prevotella copri_A", "label": "", "to": "Human fecal", "width": 1}, {"from": "Human feces", "label": "", "to": "Blautia_A wexlerae", "width": 1}, {"from": "Human feces", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "Human feces", "label": "", "to": "Dialister invisus", "width": 1}, {"from": "Human feces", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "Human feces", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "Human feces", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "Human feces", "label": "", "to": "ER4", "width": 1}, {"from": "Human feces", "label": "", "to": "PeH17 sp000435055", "width": 1}, {"from": "Human feces", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "Human feces", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "Human feces", "label": "", "to": "Prevotella sp002265625", "width": 1}, {"from": "Human feces", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "Human feces", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "Human feces", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "Human feces", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "CAG", "label": "", "to": "Huma fecal", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "Human fecal", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "China: Beijing, Peking Union Medical College", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "Host-associated", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "Human", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "Germany", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Dialister invisus", "label": "", "to": "Human gut", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Prevotella sp002265625", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "ER4", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "PeH17 sp000435055", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Butyrivibrio_A sp000431815", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "China: Beijing, Peking Union Medical College", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "Human gut", "label": "", "to": "PeH17 sp000435055", "width": 1}, {"from": "Human gut", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "Human gut", "label": "", "to": "Prevotella sp002265625", "width": 1}, {"from": "Human gut", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "Human gut", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "Human gut", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "Human gut", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "Human gut", "label": "", "to": "Blautia_A wexlerae", "width": 1}, {"from": "Human gut", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "Human gut", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "Human gut", "label": "", "to": "RC9 sp000433355", "width": 1}, {"from": "Human gut", "label": "", "to": "Butyrivibrio_A sp000431815", "width": 1}, {"from": "Human gut", "label": "", "to": "Anaerostipes hadrus", "width": 1}, {"from": "Human gut", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "Human gut", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "ER4", "label": "", "to": "Human fecal", "width": 1}, {"from": "ER4", "label": "", "to": "Host-associated", "width": 1}, {"from": "ER4", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "ER4", "label": "", "to": "Human", "width": 1}, {"from": "ER4", "label": "", "to": "Huma fecal", "width": 1}, {"from": "raw primary sludge", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "Blautia_A wexlerae", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Blautia_A wexlerae", "label": "", "to": "Human fecal", "width": 1}, {"from": "Blautia_A wexlerae", "label": "", "to": "Human", "width": 1}, {"from": "PeH17 sp000435055", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "PeH17 sp000435055", "label": "", "to": "Host-associated", "width": 1}, {"from": "PeH17 sp000435055", "label": "", "to": "Human host-associated", "width": 1}, {"from": "PeH17 sp000435055", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "PeH17 sp000435055", "label": "", "to": "Germany", "width": 1}, {"from": "PeH17 sp000435055", "label": "", "to": "Human fecal", "width": 1}, {"from": "PeH17 sp000435055", "label": "", "to": "Human", "width": 1}, {"from": "PeH17 sp000435055", "label": "", "to": "Tanzania", "width": 1}, {"from": "Anaerostipes hadrus", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Anaerostipes hadrus", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Anaerostipes hadrus", "label": "", "to": "Human fecal", "width": 1}, {"from": "Anaerostipes hadrus", "label": "", "to": "Germany: Freiburg", "width": 1}, {"from": "Anaerostipes hadrus", "label": "", "to": "Host-associated", "width": 1}, {"from": "Anaerostipes hadrus", "label": "", "to": "Human", "width": 1}, {"from": "Human fecal", "label": "", "to": "Agathobacter rectale", "width": 1}, {"from": "Human fecal", "label": "", "to": "Alistipes", "width": 1}, {"from": "Human fecal", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "Human fecal", "label": "", "to": "Prevotella sp002265625", "width": 1}, {"from": "Human fecal", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "Human fecal", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "Human fecal", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "Human fecal", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "Human fecal", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "Human fecal", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Human fecal", "label": "", "to": "RC9 sp000433355", "width": 1}, {"from": "Human fecal", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "Human fecal", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "Human fecal", "label": "", "to": "Butyrivibrio_A sp000431815", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "Germany", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "Human", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "Germany: Freiburg", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "Host-associated", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "rumen", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "United Kingdom: London", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "Tanzania", "width": 1}, {"from": "Agathobacter rectale", "label": "", "to": "Italy", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "RC9 sp000433355", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Butyrivibrio_A sp000431815", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Gemmiger sp003476825", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Alistipes", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Eubacterium_F sp003491505", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Ruminococcus_E sp003526955", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "United Kingdom: London", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "Ruminococcus_E sp003526955", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Ruminococcus_E sp003526955", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Ruminococcus_E sp003526955", "label": "", "to": "Host-associated", "width": 1}, {"from": "Ruminococcus_E sp003526955", "label": "", "to": "Germany", "width": 1}, {"from": "Ruminococcus_E sp003526955", "label": "", "to": "Human", "width": 1}, {"from": "Gemmiger sp003476825", "label": "", "to": "Germany", "width": 1}, {"from": "Gemmiger sp003476825", "label": "", "to": "Human", "width": 1}, {"from": "Gemmiger sp003476825", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Gemmiger sp003476825", "label": "", "to": "Host-associated", "width": 1}, {"from": "Gemmiger sp003476825", "label": "", "to": "Huma fecal", "width": 1}, {"from": "Gemmiger sp003476825", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Prevotella sp002265625", "label": "", "to": "Host-associated", "width": 1}, {"from": "Prevotella sp002265625", "label": "", "to": "Human", "width": 1}, {"from": "Eastern black-and-white colobus group fecal", "label": "", "to": "Acetatifactor sp900066565", "width": 1}, {"from": "Mouse cecum", "label": "", "to": "Alistipes", "width": 1}, {"from": "Eubacterium_F sp003491505", "label": "", "to": "Host-associated", "width": 1}, {"from": "Eubacterium_F sp003491505", "label": "", "to": "Human", "width": 1}, {"from": "Eubacterium_F sp003491505", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Goat feces", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Goat feces", "label": "", "to": "Alistipes", "width": 1}, {"from": "Butyrivibrio_A sp000431815", "label": "", "to": "Host-associated", "width": 1}, {"from": "rumen", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Acetatifactor sp900066565", "label": "", "to": "Human", "width": 1}, {"from": "Acetatifactor sp900066565", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Acetatifactor sp900066565", "label": "", "to": "China: Hangzhou", "width": 1}, {"from": "Acetatifactor sp900066565", "label": "", "to": "Host-associated", "width": 1}, {"from": "Acetatifactor sp900066565", "label": "", "to": "Germany", "width": 1}, {"from": "Host-associated", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "Host-associated", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "Host-associated", "label": "", "to": "Bifidobacterium longum", "width": 1}, {"from": "Host-associated", "label": "", "to": "Erysipelatoclostridium sp000752095", "width": 1}, {"from": "Host-associated", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "China: Hangzhou", "label": "", "to": "Ruminococcus_D bicirculans", "width": 1}, {"from": "China: Hangzhou", "label": "", "to": "Prevotella copri", "width": 1}, {"from": "Erysipelatoclostridium sp000752095", "label": "", "to": "Human", "width": 1}, {"from": "Alistipes", "label": "", "to": "Human", "width": 1}, {"from": "Alistipes", "label": "", "to": "Huma fecal", "width": 1}, {"from": "Alistipes", "label": "", "to": "Austria: Vienna", "width": 1}, {"from": "Alistipes", "label": "", "to": "Germany", "width": 1}, {"from": "Alistipes", "label": "", "to": "USA: California", "width": 1}, {"from": "USA: California", "label": "", "to": "Ruminococcus_E", "width": 1}, {"from": "Ruminococcus_D bicirculans", "label": "", "to": "Human", "width": 1}, {"from": "Ruminococcus_D bicirculans", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Ruminococcus_D bicirculans", "label": "", "to": "Germany", "width": 1}, {"from": "Bifidobacterium longum", "label": "", "to": "Germany", "width": 1}, {"from": "Bifidobacterium longum", "label": "", "to": "Huma fecal", "width": 1}, {"from": "Bifidobacterium longum", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Bifidobacterium longum", "label": "", "to": "Human", "width": 1}, {"from": "Prevotella copri", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Prevotella copri", "label": "", "to": "Germany", "width": 1}, {"from": "Prevotella copri", "label": "", "to": "Human", "width": 1}, {"from": "Prevotella copri", "label": "", "to": "Germany: Freiburg", "width": 1}, {"from": "RC9 sp000433355", "label": "", "to": "Human host-associated", "width": 1}, {"from": "Ruminococcus_E", "label": "", "to": "Human host-associated", "width": 1}]);
+
+                  nodeColors = {};
+                  allNodes = nodes.get({ returnType: "Object" });
+                  for (nodeId in allNodes) {
+                    nodeColors[nodeId] = allNodes[nodeId].color;
+                  }
+                  allEdges = edges.get({ returnType: "Object" });
+                  // adding nodes and edges to the graph
+                  data = {nodes: nodes, edges: edges};
+
+                  var options = {
+    "configure": {
+        "enabled": false
+    },
+    "edges": {
+        "color": {
+            "inherit": true
+        },
+        "smooth": {
+            "enabled": true,
+            "type": "dynamic"
+        }
+    },
+    "interaction": {
+        "dragNodes": true,
+        "hideEdgesOnDrag": false,
+        "hideNodesOnDrag": false
+    },
+    "physics": {
+        "enabled": true,
+        "repulsion": {
+            "centralGravity": 0.33,
+            "damping": 0.95,
+            "nodeDistance": 420,
+            "springConstant": 0.1,
+            "springLength": 110
+        },
+        "solver": "repulsion",
+        "stabilization": {
+            "enabled": true,
+            "fit": true,
+            "iterations": 1000,
+            "onlyDynamicEdges": false,
+            "updateInterval": 50
+        }
+    }
+};
+
+                  network = new vis.Network(container, data, options);
+
+                  return network;
+
+              }
+              drawGraph();
+        </script>
+    </body>
+</html>

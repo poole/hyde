@@ -1,8 +1,20 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en-us">
 
-<div class="page">
-  <h1 class="page-title">{{ page.title }}</h1>
-  {{ content }}
-</div>
+  {% include head.html %}
+
+  <body>
+
+    {% include sidebar.html %}
+
+    <div class="content container">
+      {{ content }}
+    </div>
+
+    <div class="footer">
+      <p>&copy; {{ site.time | date: '%Y' }}. All rights reserved.</p>
+      <p>The MoNA research group and Data Science Platform hold sole responsibility for the content and maintenance of this external website.</p>
+    </div>
+
+  </body>
+</html>

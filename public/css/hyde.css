@@ -19,7 +19,10 @@
  *
  * Global resets
  * Sidebar
- * Container
+ * Top Menu
+ * Container (Content)
+ * Footer
+ * Images
  * Reverse layout
  * Themes
  */
@@ -34,9 +37,10 @@
 html {
   font-family: "PT Sans", Helvetica, Arial, sans-serif;
 }
+
 @media (min-width: 48em) {
   html {
-    font-size: 16px;
+    font-size: 18px;
   }
 }
 @media (min-width: 58em) {
@@ -54,49 +58,126 @@ html {
  */
 
 .sidebar {
+  z-index: 999;
   text-align: center;
   padding: 2rem 1rem;
-  color: rgba(255,255,255,.5);
-  background-color: #202020;
+  color: white;
+  background-color: rgb(134,184,212);
 }
+
+/* Sidebar links */
+.sidebar a {
+  color: white;
+}
+
+/* About section */
+.sidebar-about h1 {
+  color: rgb(134,184,212);
+  margin-top: 0;
+  font-family: 'Roboto', sans-serif;;
+  font-size: 3rem;
+  text-align: center;
+}
+
+/* Sidebar nav */
+.sidebar-nav {
+  margin-bottom: 1rem;
+  text-align: center;
+  width: 100%;
+}
+.sidebar-nav-item {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  line-height: 1.75;
+}
+a.sidebar-nav-item:hover,
+a.sidebar-nav-item:focus {
+  font-weight: bold;
+  color: black;
+}
+
 @media (min-width: 48em) {
   .sidebar {
     position: fixed;
     top: 0;
     left: 0;
     bottom: 0;
-    width: 18rem;
+    width: 14rem;
     text-align: left;
+    padding: 2rem 1rem 0 1rem;
+    background-color: white;
   }
+
+  .sidebar a {
+    color: rgb(134,184,212);
+  }
+
+  .sidebar-nav {
+    margin-top: 25%;
+  }
+
+  .sidebar-nav-item {
+    margin-top: 0.5rem;
+  }
+
 }
 
-/* Sidebar links */
-.sidebar a {
-  color: #fff;
+
+/* Adding a top floating nav as well */
+.topbar {
+  z-index: 999;
+  padding: 1rem 1rem 1rem 1rem;
+  color: rgba(255,255,255,.5);
+  background: rgb(255,255,255);
+  background: linear-gradient(0deg, rgba(255,255,255,0) 0%, rgba(255,255,255,0.9318321078431373) 20%, rgba(255,255,255,1) 60%, rgba(255,255,255,1) 100%);
 }
 
-/* About section */
-.sidebar-about h1 {
-  color: #fff;
-  margin-top: 0;
-  font-family: "Abril Fatface", serif;
-  font-size: 3.25rem;
+.topbar ul {
+  padding-left: 0;
+  height: 100%;
+  list-style: none;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
 }
 
-/* Sidebar nav */
-.sidebar-nav {
-  margin-bottom: 1rem;
+.topbar li {
+  flex-grow:1;
+  min-width: 10%;
+  margin: 3px; 
+  background: rgb(134,184,212);
+  border-radius: 4px;
+  /* font-size: 14px; */
+  text-align: center;
 }
-.sidebar-nav-item {
+
+.topbar-nav-item {
   display: block;
-  line-height: 1.75;
+  line-height: 2;
+  color:  white;
+  text-align: center;
 }
-a.sidebar-nav-item:hover,
-a.sidebar-nav-item:focus {
-  text-decoration: underline;
-}
-.sidebar-nav-item.active {
+
+a.topbar-nav-item:hover,
+a.topbar-nav-item:focus {
   font-weight: bold;
+  color: black;
+}
+.topbar-nav-item.active {
+  font-weight: bold;
+  color: black;
+}
+
+@media (min-width: 48em) {
+  .topbar {
+    position: fixed;
+    left: 14rem;
+    right: 0;
+    height: 5rem;
+    padding: 1rem;
+  }
 }
 
 /* Sticky sidebar
@@ -109,7 +190,7 @@ a.sidebar-nav-item:focus {
   .sidebar-sticky {
     position: absolute;
     right:  1rem;
-    bottom: 1rem;
+    /* bottom: 1rem; */
     left:   1rem;
   }
 }
@@ -128,19 +209,59 @@ a.sidebar-nav-item:focus {
 
 @media (min-width: 48em) {
   .content {
+    padding-top: 8rem;
     max-width: 38rem;
-    margin-left: 20rem;
+    margin-left: 18rem;
     margin-right: 2rem;
   }
 }
 
 @media (min-width: 64em) {
   .content {
-    margin-left: 22rem;
+    padding-top: 8rem;
+    margin-left: 20rem;
     margin-right: 4rem;
   }
 }
 
+/* footer  */
+
+.footer {
+  position: fixed;
+  left: 0;
+  bottom: 0; 
+  width: 100%;
+  height: 16px;
+  font-size: 12px;
+  margin-left: 3px;
+  background-color: rgb(205, 205, 205);
+  color: white;
+
+}
+
+@media (min-width: 48em) {
+  .footer {
+    width: 14rem;
+    background-color: rgba(255, 251, 251, 0);
+  }
+}
+
+/* Image */
+.monkey {
+  display: block;
+  width: 25%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+@media (min-width: 48em) {
+  .monkey {
+    width: 100%;
+  }
+}
+
+
+/* EXTRA formating options for Hyde*/
 
 /*
  * Reverse layout
@@ -247,4 +368,47 @@ a.sidebar-nav-item:focus {
 .theme-base-0f .content a,
 .theme-base-0f .related-posts li a:hover {
   color: #8f5536;
+}
+
+/* Collapsable section */
+details {
+  margin-bottom: 1rem;
+}
+summary {
+  cursor: pointer;
+  font-weight: bold;
+  font-size: 2rem;
+  color: black;
+}
+summary:hover {
+  color: rgb(134,184,212);
+}
+
+summary.research {
+  font-size: 1.25rem;
+}
+
+/* Figures */
+/* Zooming sections */
+.zoom-overlay {
+  display: none;
+  position: fixed;
+  top: 0; left: 0;
+  width: 100vw; height: 100vh;
+  background: white;
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.zoom-overlay:target {
+  display: flex;  
+}
+
+/* Additional figure formatting */
+p.figure {
+  font-size: 0.8rem;
+  padding: 0;
+  margin: 0;
+  font-style: italic;
 }
