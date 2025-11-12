@@ -171,6 +171,7 @@
   },
   "active": "4f10d58afd8e7903",
   "lastOpenFiles": [
+    "_layouts/project.html",
     "_projects",
     "_posts/2013-12-28-introducing-hyde.md",
     "_posts/2012-02-06-whats-jekyll.md",
@@ -187,7 +188,6 @@
     "index.html",
     "atom.xml",
     "_posts",
-    "_layouts/post.html",
     "README.md",
     "LICENSE.md",
     "taichi-kamei.github.io/_posts/2012-02-07-example-content.md",

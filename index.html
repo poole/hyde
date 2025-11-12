@@ -3,6 +3,21 @@ layout: default
 title: Home
 ---
 
+<h1>My Projects</h1>
+
+<div class="projects-list">
+  {% assign sorted_projects = site.projects | sort: "order" %}
+  {% for project in sorted_projects %}
+    <div class="project-item">
+      <h2><a href="{{ project.url }}">{{ project.title }}</a></h2>
+      {% if project.image %}
+        <img src="{{ project.image }}" alt="{{ project.title }}" style="max-width:300px;">
+      {% endif %}
+      <p>{{ project.description }}</p>
+    </div>
+  {% endfor %}
+</div>
+
 <div class="posts">
   {% for post in paginator.posts %}
   <div class="post">
