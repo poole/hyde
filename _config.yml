@@ -1,6 +1,10 @@
 # Dependencies
-markdown:         redcarpet
-highlighter:      pygments
+markdown:         kramdowm
+highlighter:      rouge
+kramdown:
+  input: GFM
+  syntax_highlighter_opts:
+    inline_theme: base16.dark
 
 # Permalinks
 permalink: pretty
@@ -9,7 +13,7 @@ permalink: pretty
 title:            Taichi Kamei Portfolio
 tagline:          'A Jekyll theme'
 description:      'Enginnering Physics student'
-url:              http://hyde.getpoole.com
+url:              https://taichi-kamei.github.io/
 baseurl:          /
 
 author:
@@ -19,7 +23,6 @@ author:
 paginate:         5
 
 # Custom vars
-version:          2.1.0
 
 github:
   repo:           https://github.com/Taichi-Kamei
