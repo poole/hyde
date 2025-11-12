@@ -13,12 +13,12 @@
             "state": {
               "type": "markdown",
               "state": {
-                "file": "about.md",
+                "file": "README.md",
                 "mode": "source",
                 "source": false
               },
               "icon": "lucide-file",
-              "title": "about"
+              "title": "README"
             }
           }
         ]
@@ -171,14 +171,16 @@
   },
   "active": "4f10d58afd8e7903",
   "lastOpenFiles": [
+    "LICENSE.md",
+    "about.md",
+    "_posts/2012-02-06-whats-jekyll.md",
+    "_projects/Autonomous Robot.md",
     "_layouts/project.html",
     "_projects",
     "_posts/2013-12-28-introducing-hyde.md",
-    "_posts/2012-02-06-whats-jekyll.md",
     "_posts/2012-02-07-example-content.md",
     "public/apple-touch-icon-144-precomposed.png",
     "assets/IMG_5750.png",
-    "about.md",
     "public/css/syntax.css",
     "public/css/poole.css",
     "public/css/hyde.css",
@@ -187,9 +189,7 @@
     "public",
     "index.html",
     "atom.xml",
-    "_posts",
     "README.md",
-    "LICENSE.md",
     "taichi-kamei.github.io/_posts/2012-02-07-example-content.md",
     "taichi-kamei.github.io/public/apple-touch-icon-144-precomposed.png",
     "taichi-kamei.github.io/_posts/2013-12-28-introducing-hyde.md",

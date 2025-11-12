@@ -16,9 +16,9 @@ collections:
 permalink: pretty
 
 # Setup
-title:            Taichi Kamei Portfolio
+title:            Taichi Kamei
 tagline:          'A Jekyll theme'
-description:      'Enginnering Physics student'
+description:      'UBC Enginnering Physics Student'
 url:              https://taichi-kamei.github.io/
 baseurl:          /
 
