@@ -6,6 +6,12 @@ kramdown:
   syntax_highlighter_opts:
     inline_theme: base16.dark
 
+
+collections:
+  projects:
+    output: true
+    permalink: /projects/:name/
+
 # Permalinks
 permalink: pretty
 
